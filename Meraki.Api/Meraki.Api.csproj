@@ -4,6 +4,17 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <LangVersion>8.0</LangVersion>
 	  <Nullable>enable</Nullable>
+	  <PackageIconUrl>https://pbs.twimg.com/profile_images/1145798366690828290/GEWttxsX.png</PackageIconUrl>
+	  <Copyright>Panoramic Data Limited 2019</Copyright>
+	  <PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/panoramicdata/Meraki.Api</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageTags>Meraki API</PackageTags>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <Description>Meraki API</Description>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <PackageReleaseNotes>Initial alpha</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
