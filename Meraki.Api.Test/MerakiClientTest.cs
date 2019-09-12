@@ -1,24 +1,30 @@
 ﻿using Meraki.Api.Test.Config;
 using Meraki.Api.Test.Exceptions;
 using Newtonsoft.Json;
+using System;
 using System.IO;
-using Xunit;
 
 namespace Meraki.Api.Test
 {
 	public class MerakiClientTest
 	{
+		protected DateTimeOffset UtcNow { get; } = DateTimeOffset.UtcNow;
+
+		protected DateTimeOffset Utc10DaysAgo => UtcNow - TimeSpan.FromDays(10);
+
 		private MerakiClient? _merakiClient;
 
-		protected MerakiClient MerakiClient
+		private Configuration? _configuration;
+
+		public Configuration Configuration
 		{
 			get
 			{
 				// Have we already created this?
-				if (_merakiClient != null)
+				if (_configuration != null)
 				{
 					// Yes - return that one
-					return _merakiClient;
+					return _configuration;
 				}
 				// No - we need to create one
 
@@ -34,12 +40,11 @@ namespace Meraki.Api.Test
 				// Yes
 
 				// Load in the config
-				var result = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(fileInfo.FullName));
-				Assert.NotNull(result);
-				Assert.NotNull(result.MerakiClientOptions);
-
-				return _merakiClient = new MerakiClient(result.MerakiClientOptions);
+				return _configuration = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(fileInfo.FullName));
 			}
 		}
+
+		protected MerakiClient MerakiClient
+			=> _merakiClient ?? (_merakiClient = new MerakiClient(Configuration.MerakiClientOptions));
 	}
 }

@@ -13,5 +13,11 @@ namespace Meraki.Api.Test.Config
 		/// </summary>
 		[DataMember(Name = "MerakiClientOptions")]
 		public MerakiClientOptions MerakiClientOptions { get; set; } = null!;
+
+		/// <summary>
+		/// Test Organization Id
+		/// </summary>
+		[DataMember(Name = "TestOrganizationId")]
+		public int TestOrganizationId { get; set; }
 	}
 }

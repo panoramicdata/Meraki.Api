@@ -1,6 +1,7 @@
 ﻿using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -11,16 +12,19 @@ namespace Meraki.Api.Interfaces
 	public interface IOrganizations
 	{
 		/// <summary>
-		/// GetAsync
+		/// List the organizations that the user has privileges on
 		/// </summary>
 		[Get("/organizations")]
-		Task<List<Organization>> GetAllAsync();
+		Task<List<Organization>> GetAllAsync(
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// GetAsync
+		/// Return an organization
 		/// </summary>
 		/// <param name="orgId"></param>
-		[Get("/organizations/{orgId}")]
-		Task<Organization> GetAsync(int orgId);
+		[Get("/organizations/{organizationId}")]
+		Task<Organization> GetAsync(
+			[AliasAs("organizationId")] int organizationId,
+			CancellationToken cancellationToken = default);
 	}
 }
