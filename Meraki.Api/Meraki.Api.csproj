@@ -14,7 +14,7 @@
 	  <Description>Meraki API</Description>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	  <PackageReleaseNotes>Fixed nuget fields</PackageReleaseNotes>
+	  <PackageReleaseNotes>Added Admin, AdminNetworkAccess, AdminTag, NetworkSsid and RadiusServer classes.  Updated various endpoints.  Added and tidied unit tests.</PackageReleaseNotes>
 	  <Authors>Panoramic Data Limited</Authors>
 	  <Company>Panoramic Data Limited</Company>
   </PropertyGroup>
