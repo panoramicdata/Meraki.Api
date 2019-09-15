@@ -22,11 +22,13 @@ namespace Meraki.Api
 			_logger = logger ?? NullLogger.Instance;
 			_httpClient = new HttpClient(new AuthenticatedHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)))) { BaseAddress = new Uri("https://api.meraki.com/api/v0/") };
 
+			Admins = RestService.For<IAdmins>(_httpClient);
 			ApiUsages = RestService.For<IApiUsages>(_httpClient);
 			Organizations = RestService.For<IOrganizations>(_httpClient);
 			Networks = RestService.For<INetworks>(_httpClient);
 		}
 
+		public IAdmins Admins { get; }
 		public IApiUsages ApiUsages { get; }
 		public INetworks Networks { get; }
 		public IOrganizations Organizations { get; }

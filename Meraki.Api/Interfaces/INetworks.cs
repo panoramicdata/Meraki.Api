@@ -12,20 +12,21 @@ namespace Meraki.Api.Interfaces
 	public interface INetworks
 	{
 		/// <summary>
-		/// List the networks in an organization
-		/// </summary>
-		[Get("/organizations/{organizationId}/networks")]
-		Task<List<Network>> GetAllAsync(
-			[AliasAs("organizationId")] int organizationId,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
 		/// Return a network
 		/// </summary>
 		/// <param name="networkId">The network Id</param>
 		[Get("/networks/{networkId}")]
 		Task<Network> GetAsync(
-			[AliasAs("networkId")] int networkId,
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Return a network's SSIDs
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		[Get("/networks/{networkId}/ssids")]
+		Task<List<NetworkSsid>> GetAllSsidsAsync(
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 	}
 }

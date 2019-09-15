@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// A network
 	/// </summary>
 	[DataContract]
-	public class Network : NamedItem
+	public class Network : NamedIdentifiedItem
 	{
 		/// <summary>
 		/// OrganizationId

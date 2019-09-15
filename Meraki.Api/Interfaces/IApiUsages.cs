@@ -29,16 +29,16 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/apiRequests")]
 		Task<List<ApiUsage>> GetPageAsync(
 			int organizationId,
-		[AliasAs("t0")] DateTimeOffset? t0 = default,
-		[AliasAs("t1")] DateTimeOffset? t1 = default,
-		[AliasAs("timeSpan")] int? timeSpan = default,
-		[AliasAs("perPage")] int? perPage = default,
-		[AliasAs("startingAfter")] string startingAfter = default!,
-		[AliasAs("endingBefore")] string endingBefore = default!,
-		[AliasAs("adminId")] DateTimeOffset adminId = default,
-		[AliasAs("path")] DateTimeOffset path = default,
-		[AliasAs("method")] string Method = default!,
-		[AliasAs("responseCode")] int? ResponseCode = default,
-		CancellationToken cancellationToken = default);
+			[AliasAs("t0")] DateTimeOffset? t0 = default,
+			[AliasAs("t1")] DateTimeOffset? t1 = default,
+			[AliasAs("timeSpan")] int? timeSpan = default,
+			[AliasAs("perPage")] int? perPage = default,
+			[AliasAs("startingAfter")] string startingAfter = default!,
+			[AliasAs("endingBefore")] string endingBefore = default!,
+			[AliasAs("adminId")] DateTimeOffset adminId = default,
+			[AliasAs("path")] DateTimeOffset path = default,
+			[AliasAs("method")] string Method = default!,
+			[AliasAs("responseCode")] int? ResponseCode = default,
+			CancellationToken cancellationToken = default);
 	}
 }

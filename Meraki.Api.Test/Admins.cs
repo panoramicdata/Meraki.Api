@@ -2,14 +2,14 @@
 
 namespace Meraki.Api.Test
 {
-	public class Networks : MerakiClientTest
+	public class Admins : MerakiClientTest
 	{
 		[Fact]
-		public async void GetAllSsidsAsync_Succeeds()
+		public async void GetAll_Succeeds()
 		{
 			var result = await MerakiClient
-				.Networks
-				.GetAllSsidsAsync(Configuration.TestNetworkId)
+				.Admins
+				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			Assert.NotNull(result);
 			Assert.NotEmpty(result);

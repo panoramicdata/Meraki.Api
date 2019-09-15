@@ -19,6 +19,14 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
+		/// List the networks in an organization
+		/// </summary>
+		[Get("/organizations/{organizationId}/networks")]
+		Task<List<Network>> GetAllNetworksAsync(
+			[AliasAs("organizationId")] int organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
 		/// Return an organization
 		/// </summary>
 		/// <param name="orgId"></param>
