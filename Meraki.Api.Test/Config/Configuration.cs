@@ -25,5 +25,11 @@ namespace Meraki.Api.Test.Config
 		/// </summary>
 		[DataMember(Name = "TestNetworkId")]
 		public string TestNetworkId { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Test Device Serial
+		/// </summary>
+		[DataMember(Name = "TestDeviceSerial")]
+		public string TestDeviceSerial { get; set; } = string.Empty;
 	}
 }

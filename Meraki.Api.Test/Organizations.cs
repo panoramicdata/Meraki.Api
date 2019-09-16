@@ -44,5 +44,16 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 			Assert.NotNull(result);
 		}
+
+		[Fact]
+		public async void GetAllDevicesAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.Organizations
+				.GetAllDevicesAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			Assert.NotNull(result);
+			Assert.NotEmpty(result);
+		}
 	}
 }
