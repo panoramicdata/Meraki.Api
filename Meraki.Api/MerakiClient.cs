@@ -11,16 +11,18 @@ namespace Meraki.Api
 	{
 		private readonly ILogger _logger;
 		private readonly HttpClient _httpClient;
+		private readonly AuthenticatedHttpClientHandler _httpClientHandler;
 
 		/// <summary>
-		/// A Meraki portal client
+		/// A Meraki portal client	
 		/// </summary>
 		/// <param name="options"></param>
 		/// <param name="logger"></param>
 		public MerakiClient(MerakiClientOptions options, ILogger logger = default!)
 		{
 			_logger = logger ?? NullLogger.Instance;
-			_httpClient = new HttpClient(new AuthenticatedHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)))) { BaseAddress = new Uri("https://api.meraki.com/api/v0/") };
+			_httpClientHandler = new AuthenticatedHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)));
+			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri("https://api.meraki.com/api/v0/") };
 
 			Admins = RestService.For<IAdmins>(_httpClient);
 			ApiUsages = RestService.For<IApiUsages>(_httpClient);
@@ -33,11 +35,33 @@ namespace Meraki.Api
 		public INetworks Networks { get; }
 		public IOrganizations Organizations { get; }
 
+		#region IDisposable Support
+		private bool _disposedValue = false; // To detect redundant calls
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!_disposedValue)
+			{
+				if (disposing)
+				{
+					_logger.LogDebug(Resources.Disposing);
+					_httpClient.Dispose();
+					_httpClientHandler.Dispose();
+					_logger.LogDebug(Resources.Disposed);
+				}
+
+				_disposedValue = true;
+			}
+		}
+
+		// This code added to correctly implement the disposable pattern.
 		public void Dispose()
 		{
-			_logger.LogDebug("Disposing...");
-			_httpClient.Dispose();
-			_logger.LogDebug("Disposed");
+			// Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+			Dispose(true);
+
+			GC.SuppressFinalize(this);
 		}
+		#endregion
 	}
 }

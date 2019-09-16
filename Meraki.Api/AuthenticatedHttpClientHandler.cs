@@ -19,7 +19,7 @@ namespace Meraki.Api
 			// Ensure the API key is set
 			if (_options.ApiKey?.Length == 0)
 			{
-				throw new InvalidOperationException("API Key is not set");
+				throw new InvalidOperationException(Resources.ApiKeyIsNotSet);
 			}
 			// The API Key is set
 

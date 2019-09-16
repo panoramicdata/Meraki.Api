@@ -19,6 +19,15 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
+		/// Return an organization
+		/// </summary>
+		/// <param name="orgId"></param>
+		[Get("/organizations/{organizationId}")]
+		Task<Organization> GetAsync(
+			[AliasAs("organizationId")] int organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
 		/// List the networks in an organization
 		/// </summary>
 		[Get("/organizations/{organizationId}/networks")]
@@ -27,11 +36,10 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// Return an organization
+		/// List the third party VPN peers in an organization
 		/// </summary>
-		/// <param name="orgId"></param>
-		[Get("/organizations/{organizationId}")]
-		Task<Organization> GetAsync(
+		[Get("/organizations/{organizationId}/thirdPartyVPNPeers")]
+		Task<List<Network>> GetAllThirdPartyVpnPeersAsync(
 			[AliasAs("organizationId")] int organizationId,
 			CancellationToken cancellationToken = default);
 	}
