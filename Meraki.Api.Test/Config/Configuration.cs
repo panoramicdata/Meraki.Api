@@ -18,7 +18,7 @@ namespace Meraki.Api.Test.Config
 		/// Test Organization Id
 		/// </summary>
 		[DataMember(Name = "TestOrganizationId")]
-		public int TestOrganizationId { get; set; }
+		public long TestOrganizationId { get; set; }
 
 		/// <summary>
 		/// Test Network Id

@@ -24,7 +24,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="orgId"></param>
 		[Get("/organizations/{organizationId}")]
 		Task<Organization> GetAsync(
-			[AliasAs("organizationId")] int organizationId,
+			[AliasAs("organizationId")] long organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		[Get("/organizations/{organizationId}/networks")]
 		Task<List<Network>> GetAllNetworksAsync(
-			[AliasAs("organizationId")] int organizationId,
+			[AliasAs("organizationId")] long organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -40,7 +40,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		[Get("/organizations/{organizationId}/devices")]
 		Task<List<Device>> GetAllDevicesAsync(
-			[AliasAs("organizationId")] int organizationId,
+			[AliasAs("organizationId")] long organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		[Get("/organizations/{organizationId}/inventory")]
 		Task<List<InventoryItem>> GetAllInventoryAsync(
-			[AliasAs("organizationId")] int organizationId,
+			[AliasAs("organizationId")] long organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -56,7 +56,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		[Get("/organizations/{organizationId}/thirdPartyVPNPeers")]
 		Task<List<Network>> GetAllThirdPartyVpnPeersAsync(
-			[AliasAs("organizationId")] int organizationId,
+			[AliasAs("organizationId")] long organizationId,
 			CancellationToken cancellationToken = default);
 	}
 }
