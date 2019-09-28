@@ -44,6 +44,14 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
+		/// List the devices in an organization
+		/// </summary>
+		[Get("/organizations/{organizationId}/inventory")]
+		Task<List<InventoryItem>> GetAllInventoryAsync(
+			[AliasAs("organizationId")] int organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
 		/// List the third party VPN peers in an organization
 		/// </summary>
 		[Get("/organizations/{organizationId}/thirdPartyVPNPeers")]
