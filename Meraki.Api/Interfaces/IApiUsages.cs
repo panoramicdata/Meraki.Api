@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="responseCode">Filter the results by the response code of the API requests</param>
 		[Get("/organizations/{organizationId}/apiRequests")]
 		Task<List<ApiUsage>> GetPageAsync(
-			int organizationId,
+			long organizationId,
 			[AliasAs("t0")] DateTimeOffset? t0 = default,
 			[AliasAs("t1")] DateTimeOffset? t1 = default,
 			[AliasAs("timeSpan")] int? timeSpan = default,

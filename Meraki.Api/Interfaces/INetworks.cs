@@ -74,11 +74,30 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
+		/// Remove a single device
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		[Post("/networks/{networkId}/devices/{serial}/remove")]
+		Task RemoveDeviceAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
 		/// Return a network's devices
 		/// </summary>
 		/// <param name="networkId">The network Id</param>
 		[Get("/networks/{networkId}/devices")]
 		Task<Device> GetDevicesAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Delete a network
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		[Delete("/networks/{networkId}")]
+		Task<Network> DeleteNetworkAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 	}
