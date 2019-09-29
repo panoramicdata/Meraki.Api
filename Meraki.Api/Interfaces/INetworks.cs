@@ -88,7 +88,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <param name="networkId">The network Id</param>
 		[Get("/networks/{networkId}/devices")]
-		Task<Device> GetDevicesAsync(
+		Task<List<Device>> GetDevicesAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 

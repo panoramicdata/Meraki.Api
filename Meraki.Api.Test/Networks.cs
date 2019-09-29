@@ -29,16 +29,6 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void GetDeviceAsync_Succeeds()
-		{
-			var result = await MerakiClient
-				.Networks
-				.GetDeviceAsync(Configuration.TestNetworkId, Configuration.TestDeviceSerial)
-				.ConfigureAwait(false);
-			Assert.NotNull(result);
-		}
-
-		[Fact]
 		public async void CreateClaimRemoveDelete_Succeeds()
 		{
 			const string networkName = "Meraki.Api Unit Test";
@@ -49,6 +39,19 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false)).SingleOrDefault(n => n.Name == networkName);
 			if (oldNetwork != default)
 			{
+				// Get all network devices and remove them
+				var oldNetworkDevices = await MerakiClient
+					.Networks
+					.GetDevicesAsync(oldNetwork.Id)
+					.ConfigureAwait(false);
+				foreach(var oldNetworkDevice in oldNetworkDevices)
+				{
+					await MerakiClient
+						.Networks
+						.RemoveDeviceAsync(oldNetwork.Id, oldNetworkDevice.Serial)
+						.ConfigureAwait(false);
+				}
+
 				await MerakiClient
 					.Networks
 					.DeleteNetworkAsync(oldNetwork.Id)
@@ -81,6 +84,21 @@ namespace Meraki.Api.Test
 				.Networks
 				.ClaimDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
+
+			// Make sure it's there.
+			var result = await MerakiClient
+				.Networks
+				.GetDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.ConfigureAwait(false);
+			Assert.NotNull(result);
+
+			// Get all organization devices and make sure ours is present
+			var allOrganizationDevices = await MerakiClient
+				.Organizations
+				.GetAllDevicesAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			Assert.NotNull(allOrganizationDevices);
+			Assert.Contains(allOrganizationDevices, d => d.Serial == Configuration.TestDeviceSerial);
 
 			await MerakiClient
 				.Networks

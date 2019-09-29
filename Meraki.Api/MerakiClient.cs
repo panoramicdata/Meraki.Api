@@ -11,7 +11,7 @@ namespace Meraki.Api
 	{
 		private readonly ILogger _logger;
 		private readonly HttpClient _httpClient;
-		private readonly AuthenticatedHttpClientHandler _httpClientHandler;
+		private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
 
 		/// <summary>
 		/// A Meraki portal client	
@@ -21,7 +21,7 @@ namespace Meraki.Api
 		public MerakiClient(MerakiClientOptions options, ILogger logger = default!)
 		{
 			_logger = logger ?? NullLogger.Instance;
-			_httpClientHandler = new AuthenticatedHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)));
+			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)));
 			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri("https://api.meraki.com/api/v0/") };
 
 			Admins = RestService.For<IAdmins>(_httpClient);

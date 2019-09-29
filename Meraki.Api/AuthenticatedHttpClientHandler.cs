@@ -5,29 +5,47 @@ using System.Threading.Tasks;
 
 namespace Meraki.Api
 {
-	internal class AuthenticatedHttpClientHandler : HttpClientHandler
+	internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 	{
 		private readonly MerakiClientOptions _options;
 
-		public AuthenticatedHttpClientHandler(MerakiClientOptions options)
+		public AuthenticatedBackingOffHttpClientHandler(MerakiClientOptions options)
 		{
 			_options = options;
 		}
 
 		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 		{
-			// Ensure the API key is set
-			if (_options.ApiKey?.Length == 0)
+			HttpResponseMessage httpResponseMessage;
+			var delay = TimeSpan.FromMilliseconds(250);
+
+			while (true)
 			{
-				throw new InvalidOperationException(Resources.ApiKeyIsNotSet);
+				cancellationToken.ThrowIfCancellationRequested();
+
+				// Ensure the API key is set
+				if (_options.ApiKey?.Length == 0)
+				{
+					throw new InvalidOperationException(Resources.ApiKeyIsNotSet);
+				}
+				// The API Key is set
+
+				// Add the request headers
+				request.Headers.Add("X-Cisco-Meraki-API-Key", _options.ApiKey);
+
+				// Complete the action
+				httpResponseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+
+				if ((int)httpResponseMessage.StatusCode != 429)
+				{
+					return httpResponseMessage;
+				}
+
+				// We havea 429.  Back off by increasing amounts with subsequent attempts, with a configurable maximum.
+				// There is no maximum total wait time.
+				await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
+				delay = TimeSpan.FromMilliseconds(Math.Max(delay.TotalMilliseconds * 2, _options.MaxBackOffDelay.TotalMilliseconds));
 			}
-			// The API Key is set
-
-			// Add the request headers
-			request.Headers.Add("X-Cisco-Meraki-API-Key", _options.ApiKey);
-
-			// Complete the action
-			return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
 		}
 	}
 }
