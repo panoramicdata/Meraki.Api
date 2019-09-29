@@ -84,6 +84,26 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
+		/// Bind a network to a template.
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="configTemplateId">The ID of the template to which the network should be bound.</param>
+		[Post("/networks/{networkId}/bind")]
+		Task BindTemplateAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("configTemplateId")] string configTemplateId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Unbind a network from a template.
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		[Post("/networks/{networkId}/unbind")]
+		Task UnbindTemplateAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
 		/// Return a network's devices
 		/// </summary>
 		/// <param name="networkId">The network Id</param>
@@ -99,6 +119,91 @@ namespace Meraki.Api.Interfaces
 		[Delete("/networks/{networkId}")]
 		Task<Network> DeleteNetworkAsync(
 			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// List the VLANs for an MX network
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		[Get("/networks/{networkId}/vlans")]
+		Task<List<Vlan>> GetAllVlansAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Add a VLAN
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="id">The VLAN ID of the new VLAN (must be between 1 and 4094)</param>
+		/// <param name="name">The name of the new VLAN</param>
+		/// <param name="subnet">The subnet of the VLAN</param>
+		/// <param name="applianceIp">The local IP of the appliance on the VLAN</param>
+		[Post("/networks/{networkId}/vlans")]
+		Task AddVlanAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("id")] string id,
+			[AliasAs("name")] string name,
+			[AliasAs("subnet")] string subnet,
+			[AliasAs("applianceIp")] string applianceIp,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Returns the enabled status of VLANs for the network
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		[Get("/networks/{networkId}/vlansEnabledState")]
+		Task<NetworkVlanEnabledStatus> GetVlansEnabledStateAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Enable/Disable VLANs for the given network
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="enabled">Boolean indicating whether to enable (true) or disable (false) VLANs for the network</param>
+		[Put("/networks/{networkId}/vlansEnabledState")]
+		Task<NetworkVlanEnabledStatus> SetVlansEnabledStateAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("enabled")] bool enabled,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Enable/Disable VLANs for the given network
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="vlanId">The VLAN Id</param>
+		/// <param name="name">The name of the VLAN</param>
+		/// <param name="subnet">The subnet of the VLAN</param>
+		/// <param name="applianceIp">The local IP of the appliance on the VLAN</param>
+		/// <param name="vpnNatSubnet">The translated VPN subnet if VPN and VPN subnet translation are enabled on the VLAN</param>
+		/// <param name="dhcpHandling">The appliance's handling of DHCP requests on this VLAN. One of: 'Run a DHCP server', 'Relay DHCP to another server' or 'Do not respond to DHCP requests'</param>
+		/// <param name="dhcpRelayServerIps">The IPs of the DHCP servers that DHCP requests should be relayed to</param>
+		/// <param name="dhcpLeaseTime">The term of DHCP leases if the appliance is running a DHCP server on this VLAN. One of: '30 minutes', '1 hour', '4 hours', '12 hours', '1 day' or '1 week'</param>
+		/// <param name="dhcpBootOptionsEnabled">Use DHCP boot options specified in other properties</param>
+		/// <param name="dhcpBootNextServer">DHCP boot option to direct boot clients to the server to load the boot file from</param>
+		/// <param name="dhcpBootFilename">DHCP boot option for boot filename</param>
+		/// <param name="fixedIpAssignments">The DHCP fixed IP assignments on the VLAN. This should be an object that contains mappings from MAC addresses to objects that themselves each contain "ip" and "name" string fields. See the sample request/response for more details.</param>
+		/// <param name="reservedIpRanges">The DHCP reserved IP ranges on the VLAN</param>
+		/// <param name="dnsNameservers">The DNS nameservers used for DHCP responses, either "upstream_dns", "google_dns", "opendns", or a newline seperated string of IP addresses or domain names</param>
+		/// <param name="dhcpOptions">The list of DHCP options that will be included in DHCP responses. Each object in the list should have "code", "type", and "value" properties.</param>
+		[Put("/networks/{networkId}/vlans/{vlanId}")]
+		Task<NetworkVlanEnabledStatus> UpdateVlanAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("vlanId")] string vlanId,
+			[AliasAs("name")] string name,
+			[AliasAs("subnet")] string subnet,
+			[AliasAs("applianceIp")] string applianceIp,
+			[AliasAs("vpnNatSubnet")] string vpnNatSubnet,
+			[AliasAs("dhcpHandling")] string dhcpHandling,
+			[AliasAs("dhcpRelayServerIps")] string dhcpRelayServerIps,
+			[AliasAs("dhcpLeaseTime")] string dhcpLeaseTime,
+			[AliasAs("dhcpBootOptionsEnabled")] string dhcpBootOptionsEnabled,
+			[AliasAs("dhcpBootNextServer")] string dhcpBootNextServer,
+			[AliasAs("dhcpBootFilename")] string dhcpBootFilename,
+			[AliasAs("fixedIpAssignments")] string fixedIpAssignments,
+			[AliasAs("reservedIpRanges")] List<ReservedIpRange> reservedIpRanges,
+			[AliasAs("dnsNameservers")] string dnsNameservers,
+			[AliasAs("dhcpOptions")] string dhcpOptions,
 			CancellationToken cancellationToken = default);
 	}
 }

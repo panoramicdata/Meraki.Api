@@ -55,5 +55,16 @@ namespace Meraki.Api.Test
 			Assert.NotNull(result);
 			Assert.NotEmpty(result);
 		}
+
+		[Fact]
+		public async void GetAllConfigurationTemplatesAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.Organizations
+				.GetAllConfigurationTemplatesAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			Assert.NotNull(result);
+			Assert.NotEmpty(result);
+		}
 	}
 }

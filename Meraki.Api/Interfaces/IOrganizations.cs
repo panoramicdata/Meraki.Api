@@ -21,7 +21,7 @@ namespace Meraki.Api.Interfaces
 		/// <summary>
 		/// Return an organization
 		/// </summary>
-		/// <param name="orgId"></param>
+		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}")]
 		Task<Organization> GetAsync(
 			[AliasAs("organizationId")] long organizationId,
@@ -30,6 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// <summary>
 		/// List the networks in an organization
 		/// </summary>
+		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}/networks")]
 		Task<List<Network>> GetAllNetworksAsync(
 			[AliasAs("organizationId")] long organizationId,
@@ -38,6 +39,7 @@ namespace Meraki.Api.Interfaces
 		/// <summary>
 		/// List the devices in an organization
 		/// </summary>
+		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}/devices")]
 		Task<List<Device>> GetAllDevicesAsync(
 			[AliasAs("organizationId")] long organizationId,
@@ -46,6 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// <summary>
 		/// List the devices in an organization
 		/// </summary>
+		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}/inventory")]
 		Task<List<InventoryItem>> GetAllInventoryAsync(
 			[AliasAs("organizationId")] long organizationId,
@@ -54,6 +57,7 @@ namespace Meraki.Api.Interfaces
 		/// <summary>
 		/// List the third party VPN peers in an organization
 		/// </summary>
+		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}/thirdPartyVPNPeers")]
 		Task<List<Network>> GetAllThirdPartyVpnPeersAsync(
 			[AliasAs("organizationId")] long organizationId,
@@ -80,6 +84,26 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("copyFromNetworkId")] string copyFromNetworkId = default!,
 			[AliasAs("disableMyMerakiCom")] bool? disableMyMerakiCom = default,
 			[AliasAs("disableRemoteStatusPage")] bool? disableRemoteStatusPage = default,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// List the configuration templates for this organization
+		/// </summary>
+		/// <param name="organizationId">The organization Id</param>
+		[Get("/organizations/{organizationId}/configTemplates")]
+		Task<List<ConfigurationTemplate>> GetAllConfigurationTemplatesAsync(
+			[AliasAs("organizationId")] long organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Remove a configuration template
+		/// </summary>
+		/// <param name="organizationId">The organization Id</param>
+		/// <param name="configTemplateId">The configTemplate Id</param>
+		[Delete("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
+		Task<List<ConfigurationTemplate>> RemoveConfigurationTemplateAsync(
+			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("configTemplateId")] long configTemplateId,
 			CancellationToken cancellationToken = default);
 	}
 }

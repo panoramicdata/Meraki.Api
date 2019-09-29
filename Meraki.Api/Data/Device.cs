@@ -3,7 +3,7 @@
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// A network
+	/// A device
 	/// </summary>
 	[DataContract]
 	public class Device : NamedItem
