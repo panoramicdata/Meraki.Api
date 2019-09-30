@@ -1,4 +1,4 @@
-﻿using System.Runtime.Serialization;
+﻿		using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "mac")]
 		public string Mac { get; set; } = string.Empty;
 
-		/// <summary>
+		/// <summary>	
 		/// serial
 		/// </summary>
 		[DataMember(Name = "serial")]

@@ -1,4 +1,6 @@
-﻿using Refit;
+﻿using Meraki.Api.Data;
+using Refit;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -32,6 +34,11 @@ namespace Meraki.Api.Test
 		public async void CreateClaimRemoveDelete_Succeeds()
 		{
 			const string networkName = "Meraki.Api Unit Test";
+
+			var result = await MerakiClient
+				.Organizations
+				.BulkClaimAsync(Configuration.TestOrganizationId, new OrganizationBulkClaim { Serials = new List<string> { Configuration.TestDeviceSerial } })
+				.ConfigureAwait(false);
 
 			// Perform any clean-up
 			var oldNetwork = (await MerakiClient

@@ -15,7 +15,6 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "id")]
 		public string Id { get; set; } = null!;
 
-
 		/// <summary>
 		/// Network Id
 		/// </summary>
@@ -74,13 +73,13 @@ namespace Meraki.Api.Data
 		/// DHCP boot next server
 		/// </summary>
 		[DataMember(Name = "dhcpBootNextServer")]
-		public object DhcpBootNextServer { get; set; }
+		public object DhcpBootNextServer { get; set; } = new object(); // Not clear if this should be a string
 
 		/// <summary>
 		/// DHCP boot filename
 		/// </summary>
 		[DataMember(Name = "dhcpBootFilename")]
-		public object DhcpBootFilename { get; set; }
+		public object DhcpBootFilename { get; set; } = new object(); // Not clear if this should be a string
 
 		/// <summary>
 		/// DHCP options

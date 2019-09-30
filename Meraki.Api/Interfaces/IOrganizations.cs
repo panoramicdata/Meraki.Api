@@ -105,5 +105,16 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("organizationId")] long organizationId,
 			[AliasAs("configTemplateId")] long configTemplateId,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Claim a list of devices, licenses, and/or orders into an organization. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory.
+		/// </summary>
+		/// <param name="organizationId">The organization Id</param>
+		/// <param name="organizationId">The organization bulk claim</param>
+		[Post("/organizations/{organizationId}/claim")]
+		Task<OrganizationBulkClaim> BulkClaimAsync(
+			[AliasAs("organizationId")] long organizationId,
+			[Body] OrganizationBulkClaim organizationBulkClaim = null!,
+			CancellationToken cancellationToken = default);
 	}
 }

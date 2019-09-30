@@ -27,5 +27,4 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "value")]
 		public string Value { get; set; } = string.Empty;
 	}
-
 }

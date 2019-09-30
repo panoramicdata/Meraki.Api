@@ -27,5 +27,4 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "comment")]
 		public string Comment { get; set; } = string.Empty;
 	}
-
 }

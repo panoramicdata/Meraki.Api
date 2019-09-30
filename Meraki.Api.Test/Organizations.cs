@@ -1,3 +1,5 @@
+using Meraki.Api.Data;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Meraki.Api.Test
@@ -65,6 +67,19 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 			Assert.NotNull(result);
 			Assert.NotEmpty(result);
+		}
+
+		[Fact]
+		public async void ClaimDeviceAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.Organizations
+				.BulkClaimAsync(Configuration.TestOrganizationId, new OrganizationBulkClaim { Serials = new List<string> { Configuration.TestDeviceSerial } })
+				.ConfigureAwait(false);
+			Assert.NotNull(result);
+			Assert.NotEmpty(result.Serials);
+			Assert.Empty(result.Orders);
+			Assert.Empty(result.Licenses);
 		}
 	}
 }
