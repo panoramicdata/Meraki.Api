@@ -65,7 +65,7 @@ namespace Meraki.Api.Test
 					Configuration.TestOrganizationId,
 					networkName,
 					"wireless switch appliance",
-					"",
+					"network_level",
 					"Europe/London")
 				.ConfigureAwait(false);
 
@@ -79,62 +79,68 @@ namespace Meraki.Api.Test
 
 			Assert.Equal(newNetwork.Name, refetchedNetwork.Name);
 
-			// Enable VLANS on the new network and check it worked
-			var networkVlansEnabledStatus = await MerakiClient
-				.Networks
-				.SetVlansEnabledStateAsync(newNetwork.Id, true)
+			// Bind and unbind a configuration template
+			var configurationTemplates = await MerakiClient
+				.Organizations
+				.GetAllConfigurationTemplatesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			Assert.NotNull(networkVlansEnabledStatus);
-			Assert.Equal(newNetwork.Id, networkVlansEnabledStatus.NetworkId);
-			Assert.True(networkVlansEnabledStatus.Enabled);
+			Assert.NotNull(configurationTemplates);
+			Assert.NotEmpty(configurationTemplates);
+			var configurationTemplate = configurationTemplates[0];
+			await MerakiClient
+				.Networks
+				.BindTemplateAsync(newNetwork.Id, configurationTemplate.Id, true)
+				.ConfigureAwait(false);
 
-			// Get all VLANs - should be empty
+			//// Enable VLANS on the new network and check it worked
+			//var networkVlansEnabledStatus = await MerakiClient
+			//	.Networks
+			//	.SetVlansEnabledStateAsync(newNetwork.Id, true)
+			//	.ConfigureAwait(false);
+			//Assert.NotNull(networkVlansEnabledStatus);
+			//Assert.Equal(newNetwork.Id, networkVlansEnabledStatus.NetworkId);
+			//Assert.True(networkVlansEnabledStatus.Enabled);
+
+			// Get all VLANs - should be the default one
 			var initialVlans = await MerakiClient
 				.Networks
 				.GetAllVlansAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			Assert.NotNull(initialVlans);
-			Assert.Single(initialVlans);
+			//Assert.Single(initialVlans);
 
-			// Add a VLAN
-			const string vlanId = "1234";
-			const string vlanName = "My VLAN";
-			const string vlanSubnet = "10.222.1.0/24";
-			const string vlanIpAddress = "10.222.1.1";
-			await MerakiClient
+			var vlan10 = initialVlans.SingleOrDefault(v => v.Id == "10");
+			Assert.NotNull(vlan10);
+
+			// Update a VLAN
+			var updatedVlan = await MerakiClient
 				.Networks
-				.AddVlanAsync(newNetwork.Id, vlanId, vlanName, vlanSubnet, vlanIpAddress)
+				.UpdateVlanAsync(newNetwork.Id, vlan10.Id, subnet: "10.250.82.128/28", applianceIp: "10.250.82.129")
 				.ConfigureAwait(false);
+			Assert.NotNull(updatedVlan);
 
-			// Get all VLANs - should have the added VLAN
-			var initializedVlans = await MerakiClient
-				.Networks
-				.GetAllVlansAsync(newNetwork.Id)
-				.ConfigureAwait(false);
-			Assert.NotNull(initializedVlans);
-			Assert.Equal(2, initializedVlans.Count);
-			var initializedVlan = initializedVlans[1]; // the second
-			Assert.Equal(vlanId, initializedVlan.Id);
-			Assert.Equal(vlanName, initializedVlan.Name);
-			Assert.Equal(vlanSubnet, initializedVlan.Subnet);
-			Assert.Equal(vlanIpAddress, initializedVlan.ApplianceIp);
-
-			//// Bind and unbind a configuration template
-			//var configurationTemplates = await MerakiClient
-			//	.Organizations
-			//	.GetAllConfigurationTemplatesAsync(Configuration.TestOrganizationId)
-			//	.ConfigureAwait(false);
-			//Assert.NotNull(configurationTemplates);
-			//Assert.NotEmpty(configurationTemplates);
-			//var configurationTemplate = configurationTemplates[0];
+			//// Add a VLAN
+			//const string vlanId = "1234";
+			//const string vlanName = "My VLAN";
+			//const string vlanSubnet = "10.222.1.0/24";
+			//const string vlanIpAddress = "10.222.1.1";
 			//await MerakiClient
 			//	.Networks
-			//	.BindTemplateAsync(newNetwork.Id, configurationTemplate.Id)
+			//	.AddVlanAsync(newNetwork.Id, vlanId, vlanName, vlanSubnet, vlanIpAddress)
 			//	.ConfigureAwait(false);
-			//await MerakiClient
+
+			//// Get all VLANs - should have the added VLAN
+			//var initializedVlans = await MerakiClient
 			//	.Networks
-			//	.UnbindTemplateAsync(newNetwork.Id)
+			//	.GetAllVlansAsync(newNetwork.Id)
 			//	.ConfigureAwait(false);
+			//Assert.NotNull(initializedVlans);
+			//Assert.Equal(2, initializedVlans.Count);
+			//var initializedVlan = initializedVlans[1]; // the second
+			//Assert.Equal(vlanId, initializedVlan.Id);
+			//Assert.Equal(vlanName, initializedVlan.Name);
+			//Assert.Equal(vlanSubnet, initializedVlan.Subnet);
+			//Assert.Equal(vlanIpAddress, initializedVlan.ApplianceIp);
 
 			//--- Claim/Remove device
 			await MerakiClient
@@ -157,9 +163,18 @@ namespace Meraki.Api.Test
 			Assert.NotNull(allOrganizationDevices);
 			Assert.Contains(allOrganizationDevices, d => d.Serial == Configuration.TestDeviceSerial);
 
+			// ----------
+			// Create complete - now undo everything
+			// ----------
+
 			await MerakiClient
 				.Networks
 				.RemoveDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.ConfigureAwait(false);
+
+			await MerakiClient
+				.Networks
+				.UnbindTemplateAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			//--- Delete the network

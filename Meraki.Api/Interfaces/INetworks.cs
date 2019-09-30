@@ -88,10 +88,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <param name="networkId">The network Id</param>
 		/// <param name="configTemplateId">The ID of the template to which the network should be bound.</param>
+		/// <param name="autoBind">Optional boolean indicating whether the network's switches should automatically bind to profiles of the same model. Defaults to false if left unspecified. This option only affects switch networks and switch templates. Auto-bind is not valid unless the switch template has at least one profile and has at most one profile per switch model.</param>
 		[Post("/networks/{networkId}/bind")]
 		Task BindTemplateAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("configTemplateId")] string configTemplateId,
+			[AliasAs("autoBind")] bool autoBind = false,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -187,23 +189,23 @@ namespace Meraki.Api.Interfaces
 		/// <param name="dnsNameservers">The DNS nameservers used for DHCP responses, either "upstream_dns", "google_dns", "opendns", or a newline seperated string of IP addresses or domain names</param>
 		/// <param name="dhcpOptions">The list of DHCP options that will be included in DHCP responses. Each object in the list should have "code", "type", and "value" properties.</param>
 		[Put("/networks/{networkId}/vlans/{vlanId}")]
-		Task<NetworkVlanEnabledStatus> UpdateVlanAsync(
+		Task<Vlan> UpdateVlanAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("vlanId")] string vlanId,
-			[AliasAs("name")] string name,
-			[AliasAs("subnet")] string subnet,
-			[AliasAs("applianceIp")] string applianceIp,
-			[AliasAs("vpnNatSubnet")] string vpnNatSubnet,
-			[AliasAs("dhcpHandling")] string dhcpHandling,
-			[AliasAs("dhcpRelayServerIps")] string dhcpRelayServerIps,
-			[AliasAs("dhcpLeaseTime")] string dhcpLeaseTime,
-			[AliasAs("dhcpBootOptionsEnabled")] string dhcpBootOptionsEnabled,
-			[AliasAs("dhcpBootNextServer")] string dhcpBootNextServer,
-			[AliasAs("dhcpBootFilename")] string dhcpBootFilename,
-			[AliasAs("fixedIpAssignments")] string fixedIpAssignments,
-			[AliasAs("reservedIpRanges")] List<ReservedIpRange> reservedIpRanges,
-			[AliasAs("dnsNameservers")] string dnsNameservers,
-			[AliasAs("dhcpOptions")] string dhcpOptions,
+			[AliasAs("name")] string name = null!,
+			[AliasAs("subnet")] string subnet = null!,
+			[AliasAs("applianceIp")] string applianceIp = null!,
+			[AliasAs("vpnNatSubnet")] string vpnNatSubnet = null!,
+			[AliasAs("dhcpHandling")] string dhcpHandling = null!,
+			[AliasAs("dhcpRelayServerIps")] string dhcpRelayServerIps = null!,
+			[AliasAs("dhcpLeaseTime")] string dhcpLeaseTime = null!,
+			[AliasAs("dhcpBootOptionsEnabled")] string dhcpBootOptionsEnabled = null!,
+			[AliasAs("dhcpBootNextServer")] string dhcpBootNextServer = null!,
+			[AliasAs("dhcpBootFilename")] string dhcpBootFilename = null!,
+			[AliasAs("fixedIpAssignments")] string fixedIpAssignments = null!,
+			[AliasAs("reservedIpRanges")] List<ReservedIpRange> reservedIpRanges = null!,
+			[AliasAs("dnsNameservers")] string dnsNameservers = null!,
+			[AliasAs("dhcpOptions")] string dhcpOptions = null!,
 			CancellationToken cancellationToken = default);
 	}
 }
