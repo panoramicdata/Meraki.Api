@@ -35,7 +35,7 @@ namespace Meraki.Api.Test
 		{
 			const string networkName = "Meraki.Api Unit Test";
 
-			var result = await MerakiClient
+			var bulkClaim = await MerakiClient
 				.Organizations
 				.BulkClaimAsync(Configuration.TestOrganizationId, new OrganizationBulkClaim { Serials = new List<string> { Configuration.TestDeviceSerial } })
 				.ConfigureAwait(false);
