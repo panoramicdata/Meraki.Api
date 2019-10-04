@@ -1,7 +1,7 @@
 ﻿using Meraki.Api.Data;
 using Refit;
-using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Meraki.Api.Test
@@ -31,15 +31,59 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void CreateClaimRemoveDelete_Succeeds()
+		public async void SimpleCreateDelete_Succeeds()
 		{
-			const string networkName = "Meraki.Api Unit Test";
+			var networkName = new string('X', Network.MaxNameLength);
 
-			var bulkClaim = await MerakiClient
-				.Organizations
-				.BulkClaimAsync(Configuration.TestOrganizationId, new OrganizationBulkClaim { Serials = new List<string> { Configuration.TestDeviceSerial } })
+			await EnsureNetworkRemovedAsync(networkName)
 				.ConfigureAwait(false);
+			try
+			{
+				// Create network
+				var newNetwork = await MerakiClient
+					.Organizations
+					.CreateNetworkAsync(
+						Configuration.TestOrganizationId,
+						networkName,
+						"wireless switch appliance",
+						"network_level",
+						"Europe/London")
+					.ConfigureAwait(false);
 
+				// And delete it again
+				await MerakiClient
+					.Networks
+					.DeleteNetworkAsync(newNetwork.Id)
+					.ConfigureAwait(false);
+			}
+			catch (ApiException e)
+			{
+				throw;
+			}
+		}
+
+		[Fact]
+		public async void NameTooLong_Fails()
+		{
+			var networkName = new string('X', Network.MaxNameLength + 1);
+
+			await Assert.ThrowsAsync<ApiException>(async () =>
+				 {
+					 // Create network
+					 var newNetwork = await MerakiClient
+						  .Organizations
+						  .CreateNetworkAsync(
+							  Configuration.TestOrganizationId,
+							  networkName,
+							  "wireless switch appliance",
+							  "network_level",
+							  "Europe/London")
+						  .ConfigureAwait(false);
+				 }).ConfigureAwait(false);
+		}
+
+		private async Task EnsureNetworkRemovedAsync(string networkName)
+		{
 			// Perform any clean-up
 			var oldNetwork = (await MerakiClient
 				.Organizations.GetAllNetworksAsync(Configuration.TestOrganizationId)
@@ -64,6 +108,21 @@ namespace Meraki.Api.Test
 					.DeleteNetworkAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
 			}
+		}
+
+		[Fact]
+		public async void CreateClaimRemoveDelete_Succeeds()
+		{
+			const string networkName = "Meraki.Api Unit Test";
+
+			//var bulkClaim = await MerakiClient
+			//	.Organizations
+			//	.BulkClaimAsync(Configuration.TestOrganizationId, new OrganizationBulkClaim { Serials = new List<string> { Configuration.TestDeviceSerial } })
+			//	.ConfigureAwait(false);
+
+			// Perform any clean-up
+			await EnsureNetworkRemovedAsync(networkName)
+				.ConfigureAwait(false);
 
 			// Create network
 			var newNetwork = await MerakiClient

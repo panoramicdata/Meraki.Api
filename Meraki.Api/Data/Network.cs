@@ -9,6 +9,8 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class Network : NamedIdentifiedItem
 	{
+		public const int MaxNameLength = 38;
+
 		/// <summary>
 		/// OrganizationId
 		/// </summary>
