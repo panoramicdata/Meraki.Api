@@ -9,7 +9,9 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class Network : NamedIdentifiedItem
 	{
+#pragma warning disable IDE1006 // Naming Styles
 		public const int MaxNameLength = 38;
+#pragma warning restore IDE1006 // Naming Styles
 
 		/// <summary>
 		/// OrganizationId

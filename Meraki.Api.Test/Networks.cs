@@ -37,29 +37,23 @@ namespace Meraki.Api.Test
 
 			await EnsureNetworkRemovedAsync(networkName)
 				.ConfigureAwait(false);
-			try
-			{
-				// Create network
-				var newNetwork = await MerakiClient
-					.Organizations
-					.CreateNetworkAsync(
-						Configuration.TestOrganizationId,
-						networkName,
-						"wireless switch appliance",
-						"network_level",
-						"Europe/London")
-					.ConfigureAwait(false);
 
-				// And delete it again
-				await MerakiClient
-					.Networks
-					.DeleteNetworkAsync(newNetwork.Id)
-					.ConfigureAwait(false);
-			}
-			catch (ApiException e)
-			{
-				throw;
-			}
+			// Create network
+			var newNetwork = await MerakiClient
+				.Organizations
+				.CreateNetworkAsync(
+					Configuration.TestOrganizationId,
+					networkName,
+					"wireless switch appliance",
+					"network_level",
+					"Europe/London")
+				.ConfigureAwait(false);
+
+			// And delete it again
+			await MerakiClient
+				.Networks
+				.DeleteNetworkAsync(newNetwork.Id)
+				.ConfigureAwait(false);
 		}
 
 		[Fact]
