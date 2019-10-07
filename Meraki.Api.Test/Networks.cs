@@ -1,5 +1,6 @@
 ﻿using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -114,6 +115,21 @@ namespace Meraki.Api.Test
 			//	.BulkClaimAsync(Configuration.TestOrganizationId, new OrganizationBulkClaim { Serials = new List<string> { Configuration.TestDeviceSerial } })
 			//	.ConfigureAwait(false);
 
+			// Get the device
+			var devices = await MerakiClient
+				.Organizations
+				.GetAllInventoryAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
+			if (device?.NetworkId != null)
+			{
+				// Unclaim the device
+				await MerakiClient
+					 .Networks
+					 .RemoveDeviceAsync(device.NetworkId, Configuration.TestDeviceSerial)
+					 .ConfigureAwait(false);
+			}
+
 			// Perform any clean-up
 			await EnsureNetworkRemovedAsync(networkName)
 				.ConfigureAwait(false);
@@ -209,11 +225,54 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			// Make sure it's there.
-			var result = await MerakiClient
+			var fetchedDevice = await MerakiClient
 				.Networks
 				.GetDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
-			Assert.NotNull(result);
+			Assert.NotNull(fetchedDevice);
+
+			// Get the management interface settings
+			var wanSpecs = await MerakiClient
+				.Networks
+				.GetDeviceManagementInterfaceSettingsAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.ConfigureAwait(false);
+			Assert.NotNull(wanSpecs);
+
+			const string googleDns = "8.8.8.8";
+			var newWanSpecs = new WanSpecs
+			{
+				WanSpec1 = new WanSpec
+				{
+					StaticDns = new List<string> { googleDns },
+					StaticGatewayIp = "192.168.1.1",
+					StaticIp = "192.168.1.254",
+					StaticSubnetMask = "255.255.255.0",
+					UsingStaticIp = true,
+					Vlan = 1,
+					WanEnabled = WanEnabledStatus.Enabled
+				},
+				WanSpec2 = new WanSpec
+				{
+					WanEnabled = WanEnabledStatus.Disabled
+				}
+			};
+			var wanSpec = await MerakiClient
+				.Networks
+				.UpdateDeviceManagementInterfaceSettingsAsync(newNetwork.Id, Configuration.TestDeviceSerial, newWanSpecs)
+				.ConfigureAwait(false);
+			Assert.NotNull(wanSpec);
+
+			// Get the management interface settings
+			var wanSpecsRefetch = await MerakiClient
+				.Networks
+				.GetDeviceManagementInterfaceSettingsAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.ConfigureAwait(false);
+			Assert.NotNull(wanSpecsRefetch);
+			Assert.NotNull(wanSpecsRefetch.WanSpec1);
+			Assert.NotNull(wanSpecsRefetch.WanSpec1!.StaticDns);
+			Assert.Single(wanSpecsRefetch.WanSpec1.StaticDns);
+			Assert.NotNull(wanSpecsRefetch.WanSpec1.StaticDns);
+			Assert.Equal(googleDns, wanSpecsRefetch.WanSpec1.StaticDns![0]);
 
 			// Get all organization devices and make sure ours is present
 			var allOrganizationDevices = await MerakiClient

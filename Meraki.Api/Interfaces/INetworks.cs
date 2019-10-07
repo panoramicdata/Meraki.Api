@@ -236,5 +236,29 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("switchProfileId")] string switchProfileId = null!,
 			[AliasAs("floorPlanId")] string floorPlanId = null!,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Update the management interface settings for a device
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="serial">The device serial</param>
+		/// <param name="wanSpecs">See https://api.meraki.com/api_docs#update-the-management-interface-settings-for-a-device</param>
+		[Put("/networks/{networkId}/devices/{serial}/managementInterfaceSettings")]
+		Task<WanSpecs> UpdateDeviceManagementInterfaceSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			[Body] WanSpecs wanSpecs,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Return the management interface settings for a device
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="serial">The device serial</param>
+		[Get("/networks/{networkId}/devices/{serial}/managementInterfaceSettings")]
+		Task<WanSpecs> GetDeviceManagementInterfaceSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			CancellationToken cancellationToken = default);
 	}
 }
