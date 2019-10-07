@@ -226,8 +226,8 @@ namespace Meraki.Api.Interfaces
 		Task<Device> UpdateDeviceAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
-			[AliasAs("name")] string name,
-			[AliasAs("tags")] string tags,
+			[AliasAs("name")] string name = null!,
+			[AliasAs("tags")] string tags = null!,
 			[AliasAs("lat")] double? lat = null,
 			[AliasAs("lng")] double? lng = null,
 			[AliasAs("address")] string address = null!,
