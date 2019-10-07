@@ -15,10 +15,7 @@
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 	  <PackageReleaseNotes>Added:
-	  - INetworks.BindTemplateAsync()
-	  - INetworks.UnbindTemplateAsync()
-	  - IOrganizations.GetAllConfigurationTemplatesAsync()
-	  - RemoveConfigurationTemplateAsync()</PackageReleaseNotes>
+	  - INetworks.UpdateDeviceAsync()</PackageReleaseNotes>
 	  <Authors>Panoramic Data Limited</Authors>
 	  <Company>Panoramic Data Limited</Company>
 	  <NeutralLanguage>en</NeutralLanguage>

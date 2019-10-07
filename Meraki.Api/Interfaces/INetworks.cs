@@ -207,5 +207,34 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("dnsNameservers")] string dnsNameservers = null!,
 			[AliasAs("dhcpOptions")] string dhcpOptions = null!,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Updates
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="serial">The device serial</param>
+		/// <param name="name">The name of a device</param>
+		/// <param name="tags">The tags of a device</param>
+		/// <param name="lat">The latitude of a device</param>
+		/// <param name="lng">The longitude of a device</param>
+		/// <param name="address">The address of a device</param>
+		/// <param name="notes">The notes for the device. String. Limited to 255 characters.</param>
+		/// <param name="moveMapMarker">Whether or not to set the latitude and longitude of a device based on the new address. Only applies when lat and lng are not specified.</param>
+		/// <param name="switchProfileId">The ID of a switch profile to bind to the device (for available switch profiles, see the 'Switch Profiles' endpoint). Use null to unbind the switch device from the current profile. For a device to be bindable to a switch profile, it must (1) be a switch, and (2) belong to a network that is bound to a configuration template.</param>
+		/// <param name="floorPlanId">The floor plan to associate to this device. null disassociates the device from the floorplan.</param>
+		[Put("/networks/{networkId}/devices/{serial}")]
+		Task<Device> UpdateDeviceAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			[AliasAs("name")] string name,
+			[AliasAs("tags")] string tags,
+			[AliasAs("lat")] double? lat = null,
+			[AliasAs("lng")] double? lng = null,
+			[AliasAs("address")] string address = null!,
+			[AliasAs("notes")] string notes = null!,
+			[AliasAs("moveMapMarker")] bool? moveMapMarker = null,
+			[AliasAs("switchProfileId")] string switchProfileId = null!,
+			[AliasAs("floorPlanId")] string floorPlanId = null!,
+			CancellationToken cancellationToken = default);
 	}
 }
