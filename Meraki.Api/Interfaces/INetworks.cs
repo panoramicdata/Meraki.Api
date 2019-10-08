@@ -67,10 +67,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <param name="networkId">The network Id</param>
 		/// <param name="serial">The device's serial number</param>
+		/// <param name="autoBind">Whether to autobind to a config template.  NB not documented in MEraki API documentation.</param>
 		[Post("/networks/{networkId}/devices/claim")]
 		Task ClaimDeviceAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
+			[AliasAs("autoBind")] bool? autoBind = false,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

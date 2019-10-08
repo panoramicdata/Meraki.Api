@@ -221,7 +221,7 @@ namespace Meraki.Api.Test
 			//--- Claim/Remove device
 			await MerakiClient
 				.Networks
-				.ClaimDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.ClaimDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, true)
 				.ConfigureAwait(false);
 
 			// Make sure it's there.
