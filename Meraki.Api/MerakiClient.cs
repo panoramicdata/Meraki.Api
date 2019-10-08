@@ -1,6 +1,7 @@
 ﻿using Meraki.Api.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Net.Http;
@@ -14,7 +15,7 @@ namespace Meraki.Api
 		private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
 
 		/// <summary>
-		/// A Meraki portal client	
+		/// A Meraki portal client
 		/// </summary>
 		/// <param name="options"></param>
 		/// <param name="logger"></param>
@@ -24,10 +25,19 @@ namespace Meraki.Api
 			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)));
 			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri("https://api.meraki.com/api/v0/") };
 
-			Admins = RestService.For<IAdmins>(_httpClient);
-			ApiUsages = RestService.For<IApiUsages>(_httpClient);
-			Organizations = RestService.For<IOrganizations>(_httpClient);
-			Networks = RestService.For<INetworks>(_httpClient);
+			var refitSettings = new RefitSettings
+			{
+				ContentSerializer = new JsonContentSerializer(
+				new JsonSerializerSettings
+				{
+					NullValueHandling = NullValueHandling.Ignore
+				})
+			};
+
+			Admins = RestService.For<IAdmins>(_httpClient, refitSettings);
+			ApiUsages = RestService.For<IApiUsages>(_httpClient, refitSettings);
+			Organizations = RestService.For<IOrganizations>(_httpClient, refitSettings);
+			Networks = RestService.For<INetworks>(_httpClient, refitSettings);
 		}
 
 		public IAdmins Admins { get; }
