@@ -199,7 +199,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("applianceIp")] string applianceIp = null!,
 			[AliasAs("vpnNatSubnet")] string vpnNatSubnet = null!,
 			[AliasAs("dhcpHandling")] string dhcpHandling = null!,
-			[AliasAs("dhcpRelayServerIps")] string dhcpRelayServerIps = null!,
+			[AliasAs("dhcpRelayServerIps")] List<string> dhcpRelayServerIps = null!,
 			[AliasAs("dhcpLeaseTime")] string dhcpLeaseTime = null!,
 			[AliasAs("dhcpBootOptionsEnabled")] string dhcpBootOptionsEnabled = null!,
 			[AliasAs("dhcpBootNextServer")] string dhcpBootNextServer = null!,
