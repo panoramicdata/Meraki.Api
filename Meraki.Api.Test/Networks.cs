@@ -191,7 +191,7 @@ namespace Meraki.Api.Test
 			// Update a VLAN
 			var updatedVlan = await MerakiClient
 				.Networks
-				.UpdateVlanAsync(newNetwork.Id, vlan10.Id, subnet: "10.250.82.128/28", applianceIp: "10.250.82.129")
+				.UpdateVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec { Subnet = "10.250.82.128/28", ApplianceIp = "10.250.82.129" })
 				.ConfigureAwait(false);
 			Assert.NotNull(updatedVlan);
 

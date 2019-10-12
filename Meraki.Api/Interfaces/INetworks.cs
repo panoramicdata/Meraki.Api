@@ -194,20 +194,7 @@ namespace Meraki.Api.Interfaces
 		Task<Vlan> UpdateVlanAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("vlanId")] string vlanId,
-			[AliasAs("name")] string name = null!,
-			[AliasAs("subnet")] string subnet = null!,
-			[AliasAs("applianceIp")] string applianceIp = null!,
-			[AliasAs("vpnNatSubnet")] string vpnNatSubnet = null!,
-			[AliasAs("dhcpHandling")] string dhcpHandling = null!,
-			[AliasAs("dhcpRelayServerIps")] List<string> dhcpRelayServerIps = null!,
-			[AliasAs("dhcpLeaseTime")] string dhcpLeaseTime = null!,
-			[AliasAs("dhcpBootOptionsEnabled")] string dhcpBootOptionsEnabled = null!,
-			[AliasAs("dhcpBootNextServer")] string dhcpBootNextServer = null!,
-			[AliasAs("dhcpBootFilename")] string dhcpBootFilename = null!,
-			[AliasAs("fixedIpAssignments")] string fixedIpAssignments = null!,
-			[AliasAs("reservedIpRanges")] List<ReservedIpRange> reservedIpRanges = null!,
-			[AliasAs("dnsNameservers")] string dnsNameservers = null!,
-			[AliasAs("dhcpOptions")] string dhcpOptions = null!,
+			[Body] VlanSpec vlanSpec,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
