@@ -37,7 +37,7 @@ namespace Meraki.Api.Data
 		public string DhcpBootFilename { get; set; } = null!;
 
 		[DataMember(Name = "fixedIpAssignments")]
-		public Dictionary<string, FixedIpAssignment> FixedIpAssignments { get; set; } = new Dictionary<string, FixedIpAssignment>();
+		public Dictionary<string, FixedIpAssignment> FixedIpAssignments { get; set; } = null;
 
 		[DataMember(Name = "reservedIpRanges")]
 		public List<ReservedIpRange> ReservedIpRanges { get; set; } = null!;
