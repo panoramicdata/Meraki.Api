@@ -123,7 +123,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization Id</param>
 		/// <param name="configTemplateId">The ConfigTemplate Id</param>
 		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switchProfiles")]
-		Task<List<SwitchProfile>> GetSwitchProfiles(
+		Task<List<SwitchProfile>> GetSwitchProfilesAsync(
 			[AliasAs("organizationId")] long organizationId,
 			[AliasAs("configTemplateId")] string configTemplateId,
 			CancellationToken cancellationToken = default);

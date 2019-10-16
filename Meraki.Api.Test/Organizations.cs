@@ -74,7 +74,7 @@ namespace Meraki.Api.Test
 			{
 				var switchProfiles = await MerakiClient
 				.Organizations
-				.GetSwitchProfiles(Configuration.TestOrganizationId, configurationTemplate.Id)
+				.GetSwitchProfilesAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 				.ConfigureAwait(false);
 				Assert.NotNull(switchProfiles);
 				if (switchProfiles.Count > 0)

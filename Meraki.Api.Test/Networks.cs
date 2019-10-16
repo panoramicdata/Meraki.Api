@@ -25,7 +25,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await MerakiClient
 				.Networks
-				.GetAllSsidsAsync(Configuration.TestNetworkId)
+				.GetDevicesAsync(Configuration.TestNetworkId)
 				.ConfigureAwait(false);
 			Assert.NotNull(result);
 			Assert.NotEmpty(result);
