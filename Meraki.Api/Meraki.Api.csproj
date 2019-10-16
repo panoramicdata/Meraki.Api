@@ -14,7 +14,7 @@
 	  <Description>Meraki API</Description>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	  <PackageReleaseNotes>Reflection of Cisco's fix for UpdateVlanAsync()</PackageReleaseNotes>
+	  <PackageReleaseNotes>Added GetSwitchProfiles()</PackageReleaseNotes>
 	  <Authors>Panoramic Data Limited</Authors>
 	  <Company>Panoramic Data Limited</Company>
 	  <NeutralLanguage>en</NeutralLanguage>

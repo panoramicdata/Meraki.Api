@@ -89,7 +89,7 @@ namespace Meraki.Api.Interfaces
 		/// Bind a network to a template.
 		/// </summary>
 		/// <param name="networkId">The network Id</param>
-		/// <param name="configTemplateId">The ID of the template to which the network should be bound.</param>
+		/// <param name="	Id">The ID of the template to which the network should be bound.</param>
 		/// <param name="autoBind">Optional boolean indicating whether the network's switches should automatically bind to profiles of the same model. Defaults to false if left unspecified. This option only affects switch networks and switch templates. Auto-bind is not valid unless the switch template has at least one profile and has at most one profile per switch model.</param>
 		[Post("/networks/{networkId}/bind")]
 		Task BindTemplateAsync(
