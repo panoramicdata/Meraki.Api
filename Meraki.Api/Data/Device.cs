@@ -8,6 +8,8 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class Device : NamedItem
 	{
+		public const int MaxAddressLength = 255;
+
 		/// <summary>
 		/// OrganizationId
 		/// </summary>

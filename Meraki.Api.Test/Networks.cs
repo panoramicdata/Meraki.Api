@@ -195,9 +195,14 @@ namespace Meraki.Api.Test
 				{
 					Subnet = "10.250.82.128/28",
 					ApplianceIp = "10.250.82.129",
-					FixedIpAssignments = new Dictionary<string, FixedIpAssignment>
+					ReservedIpRanges = new List<ReservedIpRange>
 					{
-						{ "22:33:44:55:66:77", new FixedIpAssignment { Ip = "1.2.3.4", Name = "Woo" } }
+						new ReservedIpRange
+						{
+							Comment = "Temp",
+							Start = "10.250.82.129",
+							End = "10.250.82.131"
+						}
 					}
 				})
 				.ConfigureAwait(false);
@@ -238,6 +243,17 @@ namespace Meraki.Api.Test
 				.GetDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
 			Assert.NotNull(fetchedDevice);
+
+			// Updating the device with a too-long address should fail
+			await Assert.ThrowsAsync<ApiException>(async () => await MerakiClient
+				.Networks
+				.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: new string('X', Device.MaxAddressLength + 1))
+				.ConfigureAwait(false)).ConfigureAwait(false);
+			// But an OK length should succeed
+			await MerakiClient
+				.Networks
+				.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: new string('X', Device.MaxAddressLength))
+				.ConfigureAwait(false);
 
 			// Get the management interface settings
 			var wanSpecs = await MerakiClient
