@@ -249,6 +249,7 @@ namespace Meraki.Api.Test
 				.Networks
 				.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: new string('X', Device.MaxAddressLength + 1))
 				.ConfigureAwait(false)).ConfigureAwait(false);
+
 			// But an OK length should succeed
 			await MerakiClient
 				.Networks

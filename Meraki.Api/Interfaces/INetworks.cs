@@ -176,20 +176,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <param name="networkId">The network Id</param>
 		/// <param name="vlanId">The VLAN Id</param>
-		/// <param name="name">The name of the VLAN</param>
-		/// <param name="subnet">The subnet of the VLAN</param>
-		/// <param name="applianceIp">The local IP of the appliance on the VLAN</param>
-		/// <param name="vpnNatSubnet">The translated VPN subnet if VPN and VPN subnet translation are enabled on the VLAN</param>
-		/// <param name="dhcpHandling">The appliance's handling of DHCP requests on this VLAN. One of: 'Run a DHCP server', 'Relay DHCP to another server' or 'Do not respond to DHCP requests'</param>
-		/// <param name="dhcpRelayServerIps">The IPs of the DHCP servers that DHCP requests should be relayed to</param>
-		/// <param name="dhcpLeaseTime">The term of DHCP leases if the appliance is running a DHCP server on this VLAN. One of: '30 minutes', '1 hour', '4 hours', '12 hours', '1 day' or '1 week'</param>
-		/// <param name="dhcpBootOptionsEnabled">Use DHCP boot options specified in other properties</param>
-		/// <param name="dhcpBootNextServer">DHCP boot option to direct boot clients to the server to load the boot file from</param>
-		/// <param name="dhcpBootFilename">DHCP boot option for boot filename</param>
-		/// <param name="fixedIpAssignments">The DHCP fixed IP assignments on the VLAN. This should be an object that contains mappings from MAC addresses to objects that themselves each contain "ip" and "name" string fields. See the sample request/response for more details.</param>
-		/// <param name="reservedIpRanges">The DHCP reserved IP ranges on the VLAN</param>
-		/// <param name="dnsNameservers">The DNS nameservers used for DHCP responses, either "upstream_dns", "google_dns", "opendns", or a newline seperated string of IP addresses or domain names</param>
-		/// <param name="dhcpOptions">The list of DHCP options that will be included in DHCP responses. Each object in the list should have "code", "type", and "value" properties.</param>
+		/// <param name="vlanSpec">The VLAN specification</param>
 		[Put("/networks/{networkId}/vlans/{vlanId}")]
 		Task<Vlan> UpdateVlanAsync(
 			[AliasAs("networkId")] string networkId,
