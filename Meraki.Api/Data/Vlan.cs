@@ -86,5 +86,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "dhcpOptions")]
 		public List<DhcpOption> DhcpOptions { get; set; } = new List<DhcpOption>();
+
+		/// <summary>
+		/// DHCP relay server IPs
+		/// </summary>
+		[DataMember(Name = "dhcpRelayServerIps")]
+		public List<string> DhcpRelayServerIps { get; set; } = new List<string>();
 	}
 }
