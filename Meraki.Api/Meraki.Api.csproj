@@ -14,7 +14,7 @@
 	  <Description>Meraki API</Description>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	  <PackageReleaseNotes>Changed GetSwitchProfiles() to GetSwitchProfilesAsync()</PackageReleaseNotes>
+	  <PackageReleaseNotes>Added GetNetworksAsync() and obsoleted GetAllNetworksAsync()</PackageReleaseNotes>
 	  <Authors>Panoramic Data Limited</Authors>
 	  <Company>Panoramic Data Limited</Company>
 	  <NeutralLanguage>en</NeutralLanguage>

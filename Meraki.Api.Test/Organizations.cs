@@ -28,14 +28,32 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void GetAllNetworksAsync_Succeeds()
+		public async void GetNetworksAsync_Succeeds()
 		{
 			var result = await MerakiClient
 				.Organizations
-				.GetAllNetworksAsync(Configuration.TestOrganizationId)
+				.GetNetworksAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			Assert.NotNull(result);
 			Assert.NotEmpty(result);
+		}
+
+		[Fact]
+		public async void GetNetworksByConfigTemplateIdAsync_Succeeds()
+		{
+			var configurationTemplates = await MerakiClient
+				.Organizations
+				.GetAllConfigurationTemplatesAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			Assert.NotNull(configurationTemplates);
+			Assert.NotEmpty(configurationTemplates);
+			var configurationTemplate = configurationTemplates[0];
+
+			var result = await MerakiClient
+				.Organizations
+				.GetNetworksAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
+				.ConfigureAwait(false);
+			Assert.NotNull(result);
 		}
 
 		[Fact]

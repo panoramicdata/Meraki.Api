@@ -1,5 +1,6 @@
 ﻿using Meraki.Api.Data;
 using Refit;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,12 +29,24 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// List the networks in an organization
+		/// Lists all the networks in an organization
 		/// </summary>
 		/// <param name="organizationId">The organization Id</param>
+		[Obsolete("Use GetNetworksAsync() instead", false)]
 		[Get("/organizations/{organizationId}/networks")]
 		Task<List<Network>> GetAllNetworksAsync(
 			[AliasAs("organizationId")] long organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// List networks in an organization
+		/// </summary>
+		/// <param name="organizationId">The organization Id</param>
+		/// <param name="configTemplateId">An optional parameter that is the ID of a config template. Will return all networks bound to that template.</param>
+		[Get("/organizations/{organizationId}/networks")]
+		Task<List<Network>> GetNetworksAsync(
+			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("configTemplateId")] string configTemplateId = default!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
