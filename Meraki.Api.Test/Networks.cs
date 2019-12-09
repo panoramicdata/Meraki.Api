@@ -12,9 +12,12 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetAllSsidsAsync_Succeeds()
 		{
+			var network = await GetTestNetworkAsync()
+				.ConfigureAwait(false);
+
 			var result = await MerakiClient
 				.Networks
-				.GetAllSsidsAsync(Configuration.TestNetworkId)
+				.GetAllSsidsAsync(network.Id)
 				.ConfigureAwait(false);
 			Assert.NotNull(result);
 			Assert.NotEmpty(result);
@@ -23,9 +26,12 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetAllDevicesAsync_Succeeds()
 		{
+			var network = await GetTestNetworkAsync()
+				.ConfigureAwait(false);
+
 			var result = await MerakiClient
 				.Networks
-				.GetDevicesAsync(Configuration.TestNetworkId)
+				.GetDevicesAsync(network.Id)
 				.ConfigureAwait(false);
 			Assert.NotNull(result);
 			Assert.NotEmpty(result);

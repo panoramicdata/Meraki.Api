@@ -1,8 +1,11 @@
-﻿using Meraki.Api.Test.Config;
+﻿using Meraki.Api.Data;
+using Meraki.Api.Test.Config;
 using Meraki.Api.Test.Exceptions;
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace Meraki.Api.Test
 {
@@ -46,5 +49,16 @@ namespace Meraki.Api.Test
 
 		protected MerakiClient MerakiClient
 			=> _merakiClient ?? (_merakiClient = new MerakiClient(Configuration.MerakiClientOptions));
+
+		protected async Task<Network> GetTestNetworkAsync()
+		{
+			var networks = await MerakiClient
+				.Organizations
+				.GetNetworksAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			Assert.NotNull(networks);
+			Assert.NotEmpty(networks);
+			return networks[0];
+		}
 	}
 }

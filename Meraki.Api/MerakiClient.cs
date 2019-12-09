@@ -23,7 +23,7 @@ namespace Meraki.Api
 		{
 			_logger = logger ?? NullLogger.Instance;
 			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)));
-			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri("https://api.meraki.com/api/v0/") };
+			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v0/") };
 
 			var refitSettings = new RefitSettings
 			{
