@@ -262,6 +262,12 @@ namespace Meraki.Api.Test
 				.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: new string('X', Device.MaxAddressLength))
 				.ConfigureAwait(false);
 
+			// Setting the address should succeed
+			await MerakiClient
+				.Networks
+				.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA", moveMapMarker: true)
+				.ConfigureAwait(false);
+
 			// Get the management interface settings
 			var wanSpecs = await MerakiClient
 				.Networks
