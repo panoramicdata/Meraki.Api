@@ -9,7 +9,6 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class ChangeLogEntry
 	{
-
 		/// <summary>
 		/// The Timestamp
 		/// </summary>

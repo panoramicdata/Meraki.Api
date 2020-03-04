@@ -2,7 +2,6 @@
 
 namespace Meraki.Api.Data
 {
-
 	/// <summary>
 	/// Camera quality and retention settings
 	/// </summary>
