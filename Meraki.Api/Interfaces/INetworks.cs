@@ -236,5 +236,27 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Returns video link to the specified camera. If a timestamp is supplied, it links to that timestamp.
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="serial">The camera serial</param>
+		/// <param name="timestampMs">The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds). If no timestamp is specified, we will assume current time.</param>
+		[Get("/networks/{networkId}/cameras/{serial}/videoLink")]
+		Task<UrlObject> GetCameraVideoLinkAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			[Query("timestamp")] string timestampMs = default!,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Generate a snapshot of what the camera sees at the specified time and return a link to that image.
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		[Get("/networks/{networkId}/camera/schedules")]
+		Task<List<CameraSchedule>> GetCameraRecordingSchedulesAsync(
+			[AliasAs("networkId")] string networkId,
+					CancellationToken cancellationToken = default);
 	}
 }
