@@ -1,4 +1,5 @@
-﻿using Meraki.Api.Data;
+﻿using FluentAssertions;
+using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,8 @@ namespace Meraki.Api.Test
 				.Networks
 				.GetAllSsidsAsync(network.Id)
 				.ConfigureAwait(false);
-			Assert.NotNull(result);
-			Assert.NotEmpty(result);
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
 		}
 
 		[Fact]
@@ -33,8 +34,8 @@ namespace Meraki.Api.Test
 				.Networks
 				.GetDevicesAsync(network.Id)
 				.ConfigureAwait(false);
-			Assert.NotNull(result);
-			Assert.NotEmpty(result);
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
 		}
 
 		[Fact]
@@ -151,7 +152,7 @@ namespace Meraki.Api.Test
 					"Europe/London")
 				.ConfigureAwait(false);
 
-			Assert.NotNull(newNetwork);
+			newNetwork.Should().NotBeNull();
 
 			// Re-fetch the network
 			var refetchedNetwork = await MerakiClient
@@ -297,26 +298,26 @@ namespace Meraki.Api.Test
 				.Networks
 				.UpdateDeviceManagementInterfaceSettingsAsync(newNetwork.Id, Configuration.TestDeviceSerial, newWanSpecs)
 				.ConfigureAwait(false);
-			Assert.NotNull(wanSpec);
+			wanSpec.Should().NotBeNull();
 
 			// Get the management interface settings
 			var wanSpecsRefetch = await MerakiClient
 				.Networks
 				.GetDeviceManagementInterfaceSettingsAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
-			Assert.NotNull(wanSpecsRefetch);
-			Assert.NotNull(wanSpecsRefetch.WanSpec1);
-			Assert.NotNull(wanSpecsRefetch.WanSpec1!.StaticDns);
-			Assert.Single(wanSpecsRefetch.WanSpec1.StaticDns);
-			Assert.NotNull(wanSpecsRefetch.WanSpec1.StaticDns);
-			Assert.Equal(googleDns, wanSpecsRefetch.WanSpec1.StaticDns![0]);
+			wanSpecsRefetch.Should().NotBeNull();
+			wanSpecsRefetch.WanSpec1.Should().NotBeNull();
+			wanSpecsRefetch.WanSpec1!.StaticDns.Should().NotBeNull();
+			wanSpecsRefetch.WanSpec1.StaticDns.Should().HaveCount(1);
+			wanSpecsRefetch.WanSpec1.StaticDns.Should().NotBeNull();
+			wanSpecsRefetch.WanSpec1.StaticDns![0].Should().BeEquivalentTo(googleDns);
 
 			// Get all organization devices and make sure ours is present
 			var allOrganizationDevices = await MerakiClient
 				.Organizations
 				.GetAllDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			Assert.NotNull(allOrganizationDevices);
+			allOrganizationDevices.Should().NotBeNull();
 			Assert.Contains(allOrganizationDevices, d => d.Serial == Configuration.TestDeviceSerial);
 
 			// ----------
@@ -349,6 +350,20 @@ namespace Meraki.Api.Test
 					.GetAsync(newNetwork.Id)
 					.ConfigureAwait(false);
 			}).ConfigureAwait(false);
+		}
+
+		[Fact]
+		public async void GetClientsAsync_Succeeds()
+		{
+			var network = await GetTestNetworkAsync()
+				.ConfigureAwait(false);
+
+			var result = await MerakiClient
+				.Networks
+				.GetClientsAsync(network.Id)
+				.ConfigureAwait(false);
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
 		}
 	}
 }

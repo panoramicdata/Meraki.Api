@@ -40,5 +40,18 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("method")] string Method = default!,
 			[AliasAs("responseCode")] int? ResponseCode = default,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// GetAsync
+		/// </summary>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today.</param>
+		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
+		[Get("/organizations/{organizationId}/apiRequests/overview")]
+		Task<ApiUsageOverview> GetOverviewAsync(
+			long organizationId,
+			[AliasAs("t0")] DateTimeOffset? t0 = default,
+			[AliasAs("t1")] DateTimeOffset? t1 = default,
+			CancellationToken cancellationToken = default);
 	}
 }

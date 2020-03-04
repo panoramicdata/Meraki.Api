@@ -1,5 +1,6 @@
 ﻿using Meraki.Api.Data;
 using Refit;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -258,5 +259,19 @@ namespace Meraki.Api.Interfaces
 		Task<List<CameraSchedule>> GetCameraRecordingSchedulesAsync(
 			[AliasAs("networkId")] string networkId,
 					CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// List the clients that have used this network in the timespan
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		[Get("/networks/{networkId}/clients")]
+		Task<List<ClientAccess>> GetClientsAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] DateTimeOffset? t0 = default,
+			[AliasAs("timeSpan")] int? timeSpan = default,
+			[AliasAs("perPage")] int? perPage = default,
+			[AliasAs("startingAfter")] string startingAfter = default!,
+			[AliasAs("endingBefore")] string endingBefore = default!,
+			 CancellationToken cancellationToken = default);
 	}
 }

@@ -1,11 +1,11 @@
-﻿using Meraki.Api.Data;
+﻿using FluentAssertions;
+using Meraki.Api.Data;
 using Meraki.Api.Test.Config;
 using Meraki.Api.Test.Exceptions;
 using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Xunit;
 
 namespace Meraki.Api.Test
 {
@@ -56,8 +56,8 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetNetworksAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			Assert.NotNull(networks);
-			Assert.NotEmpty(networks);
+			networks.Should().NotBeNull();
+			networks.Should().NotBeEmpty();
 			return networks[0];
 		}
 	}

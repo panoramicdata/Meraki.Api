@@ -9,5 +9,12 @@ using System.Diagnostics.CodeAnalysis;
 	 "Design",
 	 "CA1056:Uri properties should not be strings",
 	 Justification = "Uri would not deserilize properly.",
-	 Scope = "member",
-	 Target = "~P:Meraki.Api.Data.UrlObject.Url")]
+	 Scope = "namespaceanddescendants",
+	 Target = "Meraki.Api.Data")]
+
+[assembly: SuppressMessage(
+	 "Style",
+	 "IDE1006:Naming Styles",
+	 Justification = "This can't be right!",
+	 Scope = "namespaceanddescendants",
+	 Target = "Meraki.Api.Data")]

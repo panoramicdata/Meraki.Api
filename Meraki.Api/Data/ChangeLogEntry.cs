@@ -56,5 +56,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "newValue")]
 		public string NewValue { get; set; } = default!;
+
+		public override string ToString() => Label;
 	}
 }
