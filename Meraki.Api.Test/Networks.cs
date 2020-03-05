@@ -365,5 +365,33 @@ namespace Meraki.Api.Test
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
 		}
+
+		[Fact]
+		public async void GetBluetoothClientsAsync_Succeeds()
+		{
+			var network = await GetTestNetworkAsync()
+				.ConfigureAwait(false);
+
+			var result = await MerakiClient
+				.Networks
+				.GetBluetoothClientsAsync(network.Id)
+				.ConfigureAwait(false);
+			result.Should().NotBeNull();
+			result.Should().BeOfType<List<BluetoothClient>>();
+		}
+
+		[Fact]
+		public async void GetWirelessSettingsAsync_Succeeds()
+		{
+			var network = await GetTestNetworkAsync()
+				.ConfigureAwait(false);
+
+			var result = await MerakiClient
+				.Networks
+				.GetWirelessSettingsAsync(network.Id)
+				.ConfigureAwait(false);
+			result.Should().NotBeNull();
+			result.Should().BeOfType<List<BluetoothClient>>();
+		}
 	}
 }

@@ -24,6 +24,7 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.ResponseCodeCounts.Should().NotBeNull();
+			result.ResponseCodeCounts.Should().NotBeEmpty();
 		}
 	}
 }
