@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// An organization
 	/// </summary>
 	[DataContract]
-	public class Organization : NamedIdentifiedItem
+	public class Organization : NamedLongIdentifiedItem
 	{
 		/// <summary>
 		/// The URL
