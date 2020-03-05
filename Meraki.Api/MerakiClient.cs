@@ -8,6 +8,9 @@ using System.Net.Http;
 
 namespace Meraki.Api
 {
+	/// <summary>
+	/// A Meraki Dashboard API client
+	/// </summary>
 	public class MerakiClient : IDisposable
 	{
 		private readonly ILogger _logger;
@@ -38,11 +41,32 @@ namespace Meraki.Api
 			ApiUsages = RestService.For<IApiUsages>(_httpClient, refitSettings);
 			Organizations = RestService.For<IOrganizations>(_httpClient, refitSettings);
 			Networks = RestService.For<INetworks>(_httpClient, refitSettings);
+			Devices = RestService.For<IDevices>(_httpClient, refitSettings);
 		}
 
+		/// <summary>
+		/// Admins
+		/// </summary>
 		public IAdmins Admins { get; }
+
+		/// <summary>
+		/// API Usages
+		/// </summary>
 		public IApiUsages ApiUsages { get; }
+
+		/// <summary>
+		/// Devices
+		/// </summary>
+		public IDevices Devices { get; }
+
+		/// <summary>
+		/// Networks
+		/// </summary>
 		public INetworks Networks { get; }
+
+		/// <summary>
+		/// Organizations
+		/// </summary>
 		public IOrganizations Organizations { get; }
 
 		#region IDisposable Support

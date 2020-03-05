@@ -4,19 +4,19 @@ using System.Runtime.Serialization;
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// An admin
+	/// An administrator
 	/// </summary>
 	[DataContract]
 	public class Admin : NamedItem
 	{
 		/// <summary>
-		/// The admin's Email
+		/// The administrator's Email
 		/// </summary>
 		[DataMember(Name = "email")]
 		public string Email { get; set; } = string.Empty;
 
 		/// <summary>
-		/// The admin's organization Access
+		/// The administrator's organization Access
 		/// </summary>
 		[DataMember(Name = "orgAccess")]
 		public string OrganizationAccess { get; set; } = string.Empty;
@@ -34,7 +34,7 @@ namespace Meraki.Api.Data
 		public bool TwoFactorAuthEnabled { get; set; }
 
 		/// <summary>
-		/// Whether the admin has an API key
+		/// Whether the administrator has an API key
 		/// </summary>
 		[DataMember(Name = "hasApiKey")]
 		public bool HasApiKey { get; set; }

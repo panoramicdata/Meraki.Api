@@ -9,33 +9,31 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class Network : NamedIdentifiedItem
 	{
-#pragma warning disable IDE1006 // Naming Styles
 		public const int MaxNameLength = 38;
-#pragma warning restore IDE1006 // Naming Styles
 
 		/// <summary>
 		/// OrganizationId
 		/// </summary>
 		[DataMember(Name = "organizationId")]
-		public string OrganizationId { get; set; } = null!;
+		public string OrganizationId { get; set; } = default!;
 
 		/// <summary>
 		/// timeZone
 		/// </summary>
 		[DataMember(Name = "timeZone")]
-		public string TimeZone { get; set; } = null!;
+		public string TimeZone { get; set; } = default!;
 
 		/// <summary>
 		/// tags
 		/// </summary>
 		[DataMember(Name = "tags")]
-		public string Tags { get; set; } = null!;
+		public string Tags { get; set; } = default!;
 
 		/// <summary>
 		/// type
 		/// </summary>
 		[DataMember(Name = "type")]
-		public string Type { get; set; } = null!;
+		public string Type { get; set; } = default!;
 
 		/// <summary>
 		/// disableMyMerakiCom

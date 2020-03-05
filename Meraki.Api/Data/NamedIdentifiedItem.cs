@@ -2,7 +2,10 @@
 
 namespace Meraki.Api.Data
 {
-	public class NamedIdentifiedItem : IdentifiedItem
+	/// <summary>
+	/// A named, identified item
+	/// </summary>
+	public abstract class NamedIdentifiedItem : IdentifiedItem
 	{
 		/// <summary>
 		/// The name

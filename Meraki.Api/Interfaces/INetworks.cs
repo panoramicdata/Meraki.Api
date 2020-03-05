@@ -1,5 +1,6 @@
 ﻿using Meraki.Api.Data;
 using Refit;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -236,5 +237,105 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Returns video link to the specified camera. If a timestamp is supplied, it links to that timestamp.
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="serial">The camera serial</param>
+		/// <param name="timestampMs">The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds). If no timestamp is specified, we will assume current time.</param>
+		[Get("/networks/{networkId}/cameras/{serial}/videoLink")]
+		Task<UrlObject> GetCameraVideoLinkAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			[Query("timestamp")] string timestampMs = default!,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Generate a snapshot of what the camera sees at the specified time and return a link to that image.
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		[Get("/networks/{networkId}/camera/schedules")]
+		Task<List<CameraSchedule>> GetCameraRecordingSchedulesAsync(
+			[AliasAs("networkId")] string networkId,
+					CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// List the clients that have used this network in the timespan
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="t0">The start date/time</param>
+		/// <param name="timeSpan">The timespan</param>
+		/// <param name="perPage">The number of items per page</param>
+		/// <param name="startingAfter">Starting after</param>
+		/// <param name="endingBefore">Ending before</param>
+		[Get("/networks/{networkId}/clients")]
+		Task<List<ClientAccess>> GetClientsAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] DateTimeOffset? t0 = default,
+			[AliasAs("timeSpan")] int? timeSpan = default,
+			[AliasAs("perPage")] int? perPage = default,
+			[AliasAs("startingAfter")] string startingAfter = default!,
+			[AliasAs("endingBefore")] string endingBefore = default!,
+			 CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// List the Bluetooth clients seen by APs in this network
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 7 days from today.</param>
+		/// <param name="timeSpan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 7 days. The default is 1 day.</param>
+		/// <param name="perPage">The number of entries per page returned. Acceptable range is 5 - 1000. Default is 10.</param>
+		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+		/// <param name="endingBefore">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+		/// <param name="cancellationToken">The optional cancellationTokn</param>
+		[Get("/networks/{networkId}/bluetoothClients")]
+		Task<List<BluetoothClient>> GetBluetoothClientsAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] DateTimeOffset? t0 = default,
+			[AliasAs("timeSpan")] int? timeSpan = default,
+			[AliasAs("perPage")] int? perPage = default,
+			[AliasAs("startingAfter")] string startingAfter = default!,
+			[AliasAs("endingBefore")] string endingBefore = default!,
+			 CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Return a bluetooth client. Bluetooth clients can be identified by their ID or their MAC.
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="bluetoothClientId">The bluetooth client Id</param>
+		/// <param name="includeConnectivityHistory">Whether to include the connectivity history for this client</param>
+		/// <param name="connectivityHistoryTimespan">The timespan, in seconds, for the connectivityHistory data. By default 1 day, 86400, will be used.</param>
+		/// <param name="cancellationToken">The optional cancellationTokn</param>
+		[Get("/networks/{networkId}/bluetoothClients/{bluetoothClientId}")]
+		Task<BluetoothClient> GetBluetoothClientsAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("bluetoothClientId")] string bluetoothClientId,
+			[AliasAs("includeConnectivityHistory")] bool includeConnectivityHistory = false,
+			[AliasAs("connectivityHistoryTimespan")] int? connectivityHistoryTimespan = null,
+			 CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Return the wireless settings for a network
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="wirelessSettings">The wireless settings</param>
+		/// <param name="cancellationToken">The optional cancellationTokn</param>
+		[Get("/networks/{networkId}/wireless/settings")]
+		Task<WirelessSettings> GetWirelessSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			 CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Update the wireless settings for a network
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="wirelessSettings">The wireless settings</param>
+		/// <param name="cancellationToken">The optional cancellationTokn</param>
+		[Put("/networks/{networkId}/wireless/settings")]
+		Task<WirelessSettings> SetWirelessSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] WirelessSettings wirelessSettings,
+			 CancellationToken cancellationToken = default);
 	}
 }

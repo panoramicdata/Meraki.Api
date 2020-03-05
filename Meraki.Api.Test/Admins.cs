@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Meraki.Api.Test
 {
@@ -11,8 +12,8 @@ namespace Meraki.Api.Test
 				.Admins
 				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			Assert.NotNull(result);
-			Assert.NotEmpty(result);
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
 		}
 	}
 }

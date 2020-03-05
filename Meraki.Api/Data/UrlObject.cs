@@ -3,15 +3,15 @@
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// An organization
+	/// A URL object
 	/// </summary>
 	[DataContract]
-	public class Organization : NamedIdentifiedItem
+	public class UrlObject
 	{
 		/// <summary>
 		/// The URL
 		/// </summary>
-		[DataMember]
-		public string Url { get; set; } = default!;
+		[DataMember(Name = "url")]
+		public string Url { get; set; } = string.Empty;
 	}
 }

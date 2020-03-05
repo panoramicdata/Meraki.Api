@@ -114,5 +114,16 @@ namespace Meraki.Api.Test
 			Assert.Empty(result.Orders);
 			Assert.Empty(result.Licenses);
 		}
+
+		[Fact]
+		public async void GetChangeLogEntriesAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.Organizations
+				.GetChangeLogEntriesAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			Assert.NotNull(result);
+			Assert.NotEmpty(result);
+		}
 	}
 }
