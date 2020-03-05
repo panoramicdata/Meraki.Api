@@ -386,12 +386,25 @@ namespace Meraki.Api.Test
 			var network = await GetTestNetworkAsync()
 				.ConfigureAwait(false);
 
-			var result = await MerakiClient
+			// Get the wireless settings
+			var originalResult = await MerakiClient
 				.Networks
 				.GetWirelessSettingsAsync(network.Id)
 				.ConfigureAwait(false);
-			result.Should().NotBeNull();
-			result.Should().BeOfType<List<BluetoothClient>>();
+			originalResult.Should().NotBeNull();
+			originalResult.Should().BeOfType<List<BluetoothClient>>();
+
+			// Re-set the wireless settings (to the same values)
+			var newResult = await MerakiClient
+				.Networks
+				.SetWirelessSettingsAsync(network.Id, originalResult)
+				.ConfigureAwait(false);
+			newResult.Should().NotBeNull();
+
+			// The two should match
+			newResult.MeshingEnabled.Should().Be(originalResult.MeshingEnabled);
+			newResult.Ipv6BridgeEnabled.Should().Be(originalResult.Ipv6BridgeEnabled);
+			newResult.LocationAnalyticsEnabled.Should().Be(originalResult.LocationAnalyticsEnabled);
 		}
 	}
 }
