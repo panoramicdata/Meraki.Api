@@ -211,7 +211,7 @@ namespace Meraki.Api.Test
 					}
 				})
 				.ConfigureAwait(false);
-			updatedVlan.Should().NotBeNull(););
+			updatedVlan.Should().NotBeNull();
 
 			//--- Claim/Remove device
 			await MerakiClient
