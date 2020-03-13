@@ -61,6 +61,7 @@ namespace Meraki.Api.Test
 			networks.Should().NotBeEmpty();
 			return networks[0];
 		}
+
 		protected async Task<Network> GetCameraNetworkAsync()
 		{
 			var networks = await MerakiClient
