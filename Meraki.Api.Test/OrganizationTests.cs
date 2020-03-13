@@ -68,7 +68,7 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetAllConfigurationTemplatesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			Assert.NotNull(configurationTemplates);
+			configurationTemplates.Should().NotBeNull();
 			if (configurationTemplates.Count == 0)
 			{
 				return;
@@ -80,7 +80,7 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetNetworksAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 				.ConfigureAwait(false);
-			Assert.NotNull(result);
+			result.Should().NotBeNull();
 		}
 
 		[Fact]
@@ -120,10 +120,10 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetSwitchProfilesAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 				.ConfigureAwait(false);
-				Assert.NotNull(switchProfiles);
+				switchProfiles.Should().NotBeNull();
 				if (switchProfiles.Count > 0)
 				{
-					Assert.All(switchProfiles, switchProfile => Assert.False(string.IsNullOrWhiteSpace(switchProfile.Model)));
+					switchProfiles.All(switchProfile => string.IsNullOrWhiteSpace(switchProfile.Model)).Should().BeFalse();
 				}
 			}
 		}
@@ -146,8 +146,8 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetChangeLogEntriesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			Assert.NotNull(result);
-			Assert.NotEmpty(result);
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
 		}
 	}
 }

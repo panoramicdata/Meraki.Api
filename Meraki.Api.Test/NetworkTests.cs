@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Meraki.Api.Data;
 using Refit;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -72,19 +73,23 @@ namespace Meraki.Api.Test
 		{
 			var networkName = new string('X', Network.MaxNameLength + 1);
 
-			await Assert.ThrowsAsync<ApiException>(async () =>
-				 {
-					 // Create network
-					 var newNetwork = await MerakiClient
-						  .Organizations
-						  .CreateNetworkAsync(
-							  Configuration.TestOrganizationId,
-							  networkName,
-							  "wireless switch appliance",
-							  "network_level",
-							  "Europe/London")
-						  .ConfigureAwait(false);
-				 }).ConfigureAwait(false);
+			Func<Task> action = async () =>
+			{
+				var newNetwork = await MerakiClient
+					 .Organizations
+					 .CreateNetworkAsync(
+						 Configuration.TestOrganizationId,
+						 networkName,
+						 "wireless switch appliance",
+						 "network_level",
+						 "Europe/London")
+					 .ConfigureAwait(false);
+			};
+
+			await action
+				.Should()
+				.ThrowAsync<ApiException>()
+				.ConfigureAwait(false);
 		}
 
 		private async Task EnsureNetworkRemovedAsync(string networkName)
@@ -163,40 +168,30 @@ namespace Meraki.Api.Test
 				.GetAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
-			Assert.Equal(newNetwork.Name, refetchedNetwork.Name);
+			newNetwork.Name.Should().Be(refetchedNetwork.Name);
 
 			// Bind and unbind a configuration template
 			var configurationTemplates = await MerakiClient
 				.Organizations
 				.GetAllConfigurationTemplatesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			Assert.NotNull(configurationTemplates);
-			Assert.NotEmpty(configurationTemplates);
+			configurationTemplates.Should().NotBeNull();
+			configurationTemplates.Should().NotBeEmpty();
 			var configurationTemplate = configurationTemplates[0];
 			await MerakiClient
 				.Networks
 				.BindTemplateAsync(newNetwork.Id, configurationTemplate.Id, true)
 				.ConfigureAwait(false);
 
-			//// Enable VLANS on the new network and check it worked
-			//var networkVlansEnabledStatus = await MerakiClient
-			//	.Networks
-			//	.SetVlansEnabledStateAsync(newNetwork.Id, true)
-			//	.ConfigureAwait(false);
-			//Assert.NotNull(networkVlansEnabledStatus);
-			//Assert.Equal(newNetwork.Id, networkVlansEnabledStatus.NetworkId);
-			//Assert.True(networkVlansEnabledStatus.Enabled);
-
 			// Get all VLANs - should be the default one
 			var initialVlans = await MerakiClient
 				.Networks
 				.GetAllVlansAsync(newNetwork.Id)
 				.ConfigureAwait(false);
-			Assert.NotNull(initialVlans);
-			//Assert.Single(initialVlans);
+			initialVlans.Should().NotBeNull();
 
 			var vlan10 = initialVlans.SingleOrDefault(v => v.Id == "10");
-			Assert.NotNull(vlan10);
+			vlan10.Should().NotBeNull();
 
 			// Update a VLAN
 			var updatedVlan = await MerakiClient
@@ -216,30 +211,7 @@ namespace Meraki.Api.Test
 					}
 				})
 				.ConfigureAwait(false);
-			Assert.NotNull(updatedVlan);
-
-			//// Add a VLAN
-			//const string vlanId = "1234";
-			//const string vlanName = "My VLAN";
-			//const string vlanSubnet = "10.222.1.0/24";
-			//const string vlanIpAddress = "10.222.1.1";
-			//await MerakiClient
-			//	.Networks
-			//	.AddVlanAsync(newNetwork.Id, vlanId, vlanName, vlanSubnet, vlanIpAddress)
-			//	.ConfigureAwait(false);
-
-			//// Get all VLANs - should have the added VLAN
-			//var initializedVlans = await MerakiClient
-			//	.Networks
-			//	.GetAllVlansAsync(newNetwork.Id)
-			//	.ConfigureAwait(false);
-			//Assert.NotNull(initializedVlans);
-			//Assert.Equal(2, initializedVlans.Count);
-			//var initializedVlan = initializedVlans[1]; // the second
-			//Assert.Equal(vlanId, initializedVlan.Id);
-			//Assert.Equal(vlanName, initializedVlan.Name);
-			//Assert.Equal(vlanSubnet, initializedVlan.Subnet);
-			//Assert.Equal(vlanIpAddress, initializedVlan.ApplianceIp);
+			updatedVlan.Should().NotBeNull(););
 
 			//--- Claim/Remove device
 			await MerakiClient
@@ -252,13 +224,21 @@ namespace Meraki.Api.Test
 				.Networks
 				.GetDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
-			Assert.NotNull(fetchedDevice);
+			fetchedDevice.Should().NotBeNull();
 
 			// Updating the device with a too-long address should fail
-			await Assert.ThrowsAsync<ApiException>(async () => await MerakiClient
-				.Networks
-				.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: new string('X', Device.MaxAddressLength + 1))
-				.ConfigureAwait(false)).ConfigureAwait(false);
+			Func<Task> action = async () =>
+			{
+				await MerakiClient
+								.Networks
+								.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: new string('X', Device.MaxAddressLength + 1))
+								.ConfigureAwait(false);
+			};
+
+			await action
+				.Should()
+				.ThrowAsync<ApiException>()
+				.ConfigureAwait(false);
 
 			// But an OK length should succeed
 			await MerakiClient
@@ -277,7 +257,7 @@ namespace Meraki.Api.Test
 				.Networks
 				.GetDeviceManagementInterfaceSettingsAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
-			Assert.NotNull(wanSpecs);
+			wanSpecs.Should().NotBeNull();
 
 			const string googleDns = "8.8.8.8";
 			var newWanSpecs = new WanSpecs
@@ -321,7 +301,7 @@ namespace Meraki.Api.Test
 				.GetAllDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			allOrganizationDevices.Should().NotBeNull();
-			Assert.Contains(allOrganizationDevices, d => d.Serial == Configuration.TestDeviceSerial);
+			allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();
 
 			// ----------
 			// Create complete - now undo everything
@@ -345,14 +325,18 @@ namespace Meraki.Api.Test
 				.DeleteNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
-			// Re-fetch the non-existent network
-			await Assert.ThrowsAsync<ApiException>(async () =>
+			action = async () =>
 			{
 				var _ = await MerakiClient
 					.Networks
 					.GetAsync(newNetwork.Id)
 					.ConfigureAwait(false);
-			}).ConfigureAwait(false);
+			};
+
+			await action
+				.Should()
+				.ThrowAsync<ApiException>()
+				.ConfigureAwait(false);
 		}
 
 		[Fact]
