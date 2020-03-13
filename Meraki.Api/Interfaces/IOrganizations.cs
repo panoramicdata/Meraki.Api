@@ -25,7 +25,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}")]
 		Task<Organization> GetAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -35,7 +35,7 @@ namespace Meraki.Api.Interfaces
 		[Obsolete("Use GetNetworksAsync() instead", false)]
 		[Get("/organizations/{organizationId}/networks")]
 		Task<List<Network>> GetAllNetworksAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="configTemplateId">An optional parameter that is the ID of a config template. Will return all networks bound to that template.</param>
 		[Get("/organizations/{organizationId}/networks")]
 		Task<List<Network>> GetNetworksAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("configTemplateId")] string configTemplateId = default!,
 			CancellationToken cancellationToken = default);
 
@@ -55,7 +55,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}/devices")]
 		Task<List<Device>> GetAllDevicesAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -64,7 +64,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}/inventory")]
 		Task<List<InventoryItem>> GetAllInventoryAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -73,7 +73,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}/thirdPartyVPNPeers")]
 		Task<List<Network>> GetAllThirdPartyVpnPeersAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -89,7 +89,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="disableRemoteStatusPage">Disables access to the device status page (http://[device's LAN IP]). Optional. Can only be set if disableMyMerakiCom is set to false</param>
 		[Post("/organizations/{organizationId}/networks")]
 		Task<Network> CreateNetworkAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("name")] string name,
 			[AliasAs("type")] string type,
 			[AliasAs("tags")] string tags,
@@ -105,7 +105,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization Id</param>
 		[Get("/organizations/{organizationId}/configTemplates")]
 		Task<List<ConfigurationTemplate>> GetAllConfigurationTemplatesAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -115,7 +115,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="configTemplateId">The configTemplate Id</param>
 		[Delete("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
 		Task<List<ConfigurationTemplate>> RemoveConfigurationTemplateAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("configTemplateId")] long configTemplateId,
 			CancellationToken cancellationToken = default);
 
@@ -126,7 +126,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationBulkClaim">The organization bulk claim</param>
 		[Post("/organizations/{organizationId}/claim")]
 		Task<OrganizationBulkClaim> BulkClaimAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] lstringong organizationId,
 			[Body] OrganizationBulkClaim organizationBulkClaim = null!,
 			CancellationToken cancellationToken = default);
 
@@ -137,7 +137,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="configTemplateId">The ConfigTemplate Id</param>
 		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switchProfiles")]
 		Task<List<SwitchProfile>> GetSwitchProfilesAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("configTemplateId")] string configTemplateId,
 			CancellationToken cancellationToken = default);
 
@@ -155,7 +155,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cancellationToken"></param>
 		[Get("/organizations/{organizationId}/configurationChanges")]
 		Task<List<ChangeLogEntry>> GetChangeLogEntriesAsync(
-			[AliasAs("organizationId")] long organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			[Query("t0")] DateTime? t0 = default,
 			[Query("t1")] DateTime? t1 = default,
 			[Query("timespan")] string timespan = default!,

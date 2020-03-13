@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/admins")]
 		Task<List<ApiUsage>> GetAllAsync(
-			long organizationId,
+			string organizationId,
 			CancellationToken cancellationToken = default);
 	}
 }

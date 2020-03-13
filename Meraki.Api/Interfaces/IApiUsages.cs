@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="responseCode">Filter the results by the response code of the API requests</param>
 		[Get("/organizations/{organizationId}/apiRequests")]
 		Task<List<ApiUsage>> GetPageAsync(
-			long organizationId,
+			string organizationId,
 			[AliasAs("t0")] DateTimeOffset? t0 = default,
 			[AliasAs("t1")] DateTimeOffset? t1 = default,
 			[AliasAs("timeSpan")] int? timeSpan = default,
@@ -49,7 +49,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 		[Get("/organizations/{organizationId}/apiRequests/overview")]
 		Task<ApiUsageOverview> GetOverviewAsync(
-			long organizationId,
+			string organizationId,
 			[AliasAs("t0")] DateTimeOffset? t0 = default,
 			[AliasAs("t1")] DateTimeOffset? t1 = default,
 			CancellationToken cancellationToken = default);
