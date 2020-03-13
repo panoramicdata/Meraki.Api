@@ -5,6 +5,7 @@ using Meraki.Api.Test.Exceptions;
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Test
@@ -59,6 +60,18 @@ namespace Meraki.Api.Test
 			networks.Should().NotBeNull();
 			networks.Should().NotBeEmpty();
 			return networks[0];
+		}
+		protected async Task<Network> GetCameraNetworkAsync()
+		{
+			var networks = await MerakiClient
+				.Organizations
+				.GetNetworksAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			networks.Should().NotBeNull();
+			networks.Should().NotBeEmpty();
+			var network = networks.SingleOrDefault(n => n.Name == Configuration.TestCameraNetworkName);
+			network.Should().NotBeNull();
+			return network;
 		}
 	}
 }

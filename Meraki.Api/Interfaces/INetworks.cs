@@ -252,13 +252,28 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// Generate a snapshot of what the camera sees at the specified time and return a link to that image.
+		/// Returns a list of all camera recording schedules.
 		/// </summary>
 		/// <param name="networkId">The network Id</param>
 		[Get("/networks/{networkId}/camera/schedules")]
 		Task<List<CameraSchedule>> GetCameraRecordingSchedulesAsync(
 			[AliasAs("networkId")] string networkId,
-					CancellationToken cancellationToken = default);
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Generate a snapshot of what the camera sees at the specified time and return a link to that image.
+		/// </summary>
+		/// <param name="networkId">The network Id</param>
+		/// <param name="serial">The camera serial</param>
+		/// <param name="timestampMs">The snapshot will be taken from this time on the camera. The timestamp is expected to be in ISO 8601 format. If no timestamp is specified, we will assume current time.</param>
+		/// <param name="fullframe">If set to "true" the snapshot will be taken at full sensor resolution. This will error if used with timestamp.</param>
+		[Post("/networks/{networkId}/camera/{serial}/snapshot")]
+		Task<CameraSnapshot> GetCameraSnapshotAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			[Query("timestamp")] string timestampMs = default!,
+			[Query("fullframe")] bool fullFrame = false,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// List the clients that have used this network in the timespan

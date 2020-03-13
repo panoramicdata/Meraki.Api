@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,10 +9,12 @@ namespace Meraki.Api
 	internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 	{
 		private readonly MerakiClientOptions _options;
+		private readonly ILogger _logger;
 
-		public AuthenticatedBackingOffHttpClientHandler(MerakiClientOptions options)
+		public AuthenticatedBackingOffHttpClientHandler(MerakiClientOptions options, ILogger logger)
 		{
 			_options = options;
+			_logger = logger;
 		}
 
 		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -35,6 +38,9 @@ namespace Meraki.Api
 
 				// Complete the action
 				httpResponseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+
+				var content = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+				_logger.LogDebug(content);
 
 				if ((int)httpResponseMessage.StatusCode != 429)
 				{

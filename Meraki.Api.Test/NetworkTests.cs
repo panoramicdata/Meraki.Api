@@ -2,13 +2,16 @@
 using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Meraki.Api.Test
 {
-	public class Networks : MerakiClientTest
+	public class NetworkTests : MerakiClientTest
 	{
 		[Fact]
 		public async void GetAllSsidsAsync_Succeeds()
@@ -405,6 +408,50 @@ namespace Meraki.Api.Test
 			newResult.MeshingEnabled.Should().Be(originalResult.MeshingEnabled);
 			newResult.Ipv6BridgeEnabled.Should().Be(originalResult.Ipv6BridgeEnabled);
 			newResult.LocationAnalyticsEnabled.Should().Be(originalResult.LocationAnalyticsEnabled);
+		}
+
+		[Fact]
+		public async void GetCameraSnapshotAsync_Succeeds()
+		{
+			Configuration.TestCameraNetworkName.Should().NotBeNull();
+
+			var network = await GetCameraNetworkAsync()
+				.ConfigureAwait(false);
+			network.Should().NotBeNull();
+
+			// Get a snapshot from the camera
+			var newResult = await MerakiClient
+				.Networks
+				.GetCameraSnapshotAsync(network.Id, Configuration.TestCameraSerial!)
+				.ConfigureAwait(false);
+			newResult.Should().NotBeNull();
+
+			// Download the image
+			using var client = new WebClient();
+			using var stream = client.OpenRead(newResult.Url);
+			using var bitmap = new Bitmap(stream);
+
+			bitmap.Save("temp.png", ImageFormat.Png);
+
+			stream.Flush();
+			stream.Close();
+		}
+
+		[Fact]
+		public async void GetCameraVideoLinkAsync_Succeeds()
+		{
+			Configuration.TestCameraNetworkName.Should().NotBeNull();
+
+			var network = await GetCameraNetworkAsync()
+				.ConfigureAwait(false);
+			network.Should().NotBeNull();
+
+			// Get a snapshot from the camera
+			var newResult = await MerakiClient
+				.Networks
+				.GetCameraVideoLinkAsync(network.Id, Configuration.TestCameraSerial!)
+				.ConfigureAwait(false);
+			newResult.Should().NotBeNull();
 		}
 	}
 }

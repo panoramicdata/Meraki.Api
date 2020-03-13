@@ -5,7 +5,8 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// A camera schedule
 	/// </summary>
-	public class CameraSchedule: NamedIdentifiedItem
+	[DataContract]
+	public class CameraSchedule : NamedIdentifiedItem
 	{
 	}
 }

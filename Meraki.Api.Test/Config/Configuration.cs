@@ -25,5 +25,17 @@ namespace Meraki.Api.Test.Config
 		/// </summary>
 		[DataMember(Name = "TestDeviceSerial")]
 		public string TestDeviceSerial { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Test Camera Serial
+		/// </summary>
+		[DataMember(Name = "TestCameraSerial")]
+		public string? TestCameraSerial { get; set; }
+
+		/// <summary>
+		/// Test Camera Network Name
+		/// </summary>
+		[DataMember(Name = "TestCameraNetworkName")]
+		public string? TestCameraNetworkName { get; set; }
 	}
 }

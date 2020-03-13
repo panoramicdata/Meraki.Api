@@ -22,10 +22,10 @@ namespace Meraki.Api
 		/// </summary>
 		/// <param name="options"></param>
 		/// <param name="logger"></param>
-		public MerakiClient(MerakiClientOptions options, ILogger logger = default!)
+		public MerakiClient(MerakiClientOptions options, ILogger? logger = default)
 		{
 			_logger = logger ?? NullLogger.Instance;
-			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)));
+			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), _logger);
 			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v0/") };
 
 			var refitSettings = new RefitSettings
