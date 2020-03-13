@@ -126,7 +126,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationBulkClaim">The organization bulk claim</param>
 		[Post("/organizations/{organizationId}/claim")]
 		Task<OrganizationBulkClaim> BulkClaimAsync(
-			[AliasAs("organizationId")] lstringong organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			[Body] OrganizationBulkClaim organizationBulkClaim = null!,
 			CancellationToken cancellationToken = default);
 
