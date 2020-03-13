@@ -20,5 +20,4 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "expiry")]
 		public string Expiry { get; set; } = string.Empty;
 	}
-
 }
