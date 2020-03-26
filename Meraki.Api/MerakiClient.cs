@@ -30,7 +30,7 @@ namespace Meraki.Api
 
 			var refitSettings = new RefitSettings
 			{
-				ContentSerializer = new JsonContentSerializer(
+				ContentSerializer = new NewtonsoftJsonContentSerializer(
 				new JsonSerializerSettings
 				{
 					NullValueHandling = NullValueHandling.Ignore
