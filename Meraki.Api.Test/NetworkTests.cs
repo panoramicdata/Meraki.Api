@@ -437,5 +437,15 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 		}
+
+		[Fact]
+		public async void GetFast_Succeeds()
+		{
+			foreach (var _ in Enumerable.Range(0, 100))
+			{
+				var __ = await GetTestNetworkAsync()
+					.ConfigureAwait(false);
+			}
+		}
 	}
 }
