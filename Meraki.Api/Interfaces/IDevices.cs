@@ -11,6 +11,17 @@ namespace Meraki.Api.Interfaces
 	public interface IDevices
 	{
 		///<summary>
+		/// Returns a device from a given network
+		/// </summary>
+		/// <param name="networkId">The network id</param>
+		/// <param name="serial">The device serial number</param>
+		[Get("/networks/devices/{serial}")]
+		Task<Device> GetAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+					CancellationToken cancellationToken = default);
+
+		///<summary>
 		/// Returns quality and retention settings for the given camera
 		/// </summary>
 		/// <param name="serial">The camera serial number</param>
