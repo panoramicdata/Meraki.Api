@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Meraki.Api.Exceptions;
+using System;
 
 namespace Meraki.Api
 {
@@ -24,5 +25,26 @@ namespace Meraki.Api
 		/// This option sets the maximum backoff duration.
 		/// </summary>
 		public TimeSpan MaxBackOffDelay { get; set; } = TimeSpan.FromSeconds(5);
+
+		public void Validate()
+		{
+			// ApiNode
+			if (ApiNode != null && string.IsNullOrWhiteSpace(ApiNode))
+			{
+				throw new ConfigurationException($"Missing {nameof(ApiNode)}.  If not required, set {nameof(ApiNode)} to null.");
+			}
+
+			// ApiKey
+			if (string.IsNullOrWhiteSpace(ApiKey))
+			{
+				throw new ConfigurationException($"Missing {nameof(ApiKey)}.");
+			}
+
+			// MaxBackoffDelay
+			if (MaxBackOffDelay < TimeSpan.Zero)
+			{
+				throw new ConfigurationException($"{nameof(MaxBackOffDelay)} should not be less than zero.");
+			}
+		}
 	}
 }

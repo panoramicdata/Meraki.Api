@@ -443,7 +443,7 @@ namespace Meraki.Api.Test
 		{
 			foreach (var _ in Enumerable.Range(0, 100))
 			{
-				var __ = await GetTestNetworkAsync()
+				await GetTestNetworkAsync()
 					.ConfigureAwait(false);
 			}
 		}

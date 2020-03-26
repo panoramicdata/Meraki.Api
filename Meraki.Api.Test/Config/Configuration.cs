@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Exceptions;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Test.Config
 {
@@ -18,7 +19,7 @@ namespace Meraki.Api.Test.Config
 		/// Test Organization Id
 		/// </summary>
 		[DataMember(Name = "TestOrganizationId")]
-		public string TestOrganizationId { get; set; }
+		public string TestOrganizationId { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Test Device Serial
@@ -30,12 +31,42 @@ namespace Meraki.Api.Test.Config
 		/// Test Camera Serial
 		/// </summary>
 		[DataMember(Name = "TestCameraSerial")]
-		public string? TestCameraSerial { get; set; }
+		public string TestCameraSerial { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Test Camera Network Name
 		/// </summary>
 		[DataMember(Name = "TestCameraNetworkName")]
-		public string? TestCameraNetworkName { get; set; }
+		public string TestCameraNetworkName { get; set; } = string.Empty;
+
+		public void Validate()
+		{
+			// MerakiClientOptions should be present
+			if (MerakiClientOptions is null)
+			{
+				throw new ConfigurationException($"Missing {nameof(MerakiClientOptions)}");
+			}
+			MerakiClientOptions.Validate();
+
+			if (string.IsNullOrWhiteSpace(TestOrganizationId))
+			{
+				throw new ConfigurationException($"Missing {nameof(TestOrganizationId)}");
+			}
+
+			if (string.IsNullOrWhiteSpace(TestDeviceSerial))
+			{
+				throw new ConfigurationException($"Missing {nameof(TestDeviceSerial)}");
+			}
+
+			if (string.IsNullOrWhiteSpace(TestCameraSerial))
+			{
+				throw new ConfigurationException($"Missing {nameof(TestCameraSerial)}");
+			}
+
+			if (string.IsNullOrWhiteSpace(TestCameraNetworkName))
+			{
+				throw new ConfigurationException($"Missing {nameof(TestCameraNetworkName)}");
+			}
+		}
 	}
 }

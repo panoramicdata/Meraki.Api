@@ -18,3 +18,10 @@ using System.Diagnostics.CodeAnalysis;
 	 Justification = "This can't be right!",
 	 Scope = "namespaceanddescendants",
 	 Target = "Meraki.Api.Data")]
+
+[assembly: SuppressMessage(
+	 "Globalization",
+	 "CA1303:Do not pass literals as localized parameters",
+	 Justification = "Not localising.",
+	 Scope = "member",
+	 Target = "~M:Meraki.Api.MerakiClientOptions.Validate")]

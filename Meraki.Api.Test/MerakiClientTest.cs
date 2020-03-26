@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Meraki.Api.Data;
+using Meraki.Api.Exceptions;
 using Meraki.Api.Test.Config;
-using Meraki.Api.Test.Exceptions;
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -44,7 +44,9 @@ namespace Meraki.Api.Test
 				// Yes
 
 				// Load in the config
-				return _configuration = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(fileInfo.FullName));
+				_configuration = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(fileInfo.FullName));
+				_configuration.Validate();
+				return _configuration;
 			}
 		}
 
