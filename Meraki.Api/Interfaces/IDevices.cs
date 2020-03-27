@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <param name="networkId">The network id</param>
 		/// <param name="serial">The device serial number</param>
-		[Get("/networks/devices/{serial}")]
+		[Get("/networks/{networkId}/devices/{serial}")]
 		Task<Device> GetAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
