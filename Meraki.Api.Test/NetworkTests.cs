@@ -397,16 +397,10 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetCameraSnapshotAsync_Succeeds()
 		{
-			Configuration.TestCameraNetworkName.Should().NotBeNull();
-
-			var network = await GetCameraNetworkAsync()
-				.ConfigureAwait(false);
-			network.Should().NotBeNull();
-
 			// Get a snapshot from the camera
 			var newResult = await MerakiClient
 				.Networks
-				.GetCameraSnapshotAsync(network.Id, Configuration.TestCameraSerial!)
+				.GetCameraSnapshotAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
 				.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 
@@ -424,16 +418,12 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetCameraVideoLinkAsync_Succeeds()
 		{
-			Configuration.TestCameraNetworkName.Should().NotBeNull();
-
-			var network = await GetCameraNetworkAsync()
-				.ConfigureAwait(false);
-			network.Should().NotBeNull();
+			Configuration.TestCameraNetworkId.Should().NotBeNull();
 
 			// Get a snapshot from the camera
 			var newResult = await MerakiClient
 				.Networks
-				.GetCameraVideoLinkAsync(network.Id, Configuration.TestCameraSerial!)
+				.GetCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
 				.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 		}

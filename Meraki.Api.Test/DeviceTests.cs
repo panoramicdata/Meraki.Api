@@ -8,12 +8,9 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetDeviceAsync_Succeeds()
 		{
-			var network = await GetCameraNetworkAsync()
-				.ConfigureAwait(false);
-
 			var devices = await MerakiClient
 				.Networks
-				.GetDevicesAsync(network.Id)
+				.GetDevicesAsync(Configuration.TestCameraNetworkId)
 				.ConfigureAwait(false);
 
 			devices
@@ -26,7 +23,7 @@ namespace Meraki.Api.Test
 
 			var device = await MerakiClient
 				.Devices
-				.GetAsync(network.Id, deviceSerial)
+				.GetAsync(Configuration.TestCameraNetworkId, deviceSerial)
 				.ConfigureAwait(false);
 			device.Should().NotBeNull();
 

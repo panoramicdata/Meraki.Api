@@ -36,8 +36,8 @@ namespace Meraki.Api.Test.Config
 		/// <summary>
 		/// Test Camera Network Name
 		/// </summary>
-		[DataMember(Name = "TestCameraNetworkName")]
-		public string TestCameraNetworkName { get; set; } = string.Empty;
+		[DataMember(Name = "TestCameraNetworkId")]
+		public string TestCameraNetworkId { get; set; } = string.Empty;
 
 		public void Validate()
 		{
@@ -63,9 +63,9 @@ namespace Meraki.Api.Test.Config
 				throw new ConfigurationException($"Missing {nameof(TestCameraSerial)}");
 			}
 
-			if (string.IsNullOrWhiteSpace(TestCameraNetworkName))
+			if (string.IsNullOrWhiteSpace(TestCameraNetworkId))
 			{
-				throw new ConfigurationException($"Missing {nameof(TestCameraNetworkName)}");
+				throw new ConfigurationException($"Missing {nameof(TestCameraNetworkId)}");
 			}
 		}
 	}

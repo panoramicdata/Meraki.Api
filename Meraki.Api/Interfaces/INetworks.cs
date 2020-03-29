@@ -267,7 +267,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The camera serial</param>
 		/// <param name="timestampMs">The snapshot will be taken from this time on the camera. The timestamp is expected to be in ISO 8601 format. If no timestamp is specified, we will assume current time.</param>
 		/// <param name="fullframe">If set to "true" the snapshot will be taken at full sensor resolution. This will error if used with timestamp.</param>
-		[Post("/networks/{networkId}/camera/{serial}/snapshot")]
+		[Post("/networks/{networkId}/cameras/{serial}/snapshot")]
 		Task<CameraSnapshot> GetCameraSnapshotAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
