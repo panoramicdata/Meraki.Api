@@ -1,4 +1,5 @@
 using FluentAssertions;
+using Meraki.Api.Data;
 using Xunit;
 
 namespace Meraki.Api.Test
@@ -9,19 +10,20 @@ namespace Meraki.Api.Test
 		public async void GetPageAsync_Succeeds()
 		{
 			var result = await MerakiClient
-				.ApiUsages
+				.ApiRequests
 				.GetPageAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 		}
 
 		[Fact]
-		public async void GetAll_Succeeds()
+		public async void GetOverviewAsync_Succeeds()
 		{
 			var result = await MerakiClient
-				.ApiUsages
+				.ApiRequests
 				.GetOverviewAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
+			result.Should().BeOfType<ApiUsageOverview>();
 			result.Should().NotBeNull();
 			result.ResponseCodeCounts.Should().NotBeNull();
 			result.ResponseCodeCounts.Should().NotBeEmpty();

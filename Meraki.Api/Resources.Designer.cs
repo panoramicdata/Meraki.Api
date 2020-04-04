@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace Meraki.Api {
-    using System;
+    using System;using System.Threading.Tasks;
     
     
     /// <summary>

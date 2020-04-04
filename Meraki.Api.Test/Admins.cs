@@ -1,4 +1,6 @@
 ﻿using FluentAssertions;
+using Meraki.Api.Data;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Meraki.Api.Test
@@ -12,6 +14,7 @@ namespace Meraki.Api.Test
 				.Admins
 				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
+			result.Should().BeOfType<List<Admin>>();
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
 		}

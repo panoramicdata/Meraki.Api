@@ -1,7 +1,6 @@
 using FluentAssertions;
 using Meraki.Api.Data;
 using System.Collections.Generic;
-using System.Linq;
 using Xunit;
 
 namespace Meraki.Api.Test
@@ -15,6 +14,7 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetAllAsync()
 				.ConfigureAwait(false);
+			result.Should().BeOfType<List<Organization>>();
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
 			var firstResult = result[0];
@@ -40,56 +40,13 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void GetNetworksAsync_Succeeds()
-		{
-			var result = await MerakiClient
-				.Organizations
-				.GetNetworksAsync(Configuration.TestOrganizationId)
-				.ConfigureAwait(false);
-			result.Should().NotBeNull();
-			result.Should().NotBeEmpty();
-			var firstResult = result[0];
-			Validate(firstResult);
-		}
-
-		private void Validate(Network network)
-		{
-			network.Should().NotBeNull();
-			string.IsNullOrWhiteSpace(network.Id).Should().BeFalse();
-			string.IsNullOrWhiteSpace(network.Name).Should().BeFalse();
-			string.IsNullOrWhiteSpace(network.OrganizationId).Should().BeFalse();
-			string.IsNullOrWhiteSpace(network.TimeZone).Should().BeFalse();
-		}
-
-		[Fact]
-		public async void GetNetworksByConfigTemplateIdAsync_Succeeds()
-		{
-			var configurationTemplates = await MerakiClient
-				.Organizations
-				.GetAllConfigurationTemplatesAsync(Configuration.TestOrganizationId)
-				.ConfigureAwait(false);
-			configurationTemplates.Should().NotBeNull();
-			if (configurationTemplates.Count == 0)
-			{
-				return;
-			}
-
-			var configurationTemplate = configurationTemplates[0];
-
-			var result = await MerakiClient
-				.Organizations
-				.GetNetworksAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
-				.ConfigureAwait(false);
-			result.Should().NotBeNull();
-		}
-
-		[Fact]
 		public async void GetAllThirdPartyVpnPeersAsync_Succeeds()
 		{
 			var result = await MerakiClient
 				.Organizations
-				.GetAllThirdPartyVpnPeersAsync(Configuration.TestOrganizationId)
+				.GetThirdPartyVpnPeersAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
+			result.Should().BeOfType<List<Peer>>();
 			result.Should().NotBeNull();
 		}
 
@@ -98,34 +55,10 @@ namespace Meraki.Api.Test
 		{
 			var result = await MerakiClient
 				.Organizations
-				.GetAllInventoryAsync(Configuration.TestOrganizationId)
+				.GetInventoryAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
-		}
-
-		[Fact]
-		public async void GetAllConfigurationTemplatesAsync_Succeeds()
-		{
-			var configurationTemplates = await MerakiClient
-				.Organizations
-				.GetAllConfigurationTemplatesAsync(Configuration.TestOrganizationId)
-				.ConfigureAwait(false);
-			configurationTemplates.Should().NotBeNull();
-
-			// Get their associated switch profiles (for the first up to 3)
-			foreach (var configurationTemplate in configurationTemplates.Take(3))
-			{
-				var switchProfiles = await MerakiClient
-				.Organizations
-				.GetSwitchProfilesAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
-				.ConfigureAwait(false);
-				switchProfiles.Should().NotBeNull();
-				if (switchProfiles.Count > 0)
-				{
-					switchProfiles.All(switchProfile => string.IsNullOrWhiteSpace(switchProfile.Model)).Should().BeFalse();
-				}
-			}
 		}
 
 		[Fact]
@@ -143,9 +76,10 @@ namespace Meraki.Api.Test
 		public async void GetChangeLogEntriesAsync_Succeeds()
 		{
 			var result = await MerakiClient
-				.Organizations
-				.GetChangeLogEntriesAsync(Configuration.TestOrganizationId)
+				.ChangeLogs
+				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
+			result.Should().BeOfType<List<ChangeLogEntry>>();
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
 		}

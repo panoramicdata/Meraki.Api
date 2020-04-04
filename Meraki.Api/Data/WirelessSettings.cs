@@ -25,5 +25,12 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "locationAnalyticsEnabled")]
 		public bool LocationAnalyticsEnabled { get; set; }
+
+		/// <summary>
+		/// Toggle for enabling or disabling LED lights on all APs in the network (making them run dark)
+		/// </summary>
+		/// <value>Toggle for enabling or disabling LED lights on all APs in the network (making them run dark)</value>
+		[DataMember(Name = "ledLightsOn")]
+		public bool LedLightsOn { get; set; }
 	}
 }

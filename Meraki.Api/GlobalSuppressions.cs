@@ -25,3 +25,10 @@ using System.Diagnostics.CodeAnalysis;
 	 Justification = "Not localising.",
 	 Scope = "member",
 	 Target = "~M:Meraki.Api.MerakiClientOptions.Validate")]
+
+[assembly: SuppressMessage(
+	 "Design",
+	 "CA1054:Uri parameters should not be strings",
+	 Justification = "Uri would not deserialize properly.",
+	 Scope = "member",
+	 Target = "~M:Meraki.Api.Interfaces.IWebhookLogs.GetOrganizationWebhookLogs(System.String,System.String,System.String,System.Nullable{System.Double},System.Nullable{System.Int32},System.String,System.String,System.String)~System.Threading.Tasks.Task{System.Object}")]

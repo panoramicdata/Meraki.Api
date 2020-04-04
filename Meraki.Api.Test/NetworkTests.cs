@@ -15,14 +15,37 @@ namespace Meraki.Api.Test
 	public class NetworkTests : MerakiClientTest
 	{
 		[Fact]
+		public async void GetNetworksAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.Networks
+				.GetAllAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			result.Should().BeOfType<List<Network>>();
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
+			var firstResult = result[0];
+			Validate(firstResult);
+		}
+
+		private void Validate(Network network)
+		{
+			network.Should().NotBeNull();
+			string.IsNullOrWhiteSpace(network.Id).Should().BeFalse();
+			string.IsNullOrWhiteSpace(network.Name).Should().BeFalse();
+			string.IsNullOrWhiteSpace(network.OrganizationId).Should().BeFalse();
+			string.IsNullOrWhiteSpace(network.TimeZone).Should().BeFalse();
+		}
+
+		[Fact]
 		public async void GetAllSsidsAsync_Succeeds()
 		{
 			var network = await GetTestNetworkAsync()
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
-				.Networks
-				.GetAllSsidsAsync(network.Id)
+				.Ssids
+				.GetAllAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
@@ -35,9 +58,10 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
-				.Networks
-				.GetDevicesAsync(network.Id)
+				.Devices
+				.GetAllByNetworkAsync(network.Id)
 				.ConfigureAwait(false);
+			result.Should().BeOfType<List<Device>>();
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
 		}
@@ -52,19 +76,22 @@ namespace Meraki.Api.Test
 
 			// Create network
 			var newNetwork = await MerakiClient
-				.Organizations
-				.CreateNetworkAsync(
+				.Networks
+				.CreateAsync(
 					Configuration.TestOrganizationId,
-					networkName,
-					"wireless switch appliance",
-					"network_level",
-					"Europe/London")
+					new NetworkCreationDto
+					{
+						Name = networkName,
+						Type = "wireless switch appliance",
+						Tags = "network_level",
+						TimeZone = "Europe/London"
+					})
 				.ConfigureAwait(false);
 
 			// And delete it again
 			await MerakiClient
 				.Networks
-				.DeleteNetworkAsync(newNetwork.Id)
+				.DeleteAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 		}
 
@@ -76,13 +103,16 @@ namespace Meraki.Api.Test
 			Func<Task> action = async () =>
 			{
 				var newNetwork = await MerakiClient
-					 .Organizations
-					 .CreateNetworkAsync(
-						 Configuration.TestOrganizationId,
-						 networkName,
-						 "wireless switch appliance",
-						 "network_level",
-						 "Europe/London")
+					 .Networks
+					 .CreateAsync(
+					Configuration.TestOrganizationId,
+					new NetworkCreationDto
+					{
+						Name = networkName,
+						Type = "wireless switch appliance",
+						Tags = "network_level",
+						TimeZone = "Europe/London"
+					})
 					 .ConfigureAwait(false);
 			};
 
@@ -96,26 +126,27 @@ namespace Meraki.Api.Test
 		{
 			// Perform any clean-up
 			var oldNetwork = (await MerakiClient
-				.Organizations.GetNetworksAsync(Configuration.TestOrganizationId)
+				.Networks
+				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false)).SingleOrDefault(n => n.Name == networkName);
 			if (oldNetwork != default)
 			{
 				// Get all network devices and remove them
 				var oldNetworkDevices = await MerakiClient
-					.Networks
-					.GetDevicesAsync(oldNetwork.Id)
+					.Devices
+					.GetAllByNetworkAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
 				foreach (var oldNetworkDevice in oldNetworkDevices)
 				{
 					await MerakiClient
-						.Networks
-						.RemoveDeviceAsync(oldNetwork.Id, oldNetworkDevice.Serial)
+						.Devices
+						.RemoveAsync(oldNetwork.Id, oldNetworkDevice.Serial)
 						.ConfigureAwait(false);
 				}
 
 				await MerakiClient
 					.Networks
-					.DeleteNetworkAsync(oldNetwork.Id)
+					.DeleteAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
 			}
 		}
@@ -133,15 +164,15 @@ namespace Meraki.Api.Test
 			// Get the device
 			var devices = await MerakiClient
 				.Organizations
-				.GetAllInventoryAsync(Configuration.TestOrganizationId)
+				.GetInventoryAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
 			if (device?.NetworkId != null)
 			{
 				// Unclaim the device
 				await MerakiClient
-					 .Networks
-					 .RemoveDeviceAsync(device.NetworkId, Configuration.TestDeviceSerial)
+					 .Devices
+					 .RemoveAsync(device.NetworkId, Configuration.TestDeviceSerial)
 					 .ConfigureAwait(false);
 			}
 
@@ -151,13 +182,16 @@ namespace Meraki.Api.Test
 
 			// Create network
 			var newNetwork = await MerakiClient
-				.Organizations
-				.CreateNetworkAsync(
+				.Networks
+				.CreateAsync(
 					Configuration.TestOrganizationId,
-					networkName,
-					"wireless switch appliance",
-					"network_level",
-					"Europe/London")
+				new NetworkCreationDto
+				{
+					Name = networkName,
+					Type = "wireless switch appliance",
+					Tags = "network_level",
+					TimeZone = "Europe/London"
+				})
 				.ConfigureAwait(false);
 
 			newNetwork.Should().NotBeNull();
@@ -172,8 +206,8 @@ namespace Meraki.Api.Test
 
 			// Bind and unbind a configuration template
 			var configurationTemplates = await MerakiClient
-				.Organizations
-				.GetAllConfigurationTemplatesAsync(Configuration.TestOrganizationId)
+				.ConfigurationTemplates
+				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			configurationTemplates.Should().NotBeNull();
 			configurationTemplates.Should().NotBeEmpty();
@@ -185,8 +219,8 @@ namespace Meraki.Api.Test
 
 			// Get all VLANs - should be the default one
 			var initialVlans = await MerakiClient
-				.Networks
-				.GetAllVlansAsync(newNetwork.Id)
+				.Vlans
+				.GetAllAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			initialVlans.Should().NotBeNull();
 
@@ -195,8 +229,8 @@ namespace Meraki.Api.Test
 
 			// Update a VLAN
 			var updatedVlan = await MerakiClient
-				.Networks
-				.UpdateVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
+				.Vlans
+				.UpdateAsync(newNetwork.Id, vlan10.Id, new VlanSpec
 				{
 					Subnet = "10.250.82.128/28",
 					ApplianceIp = "10.250.82.129",
@@ -215,23 +249,24 @@ namespace Meraki.Api.Test
 
 			//--- Claim/Remove device
 			await MerakiClient
-				.Networks
-				.ClaimDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, true)
+				.Devices
+				.ClaimAsync(newNetwork.Id, new ClaimNetworkDevices { Serials = new List<string> { Configuration.TestDeviceSerial } })
 				.ConfigureAwait(false);
 
 			// Make sure it's there.
 			var fetchedDevice = await MerakiClient
-				.Networks
-				.GetDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.Devices
+				.GetAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
+			fetchedDevice.Should().BeOfType<Device>();
 			fetchedDevice.Should().NotBeNull();
 
 			// Updating the device with a too-long address should fail
 			Func<Task> action = async () =>
 			{
 				await MerakiClient
-								.Networks
-								.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: new string('X', Device.MaxAddressLength + 1))
+								.Devices
+								.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateDto { Address = new string('X', Device.MaxAddressLength + 1) })
 								.ConfigureAwait(false);
 			};
 
@@ -242,15 +277,14 @@ namespace Meraki.Api.Test
 
 			// But an OK length should succeed
 			await MerakiClient
-				.Networks
-				.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: new string('X', Device.MaxAddressLength))
+				.Devices
+				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateDto { Address = new string('X', Device.MaxAddressLength) })
 				.ConfigureAwait(false);
 
 			// Setting the address should succeed
 			await MerakiClient
-				.Networks
-				.UpdateDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial, address: "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA", moveMapMarker: true)
-				.ConfigureAwait(false);
+				.Devices
+				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateDto { Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA" })
 
 			// Get the management interface settings
 			var wanSpecs = await MerakiClient
@@ -308,8 +342,8 @@ namespace Meraki.Api.Test
 			// ----------
 
 			await MerakiClient
-				.Networks
-				.RemoveDeviceAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.Devices
+				.RemoveAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
 
 			await MerakiClient
@@ -322,7 +356,7 @@ namespace Meraki.Api.Test
 			// Delete the network
 			await MerakiClient
 				.Networks
-				.DeleteNetworkAsync(newNetwork.Id)
+				.DeleteAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			action = async () =>
@@ -346,8 +380,8 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
-				.Networks
-				.GetClientsAsync(network.Id)
+				.Clients
+				.GetByNetworkAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
@@ -360,11 +394,11 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
-				.Networks
-				.GetBluetoothClientsAsync(network.Id)
+				.BluetoothClients
+				.GetAllAsync(network.Id)
 				.ConfigureAwait(false);
-			result.Should().NotBeNull();
 			result.Should().BeOfType<List<BluetoothClient>>();
+			result.Should().NotBeNull();
 		}
 
 		[Fact]
@@ -375,17 +409,25 @@ namespace Meraki.Api.Test
 
 			// Get the wireless settings
 			var originalResult = await MerakiClient
-				.Networks
-				.GetWirelessSettingsAsync(network.Id)
+				.WirelessSettings
+				.GetAsync(network.Id)
 				.ConfigureAwait(false);
+			originalResult.Should().BeOfType<WirelessSettings>();
 			originalResult.Should().NotBeNull();
 			originalResult.Should().BeOfType<List<BluetoothClient>>();
 
 			// Re-set the wireless settings (to the same values)
 			var newResult = await MerakiClient
-				.Networks
-				.SetWirelessSettingsAsync(network.Id, originalResult)
+				.WirelessSettings
+				.UpdateAsync(network.Id, new WirelessSettingsUpdateDto
+				{
+					Ipv6BridgeEnabled = originalResult.Ipv6BridgeEnabled,
+					LedLightsOn = originalResult.LedLightsOn,
+					LocationAnalyticsEnabled = originalResult.LocationAnalyticsEnabled,
+					MeshingEnabled = originalResult.MeshingEnabled,
+				})
 				.ConfigureAwait(false);
+			newResult.Should().BeOfType<WirelessSettings>();
 			newResult.Should().NotBeNull();
 
 			// The two should match
@@ -399,8 +441,8 @@ namespace Meraki.Api.Test
 		{
 			// Get a snapshot from the camera
 			var newResult = await MerakiClient
-				.Networks
-				.GetCameraSnapshotAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
+				.Cameras
+				.GetSnapshotAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!, new CameraSnapshotRequest { Fullframe = true })
 				.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 
@@ -422,8 +464,8 @@ namespace Meraki.Api.Test
 
 			// Get a snapshot from the camera
 			var newResult = await MerakiClient
-				.Networks
-				.GetCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
+				.Cameras
+				.GetVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
 				.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 		}
