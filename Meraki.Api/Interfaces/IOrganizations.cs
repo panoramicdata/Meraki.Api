@@ -19,12 +19,12 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
-		/// <param name="claimIntoOrganization"> (optional)</param>
+		/// <param name="organizationClaimRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/claim")]
-		Task<object> ClaimIntoOrganization(
+		Task<OrganizationClaimResponse> ClaimAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]ClaimIntoOrganization claimIntoOrganization,
+			[Body]OrganizationClaimRequest organizationClaimRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -53,8 +53,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="createOrganization"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations")]
-		Task<object> CreateAsync(
-			[Body]CreateOrganization createOrganization,
+		Task<Organization> CreateAsync(
+			[Body]OrganizationCreateRequest createOrganization,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

@@ -124,23 +124,23 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Definitions == other.Definitions ||
-						  Definitions != null &&
-						  Definitions.SequenceEqual(other.Definitions)
+						  (Definitions != null &&
+						  Definitions.SequenceEqual(other.Definitions))
 					 ) &&
 					 (
 						  PerClientBandwidthLimits == other.PerClientBandwidthLimits ||
-						  PerClientBandwidthLimits != null &&
-						  PerClientBandwidthLimits.Equals(other.PerClientBandwidthLimits)
+						  (PerClientBandwidthLimits != null &&
+						  PerClientBandwidthLimits.Equals(other.PerClientBandwidthLimits))
 					 ) &&
 					 (
 						  DscpTagValue == other.DscpTagValue ||
-						  DscpTagValue != null &&
-						  DscpTagValue.Equals(other.DscpTagValue)
+						  (DscpTagValue != null &&
+						  DscpTagValue.Equals(other.DscpTagValue))
 					 ) &&
 					 (
 						  PcpTagValue == other.PcpTagValue ||
-						  PcpTagValue != null &&
-						  PcpTagValue.Equals(other.PcpTagValue)
+						  (PcpTagValue != null &&
+						  PcpTagValue.Equals(other.PcpTagValue))
 					 );
 		}
 
@@ -156,14 +156,26 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Definitions != null)
-                    hash = hash * 59 + Definitions.GetHashCode();
-                if (PerClientBandwidthLimits != null)
-                    hash = hash * 59 + PerClientBandwidthLimits.GetHashCode();
-                if (DscpTagValue != null)
-                    hash = hash * 59 + DscpTagValue.GetHashCode();
-                if (PcpTagValue != null)
-                    hash = hash * 59 + PcpTagValue.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Definitions.GetHashCode();
+				}
+
+				if (PerClientBandwidthLimits != null)
+				{
+					hash = (hash * 59) + PerClientBandwidthLimits.GetHashCode();
+				}
+
+				if (DscpTagValue != null)
+				{
+					hash = (hash * 59) + DscpTagValue.GetHashCode();
+				}
+
+				if (PcpTagValue != null)
+				{
+					hash = (hash * 59) + PcpTagValue.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -110,23 +110,23 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  WifiMac == other.WifiMac ||
-						  WifiMac != null &&
-						  WifiMac.Equals(other.WifiMac)
+						  (WifiMac != null &&
+						  WifiMac.Equals(other.WifiMac))
 					 ) &&
 					 (
 						  Id == other.Id ||
-						  Id != null &&
-						  Id.Equals(other.Id)
+						  (Id != null &&
+						  Id.Equals(other.Id))
 					 ) &&
 					 (
 						  Serial == other.Serial ||
-						  Serial != null &&
-						  Serial.Equals(other.Serial)
+						  (Serial != null &&
+						  Serial.Equals(other.Serial))
 					 ) &&
 					 (
 						  Pin == other.Pin ||
-						  Pin != null &&
-						  Pin.Equals(other.Pin)
+						  (Pin != null &&
+						  Pin.Equals(other.Pin))
 					 );
 		}
 
@@ -142,14 +142,26 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (WifiMac != null)
-                    hash = hash * 59 + WifiMac.GetHashCode();
-                if (Id != null)
-                    hash = hash * 59 + Id.GetHashCode();
-                if (Serial != null)
-                    hash = hash * 59 + Serial.GetHashCode();
-                if (Pin != null)
-                    hash = hash * 59 + Pin.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + WifiMac.GetHashCode();
+				}
+
+				if (Id != null)
+				{
+					hash = (hash * 59) + Id.GetHashCode();
+				}
+
+				if (Serial != null)
+				{
+					hash = (hash * 59) + Serial.GetHashCode();
+				}
+
+				if (Pin != null)
+				{
+					hash = (hash * 59) + Pin.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

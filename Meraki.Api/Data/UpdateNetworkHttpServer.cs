@@ -101,18 +101,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Url == other.Url ||
-						  Url != null &&
-						  Url.Equals(other.Url)
+						  (Url != null &&
+						  Url.Equals(other.Url))
 					 ) &&
 					 (
 						  SharedSecret == other.SharedSecret ||
-						  SharedSecret != null &&
-						  SharedSecret.Equals(other.SharedSecret)
+						  (SharedSecret != null &&
+						  SharedSecret.Equals(other.SharedSecret))
 					 );
 		}
 
@@ -128,12 +128,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Url != null)
-                    hash = hash * 59 + Url.GetHashCode();
-                if (SharedSecret != null)
-                    hash = hash * 59 + SharedSecret.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Url != null)
+				{
+					hash = (hash * 59) + Url.GetHashCode();
+				}
+
+				if (SharedSecret != null)
+				{
+					hash = (hash * 59) + SharedSecret.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

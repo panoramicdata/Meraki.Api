@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  IgmpSnoopingEnabled == other.IgmpSnoopingEnabled ||
-						  IgmpSnoopingEnabled != null &&
-						  IgmpSnoopingEnabled.Equals(other.IgmpSnoopingEnabled)
+						  (IgmpSnoopingEnabled != null &&
+						  IgmpSnoopingEnabled.Equals(other.IgmpSnoopingEnabled))
 					 ) &&
 					 (
 						  FloodUnknownMulticastTrafficEnabled == other.FloodUnknownMulticastTrafficEnabled ||
-						  FloodUnknownMulticastTrafficEnabled != null &&
-						  FloodUnknownMulticastTrafficEnabled.Equals(other.FloodUnknownMulticastTrafficEnabled)
+						  (FloodUnknownMulticastTrafficEnabled != null &&
+						  FloodUnknownMulticastTrafficEnabled.Equals(other.FloodUnknownMulticastTrafficEnabled))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (IgmpSnoopingEnabled != null)
-                    hash = hash * 59 + IgmpSnoopingEnabled.GetHashCode();
-                if (FloodUnknownMulticastTrafficEnabled != null)
-                    hash = hash * 59 + FloodUnknownMulticastTrafficEnabled.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + IgmpSnoopingEnabled.GetHashCode();
+				}
+
+				if (FloodUnknownMulticastTrafficEnabled != null)
+				{
+					hash = (hash * 59) + FloodUnknownMulticastTrafficEnabled.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

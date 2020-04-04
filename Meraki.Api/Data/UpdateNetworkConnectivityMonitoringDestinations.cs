@@ -83,8 +83,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: Destinations == other.Destinations ||
-						  Destinations != null &&
-						  Destinations.SequenceEqual(other.Destinations);
+						  (Destinations != null &&
+						  Destinations.SequenceEqual(other.Destinations));
 		}
 
 		/// <summary>
@@ -99,8 +99,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Destinations != null)
-                    hash = hash * 59 + Destinations.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Destinations.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Tag == other.Tag ||
-						  Tag != null &&
-						  Tag.Equals(other.Tag)
+						  (Tag != null &&
+						  Tag.Equals(other.Tag))
 					 ) &&
 					 (
 						  Access == other.Access ||
-						  Access != null &&
-						  Access.Equals(other.Access)
+						  (Access != null &&
+						  Access.Equals(other.Access))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Tag != null)
-                    hash = hash * 59 + Tag.GetHashCode();
-                if (Access != null)
-                    hash = hash * 59 + Access.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Tag.GetHashCode();
+				}
+
+				if (Access != null)
+				{
+					hash = (hash * 59) + Access.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

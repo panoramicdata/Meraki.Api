@@ -97,8 +97,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: WhitelistedRules == other.WhitelistedRules ||
-						  WhitelistedRules != null &&
-						  WhitelistedRules.SequenceEqual(other.WhitelistedRules);
+						  (WhitelistedRules != null &&
+						  WhitelistedRules.SequenceEqual(other.WhitelistedRules));
 		}
 
 		/// <summary>
@@ -113,8 +113,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (WhitelistedRules != null)
-                    hash = hash * 59 + WhitelistedRules.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + WhitelistedRules.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -98,18 +98,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Mode == other.Mode ||
-						  Mode != null &&
-						  Mode.Equals(other.Mode)
+						  (Mode != null &&
+						  Mode.Equals(other.Mode))
 					 ) &&
 					 (
 						  IdsRulesets == other.IdsRulesets ||
-						  IdsRulesets != null &&
-						  IdsRulesets.Equals(other.IdsRulesets)
+						  (IdsRulesets != null &&
+						  IdsRulesets.Equals(other.IdsRulesets))
 					 ) &&
 					 (
 						  ProtectedNetworks == other.ProtectedNetworks ||
-						  ProtectedNetworks != null &&
-						  ProtectedNetworks.Equals(other.ProtectedNetworks)
+						  (ProtectedNetworks != null &&
+						  ProtectedNetworks.Equals(other.ProtectedNetworks))
 					 );
 		}
 
@@ -125,12 +125,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Mode != null)
-                    hash = hash * 59 + Mode.GetHashCode();
-                if (IdsRulesets != null)
-                    hash = hash * 59 + IdsRulesets.GetHashCode();
-                if (ProtectedNetworks != null)
-                    hash = hash * 59 + ProtectedNetworks.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Mode.GetHashCode();
+				}
+
+				if (IdsRulesets != null)
+				{
+					hash = (hash * 59) + IdsRulesets.GetHashCode();
+				}
+
+				if (ProtectedNetworks != null)
+				{
+					hash = (hash * 59) + ProtectedNetworks.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

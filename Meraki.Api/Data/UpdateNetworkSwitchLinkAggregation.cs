@@ -93,13 +93,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  SwitchPorts == other.SwitchPorts ||
-						  SwitchPorts != null &&
-						  SwitchPorts.SequenceEqual(other.SwitchPorts)
+						  (SwitchPorts != null &&
+						  SwitchPorts.SequenceEqual(other.SwitchPorts))
 					 ) &&
 					 (
 						  SwitchProfilePorts == other.SwitchProfilePorts ||
-						  SwitchProfilePorts != null &&
-						  SwitchProfilePorts.SequenceEqual(other.SwitchProfilePorts)
+						  (SwitchProfilePorts != null &&
+						  SwitchProfilePorts.SequenceEqual(other.SwitchProfilePorts))
 					 );
 		}
 
@@ -115,10 +115,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (SwitchPorts != null)
-                    hash = hash * 59 + SwitchPorts.GetHashCode();
-                if (SwitchProfilePorts != null)
-                    hash = hash * 59 + SwitchProfilePorts.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + SwitchPorts.GetHashCode();
+				}
+
+				if (SwitchProfilePorts != null)
+				{
+					hash = (hash * 59) + SwitchProfilePorts.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

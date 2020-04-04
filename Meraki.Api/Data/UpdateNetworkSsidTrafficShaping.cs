@@ -102,18 +102,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  TrafficShapingEnabled == other.TrafficShapingEnabled ||
-						  TrafficShapingEnabled != null &&
-						  TrafficShapingEnabled.Equals(other.TrafficShapingEnabled)
+						  (TrafficShapingEnabled != null &&
+						  TrafficShapingEnabled.Equals(other.TrafficShapingEnabled))
 					 ) &&
 					 (
 						  DefaultRulesEnabled == other.DefaultRulesEnabled ||
-						  DefaultRulesEnabled != null &&
-						  DefaultRulesEnabled.Equals(other.DefaultRulesEnabled)
+						  (DefaultRulesEnabled != null &&
+						  DefaultRulesEnabled.Equals(other.DefaultRulesEnabled))
 					 ) &&
 					 (
 						  Rules == other.Rules ||
-						  Rules != null &&
-						  Rules.SequenceEqual(other.Rules)
+						  (Rules != null &&
+						  Rules.SequenceEqual(other.Rules))
 					 );
 		}
 
@@ -129,12 +129,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (TrafficShapingEnabled != null)
-                    hash = hash * 59 + TrafficShapingEnabled.GetHashCode();
-                if (DefaultRulesEnabled != null)
-                    hash = hash * 59 + DefaultRulesEnabled.GetHashCode();
-                if (Rules != null)
-                    hash = hash * 59 + Rules.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + TrafficShapingEnabled.GetHashCode();
+				}
+
+				if (DefaultRulesEnabled != null)
+				{
+					hash = (hash * 59) + DefaultRulesEnabled.GetHashCode();
+				}
+
+				if (Rules != null)
+				{
+					hash = (hash * 59) + Rules.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

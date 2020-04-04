@@ -105,13 +105,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  DevicePolicy == other.DevicePolicy ||
-						  DevicePolicy != null &&
-						  DevicePolicy.Equals(other.DevicePolicy)
+						  (DevicePolicy != null &&
+						  DevicePolicy.Equals(other.DevicePolicy))
 					 ) &&
 					 (
 						  GroupPolicyId == other.GroupPolicyId ||
-						  GroupPolicyId != null &&
-						  GroupPolicyId.Equals(other.GroupPolicyId)
+						  (GroupPolicyId != null &&
+						  GroupPolicyId.Equals(other.GroupPolicyId))
 					 );
 		}
 
@@ -127,10 +127,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DevicePolicy != null)
-                    hash = hash * 59 + DevicePolicy.GetHashCode();
-                if (GroupPolicyId != null)
-                    hash = hash * 59 + GroupPolicyId.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DevicePolicy.GetHashCode();
+				}
+
+				if (GroupPolicyId != null)
+				{
+					hash = (hash * 59) + GroupPolicyId.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

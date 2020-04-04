@@ -101,18 +101,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Scope == other.Scope ||
-						  Scope != null &&
-						  Scope.Equals(other.Scope)
+						  (Scope != null &&
+						  Scope.Equals(other.Scope))
 					 ) &&
 					 (
 						  PreventAutoInstall == other.PreventAutoInstall ||
-						  PreventAutoInstall != null &&
-						  PreventAutoInstall.Equals(other.PreventAutoInstall)
+						  (PreventAutoInstall != null &&
+						  PreventAutoInstall.Equals(other.PreventAutoInstall))
 					 ) &&
 					 (
 						  UsesVPP == other.UsesVPP ||
-						  UsesVPP != null &&
-						  UsesVPP.Equals(other.UsesVPP)
+						  (UsesVPP != null &&
+						  UsesVPP.Equals(other.UsesVPP))
 					 );
 		}
 
@@ -128,12 +128,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Scope != null)
-                    hash = hash * 59 + Scope.GetHashCode();
-                if (PreventAutoInstall != null)
-                    hash = hash * 59 + PreventAutoInstall.GetHashCode();
-                if (UsesVPP != null)
-                    hash = hash * 59 + UsesVPP.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Scope.GetHashCode();
+				}
+
+				if (PreventAutoInstall != null)
+				{
+					hash = (hash * 59) + PreventAutoInstall.GetHashCode();
+				}
+
+				if (UsesVPP != null)
+				{
+					hash = (hash * 59) + UsesVPP.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

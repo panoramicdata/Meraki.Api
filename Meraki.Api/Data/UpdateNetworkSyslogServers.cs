@@ -97,8 +97,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: Servers == other.Servers ||
-						  Servers != null &&
-						  Servers.SequenceEqual(other.Servers);
+						  (Servers != null &&
+						  Servers.SequenceEqual(other.Servers));
 		}
 
 		/// <summary>
@@ -113,8 +113,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Servers != null)
-                    hash = hash * 59 + Servers.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Servers.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

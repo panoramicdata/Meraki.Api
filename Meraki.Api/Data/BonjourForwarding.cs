@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Settings == other.Settings ||
-						  Settings != null &&
-						  Settings.Equals(other.Settings)
+						  (Settings != null &&
+						  Settings.Equals(other.Settings))
 					 ) &&
 					 (
 						  Rules == other.Rules ||
-						  Rules != null &&
-						  Rules.SequenceEqual(other.Rules)
+						  (Rules != null &&
+						  Rules.SequenceEqual(other.Rules))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Settings != null)
-                    hash = hash * 59 + Settings.GetHashCode();
-                if (Rules != null)
-                    hash = hash * 59 + Rules.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Settings.GetHashCode();
+				}
+
+				if (Rules != null)
+				{
+					hash = (hash * 59) + Rules.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

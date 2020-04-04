@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -20,10 +21,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/devices/{serial}/managementInterfaceSettings")]
-		Task<object> GetNetworkDeviceManagementInterfaceSettings(
+		Task<WanSpecs> GetAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial
-			);
+			[AliasAs("serial")]string serial,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// updateNetworkDeviceManagementInterfaceSettings
@@ -37,10 +38,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateNetworkDeviceManagementInterfaceSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/devices/{serial}/managementInterfaceSettings")]
-		Task<object> UpdateNetworkDeviceManagementInterfaceSettings(
+		Task<WanSpecs> UpdateAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial,
-			[Body]UpdateNetworkDeviceManagementInterfaceSettings updateNetworkDeviceManagementInterfaceSettings
-			);
+			[Body]ManagementInterfaceSettingsUpdateRequest managementInterfaceSettingsUpdateDto,
+			CancellationToken cancellationToken = default);
 	}
 }

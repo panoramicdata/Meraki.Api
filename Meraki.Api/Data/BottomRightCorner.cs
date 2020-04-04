@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Lat == other.Lat ||
-						  Lat != null &&
-						  Lat.Equals(other.Lat)
+						  (Lat != null &&
+						  Lat.Equals(other.Lat))
 					 ) &&
 					 (
 						  Lng == other.Lng ||
-						  Lng != null &&
-						  Lng.Equals(other.Lng)
+						  (Lng != null &&
+						  Lng.Equals(other.Lng))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Lat != null)
-                    hash = hash * 59 + Lat.GetHashCode();
-                if (Lng != null)
-                    hash = hash * 59 + Lng.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Lat.GetHashCode();
+				}
+
+				if (Lng != null)
+				{
+					hash = (hash * 59) + Lng.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

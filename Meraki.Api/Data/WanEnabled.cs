@@ -19,7 +19,7 @@ namespace Meraki.Api.Data
 	/// </summary>
 	/// <value>Enable or disable the interface (only for MX devices). Valid values are 'enabled', 'disabled', and 'not configured'.</value>
 	[JsonConverter(typeof(StringEnumConverter))]
-    public enum WanEnabled
+    public enum WanEnabledStatus
     {
 
         /// <summary>

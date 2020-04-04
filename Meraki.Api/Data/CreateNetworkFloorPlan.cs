@@ -154,38 +154,38 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Center == other.Center ||
-						  Center != null &&
-						  Center.Equals(other.Center)
+						  (Center != null &&
+						  Center.Equals(other.Center))
 					 ) &&
 					 (
 						  BottomLeftCorner == other.BottomLeftCorner ||
-						  BottomLeftCorner != null &&
-						  BottomLeftCorner.Equals(other.BottomLeftCorner)
+						  (BottomLeftCorner != null &&
+						  BottomLeftCorner.Equals(other.BottomLeftCorner))
 					 ) &&
 					 (
 						  BottomRightCorner == other.BottomRightCorner ||
-						  BottomRightCorner != null &&
-						  BottomRightCorner.Equals(other.BottomRightCorner)
+						  (BottomRightCorner != null &&
+						  BottomRightCorner.Equals(other.BottomRightCorner))
 					 ) &&
 					 (
 						  TopLeftCorner == other.TopLeftCorner ||
-						  TopLeftCorner != null &&
-						  TopLeftCorner.Equals(other.TopLeftCorner)
+						  (TopLeftCorner != null &&
+						  TopLeftCorner.Equals(other.TopLeftCorner))
 					 ) &&
 					 (
 						  TopRightCorner == other.TopRightCorner ||
-						  TopRightCorner != null &&
-						  TopRightCorner.Equals(other.TopRightCorner)
+						  (TopRightCorner != null &&
+						  TopRightCorner.Equals(other.TopRightCorner))
 					 ) &&
 					 (
 						  ImageContents == other.ImageContents ||
-						  ImageContents != null &&
-						  ImageContents.Equals(other.ImageContents)
+						  (ImageContents != null &&
+						  ImageContents.Equals(other.ImageContents))
 					 );
 		}
 
@@ -201,20 +201,41 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Center != null)
-                    hash = hash * 59 + Center.GetHashCode();
-                if (BottomLeftCorner != null)
-                    hash = hash * 59 + BottomLeftCorner.GetHashCode();
-                if (BottomRightCorner != null)
-                    hash = hash * 59 + BottomRightCorner.GetHashCode();
-                if (TopLeftCorner != null)
-                    hash = hash * 59 + TopLeftCorner.GetHashCode();
-                if (TopRightCorner != null)
-                    hash = hash * 59 + TopRightCorner.GetHashCode();
-                if (ImageContents != null)
-                    hash = hash * 59 + ImageContents.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Center != null)
+				{
+					hash = (hash * 59) + Center.GetHashCode();
+				}
+
+				if (BottomLeftCorner != null)
+				{
+					hash = (hash * 59) + BottomLeftCorner.GetHashCode();
+				}
+
+				if (BottomRightCorner != null)
+				{
+					hash = (hash * 59) + BottomRightCorner.GetHashCode();
+				}
+
+				if (TopLeftCorner != null)
+				{
+					hash = (hash * 59) + TopLeftCorner.GetHashCode();
+				}
+
+				if (TopRightCorner != null)
+				{
+					hash = (hash * 59) + TopRightCorner.GetHashCode();
+				}
+
+				if (ImageContents != null)
+				{
+					hash = (hash * 59) + ImageContents.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

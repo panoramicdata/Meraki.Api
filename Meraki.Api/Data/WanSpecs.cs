@@ -15,12 +15,12 @@ namespace Meraki.Api.Data
 		/// WAN 1 spec
 		/// </summary>
 		[DataMember(Name = "wan1")]
-		public WanSpec? WanSpec1 { get; set; }
+		public Wan? Wan1 { get; set; }
 
 		/// <summary>
 		/// WAN 2 spec
 		/// </summary>
 		[DataMember(Name = "wan2")]
-		public WanSpec? WanSpec2 { get; set; }
+		public Wan? Wan2 { get; set; }
 	}
 }

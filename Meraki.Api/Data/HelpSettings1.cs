@@ -189,73 +189,73 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  HelpTab == other.HelpTab ||
-						  HelpTab != null &&
-						  HelpTab.Equals(other.HelpTab)
+						  (HelpTab != null &&
+						  HelpTab.Equals(other.HelpTab))
 					 ) &&
 					 (
 						  GetHelpSubtab == other.GetHelpSubtab ||
-						  GetHelpSubtab != null &&
-						  GetHelpSubtab.Equals(other.GetHelpSubtab)
+						  (GetHelpSubtab != null &&
+						  GetHelpSubtab.Equals(other.GetHelpSubtab))
 					 ) &&
 					 (
 						  CommunitySubtab == other.CommunitySubtab ||
-						  CommunitySubtab != null &&
-						  CommunitySubtab.Equals(other.CommunitySubtab)
+						  (CommunitySubtab != null &&
+						  CommunitySubtab.Equals(other.CommunitySubtab))
 					 ) &&
 					 (
 						  CasesSubtab == other.CasesSubtab ||
-						  CasesSubtab != null &&
-						  CasesSubtab.Equals(other.CasesSubtab)
+						  (CasesSubtab != null &&
+						  CasesSubtab.Equals(other.CasesSubtab))
 					 ) &&
 					 (
 						  DataProtectionRequestsSubtab == other.DataProtectionRequestsSubtab ||
-						  DataProtectionRequestsSubtab != null &&
-						  DataProtectionRequestsSubtab.Equals(other.DataProtectionRequestsSubtab)
+						  (DataProtectionRequestsSubtab != null &&
+						  DataProtectionRequestsSubtab.Equals(other.DataProtectionRequestsSubtab))
 					 ) &&
 					 (
 						  GetHelpSubtabKnowledgeBaseSearch == other.GetHelpSubtabKnowledgeBaseSearch ||
-						  GetHelpSubtabKnowledgeBaseSearch != null &&
-						  GetHelpSubtabKnowledgeBaseSearch.Equals(other.GetHelpSubtabKnowledgeBaseSearch)
+						  (GetHelpSubtabKnowledgeBaseSearch != null &&
+						  GetHelpSubtabKnowledgeBaseSearch.Equals(other.GetHelpSubtabKnowledgeBaseSearch))
 					 ) &&
 					 (
 						  UniversalSearchKnowledgeBaseSearch == other.UniversalSearchKnowledgeBaseSearch ||
-						  UniversalSearchKnowledgeBaseSearch != null &&
-						  UniversalSearchKnowledgeBaseSearch.Equals(other.UniversalSearchKnowledgeBaseSearch)
+						  (UniversalSearchKnowledgeBaseSearch != null &&
+						  UniversalSearchKnowledgeBaseSearch.Equals(other.UniversalSearchKnowledgeBaseSearch))
 					 ) &&
 					 (
 						  CiscoMerakiProductDocumentation == other.CiscoMerakiProductDocumentation ||
-						  CiscoMerakiProductDocumentation != null &&
-						  CiscoMerakiProductDocumentation.Equals(other.CiscoMerakiProductDocumentation)
+						  (CiscoMerakiProductDocumentation != null &&
+						  CiscoMerakiProductDocumentation.Equals(other.CiscoMerakiProductDocumentation))
 					 ) &&
 					 (
 						  SupportContactInfo == other.SupportContactInfo ||
-						  SupportContactInfo != null &&
-						  SupportContactInfo.Equals(other.SupportContactInfo)
+						  (SupportContactInfo != null &&
+						  SupportContactInfo.Equals(other.SupportContactInfo))
 					 ) &&
 					 (
 						  NewFeaturesSubtab == other.NewFeaturesSubtab ||
-						  NewFeaturesSubtab != null &&
-						  NewFeaturesSubtab.Equals(other.NewFeaturesSubtab)
+						  (NewFeaturesSubtab != null &&
+						  NewFeaturesSubtab.Equals(other.NewFeaturesSubtab))
 					 ) &&
 					 (
 						  FirewallInfoSubtab == other.FirewallInfoSubtab ||
-						  FirewallInfoSubtab != null &&
-						  FirewallInfoSubtab.Equals(other.FirewallInfoSubtab)
+						  (FirewallInfoSubtab != null &&
+						  FirewallInfoSubtab.Equals(other.FirewallInfoSubtab))
 					 ) &&
 					 (
 						  ApiDocsSubtab == other.ApiDocsSubtab ||
-						  ApiDocsSubtab != null &&
-						  ApiDocsSubtab.Equals(other.ApiDocsSubtab)
+						  (ApiDocsSubtab != null &&
+						  ApiDocsSubtab.Equals(other.ApiDocsSubtab))
 					 ) &&
 					 (
 						  HardwareReplacementsSubtab == other.HardwareReplacementsSubtab ||
-						  HardwareReplacementsSubtab != null &&
-						  HardwareReplacementsSubtab.Equals(other.HardwareReplacementsSubtab)
+						  (HardwareReplacementsSubtab != null &&
+						  HardwareReplacementsSubtab.Equals(other.HardwareReplacementsSubtab))
 					 ) &&
 					 (
 						  SmForums == other.SmForums ||
-						  SmForums != null &&
-						  SmForums.Equals(other.SmForums)
+						  (SmForums != null &&
+						  SmForums.Equals(other.SmForums))
 					 );
 		}
 
@@ -271,34 +271,76 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (HelpTab != null)
-                    hash = hash * 59 + HelpTab.GetHashCode();
-                if (GetHelpSubtab != null)
-                    hash = hash * 59 + GetHelpSubtab.GetHashCode();
-                if (CommunitySubtab != null)
-                    hash = hash * 59 + CommunitySubtab.GetHashCode();
-                if (CasesSubtab != null)
-                    hash = hash * 59 + CasesSubtab.GetHashCode();
-                if (DataProtectionRequestsSubtab != null)
-                    hash = hash * 59 + DataProtectionRequestsSubtab.GetHashCode();
-                if (GetHelpSubtabKnowledgeBaseSearch != null)
-                    hash = hash * 59 + GetHelpSubtabKnowledgeBaseSearch.GetHashCode();
-                if (UniversalSearchKnowledgeBaseSearch != null)
-                    hash = hash * 59 + UniversalSearchKnowledgeBaseSearch.GetHashCode();
-                if (CiscoMerakiProductDocumentation != null)
-                    hash = hash * 59 + CiscoMerakiProductDocumentation.GetHashCode();
-                if (SupportContactInfo != null)
-                    hash = hash * 59 + SupportContactInfo.GetHashCode();
-                if (NewFeaturesSubtab != null)
-                    hash = hash * 59 + NewFeaturesSubtab.GetHashCode();
-                if (FirewallInfoSubtab != null)
-                    hash = hash * 59 + FirewallInfoSubtab.GetHashCode();
-                if (ApiDocsSubtab != null)
-                    hash = hash * 59 + ApiDocsSubtab.GetHashCode();
-                if (HardwareReplacementsSubtab != null)
-                    hash = hash * 59 + HardwareReplacementsSubtab.GetHashCode();
-                if (SmForums != null)
-                    hash = hash * 59 + SmForums.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + HelpTab.GetHashCode();
+				}
+
+				if (GetHelpSubtab != null)
+				{
+					hash = (hash * 59) + GetHelpSubtab.GetHashCode();
+				}
+
+				if (CommunitySubtab != null)
+				{
+					hash = (hash * 59) + CommunitySubtab.GetHashCode();
+				}
+
+				if (CasesSubtab != null)
+				{
+					hash = (hash * 59) + CasesSubtab.GetHashCode();
+				}
+
+				if (DataProtectionRequestsSubtab != null)
+				{
+					hash = (hash * 59) + DataProtectionRequestsSubtab.GetHashCode();
+				}
+
+				if (GetHelpSubtabKnowledgeBaseSearch != null)
+				{
+					hash = (hash * 59) + GetHelpSubtabKnowledgeBaseSearch.GetHashCode();
+				}
+
+				if (UniversalSearchKnowledgeBaseSearch != null)
+				{
+					hash = (hash * 59) + UniversalSearchKnowledgeBaseSearch.GetHashCode();
+				}
+
+				if (CiscoMerakiProductDocumentation != null)
+				{
+					hash = (hash * 59) + CiscoMerakiProductDocumentation.GetHashCode();
+				}
+
+				if (SupportContactInfo != null)
+				{
+					hash = (hash * 59) + SupportContactInfo.GetHashCode();
+				}
+
+				if (NewFeaturesSubtab != null)
+				{
+					hash = (hash * 59) + NewFeaturesSubtab.GetHashCode();
+				}
+
+				if (FirewallInfoSubtab != null)
+				{
+					hash = (hash * 59) + FirewallInfoSubtab.GetHashCode();
+				}
+
+				if (ApiDocsSubtab != null)
+				{
+					hash = (hash * 59) + ApiDocsSubtab.GetHashCode();
+				}
+
+				if (HardwareReplacementsSubtab != null)
+				{
+					hash = (hash * 59) + HardwareReplacementsSubtab.GetHashCode();
+				}
+
+				if (SmForums != null)
+				{
+					hash = (hash * 59) + SmForums.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

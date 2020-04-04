@@ -135,38 +135,38 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  V2cEnabled == other.V2cEnabled ||
-						  V2cEnabled != null &&
-						  V2cEnabled.Equals(other.V2cEnabled)
+						  (V2cEnabled != null &&
+						  V2cEnabled.Equals(other.V2cEnabled))
 					 ) &&
 					 (
 						  V3Enabled == other.V3Enabled ||
-						  V3Enabled != null &&
-						  V3Enabled.Equals(other.V3Enabled)
+						  (V3Enabled != null &&
+						  V3Enabled.Equals(other.V3Enabled))
 					 ) &&
 					 (
 						  V3AuthMode == other.V3AuthMode ||
-						  V3AuthMode != null &&
-						  V3AuthMode.Equals(other.V3AuthMode)
+						  (V3AuthMode != null &&
+						  V3AuthMode.Equals(other.V3AuthMode))
 					 ) &&
 					 (
 						  V3AuthPass == other.V3AuthPass ||
-						  V3AuthPass != null &&
-						  V3AuthPass.Equals(other.V3AuthPass)
+						  (V3AuthPass != null &&
+						  V3AuthPass.Equals(other.V3AuthPass))
 					 ) &&
 					 (
 						  V3PrivMode == other.V3PrivMode ||
-						  V3PrivMode != null &&
-						  V3PrivMode.Equals(other.V3PrivMode)
+						  (V3PrivMode != null &&
+						  V3PrivMode.Equals(other.V3PrivMode))
 					 ) &&
 					 (
 						  V3PrivPass == other.V3PrivPass ||
-						  V3PrivPass != null &&
-						  V3PrivPass.Equals(other.V3PrivPass)
+						  (V3PrivPass != null &&
+						  V3PrivPass.Equals(other.V3PrivPass))
 					 ) &&
 					 (
 						  PeerIps == other.PeerIps ||
-						  PeerIps != null &&
-						  PeerIps.Equals(other.PeerIps)
+						  (PeerIps != null &&
+						  PeerIps.Equals(other.PeerIps))
 					 );
 		}
 
@@ -182,20 +182,41 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (V2cEnabled != null)
-                    hash = hash * 59 + V2cEnabled.GetHashCode();
-                if (V3Enabled != null)
-                    hash = hash * 59 + V3Enabled.GetHashCode();
-                if (V3AuthMode != null)
-                    hash = hash * 59 + V3AuthMode.GetHashCode();
-                if (V3AuthPass != null)
-                    hash = hash * 59 + V3AuthPass.GetHashCode();
-                if (V3PrivMode != null)
-                    hash = hash * 59 + V3PrivMode.GetHashCode();
-                if (V3PrivPass != null)
-                    hash = hash * 59 + V3PrivPass.GetHashCode();
-                if (PeerIps != null)
-                    hash = hash * 59 + PeerIps.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + V2cEnabled.GetHashCode();
+				}
+
+				if (V3Enabled != null)
+				{
+					hash = (hash * 59) + V3Enabled.GetHashCode();
+				}
+
+				if (V3AuthMode != null)
+				{
+					hash = (hash * 59) + V3AuthMode.GetHashCode();
+				}
+
+				if (V3AuthPass != null)
+				{
+					hash = (hash * 59) + V3AuthPass.GetHashCode();
+				}
+
+				if (V3PrivMode != null)
+				{
+					hash = (hash * 59) + V3PrivMode.GetHashCode();
+				}
+
+				if (V3PrivPass != null)
+				{
+					hash = (hash * 59) + V3PrivPass.GetHashCode();
+				}
+
+				if (PeerIps != null)
+				{
+					hash = (hash * 59) + PeerIps.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

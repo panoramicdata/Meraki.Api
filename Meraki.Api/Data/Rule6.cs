@@ -99,18 +99,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Policy == other.Policy ||
-						  Policy != null &&
-						  Policy.Equals(other.Policy)
+						  (Policy != null &&
+						  Policy.Equals(other.Policy))
 					 ) &&
 					 (
 						  Type == other.Type ||
-						  Type != null &&
-						  Type.Equals(other.Type)
+						  (Type != null &&
+						  Type.Equals(other.Type))
 					 ) &&
 					 (
 						  Value == other.Value ||
-						  Value != null &&
-						  Value.Equals(other.Value)
+						  (Value != null &&
+						  Value.Equals(other.Value))
 					 );
 		}
 
@@ -126,12 +126,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Policy != null)
-                    hash = hash * 59 + Policy.GetHashCode();
-                if (Type != null)
-                    hash = hash * 59 + Type.GetHashCode();
-                if (Value != null)
-                    hash = hash * 59 + Value.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Policy.GetHashCode();
+				}
+
+				if (Type != null)
+				{
+					hash = (hash * 59) + Type.GetHashCode();
+				}
+
+				if (Value != null)
+				{
+					hash = (hash * 59) + Value.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

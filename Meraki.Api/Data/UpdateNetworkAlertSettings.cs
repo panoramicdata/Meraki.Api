@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  DefaultDestinations == other.DefaultDestinations ||
-						  DefaultDestinations != null &&
-						  DefaultDestinations.Equals(other.DefaultDestinations)
+						  (DefaultDestinations != null &&
+						  DefaultDestinations.Equals(other.DefaultDestinations))
 					 ) &&
 					 (
 						  Alerts == other.Alerts ||
-						  Alerts != null &&
-						  Alerts.SequenceEqual(other.Alerts)
+						  (Alerts != null &&
+						  Alerts.SequenceEqual(other.Alerts))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DefaultDestinations != null)
-                    hash = hash * 59 + DefaultDestinations.GetHashCode();
-                if (Alerts != null)
-                    hash = hash * 59 + Alerts.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DefaultDestinations.GetHashCode();
+				}
+
+				if (Alerts != null)
+				{
+					hash = (hash * 59) + Alerts.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

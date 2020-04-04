@@ -66,22 +66,10 @@ namespace Meraki.Api.Test
 		{
 			var result = await MerakiClient
 				.Organizations
-				.BulkClaimAsync(Configuration.TestOrganizationId, new OrganizationBulkClaim { Serials = new List<string> { Configuration.TestDeviceSerial } })
+				.ClaimAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Serials.Should().NotBeEmpty();
-		}
-
-		[Fact]
-		public async void GetChangeLogEntriesAsync_Succeeds()
-		{
-			var result = await MerakiClient
-				.ChangeLogs
-				.GetAllAsync(Configuration.TestOrganizationId)
-				.ConfigureAwait(false);
-			result.Should().BeOfType<List<ChangeLogEntry>>();
-			result.Should().NotBeNull();
-			result.Should().NotBeEmpty();
 		}
 	}
 }

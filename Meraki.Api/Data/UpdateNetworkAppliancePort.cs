@@ -128,33 +128,33 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Enabled == other.Enabled ||
-						  Enabled != null &&
-						  Enabled.Equals(other.Enabled)
+						  (Enabled != null &&
+						  Enabled.Equals(other.Enabled))
 					 ) &&
 					 (
 						  DropUntaggedTraffic == other.DropUntaggedTraffic ||
-						  DropUntaggedTraffic != null &&
-						  DropUntaggedTraffic.Equals(other.DropUntaggedTraffic)
+						  (DropUntaggedTraffic != null &&
+						  DropUntaggedTraffic.Equals(other.DropUntaggedTraffic))
 					 ) &&
 					 (
 						  Type == other.Type ||
-						  Type != null &&
-						  Type.Equals(other.Type)
+						  (Type != null &&
+						  Type.Equals(other.Type))
 					 ) &&
 					 (
 						  Vlan == other.Vlan ||
-						  Vlan != null &&
-						  Vlan.Equals(other.Vlan)
+						  (Vlan != null &&
+						  Vlan.Equals(other.Vlan))
 					 ) &&
 					 (
 						  AllowedVlans == other.AllowedVlans ||
-						  AllowedVlans != null &&
-						  AllowedVlans.Equals(other.AllowedVlans)
+						  (AllowedVlans != null &&
+						  AllowedVlans.Equals(other.AllowedVlans))
 					 ) &&
 					 (
 						  AccessPolicy == other.AccessPolicy ||
-						  AccessPolicy != null &&
-						  AccessPolicy.Equals(other.AccessPolicy)
+						  (AccessPolicy != null &&
+						  AccessPolicy.Equals(other.AccessPolicy))
 					 );
 		}
 
@@ -170,18 +170,36 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Enabled != null)
-                    hash = hash * 59 + Enabled.GetHashCode();
-                if (DropUntaggedTraffic != null)
-                    hash = hash * 59 + DropUntaggedTraffic.GetHashCode();
-                if (Type != null)
-                    hash = hash * 59 + Type.GetHashCode();
-                if (Vlan != null)
-                    hash = hash * 59 + Vlan.GetHashCode();
-                if (AllowedVlans != null)
-                    hash = hash * 59 + AllowedVlans.GetHashCode();
-                if (AccessPolicy != null)
-                    hash = hash * 59 + AccessPolicy.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Enabled.GetHashCode();
+				}
+
+				if (DropUntaggedTraffic != null)
+				{
+					hash = (hash * 59) + DropUntaggedTraffic.GetHashCode();
+				}
+
+				if (Type != null)
+				{
+					hash = (hash * 59) + Type.GetHashCode();
+				}
+
+				if (Vlan != null)
+				{
+					hash = (hash * 59) + Vlan.GetHashCode();
+				}
+
+				if (AllowedVlans != null)
+				{
+					hash = (hash * 59) + AllowedVlans.GetHashCode();
+				}
+
+				if (AccessPolicy != null)
+				{
+					hash = (hash * 59) + AccessPolicy.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

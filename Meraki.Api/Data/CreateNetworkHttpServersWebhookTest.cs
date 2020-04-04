@@ -96,8 +96,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: Url == other.Url ||
-						  Url != null &&
-						  Url.Equals(other.Url);
+						  (Url != null &&
+						  Url.Equals(other.Url));
 		}
 
 		/// <summary>
@@ -112,8 +112,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Url != null)
-                    hash = hash * 59 + Url.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Url.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

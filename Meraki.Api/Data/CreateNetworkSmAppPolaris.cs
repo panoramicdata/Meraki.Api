@@ -133,28 +133,28 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Scope == other.Scope ||
-						  Scope != null &&
-						  Scope.Equals(other.Scope)
+						  (Scope != null &&
+						  Scope.Equals(other.Scope))
 					 ) &&
 					 (
 						  ManifestUrl == other.ManifestUrl ||
-						  ManifestUrl != null &&
-						  ManifestUrl.Equals(other.ManifestUrl)
+						  (ManifestUrl != null &&
+						  ManifestUrl.Equals(other.ManifestUrl))
 					 ) &&
 					 (
 						  BundleId == other.BundleId ||
-						  BundleId != null &&
-						  BundleId.Equals(other.BundleId)
+						  (BundleId != null &&
+						  BundleId.Equals(other.BundleId))
 					 ) &&
 					 (
 						  PreventAutoInstall == other.PreventAutoInstall ||
-						  PreventAutoInstall != null &&
-						  PreventAutoInstall.Equals(other.PreventAutoInstall)
+						  (PreventAutoInstall != null &&
+						  PreventAutoInstall.Equals(other.PreventAutoInstall))
 					 ) &&
 					 (
 						  UsesVPP == other.UsesVPP ||
-						  UsesVPP != null &&
-						  UsesVPP.Equals(other.UsesVPP)
+						  (UsesVPP != null &&
+						  UsesVPP.Equals(other.UsesVPP))
 					 );
 		}
 
@@ -170,16 +170,31 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Scope != null)
-                    hash = hash * 59 + Scope.GetHashCode();
-                if (ManifestUrl != null)
-                    hash = hash * 59 + ManifestUrl.GetHashCode();
-                if (BundleId != null)
-                    hash = hash * 59 + BundleId.GetHashCode();
-                if (PreventAutoInstall != null)
-                    hash = hash * 59 + PreventAutoInstall.GetHashCode();
-                if (UsesVPP != null)
-                    hash = hash * 59 + UsesVPP.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Scope.GetHashCode();
+				}
+
+				if (ManifestUrl != null)
+				{
+					hash = (hash * 59) + ManifestUrl.GetHashCode();
+				}
+
+				if (BundleId != null)
+				{
+					hash = (hash * 59) + BundleId.GetHashCode();
+				}
+
+				if (PreventAutoInstall != null)
+				{
+					hash = (hash * 59) + PreventAutoInstall.GetHashCode();
+				}
+
+				if (UsesVPP != null)
+				{
+					hash = (hash * 59) + UsesVPP.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

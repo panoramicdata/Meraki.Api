@@ -168,48 +168,48 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  MotionBasedRetentionEnabled == other.MotionBasedRetentionEnabled ||
-						  MotionBasedRetentionEnabled != null &&
-						  MotionBasedRetentionEnabled.Equals(other.MotionBasedRetentionEnabled)
+						  (MotionBasedRetentionEnabled != null &&
+						  MotionBasedRetentionEnabled.Equals(other.MotionBasedRetentionEnabled))
 					 ) &&
 					 (
 						  RestrictedBandwidthModeEnabled == other.RestrictedBandwidthModeEnabled ||
-						  RestrictedBandwidthModeEnabled != null &&
-						  RestrictedBandwidthModeEnabled.Equals(other.RestrictedBandwidthModeEnabled)
+						  (RestrictedBandwidthModeEnabled != null &&
+						  RestrictedBandwidthModeEnabled.Equals(other.RestrictedBandwidthModeEnabled))
 					 ) &&
 					 (
 						  AudioRecordingEnabled == other.AudioRecordingEnabled ||
-						  AudioRecordingEnabled != null &&
-						  AudioRecordingEnabled.Equals(other.AudioRecordingEnabled)
+						  (AudioRecordingEnabled != null &&
+						  AudioRecordingEnabled.Equals(other.AudioRecordingEnabled))
 					 ) &&
 					 (
 						  CloudArchiveEnabled == other.CloudArchiveEnabled ||
-						  CloudArchiveEnabled != null &&
-						  CloudArchiveEnabled.Equals(other.CloudArchiveEnabled)
+						  (CloudArchiveEnabled != null &&
+						  CloudArchiveEnabled.Equals(other.CloudArchiveEnabled))
 					 ) &&
 					 (
 						  MotionDetectorVersion == other.MotionDetectorVersion ||
-						  MotionDetectorVersion != null &&
-						  MotionDetectorVersion.Equals(other.MotionDetectorVersion)
+						  (MotionDetectorVersion != null &&
+						  MotionDetectorVersion.Equals(other.MotionDetectorVersion))
 					 ) &&
 					 (
 						  ScheduleId == other.ScheduleId ||
-						  ScheduleId != null &&
-						  ScheduleId.Equals(other.ScheduleId)
+						  (ScheduleId != null &&
+						  ScheduleId.Equals(other.ScheduleId))
 					 ) &&
 					 (
 						  MaxRetentionDays == other.MaxRetentionDays ||
-						  MaxRetentionDays != null &&
-						  MaxRetentionDays.Equals(other.MaxRetentionDays)
+						  (MaxRetentionDays != null &&
+						  MaxRetentionDays.Equals(other.MaxRetentionDays))
 					 ) &&
 					 (
 						  VideoSettings == other.VideoSettings ||
-						  VideoSettings != null &&
-						  VideoSettings.Equals(other.VideoSettings)
+						  (VideoSettings != null &&
+						  VideoSettings.Equals(other.VideoSettings))
 					 );
 		}
 
@@ -225,24 +225,51 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (MotionBasedRetentionEnabled != null)
-                    hash = hash * 59 + MotionBasedRetentionEnabled.GetHashCode();
-                if (RestrictedBandwidthModeEnabled != null)
-                    hash = hash * 59 + RestrictedBandwidthModeEnabled.GetHashCode();
-                if (AudioRecordingEnabled != null)
-                    hash = hash * 59 + AudioRecordingEnabled.GetHashCode();
-                if (CloudArchiveEnabled != null)
-                    hash = hash * 59 + CloudArchiveEnabled.GetHashCode();
-                if (MotionDetectorVersion != null)
-                    hash = hash * 59 + MotionDetectorVersion.GetHashCode();
-                if (ScheduleId != null)
-                    hash = hash * 59 + ScheduleId.GetHashCode();
-                if (MaxRetentionDays != null)
-                    hash = hash * 59 + MaxRetentionDays.GetHashCode();
-                if (VideoSettings != null)
-                    hash = hash * 59 + VideoSettings.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (MotionBasedRetentionEnabled != null)
+				{
+					hash = (hash * 59) + MotionBasedRetentionEnabled.GetHashCode();
+				}
+
+				if (RestrictedBandwidthModeEnabled != null)
+				{
+					hash = (hash * 59) + RestrictedBandwidthModeEnabled.GetHashCode();
+				}
+
+				if (AudioRecordingEnabled != null)
+				{
+					hash = (hash * 59) + AudioRecordingEnabled.GetHashCode();
+				}
+
+				if (CloudArchiveEnabled != null)
+				{
+					hash = (hash * 59) + CloudArchiveEnabled.GetHashCode();
+				}
+
+				if (MotionDetectorVersion != null)
+				{
+					hash = (hash * 59) + MotionDetectorVersion.GetHashCode();
+				}
+
+				if (ScheduleId != null)
+				{
+					hash = (hash * 59) + ScheduleId.GetHashCode();
+				}
+
+				if (MaxRetentionDays != null)
+				{
+					hash = (hash * 59) + MaxRetentionDays.GetHashCode();
+				}
+
+				if (VideoSettings != null)
+				{
+					hash = (hash * 59) + VideoSettings.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -97,8 +97,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: RuleIds == other.RuleIds ||
-						  RuleIds != null &&
-						  RuleIds.SequenceEqual(other.RuleIds);
+						  (RuleIds != null &&
+						  RuleIds.SequenceEqual(other.RuleIds));
 		}
 
 		/// <summary>
@@ -113,8 +113,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (RuleIds != null)
-                    hash = hash * 59 + RuleIds.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + RuleIds.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

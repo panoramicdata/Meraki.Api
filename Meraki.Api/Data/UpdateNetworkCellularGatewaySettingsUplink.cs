@@ -81,8 +81,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: BandwidthLimits == other.BandwidthLimits ||
-						  BandwidthLimits != null &&
-						  BandwidthLimits.Equals(other.BandwidthLimits);
+						  (BandwidthLimits != null &&
+						  BandwidthLimits.Equals(other.BandwidthLimits));
 		}
 
 		/// <summary>
@@ -97,8 +97,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (BandwidthLimits != null)
-                    hash = hash * 59 + BandwidthLimits.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + BandwidthLimits.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

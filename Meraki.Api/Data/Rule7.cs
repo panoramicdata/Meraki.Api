@@ -131,18 +131,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  PublicIp == other.PublicIp ||
-						  PublicIp != null &&
-						  PublicIp.Equals(other.PublicIp)
+						  (PublicIp != null &&
+						  PublicIp.Equals(other.PublicIp))
 					 ) &&
 					 (
 						  Uplink == other.Uplink ||
-						  Uplink != null &&
-						  Uplink.Equals(other.Uplink)
+						  (Uplink != null &&
+						  Uplink.Equals(other.Uplink))
 					 ) &&
 					 (
 						  PortRules == other.PortRules ||
-						  PortRules != null &&
-						  PortRules.SequenceEqual(other.PortRules)
+						  (PortRules != null &&
+						  PortRules.SequenceEqual(other.PortRules))
 					 );
 		}
 
@@ -158,12 +158,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (PublicIp != null)
-                    hash = hash * 59 + PublicIp.GetHashCode();
-                if (Uplink != null)
-                    hash = hash * 59 + Uplink.GetHashCode();
-                if (PortRules != null)
-                    hash = hash * 59 + PortRules.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + PublicIp.GetHashCode();
+				}
+
+				if (Uplink != null)
+				{
+					hash = (hash * 59) + Uplink.GetHashCode();
+				}
+
+				if (PortRules != null)
+				{
+					hash = (hash * 59) + PortRules.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

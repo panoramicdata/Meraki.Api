@@ -124,18 +124,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Description == other.Description ||
-						  Description != null &&
-						  Description.Equals(other.Description)
+						  (Description != null &&
+						  Description.Equals(other.Description))
 					 ) &&
 					 (
 						  VlanId == other.VlanId ||
-						  VlanId != null &&
-						  VlanId.Equals(other.VlanId)
+						  (VlanId != null &&
+						  VlanId.Equals(other.VlanId))
 					 ) &&
 					 (
 						  Services == other.Services ||
-						  Services != null &&
-						  Services.SequenceEqual(other.Services)
+						  (Services != null &&
+						  Services.SequenceEqual(other.Services))
 					 );
 		}
 
@@ -151,12 +151,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Description != null)
-                    hash = hash * 59 + Description.GetHashCode();
-                if (VlanId != null)
-                    hash = hash * 59 + VlanId.GetHashCode();
-                if (Services != null)
-                    hash = hash * 59 + Services.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Description.GetHashCode();
+				}
+
+				if (VlanId != null)
+				{
+					hash = (hash * 59) + VlanId.GetHashCode();
+				}
+
+				if (Services != null)
+				{
+					hash = (hash * 59) + Services.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -106,13 +106,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Access == other.Access ||
-						  Access != null &&
-						  Access.Equals(other.Access)
+						  (Access != null &&
+						  Access.Equals(other.Access))
 					 ) &&
 					 (
 						  AllowedIps == other.AllowedIps ||
-						  AllowedIps != null &&
-						  AllowedIps.SequenceEqual(other.AllowedIps)
+						  (AllowedIps != null &&
+						  AllowedIps.SequenceEqual(other.AllowedIps))
 					 );
 		}
 
@@ -128,10 +128,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Access != null)
-                    hash = hash * 59 + Access.GetHashCode();
-                if (AllowedIps != null)
-                    hash = hash * 59 + AllowedIps.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Access.GetHashCode();
+				}
+
+				if (AllowedIps != null)
+				{
+					hash = (hash * 59) + AllowedIps.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

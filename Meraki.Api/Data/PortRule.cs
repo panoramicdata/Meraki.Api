@@ -128,33 +128,33 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Protocol == other.Protocol ||
-						  Protocol != null &&
-						  Protocol.Equals(other.Protocol)
+						  (Protocol != null &&
+						  Protocol.Equals(other.Protocol))
 					 ) &&
 					 (
 						  PublicPort == other.PublicPort ||
-						  PublicPort != null &&
-						  PublicPort.Equals(other.PublicPort)
+						  (PublicPort != null &&
+						  PublicPort.Equals(other.PublicPort))
 					 ) &&
 					 (
 						  LocalIp == other.LocalIp ||
-						  LocalIp != null &&
-						  LocalIp.Equals(other.LocalIp)
+						  (LocalIp != null &&
+						  LocalIp.Equals(other.LocalIp))
 					 ) &&
 					 (
 						  LocalPort == other.LocalPort ||
-						  LocalPort != null &&
-						  LocalPort.Equals(other.LocalPort)
+						  (LocalPort != null &&
+						  LocalPort.Equals(other.LocalPort))
 					 ) &&
 					 (
 						  AllowedIps == other.AllowedIps ||
-						  AllowedIps != null &&
-						  AllowedIps.SequenceEqual(other.AllowedIps)
+						  (AllowedIps != null &&
+						  AllowedIps.SequenceEqual(other.AllowedIps))
 					 );
 		}
 
@@ -170,18 +170,36 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Protocol != null)
-                    hash = hash * 59 + Protocol.GetHashCode();
-                if (PublicPort != null)
-                    hash = hash * 59 + PublicPort.GetHashCode();
-                if (LocalIp != null)
-                    hash = hash * 59 + LocalIp.GetHashCode();
-                if (LocalPort != null)
-                    hash = hash * 59 + LocalPort.GetHashCode();
-                if (AllowedIps != null)
-                    hash = hash * 59 + AllowedIps.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Protocol != null)
+				{
+					hash = (hash * 59) + Protocol.GetHashCode();
+				}
+
+				if (PublicPort != null)
+				{
+					hash = (hash * 59) + PublicPort.GetHashCode();
+				}
+
+				if (LocalIp != null)
+				{
+					hash = (hash * 59) + LocalIp.GetHashCode();
+				}
+
+				if (LocalPort != null)
+				{
+					hash = (hash * 59) + LocalPort.GetHashCode();
+				}
+
+				if (AllowedIps != null)
+				{
+					hash = (hash * 59) + AllowedIps.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

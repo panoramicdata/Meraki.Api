@@ -142,28 +142,28 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  SwitchProfiles == other.SwitchProfiles ||
-						  SwitchProfiles != null &&
-						  SwitchProfiles.SequenceEqual(other.SwitchProfiles)
+						  (SwitchProfiles != null &&
+						  SwitchProfiles.SequenceEqual(other.SwitchProfiles))
 					 ) &&
 					 (
 						  Switches == other.Switches ||
-						  Switches != null &&
-						  Switches.SequenceEqual(other.Switches)
+						  (Switches != null &&
+						  Switches.SequenceEqual(other.Switches))
 					 ) &&
 					 (
 						  Stacks == other.Stacks ||
-						  Stacks != null &&
-						  Stacks.SequenceEqual(other.Stacks)
+						  (Stacks != null &&
+						  Stacks.SequenceEqual(other.Stacks))
 					 ) &&
 					 (
 						  IgmpSnoopingEnabled == other.IgmpSnoopingEnabled ||
-						  IgmpSnoopingEnabled != null &&
-						  IgmpSnoopingEnabled.Equals(other.IgmpSnoopingEnabled)
+						  (IgmpSnoopingEnabled != null &&
+						  IgmpSnoopingEnabled.Equals(other.IgmpSnoopingEnabled))
 					 ) &&
 					 (
 						  FloodUnknownMulticastTrafficEnabled == other.FloodUnknownMulticastTrafficEnabled ||
-						  FloodUnknownMulticastTrafficEnabled != null &&
-						  FloodUnknownMulticastTrafficEnabled.Equals(other.FloodUnknownMulticastTrafficEnabled)
+						  (FloodUnknownMulticastTrafficEnabled != null &&
+						  FloodUnknownMulticastTrafficEnabled.Equals(other.FloodUnknownMulticastTrafficEnabled))
 					 );
 		}
 
@@ -179,16 +179,31 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (SwitchProfiles != null)
-                    hash = hash * 59 + SwitchProfiles.GetHashCode();
-                if (Switches != null)
-                    hash = hash * 59 + Switches.GetHashCode();
-                if (Stacks != null)
-                    hash = hash * 59 + Stacks.GetHashCode();
-                if (IgmpSnoopingEnabled != null)
-                    hash = hash * 59 + IgmpSnoopingEnabled.GetHashCode();
-                if (FloodUnknownMulticastTrafficEnabled != null)
-                    hash = hash * 59 + FloodUnknownMulticastTrafficEnabled.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + SwitchProfiles.GetHashCode();
+				}
+
+				if (Switches != null)
+				{
+					hash = (hash * 59) + Switches.GetHashCode();
+				}
+
+				if (Stacks != null)
+				{
+					hash = (hash * 59) + Stacks.GetHashCode();
+				}
+
+				if (IgmpSnoopingEnabled != null)
+				{
+					hash = (hash * 59) + IgmpSnoopingEnabled.GetHashCode();
+				}
+
+				if (FloodUnknownMulticastTrafficEnabled != null)
+				{
+					hash = (hash * 59) + FloodUnknownMulticastTrafficEnabled.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

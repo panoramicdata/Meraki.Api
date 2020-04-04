@@ -127,33 +127,33 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  ScanningEnabled == other.ScanningEnabled ||
-						  ScanningEnabled != null &&
-						  ScanningEnabled.Equals(other.ScanningEnabled)
+						  (ScanningEnabled != null &&
+						  ScanningEnabled.Equals(other.ScanningEnabled))
 					 ) &&
 					 (
 						  AdvertisingEnabled == other.AdvertisingEnabled ||
-						  AdvertisingEnabled != null &&
-						  AdvertisingEnabled.Equals(other.AdvertisingEnabled)
+						  (AdvertisingEnabled != null &&
+						  AdvertisingEnabled.Equals(other.AdvertisingEnabled))
 					 ) &&
 					 (
 						  Uuid == other.Uuid ||
-						  Uuid != null &&
-						  Uuid.Equals(other.Uuid)
+						  (Uuid != null &&
+						  Uuid.Equals(other.Uuid))
 					 ) &&
 					 (
 						  MajorMinorAssignmentMode == other.MajorMinorAssignmentMode ||
-						  MajorMinorAssignmentMode != null &&
-						  MajorMinorAssignmentMode.Equals(other.MajorMinorAssignmentMode)
+						  (MajorMinorAssignmentMode != null &&
+						  MajorMinorAssignmentMode.Equals(other.MajorMinorAssignmentMode))
 					 ) &&
 					 (
 						  Major == other.Major ||
-						  Major != null &&
-						  Major.Equals(other.Major)
+						  (Major != null &&
+						  Major.Equals(other.Major))
 					 ) &&
 					 (
 						  Minor == other.Minor ||
-						  Minor != null &&
-						  Minor.Equals(other.Minor)
+						  (Minor != null &&
+						  Minor.Equals(other.Minor))
 					 );
 		}
 
@@ -169,18 +169,36 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (ScanningEnabled != null)
-                    hash = hash * 59 + ScanningEnabled.GetHashCode();
-                if (AdvertisingEnabled != null)
-                    hash = hash * 59 + AdvertisingEnabled.GetHashCode();
-                if (Uuid != null)
-                    hash = hash * 59 + Uuid.GetHashCode();
-                if (MajorMinorAssignmentMode != null)
-                    hash = hash * 59 + MajorMinorAssignmentMode.GetHashCode();
-                if (Major != null)
-                    hash = hash * 59 + Major.GetHashCode();
-                if (Minor != null)
-                    hash = hash * 59 + Minor.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + ScanningEnabled.GetHashCode();
+				}
+
+				if (AdvertisingEnabled != null)
+				{
+					hash = (hash * 59) + AdvertisingEnabled.GetHashCode();
+				}
+
+				if (Uuid != null)
+				{
+					hash = (hash * 59) + Uuid.GetHashCode();
+				}
+
+				if (MajorMinorAssignmentMode != null)
+				{
+					hash = (hash * 59) + MajorMinorAssignmentMode.GetHashCode();
+				}
+
+				if (Major != null)
+				{
+					hash = (hash * 59) + Major.GetHashCode();
+				}
+
+				if (Minor != null)
+				{
+					hash = (hash * 59) + Minor.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -128,33 +128,33 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  TimeZone == other.TimeZone ||
-						  TimeZone != null &&
-						  TimeZone.Equals(other.TimeZone)
+						  (TimeZone != null &&
+						  TimeZone.Equals(other.TimeZone))
 					 ) &&
 					 (
 						  Tags == other.Tags ||
-						  Tags != null &&
-						  Tags.Equals(other.Tags)
+						  (Tags != null &&
+						  Tags.Equals(other.Tags))
 					 ) &&
 					 (
 						  DisableMyMerakiCom == other.DisableMyMerakiCom ||
-						  DisableMyMerakiCom != null &&
-						  DisableMyMerakiCom.Equals(other.DisableMyMerakiCom)
+						  (DisableMyMerakiCom != null &&
+						  DisableMyMerakiCom.Equals(other.DisableMyMerakiCom))
 					 ) &&
 					 (
 						  DisableRemoteStatusPage == other.DisableRemoteStatusPage ||
-						  DisableRemoteStatusPage != null &&
-						  DisableRemoteStatusPage.Equals(other.DisableRemoteStatusPage)
+						  (DisableRemoteStatusPage != null &&
+						  DisableRemoteStatusPage.Equals(other.DisableRemoteStatusPage))
 					 ) &&
 					 (
 						  EnrollmentString == other.EnrollmentString ||
-						  EnrollmentString != null &&
-						  EnrollmentString.Equals(other.EnrollmentString)
+						  (EnrollmentString != null &&
+						  EnrollmentString.Equals(other.EnrollmentString))
 					 );
 		}
 
@@ -170,18 +170,36 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (TimeZone != null)
-                    hash = hash * 59 + TimeZone.GetHashCode();
-                if (Tags != null)
-                    hash = hash * 59 + Tags.GetHashCode();
-                if (DisableMyMerakiCom != null)
-                    hash = hash * 59 + DisableMyMerakiCom.GetHashCode();
-                if (DisableRemoteStatusPage != null)
-                    hash = hash * 59 + DisableRemoteStatusPage.GetHashCode();
-                if (EnrollmentString != null)
-                    hash = hash * 59 + EnrollmentString.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (TimeZone != null)
+				{
+					hash = (hash * 59) + TimeZone.GetHashCode();
+				}
+
+				if (Tags != null)
+				{
+					hash = (hash * 59) + Tags.GetHashCode();
+				}
+
+				if (DisableMyMerakiCom != null)
+				{
+					hash = (hash * 59) + DisableMyMerakiCom.GetHashCode();
+				}
+
+				if (DisableRemoteStatusPage != null)
+				{
+					hash = (hash * 59) + DisableRemoteStatusPage.GetHashCode();
+				}
+
+				if (EnrollmentString != null)
+				{
+					hash = (hash * 59) + EnrollmentString.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

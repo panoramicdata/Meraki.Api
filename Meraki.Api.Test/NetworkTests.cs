@@ -214,7 +214,13 @@ namespace Meraki.Api.Test
 			var configurationTemplate = configurationTemplates[0];
 			await MerakiClient
 				.Networks
-				.BindTemplateAsync(newNetwork.Id, configurationTemplate.Id, true)
+				.BindConfigurationTemplateAsync(
+					newNetwork.Id,
+					new ConfigurationTemplateBindRequest
+					{
+						ConfigurationTemplateId = configurationTemplate.Id,
+						AutoBind = true
+					})
 				.ConfigureAwait(false);
 
 			// Get all VLANs - should be the default one
@@ -285,18 +291,20 @@ namespace Meraki.Api.Test
 			await MerakiClient
 				.Devices
 				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateDto { Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA" })
+				.ConfigureAwait(false);
 
 			// Get the management interface settings
 			var wanSpecs = await MerakiClient
-				.Networks
-				.GetDeviceManagementInterfaceSettingsAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.ManagementInterfaceSettings
+				.GetAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
+			wanSpecs.Should().BeOfType<WanSpecs>();
 			wanSpecs.Should().NotBeNull();
 
 			const string googleDns = "8.8.8.8";
 			var newWanSpecs = new WanSpecs
 			{
-				WanSpec1 = new WanSpec
+				Wan1 = new Wan
 				{
 					StaticDns = new List<string> { googleDns },
 					StaticGatewayIp = "192.168.1.1",
@@ -304,35 +312,48 @@ namespace Meraki.Api.Test
 					StaticSubnetMask = "255.255.255.0",
 					UsingStaticIp = true,
 					Vlan = 1,
-					WanEnabled = WanEnabledStatus.Enabled
+					WanEnabledStatus = WanEnabledStatus.Enabled
 				},
-				WanSpec2 = new WanSpec
+				Wan2 = new Wan
 				{
-					WanEnabled = WanEnabledStatus.Disabled
+					WanEnabledStatus = WanEnabledStatus.Disabled
 				}
 			};
-			var wanSpec = await MerakiClient
-				.Networks
-				.UpdateDeviceManagementInterfaceSettingsAsync(newNetwork.Id, Configuration.TestDeviceSerial, newWanSpecs)
+			var updatedWanSpecs = await MerakiClient
+				.ManagementInterfaceSettings
+				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new ManagementInterfaceSettingsUpdateRequest
+				{
+					Wan1 = new Wan
+					{
+						StaticDns = newWanSpecs.Wan1.StaticDns,
+						StaticGatewayIp = newWanSpecs.Wan1.StaticGatewayIp,
+						StaticIp = newWanSpecs.Wan1.StaticIp,
+						StaticSubnetMask = newWanSpecs.Wan1.StaticSubnetMask,
+						UsingStaticIp = newWanSpecs.Wan1.UsingStaticIp,
+						Vlan = newWanSpecs.Wan1.Vlan,
+						WanEnabledStatus = newWanSpecs.Wan1.WanEnabledStatus,
+					}
+				})
 				.ConfigureAwait(false);
-			wanSpec.Should().NotBeNull();
+			updatedWanSpecs.Should().BeOfType<WanSpecs>();
+			updatedWanSpecs.Should().NotBeNull();
 
 			// Get the management interface settings
 			var wanSpecsRefetch = await MerakiClient
-				.Networks
-				.GetDeviceManagementInterfaceSettingsAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.ManagementInterfaceSettings
+				.GetAsync(newNetwork.Id, Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
 			wanSpecsRefetch.Should().NotBeNull();
-			wanSpecsRefetch.WanSpec1.Should().NotBeNull();
-			wanSpecsRefetch.WanSpec1!.StaticDns.Should().NotBeNull();
-			wanSpecsRefetch.WanSpec1.StaticDns.Should().HaveCount(1);
-			wanSpecsRefetch.WanSpec1.StaticDns.Should().NotBeNull();
-			wanSpecsRefetch.WanSpec1.StaticDns![0].Should().BeEquivalentTo(googleDns);
+			wanSpecsRefetch.Wan1.Should().NotBeNull();
+			wanSpecsRefetch.Wan1!.StaticDns.Should().NotBeNull();
+			wanSpecsRefetch.Wan1.StaticDns.Should().HaveCount(1);
+			wanSpecsRefetch.Wan1.StaticDns.Should().NotBeNull();
+			wanSpecsRefetch.Wan1.StaticDns![0].Should().BeEquivalentTo(googleDns);
 
 			// Get all organization devices and make sure ours is present
 			var allOrganizationDevices = await MerakiClient
-				.Organizations
-				.GetAllDevicesAsync(Configuration.TestOrganizationId)
+				.Devices
+				.GetPageByOrganizationAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			allOrganizationDevices.Should().NotBeNull();
 			allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();
@@ -348,7 +369,7 @@ namespace Meraki.Api.Test
 
 			await MerakiClient
 				.Networks
-				.UnbindTemplateAsync(newNetwork.Id)
+				.UnbindConfigurationTemplateAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			//--- Delete the network

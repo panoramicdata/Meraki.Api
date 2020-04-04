@@ -122,33 +122,33 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  MV21MV71 == other.MV21MV71 ||
-						  MV21MV71 != null &&
-						  MV21MV71.Equals(other.MV21MV71)
+						  (MV21MV71 != null &&
+						  MV21MV71.Equals(other.MV21MV71))
 					 ) &&
 					 (
 						  MV12MV22MV72 == other.MV12MV22MV72 ||
-						  MV12MV22MV72 != null &&
-						  MV12MV22MV72.Equals(other.MV12MV22MV72)
+						  (MV12MV22MV72 != null &&
+						  MV12MV22MV72.Equals(other.MV12MV22MV72))
 					 ) &&
 					 (
 						  MV32 == other.MV32 ||
-						  MV32 != null &&
-						  MV32.Equals(other.MV32)
+						  (MV32 != null &&
+						  MV32.Equals(other.MV32))
 					 ) &&
 					 (
 						  MV12WE == other.MV12WE ||
-						  MV12WE != null &&
-						  MV12WE.Equals(other.MV12WE)
+						  (MV12WE != null &&
+						  MV12WE.Equals(other.MV12WE))
 					 ) &&
 					 (
 						  MV22XMV72X == other.MV22XMV72X ||
-						  MV22XMV72X != null &&
-						  MV22XMV72X.Equals(other.MV22XMV72X)
+						  (MV22XMV72X != null &&
+						  MV22XMV72X.Equals(other.MV22XMV72X))
 					 ) &&
 					 (
 						  MV02 == other.MV02 ||
-						  MV02 != null &&
-						  MV02.Equals(other.MV02)
+						  (MV02 != null &&
+						  MV02.Equals(other.MV02))
 					 );
 		}
 
@@ -164,18 +164,36 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (MV21MV71 != null)
-                    hash = hash * 59 + MV21MV71.GetHashCode();
-                if (MV12MV22MV72 != null)
-                    hash = hash * 59 + MV12MV22MV72.GetHashCode();
-                if (MV32 != null)
-                    hash = hash * 59 + MV32.GetHashCode();
-                if (MV12WE != null)
-                    hash = hash * 59 + MV12WE.GetHashCode();
-                if (MV22XMV72X != null)
-                    hash = hash * 59 + MV22XMV72X.GetHashCode();
-                if (MV02 != null)
-                    hash = hash * 59 + MV02.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + MV21MV71.GetHashCode();
+				}
+
+				if (MV12MV22MV72 != null)
+				{
+					hash = (hash * 59) + MV12MV22MV72.GetHashCode();
+				}
+
+				if (MV32 != null)
+				{
+					hash = (hash * 59) + MV32.GetHashCode();
+				}
+
+				if (MV12WE != null)
+				{
+					hash = (hash * 59) + MV12WE.GetHashCode();
+				}
+
+				if (MV22XMV72X != null)
+				{
+					hash = (hash * 59) + MV22XMV72X.GetHashCode();
+				}
+
+				if (MV02 != null)
+				{
+					hash = (hash * 59) + MV02.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

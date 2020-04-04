@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  LimitUp == other.LimitUp ||
-						  LimitUp != null &&
-						  LimitUp.Equals(other.LimitUp)
+						  (LimitUp != null &&
+						  LimitUp.Equals(other.LimitUp))
 					 ) &&
 					 (
 						  LimitDown == other.LimitDown ||
-						  LimitDown != null &&
-						  LimitDown.Equals(other.LimitDown)
+						  (LimitDown != null &&
+						  LimitDown.Equals(other.LimitDown))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (LimitUp != null)
-                    hash = hash * 59 + LimitUp.GetHashCode();
-                if (LimitDown != null)
-                    hash = hash * 59 + LimitDown.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + LimitUp.GetHashCode();
+				}
+
+				if (LimitDown != null)
+				{
+					hash = (hash * 59) + LimitDown.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

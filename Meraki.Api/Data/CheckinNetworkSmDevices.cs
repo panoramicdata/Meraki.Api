@@ -110,23 +110,23 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  WifiMacs == other.WifiMacs ||
-						  WifiMacs != null &&
-						  WifiMacs.Equals(other.WifiMacs)
+						  (WifiMacs != null &&
+						  WifiMacs.Equals(other.WifiMacs))
 					 ) &&
 					 (
 						  Ids == other.Ids ||
-						  Ids != null &&
-						  Ids.Equals(other.Ids)
+						  (Ids != null &&
+						  Ids.Equals(other.Ids))
 					 ) &&
 					 (
 						  Serials == other.Serials ||
-						  Serials != null &&
-						  Serials.Equals(other.Serials)
+						  (Serials != null &&
+						  Serials.Equals(other.Serials))
 					 ) &&
 					 (
 						  Scope == other.Scope ||
-						  Scope != null &&
-						  Scope.Equals(other.Scope)
+						  (Scope != null &&
+						  Scope.Equals(other.Scope))
 					 );
 		}
 
@@ -142,14 +142,26 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (WifiMacs != null)
-                    hash = hash * 59 + WifiMacs.GetHashCode();
-                if (Ids != null)
-                    hash = hash * 59 + Ids.GetHashCode();
-                if (Serials != null)
-                    hash = hash * 59 + Serials.GetHashCode();
-                if (Scope != null)
-                    hash = hash * 59 + Scope.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + WifiMacs.GetHashCode();
+				}
+
+				if (Ids != null)
+				{
+					hash = (hash * 59) + Ids.GetHashCode();
+				}
+
+				if (Serials != null)
+				{
+					hash = (hash * 59) + Serials.GetHashCode();
+				}
+
+				if (Scope != null)
+				{
+					hash = (hash * 59) + Scope.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

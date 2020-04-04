@@ -149,28 +149,28 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Email == other.Email ||
-						  Email != null &&
-						  Email.Equals(other.Email)
+						  (Email != null &&
+						  Email.Equals(other.Email))
 					 ) &&
 					 (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  OrgAccess == other.OrgAccess ||
-						  OrgAccess != null &&
-						  OrgAccess.Equals(other.OrgAccess)
+						  (OrgAccess != null &&
+						  OrgAccess.Equals(other.OrgAccess))
 					 ) &&
 					 (
 						  Tags == other.Tags ||
-						  Tags != null &&
-						  Tags.SequenceEqual(other.Tags)
+						  (Tags != null &&
+						  Tags.SequenceEqual(other.Tags))
 					 ) &&
 					 (
 						  Networks == other.Networks ||
-						  Networks != null &&
-						  Networks.SequenceEqual(other.Networks)
+						  (Networks != null &&
+						  Networks.SequenceEqual(other.Networks))
 					 );
 		}
 
@@ -186,16 +186,31 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Email != null)
-                    hash = hash * 59 + Email.GetHashCode();
-                if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (OrgAccess != null)
-                    hash = hash * 59 + OrgAccess.GetHashCode();
-                if (Tags != null)
-                    hash = hash * 59 + Tags.GetHashCode();
-                if (Networks != null)
-                    hash = hash * 59 + Networks.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Email.GetHashCode();
+				}
+
+				if (Name != null)
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (OrgAccess != null)
+				{
+					hash = (hash * 59) + OrgAccess.GetHashCode();
+				}
+
+				if (Tags != null)
+				{
+					hash = (hash * 59) + Tags.GetHashCode();
+				}
+
+				if (Networks != null)
+				{
+					hash = (hash * 59) + Networks.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

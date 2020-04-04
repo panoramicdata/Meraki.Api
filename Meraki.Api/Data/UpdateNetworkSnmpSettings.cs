@@ -101,18 +101,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Access == other.Access ||
-						  Access != null &&
-						  Access.Equals(other.Access)
+						  (Access != null &&
+						  Access.Equals(other.Access))
 					 ) &&
 					 (
 						  CommunityString == other.CommunityString ||
-						  CommunityString != null &&
-						  CommunityString.Equals(other.CommunityString)
+						  (CommunityString != null &&
+						  CommunityString.Equals(other.CommunityString))
 					 ) &&
 					 (
 						  Users == other.Users ||
-						  Users != null &&
-						  Users.SequenceEqual(other.Users)
+						  (Users != null &&
+						  Users.SequenceEqual(other.Users))
 					 );
 		}
 
@@ -128,12 +128,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Access != null)
-                    hash = hash * 59 + Access.GetHashCode();
-                if (CommunityString != null)
-                    hash = hash * 59 + CommunityString.GetHashCode();
-                if (Users != null)
-                    hash = hash * 59 + Users.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Access.GetHashCode();
+				}
+
+				if (CommunityString != null)
+				{
+					hash = (hash * 59) + CommunityString.GetHashCode();
+				}
+
+				if (Users != null)
+				{
+					hash = (hash * 59) + Users.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -114,13 +114,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Serial == other.Serial ||
-						  Serial != null &&
-						  Serial.Equals(other.Serial)
+						  (Serial != null &&
+						  Serial.Equals(other.Serial))
 					 ) &&
 					 (
 						  PortId == other.PortId ||
-						  PortId != null &&
-						  PortId.Equals(other.PortId)
+						  (PortId != null &&
+						  PortId.Equals(other.PortId))
 					 );
 		}
 
@@ -136,10 +136,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Serial != null)
-                    hash = hash * 59 + Serial.GetHashCode();
-                if (PortId != null)
-                    hash = hash * 59 + PortId.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Serial.GetHashCode();
+				}
+
+				if (PortId != null)
+				{
+					hash = (hash * 59) + PortId.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

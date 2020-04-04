@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Mode == other.Mode ||
-						  Mode != null &&
-						  Mode.Equals(other.Mode)
+						  (Mode != null &&
+						  Mode.Equals(other.Mode))
 					 ) &&
 					 (
 						  CustomPieChartItems == other.CustomPieChartItems ||
-						  CustomPieChartItems != null &&
-						  CustomPieChartItems.SequenceEqual(other.CustomPieChartItems)
+						  (CustomPieChartItems != null &&
+						  CustomPieChartItems.SequenceEqual(other.CustomPieChartItems))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Mode != null)
-                    hash = hash * 59 + Mode.GetHashCode();
-                if (CustomPieChartItems != null)
-                    hash = hash * 59 + CustomPieChartItems.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Mode.GetHashCode();
+				}
+
+				if (CustomPieChartItems != null)
+				{
+					hash = (hash * 59) + CustomPieChartItems.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

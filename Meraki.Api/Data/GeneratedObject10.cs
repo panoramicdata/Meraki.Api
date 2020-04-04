@@ -82,8 +82,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: IsAuthorized == other.IsAuthorized ||
-						  IsAuthorized != null &&
-						  IsAuthorized.Equals(other.IsAuthorized);
+						  (IsAuthorized != null &&
+						  IsAuthorized.Equals(other.IsAuthorized));
 		}
 
 		/// <summary>
@@ -98,8 +98,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (IsAuthorized != null)
-                    hash = hash * 59 + IsAuthorized.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + IsAuthorized.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

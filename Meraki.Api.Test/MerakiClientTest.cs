@@ -3,7 +3,7 @@ using Meraki.Api.Data;
 using Meraki.Api.Exceptions;
 using Meraki.Api.Test.Config;
 using Newtonsoft.Json;
-using System;using System.Threading.Tasks;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -55,8 +55,8 @@ namespace Meraki.Api.Test
 		protected async Task<Network> GetTestNetworkAsync()
 		{
 			var networks = await MerakiClient
-				.Organizations
-				.GetNetworksAsync(Configuration.TestOrganizationId)
+				.Networks
+				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			networks.Should().NotBeNull();
 			networks.Should().NotBeEmpty();

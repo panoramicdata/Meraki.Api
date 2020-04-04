@@ -110,23 +110,23 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  AllowedUrlPatterns == other.AllowedUrlPatterns ||
-						  AllowedUrlPatterns != null &&
-						  AllowedUrlPatterns.SequenceEqual(other.AllowedUrlPatterns)
+						  (AllowedUrlPatterns != null &&
+						  AllowedUrlPatterns.SequenceEqual(other.AllowedUrlPatterns))
 					 ) &&
 					 (
 						  BlockedUrlPatterns == other.BlockedUrlPatterns ||
-						  BlockedUrlPatterns != null &&
-						  BlockedUrlPatterns.SequenceEqual(other.BlockedUrlPatterns)
+						  (BlockedUrlPatterns != null &&
+						  BlockedUrlPatterns.SequenceEqual(other.BlockedUrlPatterns))
 					 ) &&
 					 (
 						  BlockedUrlCategories == other.BlockedUrlCategories ||
-						  BlockedUrlCategories != null &&
-						  BlockedUrlCategories.SequenceEqual(other.BlockedUrlCategories)
+						  (BlockedUrlCategories != null &&
+						  BlockedUrlCategories.SequenceEqual(other.BlockedUrlCategories))
 					 ) &&
 					 (
 						  UrlCategoryListSize == other.UrlCategoryListSize ||
-						  UrlCategoryListSize != null &&
-						  UrlCategoryListSize.Equals(other.UrlCategoryListSize)
+						  (UrlCategoryListSize != null &&
+						  UrlCategoryListSize.Equals(other.UrlCategoryListSize))
 					 );
 		}
 
@@ -142,14 +142,26 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (AllowedUrlPatterns != null)
-                    hash = hash * 59 + AllowedUrlPatterns.GetHashCode();
-                if (BlockedUrlPatterns != null)
-                    hash = hash * 59 + BlockedUrlPatterns.GetHashCode();
-                if (BlockedUrlCategories != null)
-                    hash = hash * 59 + BlockedUrlCategories.GetHashCode();
-                if (UrlCategoryListSize != null)
-                    hash = hash * 59 + UrlCategoryListSize.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + AllowedUrlPatterns.GetHashCode();
+				}
+
+				if (BlockedUrlPatterns != null)
+				{
+					hash = (hash * 59) + BlockedUrlPatterns.GetHashCode();
+				}
+
+				if (BlockedUrlCategories != null)
+				{
+					hash = (hash * 59) + BlockedUrlCategories.GetHashCode();
+				}
+
+				if (UrlCategoryListSize != null)
+				{
+					hash = (hash * 59) + UrlCategoryListSize.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

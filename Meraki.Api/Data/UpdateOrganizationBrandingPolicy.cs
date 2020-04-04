@@ -108,23 +108,23 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Enabled == other.Enabled ||
-						  Enabled != null &&
-						  Enabled.Equals(other.Enabled)
+						  (Enabled != null &&
+						  Enabled.Equals(other.Enabled))
 					 ) &&
 					 (
 						  AdminSettings == other.AdminSettings ||
-						  AdminSettings != null &&
-						  AdminSettings.Equals(other.AdminSettings)
+						  (AdminSettings != null &&
+						  AdminSettings.Equals(other.AdminSettings))
 					 ) &&
 					 (
 						  HelpSettings == other.HelpSettings ||
-						  HelpSettings != null &&
-						  HelpSettings.Equals(other.HelpSettings)
+						  (HelpSettings != null &&
+						  HelpSettings.Equals(other.HelpSettings))
 					 );
 		}
 
@@ -140,14 +140,26 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Enabled != null)
-                    hash = hash * 59 + Enabled.GetHashCode();
-                if (AdminSettings != null)
-                    hash = hash * 59 + AdminSettings.GetHashCode();
-                if (HelpSettings != null)
-                    hash = hash * 59 + HelpSettings.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Enabled != null)
+				{
+					hash = (hash * 59) + Enabled.GetHashCode();
+				}
+
+				if (AdminSettings != null)
+				{
+					hash = (hash * 59) + AdminSettings.GetHashCode();
+				}
+
+				if (HelpSettings != null)
+				{
+					hash = (hash * 59) + HelpSettings.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

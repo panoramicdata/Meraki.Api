@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Mask == other.Mask ||
-						  Mask != null &&
-						  Mask.Equals(other.Mask)
+						  (Mask != null &&
+						  Mask.Equals(other.Mask))
 					 ) &&
 					 (
 						  Cidr == other.Cidr ||
-						  Cidr != null &&
-						  Cidr.Equals(other.Cidr)
+						  (Cidr != null &&
+						  Cidr.Equals(other.Cidr))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Mask != null)
-                    hash = hash * 59 + Mask.GetHashCode();
-                if (Cidr != null)
-                    hash = hash * 59 + Cidr.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Mask.GetHashCode();
+				}
+
+				if (Cidr != null)
+				{
+					hash = (hash * 59) + Cidr.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

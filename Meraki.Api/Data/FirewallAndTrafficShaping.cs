@@ -110,23 +110,23 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Settings == other.Settings ||
-						  Settings != null &&
-						  Settings.Equals(other.Settings)
+						  (Settings != null &&
+						  Settings.Equals(other.Settings))
 					 ) &&
 					 (
 						  TrafficShapingRules == other.TrafficShapingRules ||
-						  TrafficShapingRules != null &&
-						  TrafficShapingRules.SequenceEqual(other.TrafficShapingRules)
+						  (TrafficShapingRules != null &&
+						  TrafficShapingRules.SequenceEqual(other.TrafficShapingRules))
 					 ) &&
 					 (
 						  L3FirewallRules == other.L3FirewallRules ||
-						  L3FirewallRules != null &&
-						  L3FirewallRules.SequenceEqual(other.L3FirewallRules)
+						  (L3FirewallRules != null &&
+						  L3FirewallRules.SequenceEqual(other.L3FirewallRules))
 					 ) &&
 					 (
 						  L7FirewallRules == other.L7FirewallRules ||
-						  L7FirewallRules != null &&
-						  L7FirewallRules.SequenceEqual(other.L7FirewallRules)
+						  (L7FirewallRules != null &&
+						  L7FirewallRules.SequenceEqual(other.L7FirewallRules))
 					 );
 		}
 
@@ -142,14 +142,26 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Settings != null)
-                    hash = hash * 59 + Settings.GetHashCode();
-                if (TrafficShapingRules != null)
-                    hash = hash * 59 + TrafficShapingRules.GetHashCode();
-                if (L3FirewallRules != null)
-                    hash = hash * 59 + L3FirewallRules.GetHashCode();
-                if (L7FirewallRules != null)
-                    hash = hash * 59 + L7FirewallRules.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Settings.GetHashCode();
+				}
+
+				if (TrafficShapingRules != null)
+				{
+					hash = (hash * 59) + TrafficShapingRules.GetHashCode();
+				}
+
+				if (L3FirewallRules != null)
+				{
+					hash = (hash * 59) + L3FirewallRules.GetHashCode();
+				}
+
+				if (L7FirewallRules != null)
+				{
+					hash = (hash * 59) + L7FirewallRules.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

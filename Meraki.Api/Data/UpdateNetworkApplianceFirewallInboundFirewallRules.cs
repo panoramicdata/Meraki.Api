@@ -93,13 +93,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Rules == other.Rules ||
-						  Rules != null &&
-						  Rules.SequenceEqual(other.Rules)
+						  (Rules != null &&
+						  Rules.SequenceEqual(other.Rules))
 					 ) &&
 					 (
 						  SyslogDefaultRule == other.SyslogDefaultRule ||
-						  SyslogDefaultRule != null &&
-						  SyslogDefaultRule.Equals(other.SyslogDefaultRule)
+						  (SyslogDefaultRule != null &&
+						  SyslogDefaultRule.Equals(other.SyslogDefaultRule))
 					 );
 		}
 
@@ -115,10 +115,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Rules != null)
-                    hash = hash * 59 + Rules.GetHashCode();
-                if (SyslogDefaultRule != null)
-                    hash = hash * 59 + SyslogDefaultRule.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Rules.GetHashCode();
+				}
+
+				if (SyslogDefaultRule != null)
+				{
+					hash = (hash * 59) + SyslogDefaultRule.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -97,8 +97,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: Mappings == other.Mappings ||
-						  Mappings != null &&
-						  Mappings.SequenceEqual(other.Mappings);
+						  (Mappings != null &&
+						  Mappings.SequenceEqual(other.Mappings));
 		}
 
 		/// <summary>
@@ -113,8 +113,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Mappings != null)
-                    hash = hash * 59 + Mappings.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Mappings.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

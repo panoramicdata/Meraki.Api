@@ -23,20 +23,20 @@ namespace Meraki.Api.Data
 	/// CombineOrganizationNetworks
 	/// </summary>
 	[DataContract]
-    public partial class CombineOrganizationNetworks :  IEquatable<CombineOrganizationNetworks>, IValidatableObject
+    public partial class CombineOrganizationNetworksRequest :  IEquatable<CombineOrganizationNetworksRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CombineOrganizationNetworks" /> class.
+        /// Initializes a new instance of the <see cref="CombineOrganizationNetworksRequest" /> class.
         /// </summary>
         [JsonConstructor]
-        protected CombineOrganizationNetworks() { }
+        protected CombineOrganizationNetworksRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CombineOrganizationNetworks" /> class.
+        /// Initializes a new instance of the <see cref="CombineOrganizationNetworksRequest" /> class.
         /// </summary>
         /// <param name="Name">The name of the combined network (required).</param>
         /// <param name="NetworkIds">A list of the network IDs that will be combined. If an ID of a combined network is included in this list, the other networks in the list will be grouped into that network (required).</param>
         /// <param name="EnrollmentString">A unique identifier which can be used for device enrollment or easy access through the Meraki SM Registration page or the Self Service Portal. Please note that changing this field may cause existing bookmarks to break. All networks that are part of this combined network will have their enrollment string appended by &#39;-network_type&#39;. If left empty, all exisitng enrollment strings will be deleted..</param>
-        public CombineOrganizationNetworks(string Name = default, List<string> NetworkIds = default, string EnrollmentString = default)
+        public CombineOrganizationNetworksRequest(string Name = default, List<string> NetworkIds = default, string EnrollmentString = default)
         {
             // to ensure "Name" is required (not null)
             if (Name == null)
@@ -109,7 +109,7 @@ namespace Meraki.Api.Data
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return Equals(obj as CombineOrganizationNetworks);
+            return Equals(obj as CombineOrganizationNetworksRequest);
         }
 
         /// <summary>
@@ -117,25 +117,25 @@ namespace Meraki.Api.Data
         /// </summary>
         /// <param name="other">Instance of CombineOrganizationNetworks to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CombineOrganizationNetworks other)
+        public bool Equals(CombineOrganizationNetworksRequest other)
         {
 			// credit: http://stackoverflow.com/a/10454552/677735
 			return other == null
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  NetworkIds == other.NetworkIds ||
-						  NetworkIds != null &&
-						  NetworkIds.SequenceEqual(other.NetworkIds)
+						  (NetworkIds != null &&
+						  NetworkIds.SequenceEqual(other.NetworkIds))
 					 ) &&
 					 (
 						  EnrollmentString == other.EnrollmentString ||
-						  EnrollmentString != null &&
-						  EnrollmentString.Equals(other.EnrollmentString)
+						  (EnrollmentString != null &&
+						  EnrollmentString.Equals(other.EnrollmentString))
 					 );
 		}
 
@@ -151,12 +151,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (NetworkIds != null)
-                    hash = hash * 59 + NetworkIds.GetHashCode();
-                if (EnrollmentString != null)
-                    hash = hash * 59 + EnrollmentString.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (NetworkIds != null)
+				{
+					hash = (hash * 59) + NetworkIds.GetHashCode();
+				}
+
+				if (EnrollmentString != null)
+				{
+					hash = (hash * 59) + EnrollmentString.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

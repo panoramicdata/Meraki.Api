@@ -131,18 +131,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Subnet == other.Subnet ||
-						  Subnet != null &&
-						  Subnet.Equals(other.Subnet)
+						  (Subnet != null &&
+						  Subnet.Equals(other.Subnet))
 					 ) &&
 					 (
 						  GatewayIp == other.GatewayIp ||
-						  GatewayIp != null &&
-						  GatewayIp.Equals(other.GatewayIp)
+						  (GatewayIp != null &&
+						  GatewayIp.Equals(other.GatewayIp))
 					 );
 		}
 
@@ -158,12 +158,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Subnet != null)
-                    hash = hash * 59 + Subnet.GetHashCode();
-                if (GatewayIp != null)
-                    hash = hash * 59 + GatewayIp.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Subnet != null)
+				{
+					hash = (hash * 59) + Subnet.GetHashCode();
+				}
+
+				if (GatewayIp != null)
+				{
+					hash = (hash * 59) + GatewayIp.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

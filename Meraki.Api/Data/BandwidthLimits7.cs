@@ -98,18 +98,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Wan1 == other.Wan1 ||
-						  Wan1 != null &&
-						  Wan1.Equals(other.Wan1)
+						  (Wan1 != null &&
+						  Wan1.Equals(other.Wan1))
 					 ) &&
 					 (
 						  Wan2 == other.Wan2 ||
-						  Wan2 != null &&
-						  Wan2.Equals(other.Wan2)
+						  (Wan2 != null &&
+						  Wan2.Equals(other.Wan2))
 					 ) &&
 					 (
 						  Cellular == other.Cellular ||
-						  Cellular != null &&
-						  Cellular.Equals(other.Cellular)
+						  (Cellular != null &&
+						  Cellular.Equals(other.Cellular))
 					 );
 		}
 
@@ -125,12 +125,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Wan1 != null)
-                    hash = hash * 59 + Wan1.GetHashCode();
-                if (Wan2 != null)
-                    hash = hash * 59 + Wan2.GetHashCode();
-                if (Cellular != null)
-                    hash = hash * 59 + Cellular.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Wan1.GetHashCode();
+				}
+
+				if (Wan2 != null)
+				{
+					hash = (hash * 59) + Wan2.GetHashCode();
+				}
+
+				if (Cellular != null)
+				{
+					hash = (hash * 59) + Cellular.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

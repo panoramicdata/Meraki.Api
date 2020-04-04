@@ -42,7 +42,6 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "quality", EmitDefaultValue = false)]
 		public Quality Quality { get; set; }
 
-
 		/// <summary>
 		/// Gets or Sets Resolution
 		/// </summary>

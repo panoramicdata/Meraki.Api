@@ -131,18 +131,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  DestOrganizationId == other.DestOrganizationId ||
-						  DestOrganizationId != null &&
-						  DestOrganizationId.Equals(other.DestOrganizationId)
+						  (DestOrganizationId != null &&
+						  DestOrganizationId.Equals(other.DestOrganizationId))
 					 ) &&
 					 (
 						  LicenseId == other.LicenseId ||
-						  LicenseId != null &&
-						  LicenseId.Equals(other.LicenseId)
+						  (LicenseId != null &&
+						  LicenseId.Equals(other.LicenseId))
 					 ) &&
 					 (
 						  SeatCount == other.SeatCount ||
-						  SeatCount != null &&
-						  SeatCount.Equals(other.SeatCount)
+						  (SeatCount != null &&
+						  SeatCount.Equals(other.SeatCount))
 					 );
 		}
 
@@ -158,12 +158,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DestOrganizationId != null)
-                    hash = hash * 59 + DestOrganizationId.GetHashCode();
-                if (LicenseId != null)
-                    hash = hash * 59 + LicenseId.GetHashCode();
-                if (SeatCount != null)
-                    hash = hash * 59 + SeatCount.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DestOrganizationId.GetHashCode();
+				}
+
+				if (LicenseId != null)
+				{
+					hash = (hash * 59) + LicenseId.GetHashCode();
+				}
+
+				if (SeatCount != null)
+				{
+					hash = (hash * 59) + SeatCount.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

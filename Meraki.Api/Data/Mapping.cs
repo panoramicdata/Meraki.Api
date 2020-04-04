@@ -123,18 +123,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Dscp == other.Dscp ||
-						  Dscp != null &&
-						  Dscp.Equals(other.Dscp)
+						  (Dscp != null &&
+						  Dscp.Equals(other.Dscp))
 					 ) &&
 					 (
 						  Cos == other.Cos ||
-						  Cos != null &&
-						  Cos.Equals(other.Cos)
+						  (Cos != null &&
+						  Cos.Equals(other.Cos))
 					 ) &&
 					 (
 						  Title == other.Title ||
-						  Title != null &&
-						  Title.Equals(other.Title)
+						  (Title != null &&
+						  Title.Equals(other.Title))
 					 );
 		}
 
@@ -150,12 +150,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Dscp != null)
-                    hash = hash * 59 + Dscp.GetHashCode();
-                if (Cos != null)
-                    hash = hash * 59 + Cos.GetHashCode();
-                if (Title != null)
-                    hash = hash * 59 + Title.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Dscp.GetHashCode();
+				}
+
+				if (Cos != null)
+				{
+					hash = (hash * 59) + Cos.GetHashCode();
+				}
+
+				if (Title != null)
+				{
+					hash = (hash * 59) + Title.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -130,18 +130,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Type == other.Type ||
-						  Type != null &&
-						  Type.Equals(other.Type)
+						  (Type != null &&
+						  Type.Equals(other.Type))
 					 ) &&
 					 (
 						  Value == other.Value ||
-						  Value != null &&
-						  Value.Equals(other.Value)
+						  (Value != null &&
+						  Value.Equals(other.Value))
 					 );
 		}
 
@@ -157,12 +157,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Type != null)
-                    hash = hash * 59 + Type.GetHashCode();
-                if (Value != null)
-                    hash = hash * 59 + Value.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Type != null)
+				{
+					hash = (hash * 59) + Type.GetHashCode();
+				}
+
+				if (Value != null)
+				{
+					hash = (hash * 59) + Value.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

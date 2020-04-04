@@ -90,13 +90,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Settings == other.Settings ||
-						  Settings != null &&
-						  Settings.Equals(other.Settings)
+						  (Settings != null &&
+						  Settings.Equals(other.Settings))
 					 ) &&
 					 (
 						  BandwidthLimits == other.BandwidthLimits ||
-						  BandwidthLimits != null &&
-						  BandwidthLimits.Equals(other.BandwidthLimits)
+						  (BandwidthLimits != null &&
+						  BandwidthLimits.Equals(other.BandwidthLimits))
 					 );
 		}
 
@@ -112,10 +112,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Settings != null)
-                    hash = hash * 59 + Settings.GetHashCode();
-                if (BandwidthLimits != null)
-                    hash = hash * 59 + BandwidthLimits.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Settings.GetHashCode();
+				}
+
+				if (BandwidthLimits != null)
+				{
+					hash = (hash * 59) + BandwidthLimits.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

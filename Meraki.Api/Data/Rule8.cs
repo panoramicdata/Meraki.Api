@@ -133,28 +133,28 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  PublicIp == other.PublicIp ||
-						  PublicIp != null &&
-						  PublicIp.Equals(other.PublicIp)
+						  (PublicIp != null &&
+						  PublicIp.Equals(other.PublicIp))
 					 ) &&
 					 (
 						  LanIp == other.LanIp ||
-						  LanIp != null &&
-						  LanIp.Equals(other.LanIp)
+						  (LanIp != null &&
+						  LanIp.Equals(other.LanIp))
 					 ) &&
 					 (
 						  Uplink == other.Uplink ||
-						  Uplink != null &&
-						  Uplink.Equals(other.Uplink)
+						  (Uplink != null &&
+						  Uplink.Equals(other.Uplink))
 					 ) &&
 					 (
 						  AllowedInbound == other.AllowedInbound ||
-						  AllowedInbound != null &&
-						  AllowedInbound.SequenceEqual(other.AllowedInbound)
+						  (AllowedInbound != null &&
+						  AllowedInbound.SequenceEqual(other.AllowedInbound))
 					 );
 		}
 
@@ -170,16 +170,31 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (PublicIp != null)
-                    hash = hash * 59 + PublicIp.GetHashCode();
-                if (LanIp != null)
-                    hash = hash * 59 + LanIp.GetHashCode();
-                if (Uplink != null)
-                    hash = hash * 59 + Uplink.GetHashCode();
-                if (AllowedInbound != null)
-                    hash = hash * 59 + AllowedInbound.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (PublicIp != null)
+				{
+					hash = (hash * 59) + PublicIp.GetHashCode();
+				}
+
+				if (LanIp != null)
+				{
+					hash = (hash * 59) + LanIp.GetHashCode();
+				}
+
+				if (Uplink != null)
+				{
+					hash = (hash * 59) + Uplink.GetHashCode();
+				}
+
+				if (AllowedInbound != null)
+				{
+					hash = (hash * 59) + AllowedInbound.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

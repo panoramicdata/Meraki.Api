@@ -96,8 +96,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: Serial == other.Serial ||
-						  Serial != null &&
-						  Serial.Equals(other.Serial);
+						  (Serial != null &&
+						  Serial.Equals(other.Serial));
 		}
 
 		/// <summary>
@@ -112,8 +112,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Serial != null)
-                    hash = hash * 59 + Serial.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Serial.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -123,18 +123,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Ip == other.Ip ||
-						  Ip != null &&
-						  Ip.Equals(other.Ip)
+						  (Ip != null &&
+						  Ip.Equals(other.Ip))
 					 ) &&
 					 (
 						  Description == other.Description ||
-						  Description != null &&
-						  Description.Equals(other.Description)
+						  (Description != null &&
+						  Description.Equals(other.Description))
 					 ) &&
 					 (
 						  _Default == other._Default ||
-						  _Default != null &&
-						  _Default.Equals(other._Default)
+						  (_Default != null &&
+						  _Default.Equals(other._Default))
 					 );
 		}
 
@@ -150,12 +150,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Ip != null)
-                    hash = hash * 59 + Ip.GetHashCode();
-                if (Description != null)
-                    hash = hash * 59 + Description.GetHashCode();
-                if (_Default != null)
-                    hash = hash * 59 + _Default.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Ip.GetHashCode();
+				}
+
+				if (Description != null)
+				{
+					hash = (hash * 59) + Description.GetHashCode();
+				}
+
+				if (_Default != null)
+				{
+					hash = (hash * 59) + _Default.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

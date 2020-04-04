@@ -102,18 +102,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  UseDefault == other.UseDefault ||
-						  UseDefault != null &&
-						  UseDefault.Equals(other.UseDefault)
+						  (UseDefault != null &&
+						  UseDefault.Equals(other.UseDefault))
 					 ) &&
 					 (
 						  IncludedCidr == other.IncludedCidr ||
-						  IncludedCidr != null &&
-						  IncludedCidr.SequenceEqual(other.IncludedCidr)
+						  (IncludedCidr != null &&
+						  IncludedCidr.SequenceEqual(other.IncludedCidr))
 					 ) &&
 					 (
 						  ExcludedCidr == other.ExcludedCidr ||
-						  ExcludedCidr != null &&
-						  ExcludedCidr.SequenceEqual(other.ExcludedCidr)
+						  (ExcludedCidr != null &&
+						  ExcludedCidr.SequenceEqual(other.ExcludedCidr))
 					 );
 		}
 
@@ -129,12 +129,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (UseDefault != null)
-                    hash = hash * 59 + UseDefault.GetHashCode();
-                if (IncludedCidr != null)
-                    hash = hash * 59 + IncludedCidr.GetHashCode();
-                if (ExcludedCidr != null)
-                    hash = hash * 59 + ExcludedCidr.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + UseDefault.GetHashCode();
+				}
+
+				if (IncludedCidr != null)
+				{
+					hash = (hash * 59) + IncludedCidr.GetHashCode();
+				}
+
+				if (ExcludedCidr != null)
+				{
+					hash = (hash * 59) + ExcludedCidr.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

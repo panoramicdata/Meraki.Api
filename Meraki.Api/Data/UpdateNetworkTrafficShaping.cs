@@ -93,13 +93,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  DefaultRulesEnabled == other.DefaultRulesEnabled ||
-						  DefaultRulesEnabled != null &&
-						  DefaultRulesEnabled.Equals(other.DefaultRulesEnabled)
+						  (DefaultRulesEnabled != null &&
+						  DefaultRulesEnabled.Equals(other.DefaultRulesEnabled))
 					 ) &&
 					 (
 						  Rules == other.Rules ||
-						  Rules != null &&
-						  Rules.SequenceEqual(other.Rules)
+						  (Rules != null &&
+						  Rules.SequenceEqual(other.Rules))
 					 );
 		}
 
@@ -115,10 +115,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DefaultRulesEnabled != null)
-                    hash = hash * 59 + DefaultRulesEnabled.GetHashCode();
-                if (Rules != null)
-                    hash = hash * 59 + Rules.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DefaultRulesEnabled.GetHashCode();
+				}
+
+				if (Rules != null)
+				{
+					hash = (hash * 59) + Rules.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

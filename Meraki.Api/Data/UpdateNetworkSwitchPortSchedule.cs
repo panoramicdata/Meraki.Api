@@ -91,13 +91,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  PortSchedule == other.PortSchedule ||
-						  PortSchedule != null &&
-						  PortSchedule.Equals(other.PortSchedule)
+						  (PortSchedule != null &&
+						  PortSchedule.Equals(other.PortSchedule))
 					 );
 		}
 
@@ -113,10 +113,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (PortSchedule != null)
-                    hash = hash * 59 + PortSchedule.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (PortSchedule != null)
+				{
+					hash = (hash * 59) + PortSchedule.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

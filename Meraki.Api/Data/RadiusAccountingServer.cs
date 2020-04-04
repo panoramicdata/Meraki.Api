@@ -123,18 +123,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Host == other.Host ||
-						  Host != null &&
-						  Host.Equals(other.Host)
+						  (Host != null &&
+						  Host.Equals(other.Host))
 					 ) &&
 					 (
 						  Port == other.Port ||
-						  Port != null &&
-						  Port.Equals(other.Port)
+						  (Port != null &&
+						  Port.Equals(other.Port))
 					 ) &&
 					 (
 						  Secret == other.Secret ||
-						  Secret != null &&
-						  Secret.Equals(other.Secret)
+						  (Secret != null &&
+						  Secret.Equals(other.Secret))
 					 );
 		}
 
@@ -150,12 +150,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Host != null)
-                    hash = hash * 59 + Host.GetHashCode();
-                if (Port != null)
-                    hash = hash * 59 + Port.GetHashCode();
-                if (Secret != null)
-                    hash = hash * 59 + Secret.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Host.GetHashCode();
+				}
+
+				if (Port != null)
+				{
+					hash = (hash * 59) + Port.GetHashCode();
+				}
+
+				if (Secret != null)
+				{
+					hash = (hash * 59) + Secret.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

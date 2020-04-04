@@ -111,23 +111,23 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Role == other.Role ||
-						  Role != null &&
-						  Role.Equals(other.Role)
+						  (Role != null &&
+						  Role.Equals(other.Role))
 					 ) &&
 					 (
 						  OrgAccess == other.OrgAccess ||
-						  OrgAccess != null &&
-						  OrgAccess.Equals(other.OrgAccess)
+						  (OrgAccess != null &&
+						  OrgAccess.Equals(other.OrgAccess))
 					 ) &&
 					 (
 						  Tags == other.Tags ||
-						  Tags != null &&
-						  Tags.SequenceEqual(other.Tags)
+						  (Tags != null &&
+						  Tags.SequenceEqual(other.Tags))
 					 ) &&
 					 (
 						  Networks == other.Networks ||
-						  Networks != null &&
-						  Networks.SequenceEqual(other.Networks)
+						  (Networks != null &&
+						  Networks.SequenceEqual(other.Networks))
 					 );
 		}
 
@@ -143,14 +143,26 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Role != null)
-                    hash = hash * 59 + Role.GetHashCode();
-                if (OrgAccess != null)
-                    hash = hash * 59 + OrgAccess.GetHashCode();
-                if (Tags != null)
-                    hash = hash * 59 + Tags.GetHashCode();
-                if (Networks != null)
-                    hash = hash * 59 + Networks.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Role.GetHashCode();
+				}
+
+				if (OrgAccess != null)
+				{
+					hash = (hash * 59) + OrgAccess.GetHashCode();
+				}
+
+				if (Tags != null)
+				{
+					hash = (hash * 59) + Tags.GetHashCode();
+				}
+
+				if (Networks != null)
+				{
+					hash = (hash * 59) + Networks.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

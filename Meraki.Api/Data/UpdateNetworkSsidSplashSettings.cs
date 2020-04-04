@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  SplashUrl == other.SplashUrl ||
-						  SplashUrl != null &&
-						  SplashUrl.Equals(other.SplashUrl)
+						  (SplashUrl != null &&
+						  SplashUrl.Equals(other.SplashUrl))
 					 ) &&
 					 (
 						  UseSplashUrl == other.UseSplashUrl ||
-						  UseSplashUrl != null &&
-						  UseSplashUrl.Equals(other.UseSplashUrl)
+						  (UseSplashUrl != null &&
+						  UseSplashUrl.Equals(other.UseSplashUrl))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (SplashUrl != null)
-                    hash = hash * 59 + SplashUrl.GetHashCode();
-                if (UseSplashUrl != null)
-                    hash = hash * 59 + UseSplashUrl.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + SplashUrl.GetHashCode();
+				}
+
+				if (UseSplashUrl != null)
+				{
+					hash = (hash * 59) + UseSplashUrl.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

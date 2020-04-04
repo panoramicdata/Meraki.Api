@@ -22,9 +22,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="bindNetwork"></param>
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/bind")]
-		Task BindAsync(
+		Task BindConfigurationTemplateAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]BindNetwork bindNetwork,
+			[Body]ConfigurationTemplateBindRequest bindNetwork,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -38,10 +38,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="combineOrganizationNetworks"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/networks/combine")]
-		Task<object> CombineOrganizationNetworks(
+		Task<object> CombineOrganizationNetworksAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]CombineOrganizationNetworks combineOrganizationNetworks
-			);
+			[Body]CombineOrganizationNetworksRequest combineOrganizationNetworks,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// createOrganizationNetwork
@@ -193,7 +193,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/unbind")]
-		Task UnbindAsync(
+		Task UnbindConfigurationTemplateAsync(
 			[AliasAs("networkId")]string networkId,
 			CancellationToken cancellationToken = default
 			);

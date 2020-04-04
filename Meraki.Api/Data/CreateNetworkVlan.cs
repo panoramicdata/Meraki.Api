@@ -157,28 +157,28 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Id == other.Id ||
-						  Id != null &&
-						  Id.Equals(other.Id)
+						  (Id != null &&
+						  Id.Equals(other.Id))
 					 ) &&
 					 (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Subnet == other.Subnet ||
-						  Subnet != null &&
-						  Subnet.Equals(other.Subnet)
+						  (Subnet != null &&
+						  Subnet.Equals(other.Subnet))
 					 ) &&
 					 (
 						  ApplianceIp == other.ApplianceIp ||
-						  ApplianceIp != null &&
-						  ApplianceIp.Equals(other.ApplianceIp)
+						  (ApplianceIp != null &&
+						  ApplianceIp.Equals(other.ApplianceIp))
 					 ) &&
 					 (
 						  GroupPolicyId == other.GroupPolicyId ||
-						  GroupPolicyId != null &&
-						  GroupPolicyId.Equals(other.GroupPolicyId)
+						  (GroupPolicyId != null &&
+						  GroupPolicyId.Equals(other.GroupPolicyId))
 					 );
 		}
 
@@ -194,16 +194,31 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Id != null)
-                    hash = hash * 59 + Id.GetHashCode();
-                if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Subnet != null)
-                    hash = hash * 59 + Subnet.GetHashCode();
-                if (ApplianceIp != null)
-                    hash = hash * 59 + ApplianceIp.GetHashCode();
-                if (GroupPolicyId != null)
-                    hash = hash * 59 + GroupPolicyId.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Id.GetHashCode();
+				}
+
+				if (Name != null)
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Subnet != null)
+				{
+					hash = (hash * 59) + Subnet.GetHashCode();
+				}
+
+				if (ApplianceIp != null)
+				{
+					hash = (hash * 59) + ApplianceIp.GetHashCode();
+				}
+
+				if (GroupPolicyId != null)
+				{
+					hash = (hash * 59) + GroupPolicyId.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

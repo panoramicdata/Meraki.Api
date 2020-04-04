@@ -115,13 +115,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  DestOrganizationId == other.DestOrganizationId ||
-						  DestOrganizationId != null &&
-						  DestOrganizationId.Equals(other.DestOrganizationId)
+						  (DestOrganizationId != null &&
+						  DestOrganizationId.Equals(other.DestOrganizationId))
 					 ) &&
 					 (
 						  LicenseIds == other.LicenseIds ||
-						  LicenseIds != null &&
-						  LicenseIds.SequenceEqual(other.LicenseIds)
+						  (LicenseIds != null &&
+						  LicenseIds.SequenceEqual(other.LicenseIds))
 					 );
 		}
 
@@ -137,10 +137,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DestOrganizationId != null)
-                    hash = hash * 59 + DestOrganizationId.GetHashCode();
-                if (LicenseIds != null)
-                    hash = hash * 59 + LicenseIds.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DestOrganizationId.GetHashCode();
+				}
+
+				if (LicenseIds != null)
+				{
+					hash = (hash * 59) + LicenseIds.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

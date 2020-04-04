@@ -82,8 +82,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: RfProfileId == other.RfProfileId ||
-						  RfProfileId != null &&
-						  RfProfileId.Equals(other.RfProfileId);
+						  (RfProfileId != null &&
+						  RfProfileId.Equals(other.RfProfileId));
 		}
 
 		/// <summary>
@@ -98,8 +98,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (RfProfileId != null)
-                    hash = hash * 59 + RfProfileId.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + RfProfileId.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

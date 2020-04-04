@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Address == other.Address ||
-						  Address != null &&
-						  Address.Equals(other.Address)
+						  (Address != null &&
+						  Address.Equals(other.Address))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Address != null)
-                    hash = hash * 59 + Address.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Address != null)
+				{
+					hash = (hash * 59) + Address.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

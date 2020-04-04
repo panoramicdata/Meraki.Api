@@ -93,13 +93,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  ReservedIpRanges == other.ReservedIpRanges ||
-						  ReservedIpRanges != null &&
-						  ReservedIpRanges.SequenceEqual(other.ReservedIpRanges)
+						  (ReservedIpRanges != null &&
+						  ReservedIpRanges.SequenceEqual(other.ReservedIpRanges))
 					 ) &&
 					 (
 						  FixedIpAssignments == other.FixedIpAssignments ||
-						  FixedIpAssignments != null &&
-						  FixedIpAssignments.SequenceEqual(other.FixedIpAssignments)
+						  (FixedIpAssignments != null &&
+						  FixedIpAssignments.SequenceEqual(other.FixedIpAssignments))
 					 );
 		}
 
@@ -115,10 +115,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (ReservedIpRanges != null)
-                    hash = hash * 59 + ReservedIpRanges.GetHashCode();
-                if (FixedIpAssignments != null)
-                    hash = hash * 59 + FixedIpAssignments.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + ReservedIpRanges.GetHashCode();
+				}
+
+				if (FixedIpAssignments != null)
+				{
+					hash = (hash * 59) + FixedIpAssignments.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

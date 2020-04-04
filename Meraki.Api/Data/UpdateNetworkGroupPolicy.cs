@@ -139,43 +139,43 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Scheduling == other.Scheduling ||
-						  Scheduling != null &&
-						  Scheduling.Equals(other.Scheduling)
+						  (Scheduling != null &&
+						  Scheduling.Equals(other.Scheduling))
 					 ) &&
 					 (
 						  Bandwidth == other.Bandwidth ||
-						  Bandwidth != null &&
-						  Bandwidth.Equals(other.Bandwidth)
+						  (Bandwidth != null &&
+						  Bandwidth.Equals(other.Bandwidth))
 					 ) &&
 					 (
 						  FirewallAndTrafficShaping == other.FirewallAndTrafficShaping ||
-						  FirewallAndTrafficShaping != null &&
-						  FirewallAndTrafficShaping.Equals(other.FirewallAndTrafficShaping)
+						  (FirewallAndTrafficShaping != null &&
+						  FirewallAndTrafficShaping.Equals(other.FirewallAndTrafficShaping))
 					 ) &&
 					 (
 						  ContentFiltering == other.ContentFiltering ||
-						  ContentFiltering != null &&
-						  ContentFiltering.Equals(other.ContentFiltering)
+						  (ContentFiltering != null &&
+						  ContentFiltering.Equals(other.ContentFiltering))
 					 ) &&
 					 (
 						  SplashAuthSettings == other.SplashAuthSettings ||
-						  SplashAuthSettings != null &&
-						  SplashAuthSettings.Equals(other.SplashAuthSettings)
+						  (SplashAuthSettings != null &&
+						  SplashAuthSettings.Equals(other.SplashAuthSettings))
 					 ) &&
 					 (
 						  VlanTagging == other.VlanTagging ||
-						  VlanTagging != null &&
-						  VlanTagging.Equals(other.VlanTagging)
+						  (VlanTagging != null &&
+						  VlanTagging.Equals(other.VlanTagging))
 					 ) &&
 					 (
 						  BonjourForwarding == other.BonjourForwarding ||
-						  BonjourForwarding != null &&
-						  BonjourForwarding.Equals(other.BonjourForwarding)
+						  (BonjourForwarding != null &&
+						  BonjourForwarding.Equals(other.BonjourForwarding))
 					 );
 		}
 
@@ -191,22 +191,46 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Scheduling != null)
-                    hash = hash * 59 + Scheduling.GetHashCode();
-                if (Bandwidth != null)
-                    hash = hash * 59 + Bandwidth.GetHashCode();
-                if (FirewallAndTrafficShaping != null)
-                    hash = hash * 59 + FirewallAndTrafficShaping.GetHashCode();
-                if (ContentFiltering != null)
-                    hash = hash * 59 + ContentFiltering.GetHashCode();
-                if (SplashAuthSettings != null)
-                    hash = hash * 59 + SplashAuthSettings.GetHashCode();
-                if (VlanTagging != null)
-                    hash = hash * 59 + VlanTagging.GetHashCode();
-                if (BonjourForwarding != null)
-                    hash = hash * 59 + BonjourForwarding.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Scheduling != null)
+				{
+					hash = (hash * 59) + Scheduling.GetHashCode();
+				}
+
+				if (Bandwidth != null)
+				{
+					hash = (hash * 59) + Bandwidth.GetHashCode();
+				}
+
+				if (FirewallAndTrafficShaping != null)
+				{
+					hash = (hash * 59) + FirewallAndTrafficShaping.GetHashCode();
+				}
+
+				if (ContentFiltering != null)
+				{
+					hash = (hash * 59) + ContentFiltering.GetHashCode();
+				}
+
+				if (SplashAuthSettings != null)
+				{
+					hash = (hash * 59) + SplashAuthSettings.GetHashCode();
+				}
+
+				if (VlanTagging != null)
+				{
+					hash = (hash * 59) + VlanTagging.GetHashCode();
+				}
+
+				if (BonjourForwarding != null)
+				{
+					hash = (hash * 59) + BonjourForwarding.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

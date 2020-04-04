@@ -97,8 +97,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: Ssids == other.Ssids ||
-						  Ssids != null &&
-						  Ssids.SequenceEqual(other.Ssids);
+						  (Ssids != null &&
+						  Ssids.SequenceEqual(other.Ssids));
 		}
 
 		/// <summary>
@@ -113,8 +113,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Ssids != null)
-                    hash = hash * 59 + Ssids.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Ssids.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

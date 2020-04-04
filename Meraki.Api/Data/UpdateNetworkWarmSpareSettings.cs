@@ -133,28 +133,28 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Enabled == other.Enabled ||
-						  Enabled != null &&
-						  Enabled.Equals(other.Enabled)
+						  (Enabled != null &&
+						  Enabled.Equals(other.Enabled))
 					 ) &&
 					 (
 						  SpareSerial == other.SpareSerial ||
-						  SpareSerial != null &&
-						  SpareSerial.Equals(other.SpareSerial)
+						  (SpareSerial != null &&
+						  SpareSerial.Equals(other.SpareSerial))
 					 ) &&
 					 (
 						  UplinkMode == other.UplinkMode ||
-						  UplinkMode != null &&
-						  UplinkMode.Equals(other.UplinkMode)
+						  (UplinkMode != null &&
+						  UplinkMode.Equals(other.UplinkMode))
 					 ) &&
 					 (
 						  VirtualIp1 == other.VirtualIp1 ||
-						  VirtualIp1 != null &&
-						  VirtualIp1.Equals(other.VirtualIp1)
+						  (VirtualIp1 != null &&
+						  VirtualIp1.Equals(other.VirtualIp1))
 					 ) &&
 					 (
 						  VirtualIp2 == other.VirtualIp2 ||
-						  VirtualIp2 != null &&
-						  VirtualIp2.Equals(other.VirtualIp2)
+						  (VirtualIp2 != null &&
+						  VirtualIp2.Equals(other.VirtualIp2))
 					 );
 		}
 
@@ -170,16 +170,31 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Enabled != null)
-                    hash = hash * 59 + Enabled.GetHashCode();
-                if (SpareSerial != null)
-                    hash = hash * 59 + SpareSerial.GetHashCode();
-                if (UplinkMode != null)
-                    hash = hash * 59 + UplinkMode.GetHashCode();
-                if (VirtualIp1 != null)
-                    hash = hash * 59 + VirtualIp1.GetHashCode();
-                if (VirtualIp2 != null)
-                    hash = hash * 59 + VirtualIp2.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Enabled.GetHashCode();
+				}
+
+				if (SpareSerial != null)
+				{
+					hash = (hash * 59) + SpareSerial.GetHashCode();
+				}
+
+				if (UplinkMode != null)
+				{
+					hash = (hash * 59) + UplinkMode.GetHashCode();
+				}
+
+				if (VirtualIp1 != null)
+				{
+					hash = (hash * 59) + VirtualIp1.GetHashCode();
+				}
+
+				if (VirtualIp2 != null)
+				{
+					hash = (hash * 59) + VirtualIp2.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

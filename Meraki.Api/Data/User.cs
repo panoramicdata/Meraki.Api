@@ -114,13 +114,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Username == other.Username ||
-						  Username != null &&
-						  Username.Equals(other.Username)
+						  (Username != null &&
+						  Username.Equals(other.Username))
 					 ) &&
 					 (
 						  Passphrase == other.Passphrase ||
-						  Passphrase != null &&
-						  Passphrase.Equals(other.Passphrase)
+						  (Passphrase != null &&
+						  Passphrase.Equals(other.Passphrase))
 					 );
 		}
 
@@ -136,10 +136,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Username != null)
-                    hash = hash * 59 + Username.GetHashCode();
-                if (Passphrase != null)
-                    hash = hash * 59 + Passphrase.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Username.GetHashCode();
+				}
+
+				if (Passphrase != null)
+				{
+					hash = (hash * 59) + Passphrase.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

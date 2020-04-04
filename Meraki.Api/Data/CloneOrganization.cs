@@ -96,8 +96,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name);
+						  (Name != null &&
+						  Name.Equals(other.Name));
 		}
 
 		/// <summary>
@@ -112,8 +112,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

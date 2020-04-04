@@ -93,13 +93,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  RstpEnabled == other.RstpEnabled ||
-						  RstpEnabled != null &&
-						  RstpEnabled.Equals(other.RstpEnabled)
+						  (RstpEnabled != null &&
+						  RstpEnabled.Equals(other.RstpEnabled))
 					 ) &&
 					 (
 						  StpBridgePriority == other.StpBridgePriority ||
-						  StpBridgePriority != null &&
-						  StpBridgePriority.SequenceEqual(other.StpBridgePriority)
+						  (StpBridgePriority != null &&
+						  StpBridgePriority.SequenceEqual(other.StpBridgePriority))
 					 );
 		}
 
@@ -115,10 +115,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (RstpEnabled != null)
-                    hash = hash * 59 + RstpEnabled.GetHashCode();
-                if (StpBridgePriority != null)
-                    hash = hash * 59 + StpBridgePriority.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + RstpEnabled.GetHashCode();
+				}
+
+				if (StpBridgePriority != null)
+				{
+					hash = (hash * 59) + StpBridgePriority.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

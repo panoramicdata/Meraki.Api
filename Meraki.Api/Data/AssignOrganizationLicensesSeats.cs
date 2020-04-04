@@ -131,18 +131,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  LicenseId == other.LicenseId ||
-						  LicenseId != null &&
-						  LicenseId.Equals(other.LicenseId)
+						  (LicenseId != null &&
+						  LicenseId.Equals(other.LicenseId))
 					 ) &&
 					 (
 						  NetworkId == other.NetworkId ||
-						  NetworkId != null &&
-						  NetworkId.Equals(other.NetworkId)
+						  (NetworkId != null &&
+						  NetworkId.Equals(other.NetworkId))
 					 ) &&
 					 (
 						  SeatCount == other.SeatCount ||
-						  SeatCount != null &&
-						  SeatCount.Equals(other.SeatCount)
+						  (SeatCount != null &&
+						  SeatCount.Equals(other.SeatCount))
 					 );
 		}
 
@@ -158,12 +158,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (LicenseId != null)
-                    hash = hash * 59 + LicenseId.GetHashCode();
-                if (NetworkId != null)
-                    hash = hash * 59 + NetworkId.GetHashCode();
-                if (SeatCount != null)
-                    hash = hash * 59 + SeatCount.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + LicenseId.GetHashCode();
+				}
+
+				if (NetworkId != null)
+				{
+					hash = (hash * 59) + NetworkId.GetHashCode();
+				}
+
+				if (SeatCount != null)
+				{
+					hash = (hash * 59) + SeatCount.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

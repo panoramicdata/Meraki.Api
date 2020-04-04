@@ -113,13 +113,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Serial == other.Serial ||
-						  Serial != null &&
-						  Serial.Equals(other.Serial)
+						  (Serial != null &&
+						  Serial.Equals(other.Serial))
 					 ) &&
 					 (
 						  PowerType == other.PowerType ||
-						  PowerType != null &&
-						  PowerType.Equals(other.PowerType)
+						  (PowerType != null &&
+						  PowerType.Equals(other.PowerType))
 					 );
 		}
 
@@ -135,10 +135,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Serial != null)
-                    hash = hash * 59 + Serial.GetHashCode();
-                if (PowerType != null)
-                    hash = hash * 59 + PowerType.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Serial.GetHashCode();
+				}
+
+				if (PowerType != null)
+				{
+					hash = (hash * 59) + PowerType.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

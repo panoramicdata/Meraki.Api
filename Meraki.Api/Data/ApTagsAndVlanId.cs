@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Tags == other.Tags ||
-						  Tags != null &&
-						  Tags.Equals(other.Tags)
+						  (Tags != null &&
+						  Tags.Equals(other.Tags))
 					 ) &&
 					 (
 						  VlanId == other.VlanId ||
-						  VlanId != null &&
-						  VlanId.Equals(other.VlanId)
+						  (VlanId != null &&
+						  VlanId.Equals(other.VlanId))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Tags != null)
-                    hash = hash * 59 + Tags.GetHashCode();
-                if (VlanId != null)
-                    hash = hash * 59 + VlanId.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Tags.GetHashCode();
+				}
+
+				if (VlanId != null)
+				{
+					hash = (hash * 59) + VlanId.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

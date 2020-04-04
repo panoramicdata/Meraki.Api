@@ -106,13 +106,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  LocalSubnet == other.LocalSubnet ||
-						  LocalSubnet != null &&
-						  LocalSubnet.Equals(other.LocalSubnet)
+						  (LocalSubnet != null &&
+						  LocalSubnet.Equals(other.LocalSubnet))
 					 ) &&
 					 (
 						  UseVpn == other.UseVpn ||
-						  UseVpn != null &&
-						  UseVpn.Equals(other.UseVpn)
+						  (UseVpn != null &&
+						  UseVpn.Equals(other.UseVpn))
 					 );
 		}
 
@@ -128,10 +128,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (LocalSubnet != null)
-                    hash = hash * 59 + LocalSubnet.GetHashCode();
-                if (UseVpn != null)
-                    hash = hash * 59 + UseVpn.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + LocalSubnet.GetHashCode();
+				}
+
+				if (UseVpn != null)
+				{
+					hash = (hash * 59) + UseVpn.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

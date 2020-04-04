@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  DefaultSettings == other.DefaultSettings ||
-						  DefaultSettings != null &&
-						  DefaultSettings.Equals(other.DefaultSettings)
+						  (DefaultSettings != null &&
+						  DefaultSettings.Equals(other.DefaultSettings))
 					 ) &&
 					 (
 						  Overrides == other.Overrides ||
-						  Overrides != null &&
-						  Overrides.SequenceEqual(other.Overrides)
+						  (Overrides != null &&
+						  Overrides.SequenceEqual(other.Overrides))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DefaultSettings != null)
-                    hash = hash * 59 + DefaultSettings.GetHashCode();
-                if (Overrides != null)
-                    hash = hash * 59 + Overrides.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DefaultSettings.GetHashCode();
+				}
+
+				if (Overrides != null)
+				{
+					hash = (hash * 59) + Overrides.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

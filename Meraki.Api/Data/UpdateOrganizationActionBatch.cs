@@ -92,13 +92,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Confirmed == other.Confirmed ||
-						  Confirmed != null &&
-						  Confirmed.Equals(other.Confirmed)
+						  (Confirmed != null &&
+						  Confirmed.Equals(other.Confirmed))
 					 ) &&
 					 (
 						  Synchronous == other.Synchronous ||
-						  Synchronous != null &&
-						  Synchronous.Equals(other.Synchronous)
+						  (Synchronous != null &&
+						  Synchronous.Equals(other.Synchronous))
 					 );
 		}
 
@@ -114,10 +114,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Confirmed != null)
-                    hash = hash * 59 + Confirmed.GetHashCode();
-                if (Synchronous != null)
-                    hash = hash * 59 + Synchronous.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Confirmed.GetHashCode();
+				}
+
+				if (Synchronous != null)
+				{
+					hash = (hash * 59) + Synchronous.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -106,13 +106,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  HubId == other.HubId ||
-						  HubId != null &&
-						  HubId.Equals(other.HubId)
+						  (HubId != null &&
+						  HubId.Equals(other.HubId))
 					 ) &&
 					 (
 						  UseDefaultRoute == other.UseDefaultRoute ||
-						  UseDefaultRoute != null &&
-						  UseDefaultRoute.Equals(other.UseDefaultRoute)
+						  (UseDefaultRoute != null &&
+						  UseDefaultRoute.Equals(other.UseDefaultRoute))
 					 );
 		}
 
@@ -128,10 +128,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (HubId != null)
-                    hash = hash * 59 + HubId.GetHashCode();
-                if (UseDefaultRoute != null)
-                    hash = hash * 59 + UseDefaultRoute.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + HubId.GetHashCode();
+				}
+
+				if (UseDefaultRoute != null)
+				{
+					hash = (hash * 59) + UseDefaultRoute.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -131,18 +131,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Start == other.Start ||
-						  Start != null &&
-						  Start.Equals(other.Start)
+						  (Start != null &&
+						  Start.Equals(other.Start))
 					 ) &&
 					 (
 						  End == other.End ||
-						  End != null &&
-						  End.Equals(other.End)
+						  (End != null &&
+						  End.Equals(other.End))
 					 ) &&
 					 (
 						  Comment == other.Comment ||
-						  Comment != null &&
-						  Comment.Equals(other.Comment)
+						  (Comment != null &&
+						  Comment.Equals(other.Comment))
 					 );
 		}
 
@@ -158,12 +158,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Start != null)
-                    hash = hash * 59 + Start.GetHashCode();
-                if (End != null)
-                    hash = hash * 59 + End.GetHashCode();
-                if (Comment != null)
-                    hash = hash * 59 + Comment.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Start.GetHashCode();
+				}
+
+				if (End != null)
+				{
+					hash = (hash * 59) + End.GetHashCode();
+				}
+
+				if (Comment != null)
+				{
+					hash = (hash * 59) + Comment.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

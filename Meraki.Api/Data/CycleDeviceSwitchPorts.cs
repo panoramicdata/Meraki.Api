@@ -97,8 +97,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: Ports == other.Ports ||
-						  Ports != null &&
-						  Ports.SequenceEqual(other.Ports);
+						  (Ports != null &&
+						  Ports.SequenceEqual(other.Ports));
 		}
 
 		/// <summary>
@@ -113,8 +113,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Ports != null)
-                    hash = hash * 59 + Ports.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Ports.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

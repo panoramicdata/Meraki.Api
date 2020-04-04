@@ -101,18 +101,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  DefaultPolicy == other.DefaultPolicy ||
-						  DefaultPolicy != null &&
-						  DefaultPolicy.Equals(other.DefaultPolicy)
+						  (DefaultPolicy != null &&
+						  DefaultPolicy.Equals(other.DefaultPolicy))
 					 ) &&
 					 (
 						  AllowedServers == other.AllowedServers ||
-						  AllowedServers != null &&
-						  AllowedServers.SequenceEqual(other.AllowedServers)
+						  (AllowedServers != null &&
+						  AllowedServers.SequenceEqual(other.AllowedServers))
 					 ) &&
 					 (
 						  BlockedServers == other.BlockedServers ||
-						  BlockedServers != null &&
-						  BlockedServers.SequenceEqual(other.BlockedServers)
+						  (BlockedServers != null &&
+						  BlockedServers.SequenceEqual(other.BlockedServers))
 					 );
 		}
 
@@ -128,12 +128,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DefaultPolicy != null)
-                    hash = hash * 59 + DefaultPolicy.GetHashCode();
-                if (AllowedServers != null)
-                    hash = hash * 59 + AllowedServers.GetHashCode();
-                if (BlockedServers != null)
-                    hash = hash * 59 + BlockedServers.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DefaultPolicy.GetHashCode();
+				}
+
+				if (AllowedServers != null)
+				{
+					hash = (hash * 59) + AllowedServers.GetHashCode();
+				}
+
+				if (BlockedServers != null)
+				{
+					hash = (hash * 59) + BlockedServers.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -101,18 +101,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  ReportingEnabled == other.ReportingEnabled ||
-						  ReportingEnabled != null &&
-						  ReportingEnabled.Equals(other.ReportingEnabled)
+						  (ReportingEnabled != null &&
+						  ReportingEnabled.Equals(other.ReportingEnabled))
 					 ) &&
 					 (
 						  CollectorIp == other.CollectorIp ||
-						  CollectorIp != null &&
-						  CollectorIp.Equals(other.CollectorIp)
+						  (CollectorIp != null &&
+						  CollectorIp.Equals(other.CollectorIp))
 					 ) &&
 					 (
 						  CollectorPort == other.CollectorPort ||
-						  CollectorPort != null &&
-						  CollectorPort.Equals(other.CollectorPort)
+						  (CollectorPort != null &&
+						  CollectorPort.Equals(other.CollectorPort))
 					 );
 		}
 
@@ -128,12 +128,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (ReportingEnabled != null)
-                    hash = hash * 59 + ReportingEnabled.GetHashCode();
-                if (CollectorIp != null)
-                    hash = hash * 59 + CollectorIp.GetHashCode();
-                if (CollectorPort != null)
-                    hash = hash * 59 + CollectorPort.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + ReportingEnabled.GetHashCode();
+				}
+
+				if (CollectorIp != null)
+				{
+					hash = (hash * 59) + CollectorIp.GetHashCode();
+				}
+
+				if (CollectorPort != null)
+				{
+					hash = (hash * 59) + CollectorPort.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

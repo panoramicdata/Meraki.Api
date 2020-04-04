@@ -129,33 +129,33 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  MaxPower == other.MaxPower ||
-						  MaxPower != null &&
-						  MaxPower.Equals(other.MaxPower)
+						  (MaxPower != null &&
+						  MaxPower.Equals(other.MaxPower))
 					 ) &&
 					 (
 						  MinPower == other.MinPower ||
-						  MinPower != null &&
-						  MinPower.Equals(other.MinPower)
+						  (MinPower != null &&
+						  MinPower.Equals(other.MinPower))
 					 ) &&
 					 (
 						  MinBitrate == other.MinBitrate ||
-						  MinBitrate != null &&
-						  MinBitrate.Equals(other.MinBitrate)
+						  (MinBitrate != null &&
+						  MinBitrate.Equals(other.MinBitrate))
 					 ) &&
 					 (
 						  ValidAutoChannels == other.ValidAutoChannels ||
-						  ValidAutoChannels != null &&
-						  ValidAutoChannels.SequenceEqual(other.ValidAutoChannels)
+						  (ValidAutoChannels != null &&
+						  ValidAutoChannels.SequenceEqual(other.ValidAutoChannels))
 					 ) &&
 					 (
 						  ChannelWidth == other.ChannelWidth ||
-						  ChannelWidth != null &&
-						  ChannelWidth.Equals(other.ChannelWidth)
+						  (ChannelWidth != null &&
+						  ChannelWidth.Equals(other.ChannelWidth))
 					 ) &&
 					 (
 						  Rxsop == other.Rxsop ||
-						  Rxsop != null &&
-						  Rxsop.Equals(other.Rxsop)
+						  (Rxsop != null &&
+						  Rxsop.Equals(other.Rxsop))
 					 );
 		}
 
@@ -171,18 +171,36 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (MaxPower != null)
-                    hash = hash * 59 + MaxPower.GetHashCode();
-                if (MinPower != null)
-                    hash = hash * 59 + MinPower.GetHashCode();
-                if (MinBitrate != null)
-                    hash = hash * 59 + MinBitrate.GetHashCode();
-                if (ValidAutoChannels != null)
-                    hash = hash * 59 + ValidAutoChannels.GetHashCode();
-                if (ChannelWidth != null)
-                    hash = hash * 59 + ChannelWidth.GetHashCode();
-                if (Rxsop != null)
-                    hash = hash * 59 + Rxsop.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + MaxPower.GetHashCode();
+				}
+
+				if (MinPower != null)
+				{
+					hash = (hash * 59) + MinPower.GetHashCode();
+				}
+
+				if (MinBitrate != null)
+				{
+					hash = (hash * 59) + MinBitrate.GetHashCode();
+				}
+
+				if (ValidAutoChannels != null)
+				{
+					hash = (hash * 59) + ValidAutoChannels.GetHashCode();
+				}
+
+				if (ChannelWidth != null)
+				{
+					hash = (hash * 59) + ChannelWidth.GetHashCode();
+				}
+
+				if (Rxsop != null)
+				{
+					hash = (hash * 59) + Rxsop.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

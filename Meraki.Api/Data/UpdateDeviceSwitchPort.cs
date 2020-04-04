@@ -46,7 +46,7 @@ namespace Meraki.Api.Data
         /// <param name="StickyMacWhitelist">The initial list of MAC addresses for sticky Mac whitelist. To reset Sticky MAC whitelist, set accessPolicyNumber to null..</param>
         /// <param name="StickyMacWhitelistLimit">The maximum number of MAC addresses for sticky MAC whitelist..</param>
         /// <param name="StormControlEnabled">The storm control status of the switch port.</param>
-        public UpdateDeviceSwitchPort(string Name = default, string Tags = default, bool? Enabled = default, Type Type = default, int? Vlan = default, int? VoiceVlan = default, string AllowedVlans = default, bool? PoeEnabled = default, bool? IsolationEnabled = default, bool? RstpEnabled = default, StpGuard StpGuard = default, int? AccessPolicyNumber = default, string LinkNegotiation = default, string PortScheduleId = default, Udld Udld = default, List<string> MacWhitelist = default, List<string> StickyMacWhitelist = default, int? StickyMacWhitelistLimit = default, bool? StormControlEnabled = default)
+        public UpdateDeviceSwitchPort(string Name = default, string Tags = default, bool? Enabled = default, SwitchPortType Type = default, int? Vlan = default, int? VoiceVlan = default, string AllowedVlans = default, bool? PoeEnabled = default, bool? IsolationEnabled = default, bool? RstpEnabled = default, StpGuard StpGuard = default, int? AccessPolicyNumber = default, string LinkNegotiation = default, string PortScheduleId = default, Udld Udld = default, List<string> MacWhitelist = default, List<string> StickyMacWhitelist = default, int? StickyMacWhitelistLimit = default, bool? StormControlEnabled = default)
         {
             this.Name = Name;
             this.Tags = Tags;
@@ -91,7 +91,7 @@ namespace Meraki.Api.Data
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
-        public Type Type { get; set; }
+        public SwitchPortType Type { get; set; }
         /// <summary>
         /// The VLAN of the switch port. A null value will clear the value set for trunk ports.
         /// </summary>
@@ -243,98 +243,98 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Tags == other.Tags ||
-						  Tags != null &&
-						  Tags.Equals(other.Tags)
+						  (Tags != null &&
+						  Tags.Equals(other.Tags))
 					 ) &&
 					 (
 						  Enabled == other.Enabled ||
-						  Enabled != null &&
-						  Enabled.Equals(other.Enabled)
+						  (Enabled != null &&
+						  Enabled.Equals(other.Enabled))
 					 ) &&
 					 (
 						  Type == other.Type ||
-						  Type != null &&
-						  Type.Equals(other.Type)
+						  (Type != null &&
+						  Type.Equals(other.Type))
 					 ) &&
 					 (
 						  Vlan == other.Vlan ||
-						  Vlan != null &&
-						  Vlan.Equals(other.Vlan)
+						  (Vlan != null &&
+						  Vlan.Equals(other.Vlan))
 					 ) &&
 					 (
 						  VoiceVlan == other.VoiceVlan ||
-						  VoiceVlan != null &&
-						  VoiceVlan.Equals(other.VoiceVlan)
+						  (VoiceVlan != null &&
+						  VoiceVlan.Equals(other.VoiceVlan))
 					 ) &&
 					 (
 						  AllowedVlans == other.AllowedVlans ||
-						  AllowedVlans != null &&
-						  AllowedVlans.Equals(other.AllowedVlans)
+						  (AllowedVlans != null &&
+						  AllowedVlans.Equals(other.AllowedVlans))
 					 ) &&
 					 (
 						  PoeEnabled == other.PoeEnabled ||
-						  PoeEnabled != null &&
-						  PoeEnabled.Equals(other.PoeEnabled)
+						  (PoeEnabled != null &&
+						  PoeEnabled.Equals(other.PoeEnabled))
 					 ) &&
 					 (
 						  IsolationEnabled == other.IsolationEnabled ||
-						  IsolationEnabled != null &&
-						  IsolationEnabled.Equals(other.IsolationEnabled)
+						  (IsolationEnabled != null &&
+						  IsolationEnabled.Equals(other.IsolationEnabled))
 					 ) &&
 					 (
 						  RstpEnabled == other.RstpEnabled ||
-						  RstpEnabled != null &&
-						  RstpEnabled.Equals(other.RstpEnabled)
+						  (RstpEnabled != null &&
+						  RstpEnabled.Equals(other.RstpEnabled))
 					 ) &&
 					 (
 						  StpGuard == other.StpGuard ||
-						  StpGuard != null &&
-						  StpGuard.Equals(other.StpGuard)
+						  (StpGuard != null &&
+						  StpGuard.Equals(other.StpGuard))
 					 ) &&
 					 (
 						  AccessPolicyNumber == other.AccessPolicyNumber ||
-						  AccessPolicyNumber != null &&
-						  AccessPolicyNumber.Equals(other.AccessPolicyNumber)
+						  (AccessPolicyNumber != null &&
+						  AccessPolicyNumber.Equals(other.AccessPolicyNumber))
 					 ) &&
 					 (
 						  LinkNegotiation == other.LinkNegotiation ||
-						  LinkNegotiation != null &&
-						  LinkNegotiation.Equals(other.LinkNegotiation)
+						  (LinkNegotiation != null &&
+						  LinkNegotiation.Equals(other.LinkNegotiation))
 					 ) &&
 					 (
 						  PortScheduleId == other.PortScheduleId ||
-						  PortScheduleId != null &&
-						  PortScheduleId.Equals(other.PortScheduleId)
+						  (PortScheduleId != null &&
+						  PortScheduleId.Equals(other.PortScheduleId))
 					 ) &&
 					 (
 						  Udld == other.Udld ||
-						  Udld != null &&
-						  Udld.Equals(other.Udld)
+						  (Udld != null &&
+						  Udld.Equals(other.Udld))
 					 ) &&
 					 (
 						  MacWhitelist == other.MacWhitelist ||
-						  MacWhitelist != null &&
-						  MacWhitelist.SequenceEqual(other.MacWhitelist)
+						  (MacWhitelist != null &&
+						  MacWhitelist.SequenceEqual(other.MacWhitelist))
 					 ) &&
 					 (
 						  StickyMacWhitelist == other.StickyMacWhitelist ||
-						  StickyMacWhitelist != null &&
-						  StickyMacWhitelist.SequenceEqual(other.StickyMacWhitelist)
+						  (StickyMacWhitelist != null &&
+						  StickyMacWhitelist.SequenceEqual(other.StickyMacWhitelist))
 					 ) &&
 					 (
 						  StickyMacWhitelistLimit == other.StickyMacWhitelistLimit ||
-						  StickyMacWhitelistLimit != null &&
-						  StickyMacWhitelistLimit.Equals(other.StickyMacWhitelistLimit)
+						  (StickyMacWhitelistLimit != null &&
+						  StickyMacWhitelistLimit.Equals(other.StickyMacWhitelistLimit))
 					 ) &&
 					 (
 						  StormControlEnabled == other.StormControlEnabled ||
-						  StormControlEnabled != null &&
-						  StormControlEnabled.Equals(other.StormControlEnabled)
+						  (StormControlEnabled != null &&
+						  StormControlEnabled.Equals(other.StormControlEnabled))
 					 );
 		}
 
@@ -350,44 +350,101 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Tags != null)
-                    hash = hash * 59 + Tags.GetHashCode();
-                if (Enabled != null)
-                    hash = hash * 59 + Enabled.GetHashCode();
-                if (Type != null)
-                    hash = hash * 59 + Type.GetHashCode();
-                if (Vlan != null)
-                    hash = hash * 59 + Vlan.GetHashCode();
-                if (VoiceVlan != null)
-                    hash = hash * 59 + VoiceVlan.GetHashCode();
-                if (AllowedVlans != null)
-                    hash = hash * 59 + AllowedVlans.GetHashCode();
-                if (PoeEnabled != null)
-                    hash = hash * 59 + PoeEnabled.GetHashCode();
-                if (IsolationEnabled != null)
-                    hash = hash * 59 + IsolationEnabled.GetHashCode();
-                if (RstpEnabled != null)
-                    hash = hash * 59 + RstpEnabled.GetHashCode();
-                if (StpGuard != null)
-                    hash = hash * 59 + StpGuard.GetHashCode();
-                if (AccessPolicyNumber != null)
-                    hash = hash * 59 + AccessPolicyNumber.GetHashCode();
-                if (LinkNegotiation != null)
-                    hash = hash * 59 + LinkNegotiation.GetHashCode();
-                if (PortScheduleId != null)
-                    hash = hash * 59 + PortScheduleId.GetHashCode();
-                if (Udld != null)
-                    hash = hash * 59 + Udld.GetHashCode();
-                if (MacWhitelist != null)
-                    hash = hash * 59 + MacWhitelist.GetHashCode();
-                if (StickyMacWhitelist != null)
-                    hash = hash * 59 + StickyMacWhitelist.GetHashCode();
-                if (StickyMacWhitelistLimit != null)
-                    hash = hash * 59 + StickyMacWhitelistLimit.GetHashCode();
-                if (StormControlEnabled != null)
-                    hash = hash * 59 + StormControlEnabled.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Tags != null)
+				{
+					hash = (hash * 59) + Tags.GetHashCode();
+				}
+
+				if (Enabled != null)
+				{
+					hash = (hash * 59) + Enabled.GetHashCode();
+				}
+
+				if (Type != null)
+				{
+					hash = (hash * 59) + Type.GetHashCode();
+				}
+
+				if (Vlan != null)
+				{
+					hash = (hash * 59) + Vlan.GetHashCode();
+				}
+
+				if (VoiceVlan != null)
+				{
+					hash = (hash * 59) + VoiceVlan.GetHashCode();
+				}
+
+				if (AllowedVlans != null)
+				{
+					hash = (hash * 59) + AllowedVlans.GetHashCode();
+				}
+
+				if (PoeEnabled != null)
+				{
+					hash = (hash * 59) + PoeEnabled.GetHashCode();
+				}
+
+				if (IsolationEnabled != null)
+				{
+					hash = (hash * 59) + IsolationEnabled.GetHashCode();
+				}
+
+				if (RstpEnabled != null)
+				{
+					hash = (hash * 59) + RstpEnabled.GetHashCode();
+				}
+
+				if (StpGuard != null)
+				{
+					hash = (hash * 59) + StpGuard.GetHashCode();
+				}
+
+				if (AccessPolicyNumber != null)
+				{
+					hash = (hash * 59) + AccessPolicyNumber.GetHashCode();
+				}
+
+				if (LinkNegotiation != null)
+				{
+					hash = (hash * 59) + LinkNegotiation.GetHashCode();
+				}
+
+				if (PortScheduleId != null)
+				{
+					hash = (hash * 59) + PortScheduleId.GetHashCode();
+				}
+
+				if (Udld != null)
+				{
+					hash = (hash * 59) + Udld.GetHashCode();
+				}
+
+				if (MacWhitelist != null)
+				{
+					hash = (hash * 59) + MacWhitelist.GetHashCode();
+				}
+
+				if (StickyMacWhitelist != null)
+				{
+					hash = (hash * 59) + StickyMacWhitelist.GetHashCode();
+				}
+
+				if (StickyMacWhitelistLimit != null)
+				{
+					hash = (hash * 59) + StickyMacWhitelistLimit.GetHashCode();
+				}
+
+				if (StormControlEnabled != null)
+				{
+					hash = (hash * 59) + StormControlEnabled.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -155,48 +155,48 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Tags == other.Tags ||
-						  Tags != null &&
-						  Tags.Equals(other.Tags)
+						  (Tags != null &&
+						  Tags.Equals(other.Tags))
 					 ) &&
 					 (
 						  Lat == other.Lat ||
-						  Lat != null &&
-						  Lat.Equals(other.Lat)
+						  (Lat != null &&
+						  Lat.Equals(other.Lat))
 					 ) &&
 					 (
 						  Lng == other.Lng ||
-						  Lng != null &&
-						  Lng.Equals(other.Lng)
+						  (Lng != null &&
+						  Lng.Equals(other.Lng))
 					 ) &&
 					 (
 						  Address == other.Address ||
-						  Address != null &&
-						  Address.Equals(other.Address)
+						  (Address != null &&
+						  Address.Equals(other.Address))
 					 ) &&
 					 (
 						  Notes == other.Notes ||
-						  Notes != null &&
-						  Notes.Equals(other.Notes)
+						  (Notes != null &&
+						  Notes.Equals(other.Notes))
 					 ) &&
 					 (
 						  MoveMapMarker == other.MoveMapMarker ||
-						  MoveMapMarker != null &&
-						  MoveMapMarker.Equals(other.MoveMapMarker)
+						  (MoveMapMarker != null &&
+						  MoveMapMarker.Equals(other.MoveMapMarker))
 					 ) &&
 					 (
 						  SwitchProfileId == other.SwitchProfileId ||
-						  SwitchProfileId != null &&
-						  SwitchProfileId.Equals(other.SwitchProfileId)
+						  (SwitchProfileId != null &&
+						  SwitchProfileId.Equals(other.SwitchProfileId))
 					 ) &&
 					 (
 						  FloorPlanId == other.FloorPlanId ||
-						  FloorPlanId != null &&
-						  FloorPlanId.Equals(other.FloorPlanId)
+						  (FloorPlanId != null &&
+						  FloorPlanId.Equals(other.FloorPlanId))
 					 );
 		}
 
@@ -212,24 +212,51 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Tags != null)
-                    hash = hash * 59 + Tags.GetHashCode();
-                if (Lat != null)
-                    hash = hash * 59 + Lat.GetHashCode();
-                if (Lng != null)
-                    hash = hash * 59 + Lng.GetHashCode();
-                if (Address != null)
-                    hash = hash * 59 + Address.GetHashCode();
-                if (Notes != null)
-                    hash = hash * 59 + Notes.GetHashCode();
-                if (MoveMapMarker != null)
-                    hash = hash * 59 + MoveMapMarker.GetHashCode();
-                if (SwitchProfileId != null)
-                    hash = hash * 59 + SwitchProfileId.GetHashCode();
-                if (FloorPlanId != null)
-                    hash = hash * 59 + FloorPlanId.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Tags != null)
+				{
+					hash = (hash * 59) + Tags.GetHashCode();
+				}
+
+				if (Lat != null)
+				{
+					hash = (hash * 59) + Lat.GetHashCode();
+				}
+
+				if (Lng != null)
+				{
+					hash = (hash * 59) + Lng.GetHashCode();
+				}
+
+				if (Address != null)
+				{
+					hash = (hash * 59) + Address.GetHashCode();
+				}
+
+				if (Notes != null)
+				{
+					hash = (hash * 59) + Notes.GetHashCode();
+				}
+
+				if (MoveMapMarker != null)
+				{
+					hash = (hash * 59) + MoveMapMarker.GetHashCode();
+				}
+
+				if (SwitchProfileId != null)
+				{
+					hash = (hash * 59) + SwitchProfileId.GetHashCode();
+				}
+
+				if (FloorPlanId != null)
+				{
+					hash = (hash * 59) + FloorPlanId.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -154,38 +154,38 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  ClientBalancingEnabled == other.ClientBalancingEnabled ||
-						  ClientBalancingEnabled != null &&
-						  ClientBalancingEnabled.Equals(other.ClientBalancingEnabled)
+						  (ClientBalancingEnabled != null &&
+						  ClientBalancingEnabled.Equals(other.ClientBalancingEnabled))
 					 ) &&
 					 (
 						  MinBitrateType == other.MinBitrateType ||
-						  MinBitrateType != null &&
-						  MinBitrateType.Equals(other.MinBitrateType)
+						  (MinBitrateType != null &&
+						  MinBitrateType.Equals(other.MinBitrateType))
 					 ) &&
 					 (
 						  BandSelectionType == other.BandSelectionType ||
-						  BandSelectionType != null &&
-						  BandSelectionType.Equals(other.BandSelectionType)
+						  (BandSelectionType != null &&
+						  BandSelectionType.Equals(other.BandSelectionType))
 					 ) &&
 					 (
 						  ApBandSettings == other.ApBandSettings ||
-						  ApBandSettings != null &&
-						  ApBandSettings.Equals(other.ApBandSettings)
+						  (ApBandSettings != null &&
+						  ApBandSettings.Equals(other.ApBandSettings))
 					 ) &&
 					 (
 						  TwoFourGhzSettings == other.TwoFourGhzSettings ||
-						  TwoFourGhzSettings != null &&
-						  TwoFourGhzSettings.Equals(other.TwoFourGhzSettings)
+						  (TwoFourGhzSettings != null &&
+						  TwoFourGhzSettings.Equals(other.TwoFourGhzSettings))
 					 ) &&
 					 (
 						  FiveGhzSettings == other.FiveGhzSettings ||
-						  FiveGhzSettings != null &&
-						  FiveGhzSettings.Equals(other.FiveGhzSettings)
+						  (FiveGhzSettings != null &&
+						  FiveGhzSettings.Equals(other.FiveGhzSettings))
 					 );
 		}
 
@@ -201,20 +201,41 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (ClientBalancingEnabled != null)
-                    hash = hash * 59 + ClientBalancingEnabled.GetHashCode();
-                if (MinBitrateType != null)
-                    hash = hash * 59 + MinBitrateType.GetHashCode();
-                if (BandSelectionType != null)
-                    hash = hash * 59 + BandSelectionType.GetHashCode();
-                if (ApBandSettings != null)
-                    hash = hash * 59 + ApBandSettings.GetHashCode();
-                if (TwoFourGhzSettings != null)
-                    hash = hash * 59 + TwoFourGhzSettings.GetHashCode();
-                if (FiveGhzSettings != null)
-                    hash = hash * 59 + FiveGhzSettings.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (ClientBalancingEnabled != null)
+				{
+					hash = (hash * 59) + ClientBalancingEnabled.GetHashCode();
+				}
+
+				if (MinBitrateType != null)
+				{
+					hash = (hash * 59) + MinBitrateType.GetHashCode();
+				}
+
+				if (BandSelectionType != null)
+				{
+					hash = (hash * 59) + BandSelectionType.GetHashCode();
+				}
+
+				if (ApBandSettings != null)
+				{
+					hash = (hash * 59) + ApBandSettings.GetHashCode();
+				}
+
+				if (TwoFourGhzSettings != null)
+				{
+					hash = (hash * 59) + TwoFourGhzSettings.GetHashCode();
+				}
+
+				if (FiveGhzSettings != null)
+				{
+					hash = (hash * 59) + FiveGhzSettings.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

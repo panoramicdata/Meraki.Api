@@ -125,23 +125,23 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  SwitchProfiles == other.SwitchProfiles ||
-						  SwitchProfiles != null &&
-						  SwitchProfiles.SequenceEqual(other.SwitchProfiles)
+						  (SwitchProfiles != null &&
+						  SwitchProfiles.SequenceEqual(other.SwitchProfiles))
 					 ) &&
 					 (
 						  Switches == other.Switches ||
-						  Switches != null &&
-						  Switches.SequenceEqual(other.Switches)
+						  (Switches != null &&
+						  Switches.SequenceEqual(other.Switches))
 					 ) &&
 					 (
 						  Stacks == other.Stacks ||
-						  Stacks != null &&
-						  Stacks.SequenceEqual(other.Stacks)
+						  (Stacks != null &&
+						  Stacks.SequenceEqual(other.Stacks))
 					 ) &&
 					 (
 						  StpPriority == other.StpPriority ||
-						  StpPriority != null &&
-						  StpPriority.Equals(other.StpPriority)
+						  (StpPriority != null &&
+						  StpPriority.Equals(other.StpPriority))
 					 );
 		}
 
@@ -157,14 +157,26 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (SwitchProfiles != null)
-                    hash = hash * 59 + SwitchProfiles.GetHashCode();
-                if (Switches != null)
-                    hash = hash * 59 + Switches.GetHashCode();
-                if (Stacks != null)
-                    hash = hash * 59 + Stacks.GetHashCode();
-                if (StpPriority != null)
-                    hash = hash * 59 + StpPriority.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + SwitchProfiles.GetHashCode();
+				}
+
+				if (Switches != null)
+				{
+					hash = (hash * 59) + Switches.GetHashCode();
+				}
+
+				if (Stacks != null)
+				{
+					hash = (hash * 59) + Stacks.GetHashCode();
+				}
+
+				if (StpPriority != null)
+				{
+					hash = (hash * 59) + StpPriority.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

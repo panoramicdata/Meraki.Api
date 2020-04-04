@@ -150,38 +150,38 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Vlan == other.Vlan ||
-						  Vlan != null &&
-						  Vlan.Equals(other.Vlan)
+						  (Vlan != null &&
+						  Vlan.Equals(other.Vlan))
 					 ) &&
 					 (
 						  Protocol == other.Protocol ||
-						  Protocol != null &&
-						  Protocol.Equals(other.Protocol)
+						  (Protocol != null &&
+						  Protocol.Equals(other.Protocol))
 					 ) &&
 					 (
 						  SrcPort == other.SrcPort ||
-						  SrcPort != null &&
-						  SrcPort.Equals(other.SrcPort)
+						  (SrcPort != null &&
+						  SrcPort.Equals(other.SrcPort))
 					 ) &&
 					 (
 						  SrcPortRange == other.SrcPortRange ||
-						  SrcPortRange != null &&
-						  SrcPortRange.Equals(other.SrcPortRange)
+						  (SrcPortRange != null &&
+						  SrcPortRange.Equals(other.SrcPortRange))
 					 ) &&
 					 (
 						  DstPort == other.DstPort ||
-						  DstPort != null &&
-						  DstPort.Equals(other.DstPort)
+						  (DstPort != null &&
+						  DstPort.Equals(other.DstPort))
 					 ) &&
 					 (
 						  DstPortRange == other.DstPortRange ||
-						  DstPortRange != null &&
-						  DstPortRange.Equals(other.DstPortRange)
+						  (DstPortRange != null &&
+						  DstPortRange.Equals(other.DstPortRange))
 					 ) &&
 					 (
 						  Dscp == other.Dscp ||
-						  Dscp != null &&
-						  Dscp.Equals(other.Dscp)
+						  (Dscp != null &&
+						  Dscp.Equals(other.Dscp))
 					 );
 		}
 
@@ -197,20 +197,41 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Vlan != null)
-                    hash = hash * 59 + Vlan.GetHashCode();
-                if (Protocol != null)
-                    hash = hash * 59 + Protocol.GetHashCode();
-                if (SrcPort != null)
-                    hash = hash * 59 + SrcPort.GetHashCode();
-                if (SrcPortRange != null)
-                    hash = hash * 59 + SrcPortRange.GetHashCode();
-                if (DstPort != null)
-                    hash = hash * 59 + DstPort.GetHashCode();
-                if (DstPortRange != null)
-                    hash = hash * 59 + DstPortRange.GetHashCode();
-                if (Dscp != null)
-                    hash = hash * 59 + Dscp.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Vlan.GetHashCode();
+				}
+
+				if (Protocol != null)
+				{
+					hash = (hash * 59) + Protocol.GetHashCode();
+				}
+
+				if (SrcPort != null)
+				{
+					hash = (hash * 59) + SrcPort.GetHashCode();
+				}
+
+				if (SrcPortRange != null)
+				{
+					hash = (hash * 59) + SrcPortRange.GetHashCode();
+				}
+
+				if (DstPort != null)
+				{
+					hash = (hash * 59) + DstPort.GetHashCode();
+				}
+
+				if (DstPortRange != null)
+				{
+					hash = (hash * 59) + DstPortRange.GetHashCode();
+				}
+
+				if (Dscp != null)
+				{
+					hash = (hash * 59) + Dscp.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

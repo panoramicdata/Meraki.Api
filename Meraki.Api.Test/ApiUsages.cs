@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Meraki.Api.Data;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Meraki.Api.Test
@@ -13,7 +14,8 @@ namespace Meraki.Api.Test
 				.ApiRequests
 				.GetPageAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			result.Should().NotBeNull();
+			result.Should().BeOfType<List<ApiUsage>>();
+			result.Should().NotBeNullOrEmpty();
 		}
 
 		[Fact]

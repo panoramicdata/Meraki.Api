@@ -112,13 +112,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Quality == other.Quality ||
-						  Quality != null &&
-						  Quality.Equals(other.Quality)
+						  (Quality != null &&
+						  Quality.Equals(other.Quality))
 					 ) &&
 					 (
 						  Resolution == other.Resolution ||
-						  Resolution != null &&
-						  Resolution.Equals(other.Resolution)
+						  (Resolution != null &&
+						  Resolution.Equals(other.Resolution))
 					 );
 		}
 
@@ -134,10 +134,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Quality != null)
-                    hash = hash * 59 + Quality.GetHashCode();
-                if (Resolution != null)
-                    hash = hash * 59 + Resolution.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Quality.GetHashCode();
+				}
+
+				if (Resolution != null)
+				{
+					hash = (hash * 59) + Resolution.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

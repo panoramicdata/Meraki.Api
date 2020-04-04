@@ -149,33 +149,33 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Mac == other.Mac ||
-						  Mac != null &&
-						  Mac.Equals(other.Mac)
+						  (Mac != null &&
+						  Mac.Equals(other.Mac))
 					 ) &&
 					 (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  DevicePolicy == other.DevicePolicy ||
-						  DevicePolicy != null &&
-						  DevicePolicy.Equals(other.DevicePolicy)
+						  (DevicePolicy != null &&
+						  DevicePolicy.Equals(other.DevicePolicy))
 					 ) &&
 					 (
 						  GroupPolicyId == other.GroupPolicyId ||
-						  GroupPolicyId != null &&
-						  GroupPolicyId.Equals(other.GroupPolicyId)
+						  (GroupPolicyId != null &&
+						  GroupPolicyId.Equals(other.GroupPolicyId))
 					 ) &&
 					 (
 						  PoliciesBySecurityAppliance == other.PoliciesBySecurityAppliance ||
-						  PoliciesBySecurityAppliance != null &&
-						  PoliciesBySecurityAppliance.Equals(other.PoliciesBySecurityAppliance)
+						  (PoliciesBySecurityAppliance != null &&
+						  PoliciesBySecurityAppliance.Equals(other.PoliciesBySecurityAppliance))
 					 ) &&
 					 (
 						  PoliciesBySsid == other.PoliciesBySsid ||
-						  PoliciesBySsid != null &&
-						  PoliciesBySsid.SequenceEqual(other.PoliciesBySsid)
+						  (PoliciesBySsid != null &&
+						  PoliciesBySsid.SequenceEqual(other.PoliciesBySsid))
 					 );
 		}
 
@@ -191,18 +191,36 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Mac != null)
-                    hash = hash * 59 + Mac.GetHashCode();
-                if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (DevicePolicy != null)
-                    hash = hash * 59 + DevicePolicy.GetHashCode();
-                if (GroupPolicyId != null)
-                    hash = hash * 59 + GroupPolicyId.GetHashCode();
-                if (PoliciesBySecurityAppliance != null)
-                    hash = hash * 59 + PoliciesBySecurityAppliance.GetHashCode();
-                if (PoliciesBySsid != null)
-                    hash = hash * 59 + PoliciesBySsid.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Mac.GetHashCode();
+				}
+
+				if (Name != null)
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (DevicePolicy != null)
+				{
+					hash = (hash * 59) + DevicePolicy.GetHashCode();
+				}
+
+				if (GroupPolicyId != null)
+				{
+					hash = (hash * 59) + GroupPolicyId.GetHashCode();
+				}
+
+				if (PoliciesBySecurityAppliance != null)
+				{
+					hash = (hash * 59) + PoliciesBySecurityAppliance.GetHashCode();
+				}
+
+				if (PoliciesBySsid != null)
+				{
+					hash = (hash * 59) + PoliciesBySsid.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -82,8 +82,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: DeviceSerial == other.DeviceSerial ||
-						  DeviceSerial != null &&
-						  DeviceSerial.Equals(other.DeviceSerial);
+						  (DeviceSerial != null &&
+						  DeviceSerial.Equals(other.DeviceSerial));
 		}
 
 		/// <summary>
@@ -98,8 +98,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DeviceSerial != null)
-                    hash = hash * 59 + DeviceSerial.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DeviceSerial.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

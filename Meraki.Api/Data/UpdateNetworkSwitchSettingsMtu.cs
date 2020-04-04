@@ -93,13 +93,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  DefaultMtuSize == other.DefaultMtuSize ||
-						  DefaultMtuSize != null &&
-						  DefaultMtuSize.Equals(other.DefaultMtuSize)
+						  (DefaultMtuSize != null &&
+						  DefaultMtuSize.Equals(other.DefaultMtuSize))
 					 ) &&
 					 (
 						  Overrides == other.Overrides ||
-						  Overrides != null &&
-						  Overrides.SequenceEqual(other.Overrides)
+						  (Overrides != null &&
+						  Overrides.SequenceEqual(other.Overrides))
 					 );
 		}
 
@@ -115,10 +115,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DefaultMtuSize != null)
-                    hash = hash * 59 + DefaultMtuSize.GetHashCode();
-                if (Overrides != null)
-                    hash = hash * 59 + Overrides.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DefaultMtuSize.GetHashCode();
+				}
+
+				if (Overrides != null)
+				{
+					hash = (hash * 59) + Overrides.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

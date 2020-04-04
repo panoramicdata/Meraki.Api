@@ -101,18 +101,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  BroadcastThreshold == other.BroadcastThreshold ||
-						  BroadcastThreshold != null &&
-						  BroadcastThreshold.Equals(other.BroadcastThreshold)
+						  (BroadcastThreshold != null &&
+						  BroadcastThreshold.Equals(other.BroadcastThreshold))
 					 ) &&
 					 (
 						  MulticastThreshold == other.MulticastThreshold ||
-						  MulticastThreshold != null &&
-						  MulticastThreshold.Equals(other.MulticastThreshold)
+						  (MulticastThreshold != null &&
+						  MulticastThreshold.Equals(other.MulticastThreshold))
 					 ) &&
 					 (
 						  UnknownUnicastThreshold == other.UnknownUnicastThreshold ||
-						  UnknownUnicastThreshold != null &&
-						  UnknownUnicastThreshold.Equals(other.UnknownUnicastThreshold)
+						  (UnknownUnicastThreshold != null &&
+						  UnknownUnicastThreshold.Equals(other.UnknownUnicastThreshold))
 					 );
 		}
 
@@ -128,12 +128,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (BroadcastThreshold != null)
-                    hash = hash * 59 + BroadcastThreshold.GetHashCode();
-                if (MulticastThreshold != null)
-                    hash = hash * 59 + MulticastThreshold.GetHashCode();
-                if (UnknownUnicastThreshold != null)
-                    hash = hash * 59 + UnknownUnicastThreshold.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + BroadcastThreshold.GetHashCode();
+				}
+
+				if (MulticastThreshold != null)
+				{
+					hash = (hash * 59) + MulticastThreshold.GetHashCode();
+				}
+
+				if (UnknownUnicastThreshold != null)
+				{
+					hash = (hash * 59) + UnknownUnicastThreshold.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

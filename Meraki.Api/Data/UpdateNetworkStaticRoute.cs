@@ -129,33 +129,33 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Subnet == other.Subnet ||
-						  Subnet != null &&
-						  Subnet.Equals(other.Subnet)
+						  (Subnet != null &&
+						  Subnet.Equals(other.Subnet))
 					 ) &&
 					 (
 						  GatewayIp == other.GatewayIp ||
-						  GatewayIp != null &&
-						  GatewayIp.Equals(other.GatewayIp)
+						  (GatewayIp != null &&
+						  GatewayIp.Equals(other.GatewayIp))
 					 ) &&
 					 (
 						  Enabled == other.Enabled ||
-						  Enabled != null &&
-						  Enabled.Equals(other.Enabled)
+						  (Enabled != null &&
+						  Enabled.Equals(other.Enabled))
 					 ) &&
 					 (
 						  FixedIpAssignments == other.FixedIpAssignments ||
-						  FixedIpAssignments != null &&
-						  FixedIpAssignments.Equals(other.FixedIpAssignments)
+						  (FixedIpAssignments != null &&
+						  FixedIpAssignments.Equals(other.FixedIpAssignments))
 					 ) &&
 					 (
 						  ReservedIpRanges == other.ReservedIpRanges ||
-						  ReservedIpRanges != null &&
-						  ReservedIpRanges.SequenceEqual(other.ReservedIpRanges)
+						  (ReservedIpRanges != null &&
+						  ReservedIpRanges.SequenceEqual(other.ReservedIpRanges))
 					 );
 		}
 
@@ -171,18 +171,36 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Subnet != null)
-                    hash = hash * 59 + Subnet.GetHashCode();
-                if (GatewayIp != null)
-                    hash = hash * 59 + GatewayIp.GetHashCode();
-                if (Enabled != null)
-                    hash = hash * 59 + Enabled.GetHashCode();
-                if (FixedIpAssignments != null)
-                    hash = hash * 59 + FixedIpAssignments.GetHashCode();
-                if (ReservedIpRanges != null)
-                    hash = hash * 59 + ReservedIpRanges.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Subnet != null)
+				{
+					hash = (hash * 59) + Subnet.GetHashCode();
+				}
+
+				if (GatewayIp != null)
+				{
+					hash = (hash * 59) + GatewayIp.GetHashCode();
+				}
+
+				if (Enabled != null)
+				{
+					hash = (hash * 59) + Enabled.GetHashCode();
+				}
+
+				if (FixedIpAssignments != null)
+				{
+					hash = (hash * 59) + FixedIpAssignments.GetHashCode();
+				}
+
+				if (ReservedIpRanges != null)
+				{
+					hash = (hash * 59) + ReservedIpRanges.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

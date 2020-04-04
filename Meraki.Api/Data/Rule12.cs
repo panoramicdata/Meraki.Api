@@ -190,48 +190,48 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Comment == other.Comment ||
-						  Comment != null &&
-						  Comment.Equals(other.Comment)
+						  (Comment != null &&
+						  Comment.Equals(other.Comment))
 					 ) &&
 					 (
 						  Policy == other.Policy ||
-						  Policy != null &&
-						  Policy.Equals(other.Policy)
+						  (Policy != null &&
+						  Policy.Equals(other.Policy))
 					 ) &&
 					 (
 						  IpVersion == other.IpVersion ||
-						  IpVersion != null &&
-						  IpVersion.Equals(other.IpVersion)
+						  (IpVersion != null &&
+						  IpVersion.Equals(other.IpVersion))
 					 ) &&
 					 (
 						  Protocol == other.Protocol ||
-						  Protocol != null &&
-						  Protocol.Equals(other.Protocol)
+						  (Protocol != null &&
+						  Protocol.Equals(other.Protocol))
 					 ) &&
 					 (
 						  SrcCidr == other.SrcCidr ||
-						  SrcCidr != null &&
-						  SrcCidr.Equals(other.SrcCidr)
+						  (SrcCidr != null &&
+						  SrcCidr.Equals(other.SrcCidr))
 					 ) &&
 					 (
 						  SrcPort == other.SrcPort ||
-						  SrcPort != null &&
-						  SrcPort.Equals(other.SrcPort)
+						  (SrcPort != null &&
+						  SrcPort.Equals(other.SrcPort))
 					 ) &&
 					 (
 						  DstCidr == other.DstCidr ||
-						  DstCidr != null &&
-						  DstCidr.Equals(other.DstCidr)
+						  (DstCidr != null &&
+						  DstCidr.Equals(other.DstCidr))
 					 ) &&
 					 (
 						  DstPort == other.DstPort ||
-						  DstPort != null &&
-						  DstPort.Equals(other.DstPort)
+						  (DstPort != null &&
+						  DstPort.Equals(other.DstPort))
 					 ) &&
 					 (
 						  Vlan == other.Vlan ||
-						  Vlan != null &&
-						  Vlan.Equals(other.Vlan)
+						  (Vlan != null &&
+						  Vlan.Equals(other.Vlan))
 					 );
 		}
 
@@ -247,24 +247,51 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Comment != null)
-                    hash = hash * 59 + Comment.GetHashCode();
-                if (Policy != null)
-                    hash = hash * 59 + Policy.GetHashCode();
-                if (IpVersion != null)
-                    hash = hash * 59 + IpVersion.GetHashCode();
-                if (Protocol != null)
-                    hash = hash * 59 + Protocol.GetHashCode();
-                if (SrcCidr != null)
-                    hash = hash * 59 + SrcCidr.GetHashCode();
-                if (SrcPort != null)
-                    hash = hash * 59 + SrcPort.GetHashCode();
-                if (DstCidr != null)
-                    hash = hash * 59 + DstCidr.GetHashCode();
-                if (DstPort != null)
-                    hash = hash * 59 + DstPort.GetHashCode();
-                if (Vlan != null)
-                    hash = hash * 59 + Vlan.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Comment.GetHashCode();
+				}
+
+				if (Policy != null)
+				{
+					hash = (hash * 59) + Policy.GetHashCode();
+				}
+
+				if (IpVersion != null)
+				{
+					hash = (hash * 59) + IpVersion.GetHashCode();
+				}
+
+				if (Protocol != null)
+				{
+					hash = (hash * 59) + Protocol.GetHashCode();
+				}
+
+				if (SrcCidr != null)
+				{
+					hash = (hash * 59) + SrcCidr.GetHashCode();
+				}
+
+				if (SrcPort != null)
+				{
+					hash = (hash * 59) + SrcPort.GetHashCode();
+				}
+
+				if (DstCidr != null)
+				{
+					hash = (hash * 59) + DstCidr.GetHashCode();
+				}
+
+				if (DstPort != null)
+				{
+					hash = (hash * 59) + DstPort.GetHashCode();
+				}
+
+				if (Vlan != null)
+				{
+					hash = (hash * 59) + Vlan.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

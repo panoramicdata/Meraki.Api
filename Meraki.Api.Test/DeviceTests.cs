@@ -9,8 +9,8 @@ namespace Meraki.Api.Test
 		public async void GetDeviceAsync_Succeeds()
 		{
 			var devices = await MerakiClient
-				.Networks
-				.GetDevicesAsync(Configuration.TestCameraNetworkId)
+				.Devices
+				.GetAllByNetworkAsync(Configuration.TestCameraNetworkId)
 				.ConfigureAwait(false);
 
 			devices

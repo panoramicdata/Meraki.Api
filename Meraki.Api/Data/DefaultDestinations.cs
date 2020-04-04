@@ -111,23 +111,23 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Emails == other.Emails ||
-						  Emails != null &&
-						  Emails.SequenceEqual(other.Emails)
+						  (Emails != null &&
+						  Emails.SequenceEqual(other.Emails))
 					 ) &&
 					 (
 						  AllAdmins == other.AllAdmins ||
-						  AllAdmins != null &&
-						  AllAdmins.Equals(other.AllAdmins)
+						  (AllAdmins != null &&
+						  AllAdmins.Equals(other.AllAdmins))
 					 ) &&
 					 (
 						  Snmp == other.Snmp ||
-						  Snmp != null &&
-						  Snmp.Equals(other.Snmp)
+						  (Snmp != null &&
+						  Snmp.Equals(other.Snmp))
 					 ) &&
 					 (
 						  HttpServerIds == other.HttpServerIds ||
-						  HttpServerIds != null &&
-						  HttpServerIds.SequenceEqual(other.HttpServerIds)
+						  (HttpServerIds != null &&
+						  HttpServerIds.SequenceEqual(other.HttpServerIds))
 					 );
 		}
 
@@ -143,14 +143,26 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Emails != null)
-                    hash = hash * 59 + Emails.GetHashCode();
-                if (AllAdmins != null)
-                    hash = hash * 59 + AllAdmins.GetHashCode();
-                if (Snmp != null)
-                    hash = hash * 59 + Snmp.GetHashCode();
-                if (HttpServerIds != null)
-                    hash = hash * 59 + HttpServerIds.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Emails.GetHashCode();
+				}
+
+				if (AllAdmins != null)
+				{
+					hash = (hash * 59) + AllAdmins.GetHashCode();
+				}
+
+				if (Snmp != null)
+				{
+					hash = (hash * 59) + Snmp.GetHashCode();
+				}
+
+				if (HttpServerIds != null)
+				{
+					hash = (hash * 59) + HttpServerIds.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

@@ -149,28 +149,28 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Comment == other.Comment ||
-						  Comment != null &&
-						  Comment.Equals(other.Comment)
+						  (Comment != null &&
+						  Comment.Equals(other.Comment))
 					 ) &&
 					 (
 						  Policy == other.Policy ||
-						  Policy != null &&
-						  Policy.Equals(other.Policy)
+						  (Policy != null &&
+						  Policy.Equals(other.Policy))
 					 ) &&
 					 (
 						  Protocol == other.Protocol ||
-						  Protocol != null &&
-						  Protocol.Equals(other.Protocol)
+						  (Protocol != null &&
+						  Protocol.Equals(other.Protocol))
 					 ) &&
 					 (
 						  DestPort == other.DestPort ||
-						  DestPort != null &&
-						  DestPort.Equals(other.DestPort)
+						  (DestPort != null &&
+						  DestPort.Equals(other.DestPort))
 					 ) &&
 					 (
 						  DestCidr == other.DestCidr ||
-						  DestCidr != null &&
-						  DestCidr.Equals(other.DestCidr)
+						  (DestCidr != null &&
+						  DestCidr.Equals(other.DestCidr))
 					 );
 		}
 
@@ -186,16 +186,31 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Comment != null)
-                    hash = hash * 59 + Comment.GetHashCode();
-                if (Policy != null)
-                    hash = hash * 59 + Policy.GetHashCode();
-                if (Protocol != null)
-                    hash = hash * 59 + Protocol.GetHashCode();
-                if (DestPort != null)
-                    hash = hash * 59 + DestPort.GetHashCode();
-                if (DestCidr != null)
-                    hash = hash * 59 + DestCidr.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Comment.GetHashCode();
+				}
+
+				if (Policy != null)
+				{
+					hash = (hash * 59) + Policy.GetHashCode();
+				}
+
+				if (Protocol != null)
+				{
+					hash = (hash * 59) + Protocol.GetHashCode();
+				}
+
+				if (DestPort != null)
+				{
+					hash = (hash * 59) + DestPort.GetHashCode();
+				}
+
+				if (DestCidr != null)
+				{
+					hash = (hash * 59) + DestCidr.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

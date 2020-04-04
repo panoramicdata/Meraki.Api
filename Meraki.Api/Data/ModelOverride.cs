@@ -116,18 +116,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Switches == other.Switches ||
-						  Switches != null &&
-						  Switches.SequenceEqual(other.Switches)
+						  (Switches != null &&
+						  Switches.SequenceEqual(other.Switches))
 					 ) &&
 					 (
 						  SwitchProfiles == other.SwitchProfiles ||
-						  SwitchProfiles != null &&
-						  SwitchProfiles.SequenceEqual(other.SwitchProfiles)
+						  (SwitchProfiles != null &&
+						  SwitchProfiles.SequenceEqual(other.SwitchProfiles))
 					 ) &&
 					 (
 						  MtuSize == other.MtuSize ||
-						  MtuSize != null &&
-						  MtuSize.Equals(other.MtuSize)
+						  (MtuSize != null &&
+						  MtuSize.Equals(other.MtuSize))
 					 );
 		}
 
@@ -143,12 +143,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Switches != null)
-                    hash = hash * 59 + Switches.GetHashCode();
-                if (SwitchProfiles != null)
-                    hash = hash * 59 + SwitchProfiles.GetHashCode();
-                if (MtuSize != null)
-                    hash = hash * 59 + MtuSize.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Switches.GetHashCode();
+				}
+
+				if (SwitchProfiles != null)
+				{
+					hash = (hash * 59) + SwitchProfiles.GetHashCode();
+				}
+
+				if (MtuSize != null)
+				{
+					hash = (hash * 59) + MtuSize.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

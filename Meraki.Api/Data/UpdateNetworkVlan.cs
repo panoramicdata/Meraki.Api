@@ -208,78 +208,78 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Name == other.Name ||
-						  Name != null &&
-						  Name.Equals(other.Name)
+						  (Name != null &&
+						  Name.Equals(other.Name))
 					 ) &&
 					 (
 						  Subnet == other.Subnet ||
-						  Subnet != null &&
-						  Subnet.Equals(other.Subnet)
+						  (Subnet != null &&
+						  Subnet.Equals(other.Subnet))
 					 ) &&
 					 (
 						  ApplianceIp == other.ApplianceIp ||
-						  ApplianceIp != null &&
-						  ApplianceIp.Equals(other.ApplianceIp)
+						  (ApplianceIp != null &&
+						  ApplianceIp.Equals(other.ApplianceIp))
 					 ) &&
 					 (
 						  GroupPolicyId == other.GroupPolicyId ||
-						  GroupPolicyId != null &&
-						  GroupPolicyId.Equals(other.GroupPolicyId)
+						  (GroupPolicyId != null &&
+						  GroupPolicyId.Equals(other.GroupPolicyId))
 					 ) &&
 					 (
 						  VpnNatSubnet == other.VpnNatSubnet ||
-						  VpnNatSubnet != null &&
-						  VpnNatSubnet.Equals(other.VpnNatSubnet)
+						  (VpnNatSubnet != null &&
+						  VpnNatSubnet.Equals(other.VpnNatSubnet))
 					 ) &&
 					 (
 						  DhcpHandling == other.DhcpHandling ||
-						  DhcpHandling != null &&
-						  DhcpHandling.Equals(other.DhcpHandling)
+						  (DhcpHandling != null &&
+						  DhcpHandling.Equals(other.DhcpHandling))
 					 ) &&
 					 (
 						  DhcpRelayServerIps == other.DhcpRelayServerIps ||
-						  DhcpRelayServerIps != null &&
-						  DhcpRelayServerIps.SequenceEqual(other.DhcpRelayServerIps)
+						  (DhcpRelayServerIps != null &&
+						  DhcpRelayServerIps.SequenceEqual(other.DhcpRelayServerIps))
 					 ) &&
 					 (
 						  DhcpLeaseTime == other.DhcpLeaseTime ||
-						  DhcpLeaseTime != null &&
-						  DhcpLeaseTime.Equals(other.DhcpLeaseTime)
+						  (DhcpLeaseTime != null &&
+						  DhcpLeaseTime.Equals(other.DhcpLeaseTime))
 					 ) &&
 					 (
 						  DhcpBootOptionsEnabled == other.DhcpBootOptionsEnabled ||
-						  DhcpBootOptionsEnabled != null &&
-						  DhcpBootOptionsEnabled.Equals(other.DhcpBootOptionsEnabled)
+						  (DhcpBootOptionsEnabled != null &&
+						  DhcpBootOptionsEnabled.Equals(other.DhcpBootOptionsEnabled))
 					 ) &&
 					 (
 						  DhcpBootNextServer == other.DhcpBootNextServer ||
-						  DhcpBootNextServer != null &&
-						  DhcpBootNextServer.Equals(other.DhcpBootNextServer)
+						  (DhcpBootNextServer != null &&
+						  DhcpBootNextServer.Equals(other.DhcpBootNextServer))
 					 ) &&
 					 (
 						  DhcpBootFilename == other.DhcpBootFilename ||
-						  DhcpBootFilename != null &&
-						  DhcpBootFilename.Equals(other.DhcpBootFilename)
+						  (DhcpBootFilename != null &&
+						  DhcpBootFilename.Equals(other.DhcpBootFilename))
 					 ) &&
 					 (
 						  FixedIpAssignments == other.FixedIpAssignments ||
-						  FixedIpAssignments != null &&
-						  FixedIpAssignments.Equals(other.FixedIpAssignments)
+						  (FixedIpAssignments != null &&
+						  FixedIpAssignments.Equals(other.FixedIpAssignments))
 					 ) &&
 					 (
 						  ReservedIpRanges == other.ReservedIpRanges ||
-						  ReservedIpRanges != null &&
-						  ReservedIpRanges.SequenceEqual(other.ReservedIpRanges)
+						  (ReservedIpRanges != null &&
+						  ReservedIpRanges.SequenceEqual(other.ReservedIpRanges))
 					 ) &&
 					 (
 						  DnsNameservers == other.DnsNameservers ||
-						  DnsNameservers != null &&
-						  DnsNameservers.Equals(other.DnsNameservers)
+						  (DnsNameservers != null &&
+						  DnsNameservers.Equals(other.DnsNameservers))
 					 ) &&
 					 (
 						  DhcpOptions == other.DhcpOptions ||
-						  DhcpOptions != null &&
-						  DhcpOptions.SequenceEqual(other.DhcpOptions)
+						  (DhcpOptions != null &&
+						  DhcpOptions.SequenceEqual(other.DhcpOptions))
 					 );
 		}
 
@@ -295,36 +295,81 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Name != null)
-                    hash = hash * 59 + Name.GetHashCode();
-                if (Subnet != null)
-                    hash = hash * 59 + Subnet.GetHashCode();
-                if (ApplianceIp != null)
-                    hash = hash * 59 + ApplianceIp.GetHashCode();
-                if (GroupPolicyId != null)
-                    hash = hash * 59 + GroupPolicyId.GetHashCode();
-                if (VpnNatSubnet != null)
-                    hash = hash * 59 + VpnNatSubnet.GetHashCode();
-                if (DhcpHandling != null)
-                    hash = hash * 59 + DhcpHandling.GetHashCode();
-                if (DhcpRelayServerIps != null)
-                    hash = hash * 59 + DhcpRelayServerIps.GetHashCode();
-                if (DhcpLeaseTime != null)
-                    hash = hash * 59 + DhcpLeaseTime.GetHashCode();
-                if (DhcpBootOptionsEnabled != null)
-                    hash = hash * 59 + DhcpBootOptionsEnabled.GetHashCode();
-                if (DhcpBootNextServer != null)
-                    hash = hash * 59 + DhcpBootNextServer.GetHashCode();
-                if (DhcpBootFilename != null)
-                    hash = hash * 59 + DhcpBootFilename.GetHashCode();
-                if (FixedIpAssignments != null)
-                    hash = hash * 59 + FixedIpAssignments.GetHashCode();
-                if (ReservedIpRanges != null)
-                    hash = hash * 59 + ReservedIpRanges.GetHashCode();
-                if (DnsNameservers != null)
-                    hash = hash * 59 + DnsNameservers.GetHashCode();
-                if (DhcpOptions != null)
-                    hash = hash * 59 + DhcpOptions.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Name.GetHashCode();
+				}
+
+				if (Subnet != null)
+				{
+					hash = (hash * 59) + Subnet.GetHashCode();
+				}
+
+				if (ApplianceIp != null)
+				{
+					hash = (hash * 59) + ApplianceIp.GetHashCode();
+				}
+
+				if (GroupPolicyId != null)
+				{
+					hash = (hash * 59) + GroupPolicyId.GetHashCode();
+				}
+
+				if (VpnNatSubnet != null)
+				{
+					hash = (hash * 59) + VpnNatSubnet.GetHashCode();
+				}
+
+				if (DhcpHandling != null)
+				{
+					hash = (hash * 59) + DhcpHandling.GetHashCode();
+				}
+
+				if (DhcpRelayServerIps != null)
+				{
+					hash = (hash * 59) + DhcpRelayServerIps.GetHashCode();
+				}
+
+				if (DhcpLeaseTime != null)
+				{
+					hash = (hash * 59) + DhcpLeaseTime.GetHashCode();
+				}
+
+				if (DhcpBootOptionsEnabled != null)
+				{
+					hash = (hash * 59) + DhcpBootOptionsEnabled.GetHashCode();
+				}
+
+				if (DhcpBootNextServer != null)
+				{
+					hash = (hash * 59) + DhcpBootNextServer.GetHashCode();
+				}
+
+				if (DhcpBootFilename != null)
+				{
+					hash = (hash * 59) + DhcpBootFilename.GetHashCode();
+				}
+
+				if (FixedIpAssignments != null)
+				{
+					hash = (hash * 59) + FixedIpAssignments.GetHashCode();
+				}
+
+				if (ReservedIpRanges != null)
+				{
+					hash = (hash * 59) + ReservedIpRanges.GetHashCode();
+				}
+
+				if (DnsNameservers != null)
+				{
+					hash = (hash * 59) + DnsNameservers.GetHashCode();
+				}
+
+				if (DhcpOptions != null)
+				{
+					hash = (hash * 59) + DhcpOptions.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

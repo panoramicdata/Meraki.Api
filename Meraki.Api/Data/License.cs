@@ -105,13 +105,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Key == other.Key ||
-						  Key != null &&
-						  Key.Equals(other.Key)
+						  (Key != null &&
+						  Key.Equals(other.Key))
 					 ) &&
 					 (
 						  Mode == other.Mode ||
-						  Mode != null &&
-						  Mode.Equals(other.Mode)
+						  (Mode != null &&
+						  Mode.Equals(other.Mode))
 					 );
 		}
 
@@ -127,10 +127,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Key != null)
-                    hash = hash * 59 + Key.GetHashCode();
-                if (Mode != null)
-                    hash = hash * 59 + Mode.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Key.GetHashCode();
+				}
+
+				if (Mode != null)
+				{
+					hash = (hash * 59) + Mode.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

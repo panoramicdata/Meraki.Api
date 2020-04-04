@@ -101,18 +101,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Uuid == other.Uuid ||
-						  Uuid != null &&
-						  Uuid.Equals(other.Uuid)
+						  (Uuid != null &&
+						  Uuid.Equals(other.Uuid))
 					 ) &&
 					 (
 						  Major == other.Major ||
-						  Major != null &&
-						  Major.Equals(other.Major)
+						  (Major != null &&
+						  Major.Equals(other.Major))
 					 ) &&
 					 (
 						  Minor == other.Minor ||
-						  Minor != null &&
-						  Minor.Equals(other.Minor)
+						  (Minor != null &&
+						  Minor.Equals(other.Minor))
 					 );
 		}
 
@@ -128,12 +128,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Uuid != null)
-                    hash = hash * 59 + Uuid.GetHashCode();
-                if (Major != null)
-                    hash = hash * 59 + Major.GetHashCode();
-                if (Minor != null)
-                    hash = hash * 59 + Minor.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Uuid.GetHashCode();
+				}
+
+				if (Major != null)
+				{
+					hash = (hash * 59) + Major.GetHashCode();
+				}
+
+				if (Minor != null)
+				{
+					hash = (hash * 59) + Minor.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

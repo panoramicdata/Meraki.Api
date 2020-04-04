@@ -102,18 +102,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  DhcpLeaseTime == other.DhcpLeaseTime ||
-						  DhcpLeaseTime != null &&
-						  DhcpLeaseTime.Equals(other.DhcpLeaseTime)
+						  (DhcpLeaseTime != null &&
+						  DhcpLeaseTime.Equals(other.DhcpLeaseTime))
 					 ) &&
 					 (
 						  DnsNameservers == other.DnsNameservers ||
-						  DnsNameservers != null &&
-						  DnsNameservers.Equals(other.DnsNameservers)
+						  (DnsNameservers != null &&
+						  DnsNameservers.Equals(other.DnsNameservers))
 					 ) &&
 					 (
 						  DnsCustomNameservers == other.DnsCustomNameservers ||
-						  DnsCustomNameservers != null &&
-						  DnsCustomNameservers.SequenceEqual(other.DnsCustomNameservers)
+						  (DnsCustomNameservers != null &&
+						  DnsCustomNameservers.SequenceEqual(other.DnsCustomNameservers))
 					 );
 		}
 
@@ -129,12 +129,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (DhcpLeaseTime != null)
-                    hash = hash * 59 + DhcpLeaseTime.GetHashCode();
-                if (DnsNameservers != null)
-                    hash = hash * 59 + DnsNameservers.GetHashCode();
-                if (DnsCustomNameservers != null)
-                    hash = hash * 59 + DnsCustomNameservers.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + DhcpLeaseTime.GetHashCode();
+				}
+
+				if (DnsNameservers != null)
+				{
+					hash = (hash * 59) + DnsNameservers.GetHashCode();
+				}
+
+				if (DnsCustomNameservers != null)
+				{
+					hash = (hash * 59) + DnsCustomNameservers.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

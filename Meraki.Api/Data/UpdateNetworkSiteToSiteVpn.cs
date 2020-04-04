@@ -115,18 +115,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Mode == other.Mode ||
-						  Mode != null &&
-						  Mode.Equals(other.Mode)
+						  (Mode != null &&
+						  Mode.Equals(other.Mode))
 					 ) &&
 					 (
 						  Hubs == other.Hubs ||
-						  Hubs != null &&
-						  Hubs.SequenceEqual(other.Hubs)
+						  (Hubs != null &&
+						  Hubs.SequenceEqual(other.Hubs))
 					 ) &&
 					 (
 						  Subnets == other.Subnets ||
-						  Subnets != null &&
-						  Subnets.SequenceEqual(other.Subnets)
+						  (Subnets != null &&
+						  Subnets.SequenceEqual(other.Subnets))
 					 );
 		}
 
@@ -142,12 +142,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Mode != null)
-                    hash = hash * 59 + Mode.GetHashCode();
-                if (Hubs != null)
-                    hash = hash * 59 + Hubs.GetHashCode();
-                if (Subnets != null)
-                    hash = hash * 59 + Subnets.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Mode.GetHashCode();
+				}
+
+				if (Hubs != null)
+				{
+					hash = (hash * 59) + Hubs.GetHashCode();
+				}
+
+				if (Subnets != null)
+				{
+					hash = (hash * 59) + Subnets.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

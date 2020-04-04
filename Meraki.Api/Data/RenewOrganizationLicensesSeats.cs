@@ -114,13 +114,13 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  LicenseIdToRenew == other.LicenseIdToRenew ||
-						  LicenseIdToRenew != null &&
-						  LicenseIdToRenew.Equals(other.LicenseIdToRenew)
+						  (LicenseIdToRenew != null &&
+						  LicenseIdToRenew.Equals(other.LicenseIdToRenew))
 					 ) &&
 					 (
 						  UnusedLicenseId == other.UnusedLicenseId ||
-						  UnusedLicenseId != null &&
-						  UnusedLicenseId.Equals(other.UnusedLicenseId)
+						  (UnusedLicenseId != null &&
+						  UnusedLicenseId.Equals(other.UnusedLicenseId))
 					 );
 		}
 
@@ -136,10 +136,16 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (LicenseIdToRenew != null)
-                    hash = hash * 59 + LicenseIdToRenew.GetHashCode();
-                if (UnusedLicenseId != null)
-                    hash = hash * 59 + UnusedLicenseId.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + LicenseIdToRenew.GetHashCode();
+				}
+
+				if (UnusedLicenseId != null)
+				{
+					hash = (hash * 59) + UnusedLicenseId.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

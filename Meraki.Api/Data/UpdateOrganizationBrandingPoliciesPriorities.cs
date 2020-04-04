@@ -97,8 +97,8 @@ namespace Meraki.Api.Data
 			return other == null
 					? false
 					: BrandingPolicyIds == other.BrandingPolicyIds ||
-						  BrandingPolicyIds != null &&
-						  BrandingPolicyIds.SequenceEqual(other.BrandingPolicyIds);
+						  (BrandingPolicyIds != null &&
+						  BrandingPolicyIds.SequenceEqual(other.BrandingPolicyIds));
 		}
 
 		/// <summary>
@@ -113,8 +113,11 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (BrandingPolicyIds != null)
-                    hash = hash * 59 + BrandingPolicyIds.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + BrandingPolicyIds.GetHashCode();
+				}
+
+				return hash;
             }
         }
 

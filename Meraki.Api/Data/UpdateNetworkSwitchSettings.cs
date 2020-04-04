@@ -102,18 +102,18 @@ namespace Meraki.Api.Data
 					? false
 					: (
 						  Vlan == other.Vlan ||
-						  Vlan != null &&
-						  Vlan.Equals(other.Vlan)
+						  (Vlan != null &&
+						  Vlan.Equals(other.Vlan))
 					 ) &&
 					 (
 						  UseCombinedPower == other.UseCombinedPower ||
-						  UseCombinedPower != null &&
-						  UseCombinedPower.Equals(other.UseCombinedPower)
+						  (UseCombinedPower != null &&
+						  UseCombinedPower.Equals(other.UseCombinedPower))
 					 ) &&
 					 (
 						  PowerExceptions == other.PowerExceptions ||
-						  PowerExceptions != null &&
-						  PowerExceptions.SequenceEqual(other.PowerExceptions)
+						  (PowerExceptions != null &&
+						  PowerExceptions.SequenceEqual(other.PowerExceptions))
 					 );
 		}
 
@@ -129,12 +129,21 @@ namespace Meraki.Api.Data
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
                 if (Vlan != null)
-                    hash = hash * 59 + Vlan.GetHashCode();
-                if (UseCombinedPower != null)
-                    hash = hash * 59 + UseCombinedPower.GetHashCode();
-                if (PowerExceptions != null)
-                    hash = hash * 59 + PowerExceptions.GetHashCode();
-                return hash;
+				{
+					hash = (hash * 59) + Vlan.GetHashCode();
+				}
+
+				if (UseCombinedPower != null)
+				{
+					hash = (hash * 59) + UseCombinedPower.GetHashCode();
+				}
+
+				if (PowerExceptions != null)
+				{
+					hash = (hash * 59) + PowerExceptions.GetHashCode();
+				}
+
+				return hash;
             }
         }
 
