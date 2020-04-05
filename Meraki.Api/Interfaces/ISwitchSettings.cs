@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/switch/settings/qosRules")]
 		Task<object> CreateNetworkSwitchSettingsQosRule(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkSwitchSettingsQosRule createNetworkSwitchSettingsQosRule
+			[Body]SwitchSettingsQosRuleCreationRequest createNetworkSwitchSettingsQosRule
 			);
 
 		/// <summary>

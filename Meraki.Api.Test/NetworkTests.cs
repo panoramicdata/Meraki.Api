@@ -79,7 +79,7 @@ namespace Meraki.Api.Test
 				.Networks
 				.CreateAsync(
 					Configuration.TestOrganizationId,
-					new NetworkCreationDto
+					new NetworkCreationRequest
 					{
 						Name = networkName,
 						Type = "wireless switch appliance",
@@ -106,7 +106,7 @@ namespace Meraki.Api.Test
 					 .Networks
 					 .CreateAsync(
 					Configuration.TestOrganizationId,
-					new NetworkCreationDto
+					new NetworkCreationRequest
 					{
 						Name = networkName,
 						Type = "wireless switch appliance",
@@ -185,7 +185,7 @@ namespace Meraki.Api.Test
 				.Networks
 				.CreateAsync(
 					Configuration.TestOrganizationId,
-				new NetworkCreationDto
+				new NetworkCreationRequest
 				{
 					Name = networkName,
 					Type = "wireless switch appliance",

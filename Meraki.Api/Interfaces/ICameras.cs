@@ -38,7 +38,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/camera/qualityAndRetentionSettings")]
-		Task<CameraQualityAndRetentionSettings> GetQualityAndRetentionSettingsAsync(
+		Task<CameraQualityAndRetentionProfile> GetQualityAndRetentionSettingsAsync(
 			[AliasAs("serial")]string serial,
 			CancellationToken cancellationToken = default);
 
@@ -85,9 +85,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateDeviceCameraQualityAndRetentionSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/camera/qualityAndRetentionSettings")]
-		Task<CameraQualityAndRetentionSettings> UpdateQualityAndRetentionSettingsAsync(
+		Task<CameraQualityAndRetentionProfile> UpdateQualityAndRetentionSettingsAsync(
 			[AliasAs("serial")]string serial,
-			[Body]CameraQualityAndRetentionSettingsUpdateDto updateDeviceCameraQualityAndRetentionSettings,
+			[Body]CameraQualityAndRetentionProfileUpdateRequest updateDeviceCameraQualityAndRetentionSettings,
 			CancellationToken cancellationToken = default);
 	}
 }

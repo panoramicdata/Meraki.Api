@@ -40,7 +40,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/switchStacks")]
 		Task<object> CreateNetworkSwitchStack(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkSwitchStack createNetworkSwitchStack
+			[Body]SwitchStackCreationRequest createNetworkSwitchStack
 			);
 
 		/// <summary>

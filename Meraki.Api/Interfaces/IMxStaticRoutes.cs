@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/staticRoutes")]
 		Task<object> CreateNetworkStaticRoute(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkStaticRoute createNetworkStaticRoute
+			[Body]StaticRouteCreationRequest createNetworkStaticRoute
 			);
 
 		/// <summary>

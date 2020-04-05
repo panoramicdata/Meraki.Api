@@ -18,7 +18,7 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Protocol
 		/// </summary>
 		[DataMember(Name = "protocol", EmitDefaultValue = false)]
-		public Protocol9 Protocol { get; set; }
+		public TcpUdpAnyCapsProtocol Protocol { get; set; }
 		/// <summary>
 		/// The source port of the incoming packet. Applicable only if protocol is TCP or UDP.
 		/// </summary>

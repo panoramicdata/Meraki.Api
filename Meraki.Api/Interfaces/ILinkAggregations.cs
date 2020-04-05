@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/switch/linkAggregations")]
 		Task<object> CreateNetworkSwitchLinkAggregation(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkSwitchLinkAggregation createNetworkSwitchLinkAggregation
+			[Body]SwitchLinkAggregationCreationRequest createNetworkSwitchLinkAggregation
 			);
 
 		/// <summary>

@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/brandingPolicies")]
 		Task<object> CreateOrganizationBrandingPolicy(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]CreateOrganizationBrandingPolicy createOrganizationBrandingPolicy
+			[Body]BrandingPolicyCreationRequest createOrganizationBrandingPolicy
 			);
 
 		/// <summary>

@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/insight/monitoredMediaServers")]
 		Task<object> CreateOrganizationInsightMonitoredMediaServer(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]CreateOrganizationInsightMonitoredMediaServer createOrganizationInsightMonitoredMediaServer
+			[Body]InsightMonitoredMediaServerCreationRequest createOrganizationInsightMonitoredMediaServer
 			);
 
 		/// <summary>

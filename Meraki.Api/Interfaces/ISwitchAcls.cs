@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/accessControlLists")]
 		Task<object> UpdateNetworkSwitchAccessControlLists(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSwitchAccessControlLists updateNetworkSwitchAccessControlLists
+			[Body]SwitchAccessControlListRulesUpdateRequest updateNetworkSwitchAccessControlLists
 			);
 	}
 }

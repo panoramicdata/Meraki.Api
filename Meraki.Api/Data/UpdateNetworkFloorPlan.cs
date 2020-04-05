@@ -23,7 +23,7 @@ namespace Meraki.Api.Data
 		/// Gets or Sets BottomLeftCorner
 		/// </summary>
 		[DataMember(Name = "bottomLeftCorner", EmitDefaultValue = false)]
-		public BottomLeftCorner BottomLeftCorner { get; set; }
+		public GeoLocation BottomLeftCorner { get; set; }
 		/// <summary>
 		/// Gets or Sets BottomRightCorner
 		/// </summary>
@@ -38,7 +38,7 @@ namespace Meraki.Api.Data
 		/// Gets or Sets TopRightCorner
 		/// </summary>
 		[DataMember(Name = "topRightCorner", EmitDefaultValue = false)]
-		public TopRightCorner TopRightCorner { get; set; }
+		public GeoLocation TopRightCorner { get; set; }
 		/// <summary>
 		/// The file contents (a base 64 encoded string) of your new image. Supported formats are PNG, GIF, and JPG. Note that all images are saved as PNG files, regardless of the format they are uploaded in. If you upload a new image, and you do NOT specify any new geolocation fields (&#39;center, &#39;topLeftCorner&#39;, etc), the floor plan will be recentered with no rotation in order to maintain the aspect ratio of your new image.
 		/// </summary>

@@ -15,17 +15,19 @@ namespace Meraki.Api.Data
 		/// <value>true/false whether to use special IPv4 addresses: https://tools.ietf.org/html/rfc5735 (required). Default value is true if none currently saved</value>
 		[DataMember(Name = "useDefault", EmitDefaultValue = false)]
 		public bool? UseDefault { get; set; }
+
 		/// <summary>
 		/// list of IP addresses or subnets being protected (required if &#39;useDefault&#39; is false)
 		/// </summary>
 		/// <value>list of IP addresses or subnets being protected (required if &#39;useDefault&#39; is false)</value>
 		[DataMember(Name = "includedCidr", EmitDefaultValue = false)]
-		public List<string> IncludedCidr { get; set; }
+		public List<string> IncludedCidr { get; set; } = null!;
+
 		/// <summary>
 		/// list of IP addresses or subnets being excluded from protection (required if &#39;useDefault&#39; is false)
 		/// </summary>
 		/// <value>list of IP addresses or subnets being excluded from protection (required if &#39;useDefault&#39; is false)</value>
 		[DataMember(Name = "excludedCidr", EmitDefaultValue = false)]
-		public List<string> ExcludedCidr { get; set; }
+		public List<string> ExcludedCidr { get; set; } = null!;
 	}
 }

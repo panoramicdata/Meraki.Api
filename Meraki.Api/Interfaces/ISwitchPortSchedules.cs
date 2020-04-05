@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/switch/portSchedules")]
 		Task<object> CreateNetworkSwitchPortSchedule(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkSwitchPortSchedule createNetworkSwitchPortSchedule
+			[Body]SwitchPortScheduleCreationRequest createNetworkSwitchPortSchedule
 			);
 
 		/// <summary>

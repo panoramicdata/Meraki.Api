@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/floorPlans")]
 		Task<object> CreateNetworkFloorPlan(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkFloorPlan createNetworkFloorPlan
+			[Body]FloorPlanCreationRequest createNetworkFloorPlan
 			);
 
 		/// <summary>

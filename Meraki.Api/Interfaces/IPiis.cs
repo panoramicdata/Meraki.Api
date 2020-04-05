@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/pii/requests")]
 		Task<object> CreateNetworkPiiRequest(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkPiiRequest createNetworkPiiRequest
+			[Body]PiiCreationRequest createNetworkPiiRequest
 			);
 
 		/// <summary>

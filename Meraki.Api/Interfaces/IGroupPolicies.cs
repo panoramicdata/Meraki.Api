@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/groupPolicies")]
 		Task<object> CreateNetworkGroupPolicy(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkGroupPolicy createNetworkGroupPolicy
+			[Body]GroupPolicyCreationRequest createNetworkGroupPolicy
 			);
 
 		/// <summary>

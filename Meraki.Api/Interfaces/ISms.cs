@@ -38,7 +38,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/sm/app/polaris")]
 		Task<object> CreateNetworkSmAppPolaris(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkSmAppPolaris createNetworkSmAppPolaris
+			[Body]SmAppPolarisCreationRequest createNetworkSmAppPolaris
 			);
 
 		/// <summary>
@@ -54,7 +54,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/sm/bypassActivationLockAttempts")]
 		Task<object> CreateNetworkSmBypassActivationLockAttempt(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkSmBypassActivationLockAttempt createNetworkSmBypassActivationLockAttempt
+			[Body]SmBypassActivationLockAttemptCreationRequest createNetworkSmBypassActivationLockAttempt
 			);
 
 		/// <summary>

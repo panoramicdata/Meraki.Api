@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/httpServers")]
 		Task<object> CreateNetworkHttpServer(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkHttpServer createNetworkHttpServer
+			[Body]HttpServerCreationRequest createNetworkHttpServer
 			);
 
 		/// <summary>
@@ -38,7 +38,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/httpServers/webhookTests")]
 		Task<object> CreateNetworkHttpServersWebhookTest(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkHttpServersWebhookTest createNetworkHttpServersWebhookTest
+			[Body]HttpServersWebhookTestCreationRequest createNetworkHttpServersWebhookTest
 			);
 
 		/// <summary>

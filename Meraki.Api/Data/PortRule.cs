@@ -19,7 +19,7 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Protocol
 		/// </summary>
 		[DataMember(Name = "protocol", EmitDefaultValue = false)]
-		public Protocol3 Protocol { get; set; }
+		public TcpUdpProtocol Protocol { get; set; }
 		/// <summary>
 		/// Destination port of the traffic that is arriving on the WAN
 		/// </summary>

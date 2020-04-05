@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -19,9 +20,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/alertSettings")]
-		Task<object> GetNetworkAlertSettings(
-			[AliasAs("networkId")]string networkId
-			);
+		Task<object> GetAllAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// updateNetworkAlertSettings
@@ -36,6 +37,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/alertSettings")]
 		Task<object> UpdateNetworkAlertSettings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkAlertSettings updateNetworkAlertSettings = null!);
+			[Body]UpdateNetworkAlertSettings updateNetworkAlertSettings = null!,
+			CancellationToken cancellationToken = default);
 	}
 }

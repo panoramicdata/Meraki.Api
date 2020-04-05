@@ -24,7 +24,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/vlans")]
 		Task<Vlan> CreateAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkVlan createNetworkVlan,
+			[Body]VlanCreationRequest createNetworkVlan,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

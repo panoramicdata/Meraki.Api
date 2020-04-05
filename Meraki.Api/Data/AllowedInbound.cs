@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Protocol
 		/// </summary>
 		[DataMember(Name = "protocol", EmitDefaultValue = false)]
-		public Protocol4 Protocol { get; set; }
+		public TcpUdpIcmppingAnyProtocol Protocol { get; set; }
 
 		/// <summary>
 		/// An array of ports or port ranges that will be forwarded to the host on the LAN

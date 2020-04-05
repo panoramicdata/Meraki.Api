@@ -98,7 +98,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/trafficShaping")]
 		Task<object> UpdateNetworkTrafficShaping(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkTrafficShaping updateNetworkTrafficShaping
+			[Body]TrafficShapingUpdateRequest updateNetworkTrafficShaping
 			);
 	}
 }

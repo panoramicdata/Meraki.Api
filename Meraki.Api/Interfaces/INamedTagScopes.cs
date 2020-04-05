@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/sm/targetGroups")]
 		Task<object> CreateNetworkSmTargetGroup(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkSmTargetGroup createNetworkSmTargetGroup
+			[Body]SmTargetGroupCreationRequest createNetworkSmTargetGroup
 			);
 
 		/// <summary>

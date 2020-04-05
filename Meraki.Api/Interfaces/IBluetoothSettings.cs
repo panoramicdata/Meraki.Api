@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -19,7 +20,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/wireless/bluetooth/settings")]
-		Task<object> GetDeviceWirelessBluetoothSettings([AliasAs("serial")]string serial);
+		Task<object> GetForDeviceAsync(
+			[AliasAs("serial")]string serial,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkBluetoothSettings
@@ -31,7 +34,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/bluetoothSettings")]
-		Task<object> GetNetworkBluetoothSettings([AliasAs("networkId")]string networkId);
+		Task<object> GetForNetworkAsync([AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// updateDeviceWirelessBluetoothSettings
@@ -44,9 +48,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateDeviceWirelessBluetoothSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/wireless/bluetooth/settings")]
-		Task<object> UpdateDeviceWirelessBluetoothSettings(
+		Task<object> UpdateForDeviceAsync(
 			[AliasAs("serial")]string serial,
-			[Body]UpdateDeviceWirelessBluetoothSettings updateDeviceWirelessBluetoothSettings);
+			[Body]UpdateDeviceWirelessBluetoothSettings updateDeviceWirelessBluetoothSettings,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// updateNetworkBluetoothSettings
@@ -59,8 +64,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateNetworkBluetoothSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/bluetoothSettings")]
-		Task<object> UpdateNetworkBluetoothSettings(
+		Task<object> UpdateForNetworkAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkBluetoothSettings updateNetworkBluetoothSettings);
+			[Body]UpdateNetworkBluetoothSettings updateNetworkBluetoothSettings,
+			CancellationToken cancellationToken = default);
 	}
 }

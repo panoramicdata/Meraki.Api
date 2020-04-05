@@ -12,7 +12,7 @@ namespace Meraki.Api.Data
 		/// The host
 		/// </summary>
 		[DataMember(Name = "host")]
-		public string Host { get; set; } = string.Empty;
+		public string Host { get; set; } = null!;
 
 		/// <summary>
 		/// The port

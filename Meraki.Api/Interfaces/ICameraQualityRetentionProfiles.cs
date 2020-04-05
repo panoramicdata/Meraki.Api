@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/camera/qualityRetentionProfiles")]
 		Task<object> CreateNetworkCameraQualityRetentionProfile(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkCameraQualityRetentionProfile createNetworkCameraQualityRetentionProfile
+			[Body]CameraQualityAndRetentionProfileCreationRequest createNetworkCameraQualityRetentionProfile
 			);
 
 		/// <summary>

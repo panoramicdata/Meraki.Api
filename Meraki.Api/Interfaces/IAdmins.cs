@@ -24,7 +24,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/admins")]
 		Task<Admin> CreateAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]CreateOrganizationAdmin createOrganizationAdmin,
+			[Body]AdminCreationRequest createOrganizationAdmin,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

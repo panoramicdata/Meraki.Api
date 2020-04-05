@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/oneToManyNatRules")]
 		Task<object> UpdateNetworkOneToManyNatRules(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkOneToManyNatRules updateNetworkOneToManyNatRules
+			[Body]OneToManyNatRulesUpdateRequest updateNetworkOneToManyNatRules
 			);
 	}
 }

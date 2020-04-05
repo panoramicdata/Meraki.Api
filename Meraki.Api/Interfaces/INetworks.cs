@@ -56,7 +56,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/networks")]
 		Task<Network> CreateAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]NetworkCreationDto createOrganizationNetwork,
+			[Body]NetworkCreationRequest createOrganizationNetwork,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/wireless/rfProfiles")]
 		Task<object> CreateNetworkWirelessRfProfile(
 			[AliasAs("networkId")]string networkId,
-			[Body]CreateNetworkWirelessRfProfile createNetworkWirelessRfProfile
+			[Body]WirelessRfProfileCreationRequest createNetworkWirelessRfProfile
 			);
 
 		/// <summary>

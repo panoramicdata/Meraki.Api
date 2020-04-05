@@ -25,7 +25,7 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Protocol
 		/// </summary>
 		[DataMember(Name = "protocol", EmitDefaultValue = false)]
-		public Protocol Protocol { get; set; }
+		public TcpUdpIcmpAnyProtocol Protocol { get; set; }
 
 		/// <summary>
 		/// Comma-separated list of destination port(s) (integer in the range 1-65535), or &#39;any&#39;
