@@ -32,6 +32,6 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateNetworkPortForwardingRules"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/portForwardingRules")]
-		Task<object> UpdateNetworkPortForwardingRules([AliasAs("networkId")]string networkId, [Body]UpdateNetworkPortForwardingRules updateNetworkPortForwardingRules);
+		Task<object> UpdateNetworkPortForwardingRules([AliasAs("networkId")]string networkId, [Body]NetworkPortForwardingRulesUpdateRequest updateNetworkPortForwardingRules);
 	}
 }

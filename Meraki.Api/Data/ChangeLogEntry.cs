@@ -1,4 +1,4 @@
-﻿using System;using System.Threading.Tasks;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data

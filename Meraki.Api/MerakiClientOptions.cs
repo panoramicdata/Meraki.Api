@@ -1,5 +1,5 @@
 ﻿using Meraki.Api.Exceptions;
-using System;using System.Threading.Tasks;
+using System;
 
 namespace Meraki.Api
 {

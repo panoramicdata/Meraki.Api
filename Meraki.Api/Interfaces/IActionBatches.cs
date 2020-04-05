@@ -1,6 +1,5 @@
 using Meraki.Api.Data;
 using Refit;
-using System;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces

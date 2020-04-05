@@ -40,7 +40,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkSsidL3FirewallRules(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("number")]string number,
-			[Body]UpdateNetworkSsidL3FirewallRules updateNetworkSsidL3FirewallRules
+			[Body]SsidLayer3FirewallRulesUpdateRequest updateNetworkSsidL3FirewallRules
 			);
 	}
 }

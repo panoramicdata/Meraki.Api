@@ -1,9 +1,4 @@
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace Meraki.Api.Data
 {
@@ -13,17 +8,6 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public partial class ApBandSettings
 	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ApBandSettings" /> class.
-		/// </summary>
-		/// <param name="BandOperationMode">BandOperationMode.</param>
-		/// <param name="BandSteeringEnabled">Steers client to most open band. Can be either true or false. Defaults to true..</param>
-		public ApBandSettings(BandOperationMode BandOperationMode = default, bool? BandSteeringEnabled = default)
-		{
-			this.BandOperationMode = BandOperationMode;
-			this.BandSteeringEnabled = BandSteeringEnabled;
-		}
-
 		/// <summary>
 		/// Gets or Sets BandOperationMode
 		/// </summary>

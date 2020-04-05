@@ -82,7 +82,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkSsidTrafficShaping(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("number")]string number,
-			[Body]UpdateNetworkSsidTrafficShaping updateNetworkSsidTrafficShaping
+			[Body]SsidTrafficShapingUpdateRequest updateNetworkSsidTrafficShaping
 			);
 
 		/// <summary>

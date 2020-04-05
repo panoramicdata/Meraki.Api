@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/vpnFirewallRules")]
 		Task<object> UpdateOrganizationVpnFirewallRules(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]UpdateOrganizationVpnFirewallRules updateOrganizationVpnFirewallRules
+			[Body]VpnFirewallRulesUpdateRequest updateOrganizationVpnFirewallRules
 			);
 	}
 }

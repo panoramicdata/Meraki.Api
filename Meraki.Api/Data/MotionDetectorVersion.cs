@@ -11,17 +11,16 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum MotionDetectorVersion
 	{
-
 		/// <summary>
 		/// Enum NUMBER_1 for 1
 		/// </summary>
 		[EnumMember(Value = "1")]
-		NUMBER_1,
+		V1,
 
 		/// <summary>
 		/// Enum NUMBER_2 for 2
 		/// </summary>
 		[EnumMember(Value = "2")]
-		NUMBER_2
+		V2
 	}
 }

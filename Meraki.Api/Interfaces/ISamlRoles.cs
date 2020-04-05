@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/samlRoles")]
 		Task<object> CreateOrganizationSamlRole(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]CreateOrganizationSamlRole createOrganizationSamlRole
+			[Body]SamlRoleCreateRequest createOrganizationSamlRole
 			);
 
 		/// <summary>
