@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum PowerType
 	{
-
 		/// <summary>
 		/// Enum Combined for "combined"
 		/// </summary>

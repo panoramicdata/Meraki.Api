@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CycleDeviceSwitchPorts
 	/// </summary>
 	[DataContract]
-	public partial class CycleDeviceSwitchPorts
+	public partial class DeviceSwitchPortsCycleRequest
 	{
 		/// <summary>
 		/// List of switch ports. Example: [1, 2-5, 1_MA-MOD-8X10G_1, 1_MA-MOD-8X10G_2-1_MA-MOD-8X10G_8]

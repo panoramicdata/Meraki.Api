@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum SnmpV3PrivMode
 	{
-
 		/// <summary>
 		/// Enum DES for "DES"
 		/// </summary>

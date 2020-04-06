@@ -54,6 +54,6 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkFirewalledService(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("service")]string service,
-			[Body]UpdateNetworkFirewalledService updateNetworkFirewalledService);
+			[Body]FirewalledServiceUpdateRequest updateNetworkFirewalledService);
 	}
 }

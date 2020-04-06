@@ -50,7 +50,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/security/intrusionSettings")]
 		Task<object> UpdateNetworkSecurityIntrusionSettings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSecurityIntrusionSettings updateNetworkSecurityIntrusionSettings
+			[Body]NetworkSecurityIntrusionSettingsUpdateRequest updateNetworkSecurityIntrusionSettings
 			);
 
 		/// <summary>
@@ -66,7 +66,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/security/intrusionSettings")]
 		Task<object> UpdateOrganizationSecurityIntrusionSettings(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]UpdateOrganizationSecurityIntrusionSettings updateOrganizationSecurityIntrusionSettings
+			[Body]SecurityIntrusionSettingsUpdateRequest updateOrganizationSecurityIntrusionSettings
 			);
 	}
 }

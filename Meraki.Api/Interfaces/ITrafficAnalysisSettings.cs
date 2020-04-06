@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/trafficAnalysisSettings")]
 		Task<object> UpdateNetworkTrafficAnalysisSettings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkTrafficAnalysisSettings updateNetworkTrafficAnalysisSettings
+			[Body]TrafficAnalysisSettingsUpdateRequest updateNetworkTrafficAnalysisSettings
 			);
 	}
 }

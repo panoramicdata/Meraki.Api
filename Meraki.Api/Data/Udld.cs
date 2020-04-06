@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum Udld
 	{
-
 		/// <summary>
 		/// Enum Alertonly for "Alert only"
 		/// </summary>

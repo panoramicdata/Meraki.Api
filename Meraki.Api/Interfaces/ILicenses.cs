@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -20,10 +21,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="assignOrganizationLicensesSeats"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/licenses/assignSeats")]
-		Task<object> AssignOrganizationLicensesSeats(
+		Task<object> AssignOrganizationLicensesSeatsAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]AssignOrganizationLicensesSeats assignOrganizationLicensesSeats
-			);
+			[Body]LicenseSeatsAssignmentRequest licenseSeatsAssignmentRequest,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getOrganizationLicense
@@ -36,10 +37,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="licenseId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/licenses/{licenseId}")]
-		Task<object> GetOrganizationLicense(
+		Task<object> GetAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("licenseId")]string licenseId
-			);
+			[AliasAs("licenseId")]string licenseId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getOrganizationLicenses
@@ -57,15 +58,15 @@ namespace Meraki.Api.Interfaces
 		/// <param name="state">Filter the licenses to those in a particular state. Can be one of &#39;active&#39;, &#39;expired&#39;, &#39;expiring&#39;, &#39;unused&#39;, &#39;unusedActive&#39; or &#39;recentlyQueued&#39; (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/licenses")]
-		Task<object> GetOrganizationLicenses(
+		Task<object> GetPageAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("perPage")]int? perPage = null,
 			[AliasAs("startingAfter")]string startingAfter = null!,
 			[AliasAs("endingBefore")]string endingBefore = null!,
 			[AliasAs("deviceSerial")]string deviceSerial = null!,
 			[AliasAs("networkId")]string networkId = null!,
-			[AliasAs("state")]string state = null!
-			);
+			[AliasAs("state")]string state = null!,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// moveOrganizationLicenses
@@ -75,13 +76,13 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
-		/// <param name="moveOrganizationLicenses"></param>
+		/// <param name="licenseMoveRequest"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/licenses/move")]
-		Task<object> MoveOrganizationLicenses(
+		Task<object> MoveToOrganizationAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]MoveOrganizationLicenses moveOrganizationLicenses
-			);
+			[Body]LicenseMoveRequest licenseMoveRequest,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// moveOrganizationLicensesSeats
@@ -91,13 +92,13 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
-		/// <param name="moveOrganizationLicensesSeats"></param>
+		/// <param name="licenseSeatsMoveRequest"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/licenses/moveSeats")]
-		Task<object> MoveOrganizationLicensesSeats(
+		Task<object> MoveSeatsAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]MoveOrganizationLicensesSeats moveOrganizationLicensesSeats
-			);
+			[Body]LicenseSeatsMoveRequest licenseSeatsMoveRequest,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// renewOrganizationLicensesSeats
@@ -107,13 +108,13 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
-		/// <param name="renewOrganizationLicensesSeats"></param>
+		/// <param name="licenseSeatsRenewalRequest"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/licenses/renewSeats")]
-		Task<object> RenewOrganizationLicensesSeats(
+		Task<object> RenewSeatsAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]RenewOrganizationLicensesSeats renewOrganizationLicensesSeats
-			);
+			[Body]LicenseSeatsRenewalRequest licenseSeatsRenewalRequest,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// updateOrganizationLicense
@@ -127,10 +128,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateOrganizationLicense"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/licenses/{licenseId}")]
-		Task<object> UpdateOrganizationLicense(
+		Task<object> UpdateAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("licenseId")]string licenseId,
-			[Body]UpdateOrganizationLicense updateOrganizationLicense
-			);
+			[Body]LicenseUpdateRequest updateOrganizationLicense,
+			CancellationToken cancellationToken = default);
 	}
 }

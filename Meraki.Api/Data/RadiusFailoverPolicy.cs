@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum RadiusFailoverPolicy
 	{
-
 		/// <summary>
 		/// Enum Denyaccess for "Deny access"
 		/// </summary>

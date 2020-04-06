@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum StpGuard
 	{
-
 		/// <summary>
 		/// Enum Disabled for "disabled"
 		/// </summary>

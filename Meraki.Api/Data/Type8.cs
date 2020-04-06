@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum Type8
 	{
-
 		/// <summary>
 		/// Enum Host for "host"
 		/// </summary>

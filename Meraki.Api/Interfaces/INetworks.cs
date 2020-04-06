@@ -211,7 +211,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}")]
 		Task<object> UpdateNetwork(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetwork updateNetwork = null!
+			[Body]NetworkUpdateRequest updateNetwork = null!
 			);
 
 		/// <summary>
@@ -227,7 +227,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/siteToSiteVpn")]
 		Task<object> UpdateNetworkSiteToSiteVpn(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSiteToSiteVpn updateNetworkSiteToSiteVpn
+			[Body]SiteToSiteVpnUpdateRequest updateNetworkSiteToSiteVpn
 			);
 	}
 }

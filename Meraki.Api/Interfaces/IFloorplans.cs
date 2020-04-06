@@ -86,6 +86,6 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkFloorPlan(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("floorPlanId")]string floorPlanId,
-			[Body]UpdateNetworkFloorPlan updateNetworkFloorPlan);
+			[Body]FloorPlanUpdateRequest updateNetworkFloorPlan);
 	}
 }

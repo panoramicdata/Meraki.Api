@@ -86,6 +86,6 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkStaticRoute(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("staticRouteId")]string staticRouteId,
-			[Body]UpdateNetworkStaticRoute updateNetworkStaticRoute);
+			[Body]StaticRouteUpdateRequest updateNetworkStaticRoute);
 	}
 }

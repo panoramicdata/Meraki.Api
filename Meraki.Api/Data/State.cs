@@ -10,7 +10,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum State
 	{
-
 		/// <summary>
 		/// Enum Active for "active"
 		/// </summary>

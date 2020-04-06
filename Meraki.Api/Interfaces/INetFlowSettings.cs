@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/netflowSettings")]
 		Task<object> UpdateNetworkNetflowSettings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkNetflowSettings updateNetworkNetflowSettings
+			[Body]NetflowSettingsUpdateRequest updateNetworkNetflowSettings
 			);
 	}
 }

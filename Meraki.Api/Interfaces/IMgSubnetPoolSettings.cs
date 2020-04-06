@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/cellularGateway/settings/subnetPool")]
 		Task<object> UpdateNetworkCellularGatewaySettingsSubnetPool(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkCellularGatewaySettingsSubnetPool updateNetworkCellularGatewaySettingsSubnetPool
+			[Body]NetworkCellularGatewaySettingsSubnetPoolUpdateRequest updateNetworkCellularGatewaySettingsSubnetPool
 			);
 	}
 }

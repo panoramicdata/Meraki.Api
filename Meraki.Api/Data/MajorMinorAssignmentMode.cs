@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum MajorMinorAssignmentMode
 	{
-
 		/// <summary>
 		/// Enum Unique for "Unique"
 		/// </summary>

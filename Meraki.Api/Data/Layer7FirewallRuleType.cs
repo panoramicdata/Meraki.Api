@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum Layer7FirewallRuleType
 	{
-
 		/// <summary>
 		/// Enum Application for "application"
 		/// </summary>

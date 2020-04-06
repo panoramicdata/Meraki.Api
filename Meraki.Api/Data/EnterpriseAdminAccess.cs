@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum EnterpriseAdminAccess
 	{
-
 		/// <summary>
 		/// Enum Disabled for "access disabled"
 		/// </summary>

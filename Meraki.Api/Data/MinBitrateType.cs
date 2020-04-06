@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum MinBitrateType
 	{
-
 		/// <summary>
 		/// Enum Band for "band"
 		/// </summary>

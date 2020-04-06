@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum DenyOnlyPolicy
 	{
-
 		/// <summary>
 		/// Enum Deny for "deny"
 		/// </summary>

@@ -88,7 +88,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("actionBatchId")]string actionBatchId,
-			[Body]UpdateOrganizationActionBatch updateOrganizationActionBatch = null!,
+			[Body]ActionBatchUpdateRequest updateOrganizationActionBatch = null!,
 			CancellationToken cancellationToken = default);
 	}
 }

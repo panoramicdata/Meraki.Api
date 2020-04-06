@@ -10,7 +10,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum SsidNumber
 	{
-
 		/// <summary>
 		/// Enum Number0 for 0
 		/// </summary>

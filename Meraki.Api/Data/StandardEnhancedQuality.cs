@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum StandardEnhancedQuality
 	{
-
 		/// <summary>
 		/// Enum Standard for "Standard"
 		/// </summary>

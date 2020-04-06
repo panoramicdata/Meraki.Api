@@ -70,7 +70,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkSwitchPortSchedule(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("portScheduleId")]string portScheduleId,
-			[Body]UpdateNetworkSwitchPortSchedule updateNetworkSwitchPortSchedule
+			[Body]SwitchPortScheduleUpdateRequest updateNetworkSwitchPortSchedule
 			);
 	}
 }

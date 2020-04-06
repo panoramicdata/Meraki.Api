@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum DevicePolicy1
 	{
-
 		/// <summary>
 		/// Enum Whitelisted for "Whitelisted"
 		/// </summary>

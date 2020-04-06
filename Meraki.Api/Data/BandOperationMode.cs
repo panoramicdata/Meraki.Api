@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum BandOperationMode
 	{
-
 		/// <summary>
 		/// Enum Dual for "dual"
 		/// </summary>

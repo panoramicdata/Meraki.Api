@@ -118,7 +118,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkHttpServer(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("id")]string id,
-			[Body]UpdateNetworkHttpServer updateNetworkHttpServer
+			[Body]HttpServerUpdateRequest updateNetworkHttpServer
 			);
 	}
 }

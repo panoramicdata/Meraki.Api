@@ -98,7 +98,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
 		Task<object> UpdateOrganizationBrandingPoliciesPriorities(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]UpdateOrganizationBrandingPoliciesPriorities updateOrganizationBrandingPoliciesPriorities
+			[Body]BrandingPoliciesPrioritiesUpdateRequest updateOrganizationBrandingPoliciesPriorities
 			);
 
 		/// <summary>
@@ -116,7 +116,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateOrganizationBrandingPolicy(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("brandingPolicyId")]string brandingPolicyId,
-			[Body]UpdateOrganizationBrandingPolicy updateOrganizationBrandingPolicy
+			[Body]BrandingPolicyUpdateRequest updateOrganizationBrandingPolicy
 			);
 	}
 }

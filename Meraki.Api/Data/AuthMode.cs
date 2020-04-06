@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum AuthMode
 	{
-
 		/// <summary>
 		/// Enum Open for "open"
 		/// </summary>

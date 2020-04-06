@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/cellularGateway/settings/dhcp")]
 		Task<object> UpdateNetworkCellularGatewaySettingsDhcp(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkCellularGatewaySettingsDhcp updateNetworkCellularGatewaySettingsDhcp
+			[Body]NetworkCellularGatewaySettingsDhcpUpdateRequest updateNetworkCellularGatewaySettingsDhcp
 			);
 	}
 }

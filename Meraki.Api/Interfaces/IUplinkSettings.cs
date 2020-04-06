@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/uplinkSettings")]
 		Task<object> UpdateNetworkUplinkSettings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkUplinkSettings updateNetworkUplinkSettings
+			[Body]UplinkSettingsUpdateRequest updateNetworkUplinkSettings
 			);
 	}
 }

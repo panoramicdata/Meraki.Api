@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum DhcpOptionType
 	{
-
 		/// <summary>
 		/// Enum Text for "text"
 		/// </summary>

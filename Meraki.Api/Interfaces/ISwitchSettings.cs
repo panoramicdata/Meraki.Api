@@ -196,7 +196,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/settings")]
 		Task<object> UpdateNetworkSwitchSettings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSwitchSettings updateNetworkSwitchSettings
+			[Body]SwitchSettingsUpdateRequest updateNetworkSwitchSettings
 			);
 
 		/// <summary>
@@ -212,7 +212,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/settings/dhcpServerPolicy")]
 		Task<object> UpdateNetworkSwitchSettingsDhcpServerPolicy(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSwitchSettingsDhcpServerPolicy updateNetworkSwitchSettingsDhcpServerPolicy
+			[Body]SwitchSettingsDhcpServerPolicyUpdateRequest updateNetworkSwitchSettingsDhcpServerPolicy
 			);
 
 		/// <summary>
@@ -228,7 +228,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/settings/dscpToCosMappings")]
 		Task<object> UpdateNetworkSwitchSettingsDscpToCosMappings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSwitchSettingsDscpToCosMappings updateNetworkSwitchSettingsDscpToCosMappings
+			[Body]SwitchSettingsDscpToCosMappingsUpdateRequest updateNetworkSwitchSettingsDscpToCosMappings
 			);
 
 		/// <summary>
@@ -244,7 +244,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/settings/mtu")]
 		Task<object> UpdateNetworkSwitchSettingsMtu(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSwitchSettingsMtu updateNetworkSwitchSettingsMtu
+			[Body]SwitchSettingsMtuUpdateRequest updateNetworkSwitchSettingsMtu
 			);
 
 		/// <summary>
@@ -260,7 +260,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/settings/multicast")]
 		Task<object> UpdateNetworkSwitchSettingsMulticast(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSwitchSettingsMulticast updateNetworkSwitchSettingsMulticast
+			[Body]SwitchSettingsMulticastUpdateRequest updateNetworkSwitchSettingsMulticast
 			);
 
 		/// <summary>
@@ -278,7 +278,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkSwitchSettingsQosRule(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("qosRuleId")]string qosRuleId,
-			[Body]UpdateNetworkSwitchSettingsQosRule updateNetworkSwitchSettingsQosRule
+			[Body]SwitchSettingsQosRuleUpdateRequest updateNetworkSwitchSettingsQosRule
 			);
 
 		/// <summary>
@@ -294,7 +294,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/settings/qosRules/order")]
 		Task<object> UpdateNetworkSwitchSettingsQosRulesOrder(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSwitchSettingsQosRulesOrder updateNetworkSwitchSettingsQosRulesOrder
+			[Body]SwitchSettingsQosRulesOrderUpdateRequest updateNetworkSwitchSettingsQosRulesOrder
 			);
 
 		/// <summary>
@@ -310,7 +310,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/settings/stormControl")]
 		Task<object> UpdateNetworkSwitchSettingsStormControl(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSwitchSettingsStormControl updateNetworkSwitchSettingsStormControl
+			[Body]SwitchSettingsStormControlUpdateRequest updateNetworkSwitchSettingsStormControl
 			);
 
 		/// <summary>
@@ -326,7 +326,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/settings/stp")]
 		Task<object> UpdateNetworkSwitchSettingsStp(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSwitchSettingsStp updateNetworkSwitchSettingsStp
+			[Body]SwitchSettingsStpUpdateRequest updateNetworkSwitchSettingsStp
 			);
 	}
 }

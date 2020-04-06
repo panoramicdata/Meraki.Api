@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum DhcpHandling
 	{
-
 		/// <summary>
 		/// Enum RunaDHCPserver for "Run a DHCP server"
 		/// </summary>

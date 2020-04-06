@@ -10,7 +10,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum DeviceType
 	{
-
 		/// <summary>
 		/// Enum Combined for "combined"
 		/// </summary>

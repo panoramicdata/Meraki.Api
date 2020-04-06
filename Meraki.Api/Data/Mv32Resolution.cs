@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum Mv32Resolution
 	{
-
 		/// <summary>
 		/// Enum _1080x1080 for "1080x1080"
 		/// </summary>

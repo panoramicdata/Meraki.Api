@@ -36,6 +36,6 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/l3FirewallRules")]
 		Task<object> UpdateNetworkL3FirewallRules(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkL3FirewallRules updateNetworkL3FirewallRules);
+			[Body]Layer3FirewallRulesUpdateRequest updateNetworkL3FirewallRules);
 	}
 }

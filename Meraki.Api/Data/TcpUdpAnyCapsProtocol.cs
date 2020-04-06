@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum TcpUdpAnyCapsProtocol
 	{
-
 		/// <summary>
 		/// Enum ANY for "ANY"
 		/// </summary>

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// BlinkNetworkDeviceLeds
 	/// </summary>
 	[DataContract]
-	public partial class BlinkNetworkDeviceLeds
+	public partial class DeviceLedsBlinkRequest
 	{
 		/// <summary>
 		/// The duration in seconds. Must be between 5 and 120. Default is 20 seconds

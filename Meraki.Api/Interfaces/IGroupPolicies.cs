@@ -86,6 +86,6 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkGroupPolicy(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("groupPolicyId")]string groupPolicyId,
-			[Body]UpdateNetworkGroupPolicy updateNetworkGroupPolicy);
+			[Body]GroupPolicyUpdateRequest updateNetworkGroupPolicy);
 	}
 }

@@ -23,10 +23,11 @@ namespace Meraki.Api.Interfaces
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/clients")]
-		Task<object> GetDeviceClients(
+		Task<object> GeGetAllAsync(
 			[AliasAs("serial")]string serial,
 			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("timespan")]double? timespan = null);
+			[AliasAs("timespan")]double? timespan = null,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkClient
@@ -39,10 +40,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/clients/{clientId}")]
-		Task<object> GetNetworkClient(
+		Task<object> GetAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId
-			);
+			[AliasAs("clientId")]string clientId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkClientEvents
@@ -58,13 +59,13 @@ namespace Meraki.Api.Interfaces
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/clients/{clientId}/events")]
-		Task<object> GetNetworkClientEvents(
+		Task<object> GetEventsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			[AliasAs("perPage")]int? perPage = null,
 			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!
-			);
+			[AliasAs("endingBefore")]string endingBefore = null!,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkClientLatencyHistory
@@ -81,14 +82,14 @@ namespace Meraki.Api.Interfaces
 		/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 86400. The default is 86400. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/clients/{clientId}/latencyHistory")]
-		Task<object> GetNetworkClientLatencyHistory(
+		Task<object> GetLatencyHistoryAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
 			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("resolution")]int? resolution = null
-			);
+			[AliasAs("resolution")]int? resolution = null,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkClientPolicy
@@ -101,10 +102,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/clients/{clientId}/policy")]
-		Task<object> GetNetworkClientPolicy(
+		Task<object> GetPolicyAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId
-			);
+			[AliasAs("clientId")]string clientId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkClientSplashAuthorizationStatus
@@ -117,10 +118,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
-		Task<object> GetNetworkClientSplashAuthorizationStatus(
+		Task<object> GetSplashAuthorizationStatusAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId
-			);
+			[AliasAs("clientId")]string clientId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkClientTrafficHistory
@@ -136,13 +137,13 @@ namespace Meraki.Api.Interfaces
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/clients/{clientId}/trafficHistory")]
-		Task<object> GetNetworkClientTrafficHistory(
+		Task<object> GetTrafficHistoryAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			[AliasAs("perPage")]int? perPage = null,
 			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!
-			);
+			[AliasAs("endingBefore")]string endingBefore = null!,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkClientUsageHistory
@@ -155,10 +156,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/clients/{clientId}/usageHistory")]
-		Task<object> GetNetworkClientUsageHistory(
+		Task<object> GetUsageHistoryAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId
-			);
+			[AliasAs("clientId")]string clientId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkClients
@@ -192,13 +193,13 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
-		/// <param name="provisionNetworkClients"></param>
+		/// <param name="clientProvisionRequest"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/clients/provision")]
-		Task<object> ProvisionNetworkClients(
+		Task<object> ProvisionAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]ProvisionNetworkClients provisionNetworkClients
-			);
+			[Body]ClientProvisionRequest clientProvisionRequest,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// updateNetworkClientPolicy
@@ -209,14 +210,14 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
-		/// <param name="updateNetworkClientPolicy"></param>
+		/// <param name="clientPolicyUpdateRequest"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/clients/{clientId}/policy")]
-		Task<object> UpdateNetworkClientPolicy(
+		Task<object> UpdatePolicyAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
-			[Body]UpdateNetworkClientPolicy updateNetworkClientPolicy
-			);
+			[Body]ClientPolicyUpdateRequest clientPolicyUpdateRequest,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// updateNetworkClientSplashAuthorizationStatus
@@ -230,10 +231,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateNetworkClientSplashAuthorizationStatus"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
-		Task<object> UpdateNetworkClientSplashAuthorizationStatus(
+		Task<object> UpdateSplashAuthorizationStatusAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
-			[Body]UpdateNetworkClientSplashAuthorizationStatus updateNetworkClientSplashAuthorizationStatus
-			);
+			[Body]ClientSplashAuthorizationStatusUpdateRequest updateNetworkClientSplashAuthorizationStatus,
+			CancellationToken cancellationToken = default);
 	}
 }

@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// ClaimNetworkDevices
 	/// </summary>
 	[DataContract]
-	public partial class ClaimNetworkDevices
+	public partial class DeviceClaimRequest
 	{
 		/// <summary>
 		/// A list of serials of devices to claim

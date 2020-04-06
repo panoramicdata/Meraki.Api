@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum DevicePolicy
 	{
-
 		/// <summary>
 		/// Enum Grouppolicy for "Group policy"
 		/// </summary>

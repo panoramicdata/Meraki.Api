@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum SplashPage
 	{
-
 		/// <summary>
 		/// Enum None for "None"
 		/// </summary>

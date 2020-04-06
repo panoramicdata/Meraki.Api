@@ -13,11 +13,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The key of the license</value>
 		[DataMember(Name = "key", EmitDefaultValue = false)]
-		public string Key { get; set; }
+		public string? Key { get; set; }
 		/// <summary>
 		/// Gets or Sets Mode
 		/// </summary>
 		[DataMember(Name = "mode", EmitDefaultValue = false)]
-		public Mode4 Mode { get; set; }
+		public LicenseMode Mode { get; set; }
 	}
 }

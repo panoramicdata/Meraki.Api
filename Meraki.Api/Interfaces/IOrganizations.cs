@@ -140,7 +140,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/thirdPartyVPNPeers")]
-		Task<List<Peer>> GetThirdPartyVpnPeersAsync(
+		Task<List<ThirdPartyVpnPeer>> GetThirdPartyVpnPeersAsync(
 			[AliasAs("organizationId")]string organizationId,
 			CancellationToken cancellationToken = default);
 
@@ -193,7 +193,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}")]
 		Task<Organization> UpdateAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]UpdateOrganization updateOrganization,
+			[Body]OrganizationUpdateRequest updateOrganization,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -209,7 +209,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/thirdPartyVPNPeers")]
 		Task<object> UpdateThirdPartyVpnPeersAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]PeerList peerList,
+			[Body]ThirdPartyVpnPeersUpdateRequest peerList,
 			CancellationToken cancellationToken = default);
 	}
 }

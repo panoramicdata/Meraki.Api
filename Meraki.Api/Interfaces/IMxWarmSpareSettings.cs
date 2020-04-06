@@ -50,7 +50,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/warmSpareSettings")]
 		Task<object> UpdateNetworkWarmSpareSettings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkWarmSpareSettings updateNetworkWarmSpareSettings
+			[Body]WarmSpareSettingsUpdateRequest updateNetworkWarmSpareSettings
 			);
 	}
 }

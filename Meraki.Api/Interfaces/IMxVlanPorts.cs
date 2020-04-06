@@ -54,7 +54,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkAppliancePort(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("appliancePortId")]string appliancePortId,
-			[Body]UpdateNetworkAppliancePort updateNetworkAppliancePort
+			[Body]NetworkAppliancePortUpdateRequest updateNetworkAppliancePort
 			);
 	}
 }

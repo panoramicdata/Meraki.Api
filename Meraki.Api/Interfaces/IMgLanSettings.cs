@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -19,9 +20,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/cellularGateway/settings")]
-		Task<object> GetDeviceCellularGatewaySettings(
-			[AliasAs("serial")]string serial
-			);
+		Task<object> GetCellularGatewaySettingsAsync(
+			[AliasAs("serial")]string serial,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// updateDeviceCellularGatewaySettings
@@ -31,12 +32,12 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
-		/// <param name="updateDeviceCellularGatewaySettings"> (optional)</param>
+		/// <param name="cellularGatewaySettingsUpdateRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/cellularGateway/settings")]
-		Task<object> UpdateDeviceCellularGatewaySettings(
+		Task<object> UpdateCellularGatewaySettingsAsync(
 			[AliasAs("serial")]string serial,
-			[Body]UpdateDeviceCellularGatewaySettings updateDeviceCellularGatewaySettings
-			);
+			[Body]CellularGatewaySettingsUpdateRequest cellularGatewaySettingsUpdateRequest,
+			CancellationToken cancellationToken = default);
 	}
 }

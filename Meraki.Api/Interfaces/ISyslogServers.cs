@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/syslogServers")]
 		Task<object> UpdateNetworkSyslogServers(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSyslogServers updateNetworkSyslogServers
+			[Body]SyslogServersUpdateRequest updateNetworkSyslogServers
 			);
 	}
 }

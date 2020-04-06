@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
 		Task<object> UpdateNetworkApplianceFirewallInboundFirewallRules(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkApplianceFirewallInboundFirewallRules updateNetworkApplianceFirewallInboundFirewallRules
+			[Body]NetworkApplianceFirewallInboundFirewallRulesUpdateRequest updateNetworkApplianceFirewallInboundFirewallRules
 			);
 	}
 }

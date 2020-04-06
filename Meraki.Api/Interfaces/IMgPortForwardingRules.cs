@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/devices/{serial}/cellularGateway/settings/portForwardingRules")]
 		Task<object> UpdateDeviceCellularGatewaySettingsPortForwardingRules(
 			[AliasAs("serial")]string serial,
-			[Body]UpdateDeviceCellularGatewaySettingsPortForwardingRules updateDeviceCellularGatewaySettingsPortForwardingRules
+			[Body]CellularGatewaySettingsPortForwardingRulesUpdateRequest updateDeviceCellularGatewaySettingsPortForwardingRules
 			);
 	}
 }

@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum WanEnabledStatus
 	{
-
 		/// <summary>
 		/// Enum Enabled for "enabled"
 		/// </summary>

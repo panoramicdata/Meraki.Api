@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum SnmpV3AuthMode
 	{
-
 		/// <summary>
 		/// Enum MD5 for "MD5"
 		/// </summary>

@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/contentFiltering")]
 		Task<object> UpdateNetworkContentFiltering(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkContentFiltering updateNetworkContentFiltering
+			[Body]NetworkContentFilteringUpdateRequest updateNetworkContentFiltering
 			);
 	}
 }

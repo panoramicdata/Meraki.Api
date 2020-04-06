@@ -10,7 +10,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum Band
 	{
-
 		/// <summary>
 		/// Enum Band2Point4GHz for "2.4"
 		/// </summary>

@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum TcpUdpIcmppingAnyProtocol
 	{
-
 		/// <summary>
 		/// Enum Tcp for "tcp"
 		/// </summary>

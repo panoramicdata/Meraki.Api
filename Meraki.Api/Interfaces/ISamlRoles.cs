@@ -86,6 +86,6 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateOrganizationSamlRole(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("samlRoleId")]string samlRoleId,
-			[Body]UpdateOrganizationSamlRole updateOrganizationSamlRole);
+			[Body]SamlRoleUpdateRequest updateOrganizationSamlRole);
 	}
 }

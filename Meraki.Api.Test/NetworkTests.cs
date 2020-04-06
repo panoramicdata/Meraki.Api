@@ -256,7 +256,7 @@ namespace Meraki.Api.Test
 			//--- Claim/Remove device
 			await MerakiClient
 				.Devices
-				.ClaimAsync(newNetwork.Id, new ClaimNetworkDevices { Serials = new List<string> { Configuration.TestDeviceSerial } })
+				.ClaimAsync(newNetwork.Id, new DeviceClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
 				.ConfigureAwait(false);
 
 			// Make sure it's there.
@@ -272,7 +272,7 @@ namespace Meraki.Api.Test
 			{
 				await MerakiClient
 								.Devices
-								.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateDto { Address = new string('X', Device.MaxAddressLength + 1) })
+								.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateRequest { Address = new string('X', Device.MaxAddressLength + 1) })
 								.ConfigureAwait(false);
 			};
 
@@ -284,13 +284,13 @@ namespace Meraki.Api.Test
 			// But an OK length should succeed
 			await MerakiClient
 				.Devices
-				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateDto { Address = new string('X', Device.MaxAddressLength) })
+				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateRequest { Address = new string('X', Device.MaxAddressLength) })
 				.ConfigureAwait(false);
 
 			// Setting the address should succeed
 			await MerakiClient
 				.Devices
-				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateDto { Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA" })
+				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateRequest { Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA" })
 				.ConfigureAwait(false);
 
 			// Get the management interface settings

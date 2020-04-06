@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum BandSelectionType
 	{
-
 		/// <summary>
 		/// Enum Ssid for "ssid"
 		/// </summary>

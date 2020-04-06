@@ -496,7 +496,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkSmAppPolaris(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("appId")]string appId,
-			[Body]UpdateNetworkSmAppPolaris updateNetworkSmAppPolaris
+			[Body]SmAppPolarisUpdateRequest updateNetworkSmAppPolaris
 			);
 
 		/// <summary>
@@ -512,7 +512,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/sm/device/fields")]
 		Task<object> UpdateNetworkSmDeviceFields(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSmDeviceFields updateNetworkSmDeviceFields
+			[Body]SmDeviceFieldsUpdateRequest updateNetworkSmDeviceFields
 			);
 
 		/// <summary>
@@ -528,7 +528,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/sm/devices/tags")]
 		Task<object> UpdateNetworkSmDevicesTags(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSmDevicesTags updateNetworkSmDevicesTags
+			[Body]SmDevicesTagsUpdateRequest updateNetworkSmDevicesTags
 			);
 
 		/// <summary>

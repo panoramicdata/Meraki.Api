@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/cellularGateway/settings/connectivityMonitoringDestinations")]
 		Task<object> UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations
+			[Body]NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations
 			);
 	}
 }

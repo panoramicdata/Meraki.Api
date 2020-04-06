@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum DhcpLeaseTime
 	{
-
 		/// <summary>
 		/// Enum _30minutes for "30 minutes"
 		/// </summary>

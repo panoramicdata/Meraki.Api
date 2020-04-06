@@ -50,7 +50,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/snmpSettings")]
 		Task<object> UpdateNetworkSnmpSettings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkSnmpSettings updateNetworkSnmpSettings
+			[Body]SnmpSettingsUpdateRequest updateNetworkSnmpSettings
 			);
 
 		/// <summary>
@@ -66,7 +66,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/snmp")]
 		Task<object> UpdateOrganizationSnmp(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]UpdateOrganizationSnmp updateOrganizationSnmp
+			[Body]SnmpUpdateRequest updateOrganizationSnmp
 			);
 	}
 }

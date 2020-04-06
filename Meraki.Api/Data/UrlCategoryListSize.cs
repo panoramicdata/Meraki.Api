@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum UrlCategoryListSize
 	{
-
 		/// <summary>
 		/// Enum TopSites for "topSites"
 		/// </summary>

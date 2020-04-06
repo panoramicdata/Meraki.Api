@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum WpaEncryptionMode
 	{
-
 		/// <summary>
 		/// Enum WPA1only for "WPA1 only"
 		/// </summary>

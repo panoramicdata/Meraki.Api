@@ -40,7 +40,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkSsidSplashSettings(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("number")]string number,
-			[Body]UpdateNetworkSsidSplashSettings updateNetworkSsidSplashSettings
+			[Body]SsidSplashSettingsUpdateRequest updateNetworkSsidSplashSettings
 			);
 	}
 }

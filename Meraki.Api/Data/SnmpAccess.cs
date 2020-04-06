@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum SnmpAccess
 	{
-
 		/// <summary>
 		/// Enum None for "none"
 		/// </summary>

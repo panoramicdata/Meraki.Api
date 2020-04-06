@@ -25,6 +25,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Label for the mapping (optional).</value>
 		[DataMember(Name = "title", EmitDefaultValue = false)]
-		public string Title { get; set; }
+		public string? Title { get; set; }
 	}
 }

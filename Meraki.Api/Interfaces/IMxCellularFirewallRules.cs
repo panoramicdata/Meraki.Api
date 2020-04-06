@@ -19,7 +19,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/cellularFirewallRules")]
-		Task<MxCellularFirewallRules> GetAsync(
+		Task<MxCellularFirewallRulesUpdateRequest> GetAsync(
 			[AliasAs("networkId")]string networkId
 			);
 
@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/cellularFirewallRules")]
 		Task<object> UpdateAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]MxCellularFirewallRules updateNetworkCellularFirewallRules
+			[Body]MxCellularFirewallRulesUpdateRequest updateNetworkCellularFirewallRules
 			);
 	}
 }

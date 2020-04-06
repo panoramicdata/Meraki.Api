@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum FirewallInfoSubtab
 	{
-
 		/// <summary>
 		/// Enum Defaultorinherit for "default or inherit"
 		/// </summary>

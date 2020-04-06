@@ -6,20 +6,22 @@ namespace Meraki.Api.Data
 	/// AssignOrganizationLicensesSeats
 	/// </summary>
 	[DataContract]
-	public partial class AssignOrganizationLicensesSeats
+	public class LicenseSeatsAssignmentRequest
 	{
 		/// <summary>
 		/// The ID of the SM license to assign seats from
 		/// </summary>
 		/// <value>The ID of the SM license to assign seats from</value>
 		[DataMember(Name = "licenseId", EmitDefaultValue = false)]
-		public string LicenseId { get; set; }
+		public string LicenseId { get; set; } = null!;
+
 		/// <summary>
 		/// The ID of the SM network to assign the seats to
 		/// </summary>
 		/// <value>The ID of the SM network to assign the seats to</value>
 		[DataMember(Name = "networkId", EmitDefaultValue = false)]
-		public string NetworkId { get; set; }
+		public string NetworkId { get; set; } = null!;
+
 		/// <summary>
 		/// The number of seats to assign to the SM network. Must be less than or equal to the total number of seats of the license
 		/// </summary>

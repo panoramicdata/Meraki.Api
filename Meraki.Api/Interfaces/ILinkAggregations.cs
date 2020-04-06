@@ -70,7 +70,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkSwitchLinkAggregation(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("linkAggregationId")]string linkAggregationId,
-			[Body]UpdateNetworkSwitchLinkAggregation updateNetworkSwitchLinkAggregation
+			[Body]SwitchLinkAggregationUpdateRequest updateNetworkSwitchLinkAggregation
 			);
 	}
 }

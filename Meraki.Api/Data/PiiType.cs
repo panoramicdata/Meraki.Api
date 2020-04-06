@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum PiiType
 	{
-
 		/// <summary>
 		/// Enum Delete for "delete"
 		/// </summary>

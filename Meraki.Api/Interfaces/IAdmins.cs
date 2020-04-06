@@ -72,7 +72,7 @@ namespace Meraki.Api.Interfaces
 		Task<Admin> UpdateAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("id")]string id,
-			[Body]UpdateOrganizationAdmin updateOrganizationAdmin,
+			[Body]AdminUpdateRequest updateOrganizationAdmin,
 			CancellationToken cancellationToken = default);
 	}
 }

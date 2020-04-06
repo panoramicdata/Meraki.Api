@@ -86,7 +86,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateOrganizationInsightMonitoredMediaServer(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId,
-			[Body]UpdateOrganizationInsightMonitoredMediaServer updateOrganizationInsightMonitoredMediaServer
+			[Body]InsightMonitoredMediaServerUpdateRequest updateOrganizationInsightMonitoredMediaServer
 			);
 	}
 }

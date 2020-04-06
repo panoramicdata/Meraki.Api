@@ -24,7 +24,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> AddNetworkSwitchStack(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("switchStackId")]string switchStackId,
-			[Body]AddNetworkSwitchStackRequest addNetworkSwitchStack
+			[Body]NetworkSwitchStackCreationRequest addNetworkSwitchStack
 			);
 
 		/// <summary>

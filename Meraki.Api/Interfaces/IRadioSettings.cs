@@ -104,7 +104,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkDeviceWirelessRadioSettings(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial,
-			[Body]UpdateNetworkDeviceWirelessRadioSettings updateNetworkDeviceWirelessRadioSettings
+			[Body]WirelessRadioSettingsUpdateRequest updateNetworkDeviceWirelessRadioSettings
 			);
 
 		/// <summary>
@@ -122,7 +122,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkWirelessRfProfile(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("rfProfileId")]string rfProfileId,
-			[Body]UpdateNetworkWirelessRfProfile updateNetworkWirelessRfProfile
+			[Body]WirelessRfProfileUpdateRequest updateNetworkWirelessRfProfile
 			);
 	}
 }

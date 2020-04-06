@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// RenewOrganizationLicensesSeats
 	/// </summary>
 	[DataContract]
-	public partial class RenewOrganizationLicensesSeats
+	public partial class LicenseSeatsRenewalRequest
 	{
 		/// <summary>
 		/// The ID of the SM license to renew. This license must already be assigned to an SM network

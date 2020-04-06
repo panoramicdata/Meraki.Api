@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum SwitchPortType
 	{
-
 		/// <summary>
 		/// Enum Trunk for "trunk"
 		/// </summary>

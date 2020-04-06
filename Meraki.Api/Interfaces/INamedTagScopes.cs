@@ -90,7 +90,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateNetworkSmTargetGroup(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("targetGroupId")]string targetGroupId,
-			[Body]UpdateNetworkSmTargetGroup updateNetworkSmTargetGroup
+			[Body]SmTargetGroupUpdateRequest updateNetworkSmTargetGroup
 			);
 	}
 }

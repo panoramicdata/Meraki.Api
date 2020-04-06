@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/cellularGateway/settings/uplink")]
 		Task<object> UpdateNetworkCellularGatewaySettingsUplink(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkCellularGatewaySettingsUplink updateNetworkCellularGatewaySettingsUplink
+			[Body]NetworkCellularGatewaySettingsUplinkUpdateRequest updateNetworkCellularGatewaySettingsUplink
 			);
 	}
 }

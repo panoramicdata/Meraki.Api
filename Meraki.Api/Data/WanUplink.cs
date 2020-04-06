@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum WanUplink
 	{
-
 		/// <summary>
 		/// Enum Internet1 for "internet1"
 		/// </summary>

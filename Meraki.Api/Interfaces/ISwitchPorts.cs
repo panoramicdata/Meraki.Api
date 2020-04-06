@@ -90,7 +90,7 @@ namespace Meraki.Api.Interfaces
 		Task<object> UpdateDeviceSwitchPort(
 			[AliasAs("serial")]string serial,
 			[AliasAs("number")]string number,
-			[Body]UpdateDeviceSwitchPort updateDeviceSwitchPort
+			[Body]SwitchPortUpdateRequest updateDeviceSwitchPort
 			);
 	}
 }

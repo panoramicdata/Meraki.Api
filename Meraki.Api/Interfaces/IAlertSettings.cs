@@ -37,7 +37,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/alertSettings")]
 		Task<object> UpdateNetworkAlertSettings(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkAlertSettings updateNetworkAlertSettings = null!,
+			[Body]AlertSettingsUpdateRequest updateNetworkAlertSettings = null!,
 			CancellationToken cancellationToken = default);
 	}
 }

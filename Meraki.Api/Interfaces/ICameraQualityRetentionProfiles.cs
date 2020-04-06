@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -20,10 +21,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="createNetworkCameraQualityRetentionProfile"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/camera/qualityRetentionProfiles")]
-		Task<object> CreateNetworkCameraQualityRetentionProfile(
+		Task<CameraQualityAndRetentionSettings> CreateAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]CameraQualityAndRetentionProfileCreationRequest createNetworkCameraQualityRetentionProfile
-			);
+			[Body]CameraQualityAndRetentionProfileCreationRequest createNetworkCameraQualityRetentionProfile,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// deleteNetworkCameraQualityRetentionProfile
@@ -36,10 +37,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="qualityRetentionProfileId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
-		Task DeleteNetworkCameraQualityRetentionProfile(
+		Task DeleteAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId
-			);
+			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkCameraQualityRetentionProfile
@@ -52,10 +53,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="qualityRetentionProfileId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
-		Task<object> GetNetworkCameraQualityRetentionProfile(
+		Task<object> GetAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId
-			);
+			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// getNetworkCameraQualityRetentionProfiles
@@ -67,9 +68,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/camera/qualityRetentionProfiles")]
-		Task<object> GetNetworkCameraQualityRetentionProfiles(
-			[AliasAs("networkId")]string networkId
-			);
+		Task<object> GetAllAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// updateNetworkCameraQualityRetentionProfile
@@ -83,10 +84,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateNetworkCameraQualityRetentionProfile"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
-		Task<object> UpdateNetworkCameraQualityRetentionProfile(
+		Task<CameraQualityAndRetentionSettings> UpdateAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId,
-			[Body]UpdateNetworkCameraQualityRetentionProfile updateNetworkCameraQualityRetentionProfile
-			);
+			[Body]CameraQualityAndRetentionProfileUpdateRequest updateNetworkCameraQualityRetentionProfile,
+			CancellationToken cancellationToken = default);
 	}
 }

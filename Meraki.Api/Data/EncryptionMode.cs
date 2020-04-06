@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum EncryptionMode
 	{
-
 		/// <summary>
 		/// Enum Wep for "wep"
 		/// </summary>

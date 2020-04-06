@@ -72,7 +72,7 @@ namespace Meraki.Api.Interfaces
 		Task<NetworkSsid> UpdateAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("number")]string number,
-			[Body]UpdateNetworkSsid updateNetworkSsid,
+			[Body]SsidUpdateRequest updateNetworkSsid,
 			CancellationToken cancellationToken = default);
 	}
 }

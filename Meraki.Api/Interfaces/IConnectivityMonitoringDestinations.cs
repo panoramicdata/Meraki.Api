@@ -36,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/connectivityMonitoringDestinations")]
 		Task<object> UpdateNetworkConnectivityMonitoringDestinations(
 			[AliasAs("networkId")]string networkId,
-			[Body]UpdateNetworkConnectivityMonitoringDestinations updateNetworkConnectivityMonitoringDestinations
+			[Body]NetworkConnectivityMonitoringDestinations updateNetworkConnectivityMonitoringDestinations
 			);
 	}
 }

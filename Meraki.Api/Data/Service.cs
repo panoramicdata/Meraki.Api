@@ -10,7 +10,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum Service
 	{
-
 		/// <summary>
 		/// Enum AllServices for "All Services"
 		/// </summary>

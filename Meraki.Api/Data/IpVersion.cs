@@ -1,6 +1,6 @@
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -11,7 +11,6 @@ namespace Meraki.Api.Data
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum IpVersion
 	{
-
 		/// <summary>
 		/// Enum Any for "any"
 		/// </summary>

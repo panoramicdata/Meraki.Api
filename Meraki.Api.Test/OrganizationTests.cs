@@ -1,6 +1,8 @@
 using FluentAssertions;
 using Meraki.Api.Data;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Meraki.Api.Test
@@ -46,7 +48,7 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetThirdPartyVpnPeersAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			result.Should().BeOfType<List<Peer>>();
+			result.Should().BeOfType<List<ThirdPartyVpnPeer>>();
 			result.Should().NotBeNull();
 		}
 
@@ -70,6 +72,67 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Serials.Should().NotBeEmpty();
+		}
+
+		[Fact]
+		public async void Crud_Succeeds()
+		{
+			// Create
+			const string initialOrganizationName = "TestOrganization";
+			var createdOrganization = await MerakiClient
+				.Organizations
+				.CreateAsync(new OrganizationCreateRequest { Name = initialOrganizationName })
+				.ConfigureAwait(false);
+			CheckOrganization(createdOrganization, initialOrganizationName);
+
+			// Read
+			var refetchedOrganization = await MerakiClient
+				.Organizations
+				.GetAsync(createdOrganization.Id)
+				.ConfigureAwait(false);
+			CheckOrganization(refetchedOrganization, initialOrganizationName, createdOrganization.Id);
+
+			// Update
+			const string newOrganizationName = "TestOrganizationNewName";
+			var updatedOrganization = await MerakiClient
+				.Organizations
+				.UpdateAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName })
+				.ConfigureAwait(false);
+			CheckOrganization(updatedOrganization, newOrganizationName, createdOrganization.Id);
+
+			// Delete
+			await MerakiClient
+				.Organizations
+				.DeleteAsync(createdOrganization.Id)
+				.ConfigureAwait(false);
+
+			// It should be gone now
+			Func<Task> act = async () =>
+			{
+				await MerakiClient
+					.Organizations
+					.GetAsync(createdOrganization.Id)
+					.ConfigureAwait(false);
+			};
+			await act
+				.Should()
+				.ThrowAsync<InvalidOperationException>()
+				.ConfigureAwait(false);
+		}
+
+		private void CheckOrganization(
+			Organization organization,
+			string initialOrganizationName,
+			string? id = default)
+		{
+			organization.Should().NotBeNull();
+			organization.Id.Should().NotBeNullOrWhiteSpace();
+			if (id != null)
+			{
+				organization.Id.Should().Be(id);
+			}
+			organization.Name.Should().Be(initialOrganizationName);
+			organization.Url.Should().NotBeNullOrWhiteSpace();
 		}
 	}
 }
