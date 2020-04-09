@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Divergic.Logging.Xunit;
+using FluentAssertions;
 using Meraki.Api.Data;
 using Meraki.Api.Exceptions;
 using Meraki.Api.Test.Config;
@@ -6,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
@@ -18,6 +20,13 @@ namespace Meraki.Api.Test
 		private MerakiClient? _merakiClient;
 
 		private Configuration? _configuration;
+
+		protected ICacheLogger Logger { get; }
+
+		public MerakiClientTest(ITestOutputHelper iTestOutputHelper)
+		{
+			Logger = iTestOutputHelper.BuildLogger();
+		}
 
 		public Configuration Configuration
 		{
@@ -50,7 +59,7 @@ namespace Meraki.Api.Test
 		}
 
 		protected MerakiClient MerakiClient
-			=> _merakiClient ?? (_merakiClient = new MerakiClient(Configuration.MerakiClientOptions));
+			=> _merakiClient ?? (_merakiClient = new MerakiClient(Configuration.MerakiClientOptions, Logger));
 
 		protected async Task<Network> GetTestNetworkAsync()
 		{

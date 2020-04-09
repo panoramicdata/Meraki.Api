@@ -1,10 +1,15 @@
 ﻿using FluentAssertions;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
 	public class DeviceTests : MerakiClientTest
 	{
+		public DeviceTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+		{
+		}
+
 		[Fact]
 		public async void GetDeviceAsync_Succeeds()
 		{

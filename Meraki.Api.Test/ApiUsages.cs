@@ -2,11 +2,16 @@ using FluentAssertions;
 using Meraki.Api.Data;
 using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
 	public class ApiUsages : MerakiClientTest
 	{
+		public ApiUsages(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+		{
+		}
+
 		[Fact]
 		public async void GetPageAsync_Succeeds()
 		{

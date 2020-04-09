@@ -4,11 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
 	public class OrganizationTests : MerakiClientTest
 	{
+		public OrganizationTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+		{
+		}
+
 		[Fact]
 		public async void GetAllAsync_Succeeds()
 		{

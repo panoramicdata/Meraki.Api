@@ -10,6 +10,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Divergic.Logging.Xunit" Version="3.3.0" />
 		<PackageReference Include="FluentAssertions" Version="5.10.3" />
 		<PackageReference Include="FluentValidation" Version="8.6.2" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />

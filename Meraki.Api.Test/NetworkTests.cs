@@ -9,11 +9,16 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
 	public class NetworkTests : MerakiClientTest
 	{
+		public NetworkTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+		{
+		}
+
 		[Fact]
 		public async void GetNetworksAsync_Succeeds()
 		{

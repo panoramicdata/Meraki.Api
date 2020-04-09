@@ -2,11 +2,16 @@
 using Meraki.Api.Data;
 using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
 	public class Admins : MerakiClientTest
 	{
+		public Admins(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+		{
+		}
+
 		[Fact]
 		public async void GetAll_Succeeds()
 		{

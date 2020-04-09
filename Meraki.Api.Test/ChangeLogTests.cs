@@ -2,11 +2,16 @@
 using Meraki.Api.Data;
 using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
 	public class ChangeLogTests : MerakiClientTest
 	{
+		public ChangeLogTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+		{
+		}
+
 		[Fact]
 		public async void GetChangeLogEntriesAsync_Succeeds()
 		{

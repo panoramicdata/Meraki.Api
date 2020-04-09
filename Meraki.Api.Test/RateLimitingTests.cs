@@ -9,17 +9,22 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
-	public class RateLimiting : MerakiClientTest
+	public class RateLimitingTests : MerakiClientTest
 	{
+		public RateLimitingTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+		{
+		}
+
 		[Fact]
 		public async void GetAll_Succeeds()
 		{
 			var stopwatch = new Stopwatch();
 			var timerList = new List<QueryResult>();
-			foreach (var _ in Enumerable.Range(0, 1000))
+			foreach (var _ in Enumerable.Range(0, 20))
 			{
 				var queryResult = new QueryResult();
 				try

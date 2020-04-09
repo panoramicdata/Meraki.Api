@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
 	public class ConfigurationTemplateTest : MerakiClientTest
 	{
+		public ConfigurationTemplateTest(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+		{
+		}
+
 		[Fact]
 		public async void GetNetworksByConfigTemplateIdAsync_Succeeds()
 		{
