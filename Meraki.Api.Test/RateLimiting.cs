@@ -1,9 +1,13 @@
 ﻿using FluentAssertions;
 using Meraki.Api.Data;
+using PanoramicData.SheetMagic;
+using Refit;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using Xunit;
 
 namespace Meraki.Api.Test
@@ -14,9 +18,10 @@ namespace Meraki.Api.Test
 		public async void GetAll_Succeeds()
 		{
 			var stopwatch = new Stopwatch();
-			var timerList = new List<TimeSpan?>();
-			foreach (var _ in Enumerable.Range(0, 10000))
+			var timerList = new List<QueryResult>();
+			foreach (var _ in Enumerable.Range(0, 1000))
 			{
+				var queryResult = new QueryResult();
 				try
 				{
 					stopwatch.Restart();
@@ -25,15 +30,35 @@ namespace Meraki.Api.Test
 					.GetAsync(Configuration.TestOrganizationId)
 					.ConfigureAwait(false);
 					result.Should().BeOfType<Organization>();
-					timerList.Add(stopwatch.Elapsed);
 				}
-				catch
+				catch (ApiException apiException)
 				{
-					timerList.Add(null);
+					queryResult.StatusCode = apiException.StatusCode;
+					queryResult.ExceptionMessage = apiException.Message;
+				}
+				catch (Exception exception)
+				{
+					queryResult.ExceptionMessage = exception.Message;
+				}
+				finally
+				{
+					queryResult.DurationMs = stopwatch.ElapsedMilliseconds;
+					timerList.Add(queryResult);
 				}
 			}
-			var failedCallCount = timerList.Count(t => t is null);
-			failedCallCount.Should().Be(0);
+			var fileInfo = new FileInfo(Path.GetTempFileName() + ".xlsx");
+			using var magicSpreadsheet = new MagicSpreadsheet(fileInfo);
+			magicSpreadsheet.AddSheet(timerList);
+			magicSpreadsheet.Save();
 		}
+	}
+
+	public class QueryResult
+	{
+		public long DurationMs { get; set; }
+
+		public HttpStatusCode? StatusCode { get; set; }
+
+		public string? ExceptionMessage { get; set; }
 	}
 }

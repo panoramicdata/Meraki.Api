@@ -70,7 +70,8 @@ namespace Meraki.Api
 
 				// Get the Retry-After header if present;
 				var headers = httpResponseMessage.Headers;
-				var retryAfterSecondsString = headers.TryGetValues("Retry-After", out var retryAfterHeaders)
+				var foundHeader = headers.TryGetValues("Retry-After", out var retryAfterHeaders);
+				var retryAfterSecondsString = foundHeader
 					? retryAfterHeaders.FirstOrDefault() ?? "1"
 					: "1";
 
