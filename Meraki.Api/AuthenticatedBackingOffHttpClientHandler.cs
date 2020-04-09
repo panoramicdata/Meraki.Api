@@ -11,6 +11,7 @@ namespace Meraki.Api
 	{
 		private readonly MerakiClientOptions _options;
 		private readonly ILogger _logger;
+		private readonly LogLevel _levelToLogAt = LogLevel.Debug;
 
 		public AuthenticatedBackingOffHttpClientHandler(MerakiClientOptions options, ILogger logger)
 		{
@@ -36,12 +37,30 @@ namespace Meraki.Api
 				// Add the request headers
 				request.Headers.Add("X-Cisco-Meraki-API-Key", _options.ApiKey);
 
+				// Only do diagnostic logging if we're at the level we want to enable for as this is more efficient
+				if (_logger.IsEnabled(_levelToLogAt))
+				{
+					_logger.Log(_levelToLogAt, $"Request\r\n{request}");
+					if (request.Content != null)
+					{
+						_logger.Log(_levelToLogAt, "RequestContent\r\n" + await request.Content.ReadAsStringAsync().ConfigureAwait(false));
+					}
+				}
+
 				// Complete the action
 				httpResponseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
 
-				var content = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
-				_logger.LogDebug(content);
+				// Only do diagnostic logging if we're at the level we want to enable for as this is more efficient
+				if (_logger.IsEnabled(_levelToLogAt))
+				{
+					_logger.Log(_levelToLogAt, $"Response\r\n{httpResponseMessage}");
+					if (httpResponseMessage.Content != null)
+					{
+						_logger.Log(_levelToLogAt, "ResponseContent\r\n" + await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false));
+					}
+				}
 
+				// As long as we were not given a back-off request then we'll return the response and any further StatusCode handling is up to the caller
 				if ((int)httpResponseMessage.StatusCode != 429)
 				{
 					return httpResponseMessage;
