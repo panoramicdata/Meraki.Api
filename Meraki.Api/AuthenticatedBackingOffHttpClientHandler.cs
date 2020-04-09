@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,7 +21,6 @@ namespace Meraki.Api
 		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 		{
 			HttpResponseMessage httpResponseMessage;
-			var delay = TimeSpan.FromMilliseconds(250);
 
 			while (true)
 			{
@@ -47,10 +47,22 @@ namespace Meraki.Api
 					return httpResponseMessage;
 				}
 
-				// We havea 429.  Back off by increasing amounts with subsequent attempts, with a configurable maximum.
+				// We have a 429.  Back off by the requested amount.
+
+				// Get the Retry-After header if present;
+				var headers = httpResponseMessage.Headers;
+				var retryAfterSecondsString = headers.TryGetValues("Retry-After", out var retryAfterHeaders)
+					? retryAfterHeaders.FirstOrDefault() ?? "1"
+					: "1";
+
+				if (!int.TryParse(retryAfterSecondsString, out var retryAfterSeconds))
+				{
+					retryAfterSeconds = 1;
+				}
+				var delay = TimeSpan.FromSeconds(1.1 * retryAfterSeconds);
+
 				// There is no maximum total wait time.
 				await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
-				delay = TimeSpan.FromMilliseconds(Math.Max(delay.TotalMilliseconds * 2, _options.MaxBackOffDelay.TotalMilliseconds));
 			}
 		}
 	}
