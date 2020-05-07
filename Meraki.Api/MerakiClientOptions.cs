@@ -26,6 +26,11 @@ namespace Meraki.Api
 		/// </summary>
 		public TimeSpan MaxBackOffDelay { get; set; } = TimeSpan.FromSeconds(5);
 
+		/// <summary>
+		/// When retrying
+		/// </summary>
+		public int MaxAttemptCount { get; set; } = 5;
+
 		public void Validate()
 		{
 			// ApiNode

@@ -28,20 +28,23 @@ namespace Meraki.Api
 			}
 			// The API Key is set
 
+			var logPrefix = $"Request {Guid.NewGuid()}: ";
+
 			// Add the request headers
 			request.Headers.Add("X-Cisco-Meraki-API-Key", _options.ApiKey);
-			//var retry404Count = 0;
+			var attemptCount = 0;
 			while (true)
 			{
+				attemptCount++;
 				cancellationToken.ThrowIfCancellationRequested();
 
 				// Only do diagnostic logging if we're at the level we want to enable for as this is more efficient
 				if (_logger.IsEnabled(_levelToLogAt))
 				{
-					_logger.Log(_levelToLogAt, $"Request\r\n{request}");
+					_logger.Log(_levelToLogAt, $"{logPrefix}Request\r\n{request}");
 					if (request.Content != null)
 					{
-						_logger.Log(_levelToLogAt, "RequestContent\r\n" + await request.Content.ReadAsStringAsync().ConfigureAwait(false));
+						_logger.Log(_levelToLogAt, $"{logPrefix}RequestContent\r\n" + await request.Content.ReadAsStringAsync().ConfigureAwait(false));
 					}
 				}
 
@@ -51,15 +54,17 @@ namespace Meraki.Api
 				// Only do diagnostic logging if we're at the level we want to enable for as this is more efficient
 				if (_logger.IsEnabled(_levelToLogAt))
 				{
-					_logger.Log(_levelToLogAt, $"Response\r\n{httpResponseMessage}");
+					_logger.Log(_levelToLogAt, $"{logPrefix}Response\r\n{httpResponseMessage}");
 					if (httpResponseMessage.Content != null)
 					{
-						_logger.Log(_levelToLogAt, "ResponseContent\r\n" + await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false));
+						_logger.Log(_levelToLogAt, $"{logPrefix}ResponseContent\r\n" + await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false));
 					}
 				}
 
+				TimeSpan delay;
 				// As long as we were not given a back-off request then we'll return the response and any further StatusCode handling is up to the caller
-				switch ((int)httpResponseMessage.StatusCode)
+				var statusCodeInt = (int)httpResponseMessage.StatusCode;
+				switch (statusCodeInt)
 				{
 					case 429:
 						// Back off by the requested amount.
@@ -72,18 +77,29 @@ namespace Meraki.Api
 						{
 							retryAfterSeconds = 1;
 						}
-						var delay = TimeSpan.FromSeconds(1.1 * retryAfterSeconds);
-						await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
-						continue;
-						//case 404:
-						//	// Try one more time, max.
-						//	if (++retry404Count >= 1)
-						//	{
-						//		return httpResponseMessage;
-						//	}
-						//	continue;
+						delay = TimeSpan.FromSeconds(1.1 * retryAfterSeconds);
+						_logger.LogDebug($"{logPrefix}Received {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
+						break;
+					case 502:
+						_logger.LogDebug($"{logPrefix}Received {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
+						delay = TimeSpan.FromSeconds(5);
+						break;
+					default:
+						if (attemptCount > 1)
+						{
+							_logger.LogDebug($"{logPrefix}Received {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
+						}
+						return httpResponseMessage;
 				}
-				return httpResponseMessage;
+				// Try up to the maximum retry count.
+				if (attemptCount >= _options.MaxAttemptCount)
+				{
+					_logger.LogDebug($"{logPrefix}Giving up retrying.  Returning {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
+					return httpResponseMessage;
+				}
+
+				_logger.LogDebug($"{logPrefix}Waiting {delay.TotalSeconds:N2}s.");
+				await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
 			}
 		}
 	}
