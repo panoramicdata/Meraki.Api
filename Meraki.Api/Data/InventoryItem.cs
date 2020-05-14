@@ -1,7 +1,9 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
+	[DataContract]
 	/// <summary>
 	/// An inventory item
 	/// </summary>
@@ -13,7 +15,7 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "mac")]
 		public string Mac { get; set; } = string.Empty;
 
-		/// <summary>	
+		/// <summary>
 		/// serial
 		/// </summary>
 		[DataMember(Name = "serial")]
@@ -48,5 +50,17 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "name")]
 		public string? Name { get; set; }
+
+		/// <summary>
+		/// name
+		/// </summary>
+		[DataMember(Name = "licenseExpirationDate")]
+		public string? LicenseExpirationDate { get; set; }
+
+		/// <summary>
+		/// errors
+		/// </summary>
+		[DataMember(Name = "Errors")]
+		public List<string> Errors { get; set; } = new List<string>();
 	}
 }
