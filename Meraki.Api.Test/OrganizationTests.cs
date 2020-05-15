@@ -66,6 +66,17 @@ namespace Meraki.Api.Test
 			result.Should().NotBeEmpty();
 		}
 
+		[Fact]
+		public async void GetOrganizationLicenseState_Succeeds()
+		{
+			var result = await MerakiClient
+				.Organizations
+				.GetLicenseStateAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+
+			result.Should().NotBeNull();
+		}
+
 		//[Fact]
 		//public async void ClaimDeviceAsync_Succeeds()
 		//{
