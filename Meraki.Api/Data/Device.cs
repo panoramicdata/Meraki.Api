@@ -87,5 +87,35 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "firmware")]
 		public string Firmware { get; set; } = string.Empty;
+
+		/// <summary>
+		/// floorPlanId
+		/// </summary>
+		[DataMember(Name = "floorPlanId")]
+		public string FloorPlanId { get; set; } = string.Empty;
+
+		/// <summary>
+		/// url
+		/// </summary>
+		[DataMember(Name = "url")]
+		public string Url { get; set; } = string.Empty;
+
+		/// <summary>
+		/// wirelessMac
+		/// </summary>
+		[DataMember(Name = "wirelessMac")]
+		public string WirelessMac { get; set; } = string.Empty;
+
+		/// <summary>
+		/// wan1Ip
+		/// </summary>
+		[DataMember(Name = "wan1Ip")]
+		public string Wan1Ip { get; set; } = string.Empty;
+
+		/// <summary>
+		/// wan2Ip
+		/// </summary>
+		[DataMember(Name = "wan2Ip")]
+		public string Wan2Ip { get; set; } = string.Empty;
 	}
 }
