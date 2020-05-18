@@ -11,12 +11,6 @@ namespace Meraki.Api.Data
 		public const int MaxAddressLength = 255;
 
 		/// <summary>
-		/// OrganizationId
-		/// </summary>
-		[DataMember(Name = "organizationId")]
-		public string OrganizationId { get; set; } = null!;
-
-		/// <summary>
 		/// Latitude
 		/// </summary>
 		[DataMember(Name = "lat")]
@@ -83,6 +77,12 @@ namespace Meraki.Api.Data
 		public BeaconIdParams BeaconIdParams { get; set; } = new BeaconIdParams();
 
 		/// <summary>
+		/// configurationUpdatedAt
+		/// </summary>
+		[DataMember(Name = "configurationUpdatedAt")]
+		public string ConfigurationUpdatedAt { get; set; } = string.Empty;
+
+		/// <summary>
 		/// firmware
 		/// </summary>
 		[DataMember(Name = "firmware")]
@@ -93,6 +93,12 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "floorPlanId")]
 		public string FloorPlanId { get; set; } = string.Empty;
+
+		/// <summary>
+		/// switchProfileId
+		/// </summary>
+		[DataMember(Name = "switchProfileId")]
+		public string SwitchProfileId { get; set; } = string.Empty;
 
 		/// <summary>
 		/// url
