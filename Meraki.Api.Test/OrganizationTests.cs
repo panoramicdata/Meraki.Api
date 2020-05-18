@@ -77,6 +77,17 @@ namespace Meraki.Api.Test
 			result.Should().NotBeNull();
 		}
 
+		[Fact]
+		public async void GetOrganizationLicenses_Succeeds()
+		{
+			var licenses = await MerakiClient
+				.Licenses
+				.GetPageAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+
+			licenses.Should().NotBeNull();
+		}
+
 		//[Fact]
 		//public async void ClaimDeviceAsync_Succeeds()
 		//{

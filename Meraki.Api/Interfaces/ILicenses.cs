@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -58,7 +59,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="state">Filter the licenses to those in a particular state. Can be one of &#39;active&#39;, &#39;expired&#39;, &#39;expiring&#39;, &#39;unused&#39;, &#39;unusedActive&#39; or &#39;recentlyQueued&#39; (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/licenses")]
-		Task<object> GetPageAsync(
+		Task<List<OrganizationLicense>> GetPageAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("perPage")]int? perPage = null,
 			[AliasAs("startingAfter")]string startingAfter = null!,
