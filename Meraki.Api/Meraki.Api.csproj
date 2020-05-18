@@ -14,7 +14,7 @@
 		<Description>Meraki API</Description>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>Licenses.GetPageAsync now returns an OrganizationLicense rather than a generic object.</PackageReleaseNotes>
+		<PackageReleaseNotes>Added DeviceUplink object for Network Devices.</PackageReleaseNotes>
 		<Authors>Panoramic Data Limited</Authors>
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>

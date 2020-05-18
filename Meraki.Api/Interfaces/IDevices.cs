@@ -150,7 +150,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/devices/{serial}/uplink")]
-		Task<object> GetNetworkDeviceUplink(
+		Task<List<DeviceUplink>> GetNetworkDeviceUplink(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial
 			);
