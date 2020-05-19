@@ -96,7 +96,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/deviceStatuses")]
-		Task<object> GetDeviceStatusesAsync(
+		Task<List<OrganizationDeviceStatus>> GetDeviceStatusesAsync(
 			[AliasAs("organizationId")]string organizationId,
 			CancellationToken cancellationToken = default);
 
