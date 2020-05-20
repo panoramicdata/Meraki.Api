@@ -38,7 +38,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="licenseId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/licenses/{licenseId}")]
-		Task<object> GetAsync(
+		Task<OrganizationLicense> GetAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("licenseId")]string licenseId,
 			CancellationToken cancellationToken = default);
