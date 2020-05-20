@@ -505,5 +505,19 @@ namespace Meraki.Api.Test
 					.ConfigureAwait(false);
 			}
 		}
+
+		[Fact]
+		public async void GetDeviceSwitchPortsAsync_Succeeds()
+		{
+			Configuration.TestCameraSerial.Should().NotBeNull();
+
+			// Currently does not work (404 error, and also in Postman)
+			var switchPorts = await MerakiClient
+				.SwitchPorts
+				.GetDeviceSwitchPorts(Configuration.TestCameraSerial, default)
+				.ConfigureAwait(false);
+
+			switchPorts.Should().NotBeNull();
+		}
 	}
 }

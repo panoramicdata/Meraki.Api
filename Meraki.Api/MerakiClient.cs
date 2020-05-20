@@ -136,7 +136,7 @@ namespace Meraki.Api
 		public IApiRequests ApiRequests { get; }
 
 		/// <summary>
-		/// Blutetooth clients
+		/// Bluetooth clients
 		/// </summary>
 		public IBluetoothClients BluetoothClients { get; }
 
@@ -181,7 +181,7 @@ namespace Meraki.Api
 		public IContentFilteringCategories ContentFilteringCategories { get; }
 
 		/// <summary>
-		/// Conent filtering rules
+		/// Content filtering rules
 		/// </summary>
 		public IContentFilteringRules ContentFilteringRules { get; }
 
@@ -336,7 +336,7 @@ namespace Meraki.Api
 		public IMxPortForwardingRules MxPortForwardingRules { get; }
 
 		/// <summary>
-		/// MX statis routes
+		/// MX static routes
 		/// </summary>
 		public IMxStaticRoutes MxStaticRoutes { get; }
 

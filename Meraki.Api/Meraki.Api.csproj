@@ -14,7 +14,7 @@
 		<Description>Meraki API</Description>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>Licenses.GetAsync now returns an Organization Device License</PackageReleaseNotes>
+		<PackageReleaseNotes>GetDeviceSwitchPorts now returns a list of DeviceSwitchPorts</PackageReleaseNotes>
 		<Authors>Panoramic Data Limited</Authors>
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
