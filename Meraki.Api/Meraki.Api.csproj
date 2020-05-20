@@ -14,7 +14,7 @@
 		<Description>Meraki API</Description>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>Added Organization Device Status class</PackageReleaseNotes>
+		<PackageReleaseNotes>Licenses.GetAsync now returns an Organization Device License</PackageReleaseNotes>
 		<Authors>Panoramic Data Limited</Authors>
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
