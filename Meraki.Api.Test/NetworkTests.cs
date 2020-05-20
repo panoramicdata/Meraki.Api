@@ -519,5 +519,18 @@ namespace Meraki.Api.Test
 
 			switchPorts.Should().NotBeNull();
 		}
+
+		[Fact]
+		public async void GetNetwortSwitchStacksAsync_Succeeds()
+		{
+			Configuration.TestCameraNetworkId.Should().NotBeNull();
+
+			var switchStacks = await MerakiClient
+				.SwitchStacks
+				.GetNetworkSwitchStacks(Configuration.TestCameraNetworkId, default)
+				.ConfigureAwait(false);
+
+			switchStacks.Should().NotBeNull();
+		}
 	}
 }
