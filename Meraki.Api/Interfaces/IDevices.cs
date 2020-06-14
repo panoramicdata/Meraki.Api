@@ -148,9 +148,9 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
-		/// <returns>Task of Object</returns>
+		/// <returns>Task of List of DeviceUplinks</returns>
 		[Get("/networks/{networkId}/devices/{serial}/uplink")]
-		Task<object> GetNetworkDeviceUplink(
+		Task<List<DeviceUplink>> GetNetworkDeviceUplink(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial
 			);

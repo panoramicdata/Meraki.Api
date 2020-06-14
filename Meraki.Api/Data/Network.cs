@@ -42,6 +42,12 @@ namespace Meraki.Api.Data
 		public bool DisableMyMerakiCom { get; set; }
 
 		/// <summary>
+		/// disableRemoteStatusPage
+		/// </summary>
+		[DataMember(Name = "disableRemoteStatusPage")]
+		public bool DisableRemoteStatusPage { get; set; }
+
+		/// <summary>
 		/// Product types
 		/// </summary>
 		[DataMember(Name = "productTypes")]

@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Meraki.Api.Data;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -64,6 +65,64 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
+		}
+
+		[Fact]
+		public async void GetOrganizationLicenseState_Succeeds()
+		{
+			var result = await MerakiClient
+				.Organizations
+				.GetLicenseStateAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+
+			result.Should().NotBeNull();
+		}
+
+		[Fact]
+		public async void GetOrganizationLicenses_Succeeds()
+		{
+			var licenses = await MerakiClient
+				.Licenses
+				.GetPageAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+
+			licenses.Should().NotBeNull();
+		}
+
+		[Fact]
+		public async void GetOrganizationDeviceStatus_Succeeds()
+		{
+			var organizationDeviceStatus = await MerakiClient
+				.Organizations
+				.GetDeviceStatusesAsync(Configuration.TestOrganizationId, default)
+				.ConfigureAwait(false);
+
+			organizationDeviceStatus.Should().NotBeNull();
+		}
+
+		/// <summary>
+		/// Get an organization device license by ID
+		/// </summary>
+		[Fact]
+		public async void GetOrganizationDeviceLicense_Succeeds()
+		{
+			var organizationDeviceLicenses = await MerakiClient
+				.Licenses
+				.GetPageAsync(Configuration.TestOrganizationId, cancellationToken: default)
+				.ConfigureAwait(false);
+
+			organizationDeviceLicenses.Should().NotBeNull();
+
+			var licenseId = organizationDeviceLicenses.FirstOrDefault()?.Id;
+
+			licenseId.Should().NotBeNull();
+
+			var organizationDeviceLicense = await MerakiClient
+				.Licenses
+				.GetAsync(Configuration.TestOrganizationId, licenseId)
+				.ConfigureAwait(false);
+
+			organizationDeviceLicense.Should().NotBeNull();
 		}
 
 		//[Fact]

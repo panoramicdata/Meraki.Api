@@ -11,6 +11,30 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
+		public async void GetNetworkDeviceUplink_Succeeds()
+		{
+			var devices = await MerakiClient
+				.Devices
+				.GetAllByNetworkAsync(Configuration.TestCameraNetworkId)
+				.ConfigureAwait(false);
+
+			devices
+				.Should()
+				.NotBeNull()
+				.And
+				.NotBeEmpty();
+
+			var deviceSerial = devices[0].Serial;
+
+			var uplinkProperties = await MerakiClient
+				.Devices
+				.GetNetworkDeviceUplink(Configuration.TestCameraNetworkId, deviceSerial)
+				.ConfigureAwait(false);
+
+			uplinkProperties.Should().NotBeNull();
+		}
+
+		[Fact]
 		public async void GetDeviceAsync_Succeeds()
 		{
 			var devices = await MerakiClient
