@@ -1,11 +1,13 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// A device
+	/// A Device
 	/// </summary>
 	[DataContract]
+	[DebuggerDisplay("{Serial}")]
 	public class Device : NamedItem
 	{
 		public const int MaxAddressLength = 255;
@@ -59,25 +61,25 @@ namespace Meraki.Api.Data
 		public string Model { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Mac
+		/// The MAC address
 		/// </summary>
 		[DataMember(Name = "mac")]
 		public string Mac { get; set; } = string.Empty;
 
 		/// <summary>
-		/// LanIp
+		/// The LAN IP address
 		/// </summary>
 		[DataMember(Name = "lanIp")]
 		public string LanIp { get; set; } = string.Empty;
 
 		/// <summary>
-		/// beaconIdParams
+		/// The beacon ID parameters
 		/// </summary>
 		[DataMember(Name = "beaconIdParams")]
 		public BeaconIdParams BeaconIdParams { get; set; } = new BeaconIdParams();
 
 		/// <summary>
-		/// configurationUpdatedAt
+		/// When the configuration was last updated
 		/// </summary>
 		[DataMember(Name = "configurationUpdatedAt")]
 		public string ConfigurationUpdatedAt { get; set; } = string.Empty;
@@ -89,37 +91,37 @@ namespace Meraki.Api.Data
 		public string Firmware { get; set; } = string.Empty;
 
 		/// <summary>
-		/// floorPlanId
+		/// Floor Plan Id
 		/// </summary>
 		[DataMember(Name = "floorPlanId")]
 		public string FloorPlanId { get; set; } = string.Empty;
 
 		/// <summary>
-		/// switchProfileId
+		/// Switch Profile Id
 		/// </summary>
 		[DataMember(Name = "switchProfileId")]
 		public string SwitchProfileId { get; set; } = string.Empty;
 
 		/// <summary>
-		/// url
+		/// URL
 		/// </summary>
 		[DataMember(Name = "url")]
 		public string Url { get; set; } = string.Empty;
 
 		/// <summary>
-		/// wirelessMac
+		/// Wireless MAC address
 		/// </summary>
 		[DataMember(Name = "wirelessMac")]
 		public string WirelessMac { get; set; } = string.Empty;
 
 		/// <summary>
-		/// wan1Ip
+		/// WAN 1 IP address
 		/// </summary>
 		[DataMember(Name = "wan1Ip")]
 		public string Wan1Ip { get; set; } = string.Empty;
 
 		/// <summary>
-		/// wan2Ip
+		/// WAN 2 IP address
 		/// </summary>
 		[DataMember(Name = "wan2Ip")]
 		public string Wan2Ip { get; set; } = string.Empty;

@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -6,6 +7,7 @@ namespace Meraki.Api.Data
 	/// An organization
 	/// </summary>
 	[DataContract]
+	[DebuggerDisplay("{Name}")]
 	public class Organization : NamedIdentifiedItem
 	{
 		/// <summary>
