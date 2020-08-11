@@ -39,6 +39,18 @@ namespace Meraki.Api.Test.Config
 		[DataMember(Name = "TestCameraNetworkId")]
 		public string TestCameraNetworkId { get; set; } = string.Empty;
 
+		/// <summary>
+		/// Test Network ID
+		/// </summary>
+		[DataMember(Name = "TestNetworkId")]
+		public string TestNetworkId { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Test MAC (Client ID)
+		/// </summary>
+		[DataMember(Name = "TestMac")]
+		public string TestMac { get; set; } = string.Empty;
+
 		public void Validate()
 		{
 			// MerakiClientOptions should be present
@@ -66,6 +78,16 @@ namespace Meraki.Api.Test.Config
 			if (string.IsNullOrWhiteSpace(TestCameraNetworkId))
 			{
 				throw new ConfigurationException($"Missing {nameof(TestCameraNetworkId)}");
+			}
+
+			if (string.IsNullOrWhiteSpace(TestNetworkId))
+			{
+				throw new ConfigurationException($"Missing {nameof(TestNetworkId)}");
+			}
+
+			if (string.IsNullOrWhiteSpace(TestMac))
+			{
+				throw new ConfigurationException($"Missing {nameof(TestMac)}");
 			}
 		}
 	}
