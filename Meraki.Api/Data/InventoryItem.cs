@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -56,11 +55,5 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "licenseExpirationDate")]
 		public string? LicenseExpirationDate { get; set; }
-
-		/// <summary>
-		/// errors
-		/// </summary>
-		[DataMember(Name = "Errors")]
-		public List<string> Errors { get; set; } = new List<string>();
 	}
 }

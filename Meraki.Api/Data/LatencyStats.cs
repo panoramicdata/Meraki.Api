@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -32,11 +31,5 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "voiceTraffic")]
 		public TrafficAndDistribution VoiceTraffic { get; set; } = null!;
-
-		/// <summary>
-		/// Errors
-		/// </summary>
-		[DataMember(Name = "errors")]
-		public List<string> Errors { get; set; } = new List<string>();
 	}
 }

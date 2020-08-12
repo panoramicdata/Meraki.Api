@@ -26,6 +26,7 @@ namespace Meraki.Api.Test
 				.Networks
 				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
+
 			result.Should().BeOfType<List<Network>>();
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
