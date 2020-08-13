@@ -18,6 +18,6 @@ namespace Meraki.Api.Data
 		/// connectionStats
 		/// </summary>
 		[DataMember(Name = "connectionStats")]
-		public ConnectionStats ConnnectionStats { get; set; } = null!;
+		public ConnectionStats ConnectionStats { get; set; } = null!;
 	}
 }

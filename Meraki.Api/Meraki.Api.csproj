@@ -14,7 +14,7 @@
 		<Description>Meraki API</Description>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>Removed Errors property on various classes (Refit API does not provide them but throws an exception).</PackageReleaseNotes>
+		<PackageReleaseNotes>Fixed a misnamed (but non-breaking) property name typo on NetworkClientConnectionStats.</PackageReleaseNotes>
 		<Authors>Panoramic Data Limited</Authors>
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
