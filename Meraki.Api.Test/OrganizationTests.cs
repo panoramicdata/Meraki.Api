@@ -90,6 +90,17 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
+		public async void GetOrganizationDevices_Succeeds()
+		{
+			var organizationDevices = await MerakiClient
+				.Organizations
+				.GetDevicesAsync(Configuration.TestOrganizationId, default)
+				.ConfigureAwait(false);
+
+			organizationDevices.Should().NotBeNull();
+		}
+
+		[Fact]
 		public async void GetOrganizationDeviceStatus_Succeeds()
 		{
 			var organizationDeviceStatus = await MerakiClient

@@ -23,8 +23,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/claim")]
 		Task<OrganizationClaimResponse> ClaimAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]OrganizationClaimRequest organizationClaimRequest,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] OrganizationClaimRequest organizationClaimRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -39,8 +39,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/clone")]
 		Task<Organization> CloneAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]CloneOrganization cloneOrganization,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] CloneOrganization cloneOrganization,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -54,7 +54,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Post("/organizations")]
 		Task<Organization> CreateAsync(
-			[Body]OrganizationCreateRequest createOrganization,
+			[Body] OrganizationCreateRequest createOrganization,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -68,7 +68,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of void</returns>
 		[Delete("/organizations/{organizationId}")]
 		Task DeleteAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -83,7 +83,21 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}")]
 		Task<Organization> GetAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// getOrganizationDevices
+		/// </summary>
+		/// <remarks>
+		/// List the devices in an organization
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/organizations/{organizationId}/devices")]
+		Task<List<OrganizationDevice>> GetDevicesAsync(
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -97,7 +111,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/deviceStatuses")]
 		Task<List<OrganizationDeviceStatus>> GetDeviceStatusesAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -112,8 +126,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/inventory")]
 		Task<List<InventoryItem>> GetInventoryAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("includeLicenseInfo")]bool? includeLicenseInfo = null,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("includeLicenseInfo")] bool? includeLicenseInfo = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -127,7 +141,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/licenseState")]
 		Task<OrganizationLicenseState> GetLicenseStateAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -141,7 +155,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/thirdPartyVPNPeers")]
 		Task<List<ThirdPartyVpnPeer>> GetThirdPartyVpnPeersAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -160,12 +174,12 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/uplinksLossAndLatency")]
 		Task<object> GetUplinksLossAndLatencyAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("uplink")]string uplink = null!,
-			[AliasAs("ip")]string ip = null!,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("uplink")] string uplink = null!,
+			[AliasAs("ip")] string ip = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -192,8 +206,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}")]
 		Task<Organization> UpdateAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]OrganizationUpdateRequest updateOrganization,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] OrganizationUpdateRequest updateOrganization,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -208,8 +222,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/thirdPartyVPNPeers")]
 		Task<object> UpdateThirdPartyVpnPeersAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]ThirdPartyVpnPeersUpdateRequest peerList,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] ThirdPartyVpnPeersUpdateRequest peerList,
 			CancellationToken cancellationToken = default);
 	}
 }
