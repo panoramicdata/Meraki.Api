@@ -23,8 +23,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/bind")]
 		Task BindConfigurationTemplateAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]ConfigurationTemplateBindRequest bindNetwork,
+			[AliasAs("networkId")] string networkId,
+			[Body] ConfigurationTemplateBindRequest bindNetwork,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -39,8 +39,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/networks/combine")]
 		Task<object> CombineOrganizationNetworksAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]CombineOrganizationNetworksRequest combineOrganizationNetworks,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] CombineOrganizationNetworksRequest combineOrganizationNetworks,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -55,8 +55,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/networks")]
 		Task<Network> CreateAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]NetworkCreationRequest createOrganizationNetwork,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] NetworkCreationRequest createOrganizationNetwork,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -70,7 +70,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}")]
 		Task DeleteAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -84,7 +84,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}")]
 		Task<Network> GetAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -98,7 +98,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/accessPolicies")]
 		Task<object> GetNetworkAccessPolicies(
-			[AliasAs("networkId")]string networkId
+			[AliasAs("networkId")] string networkId
 			);
 
 		/// <summary>
@@ -114,9 +114,9 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/airMarshal")]
 		Task<object> GetNetworkAirMarshal(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("timespan")]double? timespan = null
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("timespan")] double? timespan = null
 			);
 
 		/// <summary>
@@ -130,7 +130,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/siteToSiteVpn")]
 		Task<object> GetNetworkSiteToSiteVpn(
-			[AliasAs("networkId")]string networkId
+			[AliasAs("networkId")] string networkId
 			);
 
 		/// <summary>
@@ -147,10 +147,10 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/traffic")]
 		Task<object> GetNetworkTraffic(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("deviceType")]string deviceType = null!
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("deviceType")] string deviceType = null!
 			);
 
 		/// <summary>
@@ -165,8 +165,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/networks")]
 		Task<List<Network>> GetAllAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("configTemplateId")]string configTemplateId = null!,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("configTemplateId")] string configTemplateId = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -180,7 +180,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/split")]
 		Task<object> SplitAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -194,7 +194,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/unbind")]
 		Task UnbindConfigurationTemplateAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -206,12 +206,13 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
-		/// <param name="updateNetwork"> (optional)</param>
+		/// <param name="networkUpdateRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}")]
-		Task<object> UpdateNetwork(
-			[AliasAs("networkId")]string networkId,
-			[Body]NetworkUpdateRequest updateNetwork = null!
+		Task<object> UpdateNetworkAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkUpdateRequest networkUpdateRequest,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
@@ -226,8 +227,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/siteToSiteVpn")]
 		Task<object> UpdateNetworkSiteToSiteVpn(
-			[AliasAs("networkId")]string networkId,
-			[Body]SiteToSiteVpnUpdateRequest updateNetworkSiteToSiteVpn
+			[AliasAs("networkId")] string networkId,
+			[Body] SiteToSiteVpnUpdateRequest updateNetworkSiteToSiteVpn
 			);
 	}
 }
