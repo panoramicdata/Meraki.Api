@@ -522,13 +522,13 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void GetNetwortSwitchStacksAsync_Succeeds()
+		public async void GetNetworkSwitchStacksAsync_Succeeds()
 		{
 			Configuration.TestCameraNetworkId.Should().NotBeNull();
 
 			var switchStacks = await MerakiClient
 				.SwitchStacks
-				.GetNetworkSwitchStacks(Configuration.TestCameraNetworkId, default)
+				.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, default)
 				.ConfigureAwait(false);
 
 			switchStacks.Should().NotBeNull();

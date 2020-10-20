@@ -113,6 +113,8 @@ namespace Meraki.Api.Test
 					}
 				)
 				.ConfigureAwait(false);
+
+			updatedDevice.Should().NotBeNull();
 		}
 
 		[Fact]
@@ -136,17 +138,18 @@ namespace Meraki.Api.Test
 				.BlinkLedsAsync(
 					Configuration.TestCameraNetworkId,
 					deviceSerial,
-					new Data.DeviceLedsBlinkRequest
+					new DeviceLedsBlinkRequest
 					{
-						Duration = 1,
-						//Duty = 50,
-						//Period
+						Duration = 10,
+						Period = 500
 					})
 				.ConfigureAwait(false);
 
 			outcome
 				.Should()
 				.NotBeNull();
+
+			outcome.SentToDevice.Should().BeTrue();
 		}
 	}
 }
