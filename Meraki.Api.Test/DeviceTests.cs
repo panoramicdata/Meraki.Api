@@ -114,5 +114,39 @@ namespace Meraki.Api.Test
 				)
 				.ConfigureAwait(false);
 		}
+
+		[Fact]
+		public async void BlinkDeviceAsync_Succeeds()
+		{
+			var devices = await MerakiClient
+				.Devices
+				.GetAllByNetworkAsync(Configuration.TestCameraNetworkId)
+				.ConfigureAwait(false);
+
+			devices
+				.Should()
+				.NotBeNull()
+				.And
+				.NotBeEmpty();
+
+			var deviceSerial = devices[0].Serial;
+
+			var outcome = await MerakiClient
+				.Devices
+				.BlinkLedsAsync(
+					Configuration.TestCameraNetworkId,
+					deviceSerial,
+					new Data.DeviceLedsBlinkRequest
+					{
+						Duration = 1,
+						//Duty = 50,
+						//Period
+					})
+				.ConfigureAwait(false);
+
+			outcome
+				.Should()
+				.NotBeNull();
+		}
 	}
 }
