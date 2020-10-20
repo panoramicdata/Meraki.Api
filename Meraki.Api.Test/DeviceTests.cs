@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Meraki.Api.Data;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -58,6 +59,60 @@ namespace Meraki.Api.Test
 
 			device.Serial.Should().Equals(deviceSerial);
 			device.Firmware.Should().NotBeNull();
+		}
+
+		[Fact]
+		public async void PutDeviceAsync_WithMoveMapMarker_Succeeds()
+		{
+			var devices = await MerakiClient
+				.Devices
+				.GetAllByNetworkAsync(Configuration.TestCameraNetworkId)
+				.ConfigureAwait(false);
+
+			devices
+				.Should()
+				.NotBeNull()
+				.And
+				.NotBeEmpty();
+
+			var deviceSerial = devices[0].Serial;
+
+			var device = await MerakiClient
+				.Devices
+				.GetAsync(Configuration.TestCameraNetworkId, deviceSerial)
+				.ConfigureAwait(false);
+
+			device.Should().NotBeNull();
+			device.Serial.Should().Equals(deviceSerial);
+			device.Firmware.Should().NotBeNull();
+
+			if (device.Address != string.Empty)
+			{
+				await MerakiClient
+					.Devices
+					.UpdateAsync(
+						Configuration.TestCameraNetworkId,
+						device.Serial,
+						new DeviceUpdateRequest
+						{
+							Address = string.Empty
+						}
+					)
+					.ConfigureAwait(false);
+			}
+			// Device now has blank address
+			var updatedDevice = await MerakiClient
+				.Devices
+				.UpdateAsync(
+					Configuration.TestCameraNetworkId,
+					device.Serial,
+					new DeviceUpdateRequest
+					{
+						Address = "Picadilly Circus, London",
+						MoveMapMarker = true
+					}
+				)
+				.ConfigureAwait(false);
 		}
 	}
 }

@@ -23,10 +23,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceLedsBlinkRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/devices/{serial}/blinkLeds")]
-		Task<object> BlinkLedsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial,
-			[Body]DeviceLedsBlinkRequest? deviceLedsBlinkRequest = null,
+		Task<DeviceLedsBlinkResponse> BlinkLedsAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			[Body] DeviceLedsBlinkRequest? deviceLedsBlinkRequest = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -41,8 +41,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/devices/claim")]
 		Task ClaimAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]DeviceClaimRequest claimNetworkDevices,
+			[AliasAs("networkId")] string networkId,
+			[Body] DeviceClaimRequest claimNetworkDevices,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -57,8 +57,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Post("/devices/{serial}/switch/ports/cycle")]
 		Task<object> CycleSwitchPortsAsync(
-			[AliasAs("serial")]string serial,
-			[Body]DeviceSwitchPortsCycleRequest deviceSwitchPortsCycleRequest,
+			[AliasAs("serial")] string serial,
+			[Body] DeviceSwitchPortsCycleRequest deviceSwitchPortsCycleRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -73,8 +73,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/devices/{serial}")]
 		Task<Device> GetAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -90,9 +90,9 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/devices/{serial}/lldp_cdp")]
 		Task<object> GetLldpCdpAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial,
-			[AliasAs("timespan")]int? timespan = null,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			[AliasAs("timespan")] int? timespan = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -113,14 +113,14 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/devices/{serial}/lossAndLatencyHistory")]
 		Task<object> GetLossAndLatencyHistoryAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial,
-			[AliasAs("ip")]string ip,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("resolution")]int? resolution = null,
-			[AliasAs("uplink")]string uplink = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			[AliasAs("ip")] string ip,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("resolution")] int? resolution = null,
+			[AliasAs("uplink")] string uplink = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -135,8 +135,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/devices/{serial}/performance")]
 		Task<object> GetPerformanceAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -151,8 +151,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of List of DeviceUplinks</returns>
 		[Get("/networks/{networkId}/devices/{serial}/uplink")]
 		Task<List<DeviceUplink>> GetNetworkDeviceUplink(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial
 			);
 
 		/// <summary>
@@ -166,7 +166,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of list of Device</returns>
 		[Get("/networks/{networkId}/devices")]
 		Task<List<Device>> GetAllByNetworkAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -184,11 +184,11 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/devices")]
 		Task<List<Device>> GetPageByOrganizationAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
-			[AliasAs("configurationUpdatedAfter")]string configurationUpdatedAfter = null!,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
+			[AliasAs("configurationUpdatedAfter")] string configurationUpdatedAfter = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -203,8 +203,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/devices/{serial}/reboot")]
 		Task<object> RebootAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -219,8 +219,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/devices/{serial}/remove")]
 		Task RemoveAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -236,9 +236,9 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/devices/{serial}")]
 		Task<Device> UpdateAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial,
-			[Body]DeviceUpdateRequest updateNetworkDevice,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			[Body] DeviceUpdateRequest updateNetworkDevice,
 			CancellationToken cancellationToken = default);
 	}
 }
