@@ -48,6 +48,12 @@ namespace Meraki.Api.Data
 		public bool DisableRemoteStatusPage { get; set; }
 
 		/// <summary>
+		/// configTemplateId
+		/// </summary>
+		[DataMember(Name = "configTemplateId")]
+		public string? ConfigurationTemplateId { get; set; }
+
+		/// <summary>
 		/// Product types
 		/// </summary>
 		[DataMember(Name = "productTypes")]
