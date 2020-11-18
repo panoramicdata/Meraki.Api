@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// Is WAN enabled
 		/// </summary>
 		[DataMember(Name = "wanEnabled")]
-		public bool WanEnabled { get; set; }
+		public string WanEnabled { get; set; }
 
 		/// <summary>
 		/// Is WAN using static IP
