@@ -32,6 +32,10 @@ namespace Meraki.Api
 
 			// Add the request headers
 			request.Headers.Add("X-Cisco-Meraki-API-Key", _options.ApiKey);
+			if (_options.UserAgent is not null)
+			{
+				request.Headers.Add("User-Agent", _options.UserAgent);
+			}
 			var attemptCount = 0;
 			while (true)
 			{
