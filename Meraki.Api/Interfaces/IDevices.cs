@@ -192,6 +192,22 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
+		/// getNetworkDeviceManagementInterfaceSettings
+		/// </summary>
+		/// <remarks>
+		/// Return the management interface settings for a device
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="serial"></param>
+		/// <returns>Task of list of Device</returns>
+		[Get("/networks/{networkId}/devices/{serial}/managementInterfaceSettings")]
+		Task<DeviceManagementInterfaceSettings> GetNetworkDeviceManagementInterfaceSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("serial")] string serial,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
 		/// rebootNetworkDevice
 		/// </summary>
 		/// <remarks>

@@ -151,5 +151,21 @@ namespace Meraki.Api.Test
 
 			outcome.SentToDevice.Should().BeTrue();
 		}
+
+		// Test disabled - could only test with temporary credentials.
+		//[Fact]
+		//public async void GetDeviceNetworkManagementSettingsAsync_Succeeds()
+		//{
+		//	var deviceManagementInterfaceSettings = await MerakiClient
+		//		.Devices
+		//		.GetNetworkDeviceManagementInterfaceSettingsAsync(Configuration.TestCameraNetworkId, deviceSerial)
+		//		.ConfigureAwait(false);
+
+		//	deviceManagementInterfaceSettings
+		//		.Should()
+		//		.NotBeNull()
+		//		.And
+		//		.NotBeEmpty();
+		//}
 	}
 }

@@ -17,7 +17,7 @@
 		<Authors>Panoramic Data Limited</Authors>
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
-		<PackageReleaseNotes>Added Network.ConfigurationTemplateId</PackageReleaseNotes>
+		<PackageReleaseNotes>Fix for DeviceManagementInterfaceSettingsWan.WanEnabled, changed from bool to string</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
