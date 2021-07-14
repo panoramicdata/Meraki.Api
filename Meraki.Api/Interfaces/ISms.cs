@@ -530,21 +530,5 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("networkId")]string networkId,
 			[Body]SmDevicesTagsUpdateRequest updateNetworkSmDevicesTags
 			);
-
-		/// <summary>
-		/// wipeNetworkSmDevice
-		/// </summary>
-		/// <remarks>
-		/// Wipe a device
-		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="wipeNetworkSmDevice"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/sm/device/wipe")]
-		Task<object> WipeNetworkSmDevice(
-			[AliasAs("networkId")]string networkId,
-			[Body]WipeNetworkSmDevice wipeNetworkSmDevice
-			);
 	}
 }
