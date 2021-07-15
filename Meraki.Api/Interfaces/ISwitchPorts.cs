@@ -40,10 +40,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switchPortStatuses")]
-		Task<object> GetDeviceSwitchPortStatuses(
-			[AliasAs("serial")]string serial,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("timespan")]double? timespan = null
+		Task<List<SwitchPortStatus>> GetDeviceSwitchPortStatuses(
+			[AliasAs("serial")] string serial,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("timespan")] double? timespan = null
 			);
 
 		/// <summary>
@@ -59,9 +59,9 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switchPortStatuses/packets")]
 		Task<object> GetDeviceSwitchPortStatusesPackets(
-			[AliasAs("serial")]string serial,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("timespan")]double? timespan = null
+			[AliasAs("serial")] string serial,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("timespan")] double? timespan = null
 			);
 
 		/// <summary>
@@ -75,7 +75,7 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of list of DeviceSwitchPorts</returns>
 		[Get("/devices/{serial}/switch/ports")]
 		Task<List<DeviceSwitchPort>> GetDeviceSwitchPorts(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
 
@@ -92,9 +92,9 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/switchPorts/{number}")]
 		Task<object> UpdateDeviceSwitchPort(
-			[AliasAs("serial")]string serial,
-			[AliasAs("number")]string number,
-			[Body]SwitchPortUpdateRequest updateDeviceSwitchPort
+			[AliasAs("serial")] string serial,
+			[AliasAs("number")] string number,
+			[Body] SwitchPortUpdateRequest updateDeviceSwitchPort
 			);
 	}
 }
