@@ -12,6 +12,6 @@ namespace Meraki.Api.Data
 		/// Gets or Sets BandwidthLimits
 		/// </summary>
 		[DataMember(Name = "bandwidthLimits", EmitDefaultValue = false)]
-		public BandwidthLimits BandwidthLimits { get; set; }
+		public BandwidthLimits BandwidthLimits { get; set; } = new();
 	}
 }

@@ -13,6 +13,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The name of the new organization</value>
 		[DataMember(Name = "name", EmitDefaultValue = false)]
-		public string Name { get; set; }
+		public string Name { get; set; } = string.Empty;
 	}
 }

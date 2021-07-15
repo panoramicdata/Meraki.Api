@@ -13,13 +13,13 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The IP address to test connectivity with</value>
 		[DataMember(Name = "ip", EmitDefaultValue = false)]
-		public string Ip { get; set; }
+		public string Ip { get; set; } = string.Empty;
 		/// <summary>
 		/// Description of the testing destination. Optional, defaults to null
 		/// </summary>
 		/// <value>Description of the testing destination. Optional, defaults to null</value>
 		[DataMember(Name = "description", EmitDefaultValue = false)]
-		public string Description { get; set; }
+		public string Description { get; set; } = string.Empty;
 		/// <summary>
 		/// Boolean indicating whether this is the default testing destination (true) or not (false). Defaults to false. Only one default is allowed
 		/// </summary>

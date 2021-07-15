@@ -66,13 +66,13 @@ namespace Meraki.Api.Data
 		/// When this client was first seen
 		/// </summary>
 		[DataMember(Name = "firstSeen")]
-		public string FirstSeen { get; set; }
+		public string FirstSeen { get; set; } = string.Empty;
 
 		/// <summary>
 		/// When this client was last seen
 		/// </summary>
 		[DataMember(Name = "lastSeen")]
-		public string LastSeen { get; set; }
+		public string LastSeen { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The manufacturer

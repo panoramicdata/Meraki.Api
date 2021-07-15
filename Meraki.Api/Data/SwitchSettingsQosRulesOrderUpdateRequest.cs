@@ -14,6 +14,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>A list of quality of service rule IDs arranged in order in which they should be processed by the switch.</value>
 		[DataMember(Name = "ruleIds", EmitDefaultValue = false)]
-		public List<string> RuleIds { get; set; }
+		public List<string> RuleIds { get; set; } = new();
 	}
 }

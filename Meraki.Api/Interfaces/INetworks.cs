@@ -96,7 +96,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/accessPolicies")]
+		[Get("/networks/{networkId}/switch/accessPolicies")]
 		Task<object> GetNetworkAccessPolicies(
 			[AliasAs("networkId")] string networkId
 			);
@@ -112,7 +112,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 7 days. (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/airMarshal")]
+		[Get("/networks/{networkId}/wireless/airMarshal")]
 		Task<object> GetNetworkAirMarshal(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("t0")] string t0 = null!,

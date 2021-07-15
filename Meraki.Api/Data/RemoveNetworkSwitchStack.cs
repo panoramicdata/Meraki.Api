@@ -13,6 +13,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The serial of the switch to be removed</value>
 		[DataMember(Name = "serial", EmitDefaultValue = false)]
-		public string Serial { get; set; }
+		public string Serial { get; set; } = string.Empty;
 	}
 }

@@ -13,12 +13,12 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>New name for the device</value>
 		[DataMember(Name = "name", EmitDefaultValue = false)]
-		public string Name { get; set; }
+		public string Name { get; set; } = string.Empty;
 		/// <summary>
 		/// New notes for the device
 		/// </summary>
 		/// <value>New notes for the device</value>
 		[DataMember(Name = "notes", EmitDefaultValue = false)]
-		public string Notes { get; set; }
+		public string Notes { get; set; } = string.Empty;
 	}
 }

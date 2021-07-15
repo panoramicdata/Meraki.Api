@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The network ID of the hub.</value>
 		[DataMember(Name = "hubId", EmitDefaultValue = false)]
-		public string HubId { get; set; }
+		public string HubId { get; set; } = string.Empty;
 		/// <summary>
 		/// Only valid in &#39;spoke&#39; mode. Indicates whether default route traffic should be sent to this hub.
 		/// </summary>

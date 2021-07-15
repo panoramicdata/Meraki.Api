@@ -21,10 +21,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/devices/{serial}/switchPorts/{number}")]
+		[Get("/devices/{serial}/switch/ports/{portId}")]
 		Task<DeviceSwitchPort> GetDeviceSwitchPort(
 			[AliasAs("serial")]string serial,
-			[AliasAs("number")]string number,
+			[AliasAs("portId")]string number,
 			CancellationToken cancellationToken = default
 			);
 
@@ -73,7 +73,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of list of DeviceSwitchPorts</returns>
-		[Get("/devices/{serial}/switchPorts")]
+		[Get("/devices/{serial}/switch/ports")]
 		Task<List<DeviceSwitchPort>> GetDeviceSwitchPorts(
 			[AliasAs("serial")]string serial,
 			CancellationToken cancellationToken = default

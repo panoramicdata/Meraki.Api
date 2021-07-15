@@ -9,6 +9,7 @@ namespace Meraki.Api.Data
 	/// </summary>
 	/// <value>The association control method for the SSID ('open', 'psk', 'open-with-radius', '8021x-meraki', '8021x-radius', 'ipsk-with-radius' or 'ipsk-without-radius')</value>
 	[JsonConverter(typeof(StringEnumConverter))]
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>")]
 	public enum AuthMode
 	{
 		/// <summary>

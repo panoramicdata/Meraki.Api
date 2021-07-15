@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <returns>Task of NetworkClientConnectionStats</returns>
-		[Get("/networks/{networkId}/clients/{clientId}/connectionStats")]
+		[Get("/networks/{networkId}/wireless/clients/{clientId}/connectionStats")]
 		Task<NetworkClientConnectionStats> GetNetworkClientConnectionStats(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
@@ -59,7 +59,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		/// <returns>Task of NetworkClientLatencyStats</returns>
-		[Get("/networks/{networkId}/clients/{clientId}/latencyStats")]
+		[Get("/networks/{networkId}/wireless/clients/{clientId}/latencyStats")]
 		Task<NetworkClientLatencyStats> GetNetworkClientLatencyStats(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
@@ -89,7 +89,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <returns>Task of List of NetworkClientConnectionStats</returns>
-		[Get("/networks/{networkId}/clients/connectionStats")]
+		[Get("/networks/{networkId}/wireless/clients/connectionStats")]
 		Task<List<NetworkClientConnectionStats>> GetNetworkClientsConnectionStats(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
@@ -118,7 +118,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		/// <returns>Task of List of NetworkClientLatencyStats</returns>
-		[Get("/networks/{networkId}/clients/latencyStats")]
+		[Get("/networks/{networkId}/wireless/clients/latencyStats")]
 		Task<List<NetworkClientLatencyStats>> GetNetworkClientsLatencyStats(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
@@ -147,7 +147,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <returns>Task of ConnectionStats</returns>
-		[Get("/networks/{networkId}/connectionStats")]
+		[Get("/networks/{networkId}/wireless/connectionStats")]
 		Task<ConnectionStats> GetNetworkConnectionStats(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
@@ -176,9 +176,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <returns>Task of NetworkDeviceConnectionStats</returns>
-		[Get("/networks/{networkId}/devices/{serial}/connectionStats")]
+		[Get("/devices/{serial}/wireless/connectionStats")]
 		Task<NetworkDeviceConnectionStats> GetNetworkDeviceConnectionStats(
-			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -207,9 +206,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		/// <returns>Task of NetworkDeviceLatencyStats</returns>
-		[Get("/networks/{networkId}/devices/{serial}/latencyStats")]
+		[Get("/devices/{serial}/wireless/latencyStats")]
 		Task<NetworkDeviceLatencyStats> GetNetworkDeviceLatencyStats(
-			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -237,7 +235,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <returns>Task of List of NetworkDeviceConnectionStats</returns>
-		[Get("/networks/{networkId}/devices/connectionStats")]
+		[Get("/networks/{networkId}/wireless/devices/connectionStats")]
 		Task<List<NetworkDeviceConnectionStats>> GetNetworkDevicesConnectionStats(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
@@ -266,7 +264,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		/// <returns>Task of List of NetworkDeviceLatencyStats</returns>
-		[Get("/networks/{networkId}/devices/latencyStats")]
+		[Get("/networks/{networkId}/wireless/devices/latencyStats")]
 		Task<List<NetworkDeviceLatencyStats>> GetNetworkDevicesLatencyStats(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
@@ -297,7 +295,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">Filter by AP (optional)</param>
 		/// <param name="clientId">Filter by client MAC (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/failedConnections")]
+		[Get("/networks/{networkId}/wireless/failedConnections")]
 		Task<object> GetNetworkFailedConnections(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
@@ -327,7 +325,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		/// <returns>Task of LatencyStats</returns>
-		[Get("/networks/{networkId}/latencyStats")]
+		[Get("/networks/{networkId}/wireless/latencyStats")]
 		Task<LatencyStats> GetNetworkLatencyStats(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,

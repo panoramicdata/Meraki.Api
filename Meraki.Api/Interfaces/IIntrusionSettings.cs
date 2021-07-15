@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/security/intrusionSettings")]
+		[Get("/networks/{networkId}/appliance/security/intrusion")]
 		Task<object> GetNetworkSecurityIntrusionSettings(
 			[AliasAs("networkId")]string networkId
 			);
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/security/intrusionSettings")]
+		[Get("/organizations/{organizationId}/appliance/security/intrusion")]
 		Task<object> GetOrganizationSecurityIntrusionSettings(
 			[AliasAs("organizationId")]string organizationId
 			);
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSecurityIntrusionSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/security/intrusionSettings")]
+		[Put("/networks/{networkId}/appliance/security/intrusion")]
 		Task<object> UpdateNetworkSecurityIntrusionSettings(
 			[AliasAs("networkId")]string networkId,
 			[Body]NetworkSecurityIntrusionSettingsUpdateRequest updateNetworkSecurityIntrusionSettings

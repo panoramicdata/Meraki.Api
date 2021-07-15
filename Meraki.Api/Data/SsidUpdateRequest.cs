@@ -14,7 +14,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The name of the SSID</value>
 		[DataMember(Name = "name", EmitDefaultValue = false)]
-		public string Name { get; set; }
+		public string Name { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Whether or not the SSID is enabled
@@ -46,7 +46,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The passkey for the SSID. This param is only valid if the authMode is &#39;psk&#39;</value>
 		[DataMember(Name = "psk", EmitDefaultValue = false)]
-		public string Psk { get; set; }
+		public string Psk { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Gets or Sets WpaEncryptionMode
@@ -65,7 +65,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The RADIUS 802.1X servers to be used for authentication. This param is only valid if the authMode is &#39;open-with-radius&#39;, &#39;8021x-radius&#39; or &#39;ipsk-with-radius&#39;</value>
 		[DataMember(Name = "radiusServers", EmitDefaultValue = false)]
-		public List<RadiusServer> RadiusServers { get; set; }
+		public List<RadiusServer> RadiusServers { get; set; } = new();
 
 		/// <summary>
 		/// If true, Meraki devices will act as a RADIUS Dynamic Authorization Server and will respond to RADIUS Change-of-Authorization and Disconnect messages sent by the RADIUS server.
@@ -98,21 +98,21 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The RADIUS accounting 802.1X servers to be used for authentication. This param is only valid if the authMode is &#39;open-with-radius&#39;, &#39;8021x-radius&#39; or &#39;ipsk-with-radius&#39; and radiusAccountingEnabled is &#39;true&#39;</value>
 		[DataMember(Name = "radiusAccountingServers", EmitDefaultValue = false)]
-		public List<RadiusAccountingServer> RadiusAccountingServers { get; set; }
+		public List<RadiusAccountingServer> RadiusAccountingServers { get; set; } = new();
 
 		/// <summary>
 		/// Specify the RADIUS attribute used to look up group policies (&#39;Filter-Id&#39;, &#39;Reply-Message&#39;, &#39;Airespace-ACL-Name&#39; or &#39;Aruba-User-Role&#39;). Access points must receive this attribute in the RADIUS Access-Accept message
 		/// </summary>
 		/// <value>Specify the RADIUS attribute used to look up group policies (&#39;Filter-Id&#39;, &#39;Reply-Message&#39;, &#39;Airespace-ACL-Name&#39; or &#39;Aruba-User-Role&#39;). Access points must receive this attribute in the RADIUS Access-Accept message</value>
 		[DataMember(Name = "radiusAttributeForGroupPolicies", EmitDefaultValue = false)]
-		public string RadiusAttributeForGroupPolicies { get; set; }
+		public string RadiusAttributeForGroupPolicies { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The client IP assignment mode (&#39;NAT mode&#39;, &#39;Bridge mode&#39;, &#39;Layer 3 roaming&#39;, &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;)
 		/// </summary>
 		/// <value>The client IP assignment mode (&#39;NAT mode&#39;, &#39;Bridge mode&#39;, &#39;Layer 3 roaming&#39;, &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;)</value>
 		[DataMember(Name = "ipAssignmentMode", EmitDefaultValue = false)]
-		public string IpAssignmentMode { get; set; }
+		public string IpAssignmentMode { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Whether or not traffic should be directed to use specific VLANs. This param is only valid if the ipAssignmentMode is &#39;Bridge mode&#39; or &#39;Layer 3 roaming&#39;
@@ -126,7 +126,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The concentrator to use when the ipAssignmentMode is &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;.</value>
 		[DataMember(Name = "concentratorNetworkId", EmitDefaultValue = false)]
-		public string ConcentratorNetworkId { get; set; }
+		public string ConcentratorNetworkId { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The VLAN ID used for VLAN tagging. This param is only valid when the ipAssignmentMode is &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;
@@ -147,7 +147,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The list of tags and VLAN IDs used for VLAN tagging. This param is only valid when the ipAssignmentMode is &#39;Bridge mode&#39; or &#39;Layer 3 roaming&#39;</value>
 		[DataMember(Name = "apTagsAndVlanIds", EmitDefaultValue = false)]
-		public List<ApTagsAndVlanId> ApTagsAndVlanIds { get; set; }
+		public List<ApTagsAndVlanId> ApTagsAndVlanIds { get; set; } = new();
 
 		/// <summary>
 		/// Allow access to a configurable list of IP ranges, which users may access prior to sign-on.
@@ -161,7 +161,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Specify your walled garden by entering space-separated addresses, ranges using CIDR notation, domain names, and domain wildcards (e.g. 192.168.1.1/24 192.168.37.10/32 www.yahoo.com *.google.com). Meraki&#39;s splash page is automatically included in your walled garden.</value>
 		[DataMember(Name = "walledGardenRanges", EmitDefaultValue = false)]
-		public string WalledGardenRanges { get; set; }
+		public string WalledGardenRanges { get; set; } = string.Empty;
 
 		/// <summary>
 		/// If true, the RADIUS response can override VLAN tag. This is not valid when ipAssignmentMode is &#39;NAT mode&#39;.
@@ -182,7 +182,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The client-serving radio frequencies. (&#39;Dual band operation&#39;, &#39;5 GHz band only&#39; or &#39;Dual band operation with Band Steering&#39;)</value>
 		[DataMember(Name = "bandSelection", EmitDefaultValue = false)]
-		public string BandSelection { get; set; }
+		public string BandSelection { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The upload bandwidth limit in Kbps. (0 represents no limit.)

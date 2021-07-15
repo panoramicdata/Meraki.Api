@@ -17,13 +17,11 @@ namespace Meraki.Api.Interfaces
 		/// Generate a snapshot of what the camera sees at the specified time and return a link to that image.
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <param name="generateNetworkCameraSnapshot"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/cameras/{serial}/snapshot")]
+		[Post("/devices/{serial}/camera/generateSnapshot")]
 		Task<CameraSnapshot> GetSnapshotAsync(
-			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial,
 			[Body]CameraSnapshotRequest generateNetworkCameraSnapshot,
 			CancellationToken cancellationToken = default);
@@ -67,9 +65,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <param name="timestamp">[optional] The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds). If no timestamp is specified, we will assume current time. (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/cameras/{serial}/videoLink")]
+		[Get("/devices/{serial}/camera/videoLink")]
 		Task<object> GetVideoLinkAsync(
-			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial,
 			[AliasAs("timestamp")]string timestamp = null!,
 			CancellationToken cancellationToken = default);

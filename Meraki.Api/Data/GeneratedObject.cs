@@ -18,6 +18,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The ID of the desired group policy to apply to the client. Required if &#39;devicePolicy&#39; is set to \&quot;Group policy\&quot;. Otherwise this is ignored.</value>
 		[DataMember(Name = "groupPolicyId", EmitDefaultValue = false)]
-		public string GroupPolicyId { get; set; }
+		public string GroupPolicyId { get; set; } = string.Empty;
 	}
 }

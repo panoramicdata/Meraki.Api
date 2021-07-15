@@ -30,7 +30,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The source port range of the incoming packet. Applicable only if protocol is set to TCP or UDP. Example: 70-80</value>
 		[DataMember(Name = "srcPortRange", EmitDefaultValue = false)]
-		public string SrcPortRange { get; set; }
+		public string SrcPortRange { get; set; } = string.Empty;
 		/// <summary>
 		/// The destination port of the incoming packet. Applicable only if protocol is TCP or UDP.
 		/// </summary>
@@ -42,7 +42,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The destination port range of the incoming packet. Applicable only if protocol is set to TCP or UDP. Example: 70-80</value>
 		[DataMember(Name = "dstPortRange", EmitDefaultValue = false)]
-		public string DstPortRange { get; set; }
+		public string DstPortRange { get; set; } = string.Empty;
 		/// <summary>
 		/// DSCP tag that should be assigned to incoming packet. Set this to -1 to trust incoming DSCP. Default value is 0.
 		/// </summary>

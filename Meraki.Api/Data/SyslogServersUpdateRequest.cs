@@ -14,6 +14,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>A list of the syslog servers for this network</value>
 		[DataMember(Name = "servers", EmitDefaultValue = false)]
-		public List<Server> Servers { get; set; }
+		public List<ServerSettings> Servers { get; set; } = new();
 	}
 }

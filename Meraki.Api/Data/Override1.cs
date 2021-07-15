@@ -14,19 +14,19 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>List of switch profiles ids for template network</value>
 		[DataMember(Name = "switchProfiles", EmitDefaultValue = false)]
-		public List<string> SwitchProfiles { get; set; }
+		public List<string> SwitchProfiles { get; set; } = new();
 		/// <summary>
 		/// List of switch serials for non-template network
 		/// </summary>
 		/// <value>List of switch serials for non-template network</value>
 		[DataMember(Name = "switches", EmitDefaultValue = false)]
-		public List<string> Switches { get; set; }
+		public List<string> Switches { get; set; } = new();
 		/// <summary>
 		/// List of switch stack ids for non-template network
 		/// </summary>
 		/// <value>List of switch stack ids for non-template network</value>
 		[DataMember(Name = "stacks", EmitDefaultValue = false)]
-		public List<string> Stacks { get; set; }
+		public List<string> Stacks { get; set; } = new();
 		/// <summary>
 		/// IGMP snooping setting for switches, switch stacks or switch profiles
 		/// </summary>

@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>optional: The scope (one of all, none, automatic, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be assigned</value>
 		[DataMember(Name = "scope", EmitDefaultValue = false)]
-		public string Scope { get; set; }
+		public string Scope { get; set; } = string.Empty;
 		/// <summary>
 		/// optional: Whether or not SM should auto-install this app (one of true or false)
 		/// </summary>

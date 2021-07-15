@@ -32,3 +32,6 @@ using System.Diagnostics.CodeAnalysis;
 	 Justification = "Uri would not deserialize properly.",
 	 Scope = "member",
 	 Target = "~M:Meraki.Api.Interfaces.IWebhookLogs.GetOrganizationWebhookLogs(System.String,System.String,System.String,System.Nullable{System.Double},System.Nullable{System.Int32},System.String,System.String,System.String)~System.Threading.Tasks.Task{System.Object}")]
+[assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>", Scope = "member", Target = "~P:Meraki.Api.Data.Destination._Default")]
+[assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Pending>", Scope = "type", Target = "~T:Meraki.Api.Data.DhcpLeaseTime")]
+[assembly: SuppressMessage("Naming", "CA1720:Identifier contains type name", Justification = "<Pending>", Scope = "member", Target = "~F:Meraki.Api.Data.DhcpOptionType.Integer")]

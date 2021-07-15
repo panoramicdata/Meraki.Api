@@ -20,13 +20,13 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>An array of ports or port ranges that will be forwarded to the host on the LAN</value>
 		[DataMember(Name = "destinationPorts", EmitDefaultValue = false)]
-		public List<string> DestinationPorts { get; set; }
+		public List<string> DestinationPorts { get; set; } = new();
 
 		/// <summary>
 		/// An array of ranges of WAN IP addresses that are allowed to make inbound connections on the specified ports or port ranges, or &#39;any&#39;
 		/// </summary>
 		/// <value>An array of ranges of WAN IP addresses that are allowed to make inbound connections on the specified ports or port ranges, or &#39;any&#39;</value>
 		[DataMember(Name = "allowedIps", EmitDefaultValue = false)]
-		public List<string> AllowedIps { get; set; }
+		public List<string> AllowedIps { get; set; } = new();
 	}
 }

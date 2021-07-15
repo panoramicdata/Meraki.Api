@@ -14,6 +14,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>An ordered array of the firewall rules (not including the default rule)</value>
 		[DataMember(Name = "rules", EmitDefaultValue = false)]
-		public List<MxCellularFirewallRule> Rules { get; set; }
+		public List<MxCellularFirewallRule> Rules { get; set; } = new();
 	}
 }

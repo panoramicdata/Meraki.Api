@@ -20,6 +20,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>STP bridge priority for switches/stacks or switch profiles. An empty array will clear the STP bridge priority settings.</value>
 		[DataMember(Name = "stpBridgePriority", EmitDefaultValue = false)]
-		public List<StpBridgePriority> StpBridgePriority { get; set; }
+		public List<StpBridgePriority> StpBridgePriority { get; set; } = new();
 	}
 }

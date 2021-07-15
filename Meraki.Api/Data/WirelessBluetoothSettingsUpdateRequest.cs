@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Desired UUID of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.</value>
 		[DataMember(Name = "uuid", EmitDefaultValue = false)]
-		public string Uuid { get; set; }
+		public string Uuid { get; set; } = string.Empty;
 		/// <summary>
 		/// Desired major value of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.
 		/// </summary>

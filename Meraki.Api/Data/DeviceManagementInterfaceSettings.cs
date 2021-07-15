@@ -12,18 +12,18 @@ namespace Meraki.Api.Data
 		/// Whether the request was successfully sent to the device
 		/// </summary>
 		[DataMember(Name = "ddnsHostnames")]
-		public DeviceManagementInterfaceSettingsDdnsHostNames DdnsHostnames { get; set; }
+		public DeviceManagementInterfaceSettingsDdnsHostNames DdnsHostnames { get; set; } = new();
 
 		/// <summary>
 		/// Whether the request was successfully sent to the device
 		/// </summary>
 		[DataMember(Name = "wan1")]
-		public DeviceManagementInterfaceSettingsWan Wan1 { get; set; }
+		public DeviceManagementInterfaceSettingsWan Wan1 { get; set; } = new();
 
 		/// <summary>
 		/// Whether the request was successfully sent to the device
 		/// </summary>
 		[DataMember(Name = "wan2")]
-		public DeviceManagementInterfaceSettingsWan Wan2 { get; set; }
+		public DeviceManagementInterfaceSettingsWan Wan2 { get; set; } = new();
 	}
 }

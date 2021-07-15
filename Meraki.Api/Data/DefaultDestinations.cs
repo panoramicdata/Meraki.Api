@@ -14,7 +14,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>A list of emails that will recieve the alert(s).</value>
 		[DataMember(Name = "emails", EmitDefaultValue = false)]
-		public List<string> Emails { get; set; }
+		public List<string> Emails { get; set; } = new();
 		/// <summary>
 		/// If true, then all network admins will receive emails.
 		/// </summary>
@@ -32,6 +32,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>A list of HTTP server IDs to send a Webhook to</value>
 		[DataMember(Name = "httpServerIds", EmitDefaultValue = false)]
-		public List<string> HttpServerIds { get; set; }
+		public List<string> HttpServerIds { get; set; } = new();
 	}
 }

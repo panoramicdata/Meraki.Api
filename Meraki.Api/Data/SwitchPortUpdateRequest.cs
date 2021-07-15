@@ -14,13 +14,13 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The name of the switch port</value>
 		[DataMember(Name = "name", EmitDefaultValue = false)]
-		public string Name { get; set; }
+		public string Name { get; set; } = string.Empty;
 		/// <summary>
 		/// The tags of the switch port
 		/// </summary>
 		/// <value>The tags of the switch port</value>
 		[DataMember(Name = "tags", EmitDefaultValue = false)]
-		public string Tags { get; set; }
+		public string Tags { get; set; } = string.Empty;
 		/// <summary>
 		/// The status of the switch port
 		/// </summary>
@@ -49,7 +49,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The VLANs allowed on the switch port. Only applicable to trunk ports.</value>
 		[DataMember(Name = "allowedVlans", EmitDefaultValue = false)]
-		public string AllowedVlans { get; set; }
+		public string AllowedVlans { get; set; } = string.Empty;
 		/// <summary>
 		/// The PoE status of the switch port
 		/// </summary>
@@ -84,13 +84,13 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The link speed for the switch port</value>
 		[DataMember(Name = "linkNegotiation", EmitDefaultValue = false)]
-		public string LinkNegotiation { get; set; }
+		public string LinkNegotiation { get; set; } = string.Empty;
 		/// <summary>
 		/// The ID of the port schedule. A value of null will clear the port schedule.
 		/// </summary>
 		/// <value>The ID of the port schedule. A value of null will clear the port schedule.</value>
 		[DataMember(Name = "portScheduleId", EmitDefaultValue = false)]
-		public string PortScheduleId { get; set; }
+		public string PortScheduleId { get; set; } = string.Empty;
 		/// <summary>
 		/// Gets or Sets Udld
 		/// </summary>
@@ -101,13 +101,13 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Only devices with MAC addresses specified in this list will have access to this port. Up to 20 MAC addresses can be defined. To disable MAC whitelist, set accessPolicyNumber to null.</value>
 		[DataMember(Name = "macWhitelist", EmitDefaultValue = false)]
-		public List<string> MacWhitelist { get; set; }
+		public List<string> MacWhitelist { get; set; } = new();
 		/// <summary>
 		/// The initial list of MAC addresses for sticky Mac whitelist. To reset Sticky MAC whitelist, set accessPolicyNumber to null.
 		/// </summary>
 		/// <value>The initial list of MAC addresses for sticky Mac whitelist. To reset Sticky MAC whitelist, set accessPolicyNumber to null.</value>
 		[DataMember(Name = "stickyMacWhitelist", EmitDefaultValue = false)]
-		public List<string> StickyMacWhitelist { get; set; }
+		public List<string> StickyMacWhitelist { get; set; } = new();
 		/// <summary>
 		/// The maximum number of MAC addresses for sticky MAC whitelist.
 		/// </summary>

@@ -19,7 +19,7 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Policy
 		/// </summary>
 		[DataMember(Name = "policy", EmitDefaultValue = false)]
-		public Policy Policy { get; set; }
+		public AllowOrDeny Policy { get; set; }
 
 		/// <summary>
 		/// Gets or Sets IpVersion

@@ -14,6 +14,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>An array of port forwarding params</value>
 		[DataMember(Name = "rules", EmitDefaultValue = false)]
-		public List<CellularGatewaySettingsPortForwardingRule> Rules { get; set; }
+		public List<CellularGatewaySettingsPortForwardingRule> Rules { get; set; } = new();
 	}
 }

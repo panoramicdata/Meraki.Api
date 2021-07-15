@@ -13,13 +13,13 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Settings
 		/// </summary>
 		[DataMember(Name = "settings", EmitDefaultValue = false)]
-		public Setting Settings { get; set; }
+		public Setting Settings { get; set; } = new();
 
 		/// <summary>
 		/// A whitelist of URL patterns to allow
 		/// </summary>
 		/// <value>A whitelist of URL patterns to allow</value>
 		[DataMember(Name = "patterns", EmitDefaultValue = false)]
-		public List<string> Patterns { get; set; }
+		public List<string> Patterns { get; set; } = new();
 	}
 }

@@ -146,7 +146,7 @@ namespace Meraki.Api.Test
 				{
 					await MerakiClient
 						.Devices
-						.RemoveAsync(oldNetwork.Id, oldNetworkDevice.Serial)
+						.RemoveAsync(oldNetwork.Id)
 						.ConfigureAwait(false);
 				}
 
@@ -162,11 +162,6 @@ namespace Meraki.Api.Test
 		{
 			const string networkName = "Meraki.Api Unit Test";
 
-			//var bulkClaim = await MerakiClient
-			//	.Organizations
-			//	.BulkClaimAsync(Configuration.TestOrganizationId, new OrganizationBulkClaim { Serials = new List<string> { Configuration.TestDeviceSerial } })
-			//	.ConfigureAwait(false);
-
 			// Get the device
 			var devices = await MerakiClient
 				.Organizations
@@ -178,7 +173,7 @@ namespace Meraki.Api.Test
 				// Unclaim the device
 				await MerakiClient
 					 .Devices
-					 .RemoveAsync(device.NetworkId, Configuration.TestDeviceSerial)
+					 .RemoveAsync(device.NetworkId)
 					 .ConfigureAwait(false);
 			}
 
@@ -238,6 +233,7 @@ namespace Meraki.Api.Test
 
 			var vlan10 = initialVlans.SingleOrDefault(v => v.Id == "10");
 			vlan10.Should().NotBeNull();
+			vlan10 = null!;
 
 			// Update a VLAN
 			var updatedVlan = await MerakiClient
@@ -268,41 +264,41 @@ namespace Meraki.Api.Test
 			// Make sure it's there.
 			var fetchedDevice = await MerakiClient
 				.Devices
-				.GetAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.GetAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			fetchedDevice.Should().BeOfType<Device>();
 			fetchedDevice.Should().NotBeNull();
 
-			// Updating the device with a too-long address should fail
-			Func<Task> action = async () =>
+			// updating the device with a too-long address should fail
+			Func<Task> Action = async () =>
 			{
 				await MerakiClient
-								.Devices
-								.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateRequest { Address = new string('X', Device.MaxAddressLength + 1) })
-								.ConfigureAwait(false);
+					.Devices
+					.UpdateAsync(newNetwork.Id, new DeviceUpdateRequest { Address = new string('x', Device.MaxAddressLength + 1) })
+					.ConfigureAwait(false);
 			};
 
-			await action
+			await Action
 				.Should()
 				.ThrowAsync<ApiException>()
 				.ConfigureAwait(false);
 
-			// But an OK length should succeed
+			//// But an OK length should succeed
 			await MerakiClient
 				.Devices
-				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateRequest { Address = new string('X', Device.MaxAddressLength) })
+				.UpdateAsync(newNetwork.Id, new DeviceUpdateRequest { Address = new string('X', Device.MaxAddressLength) })
 				.ConfigureAwait(false);
 
-			// Setting the address should succeed
+			//// Setting the address should succeed
 			await MerakiClient
 				.Devices
-				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new DeviceUpdateRequest { Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA" })
+				.UpdateAsync(newNetwork.Id, new DeviceUpdateRequest { Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA" })
 				.ConfigureAwait(false);
 
-			// Get the management interface settings
+			//// Get the management interface settings
 			var wanSpecs = await MerakiClient
 				.ManagementInterfaceSettings
-				.GetAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.GetAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			wanSpecs.Should().BeOfType<WanSpecs>();
 			wanSpecs.Should().NotBeNull();
@@ -327,7 +323,7 @@ namespace Meraki.Api.Test
 			};
 			var updatedWanSpecs = await MerakiClient
 				.ManagementInterfaceSettings
-				.UpdateAsync(newNetwork.Id, Configuration.TestDeviceSerial, new ManagementInterfaceSettingsUpdateRequest
+				.UpdateAsync(newNetwork.Id, new ManagementInterfaceSettingsUpdateRequest
 				{
 					Wan1 = new Wan
 					{
@@ -344,10 +340,10 @@ namespace Meraki.Api.Test
 			updatedWanSpecs.Should().BeOfType<WanSpecs>();
 			updatedWanSpecs.Should().NotBeNull();
 
-			// Get the management interface settings
+			//// Get the management interface settings
 			var wanSpecsRefetch = await MerakiClient
 				.ManagementInterfaceSettings
-				.GetAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.GetAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			wanSpecsRefetch.Should().NotBeNull();
 			wanSpecsRefetch.Wan1.Should().NotBeNull();
@@ -370,7 +366,7 @@ namespace Meraki.Api.Test
 
 			await MerakiClient
 				.Devices
-				.RemoveAsync(newNetwork.Id, Configuration.TestDeviceSerial)
+				.RemoveAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			await MerakiClient
@@ -386,7 +382,7 @@ namespace Meraki.Api.Test
 				.DeleteAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
-			action = async () =>
+			Action = async () =>
 			{
 				var _ = await MerakiClient
 					.Networks
@@ -394,7 +390,7 @@ namespace Meraki.Api.Test
 					.ConfigureAwait(false);
 			};
 
-			await action
+			await Action
 				.Should()
 				.ThrowAsync<ApiException>()
 				.ConfigureAwait(false);
@@ -469,11 +465,11 @@ namespace Meraki.Api.Test
 			// Get a snapshot from the camera
 			var newResult = await MerakiClient
 				.Cameras
-				.GetSnapshotAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!, new CameraSnapshotRequest { Fullframe = true })
+				.GetSnapshotAsync(Configuration.TestCameraSerial!, new CameraSnapshotRequest { Fullframe = true })
 				.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 
-			// Download the image
+			//Download the image
 			using var client = new WebClient();
 			using var stream = client.OpenRead(newResult.Url);
 			using var bitmap = new Bitmap(stream);

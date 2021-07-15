@@ -21,7 +21,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkVlan"></param>
 		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/vlans")]
+		[Post("/networks/{networkId}/appliance/vlans")]
 		Task<Vlan> CreateAsync(
 			[AliasAs("networkId")]string networkId,
 			[Body]VlanCreationRequest createNetworkVlan,
@@ -37,7 +37,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="vlanId"></param>
 		/// <returns>Task of void</returns>
-		[Delete("/networks/{networkId}/vlans/{vlanId}")]
+		[Delete("/networks/{networkId}/appliance/vlans/{vlanId}")]
 		Task DeleteAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("vlanId")]string vlanId,
@@ -53,7 +53,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="vlanId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/vlans/{vlanId}")]
+		[Get("/networks/{networkId}/appliance/vlans/{vlanId}")]
 		Task<Vlan> GetAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("vlanId")]string vlanId,
@@ -68,7 +68,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/vlans")]
+		[Get("/networks/{networkId}/appliance/vlans")]
 		Task<List<Vlan>> GetAllAsync(
 			[AliasAs("networkId")]string networkId,
 			CancellationToken cancellationToken = default);
@@ -82,7 +82,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/vlansEnabledState")]
+		[Get("/networks/{networkId}/appliance/vlans/settings")]
 		Task<VlansEnabledState> GetNetworkVlansEnabledState(
 			[AliasAs("networkId")]string networkId
 			);
@@ -98,7 +98,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlanId"></param>
 		/// <param name="vlanSpec"></param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/vlans/{vlanId}")]
+		[Put("/networks/{networkId}/appliance/vlans/{vlanId}")]
 		Task<Vlan> UpdateAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("vlanId")]string vlanId,
@@ -115,7 +115,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkVlansEnabledState"></param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/vlansEnabledState")]
+		[Put("/networks/{networkId}/appliance/vlans/settings")]
 		Task<VlansEnabledState> UpdateNetworkVlansEnabledState(
 			[AliasAs("networkId")]string networkId,
 			[Body]VlansEnabledState updateNetworkVlansEnabledState

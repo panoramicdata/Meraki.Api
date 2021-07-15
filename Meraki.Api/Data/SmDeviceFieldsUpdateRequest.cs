@@ -13,23 +13,23 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The wifiMac of the device to be modified.</value>
 		[DataMember(Name = "wifiMac", EmitDefaultValue = false)]
-		public string WifiMac { get; set; }
+		public string WifiMac { get; set; } = string.Empty;
 		/// <summary>
 		/// The id of the device to be modified.
 		/// </summary>
 		/// <value>The id of the device to be modified.</value>
 		[DataMember(Name = "id", EmitDefaultValue = false)]
-		public string Id { get; set; }
+		public string Id { get; set; } = string.Empty;
 		/// <summary>
 		/// The serial of the device to be modified.
 		/// </summary>
 		/// <value>The serial of the device to be modified.</value>
 		[DataMember(Name = "serial", EmitDefaultValue = false)]
-		public string Serial { get; set; }
+		public string Serial { get; set; } = string.Empty;
 		/// <summary>
 		/// Gets or Sets DeviceFields
 		/// </summary>
 		[DataMember(Name = "deviceFields", EmitDefaultValue = false)]
-		public DeviceFields DeviceFields { get; set; }
+		public DeviceFields DeviceFields { get; set; } = new();
 	}
 }

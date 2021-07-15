@@ -25,7 +25,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The type of the port: &#39;access&#39; or &#39;trunk&#39;.</value>
 		[DataMember(Name = "type", EmitDefaultValue = false)]
-		public string Type { get; set; }
+		public string Type { get; set; } = string.Empty;
 		/// <summary>
 		/// Native VLAN when the port is in Trunk mode. Access VLAN when the port is in Access mode.
 		/// </summary>
@@ -37,12 +37,12 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Comma-delimited list of the VLAN ID&#39;s allowed on the port, or &#39;all&#39; to permit all VLAN&#39;s on the port.</value>
 		[DataMember(Name = "allowedVlans", EmitDefaultValue = false)]
-		public string AllowedVlans { get; set; }
+		public string AllowedVlans { get; set; } = string.Empty;
 		/// <summary>
 		/// The name of the policy. Only applicable to Access ports. Valid values are: &#39;open&#39;, &#39;8021x-radius&#39;, &#39;mac-radius&#39;, &#39;hybris-radius&#39; for MX64 or Z3 or any MX supporting the per port authentication feature. Otherwise, &#39;open&#39; is the only valid value and &#39;open&#39; is the default value if the field is missing.
 		/// </summary>
 		/// <value>The name of the policy. Only applicable to Access ports. Valid values are: &#39;open&#39;, &#39;8021x-radius&#39;, &#39;mac-radius&#39;, &#39;hybris-radius&#39; for MX64 or Z3 or any MX supporting the per port authentication feature. Otherwise, &#39;open&#39; is the only valid value and &#39;open&#39; is the default value if the field is missing.</value>
 		[DataMember(Name = "accessPolicy", EmitDefaultValue = false)]
-		public string AccessPolicy { get; set; }
+		public string AccessPolicy { get; set; } = string.Empty;
 	}
 }

@@ -109,7 +109,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/deviceStatuses")]
+		[Get("/organizations/{organizationId}/devices/statuses")]
 		Task<List<OrganizationDeviceStatus>> GetDeviceStatusesAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
@@ -139,7 +139,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/licenseState")]
+		[Get("//organizations/{organizationId}/licenses/overview")]
 		Task<OrganizationLicenseState> GetLicenseStateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
@@ -172,7 +172,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="uplink">Optional filter for a specific WAN uplink. Valid uplinks are wan1, wan2, cellular. Default will return all uplinks. (optional)</param>
 		/// <param name="ip">Optional filter for a specific destination IP. Default will return all destination IPs. (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/uplinksLossAndLatency")]
+		[Get("/organizations/{organizationId}/devices/uplinksLossAndLatency")]
 		Task<object> GetUplinksLossAndLatencyAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("t0")] string t0 = null!,

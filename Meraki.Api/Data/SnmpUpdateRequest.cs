@@ -30,7 +30,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The SNMP version 3 authentication password. Must be at least 8 characters if specified.</value>
 		[DataMember(Name = "v3AuthPass", EmitDefaultValue = false)]
-		public string V3AuthPass { get; set; }
+		public string V3AuthPass { get; set; } = string.Empty;
 		/// <summary>
 		/// Gets or Sets V3PrivMode
 		/// </summary>
@@ -41,12 +41,12 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The SNMP version 3 privacy password. Must be at least 8 characters if specified.</value>
 		[DataMember(Name = "v3PrivPass", EmitDefaultValue = false)]
-		public string V3PrivPass { get; set; }
+		public string V3PrivPass { get; set; } = string.Empty;
 		/// <summary>
 		/// The IPs that are allowed to access the SNMP server. This list should be IPv4 addresses separated by semi-colons (ie. \&quot;1.2.3.4;2.3.4.5\&quot;).
 		/// </summary>
 		/// <value>The IPs that are allowed to access the SNMP server. This list should be IPv4 addresses separated by semi-colons (ie. \&quot;1.2.3.4;2.3.4.5\&quot;).</value>
 		[DataMember(Name = "peerIps", EmitDefaultValue = false)]
-		public string PeerIps { get; set; }
+		public string PeerIps { get; set; } = string.Empty;
 	}
 }

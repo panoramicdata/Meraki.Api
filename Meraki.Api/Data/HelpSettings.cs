@@ -38,7 +38,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The KB search box which appears on the Help page. Can be one of &#39;default or inherit&#39;, &#39;hide&#39;, &#39;show&#39;, or a replacement custom HTML string.</value>
 		[DataMember(Name = "getHelpSubtabKnowledgeBaseSearch", EmitDefaultValue = false)]
-		public string GetHelpSubtabKnowledgeBaseSearch { get; set; }
+		public string GetHelpSubtabKnowledgeBaseSearch { get; set; } = string.Empty;
 		/// <summary>
 		/// Gets or Sets UniversalSearchKnowledgeBaseSearch
 		/// </summary>
@@ -49,13 +49,13 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The &#39;Product Manuals&#39; section of the &#39;Help -&gt; Get Help&#39; subtab. Can be one of &#39;default or inherit&#39;, &#39;hide&#39;, &#39;show&#39;, or a replacement custom HTML string.</value>
 		[DataMember(Name = "ciscoMerakiProductDocumentation", EmitDefaultValue = false)]
-		public string CiscoMerakiProductDocumentation { get; set; }
+		public string CiscoMerakiProductDocumentation { get; set; } = string.Empty;
 		/// <summary>
 		/// The &#39;Contact Meraki Support&#39; section of the &#39;Help -&gt; Get Help&#39; subtab. Can be one of &#39;default or inherit&#39;, &#39;hide&#39;, &#39;show&#39;, or a replacement custom HTML string.
 		/// </summary>
 		/// <value>The &#39;Contact Meraki Support&#39; section of the &#39;Help -&gt; Get Help&#39; subtab. Can be one of &#39;default or inherit&#39;, &#39;hide&#39;, &#39;show&#39;, or a replacement custom HTML string.</value>
 		[DataMember(Name = "supportContactInfo", EmitDefaultValue = false)]
-		public string SupportContactInfo { get; set; }
+		public string SupportContactInfo { get; set; } = string.Empty;
 		/// <summary>
 		/// Gets or Sets NewFeaturesSubtab
 		/// </summary>

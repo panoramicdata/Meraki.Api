@@ -115,7 +115,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{deviceId}/cellularUsageHistory")]
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/cellularUsageHistory")]
 		Task<object> GetNetworkSmCellularUsageHistory(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId
@@ -131,7 +131,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{deviceId}/certs")]
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/certs")]
 		Task<object> GetNetworkSmCerts(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId
@@ -213,7 +213,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{deviceId}/deviceProfiles")]
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/deviceProfiles")]
 		Task<object> GetNetworkSmDeviceProfiles(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId
@@ -257,7 +257,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{deviceId}/networkAdapters")]
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/networkAdapters")]
 		Task<object> GetNetworkSmNetworkAdapters(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId
@@ -309,7 +309,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{deviceId}/restrictions")]
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/restrictions")]
 		Task<object> GetNetworkSmRestrictions(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId
@@ -325,7 +325,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{deviceId}/securityCenters")]
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/securityCenters")]
 		Task<object> GetNetworkSmSecurityCenters(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId
@@ -341,7 +341,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{deviceId}/softwares")]
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/softwares")]
 		Task<object> GetNetworkSmSoftwares(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId
@@ -357,7 +357,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="userId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/user/{userId}/deviceProfiles")]
+		[Get("/networks/{networkId}/sm/users/{userId}/deviceProfiles")]
 		Task<object> GetNetworkSmUserDeviceProfiles(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("userId")]string userId
@@ -373,7 +373,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="userId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/user/{userId}/softwares")]
+		[Get("/networks/{networkId}/sm/users/{userId}/softwares")]
 		Task<object> GetNetworkSmUserSoftwares(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("userId")]string userId
@@ -411,26 +411,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{deviceId}/wlanLists")]
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/wlanLists")]
 		Task<object> GetNetworkSmWlanLists(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId
-			);
-
-		/// <summary>
-		/// lockNetworkSmDevices
-		/// </summary>
-		/// <remarks>
-		/// Lock a set of devices
-		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="lockNetworkSmDevices"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/sm/devices/lock")]
-		Task<object> LockNetworkSmDevices(
-			[AliasAs("networkId")]string networkId,
-			[Body]LockNetworkSmDevices lockNetworkSmDevices
 			);
 
 		/// <summary>
@@ -459,7 +443,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of void</returns>
-		[Post("/networks/{networkId}/sm/device/{deviceId}/refreshDetails")]
+		[Post("/networks/{networkId}/sm/devices/{deviceId}/refreshDetails")]
 		Task RefreshNetworkSmDeviceDetails(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId
@@ -509,26 +493,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSmDeviceFields"></param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/sm/device/fields")]
+		[Put("/networks/{networkId}/sm/devices/fields")]
 		Task<object> UpdateNetworkSmDeviceFields(
 			[AliasAs("networkId")]string networkId,
 			[Body]SmDeviceFieldsUpdateRequest updateNetworkSmDeviceFields
-			);
-
-		/// <summary>
-		/// updateNetworkSmDevicesTags
-		/// </summary>
-		/// <remarks>
-		/// Add, delete, or update the tags of a set of devices
-		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="updateNetworkSmDevicesTags"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/sm/devices/tags")]
-		Task<object> UpdateNetworkSmDevicesTags(
-			[AliasAs("networkId")]string networkId,
-			[Body]SmDevicesTagsUpdateRequest updateNetworkSmDevicesTags
 			);
 	}
 }

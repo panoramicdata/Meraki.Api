@@ -13,12 +13,12 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The network ID</value>
 		[DataMember(Name = "id", EmitDefaultValue = false)]
-		public string Id { get; set; }
+		public string Id { get; set; } = string.Empty;
 		/// <summary>
 		/// The privilege of the SAML administrator on the network
 		/// </summary>
 		/// <value>The privilege of the SAML administrator on the network</value>
 		[DataMember(Name = "access", EmitDefaultValue = false)]
-		public string Access { get; set; }
+		public string Access { get; set; } = string.Empty;
 	}
 }

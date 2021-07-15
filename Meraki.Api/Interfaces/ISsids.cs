@@ -21,9 +21,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/devices/{serial}/wireless/status")]
+		[Get("/devices/{serial}/wireless/status")]
 		Task<object> GetNetworkDeviceWirelessStatus(
-			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial
 			);
 
@@ -37,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/ssids/{number}")]
+		[Get("/networks/{networkId}/wireless/ssids/{number}")]
 		Task<NetworkSsid> GetAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("number")]string number,
@@ -52,7 +51,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/ssids")]
+		[Get("/networks/{networkId}/wireless/ssids")]
 		Task<List<NetworkSsid>> GetAllAsync(
 			[AliasAs("networkId")]string networkId,
 			CancellationToken cancellationToken = default);
@@ -68,7 +67,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="number"></param>
 		/// <param name="updateNetworkSsid"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/ssids/{number}")]
+		[Put("/networks/{networkId}/wireless/ssids/{number}")]
 		Task<NetworkSsid> UpdateAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("number")]string number,

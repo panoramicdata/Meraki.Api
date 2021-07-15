@@ -26,6 +26,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Exceptions on a per switch basis to \&quot;useCombinedPower\&quot;</value>
 		[DataMember(Name = "powerExceptions", EmitDefaultValue = false)]
-		public List<PowerException> PowerExceptions { get; set; }
+		public List<PowerException> PowerExceptions { get; set; } = new();
 	}
 }

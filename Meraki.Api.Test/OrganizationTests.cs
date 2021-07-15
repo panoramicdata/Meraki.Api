@@ -1,7 +1,9 @@
 using FluentAssertions;
 using Meraki.Api.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -126,7 +128,7 @@ namespace Meraki.Api.Test
 
 			var license = organizationDeviceLicenses.FirstOrDefault();
 
-			license.Should().NotBeNull();
+			license = null!;
 
 			var organizationDeviceLicense = await MerakiClient
 				.Licenses
@@ -136,76 +138,76 @@ namespace Meraki.Api.Test
 			organizationDeviceLicense.Should().NotBeNull();
 		}
 
-		//[Fact]
-		//public async void ClaimDeviceAsync_Succeeds()
-		//{
-		//	var result = await MerakiClient
-		//		.Organizations
-		//		.ClaimAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
-		//		.ConfigureAwait(false);
-		//	result.Should().NotBeNull();
-		//	result.Serials.Should().NotBeEmpty();
-		//}
+		[Fact]
+		public async void ClaimDeviceAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.Organizations
+				.ClaimAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
+				.ConfigureAwait(false);
+			result.Should().NotBeNull();
+			result.Serials.Should().NotBeEmpty();
+		}
 
-		//[Fact]
-		//public async void Crud_Succeeds()
-		//{
-		//	// Create
-		//	const string initialOrganizationName = "TestOrganization";
-		//	var createdOrganization = await MerakiClient
-		//		.Organizations
-		//		.CreateAsync(new OrganizationCreateRequest { Name = initialOrganizationName })
-		//		.ConfigureAwait(false);
-		//	CheckOrganization(createdOrganization, initialOrganizationName);
+		[Fact]
+		public async void Crud_Succeeds()
+		{
+			// Create
+			const string initialOrganizationName = "TestOrganization";
+			var createdOrganization = await MerakiClient
+				.Organizations
+				.CreateAsync(new OrganizationCreateRequest { Name = initialOrganizationName })
+				.ConfigureAwait(false);
+			CheckOrganization(createdOrganization, initialOrganizationName);
 
-		//	// Read
-		//	var refetchedOrganization = await MerakiClient
-		//		.Organizations
-		//		.GetAsync(createdOrganization.Id)
-		//		.ConfigureAwait(false);
-		//	CheckOrganization(refetchedOrganization, initialOrganizationName, createdOrganization.Id);
+			// Read
+			var refetchedOrganization = await MerakiClient
+				.Organizations
+				.GetAsync(createdOrganization.Id)
+				.ConfigureAwait(false);
+			CheckOrganization(refetchedOrganization, initialOrganizationName, createdOrganization.Id);
 
-		//	// Update
-		//	const string newOrganizationName = "TestOrganizationNewName";
-		//	var updatedOrganization = await MerakiClient
-		//		.Organizations
-		//		.UpdateAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName })
-		//		.ConfigureAwait(false);
-		//	CheckOrganization(updatedOrganization, newOrganizationName, createdOrganization.Id);
+			// Update
+			const string newOrganizationName = "TestOrganizationNewName";
+			var updatedOrganization = await MerakiClient
+				.Organizations
+				.UpdateAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName })
+				.ConfigureAwait(false);
+			CheckOrganization(updatedOrganization, newOrganizationName, createdOrganization.Id);
 
-		//	// Delete
-		//	await MerakiClient
-		//		.Organizations
-		//		.DeleteAsync(createdOrganization.Id)
-		//		.ConfigureAwait(false);
+			// Delete
+			await MerakiClient
+				.Organizations
+				.DeleteAsync(createdOrganization.Id)
+				.ConfigureAwait(false);
 
-		//	// It should be gone now
-		//	Func<Task> act = async () =>
-		//	{
-		//		await MerakiClient
-		//			.Organizations
-		//			.GetAsync(createdOrganization.Id)
-		//			.ConfigureAwait(false);
-		//	};
-		//	await act
-		//		.Should()
-		//		.ThrowAsync<InvalidOperationException>()
-		//		.ConfigureAwait(false);
-		//}
+			// It should be gone now
+			Func<Task> act = async () =>
+			{
+				await MerakiClient
+					.Organizations
+					.GetAsync(createdOrganization.Id)
+					.ConfigureAwait(false);
+			};
+			await act
+				.Should()
+				.ThrowAsync<InvalidOperationException>()
+				.ConfigureAwait(false);
+		}
 
-		//private void CheckOrganization(
-		//	Organization organization,
-		//	string initialOrganizationName,
-		//	string? id = default)
-		//{
-		//	organization.Should().NotBeNull();
-		//	organization.Id.Should().NotBeNullOrWhiteSpace();
-		//	if (id != null)
-		//	{
-		//		organization.Id.Should().Be(id);
-		//	}
-		//	organization.Name.Should().Be(initialOrganizationName);
-		//	organization.Url.Should().NotBeNullOrWhiteSpace();
-		//}
+		private void CheckOrganization(
+			Organization organization,
+			string initialOrganizationName,
+			string? id = default)
+		{
+			organization.Should().NotBeNull();
+			organization.Id.Should().NotBeNullOrWhiteSpace();
+			if (id != null)
+			{
+				organization.Id.Should().Be(id);
+			}
+			organization.Name.Should().Be(initialOrganizationName);
+			organization.Url.Should().NotBeNullOrWhiteSpace();
+		}
 	}
 }

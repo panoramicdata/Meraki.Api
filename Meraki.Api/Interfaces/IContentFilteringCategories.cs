@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/contentFiltering/categories")]
+		[Get("/networks/{networkId}/appliance/contentFiltering/categories")]
 		Task<object> GetNetworkContentFilteringCategories(
 			[AliasAs("networkId")]string networkId
 			);

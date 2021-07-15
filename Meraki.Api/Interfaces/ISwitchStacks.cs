@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="switchStackId"></param>
 		/// <param name="addNetworkSwitchStack"></param>
 		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/switchStacks/{switchStackId}/add")]
+		[Post("/networks/{networkId}/switch/switchStacks/{switchStackId}/add")]
 		Task<object> AddNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
@@ -40,7 +40,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkSwitchStack"></param>
 		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/switchStacks")]
+		[Post("/networks/{networkId}/switch/switchStacks")]
 		Task<SwitchStack> CreateNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] SwitchStackCreationRequest createNetworkSwitchStack,
@@ -57,7 +57,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="switchStackId"></param>
 		/// <returns>Task of void</returns>
-		[Delete("/networks/{networkId}/switchStacks/{switchStackId}")]
+		[Delete("/networks/{networkId}/switch/switchStacks/{switchStackId}")]
 		Task DeleteNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
@@ -74,7 +74,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="switchStackId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/switchStacks/{switchStackId}")]
+		[Get("/networks/{networkId}/switch/switchStacks/{switchStackId}")]
 		Task<SwitchStack> GetNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
@@ -90,7 +90,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/switchStacks")]
+		[Get("/networks/{networkId}/switch/switchStacks")]
 		Task<List<SwitchStack>> GetNetworkSwitchStacksAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
@@ -106,7 +106,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="switchStackId"></param>
 		/// <param name="removeNetworkSwitchStack"></param>
 		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/switchStacks/{switchStackId}/remove")]
+		[Post("/networks/{networkId}/switch/switchStacks/{switchStackId}/remove")]
 		Task<object> RemoveNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,

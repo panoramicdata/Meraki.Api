@@ -19,10 +19,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="appliancePortId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/appliancePorts/{appliancePortId}")]
+		[Get("/networks/{networkId}/appliance/ports/{portId}")]
 		Task<object> GetNetworkAppliancePort(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("appliancePortId")]string appliancePortId
+			[AliasAs("portId")]string appliancePortId
 			);
 
 		/// <summary>
@@ -34,7 +34,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/appliancePorts")]
+		[Get("/networks/{networkId}/appliance/ports")]
 		Task<object> GetNetworkAppliancePorts(
 			[AliasAs("networkId")]string networkId
 			);

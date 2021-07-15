@@ -32,6 +32,6 @@ namespace Meraki.Api.Data
 		/// Gets or Sets HelpSettings
 		/// </summary>
 		[DataMember(Name = "helpSettings", EmitDefaultValue = false)]
-		public BrandingPolicyHelpSettings HelpSettings { get; set; }
+		public BrandingPolicyHelpSettings HelpSettings { get; set; } = new();
 	}
 }

@@ -26,7 +26,7 @@ namespace Meraki.Api
 		{
 			_logger = logger ?? NullLogger.Instance;
 			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), _logger);
-			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v0/") };
+			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v1/") };
 
 			var refitSettings = new RefitSettings
 			{
@@ -496,7 +496,7 @@ namespace Meraki.Api
 		public IWirelessSettings WirelessSettings { get; }
 
 		#region IDisposable Support
-		private bool _disposedValue = false; // To detect redundant calls
+		private bool _disposedValue; // To detect redundant calls
 
 		protected virtual void Dispose(bool disposing)
 		{

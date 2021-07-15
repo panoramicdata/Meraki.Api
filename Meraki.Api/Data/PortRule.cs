@@ -14,7 +14,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>A description of the rule</value>
 		[DataMember(Name = "name", EmitDefaultValue = false)]
-		public string Name { get; set; }
+		public string Name { get; set; } = string.Empty;
 		/// <summary>
 		/// Gets or Sets Protocol
 		/// </summary>
@@ -25,24 +25,24 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Destination port of the traffic that is arriving on the WAN</value>
 		[DataMember(Name = "publicPort", EmitDefaultValue = false)]
-		public string PublicPort { get; set; }
+		public string PublicPort { get; set; } = string.Empty;
 		/// <summary>
 		/// Local IP address to which traffic will be forwarded
 		/// </summary>
 		/// <value>Local IP address to which traffic will be forwarded</value>
 		[DataMember(Name = "localIp", EmitDefaultValue = false)]
-		public string LocalIp { get; set; }
+		public string LocalIp { get; set; } = string.Empty;
 		/// <summary>
 		/// Destination port of the forwarded traffic that will be sent from the MX to the specified host on the LAN. If you simply wish to forward the traffic without translating the port, this should be the same as the Public port
 		/// </summary>
 		/// <value>Destination port of the forwarded traffic that will be sent from the MX to the specified host on the LAN. If you simply wish to forward the traffic without translating the port, this should be the same as the Public port</value>
 		[DataMember(Name = "localPort", EmitDefaultValue = false)]
-		public string LocalPort { get; set; }
+		public string LocalPort { get; set; } = string.Empty;
 		/// <summary>
 		/// Remote IP addresses or ranges that are permitted to access the internal resource via this port forwarding rule, or &#39;any&#39;
 		/// </summary>
 		/// <value>Remote IP addresses or ranges that are permitted to access the internal resource via this port forwarding rule, or &#39;any&#39;</value>
 		[DataMember(Name = "allowedIps", EmitDefaultValue = false)]
-		public List<string> AllowedIps { get; set; }
+		public List<string> AllowedIps { get; set; } = new();
 	}
 }

@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/l3FirewallRules")]
+		[Get("/networks/{networkId}/appliance/firewall/l3FirewallRules")]
 		Task<object> GetNetworkL3FirewallRules(
 			[AliasAs("networkId")]string networkId
 			);
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkL3FirewallRules"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/l3FirewallRules")]
+		[Put("/networks/{networkId}/appliance/firewall/l3FirewallRules")]
 		Task<object> UpdateNetworkL3FirewallRules(
 			[AliasAs("networkId")]string networkId,
 			[Body]Layer3FirewallRulesUpdateRequest updateNetworkL3FirewallRules);

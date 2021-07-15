@@ -51,9 +51,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/devices/{serial}/wireless/radioSettings")]
+		[Get("/devices/{serial}/wireless/radio/settings")]
 		Task<object> GetNetworkDeviceWirelessRadioSettings(
-			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial
 			);
 
@@ -100,10 +99,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <param name="updateNetworkDeviceWirelessRadioSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/devices/{serial}/wireless/radioSettings")]
+		[Put("/devices/{serial}/wireless/radio/settings")]
 		Task<object> UpdateNetworkDeviceWirelessRadioSettings(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("serial")]string serial,
+            [AliasAs("serial")]string serial,
 			[Body]WirelessRadioSettingsUpdateRequest updateNetworkDeviceWirelessRadioSettings
 			);
 

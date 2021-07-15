@@ -20,9 +20,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/devices/{serial}/managementInterfaceSettings")]
+		[Get("/devices/{serial}/managementInterfaceSettings")]
 		Task<WanSpecs> GetAsync(
-			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial,
 			CancellationToken cancellationToken = default);
 
@@ -37,9 +36,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <param name="updateNetworkDeviceManagementInterfaceSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/devices/{serial}/managementInterfaceSettings")]
+		[Put("/devices/{serial}/managementInterfaceSettings")]
 		Task<WanSpecs> UpdateAsync(
-			[AliasAs("networkId")]string networkId,
 			[AliasAs("serial")]string serial,
 			[Body]ManagementInterfaceSettingsUpdateRequest managementInterfaceSettingsUpdateDto,
 			CancellationToken cancellationToken = default);

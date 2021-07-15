@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Comma-separated list of AP tags</value>
 		[DataMember(Name = "tags", EmitDefaultValue = false)]
-		public string Tags { get; set; }
+		public string Tags { get; set; } = string.Empty;
 		/// <summary>
 		/// Numerical identifier that is assigned to the VLAN
 		/// </summary>

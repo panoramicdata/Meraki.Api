@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// Is WAN enabled
 		/// </summary>
 		[DataMember(Name = "wanEnabled")]
-		public string WanEnabled { get; set; }
+		public string WanEnabled { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Is WAN using static IP
@@ -25,30 +25,30 @@ namespace Meraki.Api.Data
 		/// The static IP
 		/// </summary>
 		[DataMember(Name = "staticIp")]
-		public string StaticIp { get; set; }
+		public string StaticIp { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The static subnet mask
 		/// </summary>
 		[DataMember(Name = "staticSubnetMask")]
-		public string StaticSubnetMask { get; set; }
+		public string StaticSubnetMask { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The static gateway IP
 		/// </summary>
 		[DataMember(Name = "staticGatewayIp")]
-		public string StaticGatewayIp { get; set; }
+		public string StaticGatewayIp { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The static DNS
 		/// </summary>
 		[DataMember(Name = "staticDns")]
-		public List<string> StaticDns { get; set; }
+		public List<string> StaticDns { get; set; } = new();
 
 		/// <summary>
 		/// The VLAN
 		/// </summary>
 		[DataMember(Name = "vlan")]
-		public string Vlan { get; set; }
+		public string Vlan { get; set; } = string.Empty;
 	}
 }

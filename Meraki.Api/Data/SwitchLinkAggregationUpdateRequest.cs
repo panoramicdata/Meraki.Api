@@ -14,12 +14,12 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Array of switch or stack ports for updating aggregation group. Minimum 2 and maximum 8 ports are supported.</value>
 		[DataMember(Name = "switchPorts", EmitDefaultValue = false)]
-		public List<SwitchPort> SwitchPorts { get; set; }
+		public List<SwitchPort> SwitchPorts { get; set; } = new();
 		/// <summary>
 		/// Array of switch profile ports for updating aggregation group. Minimum 2 and maximum 8 ports are supported.
 		/// </summary>
 		/// <value>Array of switch profile ports for updating aggregation group. Minimum 2 and maximum 8 ports are supported.</value>
 		[DataMember(Name = "switchProfilePorts", EmitDefaultValue = false)]
-		public List<SwitchProfilePort> SwitchProfilePorts { get; set; }
+		public List<SwitchProfilePort> SwitchProfilePorts { get; set; } = new();
 	}
 }

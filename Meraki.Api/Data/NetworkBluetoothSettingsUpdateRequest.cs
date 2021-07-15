@@ -25,7 +25,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The UUID to be used in the beacon identifier.</value>
 		[DataMember(Name = "uuid", EmitDefaultValue = false)]
-		public string Uuid { get; set; }
+		public string Uuid { get; set; } = string.Empty;
 		/// <summary>
 		/// Gets or Sets MajorMinorAssignmentMode
 		/// </summary>

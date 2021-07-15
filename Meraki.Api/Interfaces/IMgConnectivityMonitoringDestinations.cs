@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/cellularGateway/settings/connectivityMonitoringDestinations")]
+		[Get("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
 		Task<object> GetNetworkCellularGatewaySettingsConnectivityMonitoringDestinations(
 			[AliasAs("networkId")]string networkId
 			);
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/cellularGateway/settings/connectivityMonitoringDestinations")]
+		[Put("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
 		Task<object> UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations(
 			[AliasAs("networkId")]string networkId,
 			[Body]NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations

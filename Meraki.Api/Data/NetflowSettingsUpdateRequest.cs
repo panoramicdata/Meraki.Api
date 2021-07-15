@@ -19,7 +19,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The IPv4 address of the NetFlow collector.</value>
 		[DataMember(Name = "collectorIp", EmitDefaultValue = false)]
-		public string CollectorIp { get; set; }
+		public string CollectorIp { get; set; } = string.Empty;
 		/// <summary>
 		/// The port that the NetFlow collector will be listening on.
 		/// </summary>

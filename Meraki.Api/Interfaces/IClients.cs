@@ -81,7 +81,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 791 days. The default is 1 day. (optional)</param>
 		/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 86400. The default is 86400. (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/clients/{clientId}/latencyHistory")]
+		[Get("/networks/{networkId}/wireless/clients/{clientId}/latencyHistory")]
 		Task<object> GetLatencyHistoryAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,

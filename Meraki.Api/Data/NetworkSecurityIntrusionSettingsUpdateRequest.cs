@@ -24,6 +24,6 @@ namespace Meraki.Api.Data
 		/// Gets or Sets ProtectedNetworks
 		/// </summary>
 		[DataMember(Name = "protectedNetworks", EmitDefaultValue = false)]
-		public ProtectedNetworks ProtectedNetworks { get; set; }
+		public ProtectedNetworks ProtectedNetworks { get; set; } = new();
 	}
 }

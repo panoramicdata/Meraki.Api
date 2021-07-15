@@ -12,16 +12,16 @@ namespace Meraki.Api.Data
 		/// Gets or Sets AllowedUrlPatterns
 		/// </summary>
 		[DataMember(Name = "allowedUrlPatterns", EmitDefaultValue = false)]
-		public AllowedUrlPatterns AllowedUrlPatterns { get; set; }
+		public AllowedUrlPatterns AllowedUrlPatterns { get; set; } = new();
 		/// <summary>
 		/// Gets or Sets BlockedUrlPatterns
 		/// </summary>
 		[DataMember(Name = "blockedUrlPatterns", EmitDefaultValue = false)]
-		public BlockedUrlPatterns BlockedUrlPatterns { get; set; }
+		public BlockedUrlPatterns BlockedUrlPatterns { get; set; } = new();
 		/// <summary>
 		/// Gets or Sets BlockedUrlCategories
 		/// </summary>
 		[DataMember(Name = "blockedUrlCategories", EmitDefaultValue = false)]
-		public BlockedUrlCategories BlockedUrlCategories { get; set; }
+		public BlockedUrlCategories BlockedUrlCategories { get; set; } = new();
 	}
 }

@@ -19,12 +19,12 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The list of VPN hubs, in order of preference. In spoke mode, at least 1 hub is required.</value>
 		[DataMember(Name = "hubs", EmitDefaultValue = false)]
-		public List<Hub> Hubs { get; set; }
+		public List<Hub> Hubs { get; set; } = new();
 		/// <summary>
 		/// The list of subnets and their VPN presence.
 		/// </summary>
 		/// <value>The list of subnets and their VPN presence.</value>
 		[DataMember(Name = "subnets", EmitDefaultValue = false)]
-		public List<Subnet> Subnets { get; set; }
+		public List<Subnet> Subnets { get; set; } = new();
 	}
 }

@@ -22,9 +22,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <param name="deviceLedsBlinkRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/devices/{serial}/blinkLeds")]
+		[Post("/devices/{serial}/blinkLeds")]
 		Task<DeviceLedsBlinkResponse> BlinkLedsAsync(
-			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			[Body] DeviceLedsBlinkRequest? deviceLedsBlinkRequest = null,
 			CancellationToken cancellationToken = default);
@@ -71,9 +70,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/devices/{serial}")]
+		[Get("/devices/{serial}")]
 		Task<Device> GetAsync(
-			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -88,9 +86,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <param name="timespan">The timespan for which LLDP and CDP information will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds). LLDP and CDP information is sent to the Meraki dashboard every 10 minutes. In instances where this LLDP and CDP information matches an existing entry in the Meraki dashboard, the data is updated once every two hours. Meraki recommends querying LLDP and CDP information at an interval slightly greater than two hours, to ensure that unchanged CDP / LLDP information can be queried consistently. (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/devices/{serial}/lldp_cdp")]
+		[Get("/devices/{serial}/lldpCdp")]
 		Task<object> GetLldpCdpAsync(
-			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			[AliasAs("timespan")] int? timespan = null,
 			CancellationToken cancellationToken = default);
@@ -111,9 +108,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 60, 600, 3600, 86400. The default is 60. (optional)</param>
 		/// <param name="uplink">The WAN uplink used to obtain the requested stats. Valid uplinks are wan1, wan2, cellular. The default is wan1. (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/devices/{serial}/lossAndLatencyHistory")]
+		[Get("/devices/{serial}/lossAndLatencyHistory")]
 		Task<object> GetLossAndLatencyHistoryAsync(
-			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			[AliasAs("ip")] string ip,
 			[AliasAs("t0")] string t0 = null!,
@@ -133,9 +129,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/devices/{serial}/performance")]
+		[Get("/devices/{serial}/appliance/performance")]
 		Task<object> GetPerformanceAsync(
-			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -149,9 +144,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of List of DeviceUplinks</returns>
-		[Get("/networks/{networkId}/devices/{serial}/uplink")]
+		[Get("/devices/{serial}/uplink")]
 		Task<List<DeviceUplink>> GetNetworkDeviceUplink(
-			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial
 			);
 
@@ -201,9 +195,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of list of Device</returns>
-		[Get("/networks/{networkId}/devices/{serial}/managementInterfaceSettings")]
+		[Get("/devices/{serial}/managementInterfaceSettings")]
 		Task<DeviceManagementInterfaceSettings> GetNetworkDeviceManagementInterfaceSettingsAsync(
-			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -217,9 +210,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/devices/{serial}/reboot")]
+		[Post("/devices/{serial}/reboot")]
 		Task<object> RebootAsync(
-			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -233,10 +225,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of void</returns>
-		[Post("/networks/{networkId}/devices/{serial}/remove")]
+		[Post("/networks/{networkId}/devices/remove")]
 		Task RemoveAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -250,9 +241,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <param name="updateNetworkDevice"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/devices/{serial}")]
+		[Put("/devices/{serial}")]
 		Task<Device> UpdateAsync(
-			[AliasAs("networkId")] string networkId,
 			[AliasAs("serial")] string serial,
 			[Body] DeviceUpdateRequest updateNetworkDevice,
 			CancellationToken cancellationToken = default);

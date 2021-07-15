@@ -20,6 +20,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Override MTU size for individual switches or switch profiles. An empty array will clear overrides.</value>
 		[DataMember(Name = "overrides", EmitDefaultValue = false)]
-		public List<ModelOverride> Overrides { get; set; }
+		public List<ModelOverride> Overrides { get; set; } = new();
 	}
 }

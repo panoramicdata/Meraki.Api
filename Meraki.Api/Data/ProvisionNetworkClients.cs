@@ -48,5 +48,11 @@ namespace Meraki.Api.Data
 		/// <value>An object, describing the policy-connection associations for each active SSID within the network. Keys should be the number of enabled SSIDs, mapping to an object describing the client&#39;s policy</value>
 		[DataMember(Name = "policiesBySsid", EmitDefaultValue = false)]
 		public Dictionary<string, GeneratedObject> PoliciesBySsid { get; set; } = null!;
+
+		/// <summary>
+		/// The array of clients to provision
+		/// </summary>
+		[DataMember(Name = "clients")]
+		public List<Clients> Clients { get; set; } = new();
 	}
 }

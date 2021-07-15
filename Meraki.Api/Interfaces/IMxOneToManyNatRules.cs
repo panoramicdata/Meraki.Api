@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/oneToManyNatRules")]
+		[Get("/networks/{networkId}/appliance/firewall/oneToManyNatRules")]
 		Task<object> GetNetworkOneToManyNatRules(
 			[AliasAs("networkId")]string networkId
 			);
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkOneToManyNatRules"></param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/oneToManyNatRules")]
+		[Put("/networks/{networkId}/appliance/firewall/oneToManyNatRules")]
 		Task<object> UpdateNetworkOneToManyNatRules(
 			[AliasAs("networkId")]string networkId,
 			[Body]OneToManyNatRulesUpdateRequest updateNetworkOneToManyNatRules

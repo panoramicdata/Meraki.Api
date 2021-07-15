@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Serial number of the switch</value>
 		[DataMember(Name = "serial", EmitDefaultValue = false)]
-		public string Serial { get; set; }
+		public string Serial { get; set; } = string.Empty;
 		/// <summary>
 		/// Gets or Sets PowerType
 		/// </summary>

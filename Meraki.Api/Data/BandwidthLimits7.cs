@@ -12,16 +12,16 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Wan1
 		/// </summary>
 		[DataMember(Name = "wan1", EmitDefaultValue = false)]
-		public Wan11 Wan1 { get; set; }
+		public Wan11 Wan1 { get; set; } = new();
 		/// <summary>
 		/// Gets or Sets Wan2
 		/// </summary>
 		[DataMember(Name = "wan2", EmitDefaultValue = false)]
-		public Wan21 Wan2 { get; set; }
+		public Wan21 Wan2 { get; set; } = new();
 		/// <summary>
 		/// Gets or Sets Cellular
 		/// </summary>
 		[DataMember(Name = "cellular", EmitDefaultValue = false)]
-		public Cellular Cellular { get; set; }
+		public Cellular Cellular { get; set; } = new();
 	}
 }

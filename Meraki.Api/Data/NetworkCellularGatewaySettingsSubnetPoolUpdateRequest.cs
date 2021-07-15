@@ -19,6 +19,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>CIDR of the pool of subnets. Each MG in this network will automatically pick a subnet from this pool.</value>
 		[DataMember(Name = "cidr", EmitDefaultValue = false)]
-		public string Cidr { get; set; }
+		public string Cidr { get; set; } = string.Empty;
 	}
 }

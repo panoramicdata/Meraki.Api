@@ -9,7 +9,7 @@ namespace Meraki.Api.Data
 	/// </summary>
 	/// <value>'allow' or 'deny' traffic specified by this rule</value>
 	[JsonConverter(typeof(StringEnumConverter))]
-	public enum Policy
+	public enum AllowOrDeny
 	{
 		/// <summary>
 		/// Enum Allow for "allow"

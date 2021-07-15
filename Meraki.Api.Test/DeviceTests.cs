@@ -29,7 +29,7 @@ namespace Meraki.Api.Test
 
 			var uplinkProperties = await MerakiClient
 				.Devices
-				.GetNetworkDeviceUplink(Configuration.TestCameraNetworkId, deviceSerial)
+				.GetNetworkDeviceUplink( deviceSerial)
 				.ConfigureAwait(false);
 
 			uplinkProperties.Should().NotBeNull();
@@ -53,7 +53,7 @@ namespace Meraki.Api.Test
 
 			var device = await MerakiClient
 				.Devices
-				.GetAsync(Configuration.TestCameraNetworkId, deviceSerial)
+				.GetAsync(deviceSerial)
 				.ConfigureAwait(false);
 			device.Should().NotBeNull();
 
@@ -79,7 +79,7 @@ namespace Meraki.Api.Test
 
 			var device = await MerakiClient
 				.Devices
-				.GetAsync(Configuration.TestCameraNetworkId, deviceSerial)
+				.GetAsync(deviceSerial)
 				.ConfigureAwait(false);
 
 			device.Should().NotBeNull();
@@ -91,7 +91,6 @@ namespace Meraki.Api.Test
 				await MerakiClient
 					.Devices
 					.UpdateAsync(
-						Configuration.TestCameraNetworkId,
 						device.Serial,
 						new DeviceUpdateRequest
 						{
@@ -100,19 +99,18 @@ namespace Meraki.Api.Test
 					)
 					.ConfigureAwait(false);
 			}
-			// Device now has blank address
-			var updatedDevice = await MerakiClient
-				.Devices
-				.UpdateAsync(
-					Configuration.TestCameraNetworkId,
-					device.Serial,
-					new DeviceUpdateRequest
-					{
-						Address = "Picadilly Circus, London",
-						MoveMapMarker = true
-					}
-				)
-				.ConfigureAwait(false);
+		   //Device now has blank address
+		   var updatedDevice = await MerakiClient
+			   .Devices
+			   .UpdateAsync(
+				   device.Serial,
+				   new DeviceUpdateRequest
+				   {
+					   Address = "Picadilly Circus, London",
+					   MoveMapMarker = true
+				   }
+			   )
+			   .ConfigureAwait(false);
 
 			updatedDevice.Should().NotBeNull();
 		}
@@ -136,7 +134,6 @@ namespace Meraki.Api.Test
 			var outcome = await MerakiClient
 				.Devices
 				.BlinkLedsAsync(
-					Configuration.TestCameraNetworkId,
 					deviceSerial,
 					new DeviceLedsBlinkRequest
 					{
@@ -153,19 +150,30 @@ namespace Meraki.Api.Test
 		}
 
 		// Test disabled - could only test with temporary credentials.
-		//[Fact]
-		//public async void GetDeviceNetworkManagementSettingsAsync_Succeeds()
-		//{
-		//	var deviceManagementInterfaceSettings = await MerakiClient
-		//		.Devices
-		//		.GetNetworkDeviceManagementInterfaceSettingsAsync(Configuration.TestCameraNetworkId, deviceSerial)
-		//		.ConfigureAwait(false);
+		[Fact]
+		public async void GetDeviceNetworkManagementSettingsAsync_Succeeds()
+		{
+			var devices = await MerakiClient
+				.Devices
+				.GetAllByNetworkAsync(Configuration.TestNetworkId)
+				.ConfigureAwait(false);
 
-		//	deviceManagementInterfaceSettings
-		//		.Should()
-		//		.NotBeNull()
-		//		.And
-		//		.NotBeEmpty();
-		//}
+			devices
+				.Should()
+				.NotBeNull()
+				.And
+				.NotBeEmpty();
+
+			var deviceSerial = devices[0].Serial;
+
+			var deviceManagementInterfaceSettings = await MerakiClient
+				.Devices
+				.GetNetworkDeviceManagementInterfaceSettingsAsync(deviceSerial)
+				.ConfigureAwait(false);
+
+			deviceManagementInterfaceSettings
+				.Should()
+				.NotBeNull();
+		}
 	}
 }
