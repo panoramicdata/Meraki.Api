@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -13,7 +14,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Comma-separated list of AP tags</value>
 		[DataMember(Name = "tags", EmitDefaultValue = false)]
-		public string Tags { get; set; } = string.Empty;
+		public List<string> Tags { get; set; } = new();
 		/// <summary>
 		/// Numerical identifier that is assigned to the VLAN
 		/// </summary>

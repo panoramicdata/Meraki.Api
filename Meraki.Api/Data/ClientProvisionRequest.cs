@@ -10,20 +10,6 @@ namespace Meraki.Api.Data
 	public partial class ClientProvisionRequest
 	{
 		/// <summary>
-		/// The MAC address of the client. Required.
-		/// </summary>
-		/// <value>The MAC address of the client. Required.</value>
-		[DataMember(Name = "mac", EmitDefaultValue = false)]
-		public string Mac { get; set; } = null!;
-
-		/// <summary>
-		/// The display name for the client. Optional. Limited to 255 bytes.
-		/// </summary>
-		/// <value>The display name for the client. Optional. Limited to 255 bytes.</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
-		public string Name { get; set; } = null!;
-
-		/// <summary>
 		/// Gets or Sets DevicePolicy
 		/// </summary>
 		[DataMember(Name = "devicePolicy", EmitDefaultValue = false)]

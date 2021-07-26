@@ -1,4 +1,4 @@
-using System.Runtime.Serialization;
+ using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -8,6 +8,12 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public partial class ClientPolicyUpdateRequest
 	{
+		/// <summary>
+		/// MAC address
+		/// </summary>
+		[DataMember(Name = "mac")]
+		public string Mac { get; set; } = string.Empty;
+
 		/// <summary>
 		/// The policy to assign. Can be &#39;Whitelisted&#39;, &#39;Blocked&#39;, &#39;Normal&#39; or &#39;Group policy&#39;. Required.
 		/// </summary>

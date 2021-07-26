@@ -27,7 +27,7 @@ namespace Meraki.Api.Data
 		/// tags
 		/// </summary>
 		[DataMember(Name = "tags")]
-		public string Tags { get; set; } = default!;
+		public List<string> Tags { get; set; } = default!;
 
 		/// <summary>
 		/// type

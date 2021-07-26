@@ -13,13 +13,13 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The name of the tag</value>
 		[DataMember(Name = "tag", EmitDefaultValue = false)]
-		public string TagText { get; set; } = null!;
+		public string TagText { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The privilege of the dashboard administrator on the tag
 		/// </summary>
 		/// <value>The privilege of the dashboard administrator on the tag</value>
 		[DataMember(Name = "access", EmitDefaultValue = false)]
-		public string Access { get; set; } = null!;
+		public string Access { get; set; } = string.Empty;
 	}
 }

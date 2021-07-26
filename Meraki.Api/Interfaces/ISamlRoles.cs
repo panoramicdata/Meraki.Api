@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
-		/// <param name="createOrganizationSamlRole"> (optional)</param>
+		/// <param name="createOrganizationSamlRole"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/samlRoles")]
 		Task<object> CreateOrganizationSamlRole(

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -27,7 +28,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>A space-separated list of tags to be applied to the network</value>
 		[DataMember(Name = "tags", EmitDefaultValue = false)]
-		public string Tags { get; set; } = null!;
+		public List<string> Tags { get; set; } = null!;
 
 		/// <summary>
 		/// The timezone of the network. For a list of allowed timezones, please see the &#39;TZ&#39; column in the table in &lt;a target&#x3D;&#39;_blank&#39; href&#x3D;&#39;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&#39;&gt;this article.&lt;/a&gt;
@@ -56,5 +57,12 @@ namespace Meraki.Api.Data
 		/// <value>Disables access to the device status page (&lt;a target&#x3D;&#39;_blank&#39;&gt;http://[device&#39;s LAN IP])&lt;/a&gt;. Optional. Can only be set if disableMyMerakiCom is set to false</value>
 		[DataMember(Name = "disableRemoteStatusPage", EmitDefaultValue = false)]
 		public bool? DisableRemoteStatusPage { get; set; }
+
+		/// <summary>
+		/// The product type(s) of the new network.
+		/// </summary>
+		/// <value>The product type(s) of the new network.</value>
+		[DataMember(Name = "productTypes", EmitDefaultValue = false)]
+		public List<string> ProductTypes { get; set; } = new();
 	}
 }

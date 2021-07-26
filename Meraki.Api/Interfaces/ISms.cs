@@ -10,20 +10,20 @@ namespace Meraki.Api.Interfaces
 	public interface ISms
 	{
 		/// <summary>
-		/// checkinNetworkSmDevices
-		/// </summary>
-		/// <remarks>
-		/// Force check-in a set of devices
-		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="checkinNetworkSmDevices"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/sm/devices/checkin")]
-		Task<object> CheckinNetworkSmDevices(
-			[AliasAs("networkId")]string networkId,
-			[Body]CheckinNetworkSmDevices checkinNetworkSmDevices
-			);
+		///// checkinNetworkSmDevices
+		///// </summary>
+		///// <remarks>
+		///// Force check-in a set of devices
+		///// </remarks>
+		///// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		///// <param name="networkId"></param>
+		///// <param name="checkinNetworkSmDevices"> (optional)</param>
+		///// <returns>Task of Object</returns>
+		//[Put("/networks/{networkId}/sm/devices/checkin")]
+		//Task<object> CheckinNetworkSmDevices(
+		//	[AliasAs("networkId")]string networkId,
+		//	[Body]CheckinNetworkSmDevices checkinNetworkSmDevices
+		//	);
 
 		/// <summary>
 		/// createNetworkSmAppPolaris

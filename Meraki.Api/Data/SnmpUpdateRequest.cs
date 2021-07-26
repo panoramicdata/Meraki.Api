@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -47,6 +48,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The IPs that are allowed to access the SNMP server. This list should be IPv4 addresses separated by semi-colons (ie. \&quot;1.2.3.4;2.3.4.5\&quot;).</value>
 		[DataMember(Name = "peerIps", EmitDefaultValue = false)]
-		public string PeerIps { get; set; } = string.Empty;
+		public List<string> PeerIps { get; set; } = new();
 	}
 }
