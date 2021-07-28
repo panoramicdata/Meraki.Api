@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -52,7 +53,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="monitoredMediaServerId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
-		Task<object> GetOrganizationInsightMonitoredMediaServer(
+		Task<InsightMonitoredMediaServers> GetOrganizationInsightMonitoredMediaServer(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId
 			);
@@ -67,7 +68,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/insight/monitoredMediaServers")]
-		Task<object> GetOrganizationInsightMonitoredMediaServers(
+		Task<List<InsightMonitoredMediaServers>> GetOrganizationInsightMonitoredMediaServers(
 			[AliasAs("organizationId")]string organizationId
 			);
 

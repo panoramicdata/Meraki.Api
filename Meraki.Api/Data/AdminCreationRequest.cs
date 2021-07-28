@@ -17,6 +17,12 @@ namespace Meraki.Api.Data
 		public string Email { get; set; } = null!;
 
 		/// <summary>
+		/// The method of authentication the user will use to sign in to the Meraki dashboard. Can be one of 'Email' or 'Cisco SecureX Sign-On'. The default is Email authentication
+		/// </summary>
+		[DataMember(Name = "authenticationMethod")]
+		public string AuthenticationMethod { get; set; } = string.Empty;
+
+		/// <summary>
 		/// The name of the dashboard administrator
 		/// </summary>
 		/// <value>The name of the dashboard administrator</value>

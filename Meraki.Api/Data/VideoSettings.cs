@@ -33,10 +33,5 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "MV22X/MV72X", EmitDefaultValue = false)]
 		public Mv22xMv72x Mv22xMv72x { get; set; } = null!;
-		/// <summary>
-		/// Gets or Sets MV02
-		/// </summary>
-		[DataMember(Name = "MV02", EmitDefaultValue = false)]
-		public Mv02 Mv02 { get; set; } = null!;
 	}
 }

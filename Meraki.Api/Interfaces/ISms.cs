@@ -289,13 +289,13 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkSmProfiles
 		/// </summary>
 		/// <remarks>
-		/// List all the profiles in the network
+		/// List all profiles in a network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/profiles")]
-		Task<object> GetNetworkSmProfiles(
+		Task<SmProfile> GetNetworkSmProfiles(
 			[AliasAs("networkId")]string networkId
 			);
 

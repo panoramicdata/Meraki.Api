@@ -56,5 +56,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "networks")]
 		public List<AdminNetworkAccess> Networks { get; set; } = new List<AdminNetworkAccess>();
+
+		/// <summary>
+		/// Authentication method
+		/// </summary>
+		[DataMember(Name = "authenticationMethod")]
+		public string AuthenticationMethod { get; set; } = string.Empty;
 	}
 }

@@ -34,7 +34,7 @@ namespace Meraki.Api.Test
 			Validate(firstResult);
 		}
 
-		private void Validate(Network network)
+		private static void Validate(Network network)
 		{
 			network.Should().NotBeNull();
 			string.IsNullOrWhiteSpace(network.Id).Should().BeFalse();
@@ -88,8 +88,7 @@ namespace Meraki.Api.Test
 					new NetworkCreationRequest
 					{
 						Name = networkName,
-						Type = "wireless switch appliance",
-						Tags = "network_level",
+						Tags = new List<string>(),
 						TimeZone = "Europe/London"
 					})
 				.ConfigureAwait(false);
@@ -115,8 +114,7 @@ namespace Meraki.Api.Test
 					new NetworkCreationRequest
 					{
 						Name = networkName,
-						Type = "wireless switch appliance",
-						Tags = "network_level",
+						Tags = new List<string>(),
 						TimeZone = "Europe/London"
 					})
 					 .ConfigureAwait(false);
@@ -189,8 +187,7 @@ namespace Meraki.Api.Test
 				new NetworkCreationRequest
 				{
 					Name = networkName,
-					Type = "wireless switch appliance",
-					Tags = "network_level",
+					Tags = new List<string>(),
 					TimeZone = "Europe/London"
 				})
 				.ConfigureAwait(false);

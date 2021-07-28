@@ -32,5 +32,11 @@ namespace Meraki.Api.Data
 		/// <value>Toggle for enabling or disabling LED lights on all APs in the network (making them run dark)</value>
 		[DataMember(Name = "ledLightsOn")]
 		public bool LedLightsOn { get; set; }
+
+		/// <summary>
+		/// The upgrade strategy to apply to the network. Must be one of 'minimizeUpgradeTime' or 'minimizeClientDowntime'. Requires firmware version MR 26.8 or higher'
+		/// </summary>
+		[DataMember(Name = "upgradeStrategy", EmitDefaultValue = false)]
+		public string UpgradeStrategy { get; set; } = string.Empty;
 	}
 }

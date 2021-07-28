@@ -67,10 +67,12 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
+		/// <param name="status">Filter batches by status. Valid types are pending, completed, and failed.</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/actionBatches")]
 		Task<object> GetAllAsync(
 			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("status")]string? status = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

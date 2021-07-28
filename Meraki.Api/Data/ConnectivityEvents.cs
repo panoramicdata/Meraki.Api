@@ -1,0 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Text;
+
+namespace Meraki.Api.Data
+{
+	/// <summary>
+	/// Connectivity events
+	/// </summary>
+	[DataContract]
+	public class ConnectivityEvents
+	{
+		/// <summary>
+		/// Occured at
+		/// </summary>
+		[DataMember(Name = "occuredAt")]
+		public int OccuredAt { get; set; } = 0;
+
+		/// <summary>
+		/// Device serial
+		/// </summary>
+		[DataMember(Name = "deviceSerial")]
+		public string DeviceSerial { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Band
+		/// </summary>
+		[DataMember(Name = "band")]
+		public int Band { get; set; } = 0;
+
+		/// <summary>
+		/// Ssid
+		/// </summary>
+		[DataMember(Name = "ssid")]
+		public int Ssid { get; set; } = 0;
+
+		/// <summary>
+		/// Type
+		/// </summary>
+		[DataMember(Name = "type")]
+		public string Type { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Subtype
+		/// </summary>
+		[DataMember(Name = "subtype")]
+		public string Subtype { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Severity
+		/// </summary>
+		[DataMember(Name = "severity")]
+		public string Severity { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Duration
+		/// </summary>
+		[DataMember(Name = "durationMs")]
+		public int DurationMs { get; set; } = 0;
+
+		/// <summary>
+		/// Channel
+		/// </summary>
+		[DataMember(Name = "channel")]
+		public int Channel { get; set; } = 0;
+
+		/// <summary>
+		/// Rssi
+		/// </summary>
+		[DataMember(Name = "rssi")]
+		public int Rssi { get; set; } = 0;
+
+		/// <summary>
+		/// Event data
+		/// </summary>
+		[DataMember(Name = "eventData")]
+		public EventData EventData { get; set; } = new();
+	}
+}

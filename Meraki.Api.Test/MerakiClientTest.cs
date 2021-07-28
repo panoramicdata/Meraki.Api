@@ -59,7 +59,7 @@ namespace Meraki.Api.Test
 		}
 
 		protected MerakiClient MerakiClient
-			=> _merakiClient ?? (_merakiClient = new MerakiClient(Configuration.MerakiClientOptions, Logger));
+			=> _merakiClient ??= new MerakiClient(Configuration.MerakiClientOptions, Logger);
 
 		protected async Task<Network> GetTestNetworkAsync()
 		{

@@ -337,5 +337,61 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("apTag")]string apTag = null!,
 			[AliasAs("fields")]string fields = null!,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// getNetworkWirelessLatencyHistory
+		/// </summary>
+		/// <remarks>
+		/// Aggregated latency info for this network, grouped by clients
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
+		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 7 days after t0. (optional)</param>
+		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 7 days. (optional)</param>
+		/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 300, 600, 1200, 3600, 14400, 86400. The default is 86400.</param>
+		/// <param name="autoResolution">Automatically select a data resolution based on the given timespan; this overrides the value specified by the 'resolution' parameter. The default setting is false.</param>
+		/// <param name="clientId">Filter results by network client.</param>
+		/// <param name="deviceSerial">Filter results by device.</param>
+		/// <param name="apTag">Filter results by AP tag.</param>
+		/// <param name="band">Filter results by band (either '2.4' or '5').</param>
+		/// <param name="ssid">Filter results by SSID number.</param>
+		/// <param name="accessCategory">Filter by access category.</param>
+		/// <returns>Task of List of NetworkClientLatencyStats</returns>
+		[Get("/networks/{networkId}/wireless/latencyHistory")]
+		Task<List<LatencyHistory>> GetNetworkWirelessLatencyHistory(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("resolution")] int? resolution = null,
+			[AliasAs("autoResolution")] bool? autoResolution = null,
+			[AliasAs("clientId")] string? clientId = null,
+			[AliasAs("deviceSerial")] string? deviceSerial = null,
+			[AliasAs("apTag")] string? apTag = null,	
+			[AliasAs("band")] string? band = null,
+			[AliasAs("ssid")] string? ssid = null,
+			[AliasAs("accessCategory")] string? accessCategory = null,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// getNetworkWirelessMeshStatuses
+		/// </summary>
+		/// <remarks>
+		/// Aggregated latency info for this network, grouped by clients
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 500. Default is 50.</param>
+		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+		/// <returns>Task of List of NetworkClientLatencyStats</returns>
+		[Get("/networks/{networkId}/wireless/meshStatuses")]
+		Task<List<LatencyHistory>> GetNetworkWirelessMeshStatuses(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string? startingAfter = null,
+			[AliasAs("endingBefore")] string? endingBefore = null,
+			CancellationToken cancellationToken = default);
 	}
 }
