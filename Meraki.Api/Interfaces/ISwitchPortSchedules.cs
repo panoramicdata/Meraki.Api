@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -18,11 +19,11 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkSwitchPortSchedule"></param>
-		/// <returns>Task of Object</returns>
+		/// <returns>The created Switch Port Schedule</returns>
 		[Post("/networks/{networkId}/switch/portSchedules")]
-		Task<object> CreateNetworkSwitchPortSchedule(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchPortScheduleCreationRequest createNetworkSwitchPortSchedule
+		Task<SwitchPortSchedule> CreateNetworkSwitchPortSchedule(
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchPortScheduleCreationRequest createNetworkSwitchPortSchedule
 			);
 
 		/// <summary>
@@ -37,8 +38,8 @@ namespace Meraki.Api.Interfaces
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
 		Task DeleteNetworkSwitchPortSchedule(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("portScheduleId")]string portScheduleId
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("portScheduleId")] string portScheduleId
 			);
 
 		/// <summary>
@@ -49,10 +50,10 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <returns>A list of switch port schedules</returns>
 		[Get("/networks/{networkId}/switch/portSchedules")]
-		Task<object> GetNetworkSwitchPortSchedules(
-			[AliasAs("networkId")]string networkId
+		Task<List<SwitchPortSchedule>> GetNetworkSwitchPortSchedules(
+			[AliasAs("networkId")] string networkId
 			);
 
 		/// <summary>
@@ -67,10 +68,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateNetworkSwitchPortSchedule"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
-		Task<object> UpdateNetworkSwitchPortSchedule(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("portScheduleId")]string portScheduleId,
-			[Body]SwitchPortScheduleUpdateRequest updateNetworkSwitchPortSchedule
+		Task<SwitchPortSchedule> UpdateNetworkSwitchPortSchedule(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("portScheduleId")] string portScheduleId,
+			[Body] SwitchPortScheduleCreationRequest switchPortSchedule
 			);
 	}
 }
