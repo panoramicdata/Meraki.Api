@@ -221,8 +221,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
-		Task<UplinkSelection> GetNetworkApplianceTrafficShapingUplinkSelection(
-			[AliasAs("networkId")] string networkId
+		Task<UplinkSelection> GetNetworkApplianceTrafficShapingUpinkSelection(
+			[AliasAs("networkId")] string networkIld
 			);
 
 		/// <summary>
