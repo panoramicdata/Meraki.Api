@@ -26,6 +26,11 @@ namespace Meraki.Api
 		public string ApiKey { get; set; } = string.Empty;
 
 		/// <summary>
+		/// Allow overriding the HttpClient Timeout - defaults to 300 seconds
+		/// </summary>
+		public int HttpClientTimeoutSeconds { get; set; } = 300;
+
+		/// <summary>
 		/// When a 429 HttpStatus code is sent, the back-off duration doubles on each attempt.
 		/// This option sets the maximum back-off duration.
 		/// </summary>

@@ -27,7 +27,7 @@ namespace Meraki.Api
 			_logger = logger ?? NullLogger.Instance;
 			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), _logger);
 			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v1/") };
-
+			_httpClient.Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds);
 			var refitSettings = new RefitSettings
 			{
 				ContentSerializer = new NewtonsoftJsonContentSerializer(
