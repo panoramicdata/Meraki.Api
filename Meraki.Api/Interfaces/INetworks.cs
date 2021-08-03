@@ -89,10 +89,10 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkAccessPolicies
+		/// getNetworkSwitchAccessPolicies
 		/// </summary>
 		/// <remarks>
-		/// List the access policies for this network. Only valid for MS networks.
+		/// List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -124,12 +124,12 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkSiteToSiteVpn
 		/// </summary>
 		/// <remarks>
-		/// Return the site-to-site VPN settings of a network. Only valid for MX networks.
+		/// Return the site-to-site VPN settings of a network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/siteToSiteVpn")]
+		[Get("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 		Task<object> GetNetworkSiteToSiteVpn(
 			[AliasAs("networkId")] string networkId
 			);
@@ -138,7 +138,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkTraffic
 		/// </summary>
 		/// <remarks>
-		///     The traffic analysis data for this network.     &lt;a href&#x3D;\&quot;https://documentation.meraki.com/MR/Monitoring_and_Reporting/Hostname_Visibility\&quot;&gt;Traffic Analysis with Hostname Visibility&lt;/a&gt; must be enabled on the network.
+		/// Return the traffic analysis data for this network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -230,16 +230,30 @@ namespace Meraki.Api.Interfaces
 		/// updateNetworkSiteToSiteVpn
 		/// </summary>
 		/// <remarks>
-		/// Update the site-to-site VPN settings of a network. Only valid for MX networks in NAT mode.
+		/// Update the site-to-site VPN settings of a network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSiteToSiteVpn"></param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/siteToSiteVpn")]
+		[Put("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 		Task<object> UpdateNetworkSiteToSiteVpn(
 			[AliasAs("networkId")] string networkId,
 			[Body] SiteToSiteVpnUpdateRequest updateNetworkSiteToSiteVpn
+			);
+
+		/// <summary>
+		/// getNetworkApplianceSettings
+		/// </summary>
+		/// <remarks>
+		/// Return the appliance settings for a network
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/appliance/settings")]
+		Task<ApplianceSettings> GetNetworkApplianceSettings(
+			[AliasAs("networkId")] string networkId
 			);
 	}
 }

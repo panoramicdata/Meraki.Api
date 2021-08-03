@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkClientConnectionStats
 		/// </summary>
 		/// <remarks>
-		/// Aggregated connectivity info for a given client on this network. Clients are identified by their MAC.
+		/// Aggregated connectivity info for a given client on this network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network ID</param>
@@ -45,7 +45,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkClientLatencyStats
 		/// </summary>
 		/// <remarks>
-		/// Aggregated latency info for a given client on this network. Clients are identified by their MAC.
+		/// Aggregated latency info for a given client on this network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network ID</param>

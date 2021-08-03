@@ -25,5 +25,65 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("configTemplateId")]string configTemplateId,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// getOrganizationConfigTemplateSwitchProfilePorts
+		/// </summary>
+		/// <remarks>
+		/// Return all the ports of a switch profile
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId"></param>
+		/// <param name="configTemplateId"></param>
+		/// <param name="profileId"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports")]
+		Task<List<ConfigTemplateSwitchProfilePorts>> GetOrganizationConfigTemplateSwitchProfilePorts(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("configTemplateId")] string configTemplateId,
+			[AliasAs("profileId")] string profileId
+			);
+
+		/// <summary>
+		/// getOrganizationConfigTemplateSwitchProfilePort
+		/// </summary>
+		/// <remarks>
+		/// Return a switch profile port
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId"></param>
+		/// <param name="configTemplateId"></param>
+		/// <param name="profileId"></param>
+		/// <param name="portId"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}")]
+		Task<ConfigTemplateSwitchProfilePorts> GetOrganizationConfigTemplateSwitchProfilePort(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("configTemplateId")] string configTemplateId,
+			[AliasAs("profileId")] string profileId,
+			[AliasAs("portId")] string portId
+			);
+
+		/// <summary>
+		/// updateOrganizationConfigTemplateSwitchProfilePort
+		/// </summary>
+		/// <remarks>
+		/// Update a switch profile port
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId"></param>
+		/// <param name="configTemplateId"></param>
+		/// <param name="profileId"></param>
+		/// <param name="portId"></param>
+		/// <param name="updateOrganizationConfigTemplateSwitchProfilePort"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}")]
+		Task<object> UpdateOrganizationConfigTemplateSwitchProfilePort(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("configTemplateId")] string configTemplateId,
+			[AliasAs("profileId")] string profileId,
+			[AliasAs("portId")] string portId,
+			[Body]ConfigTemplateSwitchProfilePorts updateOrganizationConfigTemplateSwitchProfilePort
+			);
 	}
 }

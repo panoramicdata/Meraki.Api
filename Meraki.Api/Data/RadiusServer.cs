@@ -19,5 +19,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "port")]
 		public int Port { get; set; }
+
+		/// <summary>
+		/// Secret
+		/// </summary>
+		[DataMember(Name = "secret")]
+		public string Secret { get; set; } = string.Empty;
 	}
 }

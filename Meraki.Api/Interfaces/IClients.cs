@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// getDeviceClients
 		/// </summary>
 		/// <remarks>
-		/// List the clients of a device, up to a maximum of a month ago. The usage of each client is returned in kilobytes. If the device is a switch, the switchport is returned; otherwise the switchport field is null.
+		/// List the clients of a device, up to a maximum of a month ago
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkClient
 		/// </summary>
 		/// <remarks>
-		/// Return the client associated with the given identifier. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+		/// Return the client associated with the given identifier
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -71,7 +71,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkClientLatencyHistory
 		/// </summary>
 		/// <remarks>
-		/// Return the latency history for a client. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP. The latency data is from a sample of 2% of packets and is grouped into 4 traffic categories: background, best effort, video, voice. Within these categories the sampled packet counters are bucketed by latency in milliseconds.
+		/// Return the latency history for a client
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -95,7 +95,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkClientPolicy
 		/// </summary>
 		/// <remarks>
-		/// Return the policy assigned to a client on the network. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+		/// Return the policy assigned to a client on the network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -111,7 +111,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkClientSplashAuthorizationStatus
 		/// </summary>
 		/// <remarks>
-		/// Return the splash authorization for a client, for each SSID they&#39;ve associated with through splash. Only enabled SSIDs with Click-through splash enabled will be included. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+		/// Return the splash authorization for a client, for each SSID they've associated with through splash
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -127,7 +127,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkClientTrafficHistory
 		/// </summary>
 		/// <remarks>
-		/// Return the client&#39;s network traffic data over time. Usage data is in kilobytes. This endpoint requires detailed traffic analysis to be enabled on the Network-wide &gt; General page. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+		/// Return the client's network traffic data over time
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -149,7 +149,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkClientUsageHistory
 		/// </summary>
 		/// <remarks>
-		/// Return the client&#39;s daily usage history. Usage data is in kilobytes. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+		/// Return the client's daily usage history
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -189,7 +189,7 @@ namespace Meraki.Api.Interfaces
 		/// provisionNetworkClients
 		/// </summary>
 		/// <remarks>
-		/// Provisions a client with a name and policy. Clients can be provisioned before they associate to the network.
+		/// Provisions a client with a name and policy
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -205,7 +205,7 @@ namespace Meraki.Api.Interfaces
 		/// updateNetworkClientPolicy
 		/// </summary>
 		/// <remarks>
-		/// Update the policy assigned to a client on the network. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+		/// Update the policy assigned to a client on the network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -223,7 +223,7 @@ namespace Meraki.Api.Interfaces
 		/// updateNetworkClientSplashAuthorizationStatus
 		/// </summary>
 		/// <remarks>
-		/// Update a client&#39;s splash authorization. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
+		/// Update a client's splash authorization
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>

@@ -204,5 +204,12 @@ namespace Meraki.Api.Data
 		/// <value>Boolean indicating whether Layer 2 LAN isolation should be enabled or disabled. Only configurable when ipAssignmentMode is &#39;Bridge mode&#39;.</value>
 		[DataMember(Name = "lanIsolationEnabled", EmitDefaultValue = false)]
 		public bool? LanIsolationEnabled { get; set; }
+
+		/// <summary>
+		/// If true, Mandatory DHCP will enforce that clients connecting to this SSID must use the IP address assigned by the DHCP server. Clients who use a static IP address won't be able to associate.
+		/// </summary>
+		/// <value>If true, Mandatory DHCP will enforce that clients connecting to this SSID must use the IP address assigned by the DHCP server. Clients who use a static IP address won't be able to associate.</value>
+		[DataMember(Name = "mandatoryDhcpEnabled", EmitDefaultValue = false)]
+		public bool? MandatoryDhcpEnabled { get; set; }
 	}
 }

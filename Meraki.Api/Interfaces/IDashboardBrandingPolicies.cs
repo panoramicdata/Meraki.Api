@@ -59,7 +59,7 @@ namespace Meraki.Api.Interfaces
 		/// getOrganizationBrandingPoliciesPriorities
 		/// </summary>
 		/// <remarks>
-		/// Return the branding policy IDs of an organization in priority order. IDs are ordered in ascending order of priority (IDs later in the array have higher priority).
+		/// Return the branding policy IDs of an organization in priority order
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>

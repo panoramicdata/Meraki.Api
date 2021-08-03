@@ -27,6 +27,13 @@ namespace Meraki.Api.Data
 		/// <value>The status of the switch port</value>
 		[DataMember(Name = "enabled", EmitDefaultValue = false)]
 		public bool? Enabled { get; set; }
+
+		/// <summary>
+		/// For supported switches (e.g. MS420/MS425), whether or not the port has flexible stacking enabled.
+		/// </summary>
+		[DataMember(Name = "flexibleStackingEnabled")]
+		public bool FlexibleStackingEnabled { get; set; }
+
 		/// <summary>
 		/// Gets or Sets Type
 		/// </summary>

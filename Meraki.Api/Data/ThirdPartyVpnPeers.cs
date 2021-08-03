@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Text;
+
+namespace Meraki.Api.Data
+{
+	/// <summary>
+	/// Third party vpn peers
+	/// </summary>
+	[DataContract]
+	public partial class ThirdPartyVpnPeers
+	{
+		/// <summary>
+		/// Name
+		/// </summary>
+		[DataMember(Name = "name")]
+		public string Name { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Public IP
+		/// </summary>
+		[DataMember(Name = "publicIp")]
+		public string PublicIp { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Reachability
+		/// </summary>
+		[DataMember(Name = "reachability")]
+		public string Reachability { get; set; } = string.Empty;
+	}
+}

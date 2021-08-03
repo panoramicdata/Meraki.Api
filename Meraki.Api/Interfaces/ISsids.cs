@@ -60,7 +60,7 @@ namespace Meraki.Api.Interfaces
 		/// updateNetworkSsid
 		/// </summary>
 		/// <remarks>
-		/// Update the attributes of an SSID
+		/// Update the attributes of an MR SSID
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -163,5 +163,40 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("number")] string number,
 			[AliasAs("identityPskId")] string identityPskId,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// updateNetworkWirelessSsidSplashSettings
+		/// </summary>
+		/// <remarks>
+		/// Modify the splash page settings for the given SSID
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <param name="updateNetworkWirelessSsidSplashSettings"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
+		Task<SsidSplashSettings> UpdateNetworkWirelessSsidSplashSettings(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body]SsidSplashSettings updateNetworkWirelessSsidSplashSettings
+			);
+
+		/// <summary>
+		/// getNetworkWirelessSsidSplashSettings
+		/// </summary>
+		/// <remarks>
+		/// Display the splash page settings for the given SSID
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <param name="updateNetworkWirelessSsidSplashSettings"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
+		Task<SsidSplashSettings> GetNetworkWirelessSsidSplashSettings(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number
+			);
 	}
 }

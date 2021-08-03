@@ -45,7 +45,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkPiiPiiKeys
 		/// </summary>
 		/// <remarks>
-		/// List the keys required to access Personally Identifiable Information (PII) for a given identifier. Exactly one identifier will be accepted. If the organization contains org-wide Systems Manager users matching the key provided then there will be an entry with the key \&quot;0\&quot; containing the applicable keys.  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/piiKeys &#x60;&#x60;&#x60;
+		/// List the keys required to access Personally Identifiable Information (PII) for a given identifier
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -101,7 +101,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkPiiSmDevicesForKey
 		/// </summary>
 		/// <remarks>
-		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier. These device IDs can be used with the Systems Manager API endpoints to retrieve device details. Exactly one identifier will be accepted.  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/smDevicesForKey &#x60;&#x60;&#x60;
+		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -127,7 +127,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkPiiSmOwnersForKey
 		/// </summary>
 		/// <remarks>
-		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier. These owner IDs can be used with the Systems Manager API endpoints to retrieve owner details. Exactly one identifier will be accepted.  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/smOwnersForKey &#x60;&#x60;&#x60;
+		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>

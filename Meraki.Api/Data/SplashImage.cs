@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Text;
+
+namespace Meraki.Api.Data
+{
+	/// <summary>
+	/// Splash image
+	/// </summary>
+	[DataContract]
+	public partial class SplashImage
+	{
+		/// <summary>
+		/// Extension
+		/// </summary>
+		[DataMember(Name = "extension")]
+		public string Extension { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Md5
+		/// </summary>
+		[DataMember(Name = "md5")]
+		public string Md5 { get; set; } = string.Empty;
+	}
+}

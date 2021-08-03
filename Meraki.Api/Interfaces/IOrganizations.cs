@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// claimIntoOrganization
 		/// </summary>
 		/// <remarks>
-		/// Claim a list of devices, licenses, and/or orders into an organization. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization&#39;s inventory.
+		/// Claim a list of devices, licenses, and/or orders into an organization
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>

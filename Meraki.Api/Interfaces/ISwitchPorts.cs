@@ -90,10 +90,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="number"></param>
 		/// <param name="updateDeviceSwitchPort"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Put("/devices/{serial}/switchPorts/{number}")]
+		[Put("/devices/{serial}/switchPorts/{portId}")]
 		Task<object> UpdateDeviceSwitchPort(
 			[AliasAs("serial")] string serial,
-			[AliasAs("number")] string number,
+			[AliasAs("portId")] string portId,
 			[Body] SwitchPortUpdateRequest updateDeviceSwitchPort
 			);
 	}

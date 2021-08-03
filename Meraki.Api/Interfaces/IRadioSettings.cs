@@ -52,7 +52,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/wireless/radio/settings")]
-		Task<object> GetNetworkDeviceWirelessRadioSettings(
+		Task<RadioGhzSettings> GetNetworkDeviceWirelessRadioSettings(
 			[AliasAs("serial")]string serial
 			);
 

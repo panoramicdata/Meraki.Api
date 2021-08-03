@@ -58,10 +58,9 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkCameraVideoLink
 		/// </summary>
 		/// <remarks>
-		/// Returns video link to the specified camera. If a timestamp is supplied, it links to that timestamp.
+		/// Returns video link to the specified camera
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <param name="timestamp">[optional] The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds). If no timestamp is specified, we will assume current time. (optional)</param>
 		/// <returns>Task of Object</returns>

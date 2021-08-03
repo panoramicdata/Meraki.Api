@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// assignOrganizationLicensesSeats
 		/// </summary>
 		/// <remarks>
-		/// Assign SM seats to a network. This will increase the managed SM device limit of the network
+		/// Assign SM seats to a network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>

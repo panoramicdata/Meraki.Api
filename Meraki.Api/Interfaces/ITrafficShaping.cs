@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkTrafficShaping
 		/// </summary>
 		/// <remarks>
-		/// Display the traffic shaping settings for an MX network
+		/// Display the traffic shaping settings rules for an MX network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -90,7 +90,7 @@ namespace Meraki.Api.Interfaces
 		/// updateNetworkTrafficShaping
 		/// </summary>
 		/// <remarks>
-		/// Update the traffic shaping settings for an MX network
+		/// Update the traffic shaping settings rules for an MX network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -238,6 +238,36 @@ namespace Meraki.Api.Interfaces
 		Task<UplinkSelection> UpdateNetworkApplianceTrafficShapingUplinkSelection(
 			[AliasAs("networkId")] string networkId,
 			[Body]UplinkSelection updateNetworkApplianceTrafficShapingUplinkSelection
+			);
+
+		/// <summary>
+		/// getNetworkApplianceTrafficShaping
+		/// </summary>
+		/// <remarks>
+		/// Display the traffic shaping settings for an MX network
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/appliance/trafficShaping")]
+		Task<NetworkApplianceTrafficShaping> GetNetworkApplianceTrafficShaping(
+			[AliasAs("networkId")] string networkId
+			);
+
+		/// <summary>
+		/// updateNetworkApplianceTrafficShaping
+		/// </summary>
+		/// <remarks>
+		/// Update the traffic shaping settings for an MX network
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="updateNetworkApplianceTrafficShaping"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/appliance/trafficShaping")]
+		Task<object> UpdateNetworkApplianceTrafficShaping(
+			[AliasAs("networkId")] string networkId,
+			[Body]NetworkApplianceTrafficShaping updateNetworkApplianceTrafficShaping
 			);
 	}
 }

@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkBluetoothClient
 		/// </summary>
 		/// <remarks>
-		/// Return a Bluetooth client. Bluetooth clients can be identified by their ID or their MAC.
+		/// RReturn a Bluetooth client
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>

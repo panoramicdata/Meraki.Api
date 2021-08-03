@@ -34,5 +34,21 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("usedState")] string? usedState = null,
 			[AliasAs("search")] string? search = null,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// getOrganizationInventoryDevice
+		/// </summary>
+		/// <remarks>
+		/// Return the device inventory for an organization
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId"></param>
+		/// <param name="serial"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/organizations/{organizationId}/inventoryDevices/{serial}")]
+		Task<InventoryDevices> GetOrganizationInventoryDevice(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("serial")] string serial,
+			CancellationToken cancellationToken = default);
 	}
 }

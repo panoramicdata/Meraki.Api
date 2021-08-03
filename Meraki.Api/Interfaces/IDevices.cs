@@ -123,7 +123,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkDevicePerformance
 		/// </summary>
 		/// <remarks>
-		/// Return the performance score for a single device. Only primary MX devices supported. If no data is available, a 204 error code is returned.
+		/// Return the performance score for a single MX
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -246,5 +246,21 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("serial")] string serial,
 			[Body] DeviceUpdateRequest updateNetworkDevice,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// cloneOrganizationSwitchDevices
+		/// </summary>
+		/// <remarks>
+		/// Clone port-level and some switch-level configuration settings from a source switch to one or more target switches. Cloned settings include: Aggregation Groups, Power Settings, Multicast Settings, MTU Configuration, STP Bridge priority, Port Mirroring
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId"></param>
+		/// <param name="cloneOrganizationSwitchDevices"></param>
+		/// <returns>Task of Object</returns>
+		[Post("/organizations/{organizationId}/switch/devices/clone")]
+		Task<CloneOrganizationSwitchDevices> CloneOrganizationSwitchDevices(
+			[AliasAs("organizationId")] string organizationId,
+			[Body]CloneOrganizationSwitchDevices cloneOrganizationSwitchDevices
+			);
 	}
 }

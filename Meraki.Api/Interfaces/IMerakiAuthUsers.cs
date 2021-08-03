@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkMerakiAuthUser
 		/// </summary>
 		/// <remarks>
-		/// Return the Meraki Auth splash or RADIUS user
+		/// Return the Meraki Auth splash guest, RADIUS, or client VPN user
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -28,10 +28,27 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
+		/// updateNetworkMerakiAuthUser
+		/// </summary>
+		/// <remarks>
+		/// Update a user configured with Meraki Authentication (currently, 802.1X RADIUS, splash guest, and client VPN users can be updated)
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="merakiAuthUserId"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
+		Task<MerakiAuthUsers> UpdateNetworkMerakiAuthUser(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
+			[Body]MerakiAuthUsers updateNetworkMerakiAuthUser
+			);
+
+		/// <summary>
 		/// getNetworkMerakiAuthUsers
 		/// </summary>
 		/// <remarks>
-		/// List the splash or RADIUS users configured under Meraki Authentication for a network
+		/// List the users configured under Meraki Authentication for a network (splash guest or RADIUS users for a wireless network, or client VPN users for a wired network)
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -61,7 +78,7 @@ namespace Meraki.Api.Interfaces
 		/// createNetworkMerakiAuthUser
 		/// </summary>
 		/// <remarks>
-		/// Authorize a user configured with Meraki Authentication for a network (currently supports 802.1X, splash guest, and client VPN users, and currently, organizations have a 50,000 user cap)
+		/// Create a user configured with Meraki Authentication for a network (currently supports 802.1X, splash guest, and client VPN users, and currently, organizations have a 50,000 user cap)
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -77,7 +94,7 @@ namespace Meraki.Api.Interfaces
 		/// deleteNetworkMerakiAuthUser
 		/// </summary>
 		/// <remarks>
-		/// Deauthorize a user. To reauthorize a user after deauthorizing them, POST to this endpoint. (Currently, 802.1X RADIUS, splash guest, and client VPN users can be deauthorized.)
+		/// Delete a user configured with Meraki Authentication (currently, 802.1X RADIUS, splash guest, and client VPN users can be deleted)
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>

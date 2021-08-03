@@ -113,5 +113,62 @@ namespace Meraki.Api.Interfaces
 			[Body] RemoveNetworkSwitchStack removeNetworkSwitchStack,
 			CancellationToken cancellationToken = default
 			);
+
+		/// <summary>
+		/// getNetworkSwitchStackRoutingStaticRoute
+		/// </summary>
+		/// <remarks>
+		/// Return a layer 3 static route for a switch stack
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="serial"></param>
+		/// <param name="staticRouteId"></param>
+		/// <param name="switchStackId"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
+		Task<SwitchStaticRoute> GetNetworkSwitchStackRoutingStaticRoute(
+			[AliasAs("serial")] string serial,
+			[AliasAs("switchStackId")] string switchStackId,
+			[AliasAs("staticRouteId")] string staticRouteId
+			);
+
+		/// <summary>
+		/// updateNetworkSwitchStackRoutingStaticRoute
+		/// </summary>
+		/// <remarks>
+		/// Update a layer 3 static route for a switch stack
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="serial"></param>
+		/// <param name="staticRouteId"></param>
+		/// <param name="switchStackId"></param>
+		/// <param name="updateNetworkSwitchStackRoutingStaticRoute"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
+		Task<SwitchStaticRoute> UpdateNetworkSwitchStackRoutingStaticRoute(
+			[AliasAs("serial")] string serial,
+			[AliasAs("switchStackId")] string switchStackId,
+			[AliasAs("staticRouteId")] string staticRouteId,
+			[Body]SwitchStaticRouteCreationRequest updateNetworkSwitchStackRoutingStaticRoute
+			);
+
+		/// <summary>
+		/// deleteNetworkSwitchStackRoutingStaticRoute
+		/// </summary>
+		/// <remarks>
+		/// Delete a layer 3 static route for a switch stack
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="switchStackId"></param>
+		/// <param name="staticRouteId"></param>
+		/// <returns>Task of void</returns>
+		[Delete("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
+		Task DeleteNetworkSwitchStackRoutingStaticRoute(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("switchStackId")] string switchStackId,
+			[AliasAs("staticRouteId")] string staticRouteId,
+			CancellationToken cancellationToken = default
+			);
 	}
 }

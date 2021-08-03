@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,20 +12,52 @@ namespace Meraki.Api.Interfaces
 	public interface ISms
 	{
 		/// <summary>
-		///// checkinNetworkSmDevices
+		/// checkinNetworkSmDevices
+		/// </summary>
+		/// <remarks>
+		/// Force check-in a set of devices
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="checkinNetworkSmDevices"> (optional)</param>
+		/// <returns>Task of Object</returns>
+		[Post("/networks/{networkId}/sm/devices/checkin")]
+		Task<CheckinNetworkSmDevices> CheckinNetworkSmDevices(
+			[AliasAs("networkId")]string networkId,
+			[Body]CheckinNetworkSmDevices checkinNetworkSmDevices
+			);
+
+		/// <summary>
+		/// modifyNetworkSmDevicesTags
+		/// </summary>
+		/// <remarks>
+		/// Add, delete, or update the tags of a set of devices
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="checkinNetworkSmDevices"> (optional)</param>
+		/// <returns>Task of Object</returns>
+		[Post("/networks/{networkId}/sm/devices/modifyTags")]
+		Task<CheckinNetworkSmDevices> ModifyNetworkSmDevicesTags(
+			[AliasAs("networkId")] string networkId,
+			[Body]ModifyNetworkDeviceTags modifyNetworkSmDevicesTags
+			);
+
+		/// <summary>
+		///// lockNetworkSmDevices
 		///// </summary>
 		///// <remarks>
-		///// Force check-in a set of devices
+		///// Lock a set of devices
 		///// </remarks>
 		///// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		///// <param name="networkId"></param>
 		///// <param name="checkinNetworkSmDevices"> (optional)</param>
 		///// <returns>Task of Object</returns>
-		//[Put("/networks/{networkId}/sm/devices/checkin")]
-		//Task<object> CheckinNetworkSmDevices(
-		//	[AliasAs("networkId")]string networkId,
-		//	[Body]CheckinNetworkSmDevices checkinNetworkSmDevices
-		//	);
+		[Post("/networks/{networkId}/sm/devices/lock")]
+		Task<CheckinNetworkSmDevices> LockNetworkSmDevices(
+			[AliasAs("networkId")] string networkId,
+			[Body]CheckinNetworkSmDevices lockNetworkSmDevices
+			);
 
 		/// <summary>
 		/// createNetworkSmAppPolaris
@@ -109,7 +143,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkSmCellularUsageHistory
 		/// </summary>
 		/// <remarks>
-		/// Return the client&#39;s daily cellular data usage history. Usage data is in kilobytes.
+		/// Return the client's daily cellular data usage history
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -185,19 +219,19 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkSmDeviceCommandLogs
 		/// </summary>
 		/// <remarks>
-		///     Return historical records of commands sent to Systems Manager devices.     &lt;p&gt;Note that this will include the name of the Dashboard user who initiated the command if it was generated     by a Dashboard admin rather than the automatic behavior of the system; you may wish to filter this out     of any reports.&lt;/p&gt;
+		/// Return historical records of commands sent to Systems Manager devices
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
-		/// <param name="id"></param>
+		/// <param name="deviceId"></param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{id}/deviceCommandLogs")]
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/deviceCommandLogs")]
 		Task<object> GetNetworkSmDeviceCommandLogs(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("id")]string id,
+			[AliasAs("deviceId")]string deviceId,
 			[AliasAs("perPage")]int? perPage = null,
 			[AliasAs("startingAfter")]string startingAfter = null!,
 			[AliasAs("endingBefore")]string endingBefore = null!
@@ -393,7 +427,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="scope">Specifiy a scope (one of all, none, withAny, withAll, withoutAny, withoutAll) and a set of tags as comma separated values. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/users")]
-		Task<object> GetNetworkSmUsers(
+		Task<List<SmNetworkUsers>> GetNetworkSmUsers(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("ids")]string ids = null!,
 			[AliasAs("usernames")]string usernames = null!,
@@ -427,8 +461,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="moveNetworkSmDevices"></param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/sm/devices/move")]
-		Task<object> MoveNetworkSmDevices(
+		[Post("/networks/{networkId}/sm/devices/move")]
+		Task<MoveNetworkSmDevices> MoveNetworkSmDevices(
 			[AliasAs("networkId")]string networkId,
 			[Body]MoveNetworkSmDevices moveNetworkSmDevices
 			);
