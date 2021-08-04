@@ -58,5 +58,35 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			[AliasAs("networkIds")] List<string>? networkIds = null
 			);
+
+		/// <summary>
+		/// getNetworkApplianceVpnBgp
+		/// </summary>
+		/// <remarks>
+		/// Return a Hub BGP Configuration
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/appliance/vpn/bgp")]
+		Task<VpnBgp> GetNetworkApplianceVpnBgp(
+			[AliasAs("networkId")] string networkId
+			);
+
+		/// <summary>
+		/// updateNetworkApplianceVpnBgp
+		/// </summary>
+		/// <remarks>
+		/// Return a Hub BGP Configuration
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="updateNetworkApplianceVpnBgp"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/networks/{networkId}/appliance/vpn/bgp")]
+		Task<VpnBgp> UpdateNetworkApplianceVpnBgp(
+			[AliasAs("networkId")] string networkId,
+			[Body]VpnBgp updateNetworkApplianceVpnBgp
+			);
 	}
 }

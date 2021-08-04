@@ -20,5 +20,10 @@ namespace Meraki.Api.Data
 		/// <value>The IP address (IPv4 only) or hostname of the media server to monitor</value>
 		[DataMember(Name = "address", EmitDefaultValue = false)]
 		public string Address { get; set; } = string.Empty;
+		/// <summary>
+		/// Indicates that if the media server doesn't respond to ICMP pings, the nearest hop will be used in its stead.
+		/// </summary>
+		[DataMember(Name = "bestEffortMonitoringEnabled")]
+		public bool BestEffortMonitoringEnabled { get; set; }
 	}
 }

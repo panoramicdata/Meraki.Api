@@ -73,7 +73,7 @@ namespace Meraki.Api.Interfaces
 		/// moveOrganizationLicenses
 		/// </summary>
 		/// <remarks>
-		/// Move licenses to another organization. This will also move any devices that the licenses are assigned to
+		/// Move licenses to another organization
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
@@ -105,7 +105,7 @@ namespace Meraki.Api.Interfaces
 		/// renewOrganizationLicensesSeats
 		/// </summary>
 		/// <remarks>
-		/// Renew SM seats of a license. This will extend the license expiration date of managed SM devices covered by this license
+		/// Renew SM seats of a license
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>

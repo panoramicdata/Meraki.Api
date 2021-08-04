@@ -225,5 +225,35 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("organizationId")] string organizationId,
 			[Body] ThirdPartyVpnPeersUpdateRequest peerList,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// getOrganizationLoginSecurity
+		/// </summary>
+		/// <remarks>
+		/// Returns the login security settings for an organization.
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/organizations/{organizationId}/loginSecurity")]
+		Task<LoginSecurity> GetOrganizationLoginSecurity(
+			[AliasAs("organizationId")] string organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// updateOrganizationLoginSecurity
+		/// </summary>
+		/// <remarks>
+		/// Update the login security settings for an organization
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId"></param>
+		/// <param name="updateOrganizationLoginSecurity"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/organizations/{organizationId}/loginSecurity")]
+		Task<LoginSecurity> UpdateOrganizationLoginSecurity(
+			[AliasAs("organizationId")] string organizationId,
+			[Body]LoginSecurity updateOrganizationLoginSecurity,
+			CancellationToken cancellationToken = default);
 	}
 }

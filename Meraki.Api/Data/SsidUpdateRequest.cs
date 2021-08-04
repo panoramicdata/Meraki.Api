@@ -211,5 +211,17 @@ namespace Meraki.Api.Data
 		/// <value>If true, Mandatory DHCP will enforce that clients connecting to this SSID must use the IP address assigned by the DHCP server. Clients who use a static IP address won't be able to associate.</value>
 		[DataMember(Name = "mandatoryDhcpEnabled", EmitDefaultValue = false)]
 		public bool? MandatoryDhcpEnabled { get; set; }
+
+		/// <summary>
+		/// The current setting for Protected Management Frames (802.11w).
+		/// </summary>
+		[DataMember(Name = "dot11w")]
+		public Dot11w? Dot11w { get; set; }
+
+		/// <summary>
+		/// The current setting for 802.11r
+		/// </summary>
+		[DataMember(Name = "dot11r")]
+		public Dot11r? Dot11r { get; set; }
 	}
 }

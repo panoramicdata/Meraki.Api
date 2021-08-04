@@ -14,7 +14,7 @@ namespace Meraki.Api.Interfaces
 		/// createOrganizationInsightMonitoredMediaServer
 		/// </summary>
 		/// <remarks>
-		/// Add a media server to be monitored for this organization. Only valid for organizations with Meraki Insight.
+		/// Add a media server to be monitored for this organization
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// deleteOrganizationInsightMonitoredMediaServer
 		/// </summary>
 		/// <remarks>
-		/// Delete a monitored media server from this organization. Only valid for organizations with Meraki Insight.
+		/// Delete a monitored media server from this organization
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
@@ -46,7 +46,7 @@ namespace Meraki.Api.Interfaces
 		/// getOrganizationInsightMonitoredMediaServer
 		/// </summary>
 		/// <remarks>
-		/// Return a monitored media server for this organization. Only valid for organizations with Meraki Insight.
+		/// Return a monitored media server for this organization
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
@@ -62,7 +62,7 @@ namespace Meraki.Api.Interfaces
 		/// getOrganizationInsightMonitoredMediaServers
 		/// </summary>
 		/// <remarks>
-		/// List the monitored media servers for this organization. Only valid for organizations with Meraki Insight.
+		/// List the monitored media servers for this organization
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
@@ -76,7 +76,7 @@ namespace Meraki.Api.Interfaces
 		/// updateOrganizationInsightMonitoredMediaServer
 		/// </summary>
 		/// <remarks>
-		/// Update a monitored media server for this organization. Only valid for organizations with Meraki Insight.
+		/// Update a monitored media server for this organization
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>

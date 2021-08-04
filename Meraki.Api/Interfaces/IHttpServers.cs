@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -74,7 +75,7 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// getNetworkHttpServers
+		/// getNetworkWebhooksHttpServers
 		/// </summary>
 		/// <remarks>
 		/// List the HTTP servers for a network
@@ -82,8 +83,8 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/httpServers")]
-		Task<object> GetNetworkHttpServers(
+		[Get("/networks/{networkId}/webhooks/httpServers")]
+		Task<List<HttpServers>> GetNetworkWebhooksHttpServers(
 			[AliasAs("networkId")]string networkId
 			);
 
