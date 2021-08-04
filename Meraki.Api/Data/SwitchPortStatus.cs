@@ -48,7 +48,7 @@ namespace Meraki.Api.Data
 	public class UsageInKb : Usage
 	{
 		[DataMember(Name = "total")]
-		public int Total { get; set; }
+		public double Total { get; set; }
 	}
 
 	public class Cdp
@@ -117,6 +117,6 @@ namespace Meraki.Api.Data
 	public class TrafficInKbps : Usage
 	{
 		[DataMember(Name = "total")]
-		public int Total { get; set; }
+		public double Total { get; set; }
 	}
 }
