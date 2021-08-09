@@ -24,7 +24,7 @@ namespace Meraki.Api.Test
 		{
 			var stopwatch = new Stopwatch();
 			var timerList = new List<QueryResult>();
-			foreach (var _ in Enumerable.Range(0, 20))
+			foreach (var _ in Enumerable.Range(0, 10))
 			{
 				var queryResult = new QueryResult();
 				try

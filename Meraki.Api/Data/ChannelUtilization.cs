@@ -27,7 +27,7 @@ namespace Meraki.Api.Data
 		/// Tags
 		/// </summary>
 		[DataMember(Name = "tags")]
-		public string Tags { get; set; } = string.Empty;
+		public List<string> Tags { get; set; } = new();
 
 		/// <summary>
 		/// Wifi0

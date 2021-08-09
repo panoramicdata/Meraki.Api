@@ -48,7 +48,6 @@ namespace Meraki.Api.Interfaces
 		/// Return the radio settings of a device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/wireless/radio/settings")]
@@ -95,7 +94,6 @@ namespace Meraki.Api.Interfaces
 		/// Update the radio settings of a device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <param name="updateNetworkDeviceWirelessRadioSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>

@@ -35,7 +35,6 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
-		/// <param name="checkinNetworkSmDevices"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/sm/devices/modifyTags")]
 		Task<CheckinNetworkSmDevices> ModifyNetworkSmDevicesTags(

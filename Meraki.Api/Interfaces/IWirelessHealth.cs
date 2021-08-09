@@ -166,7 +166,6 @@ namespace Meraki.Api.Interfaces
 		/// Aggregated connectivity info for a given AP on this network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network ID</param>
 		/// <param name="serial">The serial number</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 7 days after t0. (optional)</param>
@@ -195,7 +194,6 @@ namespace Meraki.Api.Interfaces
 		/// Aggregated latency info for a given AP on this network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network ID</param>
 		/// <param name="serial">The serial number</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 7 days after t0. (optional)</param>

@@ -218,7 +218,6 @@ namespace Meraki.Api.Interfaces
 		/// Show uplink selection settings for an MX network
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
 		Task<UplinkSelection> GetNetworkApplianceTrafficShapingUpinkSelection(

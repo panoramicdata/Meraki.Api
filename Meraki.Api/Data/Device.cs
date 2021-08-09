@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -34,13 +35,13 @@ namespace Meraki.Api.Data
 		/// Notes
 		/// </summary>
 		[DataMember(Name = "notes")]
-		public string Notes { get; set; } = string.Empty;
+		public string? Notes { get; set; }
 
 		/// <summary>
 		/// Tags
 		/// </summary>
 		[DataMember(Name = "tags")]
-		public string Tags { get; set; } = string.Empty;
+		public List<string> Tags { get; set; } = new();
 
 		/// <summary>
 		/// Network Id

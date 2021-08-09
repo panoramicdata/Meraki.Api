@@ -17,7 +17,6 @@ namespace Meraki.Api.Interfaces
 		/// Return the management interface settings for a device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/managementInterfaceSettings")]
@@ -32,9 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the management interface settings for a device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
-		/// <param name="updateNetworkDeviceManagementInterfaceSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/managementInterfaceSettings")]
 		Task<WanSpecs> UpdateAsync(

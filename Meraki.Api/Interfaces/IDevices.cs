@@ -18,7 +18,6 @@ namespace Meraki.Api.Interfaces
 		/// Blink the LEDs on a device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <param name="deviceLedsBlinkRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -67,7 +66,6 @@ namespace Meraki.Api.Interfaces
 		/// Return a single device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}")]
@@ -82,7 +80,6 @@ namespace Meraki.Api.Interfaces
 		/// List LLDP and CDP information for a device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <param name="timespan">The timespan for which LLDP and CDP information will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds). LLDP and CDP information is sent to the Meraki dashboard every 10 minutes. In instances where this LLDP and CDP information matches an existing entry in the Meraki dashboard, the data is updated once every two hours. Meraki recommends querying LLDP and CDP information at an interval slightly greater than two hours, to ensure that unchanged CDP / LLDP information can be queried consistently. (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -99,7 +96,6 @@ namespace Meraki.Api.Interfaces
 		/// Get the uplink loss percentage and latency in milliseconds, and goodput in kilobits per second for a wired network device.
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <param name="ip">The destination IP used to obtain the requested stats. This is required.</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 365 days from today. (optional)</param>
@@ -126,28 +122,12 @@ namespace Meraki.Api.Interfaces
 		/// Return the performance score for a single MX
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/appliance/performance")]
 		Task<object> GetPerformanceAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// getNetworkDeviceUplink
-		/// </summary>
-		/// <remarks>
-		/// Return the uplink information for a device.
-		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="serial"></param>
-		/// <returns>Task of List of DeviceUplinks</returns>
-		[Get("/devices/{serial}/uplink")]
-		Task<List<DeviceUplink>> GetNetworkDeviceUplink(
-			[AliasAs("serial")] string serial
-			);
 
 		/// <summary>
 		/// getNetworkDevices
@@ -192,7 +172,6 @@ namespace Meraki.Api.Interfaces
 		/// Return the management interface settings for a device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of list of Device</returns>
 		[Get("/devices/{serial}/managementInterfaceSettings")]
@@ -207,7 +186,6 @@ namespace Meraki.Api.Interfaces
 		/// Reboot a device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/devices/{serial}/reboot")]
@@ -223,7 +201,6 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
-		/// <param name="serial"></param>
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/devices/remove")]
 		Task RemoveAsync(
@@ -237,7 +214,6 @@ namespace Meraki.Api.Interfaces
 		/// Update the attributes of a device
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <param name="updateNetworkDevice"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -260,7 +236,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/switch/devices/clone")]
 		Task<CloneOrganizationSwitchDevices> CloneOrganizationSwitchDevices(
 			[AliasAs("organizationId")] string organizationId,
-			[Body]CloneOrganizationSwitchDevices cloneOrganizationSwitchDevices
+			[Body] CloneOrganizationSwitchDevices cloneOrganizationSwitchDevices
 			);
 	}
 }

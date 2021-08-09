@@ -87,7 +87,6 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
-		/// <param name="number"></param>
 		/// <param name="updateDeviceSwitchPort"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/switchPorts/{portId}")]

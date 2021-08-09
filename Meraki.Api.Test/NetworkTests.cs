@@ -88,6 +88,7 @@ namespace Meraki.Api.Test
 					new NetworkCreationRequest
 					{
 						Name = networkName,
+						ProductTypes = new List<string> { "wireless" },
 						Tags = new List<string>(),
 						TimeZone = "Europe/London"
 					})
@@ -129,10 +130,11 @@ namespace Meraki.Api.Test
 		private async Task EnsureNetworkRemovedAsync(string networkName)
 		{
 			// Perform any clean-up
-			var oldNetwork = (await MerakiClient
-				.Networks
-				.GetAllAsync(Configuration.TestOrganizationId)
-				.ConfigureAwait(false)).SingleOrDefault(n => n.Name == networkName);
+			var networks = await MerakiClient
+							.Networks
+							.GetAllAsync(Configuration.TestOrganizationId)
+							.ConfigureAwait(false);
+			var oldNetwork = networks.SingleOrDefault(n => n.Name == networkName);
 			if (oldNetwork != default)
 			{
 				// Get all network devices and remove them
@@ -224,7 +226,7 @@ namespace Meraki.Api.Test
 			// Get all VLANs - should be the default one
 			var initialVlans = await MerakiClient
 				.Vlans
-				.GetAllAsync(newNetwork.Id)
+				.GetNetworkVlansAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			initialVlans.Should().NotBeNull();
 
@@ -235,7 +237,7 @@ namespace Meraki.Api.Test
 			// Update a VLAN
 			var updatedVlan = await MerakiClient
 				.Vlans
-				.UpdateAsync(newNetwork.Id, vlan10.Id, new VlanSpec
+				.UpdateNetworkVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
 				{
 					Subnet = "10.250.82.128/28",
 					ApplianceIp = "10.250.82.129",
@@ -493,7 +495,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetFast_Succeeds()
 		{
-			foreach (var _ in Enumerable.Range(0, 100))
+			foreach (var _ in Enumerable.Range(0, 10))
 			{
 				await GetTestNetworkAsync()
 					.ConfigureAwait(false);

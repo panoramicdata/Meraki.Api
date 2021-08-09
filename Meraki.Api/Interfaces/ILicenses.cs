@@ -19,7 +19,6 @@ namespace Meraki.Api.Interfaces
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId"></param>
-		/// <param name="assignOrganizationLicensesSeats"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/licenses/assignSeats")]
 		Task<object> AssignOrganizationLicensesSeatsAsync(

@@ -12,30 +12,6 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void GetNetworkDeviceUplink_Succeeds()
-		{
-			var devices = await MerakiClient
-				.Devices
-				.GetAllByNetworkAsync(Configuration.TestNetworkId)
-				.ConfigureAwait(false);
-
-			devices
-				.Should()
-				.NotBeNull()
-				.And
-				.NotBeEmpty();
-
-			var deviceSerial = devices[0].Serial;
-
-			var uplinkProperties = await MerakiClient
-				.Devices
-				.GetNetworkDeviceUplink( deviceSerial)
-				.ConfigureAwait(false);
-
-			uplinkProperties.Should().NotBeNull();
-		}
-
-		[Fact]
 		public async void GetDeviceAsync_Succeeds()
 		{
 			var devices = await MerakiClient
@@ -99,18 +75,18 @@ namespace Meraki.Api.Test
 					)
 					.ConfigureAwait(false);
 			}
-		   //Device now has blank address
-		   var updatedDevice = await MerakiClient
-			   .Devices
-			   .UpdateAsync(
-				   device.Serial,
-				   new DeviceUpdateRequest
-				   {
-					   Address = "Picadilly Circus, London",
-					   MoveMapMarker = true
-				   }
-			   )
-			   .ConfigureAwait(false);
+			//Device now has blank address
+			var updatedDevice = await MerakiClient
+				.Devices
+				.UpdateAsync(
+					device.Serial,
+					new DeviceUpdateRequest
+					{
+						Address = "Picadilly Circus, London",
+						MoveMapMarker = true
+					}
+				)
+				.ConfigureAwait(false);
 
 			updatedDevice.Should().NotBeNull();
 		}

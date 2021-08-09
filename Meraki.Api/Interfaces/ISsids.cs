@@ -18,7 +18,6 @@ namespace Meraki.Api.Interfaces
 		/// Return the SSID statuses of an access point
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/wireless/status")]
@@ -191,7 +190,6 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
-		/// <param name="updateNetworkWirelessSsidSplashSettings"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
 		Task<SsidSplashSettings> GetNetworkWirelessSsidSplashSettings(

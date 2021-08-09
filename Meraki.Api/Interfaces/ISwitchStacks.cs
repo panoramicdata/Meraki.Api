@@ -121,13 +121,13 @@ namespace Meraki.Api.Interfaces
 		/// Return a layer 3 static route for a switch stack
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="networkId"></param>
 		/// <param name="staticRouteId"></param>
 		/// <param name="switchStackId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
 		Task<SwitchStaticRoute> GetNetworkSwitchStackRoutingStaticRoute(
-			[AliasAs("serial")] string serial,
+			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
 			[AliasAs("staticRouteId")] string staticRouteId
 			);
@@ -139,17 +139,17 @@ namespace Meraki.Api.Interfaces
 		/// Update a layer 3 static route for a switch stack
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="networkId"></param>
 		/// <param name="staticRouteId"></param>
 		/// <param name="switchStackId"></param>
 		/// <param name="updateNetworkSwitchStackRoutingStaticRoute"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
 		Task<SwitchStaticRoute> UpdateNetworkSwitchStackRoutingStaticRoute(
-			[AliasAs("serial")] string serial,
+			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
 			[AliasAs("staticRouteId")] string staticRouteId,
-			[Body]SwitchStaticRouteCreationRequest updateNetworkSwitchStackRoutingStaticRoute
+			[Body] SwitchStaticRouteCreationRequest updateNetworkSwitchStackRoutingStaticRoute
 			);
 
 		/// <summary>

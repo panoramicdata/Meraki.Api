@@ -32,7 +32,6 @@ namespace Meraki.Api.Interfaces
 		/// Add an MQTT broker
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
 		/// <param name="createNetworkMqttBroker"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/mqttBrokers")]
