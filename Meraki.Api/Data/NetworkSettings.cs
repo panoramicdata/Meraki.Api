@@ -27,7 +27,7 @@ namespace Meraki.Api.Data
 		/// Secure connect settings
 		/// </summary>
 		[DataMember(Name = "secureConnect")]
-		public SecureConnect SecureConnect { get; set; } = new();
+		public SecureConnect? SecureConnect { get; set; } = new();
 
 		/// <summary>
 		/// Fips settings

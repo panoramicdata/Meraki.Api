@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// claimNetworkDevices
 		/// </summary>
 		/// <remarks>
-		/// Claim devices into a network
+		/// Claim devices into a network. (Note: for recently claimed devices, it may take a few minutes for API requsts against that device to succeed)
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -96,7 +96,7 @@ namespace Meraki.Api.Interfaces
 		/// getNetworkDeviceLossAndLatencyHistory
 		/// </summary>
 		/// <remarks>
-		/// Get the uplink loss percentage and latency in milliseconds for a wired network device.
+		/// Get the uplink loss percentage and latency in milliseconds, and goodput in kilobits per second for a wired network device.
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -109,7 +109,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="uplink">The WAN uplink used to obtain the requested stats. Valid uplinks are wan1, wan2, cellular. The default is wan1. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/lossAndLatencyHistory")]
-		Task<object> GetLossAndLatencyHistoryAsync(
+		Task<List<LossAndLatencyHistory>> GetLossAndLatencyHistoryAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("ip")] string ip,
 			[AliasAs("t0")] string t0 = null!,

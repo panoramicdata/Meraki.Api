@@ -90,5 +90,31 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("serials")] List<string>? serials = null,
 			[AliasAs("iccids")] List<string>? iccids = null
 			);
+
+		/// <summary>
+		/// getOrganizationCellularGatewayUplinkStatuses
+		/// </summary>
+		/// <remarks>
+		/// List the uplink status of every Meraki MG cellular gateway in the organization
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId"></param>
+		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.</param>
+		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+		/// <param name="networkIds">A list of network IDs. The returned devices will be filtered to only include these networks.</param>
+		/// <param name="serials">A list of serial numbers. The returned devices will be filtered to only include these serials.</param>
+		/// <param name="iccids">A list of ICCIDs. The returned devices will be filtered to only include these ICCIDs.</param>
+		/// <returns>Task of Object</returns>
+		[Get("/organizations/{organizationId}/cellularGateway/uplink/statuses")]
+		Task<List<UplinkStatus>> GetOrganizationCellularGatewayUplinkStatuses(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string? startingAfter = null,
+			[AliasAs("endingBefore")] string? endingBefore = null,
+			[AliasAs("networkIds")] List<string>? networkIds = null,
+			[AliasAs("serials")] List<string>? serials = null,
+			[AliasAs("iccids")] List<string>? iccids = null
+			);
 	}
 }

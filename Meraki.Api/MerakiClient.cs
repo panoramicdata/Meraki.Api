@@ -108,7 +108,7 @@ namespace Meraki.Api
 			SyslogServers = RestService.For<ISyslogServers>(_httpClient, refitSettings);
 			TrafficAnalysisSettings = RestService.For<ITrafficAnalysisSettings>(_httpClient, refitSettings);
 			TrafficShaping = RestService.For<ITrafficShaping>(_httpClient, refitSettings);
-			UplinkSettings = RestService.For<IUplinkSettings>(_httpClient, refitSettings);
+			UplinkSettings = RestService.For<IUplink>(_httpClient, refitSettings);
 			Vlans = RestService.For<IVlans>(_httpClient, refitSettings);
 			WebhookLogs = RestService.For<IWebhookLogs>(_httpClient, refitSettings);
 			WirelessHealth = RestService.For<IWirelessHealth>(_httpClient, refitSettings);
@@ -473,7 +473,7 @@ namespace Meraki.Api
 		/// <summary>
 		/// Uplink settings
 		/// </summary>
-		public IUplinkSettings UplinkSettings { get; }
+		public IUplink UplinkSettings { get; }
 
 		/// <summary>
 		/// VLANs

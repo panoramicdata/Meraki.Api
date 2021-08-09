@@ -57,7 +57,7 @@ namespace Meraki.Api.Data
 		/// Radius group attribute
 		/// </summary>
 		[DataMember(Name = "radiusGroupAttribute")]
-		public string RadiusGroupAttribute { get; set; } = string.Empty;
+		public string? RadiusGroupAttribute { get; set; }
 
 		/// <summary>
 		/// Host mode

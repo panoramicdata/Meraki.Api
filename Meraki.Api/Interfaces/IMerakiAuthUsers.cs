@@ -32,12 +32,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <remarks>
 		/// Update a user configured with Meraki Authentication (currently, 802.1X RADIUS, splash guest, and client VPN users can be updated)
-		/// </remarks>
+		///		</remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="merakiAuthUserId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
+		[Put("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 		Task<MerakiAuthUsers> UpdateNetworkMerakiAuthUser(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
@@ -78,7 +78,7 @@ namespace Meraki.Api.Interfaces
 		/// createNetworkMerakiAuthUser
 		/// </summary>
 		/// <remarks>
-		/// Create a user configured with Meraki Authentication for a network (currently supports 802.1X, splash guest, and client VPN users, and currently, organizations have a 50,000 user cap)
+		/// Authorize a user configured with Meraki Authentication for a network (currently supports 802.1X, splash guest, and client VPN users, and currently, organizations have a 50,000 user cap)
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
@@ -94,7 +94,7 @@ namespace Meraki.Api.Interfaces
 		/// deleteNetworkMerakiAuthUser
 		/// </summary>
 		/// <remarks>
-		/// Delete a user configured with Meraki Authentication (currently, 802.1X RADIUS, splash guest, and client VPN users can be deleted)
+		/// Deauthorize a user
 		/// </remarks>
 		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>

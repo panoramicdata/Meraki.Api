@@ -39,7 +39,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Get("/devices/{serial}/switchPortStatuses")]
+		[Get("/devices/{serial}/switch/ports/statuses")]
 		Task<List<SwitchPortStatus>> GetDeviceSwitchPortStatuses(
 			[AliasAs("serial")] string serial,
 			[AliasAs("t0")] string t0 = null!,

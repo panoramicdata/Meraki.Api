@@ -223,5 +223,90 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "dot11r")]
 		public Dot11r? Dot11r { get; set; }
+
+		/// <summary>
+		/// Array of valid sponsor email domains for sponsored guest splash type.
+		/// </summary>
+		[DataMember(Name = "splashGuestSponsorDomains")]
+		public List<string>? SplashGuestSponsorDomains { get; set; }
+
+		/// <summary>
+		/// The current setting for LDAP. Only valid if splashPage is 'Password-protected with LDAP'.
+		/// </summary>
+		[DataMember(Name = "ldap")]
+		public Ldap? Ldap { get; set; }
+
+		/// <summary>
+		/// The current setting for Active Directory. Only valid if splashPage is 'Password-protected with Active Directory'
+		/// </summary>
+		[DataMember(Name = "activeDirectory")]
+
+		public ActiveDirectory? ActiveDirectory { get; set; }
+
+		/// <summary>
+		/// If true, Meraki devices will periodically send Access-Request messages to configured RADIUS servers using identity 'meraki_8021x_test' to ensure that the RADIUS servers are reachable.
+		/// </summary>
+		[DataMember(Name = "radiusTestingEnabled")]
+		public bool? RadiusTestingEnabled { get; set; }
+
+		/// <summary>
+		/// The template of the called station identifier to be used for RADIUS (ex. $NODE_MAC$:$VAP_NUM$).
+		/// </summary>
+		[DataMember(Name = "radiusCalledStationId")]
+		public string? RadiusCalledStationId { get; set; }
+
+		/// <summary>
+		/// The template of the NAS identifier to be used for RADIUS authentication (ex. $NODE_MAC$:$VAP_NUM$).
+		/// </summary>
+		[DataMember(Name = "radiusAuthenticationNasId")]
+		public string? RadiusAuthenticationNasId { get; set; }
+
+		/// <summary>
+		/// The amount of time for which a RADIUS client waits for a reply from the RADIUS server (must be between 1-10 seconds).
+		/// </summary>
+		[DataMember(Name = "radiusServerTimeout")]
+		public int? RadiusServerTimeout { get; set; }
+
+		/// <summary>
+		/// The maximum number of transmit attempts after which a RADIUS server is failed over (must be between 1-5).
+		/// </summary>
+		[DataMember(Name = "radiusServerAttemptsLimit")]
+		public int? RadiusServerAttemptsLimit { get; set; }
+
+		/// <summary>
+		/// Whether or not higher priority RADIUS servers should be retried after 60 seconds.
+		/// </summary>
+		[DataMember(Name = "radiusFallbackEnabled")]
+		public bool? RadiusFallbackEnabled { get; set; }
+
+		/// <summary>
+		/// The interval (in seconds) in which accounting information is updated and sent to the RADIUS accounting server.
+		/// </summary>
+		[DataMember(Name = "radiusAccountingInterimInterval")]
+		public int? RadiusAccountingInterimInterval { get; set; }
+
+		/// <summary>
+		/// The OAuth settings of this SSID. Only valid if splashPage is 'Google OAuth'.
+		/// </summary>
+		[DataMember(Name = "oauth")]
+		public Oauth? Oauth { get; set; }
+
+		/// <summary>
+		/// The current setting for Local Authentication, a built-in RADIUS server on the access point. Only valid if authMode is '8021x-localradius'.
+		/// </summary>
+		[DataMember(Name = "localRadius")]
+		public LocalRadius? LocalRadius { get; set; }
+
+		/// <summary>
+		/// Boolean indicating whether or not adult content will be blocked
+		/// </summary>
+		[DataMember(Name = "adultContentFilteringEnabled")]
+		public bool? AdultContentFilteringEnabled { get; set; }
+
+		/// <summary>
+		/// DNS servers rewrite settings
+		/// </summary>
+		[DataMember(Name = "dnsRewrite")]
+		public DnsRewrite? DnsRewrite { get; set; }
 	}
 }

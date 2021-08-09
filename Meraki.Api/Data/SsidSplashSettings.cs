@@ -21,7 +21,7 @@ namespace Meraki.Api.Data
 		/// Controller disconnection behavior
 		/// </summary>
 		[DataMember(Name = "controllerDisconnectionBehavior")]
-		public string ControllerDisconnectBehavior { get; set; } = string.Empty;
+		public string? ControllerDisconnectBehavior { get; set; }
 
 		/// <summary>
 		/// Redirect URL
@@ -39,7 +39,7 @@ namespace Meraki.Api.Data
 		/// Allow simultaneous logins
 		/// </summary>
 		[DataMember(Name = "allowSimultaneousLogins")]
-		public bool AllowSimultaneousLogins { get; set; }
+		public bool? AllowSimultaneousLogins { get; set; }
 
 		/// <summary>
 		/// Block all traffic before sign on
@@ -63,13 +63,13 @@ namespace Meraki.Api.Data
 		/// Billing
 		/// </summary>
 		[DataMember(Name = "billing")]
-		public Billing Billing { get; set; } = new();
+		public Billing? Billing { get; set; }
 
 		/// <summary>
 		/// Guest sponsorship
 		/// </summary>
 		[DataMember(Name = "guestSponsorship")]
-		public GuestSponsorship GuestSponsorship { get; set; } = new();
+		public GuestSponsorship? GuestSponsorship { get; set; }
 
 		/// <summary>
 		/// Splash image

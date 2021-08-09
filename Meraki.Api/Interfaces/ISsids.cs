@@ -198,5 +198,106 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number
 			);
+
+		/// <summary>
+		/// getNetworkWirelessSsidDeviceTypeGroupPolicies
+		/// </summary>
+		/// <remarks>
+		/// List the device type group policies for the SSID
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
+		Task<DeviceTypeGroupPolicies> GetNetworkWirelessSsidDeviceTypeGroupPolicies(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number
+			);
+
+		/// <summary>
+		/// updateNetworkWirelessSsidDeviceTypeGroupPolicies
+		/// </summary>
+		/// <remarks>
+		/// Update the device type group policies for the SSID
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
+		Task<DeviceTypeGroupPolicies> UpdateNetworkWirelessSsidDeviceTypeGroupPolicies(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body]DeviceTypeGroupPolicies updateNetworkWirelessSsidDeviceTypeGroupPolicies
+			);
+
+		/// <summary>
+		/// getNetworkWirelessSsidBonjourForwarding
+		/// </summary>
+		/// <remarks>
+		/// List the Bonjour forwarding setting and rules for the SSID
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/bonjourForwarding")]
+		Task<BonjourForwarding> GetNetworkWirelessSsidBonjourForwarding(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number
+			);
+
+		/// <summary>
+		/// updateNetworkWirelessSsidBonjourForwarding
+		/// </summary>
+		/// <remarks>
+		/// Update the bonjour forwarding setting and rules for the SSID
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <param name="updateNetworkWirelessSsidBonjourForwarding"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/networks/{networkId}/wireless/ssids/{number}/bonjourForwarding")]
+		Task<BonjourForwarding> UpdateNetworkWirelessSsidBonjourForwarding(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body]BonjourForwarding updateNetworkWirelessSsidBonjourForwarding
+			);
+
+		/// <summary>
+		/// getNetworkWirelessSsidVpn
+		/// </summary>
+		/// <remarks>
+		/// List the VPN settings for the SSID.
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/vpn")]
+		Task<VpnSettings> GetNetworkWirelessSsidVpn(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number
+			);
+
+		/// <summary>
+		/// updateNetworkWirelessSsidVpn
+		/// </summary>
+		/// <remarks>
+		/// Update the VPN settings for the SSID
+		/// </remarks>
+		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <param name="updateNetworkWirelessSsidVpn"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/networks/{networkId}/wireless/ssids/{number}/vpn")]
+		Task<VpnSettings> UpdateNetworkWirelessSsidVpn(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body]VpnSettings updateNetworkWirelessSsidVpn
+			);
 	}
 }

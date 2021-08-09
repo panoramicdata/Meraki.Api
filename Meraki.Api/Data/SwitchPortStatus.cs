@@ -43,6 +43,9 @@ namespace Meraki.Api.Data
 
 		[DataMember(Name = "trafficInKbps")]
 		public TrafficInKbps TrafficInKbps { get; set; } = new();
+
+		[DataMember(Name = "secureConnect")]
+		public SecureConnect? SecureConnect { get; set; }
 	}
 
 	public class UsageInKb : Usage

@@ -58,5 +58,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "productTypes")]
 		public List<string> ProductTypes { get; set; } = new List<string>();
+
+		/// <summary>
+		/// Notes
+		/// </summary>
+		[DataMember(Name = "notes")]
+		public string Notes { get; set; } = string.Empty;
 	}
 }

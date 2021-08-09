@@ -23,7 +23,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/clients")]
-		Task<object> GeGetAllAsync(
+		Task<object> GetAllAsync(
 			[AliasAs("serial")]string serial,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("timespan")]double? timespan = null,

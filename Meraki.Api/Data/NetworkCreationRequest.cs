@@ -43,5 +43,11 @@ namespace Meraki.Api.Data
 		/// <value>The product type(s) of the new network.</value>
 		[DataMember(Name = "productTypes", EmitDefaultValue = false)]
 		public List<string> ProductTypes { get; set; } = new();
+
+		/// <summary>
+		/// Add any notes or additional information about this network here.
+		/// </summary>
+		[DataMember(Name = "notes")]
+		public string? Notes { get; set; }
 	}
 }
