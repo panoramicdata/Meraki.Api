@@ -6,9 +6,9 @@ using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
-	public class Admins : MerakiClientTest
+	public class AdminTests : MerakiClientTest
 	{
-		public Admins(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+		public AdminTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 		{
 		}
 
