@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the events for the network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="productType">The product type to fetch events for. This parameter is required for networks with multiple device types. Valid types are wireless, appliance, switch, systemsManager, camera, and cellularGateway (optional)</param>
 		/// <param name="includedEventTypes">A list of event types. The returned events will be filtered to only include events with these types. (optional)</param>
@@ -57,7 +57,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the event type to human-readable description
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/events/eventTypes")]

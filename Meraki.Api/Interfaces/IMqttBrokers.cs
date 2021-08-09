@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the MQTT brokers for this network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/mqttBrokers")]
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Add an MQTT broker
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="createNetworkMqttBroker"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/mqttBrokers")]
@@ -46,7 +46,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return an MQTT broker
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="mqttBrokerId"></param>
 		/// <returns>Task of Object</returns>
@@ -62,7 +62,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update an MQTT broker
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="mqttBrokerId"></param>
 		/// <param name="updateNetworkMqttBroker"></param>
@@ -80,7 +80,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete an MQTT broker
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="mqttBrokerId"></param>
 		/// <returns>Task of void</returns>

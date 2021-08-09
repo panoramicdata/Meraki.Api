@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the cellular firewall rules for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/cellularFirewallRules")]
@@ -29,7 +29,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the cellular firewall rules of an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkCellularFirewallRules"> (optional)</param>
 		/// <returns>Task of Object</returns>

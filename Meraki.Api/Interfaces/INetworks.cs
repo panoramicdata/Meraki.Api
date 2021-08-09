@@ -1,5 +1,4 @@
 using Meraki.Api.Data;
-using Microsoft.Extensions.DependencyInjection;
 using Refit;
 using System.Collections.Generic;
 using System.Threading;
@@ -18,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Bind a network to a template.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="bindNetwork"></param>
 		/// <returns>Task of void</returns>
@@ -34,8 +33,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Combine multiple networks into a single network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="combineOrganizationNetworks"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/networks/combine")]
@@ -50,8 +49,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Create a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="createOrganizationNetwork"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/networks")]
@@ -66,7 +65,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}")]
@@ -80,7 +79,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}")]
@@ -94,7 +93,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/accessPolicies")]
@@ -108,7 +107,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List Air Marshal scan results from a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 7 days. (optional)</param>
@@ -126,7 +125,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the site-to-site VPN settings of a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
@@ -135,19 +134,18 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// getNetworkTraffic
+		/// Get Network Traffic
 		/// </summary>
 		/// <remarks>
 		/// Return the traffic analysis data for this network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 30 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 30 days. (optional)</param>
 		/// <param name="deviceType">    Filter the data by device type: &#39;combined&#39;, &#39;wireless&#39;, &#39;switch&#39; or &#39;appliance&#39;. Defaults to &#39;combined&#39;.     When using &#39;combined&#39;, for each rule the data will come from the device type with the most usage.  (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/traffic")]
-		Task<object> GetNetworkTraffic(
+		Task<object> GetNetworkTrafficAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("t0")] string t0 = null!,
 			[AliasAs("timespan")] double? timespan = null,
@@ -160,8 +158,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the networks that the user has privileges on in an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="configTemplateId">An optional parameter that is the ID of a config template. Will return all networks bound to that template. (optional)</param>
 		/// <param name="tags">An optional parameter to filter networks by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 		/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return networks which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
@@ -186,7 +184,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Split a combined network into individual networks for each type of device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/split")]
@@ -200,7 +198,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Unbind a network from a template.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/unbind")]
@@ -210,12 +208,12 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// updateNetwork
+		/// Update Network
 		/// </summary>
 		/// <remarks>
 		/// Update a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="networkUpdateRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -232,7 +230,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the site-to-site VPN settings of a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSiteToSiteVpn"></param>
 		/// <returns>Task of Object</returns>
@@ -248,31 +246,12 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the appliance settings for a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/settings")]
 		Task<ApplianceSettings> GetNetworkApplianceSettings(
 			[AliasAs("networkId")] string networkId
 			);
-
-		/// <summary>
-		/// getNetworkSplashLoginAttempts
-		/// </summary>
-		/// <remarks>
-		/// List the splash login attempts for a network
-		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="ssidNumber">Only return the login attempts for the specified SSID (optional)</param>
-		/// <param name="loginIdentifier">The username, email, or phone number used during login (optional)</param>
-		/// <param name="timespan">The timespan, in seconds, for the login attempts. The period will be from [timespan] seconds ago until now. The maximum timespan is 3 months (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/splashLoginAttempts")]
-		Task<object> GetNetworkSplashLoginAttemptsAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("ssidNumber")] string ssidNumber = null!,
-			[AliasAs("loginIdentifier")] string loginIdentifier = null!,
-			[AliasAs("timespan")] int? timespan = null);
 	}
 }

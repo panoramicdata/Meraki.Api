@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Add an HTTP server to a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkHttpServer"></param>
 		/// <returns>Task of Object</returns>
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Send a test webhook for a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkHttpServersWebhookTest"></param>
 		/// <returns>Task of Object</returns>
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete an HTTP server from a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="id"></param>
 		/// <returns>Task of void</returns>
@@ -64,7 +64,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return an HTTP server for a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="id"></param>
 		/// <returns>Task of Object</returns>
@@ -80,7 +80,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the HTTP servers for a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/webhooks/httpServers")]
@@ -94,7 +94,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the status of a webhook test for a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="id"></param>
 		/// <returns>Task of Object</returns>
@@ -110,7 +110,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update an HTTP server
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="id"></param>
 		/// <param name="updateNetworkHttpServer"> (optional)</param>

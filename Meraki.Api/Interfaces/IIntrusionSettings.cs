@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns all supported intrusion settings for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/security/intrusion")]
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns all supported intrusion settings for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/appliance/security/intrusion")]
 		Task<object> GetOrganizationSecurityIntrusionSettings(
@@ -43,7 +43,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Set the supported intrusion settings for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSecurityIntrusionSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -59,8 +59,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Sets supported intrusion settings for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="updateOrganizationSecurityIntrusionSettings"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/security/intrusionSettings")]

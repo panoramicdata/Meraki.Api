@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return an action batch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/alternateManagementInterface")]
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return an action batch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkWirelessAlternateManagementInterface"
 		/// <returns>Task of Object</returns>

@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the L7 firewall rules for an SSID on an MR network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the L7 firewall rules for an SSID on an MR network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkWirelessSsidFirewallL7FirewallRules"></param>

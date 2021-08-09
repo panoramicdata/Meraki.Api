@@ -15,8 +15,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Add a new branding policy to an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="createOrganizationBrandingPolicy"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/brandingPolicies")]
@@ -31,8 +31,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete a branding policy
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="brandingPolicyId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
@@ -47,8 +47,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the branding policies of an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/brandingPolicies")]
 		Task<object> GetOrganizationBrandingPolicies(
@@ -61,8 +61,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the branding policy IDs of an organization in priority order
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/brandingPolicies/priorities")]
 		Task<object> GetOrganizationBrandingPoliciesPriorities(
@@ -75,8 +75,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a branding policy
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="brandingPolicyId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
@@ -91,8 +91,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the priority ordering of an organization&#39;s branding policies.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="updateOrganizationBrandingPoliciesPriorities"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
@@ -107,8 +107,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a branding policy
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="brandingPolicyId"></param>
 		/// <param name="updateOrganizationBrandingPolicy"> (optional)</param>
 		/// <returns>Task of Object</returns>

@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List common DHCP settings of MGs
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/cellularGateway/settings/dhcp")]
@@ -29,7 +29,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update common DHCP settings of MGs
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkCellularGatewaySettingsDhcp"> (optional)</param>
 		/// <returns>Task of Object</returns>

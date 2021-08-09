@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Create a link aggregation group
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkSwitchLinkAggregation"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Split a link aggregation group into separate ports
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="linkAggregationId"></param>
 		/// <returns>Task of void</returns>
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List link aggregation groups
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/linkAggregations")]
@@ -61,7 +61,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a link aggregation group
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="linkAggregationId"></param>
 		/// <param name="updateNetworkSwitchLinkAggregation"> (optional)</param>

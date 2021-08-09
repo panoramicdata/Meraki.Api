@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return signal quality (SNR/RSSI) over time for a device or network client
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today.</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>

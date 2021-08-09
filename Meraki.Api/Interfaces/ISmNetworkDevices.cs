@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Wipe a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="wipeNetworkSmDevices"></param>
 		/// <returns>Task of Object</returns>

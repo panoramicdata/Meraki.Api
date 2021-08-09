@@ -17,8 +17,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Claim a list of devices, licenses, and/or orders into an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="organizationClaimRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/claim")]
@@ -33,8 +33,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Create a new organization by cloning the addressed organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="cloneOrganization"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/clone")]
@@ -49,7 +49,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Create a new organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="createOrganization"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations")]
@@ -63,8 +63,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of void</returns>
 		[Delete("/organizations/{organizationId}")]
 		Task DeleteAsync(
@@ -78,8 +78,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}")]
 		Task<Organization> GetAsync(
@@ -92,8 +92,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the devices in an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/devices")]
 		Task<List<OrganizationDevice>> GetDevicesAsync(
@@ -106,8 +106,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the status of every Meraki device in the organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/devices/statuses")]
 		Task<List<OrganizationDeviceStatus>> GetDeviceStatusesAsync(
@@ -120,8 +120,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the inventory for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="includeLicenseInfo">When this parameter is true, each entity in the response will include the license expiration date of the device (if any). Only applies to organizations that support per-device licensing. Defaults to false. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/inventory")]
@@ -136,8 +136,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return an overview of the license state for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("//organizations/{organizationId}/licenses/overview")]
 		Task<OrganizationLicenseState> GetLicenseStateAsync(
@@ -150,8 +150,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the third party VPN peers for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/thirdPartyVPNPeers")]
 		Task<List<ThirdPartyVpnPeer>> GetThirdPartyVpnPeersAsync(
@@ -164,8 +164,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the uplink loss and latency for every MX in the organization from at latest 2 minutes ago
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 365 days from today. (optional)</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 5 minutes after t0. The latest possible time that t1 can be is 2 minutes into the past. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 5 minutes. The default is 5 minutes. (optional)</param>
@@ -188,7 +188,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the organizations that the user has privileges on
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations")]
 		Task<List<Organization>> GetAllAsync(
@@ -200,8 +200,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="updateOrganization"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}")]
@@ -216,8 +216,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the third party VPN peers for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="peerList"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/thirdPartyVPNPeers")]
@@ -232,8 +232,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns the login security settings for an organization.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/loginSecurity")]
 		Task<LoginSecurity> GetOrganizationLoginSecurity(
@@ -246,8 +246,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the login security settings for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="updateOrganizationLoginSecurity"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/loginSecurity")]

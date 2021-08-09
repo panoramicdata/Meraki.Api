@@ -17,8 +17,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Assign SM seats to a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/licenses/assignSeats")]
 		Task<object> AssignOrganizationLicensesSeatsAsync(
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Display a license
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="licenseId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/licenses/{licenseId}")]
@@ -48,8 +48,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the licenses for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
@@ -74,8 +74,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Move licenses to another organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="licenseMoveRequest"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/licenses/move")]
@@ -90,8 +90,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Move SM seats to another organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="licenseSeatsMoveRequest"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/licenses/moveSeats")]
@@ -106,8 +106,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Renew SM seats of a license
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="licenseSeatsRenewalRequest"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/licenses/renewSeats")]
@@ -122,8 +122,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a license
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="licenseId"></param>
 		/// <param name="updateOrganizationLicense"> (optional)</param>
 		/// <returns>Task of Object</returns>

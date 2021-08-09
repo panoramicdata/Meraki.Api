@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -15,12 +16,13 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the content filtering settings for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/contentFiltering")]
-		Task<object> GetNetworkContentFiltering(
-			[AliasAs("networkId")]string networkId
+		Task<ContentFiltering> GetNetworkApplianceContentFilteringAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
@@ -29,14 +31,14 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the content filtering settings for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
-		/// <param name="updateNetworkContentFiltering"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkContentFilteringUpdateRequest"></param>
 		[Put("/networks/{networkId}/contentFiltering")]
-		Task<object> UpdateNetworkContentFiltering(
-			[AliasAs("networkId")]string networkId,
-			[Body]NetworkContentFilteringUpdateRequest updateNetworkContentFiltering
+		Task<ContentFiltering> UpdateNetworkContentFiltering(
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkContentFilteringUpdateRequest networkContentFilteringUpdateRequest,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

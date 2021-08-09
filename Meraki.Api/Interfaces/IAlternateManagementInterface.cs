@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the switch alternate management interface for the network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/alternateManagementInterface")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the switch alternate management interface for the network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/switch/alternateManagementInterface")]

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The content filtering settings for your group policy
 	/// </summary>
 	[DataContract]
-	public partial class ContentFiltering
+	public class ContentFiltering
 	{
 		/// <summary>
 		/// Gets or Sets AllowedUrlPatterns

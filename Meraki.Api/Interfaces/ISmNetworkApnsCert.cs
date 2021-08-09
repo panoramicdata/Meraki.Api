@@ -16,8 +16,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Get the organization's APNS certificate
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/sm/apnsCert")]
 		Task<ApnsCert> GetOrganizationSmApnsCert(

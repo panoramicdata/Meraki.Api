@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Display the traffic shaping settings for a SSID on an MR network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Display the traffic shaping settings rules for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/trafficShaping")]
@@ -46,7 +46,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns the application categories for traffic shaping rules.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/trafficShaping/applicationCategories")]
@@ -60,7 +60,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns the available DSCP tagging options for your traffic shaping rules.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/trafficShaping/dscpTaggingOptions")]
@@ -74,7 +74,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the traffic shaping settings for an SSID on an MR network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkSsidTrafficShaping"> (optional)</param>
@@ -92,7 +92,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the traffic shaping settings rules for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkTrafficShaping"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -108,7 +108,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List all custom performance classes for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
@@ -122,7 +122,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Add a custom performance class for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
@@ -137,7 +137,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a custom performance class for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="customPerformanceClassId"></param>
 		/// <returns>Task of Object</returns>
@@ -153,7 +153,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a custom performance class for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="customPerformanceClassId"></param>
 		/// <param name="updateNetworkApplianceTrafficShapingCustomPerformanceClass"></param>
@@ -171,7 +171,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete a custom performance class from an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="customPerformanceClassId"></param>
 		/// <returns>Task of void</returns>
@@ -187,7 +187,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns the uplink bandwidth settings for your MX network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/uplinkBandwidth")]
@@ -201,7 +201,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Updates the uplink bandwidth settings for your MX network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkApplianceTrafficShapingUplinkBandwidth"></param>
 		/// <returns>Task of Object</returns>
@@ -217,7 +217,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Show uplink selection settings for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
 		Task<UplinkSelection> GetNetworkApplianceTrafficShapingUpinkSelection(
@@ -230,7 +230,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update uplink selection settings for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
@@ -245,7 +245,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Display the traffic shaping settings for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping")]
@@ -259,7 +259,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the traffic shaping settings for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkApplianceTrafficShaping"></param>
 		/// <returns>Task of Object</returns>

@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return MX warm spare settings
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/warmSpareSettings")]
@@ -29,7 +29,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Swap MX primary and warm spare appliances
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/swapWarmSpare")]
@@ -43,7 +43,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update MX warm spare settings
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkWarmSpareSettings"></param>
 		/// <returns>Task of Object</returns>

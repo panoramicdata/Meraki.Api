@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the alert configuration for this network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/alertSettings")]
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the alert configuration for this network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkAlertSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>

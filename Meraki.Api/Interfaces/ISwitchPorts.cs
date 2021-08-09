@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a switch port
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -34,7 +34,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the status for all the ports of a switch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
@@ -52,7 +52,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the packet counters for all the ports of a switch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 1 day from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 1 day. The default is 1 day. (optional)</param>
@@ -70,7 +70,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the switch ports for a switch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of list of DeviceSwitchPorts</returns>
 		[Get("/devices/{serial}/switch/ports")]
@@ -85,7 +85,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a switch port
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="updateDeviceSwitchPort"> (optional)</param>
 		/// <returns>Task of Object</returns>

@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the management interface settings for a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/managementInterfaceSettings")]
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the management interface settings for a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/managementInterfaceSettings")]

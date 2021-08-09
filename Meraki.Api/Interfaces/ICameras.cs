@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Generate a snapshot of what the camera sees at the specified time and return a link to that image.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="generateNetworkCameraSnapshot"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns quality and retention settings for the given camera
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/camera/qualityAndRetentionSettings")]
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns a list of all camera recording schedules.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/camera/schedules")]
@@ -61,7 +61,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns video link to the specified camera
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="timestamp">[optional] The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds). If no timestamp is specified, we will assume current time. (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -77,7 +77,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update quality and retention settings for the given camera
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="cameraQualityAndRetentionSettingsUpdateRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -93,7 +93,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns wireless profile assigned to the given camera
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/camera/wirelessProfiles")]
@@ -107,7 +107,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Assign wireless profiles to the given camera. Incremental updates are not supported, all profile assignment need to be supplied at once.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="updateDeviceCameraWirelessProfiles"></param>
 		/// <returns>Task of Object</returns>
@@ -123,7 +123,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the camera wireless profiles for this network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/camera/wirelessProfiles")]
@@ -137,7 +137,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Retrieve a single camera wireless profile.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="wirelessProfileId"></param>
 		/// <returns>Task of Object</returns>
@@ -153,7 +153,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update an existing camera wireless profile in this network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="wirelessProfileId"></param>
 		/// <param name="updateNetworkCameraWirelessProfile"></param>
@@ -171,7 +171,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Creates a new camera wireless profile for this network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkCameraWirelessProfile"></param>
 		/// <returns>Task of Object</returns>
@@ -187,7 +187,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete an existing camera wireless profile for this network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="wirelessProfileId"></param>
 		/// <returns>Task of void</returns>
@@ -203,8 +203,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Fetch onboarding status of cameras
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/camera/onboarding/statuses")]
 		Task<List<OnboardingStatus>> GetOrganizationCameraOnboardingStatuses(
@@ -219,8 +219,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Notify that credential handoff to camera has completed
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/camera/onboarding/statuses")]
 		Task<UpdateOnboardingStatusResponse> UpdateOrganizationCameraOnboardingStatuses(

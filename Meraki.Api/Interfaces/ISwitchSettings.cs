@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Add a quality of service rule
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkSwitchSettingsQosRule"></param>
 		/// <returns>Task of Object</returns>
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete a quality of service rule
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="qosRuleId"></param>
 		/// <returns>Task of void</returns>
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns the switch network settings
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/settings")]
@@ -61,7 +61,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the DHCP server policy
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/settings/dhcpServerPolicy")]
@@ -75,7 +75,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the DSCP to CoS mappings
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/settings/dscpToCosMappings")]
@@ -89,7 +89,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the MTU configuration
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/settings/mtu")]
@@ -103,7 +103,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return multicast settings for a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/settings/multicast")]
@@ -117,7 +117,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a quality of service rule
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="qosRuleId"></param>
 		/// <returns>Task of Object</returns>
@@ -133,7 +133,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List quality of service rules
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/settings/qosRules")]
@@ -147,7 +147,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the quality of service rule IDs by order in which they will be processed by the switch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/settings/qosRules/order")]
@@ -161,7 +161,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the storm control configuration for a switch network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/settings/stormControl")]
@@ -175,7 +175,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns STP settings
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/settings/stp")]
@@ -189,7 +189,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update switch network settings
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSwitchSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -205,7 +205,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the DHCP server policy
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSwitchSettingsDhcpServerPolicy"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -221,7 +221,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the DSCP to CoS mappings
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSwitchSettingsDscpToCosMappings"></param>
 		/// <returns>Task of Object</returns>
@@ -237,7 +237,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the MTU configuration
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSwitchSettingsMtu"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -253,7 +253,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update multicast settings for a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSwitchSettingsMulticast"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -269,7 +269,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a quality of service rule
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="qosRuleId"></param>
 		/// <param name="updateNetworkSwitchSettingsQosRule"> (optional)</param>
@@ -287,7 +287,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the order in which the rules should be processed by the switch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSwitchSettingsQosRulesOrder"></param>
 		/// <returns>Task of Object</returns>
@@ -303,7 +303,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the storm control configuration for a switch network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSwitchSettingsStormControl"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -319,7 +319,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Updates STP settings
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSwitchSettingsStp"> (optional)</param>
 		/// <returns>Task of Object</returns>

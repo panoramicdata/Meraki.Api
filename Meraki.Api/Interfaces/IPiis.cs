@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Submit a new delete or restrict processing PII request  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests &#x60;&#x60;&#x60;
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkPiiRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete a restrict processing PII request  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests/{requestId} &#x60;&#x60;&#x60;
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="requestId"></param>
 		/// <returns>Task of void</returns>
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the keys required to access Personally Identifiable Information (PII) for a given identifier
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="username">The username of a Systems Manager user (optional)</param>
 		/// <param name="email">The email of a network user account or a Systems Manager device (optional)</param>
@@ -73,7 +73,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a PII request  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests/{requestId} &#x60;&#x60;&#x60;
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="requestId"></param>
 		/// <returns>Task of Object</returns>
@@ -89,7 +89,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the PII requests for this network or organization  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests &#x60;&#x60;&#x60;
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/pii/requests")]
@@ -103,7 +103,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="username">The username of a Systems Manager user (optional)</param>
 		/// <param name="email">The email of a network user account or a Systems Manager device (optional)</param>
@@ -129,7 +129,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="username">The username of a Systems Manager user (optional)</param>
 		/// <param name="email">The email of a network user account or a Systems Manager device (optional)</param>

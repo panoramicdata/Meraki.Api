@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Creates new quality retention profile for this network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkCameraQualityRetentionProfile"></param>
 		/// <returns>Task of Object</returns>
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete an existing quality retention profile for this network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="qualityRetentionProfileId"></param>
 		/// <returns>Task of void</returns>
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Retrieve a single quality retention profile
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="qualityRetentionProfileId"></param>
 		/// <returns>Task of Object</returns>
@@ -64,7 +64,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the quality retention profiles for this network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/camera/qualityRetentionProfiles")]
@@ -78,7 +78,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update an existing quality retention profile for this network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="qualityRetentionProfileId"></param>
 		/// <param name="updateNetworkCameraQualityRetentionProfile"> (optional)</param>

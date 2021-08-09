@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the Meraki Auth splash guest, RADIUS, or client VPN user
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="merakiAuthUserId"></param>
 		/// <returns>Task of Object</returns>
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a user configured with Meraki Authentication (currently, 802.1X RADIUS, splash guest, and client VPN users can be updated)
 		///		</remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="merakiAuthUserId"></param>
 		/// <returns>Task of Object</returns>
@@ -50,7 +50,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the users configured under Meraki Authentication for a network (splash guest or RADIUS users for a wireless network, or client VPN users for a wired network)
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/merakiAuthUsers")]
@@ -64,7 +64,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a user configured with Meraki Authentication (currently, 802.1X RADIUS, splash guest, and client VPN users can be updated)
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkMerakiAuthUser"></param>
 		/// <returns>Task of Object</returns>
@@ -80,7 +80,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Authorize a user configured with Meraki Authentication for a network (currently supports 802.1X, splash guest, and client VPN users, and currently, organizations have a 50,000 user cap)
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkMerakiAuthUser"></param>
 		/// <returns>Task of Object</returns>
@@ -96,7 +96,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Deauthorize a user
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="merakiAuthUserId"></param>
 		/// <returns>Task of void</returns>

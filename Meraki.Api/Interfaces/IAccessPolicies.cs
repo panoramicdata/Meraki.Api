@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/accessPolicies")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Create an access policy for a switch network. This endpoint only supports access policies with 'My RADIUS server' as authentication method.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkSwitchAccessPolicy"></param>
 		/// <returns>Task of Object</returns>
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a specific access policy for a switch network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="accessPolicyNumber"></param>
 		/// <returns>Task of Object</returns>
@@ -64,7 +64,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update an access policy for a switch network. This endpoint only supports access policies with 'My RADIUS server' as authentication method.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="accessPolicyNumber"></param>
 		/// <param name="updateNetworkSwitchAccessPolicy"></param>
@@ -82,7 +82,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete an access policy for a switch network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="accessPolicyNumber"></param>
 		/// <returns>Task of void</returns>

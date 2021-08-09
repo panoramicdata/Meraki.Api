@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return warm spare configuration for a switch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switch/warmSpare")]
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update warm spare configuration for a switch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="updateDeviceSwitchWarmSpare"></param>
 		/// <returns>Task of Object</returns>

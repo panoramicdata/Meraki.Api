@@ -14,7 +14,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List all available content filtering categories for an MX network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/contentFiltering/categories")]

@@ -14,7 +14,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns live state from camera of analytics zones
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/camera/analytics/live")]
@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns an overview of aggregate analytics data for a timespan
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 365 days from today. (optional)</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 7 days after t0. (optional)</param>
@@ -50,7 +50,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns most recent record for analytics zones
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -66,7 +66,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return historical records for analytic zones
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="zoneId"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 365 days from today. (optional)</param>
@@ -92,7 +92,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns all configured analytic zones for this camera
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/camera/analytics/zones")]

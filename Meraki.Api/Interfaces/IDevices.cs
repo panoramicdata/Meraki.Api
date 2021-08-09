@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Blink the LEDs on a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="deviceLedsBlinkRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Claim devices into a network. (Note: for recently claimed devices, it may take a few minutes for API requsts against that device to succeed)
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="claimNetworkDevices"> (optional)</param>
 		/// <returns>Task of void</returns>
@@ -49,7 +49,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Cycle a set of switch ports
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="deviceSwitchPortsCycleRequest"></param>
 		/// <returns>Task of Object</returns>
@@ -65,7 +65,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a single device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}")]
@@ -79,7 +79,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List LLDP and CDP information for a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="timespan">The timespan for which LLDP and CDP information will be fetched. Must be in seconds and less than or equal to a month (2592000 seconds). LLDP and CDP information is sent to the Meraki dashboard every 10 minutes. In instances where this LLDP and CDP information matches an existing entry in the Meraki dashboard, the data is updated once every two hours. Meraki recommends querying LLDP and CDP information at an interval slightly greater than two hours, to ensure that unchanged CDP / LLDP information can be queried consistently. (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -95,7 +95,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Get the uplink loss percentage and latency in milliseconds, and goodput in kilobits per second for a wired network device.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="ip">The destination IP used to obtain the requested stats. This is required.</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 365 days from today. (optional)</param>
@@ -121,7 +121,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the performance score for a single MX
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/appliance/performance")]
@@ -135,7 +135,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the devices in a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of list of Device</returns>
 		[Get("/networks/{networkId}/devices")]
@@ -149,8 +149,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the devices in an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
@@ -171,7 +171,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the management interface settings for a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of list of Device</returns>
 		[Get("/devices/{serial}/managementInterfaceSettings")]
@@ -185,7 +185,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Reboot a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/devices/{serial}/reboot")]
@@ -199,7 +199,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Remove a single device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/devices/remove")]
@@ -213,7 +213,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the attributes of a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="updateNetworkDevice"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -229,8 +229,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Clone port-level and some switch-level configuration settings from a source switch to one or more target switches. Cloned settings include: Aggregation Groups, Power Settings, Multicast Settings, MTU Configuration, STP Bridge priority, Port Mirroring
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="cloneOrganizationSwitchDevices"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/switch/devices/clone")]

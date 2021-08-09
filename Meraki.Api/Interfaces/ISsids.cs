@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the SSID statuses of an access point
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/wireless/status")]
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a single MR SSID
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the MR SSIDs in a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids")]
@@ -61,7 +61,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the attributes of an MR SSID
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkSsid"> (optional)</param>
@@ -79,7 +79,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List all Identity PSKs in a wireless network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -95,7 +95,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List all Identity PSKs in a wireless network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="createNetworkWirelessSsidIdentityPsk"></param>
@@ -113,7 +113,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return an Identity PSK
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="identityPskId"></param>
@@ -131,7 +131,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update an Identity PSK
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="identityPskId"></param>
@@ -151,7 +151,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete an Identity PSK
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="identityPskId"></param>
@@ -169,7 +169,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Modify the splash page settings for the given SSID
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkWirelessSsidSplashSettings"></param>
@@ -187,7 +187,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Display the splash page settings for the given SSID
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -203,7 +203,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the device type group policies for the SSID
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -219,7 +219,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the device type group policies for the SSID
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -236,7 +236,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the Bonjour forwarding setting and rules for the SSID
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -252,7 +252,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the bonjour forwarding setting and rules for the SSID
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkWirelessSsidBonjourForwarding"></param>
@@ -270,7 +270,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the VPN settings for the SSID.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
@@ -286,7 +286,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the VPN settings for the SSID
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkWirelessSsidVpn"></param>

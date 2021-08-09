@@ -17,8 +17,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the SAML IdPs in your organization.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/saml/idps")]
 		Task<List<SamlIdps>> GetOrganizationSamlIdps(
@@ -31,8 +31,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Create a SAML IdP for your organization.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="createOrganizationSamlIdp"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/saml/idps")]
@@ -47,8 +47,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Get a SAML IdP from your organization.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="idpId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/saml/idps/{idpId}")]
@@ -63,8 +63,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a SAML IdP in your organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="idpId"></param>
 		/// <param name="updateOrganizationSamlIdp"></param>
 		/// <returns>Task of Object</returns>
@@ -81,8 +81,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Remove a SAML IdP in your organization.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="idpId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/organizations/{organizationId}/saml/idps/{idpId}")]

@@ -16,6 +16,20 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
+		public async void GetAdminsAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.Admins
+				.GetAllAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			result.Should().BeOfType<List<Organization>>();
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
+			var firstResult = result[0];
+			Validate(firstResult);
+		}
+		
+		[Fact]
 		public async void GetAllAsync_Succeeds()
 		{
 			var result = await MerakiClient

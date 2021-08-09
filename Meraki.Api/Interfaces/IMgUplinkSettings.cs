@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns the uplink settings for your MG network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/cellularGateway/settings/uplink")]
@@ -29,7 +29,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Updates the uplink settings for your MG network.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkCellularGatewaySettingsUplink"> (optional)</param>
 		/// <returns>Task of Object</returns>

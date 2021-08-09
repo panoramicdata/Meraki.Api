@@ -17,8 +17,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Remove a configuration template
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
@@ -33,8 +33,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a single configuration template
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
@@ -49,8 +49,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the configuration templates for this organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/configTemplates")]
 		Task<List<ConfigurationTemplate>> GetAllAsync(
@@ -63,8 +63,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a configuration template
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <param name="updateOrganizationConfigTemplate"></param>
 		/// <returns>Task of Object</returns>
@@ -81,8 +81,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Create a new configuration template
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="createOrganizationConfigTemplate"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/configTemplates")]

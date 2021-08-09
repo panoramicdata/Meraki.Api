@@ -96,7 +96,6 @@ namespace Meraki.Api
 			SecurityEvents = RestService.For<ISecurityEvents>(_httpClient, refitSettings);
 			Sms = RestService.For<ISms>(_httpClient, refitSettings);
 			SnmpSettings = RestService.For<ISnmpSettings>(_httpClient, refitSettings);
-			SplashLoginAttempts = RestService.For<ISplashLoginAttempts>(_httpClient, refitSettings);
 			SplashSettings = RestService.For<ISplashSettings>(_httpClient, refitSettings);
 			Ssids = RestService.For<ISsids>(_httpClient, refitSettings);
 			SwitchAcls = RestService.For<ISwitchAcls>(_httpClient, refitSettings);

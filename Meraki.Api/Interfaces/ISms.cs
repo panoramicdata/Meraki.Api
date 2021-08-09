@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Force check-in a set of devices
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="checkinNetworkSmDevices"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Add, delete, or update the tags of a set of devices
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/sm/devices/modifyTags")]
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		///// <remarks>
 		///// Lock a set of devices
 		///// </remarks>
-		///// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		///// <exception cref="Refit.ApiException">Thrown when fails to make API call</exception>
 		///// <param name="networkId"></param>
 		///// <param name="checkinNetworkSmDevices"> (optional)</param>
 		///// <returns>Task of Object</returns>
@@ -64,7 +64,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Create a new Polaris app
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkSmAppPolaris"></param>
 		/// <returns>Task of Object</returns>
@@ -80,7 +80,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Bypass activation lock attempt
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkSmBypassActivationLockAttempt"></param>
 		/// <returns>Task of Object</returns>
@@ -96,7 +96,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete a Cisco Polaris app
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="appId"></param>
 		/// <returns>Task of Object</returns>
@@ -112,7 +112,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Get details for a Cisco Polaris app if it exists
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="bundleId">The bundle ID of the app to be found, defaults to com.cisco.ciscosecurity.app (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -128,7 +128,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Bypass activation lock attempt status
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="attemptId"></param>
 		/// <returns>Task of Object</returns>
@@ -144,7 +144,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the client's daily cellular data usage history
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
@@ -160,7 +160,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the certs on a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
@@ -176,7 +176,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns historical connectivity data (whether a device is regularly checking in to Dashboard).
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="id"></param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
@@ -198,7 +198,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return historical records of various Systems Manager network connection details for desktop devices.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="id"></param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
@@ -220,7 +220,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return historical records of commands sent to Systems Manager devices
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
@@ -242,7 +242,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Get the profiles associated with a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
@@ -258,7 +258,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the devices enrolled in an SM network with various specified fields and filters
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="fields">Additional fields that will be displayed for each device. Multiple fields can be passed in as comma separated values.     The default fields are: id, name, tags, ssid, wifiMac, osName, systemModel, uuid, and serialNumber. The additional fields are: ip,     systemType, availableDeviceCapacity, kioskAppName, biosVersion, lastConnected, missingAppsCount, userSuppliedAddress, location, lastUser,     ownerEmail, ownerUsername, publicIp, phoneNumber, diskInfoJson, deviceCapacity, isManaged, hadMdm, isSupervised, meid, imei, iccid,     simCarrierNetwork, cellularDataUsed, isHotspotEnabled, createdAt, batteryEstCharge, quarantined, avName, avRunning, asName, fwName,     isRooted, loginRequired, screenLockEnabled, screenLockDelay, autoLoginDisabled, autoTags, hasMdm, hasDesktopAgent, diskEncryptionEnabled,     hardwareEncryptionCaps, passCodeLock, usesHardwareKeystore, and androidSecurityPatchVersion. (optional)</param>
 		/// <param name="wifiMacs">Filter devices by wifi mac(s). Multiple wifi macs can be passed in as comma separated values. (optional)</param>
@@ -286,7 +286,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the network adapters of a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
@@ -302,7 +302,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return historical records of various Systems Manager client metrics for desktop devices.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="id"></param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
@@ -324,7 +324,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List all profiles in a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/profiles")]
@@ -338,7 +338,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the restrictions on a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
@@ -354,7 +354,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the security centers on a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
@@ -370,7 +370,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Get a list of softwares associated with a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
@@ -386,7 +386,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Get the profiles associated with a user
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="userId"></param>
 		/// <returns>Task of Object</returns>
@@ -402,7 +402,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Get a list of softwares associated with a user
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="userId"></param>
 		/// <returns>Task of Object</returns>
@@ -418,7 +418,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the owners in an SM network with various specified fields and filters
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="ids">Filter users by id(s). Multiple ids can be passed in as comma separated values. (optional)</param>
 		/// <param name="usernames">Filter users by username(s). Multiple usernames can be passed in as comma separated values. (optional)</param>
@@ -440,7 +440,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the saved SSID names on a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
@@ -456,7 +456,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Move a set of devices to a new network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="moveNetworkSmDevices"></param>
 		/// <returns>Task of Object</returns>
@@ -472,7 +472,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Refresh the details of a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of void</returns>
@@ -488,7 +488,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Unenroll a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="deviceId"></param>
 		/// <returns>Task of Object</returns>
@@ -504,7 +504,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update an existing Polaris app
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="appId"></param>
 		/// <param name="updateNetworkSmAppPolaris"> (optional)</param>
@@ -522,7 +522,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Modify the fields of a device
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSmDeviceFields"></param>
 		/// <returns>Task of Object</returns>

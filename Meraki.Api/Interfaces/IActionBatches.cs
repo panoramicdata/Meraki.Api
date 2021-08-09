@@ -16,8 +16,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Create an action batch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="createOrganizationActionBatch"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/actionBatches")]
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete an action batch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="actionBatchId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
@@ -48,8 +48,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return an action batch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="actionBatchId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
@@ -65,8 +65,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the list of action batches in the organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="status">Filter batches by status. Valid types are pending, completed, and failed.</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/actionBatches")]
@@ -81,8 +81,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update an action batch
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="actionBatchId"></param>
 		/// <param name="updateOrganizationActionBatch"> (optional)</param>
 		/// <returns>Task of Object</returns>

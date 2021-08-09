@@ -16,8 +16,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the switch profiles for your switch template configuration
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switchProfiles")]
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return all the ports of a switch profile
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <param name="profileId"></param>
 		/// <returns>Task of Object</returns>
@@ -50,8 +50,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a switch profile port
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <param name="profileId"></param>
 		/// <param name="portId"></param>
@@ -70,8 +70,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a switch profile port
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <param name="profileId"></param>
 		/// <param name="portId"></param>

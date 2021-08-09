@@ -16,8 +16,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Add a media server to be monitored for this organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="createOrganizationInsightMonitoredMediaServer"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/insight/monitoredMediaServers")]
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete a monitored media server from this organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="monitoredMediaServerId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
@@ -48,8 +48,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a monitored media server for this organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="monitoredMediaServerId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
@@ -64,8 +64,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the monitored media servers for this organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/insight/monitoredMediaServers")]
 		Task<List<InsightMonitoredMediaServers>> GetOrganizationInsightMonitoredMediaServers(
@@ -78,8 +78,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a monitored media server for this organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="monitoredMediaServerId"></param>
 		/// <param name="updateOrganizationInsightMonitoredMediaServer"> (optional)</param>
 		/// <returns>Task of Object</returns>

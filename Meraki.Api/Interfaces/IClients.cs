@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the clients of a device, up to a maximum of a month ago
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
@@ -35,7 +35,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the client associated with the given identifier
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <returns>Task of Object</returns>
@@ -51,7 +51,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the events associated with this client. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 100. Default is 100. (optional)</param>
@@ -73,7 +73,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the latency history for a client
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 791 days from today. (optional)</param>
@@ -97,7 +97,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the policy assigned to a client on the network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <returns>Task of Object</returns>
@@ -113,7 +113,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the splash authorization for a client, for each SSID they've associated with through splash
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <returns>Task of Object</returns>
@@ -129,7 +129,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the client's network traffic data over time
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. (optional)</param>
@@ -151,7 +151,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the client's daily usage history
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <returns>Task of Object</returns>
@@ -167,7 +167,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the clients that have used this network in the timespan
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
@@ -191,7 +191,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Provisions a client with a name and policy
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientProvisionRequest"></param>
 		/// <returns>Task of Object</returns>
@@ -207,7 +207,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the policy assigned to a client on the network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <param name="clientPolicyUpdateRequest"></param>
@@ -225,7 +225,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a client's splash authorization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <param name="updateNetworkClientSplashAuthorizationStatus"></param>
@@ -243,7 +243,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the application usage data for clients. Usage data is in kilobytes. Clients can be identified by client keys or either the MACs or IPs depending on whether the network uses Track-by-IP.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clients">A list of client keys, MACs or IPs separated by comma.</param>
 		/// <param name="ssidNumber">An SSID number to include. If not specified, eveusage histories application usagents for all SSIDs will be returned.</param>
@@ -273,7 +273,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the usage histories for clients. Usage data is in kilobytes. Clients can be identified by client keys or either the MACs or IPs depending on whether the network uses Track-by-IP.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clients">A list of client keys, MACs or IPs separated by comma.</param>
 		/// <param name="ssidNumber">An SSID number to include. If not specified, eveusage histories application usagents for all SSIDs will be returned.</param>

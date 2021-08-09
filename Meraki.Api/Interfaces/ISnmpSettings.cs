@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the SNMP settings for a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/snmpSettings")]
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the SNMP settings for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/snmp")]
 		Task<object> GetOrganizationSnmp(
@@ -43,7 +43,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the SNMP settings for a network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkSnmpSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -59,8 +59,8 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update the SNMP settings for an organization
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId"></param>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
 		/// <param name="updateOrganizationSnmp"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/snmp")]

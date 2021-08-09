@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Add a switch port schedule
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="createNetworkSwitchPortSchedule"></param>
 		/// <returns>The created Switch Port Schedule</returns>
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete a switch port schedule
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="portScheduleId"></param>
 		/// <returns>Task of void</returns>
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List switch port schedules
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>A list of switch port schedules</returns>
 		[Get("/networks/{networkId}/switch/portSchedules")]
@@ -62,7 +62,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a switch port schedule
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="portScheduleId"></param>
 		/// <param name="updateNetworkSwitchPortSchedule"> (optional)</param>

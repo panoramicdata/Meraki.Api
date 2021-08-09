@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the wireless connectivity events for a client within a network in the timespan.
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="clientId"></param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000.</param>

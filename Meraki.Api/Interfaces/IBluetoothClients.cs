@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// RReturn a Bluetooth client
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="bluetoothClientId"></param>
 		/// <param name="includeConnectivityHistory">Include the connectivity history for this client (optional)</param>
@@ -37,7 +37,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the Bluetooth clients seen by APs in this network
 		/// </remarks>
-		/// <exception cref="Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 7 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 7 days. The default is 1 day. (optional)</param>
