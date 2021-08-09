@@ -11,15 +11,19 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Unique identifier for the resource to be acted on
 		/// </summary>
-		/// <value>Unique identifier for the resource to be acted on</value>
-		[DataMember(Name = "resource", EmitDefaultValue = false)]
-		public string Resource { get; set; } = null!;
+		[DataMember(Name = "resource")]
+		public string Resource { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The operation to be used
 		/// </summary>
-		/// <value>The operation to be used</value>
-		[DataMember(Name = "operation", EmitDefaultValue = false)]
-		public string Operation { get; set; } = null!;
+		[DataMember(Name = "operation")]
+		public string Operation { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Body
+		/// </summary>
+		[DataMember(Name = "body")]
+		public object Body { get; set; } = new();
 	}
 }

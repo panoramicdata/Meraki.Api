@@ -297,5 +297,71 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("number")] string number,
 			[Body]VpnSettings updateNetworkWirelessSsidVpn
 			);
+
+		/// <summary>
+		/// getNetworkWirelessSsidSchedules
+		/// </summary>
+		/// <remarks>
+		/// List the outage schedule for the SSID
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/schedules")]
+		Task<Schedules> GetNetworkWirelessSsidSchedules(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number
+			);
+
+		/// <summary>
+		/// updateNetworkWirelessSsidSchedules
+		/// </summary>
+		/// <remarks>
+		/// Update the outage schedule for the SSID
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/networks/{networkId}/wireless/ssids/{number}/schedules")]
+		Task<Schedules> UpdateNetworkWirelessSsidSchedules(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body]Schedules updateNetworkWirelessSsidSchedules
+			);
+
+		/// <summary>
+		/// getNetworkWirelessSsidEapOverride
+		/// </summary>
+		/// <remarks>
+		/// Return the EAP overridden parameters for an SSID
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/eapOverride")]
+		Task<EapOverride> GetNetworkWirelessSsidEapOverride(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number
+			);
+
+		/// <summary>
+		/// updateNetworkWirelessSsidEapOverride
+		/// </summary>
+		/// <remarks>
+		/// Update the EAP overridden parameters for an SSID.
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/networks/{networkId}/wireless/ssids/{number}/eapOverride")]
+		Task<EapOverride> UpdateNetworkWirelessSsidEapOverride(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body]EapOverride EapOverrideUpdateRequest
+			);
 	}
 }

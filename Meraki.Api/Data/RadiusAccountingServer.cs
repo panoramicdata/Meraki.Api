@@ -28,5 +28,11 @@ namespace Meraki.Api.Data
 		/// <value>Shared key used to authenticate messages between the APs and RADIUS server</value>
 		[DataMember(Name = "secret", EmitDefaultValue = false)]
 		public string Secret { get; set; } = null!;
+
+		/// <summary>
+		/// Radsec enabled
+		/// </summary>
+		[DataMember(Name = "radsecEnabled")]
+		public bool? RadsecEnabled { get; set; }
 	}
 }

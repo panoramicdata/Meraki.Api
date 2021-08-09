@@ -11,7 +11,7 @@ namespace Meraki.Api.Interfaces
 	public interface IAlertSettings
 	{
 		/// <summary>
-		/// getNetworkAlertSettings
+		/// getNetworkAlertsSettings
 		/// </summary>
 		/// <remarks>
 		/// Return the alert configuration for this network
@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
 		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/alertSettings")]
-		Task<object> GetAllAsync(
+		[Get("/networks/{networkId}/alerts/settings")]
+		Task<AlertSettingsUpdateRequest> GetNetworkAlertsSettings(
 			[AliasAs("networkId")]string networkId,
 			CancellationToken cancellationToken = default);
 
@@ -34,7 +34,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId"></param>
 		/// <param name="updateNetworkAlertSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/alertSettings")]
+		[Put("/networks/{networkId}/alerts/settings")]
 		Task<object> UpdateNetworkAlertSettings(
 			[AliasAs("networkId")]string networkId,
 			[Body]AlertSettingsUpdateRequest updateNetworkAlertSettings = null!,

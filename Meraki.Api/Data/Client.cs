@@ -133,5 +133,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "groupPolicy8021x")]
 		public string GroupPolicy8021X { get; set; } = default!;
+
+		/// <summary>
+		/// Device type prediction
+		/// </summary>
+		[DataMember(Name = "deviceTypePrediction")]
+		public string DeviceTypePrediction { get; set; } = string.Empty;
 	}
 }

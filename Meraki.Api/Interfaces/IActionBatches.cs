@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -53,7 +54,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="actionBatchId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
-		Task<object> GetAsync(
+		Task<ActionBatch> GetAsync(
 
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("actionBatchId")]string actionBatchId
@@ -70,7 +71,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="status">Filter batches by status. Valid types are pending, completed, and failed.</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/actionBatches")]
-		Task<object> GetAllAsync(
+		Task<List<ActionBatch>> GetAllAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("status")]string? status = null,
 			CancellationToken cancellationToken = default);

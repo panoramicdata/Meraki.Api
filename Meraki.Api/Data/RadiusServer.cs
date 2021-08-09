@@ -25,5 +25,17 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "secret")]
 		public string Secret { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Open roaming certificate id
+		/// </summary>
+		[DataMember(Name = "openRoamingCertificateId")]
+		public int? OpenRoamingCertificateId { get; set; }
+
+		/// <summary>
+		/// Radsec enabled
+		/// </summary>
+		[DataMember(Name = "radsecEnabled")]
+		public bool? RadsecEnabled { get; set; }
 	}
 }

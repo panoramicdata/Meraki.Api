@@ -174,6 +174,14 @@ namespace Meraki.Api.Interfaces
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 10. (optional)</param>
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
+		/// <param name="statuses">Filters clients based on status. Can be one of 'Online' or 'Offline'.</param>
+		/// <param name="ip">Filters clients based on a partial or full match for the ip address field.</param>
+		/// <param name="ip6">Filters clients based on a partial or full match for the ip6 address field.</param>
+		/// <param name="ip6Local">Filters clients based on a partial or full match for the ip6Local address field.</param>
+		/// <param name="mac">Filters clients based on a partial or full match for the mac address field.</param>
+		/// <param name="os">Filters clients based on a partial or full match for the os (operating system) field.</param>
+		/// <param name="description">Filters clients based on a partial or full match for the description field.</param>
+		/// <param name="recentDeviceConnections">Filters clients based on recent connection type. Can be one of 'Wired' or 'Wireless'.</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/clients")]
 		Task<List<Client>> GetByNetworkAsync(
@@ -183,6 +191,14 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("perPage")]int? perPage = null,
 			[AliasAs("startingAfter")]string startingAfter = null!,
 			[AliasAs("endingBefore")]string endingBefore = null!,
+			[AliasAs("statuses")]string? statuses = null,
+			[AliasAs("ip")]string? ip = null,
+			[AliasAs("ip6")]string? ip6 = null,
+			[AliasAs("ip6Local")]string? ip6Local = null,
+			[AliasAs("mac")]string? mac = null,
+			[AliasAs("os")]string? os = null,
+			[AliasAs("description")]string? description = null,
+			[AliasAs("recentDeviceConnections")]List<string>? recentDeviceConnections = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
