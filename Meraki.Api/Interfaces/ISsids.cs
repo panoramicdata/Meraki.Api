@@ -363,5 +363,39 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("number")] string number,
 			[Body]EapOverride EapOverrideUpdateRequest
 			);
+
+		/// <summary>
+		/// getNetworkWirelessSsidHotspot20
+		/// </summary>
+		/// <remarks>
+		/// Return the Hotspot 2.0 settings for an SSID
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
+		Task<Hotspot20> GetNetworkWirelessSsidHotspot20(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number
+			);
+
+		/// <summary>
+		/// updateNetworkWirelessSsidHotspot20
+		/// </summary>
+		/// <remarks>
+		/// Update the Hotspot 2.0 settings of an SSID
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="number"></param>
+		/// <param name="hotspot20"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
+		Task<Hotspot20> UpdateNetworkWirelessSsidHotspot20(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body]Hotspot20 hotspot20
+			);
 	}
 }

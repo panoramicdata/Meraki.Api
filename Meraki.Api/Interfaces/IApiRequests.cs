@@ -12,13 +12,10 @@ namespace Meraki.Api.Interfaces
 	public interface IApiRequests
 	{
 		/// <summary>
-		/// getOrganizationApiRequests
-		/// </summary>
-		/// <remarks>
 		/// List the API requests made by an organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 31 days. (optional)</param>
@@ -30,7 +27,6 @@ namespace Meraki.Api.Interfaces
 		/// <param name="method">Filter the results by the method of the API requests (must be &#39;GET&#39;, &#39;PUT&#39;, &#39;POST&#39; or &#39;DELETE&#39;) (optional)</param>
 		/// <param name="responseCode">Filter the results by the response code of the API requests (optional)</param>
 		/// <param name="sourceIp">Filter the results by the IP address of the originating API request (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/apiRequests")]
 		Task<List<ApiUsage>> GetPageAsync(
 			[AliasAs("organizationId")]string organizationId,
@@ -48,17 +44,13 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getOrganizationApiRequestsOverview
-		/// </summary>
-		/// <remarks>
 		/// Return an aggregated overview of API requests data
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 31 days. (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/apiRequests/overview")]
 		Task<ApiUsageOverview> GetOverviewAsync(
 			[AliasAs("organizationId")]string organizationId,

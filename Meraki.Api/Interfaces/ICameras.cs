@@ -12,220 +12,172 @@ namespace Meraki.Api.Interfaces
 	public interface ICameras
 	{
 		/// <summary>
-		/// generateNetworkCameraSnapshot
-		/// </summary>
-		/// <remarks>
 		/// Generate a snapshot of what the camera sees at the specified time and return a link to that image.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <param name="generateNetworkCameraSnapshot"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="serial">The serial number</param>
+		/// <param name="GenerateNetworkCameraSnapshot">Body for generating network camera snapshot</param>
 		[Post("/devices/{serial}/camera/generateSnapshot")]
 		Task<CameraSnapshot> GetSnapshotAsync(
 			[AliasAs("serial")]string serial,
-			[Body]CameraSnapshotRequest generateNetworkCameraSnapshot,
+			[Body]CameraSnapshotRequest GenerateNetworkCameraSnapshot,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getDeviceCameraQualityAndRetentionSettings
-		/// </summary>
-		/// <remarks>
 		/// Returns quality and retention settings for the given camera
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/camera/qualityAndRetentionSettings")]
 		Task<CameraQualityAndRetentionSettings> GetQualityAndRetentionSettingsAsync(
 			[AliasAs("serial")]string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkCameraSchedules
-		/// </summary>
-		/// <remarks>
 		/// Returns a list of all camera recording schedules.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/camera/schedules")]
 		Task<CameraSchedule> GetSchedulesAsync(
 			[AliasAs("networkId")]string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkCameraVideoLink
-		/// </summary>
-		/// <remarks>
 		/// Returns video link to the specified camera
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="timestamp">[optional] The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds). If no timestamp is specified, we will assume current time. (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/camera/videoLink")]
-		Task<object> GetVideoLinkAsync(
+		Task<VideoLink> GetVideoLinkAsync(
 			[AliasAs("serial")]string serial,
 			[AliasAs("timestamp")]string timestamp = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateDeviceCameraQualityAndRetentionSettings
-		/// </summary>
-		/// <remarks>
 		/// Update quality and retention settings for the given camera
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <param name="cameraQualityAndRetentionSettingsUpdateRequest"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="serial">The serial number</param>
+		/// <param name="CameraQualityAndRetentionSettingsUpdateRequest">Body for updating camera quality and retention settings</param>
 		[Put("/devices/{serial}/camera/qualityAndRetentionSettings")]
 		Task<CameraQualityAndRetentionSettings> UpdateQualityAndRetentionSettingsAsync(
 			[AliasAs("serial")]string serial,
-			[Body]CameraQualityAndRetentionSettingsUpdateRequest cameraQualityAndRetentionSettingsUpdateRequest,
+			[Body]CameraQualityAndRetentionSettingsUpdateRequest CameraQualityAndRetentionSettingsUpdateRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getDeviceCameraWirelessProfiles
-		/// </summary>
-		/// <remarks>
 		/// Returns wireless profile assigned to the given camera
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/camera/wirelessProfiles")]
-		Task<WirelessProfiles> GetDeviceCameraWirelessProfiles(
-			[AliasAs("serial")] string serial
-			);
-
-		/// <summary>
-		/// updateDeviceCameraWirelessProfiles
-		/// </summary>
-		/// <remarks>
-		/// Assign wireless profiles to the given camera. Incremental updates are not supported, all profile assignment need to be supplied at once.
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <param name="updateDeviceCameraWirelessProfiles"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/devices/{serial}/camera/wirelessProfiles")]
-		Task<WirelessProfiles> UpdateDeviceCameraWirelessProfiles(
+		Task<WirelessProfiles> GetDeviceCameraWirelessProfilesAsync(
 			[AliasAs("serial")] string serial,
-			[Body]WirelessProfiles updateDeviceCameraWirelessProfiles
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkCameraWirelessProfiles
+		/// Assign wireless profiles to the given camera.
 		/// </summary>
-		/// <remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="serial">The serial number</param>
+		/// <param name="UpdateDeviceCameraWirelessProfiles">Body for updating camera wireless profiles</param>
+		[Put("/devices/{serial}/camera/wirelessProfiles")]
+		Task<WirelessProfiles> UpdateDeviceCameraWirelessProfilesAsync(
+			[AliasAs("serial")] string serial,
+			[Body]WirelessProfiles UpdateDeviceCameraWirelessProfiles,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
 		/// List the camera wireless profiles for this network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/camera/wirelessProfiles")]
-		Task<List<NetworkWirelessProfiles>> GetNetworkCameraWirelessProfiles(
-			[AliasAs("networkId")] string networkId
-			);
-
-		/// <summary>
-		/// getNetworkCameraWirelessProfile
-		/// </summary>
-		/// <remarks>
-		/// Retrieve a single camera wireless profile.
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="wirelessProfileId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
-		Task<NetworkWirelessProfiles> GetNetworkCameraWirelessProfile(
+		Task<List<NetworkWirelessProfiles>> GetNetworkCameraWirelessProfilesAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("wirelessProfileId")] string wirelessProfileId
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkCameraWirelessProfile
+		/// Retrieve a single camera wireless profile.
 		/// </summary>
-		/// <remarks>
-		/// Update an existing camera wireless profile in this network.
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="wirelessProfileId"></param>
-		/// <param name="updateNetworkCameraWirelessProfile"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
-		Task<NetworkWirelessProfiles> UpdateNetworkCameraWirelessProfile(
+		/// <param name="networkId">The network id</param>
+		/// <param name="wirelessProfileId">The wireless profile id</param>
+		[Get("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
+		Task<NetworkWirelessProfiles> GetNetworkCameraWirelessProfileAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("wirelessProfileId")] string wirelessProfileId,
-			[Body]NetworkWirelessProfilesCreateRequest updateNetworkCameraWirelessProfile
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// createNetworkCameraWirelessProfile
+		/// Update an existing camera wireless profile in this network.
 		/// </summary>
-		/// <remarks>
-		/// Creates a new camera wireless profile for this network.
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="createNetworkCameraWirelessProfile"></param>
-		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/camera/wirelessProfiles")]
-		Task<NetworkWirelessProfiles> CreateNetworkCameraWirelessProfile(
+		/// <param name="networkId">The network id</param>
+		/// <param name="wirelessProfileId">The wireless profile id</param>
+		/// <param name="UpdateNetworkCameraWirelessProfile">Body for updating camera wireless profile</param>
+		[Put("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
+		Task<NetworkWirelessProfiles> UpdateNetworkCameraWirelessProfileAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]NetworkWirelessProfilesCreateRequest createNetworkCameraWirelessProfile
+			[AliasAs("wirelessProfileId")] string wirelessProfileId,
+			[Body]NetworkWirelessProfilesCreateRequest UpdateNetworkCameraWirelessProfile,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkCameraWirelessProfile
+		/// Creates a new camera wireless profile for this network.
 		/// </summary>
-		/// <remarks>
-		/// Delete an existing camera wireless profile for this network.
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="wirelessProfileId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkCameraWirelessProfile">Body for creating camera wireless profile</param>
+		[Post("/networks/{networkId}/camera/wirelessProfiles")]
+		Task<NetworkWirelessProfiles> CreateNetworkCameraWirelessProfileAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body]NetworkWirelessProfilesCreateRequest CreateNetworkCameraWirelessProfile,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Delete an existing camera wireless profile for this network.
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="wirelessProfileId">The wireless profile id</param>
 		[Delete("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
-		Task DeleteNetworkCameraWirelessProfile(
+		Task DeleteNetworkCameraWirelessProfileAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("wirelessProfileId")] string wirelessProfileId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getOrganizationCameraOnboardingStatuses
-		/// </summary>
-		/// <remarks>
 		/// Fetch onboarding status of cameras
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/camera/onboarding/statuses")]
-		Task<List<OnboardingStatus>> GetOrganizationCameraOnboardingStatuses(
+		Task<List<OnboardingStatus>> GetOrganizationCameraOnboardingStatusesAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("serials")] List<string>? serials = null,
-			[AliasAs("networkIds")] List<string>? networkIds = null
+			[AliasAs("networkIds")] List<string>? networkIds = null,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateOrganizationCameraOnboardingStatuses
-		/// </summary>
-		/// <remarks>
 		/// Notify that credential handoff to camera has completed
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
 		[Put("/organizations/{organizationId}/camera/onboarding/statuses")]
-		Task<UpdateOnboardingStatusResponse> UpdateOrganizationCameraOnboardingStatuses(
+		Task<UpdateOnboardingStatusResponse> UpdateOrganizationCameraOnboardingStatusesAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body]UpdateOnboardingStatus updateNetworkCameraWirelessProfile
+			[Body]UpdateOnboardingStatus UpdateNetworkCameraWirelessProfile,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

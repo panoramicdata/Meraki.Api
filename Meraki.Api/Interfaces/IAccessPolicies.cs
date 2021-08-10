@@ -13,81 +13,65 @@ namespace Meraki.Api.Interfaces
 	public interface IAccessPolicies
 	{
 		/// <summary>
-		/// getNetworkSwitchAccessPolicies
+		/// List the access policies for a switch network.
 		/// </summary>
-		/// <remarks>
-		/// List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/accessPolicies")]
-		Task<List<AccessPolicy>> GetNetworkAccessPolicies(
-			[AliasAs("networkId")] string networkId
+		Task<List<AccessPolicy>> GetNetworkAccessPoliciesAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// createNetworkSwitchAccessPolicy
+		/// Create an access policy for a switch network.
 		/// </summary>
-		/// <remarks>
-		/// Create an access policy for a switch network. This endpoint only supports access policies with 'My RADIUS server' as authentication method.
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="createNetworkSwitchAccessPolicy"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkSwitchAccessPolicy">Body for creating network switch access policy</param>
 		[Post("/networks/{networkId}/switch/accessPolicies")]
-		Task<AccessPolicy> CreateNetworkSwitchAccessPolicy(
+		Task<AccessPolicy> CreateNetworkSwitchAccessPolicyAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]AccessPolicy createNetworkSwitchAccessPolicy
+			[Body]AccessPolicy CreateNetworkSwitchAccessPolicy,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSwitchAccessPolicy
-		/// </summary>
-		/// <remarks>
 		/// Return a specific access policy for a switch network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="accessPolicyNumber"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
-		Task<AccessPolicy> GetNetworkSwitchAccessPolicy(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("accessPolicyNumber")] string accessPolicyNumber
-			);
-
-		/// <summary>
-		/// updateNetworkSwitchAccessPolicy
 		/// </summary>
-		/// <remarks>
-		/// Update an access policy for a switch network. This endpoint only supports access policies with 'My RADIUS server' as authentication method.
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="accessPolicyNumber"></param>
-		/// <param name="updateNetworkSwitchAccessPolicy"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
-		Task<AccessPolicy> UpdateNetworkSwitchAccessPolicy(
+		/// <param name="networkId">The network id</param>
+		/// <param name="accessPolicyNumber">The access policy number</param>
+		[Get("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
+		Task<AccessPolicy> GetNetworkSwitchAccessPolicyAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("accessPolicyNumber")] string accessPolicyNumber,
-			[Body]AccessPolicy updateNetworkSwitchAccessPolicy
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkSwitchAccessPolicy
+		/// Update an access policy for a switch network.
 		/// </summary>
-		/// <remarks>
-		/// Delete an access policy for a switch network
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="accessPolicyNumber"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="accessPolicyNumber">The access policy number</param>
+		/// <param name="UpdateNetworkSwitchAccessPolicy">Body for updating network switch access policy</param>
+		[Put("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
+		Task<AccessPolicy> UpdateNetworkSwitchAccessPolicyAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("accessPolicyNumber")] string accessPolicyNumber,
+			[Body]AccessPolicy UpdateNetworkSwitchAccessPolicy,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Delete an access policy for a switch network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="accessPolicyNumber">The access policy number</param>
 		[Delete("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
-		Task DeleteNetworkSwitchAccessPolicy(
+		Task DeleteNetworkSwitchAccessPolicyAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("accessPolicyNumber")] string accessPolicyNumber,
 			CancellationToken cancellationToken = default);

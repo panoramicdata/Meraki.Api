@@ -13,33 +13,27 @@ namespace Meraki.Api.Interfaces
 	public interface IBillings
 	{
 		/// <summary>
-		/// getNetworkWirelessBilling
-		/// </summary>
-		/// <remarks>
 		/// Return the billing settings of this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/wireless/billing")]
-		Task<NetworkWirelessBilling> GetNetworkWirelessBilling(
-			[AliasAs("networkId")] string networkId
+		Task<NetworkWirelessBilling> GetNetworkWirelessBillingAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkWirelessBilling
-		/// </summary>
-		/// <remarks>
 		/// Update the billing settings
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="updateNetworkWirelessBilling"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="UpdateNetworkWirelessBilling">Body for updating network wireless billing</param>
 		[Get("/networks/{networkId}/wireless/billing")]
-		Task<NetworkWirelessBilling> UpdateNetworkWirelessBilling(
+		Task<NetworkWirelessBilling> UpdateNetworkWirelessBillingAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]NetworkWirelessBilling updateNetworkWirelessBilling
+			[Body]NetworkWirelessBilling UpdateNetworkWirelessBilling,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

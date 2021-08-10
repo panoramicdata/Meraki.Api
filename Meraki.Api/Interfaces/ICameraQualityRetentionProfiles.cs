@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,31 +12,23 @@ namespace Meraki.Api.Interfaces
 	public interface ICameraQualityRetentionProfiles
 	{
 		/// <summary>
-		/// createNetworkCameraQualityRetentionProfile
-		/// </summary>
-		/// <remarks>
 		/// Creates new quality retention profile for this network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="createNetworkCameraQualityRetentionProfile"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkCameraQualityRetentionProfile">Body for creating quality retention profile</param>
 		[Post("/networks/{networkId}/camera/qualityRetentionProfiles")]
 		Task<CameraQualityAndRetentionSettings> CreateAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]CameraQualityAndRetentionProfileCreationRequest createNetworkCameraQualityRetentionProfile,
+			[Body]CameraQualityAndRetentionProfileCreationRequest CreateNetworkCameraQualityRetentionProfile,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// deleteNetworkCameraQualityRetentionProfile
-		/// </summary>
-		/// <remarks>
 		/// Delete an existing quality retention profile for this network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="qualityRetentionProfileId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="qualityRetentionProfileId">The quality retention profile id</param>
 		[Delete("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 		Task DeleteAsync(
 			[AliasAs("networkId")]string networkId,
@@ -43,51 +36,39 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkCameraQualityRetentionProfile
-		/// </summary>
-		/// <remarks>
 		/// Retrieve a single quality retention profile
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="qualityRetentionProfileId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="qualityRetentionProfileId">The quality retention profile id</param>
 		[Get("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
-		Task<object> GetAsync(
+		Task<QualityRetentionProfile> GetAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkCameraQualityRetentionProfiles
-		/// </summary>
-		/// <remarks>
 		/// List the quality retention profiles for this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/camera/qualityRetentionProfiles")]
-		Task<object> GetAllAsync(
+		Task<List<QualityRetentionProfile>> GetAllAsync(
 			[AliasAs("networkId")]string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateNetworkCameraQualityRetentionProfile
-		/// </summary>
-		/// <remarks>
 		/// Update an existing quality retention profile for this network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="qualityRetentionProfileId"></param>
-		/// <param name="updateNetworkCameraQualityRetentionProfile"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="qualityRetentionProfileId">The quality retention profile id</param>
+		/// <param name="UpdateNetworkCameraQualityRetentionProfile">Body for updating quality retention profile</param>
 		[Put("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 		Task<CameraQualityAndRetentionSettings> UpdateAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId,
-			[Body]CameraQualityAndRetentionProfileUpdateRequest updateNetworkCameraQualityRetentionProfile,
+			[Body]CameraQualityAndRetentionProfileUpdateRequest UpdateNetworkCameraQualityRetentionProfile,
 			CancellationToken cancellationToken = default);
 	}
 }

@@ -255,5 +255,116 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("organizationId")] string organizationId,
 			[Body]LoginSecurity updateOrganizationLoginSecurity,
 			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// getOrganizationAdaptivePolicyAcls
+		/// </summary>
+		/// <remarks>
+		/// List adaptive policy ACLs in a organization
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
+		/// <returns>Task of Object</returns>
+		[Get("/organizations/{organizationId}/adaptivePolicy/acls")]
+		Task<List<Acls>> GetOrganizationAdaptivePolicyAcls(
+			[AliasAs("organizationId")] string organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// createOrganizationAdaptivePolicyAcl
+		/// </summary>
+		/// <remarks>
+		/// Creates new adaptive policy ACL
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
+		/// <param name="acls"></param>
+		/// <returns>Task of Object</returns>
+		[Post("/organizations/{organizationId}/adaptivePolicy/acls")]
+		Task<List<Acls>> CreateOrganizationAdaptivePolicyAcl(
+			[AliasAs("organizationId")] string organizationId,
+			[Body]Acls acls,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// getOrganizationAdaptivePolicyAcl
+		/// </summary>
+		/// <remarks>
+		/// Returns the adaptive policy ACL information
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
+		/// <param name="id"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
+		Task<Acls> GetOrganizationAdaptivePolicyAcl(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("id")] string id,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// updateOrganizationAdaptivePolicyAcl
+		/// </summary>
+		/// <remarks>
+		/// Returns the adaptive policy ACL information
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
+		/// <param name="id"></param>
+		/// <param name="acls"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
+		Task<Acls> UpdateOrganizationAdaptivePolicyAcl(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("id")] string id,
+			[Body]Acls acls,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// deleteOrganizationAdaptivePolicyAcl
+		/// </summary>
+		/// <remarks>
+		/// Deletes the specified adaptive policy ACL. Note this adaptive policy ACL will also be removed from policies using it.
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
+		/// <param name="id"></param>
+		/// <returns>Task of Void</returns>
+		[Delete("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
+		Task DeleteOrganizationAdaptivePolicyAcl(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("id")] string id,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// getOrganizationAdaptivePolicySettings
+		/// </summary>
+		/// <remarks>
+		/// Returns global adaptive policy settings in an organization
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
+		/// <param name="id"></param>
+		/// <returns>Task of Object</returns>
+		[Get("/organizations/{organizationId}/adaptivePolicy/settings")]
+		Task<AdaptivePolicySettings> GetOrganizationAdaptivePolicySettings(
+			[AliasAs("organizationId")] string organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// updateOrganizationAdaptivePolicySettings
+		/// </summary>
+		/// <remarks>
+		/// Returns global adaptive policy settings in an organization
+		/// </remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The Organization id</param>
+		/// <param name="id"></param>
+		/// <returns>Task of Object</returns>
+		[Put("/organizations/{organizationId}/adaptivePolicy/settings")]
+		Task<AdaptivePolicySettings> UpdateOrganizationAdaptivePolicySettings(
+			[AliasAs("organizationId")] string organizationId,
+			[Body]AdaptivePolicySettings adaptivePolicySettings,
+			CancellationToken cancellationToken = default);
 	}
 }

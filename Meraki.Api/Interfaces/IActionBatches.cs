@@ -12,64 +12,49 @@ namespace Meraki.Api.Interfaces
 	public interface IActionBatches
 	{
 		/// <summary>
-		/// createOrganizationActionBatch
-		/// </summary>
-		/// <remarks>
 		/// Create an action batch
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The Organization id</param>
-		/// <param name="createOrganizationActionBatch"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CreateOrganizationActionBatch">Body for creating organization action batch</param>
 		[Post("/organizations/{organizationId}/actionBatches")]
-		Task<object> CreateAsync(
+		Task<ActionBatch> CreateAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]ActionBatchCreationRequest createOrganizationActionBatch,
+			[Body]ActionBatchCreationRequest CreateOrganizationActionBatch,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// deleteOrganizationActionBatch
-		/// </summary>
-		/// <remarks>
 		/// Delete an action batch
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The Organization id</param>
 		/// <param name="actionBatchId"></param>
-		/// <returns>Task of void</returns>
 		[Delete("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
 		Task DeleteAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("actionBatchId")]string actionBatchId,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// getOrganizationActionBatch
-		/// </summary>
-		/// <remarks>
-		/// Return an action batch
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="actionBatchId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
-		Task<ActionBatch> GetAsync(
-
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("actionBatchId")]string actionBatchId
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getOrganizationActionBatches
+		/// Return an action batch
 		/// </summary>
-		/// <remarks>
-		/// Return the list of action batches in the organization
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="actionBatchId">The action batch id</param>
+		[Get("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
+		Task<ActionBatch> GetAsync(
+			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("actionBatchId")]string actionBatchId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Return the list of action batches in the organization
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="status">Filter batches by status. Valid types are pending, completed, and failed.</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/actionBatches")]
 		Task<List<ActionBatch>> GetAllAsync(
 			[AliasAs("organizationId")]string organizationId,
@@ -77,21 +62,17 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateOrganizationActionBatch
-		/// </summary>
-		/// <remarks>
 		/// Update an action batch
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="actionBatchId"></param>
-		/// <param name="updateOrganizationActionBatch"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="actionBatchId">The action batch id</param>
+		/// <param name="UpdateOrganizationActionBatch">Body for updating organization action batch</param>
 		[Put("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
-		Task<object> UpdateAsync(
+		Task<ActionBatch> UpdateAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("actionBatchId")]string actionBatchId,
-			[Body]ActionBatchUpdateRequest updateOrganizationActionBatch = null!,
+			[Body]ActionBatchUpdateRequest UpdateOrganizationActionBatch = null!,
 			CancellationToken cancellationToken = default);
 	}
 }

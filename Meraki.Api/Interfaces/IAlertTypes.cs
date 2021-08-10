@@ -13,17 +13,14 @@ namespace Meraki.Api.Interfaces
 	public interface IAlertTypes
 	{
 		/// <summary>
-		/// getOrganizationWebhooksAlertTypes
-		/// </summary>
-		/// <remarks>
 		/// Return a list of alert types to be used with managing webhook alerts
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/webhooks/alertTypes")]
-		Task<List<WebhookAlertType>> GetOrganizationWebhooksAlertTypes(
-			[AliasAs("organizationId")] string organizationId
+		Task<List<WebhookAlertType>> GetOrganizationWebhooksAlertTypesAsync(
+			[AliasAs("organizationId")] string organizationId,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

@@ -12,13 +12,10 @@ namespace Meraki.Api.Interfaces
 	public interface IClientCountHistory
 	{
 		/// <summary>
-		/// getNetworkWirelessClientCountHistory
-		/// </summary>
-		/// <remarks>
 		/// Return wireless client counts over time for a network, device, or network client
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today.</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.</param>
@@ -29,9 +26,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP tag.</param>
 		/// <param name="band">Filter results by band (either '2.4' or '5').</param>
 		/// <param name="ssid">Filter results by SSID number.</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/clientCountHistory")]
-		Task<List<ClientCountHistory>> GetNetworkWirelessClientCountHistory(
+		Task<List<ClientCountHistory>> GetNetworkWirelessClientCountHistoryAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("t0")] string? t0 = null,
 			[AliasAs("t1")] string? t1 = null,
@@ -42,7 +38,8 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("deviceSerial")] string? deviceSerial = null,
 			[AliasAs("apTag")] string? apTag = null,
 			[AliasAs("band")] string? band = null,
-			[AliasAs("ssid")] int? ssid = null
+			[AliasAs("ssid")] int? ssid = null,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

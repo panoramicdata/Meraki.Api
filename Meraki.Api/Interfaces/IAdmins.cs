@@ -15,25 +15,20 @@ namespace Meraki.Api.Interfaces
 		/// Create a new dashboard administrator
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="createOrganizationAdmin"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="CreateOrganizationAdmin">Body for creating organization admin</param>
 		[Post("/organizations/{organizationId}/admins")]
 		Task<Admin> CreateAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] AdminCreationRequest createOrganizationAdmin,
+			[Body] AdminCreationRequest CreateOrganizationAdmin,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// deleteOrganizationAdmin
-		/// </summary>
-		/// <remarks>
 		/// Revoke all access for a dashboard administrator within this organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="id"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="id">The admin id</param>
 		[Delete("/organizations/{organizationId}/admins/{id}")]
 		Task DeleteAsync(
 			[AliasAs("organizationId")] string organizationId,
@@ -41,35 +36,27 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		///	Get Organization Admins
-		/// </summary>
-		/// <remarks>
 		///	List the dashboard administrators in this organization.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <returns>The list of Admins</returns>
 		[Get("/organizations/{organizationId}/admins")]
 		Task<List<Admin>> GetAllAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// Update Organization Admin
-		/// </summary>
-		/// <remarks>
 		/// Update an administrator
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="id">The Admin id</param>
-		/// <param name="adminUpdateRequest"></param>
-		/// <returns>The updated Admin</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="id">The admin id</param>
+		/// <param name="AdminUpdateRequest">Body for updating admin</param>
 		[Put("/organizations/{organizationId}/admins/{id}")]
 		Task<Admin> UpdateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("id")] string id,
-			[Body] AdminUpdateRequest adminUpdateRequest,
+			[Body] AdminUpdateRequest AdminUpdateRequest,
 			CancellationToken cancellationToken = default);
 	}
 }

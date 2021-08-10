@@ -13,32 +13,27 @@ namespace Meraki.Api.Interfaces
 	public interface IAlternateManagementInterface
 	{
 		/// <summary>
-		/// getNetworkSwitchAlternateManagementInterface
-		/// </summary>
-		/// <remarks>
 		/// Return the switch alternate management interface for the network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/alternateManagementInterface")]
-		Task<AlternateManagementInterface> GetNetworkSwitchAlternateManagementInterface(
-			[AliasAs("networkId")] string networkId
+		Task<AlternateManagementInterface> GetNetworkSwitchAlternateManagementInterfaceAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkSwitchAlternateManagementInterface
-		/// </summary>
-		/// <remarks>
 		/// Update the switch alternate management interface for the network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="UpdateNetworkSwitchAlternateManagementInterface">Body for updating network switch alternate management interface</param>
 		[Put("/networks/{networkId}/switch/alternateManagementInterface")]
-		Task<AlternateManagementInterface> UpdateNetworkSwitchAlternateManagementInterface(
+		Task<AlternateManagementInterface> UpdateNetworkSwitchAlternateManagementInterfaceAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]AlternateManagementInterface updateNetworkSwitchAlternateManagementInterface
+			[Body]AlternateManagementInterface UpdateNetworkSwitchAlternateManagementInterface,
+			CancellationToken cancellationToken = default
 			);
 	}
 }
