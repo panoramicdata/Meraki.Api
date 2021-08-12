@@ -11,49 +11,37 @@ namespace Meraki.Api.Interfaces
 	public interface IFirmwareUpgrades
 	{
 		/// <summary>
-		/// getNetworkFirmwareUpgrades
-		/// </summary>
-		/// <remarks>
 		/// Get firmware upgrade information for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/firmwareUpgrades")]
 		Task<NetworkFirmwareUpgrade> GetNetworkFirmwareUpgradeAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateNetworkFirmwareUpgrades
-		/// </summary>
-		/// <remarks>
 		/// Update firmware upgrade information for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="updateNetworkFirmwareUpgrades"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="UpdateNetworkFirmwareUpgrades">Body for updating network firmware upgrades</param>
 		[Put("/networks/{networkId}/firmwareUpgrades")]
 		Task<NetworkFirmwareUpgrade> UpdateNetworkFirmwareUpgradesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkFirmwareUpgradeUpdateRequest updateNetworkFirmwareUpgrades,
+			[Body] NetworkFirmwareUpgradeUpdateRequest UpdateNetworkFirmwareUpgrades,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// createNetworkFirmwareUpgradesRollback
 		/// </summary>
-		/// <remarks>
-		/// Rollback a Firmware Upgrade For A Network
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="createNetworkFirmwareUpgradesRollback"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkFirmwareUpgradesRollback">Body for creating network firmware upgrade rollbacks</param>
 		[Post("/networks/{networkId}/firmwareUpgrades/rollbacks")]
-		Task<NetworkFirmwareUpgrade> CreateNetworkFirmwareUpgradesRollback(
+		Task<NetworkFirmwareUpgrade> CreateNetworkFirmwareUpgradesRollbackAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]FirmwareUpgradeRollbackRequest createNetworkFirmwareUpgradesRollback,
+			[Body]FirmwareUpgradeRollbackRequest CreateNetworkFirmwareUpgradesRollback,
 			CancellationToken cancellationToken = default
 			);
 	}

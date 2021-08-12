@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,82 +12,67 @@ namespace Meraki.Api.Interfaces
 	public interface IFloorplans
 	{
 		/// <summary>
-		/// createNetworkFloorPlan
-		/// </summary>
-		/// <remarks>
 		/// Upload a floor plan
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="createNetworkFloorPlan"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkFloorPlan">Body for uploading a network floor plan</param>
 		[Post("/networks/{networkId}/floorPlans")]
-		Task<object> CreateNetworkFloorPlan(
+		Task<FloorPlan> CreateNetworkFloorPlanAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]FloorPlanCreationRequest createNetworkFloorPlan
+			[Body]FloorPlanCreationRequest CreateNetworkFloorPlan,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkFloorPlan
-		/// </summary>
-		/// <remarks>
 		/// Destroy a floor plan
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="floorPlanId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="floorPlanId">The floor plan id</param>
 		[Delete("/networks/{networkId}/floorPlans/{floorPlanId}")]
-		Task DeleteNetworkFloorPlan(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("floorPlanId")]string floorPlanId
-			);
-
-		/// <summary>
-		/// getNetworkFloorPlan
-		/// </summary>
-		/// <remarks>
-		/// Find a floor plan by ID
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="floorPlanId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/floorPlans/{floorPlanId}")]
-		Task<object> GetNetworkFloorPlan(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("floorPlanId")]string floorPlanId
-			);
-
-		/// <summary>
-		/// getNetworkFloorPlans
-		/// </summary>
-		/// <remarks>
-		/// List the floor plans that belong to your network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/floorPlans")]
-		Task<object> GetNetworkFloorPlans(
-			[AliasAs("networkId")]string networkId
-			);
-
-		/// <summary>
-		/// updateNetworkFloorPlan
-		/// </summary>
-		/// <remarks>
-		/// Update a floor plan&#39;s geolocation and other meta data
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="floorPlanId"></param>
-		/// <param name="updateNetworkFloorPlan"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/floorPlans/{floorPlanId}")]
-		Task<object> UpdateNetworkFloorPlan(
+		Task DeleteNetworkFloorPlanAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("floorPlanId")]string floorPlanId,
-			[Body]FloorPlanUpdateRequest updateNetworkFloorPlan);
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Find a floor plan by ID
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="floorPlanId">The floor plan id</param>
+		[Get("/networks/{networkId}/floorPlans/{floorPlanId}")]
+		Task<FloorPlan> GetNetworkFloorPlanAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("floorPlanId")]string floorPlanId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// List the floor plans that belong to your network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/floorPlans")]
+		Task<List<FloorPlan>> GetNetworkFloorPlansAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update a floor plan&#39;s geolocation and other meta data
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="floorPlanId">The floor plan id</param>
+		/// <param name="UpdateNetworkFloorPlan">Body for updating a network floor plan</param>
+		[Put("/networks/{networkId}/floorPlans/{floorPlanId}")]
+		Task<FloorPlan> UpdateNetworkFloorPlanAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("floorPlanId")]string floorPlanId,
+			[Body]FloorPlanUpdateRequest UpdateNetworkFloorPlan,
+			CancellationToken cancellationToken = default);
 	}
 }

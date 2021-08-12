@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// Display the traffic shaping settings for a SSID on an MR network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/ssids/{number}/trafficShaping")]
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// Display the traffic shaping settings rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/trafficShaping")]
 		Task<object> GetNetworkTrafficShaping(
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns the application categories for traffic shaping rules.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/trafficShaping/applicationCategories")]
 		Task<object> GetNetworkTrafficShapingApplicationCategories(
@@ -61,7 +61,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns the available DSCP tagging options for your traffic shaping rules.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/trafficShaping/dscpTaggingOptions")]
 		Task<object> GetNetworkTrafficShapingDscpTaggingOptions(
@@ -75,7 +75,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the traffic shaping settings for an SSID on an MR network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkSsidTrafficShaping"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -93,7 +93,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the traffic shaping settings rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkTrafficShaping"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/trafficShaping")]
@@ -109,7 +109,7 @@ namespace Meraki.Api.Interfaces
 		/// List all custom performance classes for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
 		Task<CustomPerformanceClasses> GetNetworkApplianceTrafficShapingCustomPerformanceClasses(
@@ -123,7 +123,7 @@ namespace Meraki.Api.Interfaces
 		/// Add a custom performance class for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
 		Task<CustomPerformanceClassesRequest> CreateNetworkApplianceTrafficShapingCustomPerformanceClass(
@@ -138,7 +138,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a custom performance class for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="customPerformanceClassId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
@@ -154,7 +154,7 @@ namespace Meraki.Api.Interfaces
 		/// Update a custom performance class for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="customPerformanceClassId"></param>
 		/// <param name="updateNetworkApplianceTrafficShapingCustomPerformanceClass"></param>
 		/// <returns>Task of Object</returns>
@@ -172,7 +172,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a custom performance class from an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="customPerformanceClassId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
@@ -188,7 +188,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns the uplink bandwidth settings for your MX network.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/uplinkBandwidth")]
 		Task<UplinkBandwidth> GetNetworkApplianceTrafficShapingUplinkBandwidth(
@@ -202,7 +202,7 @@ namespace Meraki.Api.Interfaces
 		/// Updates the uplink bandwidth settings for your MX network.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkApplianceTrafficShapingUplinkBandwidth"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/trafficShaping/uplinkBandwidth")]
@@ -231,7 +231,7 @@ namespace Meraki.Api.Interfaces
 		/// Update uplink selection settings for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
 		Task<UplinkSelection> UpdateNetworkApplianceTrafficShapingUplinkSelection(
@@ -246,7 +246,7 @@ namespace Meraki.Api.Interfaces
 		/// Display the traffic shaping settings for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping")]
 		Task<NetworkApplianceTrafficShaping> GetNetworkApplianceTrafficShaping(
@@ -260,7 +260,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the traffic shaping settings for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkApplianceTrafficShaping"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping")]

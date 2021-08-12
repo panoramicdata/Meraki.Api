@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Add a target group
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="createNetworkSmTargetGroup"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/sm/targetGroups")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a target group from a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="targetGroupId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a target group
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="targetGroupId"></param>
 		/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -66,7 +66,7 @@ namespace Meraki.Api.Interfaces
 		/// List the target groups in this network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/targetGroups")]
@@ -82,7 +82,7 @@ namespace Meraki.Api.Interfaces
 		/// Update a target group
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="targetGroupId"></param>
 		/// <param name="updateNetworkSmTargetGroup"> (optional)</param>
 		/// <returns>Task of Object</returns>

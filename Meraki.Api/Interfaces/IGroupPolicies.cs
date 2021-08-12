@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,82 +12,67 @@ namespace Meraki.Api.Interfaces
 	public interface IGroupPolicies
 	{
 		/// <summary>
-		/// createNetworkGroupPolicy
-		/// </summary>
-		/// <remarks>
 		/// Create a group policy
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="createNetworkGroupPolicy"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkGroupPolicy">Body for creating a network group policy</param>
 		[Post("/networks/{networkId}/groupPolicies")]
-		Task<object> CreateNetworkGroupPolicy(
+		Task<GroupPolicyCreationRequest> CreateNetworkGroupPolicyAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]GroupPolicyCreationRequest createNetworkGroupPolicy
+			[Body]GroupPolicyCreationRequest CreateNetworkGroupPolicy,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkGroupPolicy
-		/// </summary>
-		/// <remarks>
 		/// Delete a group policy
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="groupPolicyId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="groupPolicyId">The group policy id</param>
 		[Delete("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
-		Task DeleteNetworkGroupPolicy(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("groupPolicyId")]string groupPolicyId
-			);
-
-		/// <summary>
-		/// getNetworkGroupPolicies
-		/// </summary>
-		/// <remarks>
-		/// List the group policies in a network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/groupPolicies")]
-		Task<object> GetNetworkGroupPolicies(
-			[AliasAs("networkId")]string networkId
-			);
-
-		/// <summary>
-		/// getNetworkGroupPolicy
-		/// </summary>
-		/// <remarks>
-		/// Display a group policy
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="groupPolicyId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
-		Task<object> GetNetworkGroupPolicy(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("groupPolicyId")]string groupPolicyId
-			);
-
-		/// <summary>
-		/// updateNetworkGroupPolicy
-		/// </summary>
-		/// <remarks>
-		/// Update a group policy
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="groupPolicyId"></param>
-		/// <param name="updateNetworkGroupPolicy"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
-		Task<object> UpdateNetworkGroupPolicy(
+		Task DeleteNetworkGroupPolicyAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("groupPolicyId")]string groupPolicyId,
-			[Body]GroupPolicyUpdateRequest updateNetworkGroupPolicy);
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// List the group policies in a network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/groupPolicies")]
+		Task<List<GroupPolicyCreationRequest>> GetNetworkGroupPoliciesAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Display a group policy
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="groupPolicyId">The group policy id</param>
+		[Get("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
+		Task<GroupPolicyCreationRequest> GetNetworkGroupPolicyAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("groupPolicyId")]string groupPolicyId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update a group policy
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="groupPolicyId"></param>
+		/// <param name="UpdateNetworkGroupPolicy">Body for updating a network group policy</param>
+		[Put("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
+		Task<GroupPolicyUpdateRequest> UpdateNetworkGroupPolicyAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("groupPolicyId")]string groupPolicyId,
+			[Body]GroupPolicyUpdateRequest UpdateNetworkGroupPolicy,
+			CancellationToken cancellationToken = default);
 	}
 }

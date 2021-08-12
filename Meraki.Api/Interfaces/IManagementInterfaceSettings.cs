@@ -11,32 +11,25 @@ namespace Meraki.Api.Interfaces
 	public interface IManagementInterfaceSettings
 	{
 		/// <summary>
-		/// getNetworkDeviceManagementInterfaceSettings
-		/// </summary>
-		/// <remarks>
 		/// Return the management interface settings for a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/managementInterfaceSettings")]
 		Task<WanSpecs> GetAsync(
 			[AliasAs("serial")]string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateNetworkDeviceManagementInterfaceSettings
-		/// </summary>
-		/// <remarks>
 		/// Update the management interface settings for a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="serial">The serial number</param>
+		/// <param name="ManagementInterfaceSettingsUpdateDto">Body for updating management interface settings</param>
 		[Put("/devices/{serial}/managementInterfaceSettings")]
 		Task<WanSpecs> UpdateAsync(
 			[AliasAs("serial")]string serial,
-			[Body]ManagementInterfaceSettingsUpdateRequest managementInterfaceSettingsUpdateDto,
+			[Body]ManagementInterfaceSettingsUpdateRequest ManagementInterfaceSettingsUpdateDto,
 			CancellationToken cancellationToken = default);
 	}
 }

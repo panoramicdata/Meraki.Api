@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// List layer 3 interfaces for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switch/routing/interfaces")]
 		Task<List<RoutingInterface>> GetDeviceSwitchRoutingInterfaces(
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// Create a layer 3 interface for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <returns>Task of Object</returns>
 		[Post("/devices/{serial}/switch/routing/interfaces")]
 		Task<object> CreateDeviceSwitchRoutingInterface(
@@ -46,7 +46,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a layer 3 interface for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
@@ -62,7 +62,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a layer 3 interface for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId"></param>
 		/// <param name="updateDeviceSwitchRoutingInterface"></param>
 		/// <returns>Task of Object</returns>
@@ -80,7 +80,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a layer 3 interface from the switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
@@ -96,7 +96,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a layer 3 interface DHCP configuration for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
@@ -112,7 +112,7 @@ namespace Meraki.Api.Interfaces
 		/// Update a layer 3 interface DHCP configuration for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId"></param>
 		/// <param name="updateDeviceSwitchRoutingInterfaceDhcp"></param>
 		/// <returns>Task of Object</returns>
@@ -130,7 +130,7 @@ namespace Meraki.Api.Interfaces
 		/// List layer 3 static routes for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switch/routing/staticRoutes")]
 		Task<List<SwitchStaticRoute>> GetDeviceSwitchRoutingStaticRoutes(
@@ -144,7 +144,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a layer 3 static route for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="staticRouteId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]

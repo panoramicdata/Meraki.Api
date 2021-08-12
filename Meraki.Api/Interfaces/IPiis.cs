@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Submit a new delete or restrict processing PII request  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests &#x60;&#x60;&#x60;
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="createNetworkPiiRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/pii/requests")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a restrict processing PII request  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests/{requestId} &#x60;&#x60;&#x60;
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="requestId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/pii/requests/{requestId}")]
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// List the keys required to access Personally Identifiable Information (PII) for a given identifier
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="username">The username of a Systems Manager user (optional)</param>
 		/// <param name="email">The email of a network user account or a Systems Manager device (optional)</param>
 		/// <param name="mac">The MAC of a network client device or a Systems Manager device (optional)</param>
@@ -74,7 +74,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a PII request  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests/{requestId} &#x60;&#x60;&#x60;
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="requestId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/pii/requests/{requestId}")]
@@ -90,7 +90,7 @@ namespace Meraki.Api.Interfaces
 		/// List the PII requests for this network or organization  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests &#x60;&#x60;&#x60;
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/pii/requests")]
 		Task<object> GetNetworkPiiRequests(
@@ -104,7 +104,7 @@ namespace Meraki.Api.Interfaces
 		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="username">The username of a Systems Manager user (optional)</param>
 		/// <param name="email">The email of a network user account or a Systems Manager device (optional)</param>
 		/// <param name="mac">The MAC of a network client device or a Systems Manager device (optional)</param>
@@ -130,7 +130,7 @@ namespace Meraki.Api.Interfaces
 		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="username">The username of a Systems Manager user (optional)</param>
 		/// <param name="email">The email of a network user account or a Systems Manager device (optional)</param>
 		/// <param name="mac">The MAC of a network client device or a Systems Manager device (optional)</param>

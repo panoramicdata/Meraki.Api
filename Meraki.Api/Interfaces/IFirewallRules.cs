@@ -3,6 +3,7 @@ using Refit;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,37 +11,31 @@ namespace Meraki.Api.Interfaces
 	public interface IFirewallRules
 	{
 		/// <summary>
-		/// getNetworkWirelessSsidFirewallL7FirewallRules
-		/// </summary>
-		/// <remarks>
 		/// Return the L7 firewall rules for an SSID on an MR network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/firewall/l7FirewallRules")]
-		Task<SsidL7FirewallRules> GetNetworkWirelessSsidFirewallL7FirewallRules(
+		Task<SsidL7FirewallRules> GetNetworkWirelessSsidFirewallL7FirewallRulesAsync(
 		[AliasAs("networkId")]string networkId,
-		[AliasAs("number")]string number
+		[AliasAs("number")]string number,
+		CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkWirelessSsidFirewallL7FirewallRules
-		/// </summary>
-		/// <remarks>
 		/// Return the L7 firewall rules for an SSID on an MR network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="number"></param>
-		/// <param name="updateNetworkWirelessSsidFirewallL7FirewallRules"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="number">The SSID number</param>
+		/// <param name="UpdateNetworkWirelessSsidFirewallL7FirewallRules">Body for updating L7 Firewall rules</param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/firewall/l7FirewallRules")]
-		Task<SsidL7FirewallRules> UpdateNetworkWirelessSsidFirewallL7FirewallRules(
+		Task<SsidL7FirewallRules> UpdateNetworkWirelessSsidFirewallL7FirewallRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
-		[Body]SsidL7FirewallRules updateNetworkWirelessSsidFirewallL7FirewallRules
+		[Body]SsidL7FirewallRules UpdateNetworkWirelessSsidFirewallL7FirewallRules,
+		CancellationToken cancellationToken = default
 			);
 	}
 }

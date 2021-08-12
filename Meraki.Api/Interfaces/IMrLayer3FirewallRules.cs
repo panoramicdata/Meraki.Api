@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the L3 firewall rules for an SSID on an MR network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/ssids/{number}/l3FirewallRules")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the L3 firewall rules of an SSID on an MR network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkSsidL3FirewallRules"> (optional)</param>
 		/// <returns>Task of Object</returns>

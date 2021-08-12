@@ -10,6 +10,12 @@ namespace Meraki.Api.Data
 	public partial class SwitchLinkAggregationCreationRequest
 	{
 		/// <summary>
+		/// Id
+		/// </summary>
+		[DataMember(Name = "id")]
+		public string? Id { get; set; }
+
+		/// <summary>
 		/// Array of switch or stack ports for creating aggregation group. Minimum 2 and maximum 8 ports are supported.
 		/// </summary>
 		/// <value>Array of switch or stack ports for creating aggregation group. Minimum 2 and maximum 8 ports are supported.</value>

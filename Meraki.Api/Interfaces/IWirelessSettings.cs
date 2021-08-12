@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the wireless settings for a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/settings")]
 		Task<WirelessSettings> GetAsync(
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the wireless settings for a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkWirelessSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/wireless/settings")]

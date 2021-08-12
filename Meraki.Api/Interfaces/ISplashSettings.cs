@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Display the splash page settings for the given SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/ssids/{number}/splashSettings")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// Modify the splash page settings for the given SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkSsidSplashSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>

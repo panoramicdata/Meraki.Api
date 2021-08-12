@@ -12,19 +12,15 @@ namespace Meraki.Api.Interfaces
 	public interface IInventoryDevices
 	{
 		/// <summary>
-		/// getOrganizationInventoryDevices
-		/// </summary>
-		/// <remarks>
 		/// Return the device inventory for an organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.</param>
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 		/// <param name="usedState">Filter results by used or unused inventory. Accepted values are "used" or "unused".</param>
 		/// <param name="search">Search for devices in inventory based on serial number, mac address, or model.</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/inventoryDevices")]
 		Task<List<InventoryDevices>> GetOrganizationInventoryDevicesAsync(
 			[AliasAs("organizationId")] string organizationId,
@@ -36,17 +32,13 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getOrganizationInventoryDevice
-		/// </summary>
-		/// <remarks>
 		/// Return the device inventory for an organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="serial"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="serial">The serial number</param>
 		[Get("/organizations/{organizationId}/inventoryDevices/{serial}")]
-		Task<InventoryDevices> GetOrganizationInventoryDevice(
+		Task<InventoryDevices> GetOrganizationInventoryDeviceAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);

@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,67 +12,55 @@ namespace Meraki.Api.Interfaces
 	public interface ILinkAggregations
 	{
 		/// <summary>
-		/// createNetworkSwitchLinkAggregation
-		/// </summary>
-		/// <remarks>
 		/// Create a link aggregation group
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="createNetworkSwitchLinkAggregation"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkSwitchLinkAggregation">Body for creating a link aggregation group</param>
 		[Post("/networks/{networkId}/switch/linkAggregations")]
-		Task<object> CreateNetworkSwitchLinkAggregation(
+		Task<SwitchLinkAggregationCreationRequest> CreateNetworkSwitchLinkAggregationAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]SwitchLinkAggregationCreationRequest createNetworkSwitchLinkAggregation
+			[Body]SwitchLinkAggregationCreationRequest CreateNetworkSwitchLinkAggregation,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkSwitchLinkAggregation
-		/// </summary>
-		/// <remarks>
 		/// Split a link aggregation group into separate ports
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="linkAggregationId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="linkAggregationId">The link aggregation id</param>
 		[Delete("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
-		Task DeleteNetworkSwitchLinkAggregation(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("linkAggregationId")]string linkAggregationId
-			);
-
-		/// <summary>
-		/// getNetworkSwitchLinkAggregations
-		/// </summary>
-		/// <remarks>
-		/// List link aggregation groups
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/switch/linkAggregations")]
-		Task<object> GetNetworkSwitchLinkAggregations(
-			[AliasAs("networkId")]string networkId
-			);
-
-		/// <summary>
-		/// updateNetworkSwitchLinkAggregation
-		/// </summary>
-		/// <remarks>
-		/// Update a link aggregation group
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="linkAggregationId"></param>
-		/// <param name="updateNetworkSwitchLinkAggregation"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
-		Task<object> UpdateNetworkSwitchLinkAggregation(
+		Task DeleteNetworkSwitchLinkAggregationAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("linkAggregationId")]string linkAggregationId,
-			[Body]SwitchLinkAggregationUpdateRequest updateNetworkSwitchLinkAggregation
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// List link aggregation groups
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/switch/linkAggregations")]
+		Task<List<SwitchLinkAggregationCreationRequest>> GetNetworkSwitchLinkAggregationsAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update a link aggregation group
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="linkAggregationId">The link aggregation id</param>
+		/// <param name="UpdateNetworkSwitchLinkAggregation">Body for updating a link aggregation group</param>
+		[Put("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
+		Task<SwitchLinkAggregationCreationRequest> UpdateNetworkSwitchLinkAggregationAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("linkAggregationId")]string linkAggregationId,
+			[Body]SwitchLinkAggregationCreationRequest UpdateNetworkSwitchLinkAggregation,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

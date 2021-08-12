@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the 1:1 NAT mapping rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/firewall/oneToOneNatRules")]
 		Task<object> GetNetworkOneToOneNatRules(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Set the 1:1 NAT mapping rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkOneToOneNatRules"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/firewall/oneToOneNatRules")]

@@ -12,15 +12,11 @@ namespace Meraki.Api.Interfaces
 	public interface IConfigurationTemplates
 	{
 		/// <summary>
-		/// deleteOrganizationConfigTemplate
-		/// </summary>
-		/// <remarks>
 		/// Remove a configuration template
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="configTemplateId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="configTemplateId">The config template id</param>
 		[Delete("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
 		Task DeleteAsync(
 			[AliasAs("organizationId")]string organizationId,
@@ -28,68 +24,52 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getOrganizationConfigTemplate
-		/// </summary>
-		/// <remarks>
 		/// Return a single configuration template
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="configTemplateId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="configTemplateId">The config template id</param>
 		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
-		Task<ConfigurationTemplate> GetOrganizationConfigTemplate(
+		Task<ConfigurationTemplate> GetOrganizationConfigTemplateAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("configTemplateId")]string configTemplateId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getOrganizationConfigTemplates
-		/// </summary>
-		/// <remarks>
 		/// List the configuration templates for this organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/configTemplates")]
 		Task<List<ConfigurationTemplate>> GetAllAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateOrganizationConfigTemplate
-		/// </summary>
-		/// <remarks>
 		/// Update a configuration template
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="configTemplateId"></param>
-		/// <param name="updateOrganizationConfigTemplate"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="configTemplateId">The config template id</param>
+		/// <param name="UpdateOrganizationConfigTemplate">Body for updating an organization's config template</param>
 		[Put("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
-		Task<object> UpdateOrganizationConfigTemplateAsync(
+		Task<ConfigurationTemplate> UpdateOrganizationConfigTemplateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("configTemplateId")] string configTemplateId,
-			[Body]ConfigurationTemplateUpdate updateOrganizationConfigTemplate,
+			[Body]ConfigurationTemplateUpdate UpdateOrganizationConfigTemplate,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// createOrganizationConfigTemplate
-		/// </summary>
-		/// <remarks>
 		/// Create a new configuration template
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="createOrganizationConfigTemplate"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="CreateOrganizationConfigTemplate">The config template id</param>
 		[Post("/organizations/{organizationId}/configTemplates")]
-		Task<object> CreateOrganizationConfigTemplate(
+		Task<ConfigurationTemplateUpdate> CreateOrganizationConfigTemplateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("configTemplateId")] string configTemplateId,
-			[Body] ConfigurationTemplateUpdate createOrganizationConfigTemplate,
+			[Body] ConfigurationTemplateUpdate CreateOrganizationConfigTemplate,
 			CancellationToken cancellationToken = default);
 	}
 }

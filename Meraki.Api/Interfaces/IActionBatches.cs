@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// Create an action batch
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="CreateOrganizationActionBatch">Body for creating organization action batch</param>
 		[Post("/organizations/{organizationId}/actionBatches")]
 		Task<ActionBatch> CreateAsync(
@@ -27,7 +27,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete an action batch
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="actionBatchId"></param>
 		[Delete("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
 		Task DeleteAsync(

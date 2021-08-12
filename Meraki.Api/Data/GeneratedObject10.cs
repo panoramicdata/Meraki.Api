@@ -14,5 +14,17 @@ namespace Meraki.Api.Data
 		/// <value>New authorization status for the SSID (true, false).</value>
 		[DataMember(Name = "isAuthorized", EmitDefaultValue = false)]
 		public bool? IsAuthorized { get; set; }
+
+		/// <summary>
+		/// Authorized at
+		/// </summary>
+		[DataMember(Name = "authorizedAt")]
+		public string? AuthorizedAt { get; set; }
+
+		/// <summary>
+		/// Expires at
+		/// </summary>
+		[DataMember(Name = "expiresAt")]
+		public string? ExpiresAt { get; set; }
 	}
 }

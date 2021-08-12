@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface IMgConnectivityMonitoringDestinations
 	{
 		/// <summary>
-		/// getNetworkCellularGatewaySettingsConnectivityMonitoringDestinations
-		/// </summary>
-		/// <remarks>
 		/// Return the connectivity testing destinations for an MG network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
-		Task<object> GetNetworkCellularGatewaySettingsConnectivityMonitoringDestinations(
-			[AliasAs("networkId")]string networkId
+		Task<NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest> GetNetworkCellularGatewaySettingsConnectivityMonitoringDestinationsAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations
-		/// </summary>
-		/// <remarks>
 		/// Update the connectivity testing destinations for an MG network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations">Body for updating the connectivity testing destinations</param>
 		[Put("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
-		Task<object> UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations(
+		Task<NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest> UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinationsAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations
+			[Body]NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

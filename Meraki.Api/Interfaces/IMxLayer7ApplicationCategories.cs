@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the L7 firewall application categories and their associated applications for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/l7FirewallRules/applicationCategories")]
 		Task<object> GetNetworkL7FirewallRulesApplicationCategories(

@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,63 +11,51 @@ namespace Meraki.Api.Interfaces
 	public interface IIntrusionSettings
 	{
 		/// <summary>
-		/// getNetworkSecurityIntrusionSettings
-		/// </summary>
-		/// <remarks>
 		/// Returns all supported intrusion settings for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/security/intrusion")]
-		Task<object> GetNetworkSecurityIntrusionSettings(
-			[AliasAs("networkId")]string networkId
-			);
-
-		/// <summary>
-		/// getOrganizationSecurityIntrusionSettings
-		/// </summary>
-		/// <remarks>
-		/// Returns all supported intrusion settings for an organization
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/appliance/security/intrusion")]
-		Task<object> GetOrganizationSecurityIntrusionSettings(
-			[AliasAs("organizationId")]string organizationId
-			);
-
-		/// <summary>
-		/// updateNetworkSecurityIntrusionSettings
-		/// </summary>
-		/// <remarks>
-		/// Set the supported intrusion settings for an MX network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="updateNetworkSecurityIntrusionSettings"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/appliance/security/intrusion")]
-		Task<object> UpdateNetworkSecurityIntrusionSettings(
+		Task<NetworkSecurityIntrusionSettingsUpdateRequest> GetNetworkSecurityIntrusionSettingsAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]NetworkSecurityIntrusionSettingsUpdateRequest updateNetworkSecurityIntrusionSettings
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateOrganizationSecurityIntrusionSettings
+		/// Returns all supported intrusion settings for an organization
 		/// </summary>
-		/// <remarks>
-		/// Sets supported intrusion settings for an organization
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="updateOrganizationSecurityIntrusionSettings"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/organizations/{organizationId}/security/intrusionSettings")]
-		Task<object> UpdateOrganizationSecurityIntrusionSettings(
+		/// <param name="organizationId">The organization id</param>
+		[Get("/organizations/{organizationId}/appliance/security/intrusion")]
+		Task<SecurityIntrusionSettingsUpdateRequest> GetOrganizationSecurityIntrusionSettingsAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]SecurityIntrusionSettingsUpdateRequest updateOrganizationSecurityIntrusionSettings
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Set the supported intrusion settings for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="UpdateNetworkSecurityIntrusionSettings">Body for updating security intrusion settings</param>
+		[Put("/networks/{networkId}/appliance/security/intrusion")]
+		Task<NetworkSecurityIntrusionSettingsUpdateRequest> UpdateNetworkSecurityIntrusionSettingsAsync(
+			[AliasAs("networkId")]string networkId,
+			[Body]NetworkSecurityIntrusionSettingsUpdateRequest UpdateNetworkSecurityIntrusionSettings,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Sets supported intrusion settings for an organization
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="UpdateOrganizationSecurityIntrusionSettings">Body for updating security intrusion settings</param>
+		[Put("/organizations/{organizationId}/security/intrusionSettings")]
+		Task<SecurityIntrusionSettingsUpdateRequest> UpdateOrganizationSecurityIntrusionSettingsAsync(
+			[AliasAs("organizationId")]string organizationId,
+			[Body]SecurityIntrusionSettingsUpdateRequest UpdateOrganizationSecurityIntrusionSettings,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

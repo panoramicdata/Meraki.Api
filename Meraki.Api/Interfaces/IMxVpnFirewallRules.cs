@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the firewall rules for an organization&#39;s site-to-site VPN
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/vpnFirewallRules")]
 		Task<object> GetOrganizationVpnFirewallRules(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the firewall rules of an organization&#39;s site-to-site VPN
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="updateOrganizationVpnFirewallRules"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/vpnFirewallRules")]

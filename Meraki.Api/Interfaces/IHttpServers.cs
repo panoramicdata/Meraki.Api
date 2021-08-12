@@ -1,6 +1,8 @@
 using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
+using System.Net.WebSockets;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -11,115 +13,94 @@ namespace Meraki.Api.Interfaces
 	public interface IHttpServers
 	{
 		/// <summary>
-		/// createNetworkHttpServer
-		/// </summary>
-		/// <remarks>
 		/// Add an HTTP server to a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="createNetworkHttpServer"></param>
-		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/httpServers")]
-		Task<object> CreateNetworkHttpServer(
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkHttpServer">Body for creating a network HTTP server</param>
+		[Post("/networks/{networkId}/webhooks/httpServers")]
+		Task<HttpServers> CreateNetworkHttpServerAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]HttpServerCreationRequest createNetworkHttpServer
+			[Body]HttpServerCreationRequest CreateNetworkHttpServer,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// createNetworkHttpServersWebhookTest
-		/// </summary>
-		/// <remarks>
 		/// Send a test webhook for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="createNetworkHttpServersWebhookTest"></param>
-		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/httpServers/webhookTests")]
-		Task<object> CreateNetworkHttpServersWebhookTest(
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkHttpServersWebhookTest">Body for creating a network HTTP server webhook test</param>
+		[Post("/networks/{networkId}/webhooks/webhookTests")]
+		Task<WebhookTest> CreateNetworkHttpServersWebhookTestAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]HttpServersWebhookTestCreationRequest createNetworkHttpServersWebhookTest
+			[Body]HttpServersWebhookTestCreationRequest CreateNetworkHttpServersWebhookTest,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkHttpServer
-		/// </summary>
-		/// <remarks>
 		/// Delete an HTTP server from a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="id"></param>
-		/// <returns>Task of void</returns>
-		[Delete("/networks/{networkId}/httpServers/{id}")]
-		Task DeleteNetworkHttpServer(
+		/// <param name="networkId">The network id</param>
+		/// <param name="httpServerId">The id of a HTTP server</param>
+		[Delete("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
+		Task DeleteNetworkHttpServerAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("id")]string id
+			[AliasAs("httpServerId")]string httpServerId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkHttpServer
-		/// </summary>
-		/// <remarks>
 		/// Return an HTTP server for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="id"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/httpServers/{id}")]
-		Task<object> GetNetworkHttpServer(
+		/// <param name="networkId">The network id</param>
+		/// <param name="httpServerId">The id of a HTTP server</param>
+		[Get("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
+		Task<HttpServers> GetNetworkHttpServerAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("id")]string id
+			[AliasAs("httpServerId")]string httpServerId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkWebhooksHttpServers
-		/// </summary>
-		/// <remarks>
 		/// List the HTTP servers for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/webhooks/httpServers")]
-		Task<List<HttpServers>> GetNetworkWebhooksHttpServers(
-			[AliasAs("networkId")]string networkId
+		Task<List<HttpServers>> GetNetworkWebhooksHttpServersAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkHttpServersWebhookTest
-		/// </summary>
-		/// <remarks>
 		/// Return the status of a webhook test for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="id"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/httpServers/webhookTests/{id}")]
-		Task<object> GetNetworkHttpServersWebhookTest(
+		/// <param name="networkId">The network id</param>
+		/// <param name="webhookTestId">The id of a webhook test</param>
+		[Get("/networks/{networkId}/webhooks/webhookTests/{webhookTestId}")]
+		Task<WebSocket> GetNetworkHttpServersWebhookTestAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("id")]string id
+			[AliasAs("webhookTestId")]string webhookTestId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkHttpServer
-		/// </summary>
-		/// <remarks>
 		/// Update an HTTP server
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="id"></param>
-		/// <param name="updateNetworkHttpServer"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/httpServers/{id}")]
-		Task<object> UpdateNetworkHttpServer(
+		/// <param name="networkId">The network id</param>
+		/// <param name="httpServerId">The id of a HTTP server</param>
+		/// <param name="UpdateNetworkHttpServer">Body for updating a network HTTP server</param>
+		[Put("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
+		Task<HttpServers> UpdateNetworkHttpServerAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("id")]string id,
-			[Body]HttpServerUpdateRequest updateNetworkHttpServer
+			[AliasAs("httpServerId")] string httpServerId,
+			[Body]HttpServerUpdateRequest UpdateNetworkHttpServer,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

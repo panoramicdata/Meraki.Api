@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// Return an action batch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/alternateManagementInterface")]
 		Task<WirelessAlternateManagementInterface> GetNetworkWirelessAlternateManagementInterface(
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// Return an action batch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkWirelessAlternateManagementInterface"
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/wireless/alternateManagementInterface")]

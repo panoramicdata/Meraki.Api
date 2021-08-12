@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the L3 firewall rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/firewall/l3FirewallRules")]
 		Task<object> GetNetworkL3FirewallRules(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the L3 firewall rules of an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkL3FirewallRules"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/firewall/l3FirewallRules")]

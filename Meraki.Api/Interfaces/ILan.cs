@@ -11,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface ILan
 	{
 		/// <summary>
-		/// getNetworkApplianceSingleLan
-		/// </summary>
-		/// <remarks>
 		/// Return single LAN configuration
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/singleLan")]
-		Task<LanConfiguration> GetNetworkApplianceSingleLan(
-			[AliasAs("networkId")] string networkId
+		Task<LanConfiguration> GetNetworkApplianceSingleLanAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkApplianceSingleLan
-		/// </summary>
-		/// <remarks>
 		/// Update single LAN configuration
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="updateNetworkApplianceSingleLan"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="UpdateNetworkApplianceSingleLan">Body for updating a single LAN config</param>
 		[Put("/networks/{networkId}/appliance/singleLan")]
-		Task<LanConfiguration> UpdateNetworkApplianceSingleLan(
+		Task<LanConfiguration> UpdateNetworkApplianceSingleLanAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]LanConfiguration updateNetworkApplianceSingleLan
+			[Body]LanConfiguration UpdateNetworkApplianceSingleLan,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

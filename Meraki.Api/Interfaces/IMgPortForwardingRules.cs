@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns the port forwarding rules for a single MG.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/cellularGateway/settings/portForwardingRules")]
 		Task<object> GetDeviceCellularGatewaySettingsPortForwardingRules(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Updates the port forwarding rules for a single MG.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="updateDeviceCellularGatewaySettingsPortForwardingRules"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/cellularGateway/settings/portForwardingRules")]

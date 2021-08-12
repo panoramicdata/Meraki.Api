@@ -6,33 +6,27 @@ using System.Text;
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// Application usage
+	/// Usage history
 	/// </summary>
 	[DataContract]
 	public class ClientUsageHistory
 	{
 		/// <summary>
-		/// Client id
+		/// Sent
 		/// </summary>
-		[DataMember(Name = "clientId")]
-		public string ClientId { get; set; } = string.Empty;
+		[DataMember(Name = "sent")]
+		public int Sent { get; set; }
 
 		/// <summary>
-		/// Client ip
+		/// Received
 		/// </summary>
-		[DataMember(Name = "clientIp")]
-		public string ClientIp { get; set; } = string.Empty;
+		[DataMember(Name = "received")]
+		public int Received { get; set; }
 
 		/// <summary>
-		/// Client mac
+		/// Ts
 		/// </summary>
-		[DataMember(Name = "clientMac")]
-		public string ClientMac { get; set; } = string.Empty;
-
-		/// <summary>
-		/// Application usage
-		/// </summary>
-		[DataMember(Name = "usageHistory")]
-		public List<SubclassUsageHistory> UsageHistory { get; set; } = new();
+		[DataMember(Name = "ts")]
+		public string Ts { get; set; } = string.Empty;
 	}
 }

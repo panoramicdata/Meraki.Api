@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Add a static route for an MX or teleworker network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="createNetworkStaticRoute"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/staticRoutes")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a static route from an MX or teleworker network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="staticRouteId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/staticRoutes/{staticRouteId}")]
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a static route for an MX or teleworker network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="staticRouteId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/staticRoutes/{staticRouteId}")]
@@ -64,7 +64,7 @@ namespace Meraki.Api.Interfaces
 		/// List the static routes for an MX or teleworker network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/staticRoutes")]
 		Task<object> GetNetworkStaticRoutes(
@@ -78,7 +78,7 @@ namespace Meraki.Api.Interfaces
 		/// Update a static route for an MX or teleworker network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="staticRouteId"></param>
 		/// <param name="updateNetworkStaticRoute"> (optional)</param>
 		/// <returns>Task of Object</returns>

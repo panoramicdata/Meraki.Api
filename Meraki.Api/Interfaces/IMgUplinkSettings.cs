@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns the uplink settings for your MG network.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/cellularGateway/settings/uplink")]
 		Task<object> GetNetworkCellularGatewaySettingsUplink(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Updates the uplink settings for your MG network.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkCellularGatewaySettingsUplink"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/cellularGateway/settings/uplink")]

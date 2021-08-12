@@ -3,6 +3,7 @@ using Refit;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,17 +11,14 @@ namespace Meraki.Api.Interfaces
 	public interface IDhcp
 	{
 		/// <summary>
-		/// getDeviceApplianceDhcpSubnets
-		/// </summary>
-		/// <remarks>
 		/// Return the DHCP subnet information for an appliance
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/appliance/dhcp/subnets")]
-		Task<List<DhcpSubnets>> GetDeviceApplianceDhcpSubnets(
-			[AliasAs("serial")] string serial
+		Task<List<DhcpSubnets>> GetDeviceApplianceDhcpSubnetsAsync(
+			[AliasAs("serial")] string serial,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

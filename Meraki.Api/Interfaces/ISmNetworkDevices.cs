@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// Wipe a device
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="wipeNetworkSmDevices"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/sm/devices/wipe")]

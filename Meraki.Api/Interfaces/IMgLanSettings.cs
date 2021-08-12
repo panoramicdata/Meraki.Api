@@ -11,33 +11,25 @@ namespace Meraki.Api.Interfaces
 	public interface IMgLanSettings
 	{
 		/// <summary>
-		/// getDeviceCellularGatewaySettings
-		/// </summary>
-		/// <remarks>
 		/// Show the LAN Settings of a MG
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/devices/{serial}/cellularGateway/settings")]
-		Task<object> GetCellularGatewaySettingsAsync(
+		/// <param name="serial">The serial number</param>
+		[Get("/devices/{serial}/cellularGateway/lan")]
+		Task<CellularGatewaySettingsUpdateRequest> GetCellularGatewaySettingsAsync(
 			[AliasAs("serial")]string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateDeviceCellularGatewaySettings
-		/// </summary>
-		/// <remarks>
 		/// Update the LAN Settings for a single MG.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
-		/// <param name="cellularGatewaySettingsUpdateRequest"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/devices/{serial}/cellularGateway/settings")]
-		Task<object> UpdateCellularGatewaySettingsAsync(
+		/// <param name="serial">The serial number</param>
+		/// <param name="CellularGatewaySettingsUpdateRequest">Body for updating LAN settings</param>
+		[Put("/devices/{serial}/cellularGateway/lan")]
+		Task<CellularGatewaySettingsUpdateRequest> UpdateCellularGatewaySettingsAsync(
 			[AliasAs("serial")]string serial,
-			[Body]CellularGatewaySettingsUpdateRequest cellularGatewaySettingsUpdateRequest,
+			[Body]CellularGatewaySettingsUpdateRequest CellularGatewaySettingsUpdateRequest,
 			CancellationToken cancellationToken = default);
 	}
 }

@@ -16,6 +16,12 @@ namespace Meraki.Api.Data
 		public string LicenseType { get; set; } = string.Empty;
 
 		/// <summary>
+		/// Id
+		/// </summary>
+		[DataMember(Name = "id")]
+		public new string Id { get; set; } = string.Empty;
+
+		/// <summary>
 		/// LicenseKey
 		/// </summary>
 		[DataMember(Name = "licenseKey")]

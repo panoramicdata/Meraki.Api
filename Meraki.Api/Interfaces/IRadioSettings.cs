@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Creates new RF profile for this network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="createNetworkWirelessRfProfile"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/wireless/rfProfiles")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a RF Profile
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="rfProfileId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/wireless/rfProfiles/{rfProfileId}")]
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the radio settings of a device
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/wireless/radio/settings")]
 		Task<RadioGhzSettings> GetNetworkDeviceWirelessRadioSettings(
@@ -62,7 +62,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a RF profile
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="rfProfileId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/rfProfiles/{rfProfileId}")]
@@ -78,7 +78,7 @@ namespace Meraki.Api.Interfaces
 		/// List the non-basic RF profiles for this network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="includeTemplateProfiles">    If the network is bound to a template, this parameter controls whether or not the non-basic RF profiles defined on the template     should be included in the response alongside the non-basic profiles defined on the bound network. Defaults to false.  (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/rfProfiles")]
@@ -94,7 +94,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the radio settings of a device
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="updateNetworkDeviceWirelessRadioSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/wireless/radio/settings")]
@@ -110,7 +110,7 @@ namespace Meraki.Api.Interfaces
 		/// Updates specified RF profile for this network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="rfProfileId"></param>
 		/// <param name="updateNetworkWirelessRfProfile"> (optional)</param>
 		/// <returns>Task of Object</returns>

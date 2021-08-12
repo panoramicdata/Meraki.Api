@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// Bind a network to a template.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="bindNetwork"></param>
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/bind")]
@@ -34,7 +34,7 @@ namespace Meraki.Api.Interfaces
 		/// Combine multiple networks into a single network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="combineOrganizationNetworks"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/networks/combine")]
@@ -50,7 +50,7 @@ namespace Meraki.Api.Interfaces
 		/// Create a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="createOrganizationNetwork"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/networks")]
@@ -66,7 +66,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}")]
 		Task DeleteAsync(
@@ -80,7 +80,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}")]
 		Task<Network> GetAsync(
@@ -94,7 +94,7 @@ namespace Meraki.Api.Interfaces
 		/// List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/accessPolicies")]
 		Task<object> GetNetworkAccessPolicies(
@@ -108,7 +108,7 @@ namespace Meraki.Api.Interfaces
 		/// List Air Marshal scan results from a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 7 days. (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -126,7 +126,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the site-to-site VPN settings of a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 		Task<object> GetNetworkSiteToSiteVpn(
@@ -139,7 +139,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return the traffic analysis data for this network
 		/// </remarks>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 30 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 30 days. (optional)</param>
 		/// <param name="deviceType">    Filter the data by device type: &#39;combined&#39;, &#39;wireless&#39;, &#39;switch&#39; or &#39;appliance&#39;. Defaults to &#39;combined&#39;.     When using &#39;combined&#39;, for each rule the data will come from the device type with the most usage.  (optional)</param>
@@ -159,7 +159,7 @@ namespace Meraki.Api.Interfaces
 		/// List the networks that the user has privileges on in an organization
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="configTemplateId">An optional parameter that is the ID of a config template. Will return all networks bound to that template. (optional)</param>
 		/// <param name="tags">An optional parameter to filter networks by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 		/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return networks which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
@@ -185,7 +185,7 @@ namespace Meraki.Api.Interfaces
 		/// Split a combined network into individual networks for each type of device
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/split")]
 		Task<object> SplitAsync(
@@ -199,7 +199,7 @@ namespace Meraki.Api.Interfaces
 		/// Unbind a network from a template.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of void</returns>
 		[Post("/networks/{networkId}/unbind")]
 		Task UnbindConfigurationTemplateAsync(
@@ -214,7 +214,7 @@ namespace Meraki.Api.Interfaces
 		/// Update a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="networkUpdateRequest"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}")]
@@ -231,7 +231,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the site-to-site VPN settings of a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkSiteToSiteVpn"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
@@ -247,7 +247,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the appliance settings for a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/settings")]
 		Task<ApplianceSettings> GetNetworkApplianceSettings(

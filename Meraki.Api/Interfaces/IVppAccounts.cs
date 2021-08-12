@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// List the VPP accounts in the organization
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/sm/vppAccounts")]
 		Task<List<SmVppAccount>> GetOrganizationSmVppAccounts(
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// List the VPP accounts in the organization
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="vppAccountId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/sm/vppAccounts/{vppAccountId}")]

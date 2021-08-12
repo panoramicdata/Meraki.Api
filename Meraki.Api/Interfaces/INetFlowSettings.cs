@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the NetFlow traffic reporting settings for a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/netflowSettings")]
 		Task<object> GetNetworkNetflowSettings(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the NetFlow traffic reporting settings for a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkNetflowSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/netflowSettings")]

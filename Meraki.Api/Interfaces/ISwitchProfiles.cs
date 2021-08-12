@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// List the switch profiles for your switch template configuration
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switchProfiles")]
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// Return all the ports of a switch profile
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <param name="profileId"></param>
 		/// <returns>Task of Object</returns>
@@ -51,7 +51,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a switch profile port
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <param name="profileId"></param>
 		/// <param name="portId"></param>
@@ -71,7 +71,7 @@ namespace Meraki.Api.Interfaces
 		/// Update a switch profile port
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="configTemplateId"></param>
 		/// <param name="profileId"></param>
 		/// <param name="portId"></param>

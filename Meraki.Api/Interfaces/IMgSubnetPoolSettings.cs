@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the subnet pool and mask configured for MGs in the network.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/cellularGateway/settings/subnetPool")]
 		Task<object> GetNetworkCellularGatewaySettingsSubnetPool(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the subnet pool and mask configuration for MGs in the network.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkCellularGatewaySettingsSubnetPool"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/cellularGateway/settings/subnetPool")]

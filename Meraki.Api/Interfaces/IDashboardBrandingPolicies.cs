@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,113 +12,92 @@ namespace Meraki.Api.Interfaces
 	public interface IDashboardBrandingPolicies
 	{
 		/// <summary>
-		/// createOrganizationBrandingPolicy
-		/// </summary>
-		/// <remarks>
 		/// Add a new branding policy to an organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="createOrganizationBrandingPolicy"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="CreateOrganizationBrandingPolicy">Body for creating an organization's branding policy</param>
 		[Post("/organizations/{organizationId}/brandingPolicies")]
-		Task<object> CreateOrganizationBrandingPolicy(
+		Task<BrandingPolicyCreationRequest> CreateOrganizationBrandingPolicy(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]BrandingPolicyCreationRequest createOrganizationBrandingPolicy
+			[Body]BrandingPolicyCreationRequest CreateOrganizationBrandingPolicy,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteOrganizationBrandingPolicy
-		/// </summary>
-		/// <remarks>
 		/// Delete a branding policy
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="brandingPolicyId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="brandingPolicyId">The branding policy id</param>
 		[Delete("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 		Task DeleteOrganizationBrandingPolicy(
 			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("brandingPolicyId")]string brandingPolicyId
+			[AliasAs("brandingPolicyId")]string brandingPolicyId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getOrganizationBrandingPolicies
-		/// </summary>
-		/// <remarks>
 		/// List the branding policies of an organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies")]
-		Task<object> GetOrganizationBrandingPolicies(
-			[AliasAs("organizationId")]string organizationId
+		Task<List<BrandingPolicyCreationRequest>> GetOrganizationBrandingPolicies(
+			[AliasAs("organizationId")]string organizationId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getOrganizationBrandingPoliciesPriorities
-		/// </summary>
-		/// <remarks>
 		/// Return the branding policy IDs of an organization in priority order
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies/priorities")]
-		Task<object> GetOrganizationBrandingPoliciesPriorities(
-			[AliasAs("organizationId")]string organizationId
+		Task<BrandingPoliciesPrioritiesUpdateRequest> GetOrganizationBrandingPoliciesPriorities(
+			[AliasAs("organizationId")]string organizationId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getOrganizationBrandingPolicy
-		/// </summary>
-		/// <remarks>
 		/// Return a branding policy
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="brandingPolicyId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="brandingPolicyId">The branding policy id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
-		Task<object> GetOrganizationBrandingPolicy(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("brandingPolicyId")]string brandingPolicyId
-			);
-
-		/// <summary>
-		/// updateOrganizationBrandingPoliciesPriorities
-		/// </summary>
-		/// <remarks>
-		/// Update the priority ordering of an organization&#39;s branding policies.
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="updateOrganizationBrandingPoliciesPriorities"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
-		Task<object> UpdateOrganizationBrandingPoliciesPriorities(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]BrandingPoliciesPrioritiesUpdateRequest updateOrganizationBrandingPoliciesPriorities
-			);
-
-		/// <summary>
-		/// updateOrganizationBrandingPolicy
-		/// </summary>
-		/// <remarks>
-		/// Update a branding policy
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="brandingPolicyId"></param>
-		/// <param name="updateOrganizationBrandingPolicy"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
-		Task<object> UpdateOrganizationBrandingPolicy(
+		Task<BrandingPolicyCreationRequest> GetOrganizationBrandingPolicy(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("brandingPolicyId")]string brandingPolicyId,
-			[Body]BrandingPolicyUpdateRequest updateOrganizationBrandingPolicy
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update the priority ordering of an organization&#39;s branding policies.
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="UpdateOrganizationBrandingPoliciesPriorities">Body for updating an organization branding policies priorities</param>
+		[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
+		Task<BrandingPoliciesPrioritiesUpdateRequest> UpdateOrganizationBrandingPoliciesPriorities(
+			[AliasAs("organizationId")]string organizationId,
+			[Body]BrandingPoliciesPrioritiesUpdateRequest UpdateOrganizationBrandingPoliciesPriorities,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update a branding policy
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="brandingPolicyId"></param>
+		/// <param name="UpdateOrganizationBrandingPolicy">Body for updating an organization's branding policy</param>
+		[Put("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
+		Task<BrandingPolicyCreationRequest> UpdateOrganizationBrandingPolicy(
+			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("brandingPolicyId")]string brandingPolicyId,
+			[Body]BrandingPolicyUpdateRequest UpdateOrganizationBrandingPolicy,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

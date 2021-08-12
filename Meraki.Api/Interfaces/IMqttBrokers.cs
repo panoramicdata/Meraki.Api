@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// List the MQTT brokers for this network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/mqttBrokers")]
 		Task<List<NetworkMqttBroker>> GetNetworkMqttBrokersAsync(
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// Return an MQTT broker
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="mqttBrokerId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
@@ -63,7 +63,7 @@ namespace Meraki.Api.Interfaces
 		/// Update an MQTT broker
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="mqttBrokerId"></param>
 		/// <param name="updateNetworkMqttBroker"></param>
 		/// <returns>Task of Object</returns>
@@ -81,7 +81,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete an MQTT broker
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="mqttBrokerId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]

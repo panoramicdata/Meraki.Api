@@ -32,27 +32,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="clientId">The client id</param>
 		[Get("/networks/{networkId}/clients/{clientId}")]
-		Task<object> GetAsync(
+		Task<Client> GetAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// Return the events associated with this client.
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="clientId">The client id</param>
-		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 100. Default is 100. (optional)</param>
-		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
-		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
-		[Get("/networks/{networkId}/clients/{clientId}/events")]
-		Task<object> GetEventsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -66,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 791 days. The default is 1 day. (optional)</param>
 		/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 86400. The default is 86400. (optional)</param>
 		[Get("/networks/{networkId}/wireless/clients/{clientId}/latencyHistory")]
-		Task<object> GetLatencyHistoryAsync(
+		Task<List<ClientLatencyHistory>> GetLatencyHistoryAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			[AliasAs("t0")]string t0 = null!,
@@ -82,7 +64,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="clientId">The client id</param>
 		[Get("/networks/{networkId}/clients/{clientId}/policy")]
-		Task<object> GetPolicyAsync(
+		Task<ClientPolicyUpdateRequest> GetPolicyAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			CancellationToken cancellationToken = default);
@@ -94,7 +76,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="clientId">The client id</param>
 		[Get("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
-		Task<object> GetSplashAuthorizationStatusAsync(
+		Task<ClientSplashAuthorizationStatusUpdateRequest> GetSplashAuthorizationStatusAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			CancellationToken cancellationToken = default);
@@ -109,7 +91,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		[Get("/networks/{networkId}/clients/{clientId}/trafficHistory")]
-		Task<object> GetTrafficHistoryAsync(
+		Task<List<ClientTrafficHistory>> GetTrafficHistoryAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			[AliasAs("perPage")]int? perPage = null,
@@ -124,7 +106,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="clientId">The client id</param>
 		[Get("/networks/{networkId}/clients/{clientId}/usageHistory")]
-		Task<object> GetUsageHistoryAsync(
+		Task<List<ClientUsageHistory>> GetUsageHistoryAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			CancellationToken cancellationToken = default);
@@ -172,7 +154,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="ClientProvisionRequest">Body for provisioning a client</param>
 		[Post("/networks/{networkId}/clients/provision")]
-		Task<object> ProvisionAsync(
+		Task<ClientProvisionRequest> ProvisionAsync(
 			[AliasAs("networkId")]string networkId,
 			[Body]ClientProvisionRequest ClientProvisionRequest,
 			CancellationToken cancellationToken = default);
@@ -185,7 +167,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId">The client id</param>
 		/// <param name="ClientPolicyUpdateRequest">Body for updating client policy</param>
 		[Put("/networks/{networkId}/clients/{clientId}/policy")]
-		Task<object> UpdatePolicyAsync(
+		Task<ClientPolicyUpdateRequest> UpdatePolicyAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			[Body]ClientPolicyUpdateRequest ClientPolicyUpdateRequest,
@@ -199,7 +181,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId">The client id</param>
 		/// <param name="UpdateNetworkClientSplashAuthorizationStatus">Body for updating client's splash authorization</param>
 		[Put("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
-		Task<object> UpdateSplashAuthorizationStatusAsync(
+		Task<ClientSplashAuthorizationStatusUpdateRequest> UpdateSplashAuthorizationStatusAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			[Body]ClientSplashAuthorizationStatusUpdateRequest UpdateNetworkClientSplashAuthorizationStatus,
@@ -245,7 +227,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
 		[Get("/networks/{networkId}/clients/usageHistories")]
-		Task<List<ClientUsageHistory>> GetNetworkClientsUsageHistoriesAsync(
+		Task<List<ClientApplicationHistory>> GetNetworkClientsUsageHistoriesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("clients")] string clients = null!,
 			[AliasAs("ssidNumber")] int? ssidNumber = null,

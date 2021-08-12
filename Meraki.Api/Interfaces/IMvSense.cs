@@ -15,7 +15,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns live state from camera of analytics zones
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/camera/analytics/live")]
 		Task<object> GetDeviceCameraAnalyticsLive(
@@ -29,7 +29,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns an overview of aggregate analytics data for a timespan
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 365 days from today. (optional)</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 7 days after t0. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 7 days. The default is 1 hour. (optional)</param>
@@ -51,7 +51,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns most recent record for analytics zones
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/camera/analytics/recent")]
@@ -67,7 +67,7 @@ namespace Meraki.Api.Interfaces
 		/// Return historical records for analytic zones
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="zoneId"></param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 365 days from today. (optional)</param>
 		/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 14 hours after t0. (optional)</param>
@@ -93,7 +93,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns all configured analytic zones for this camera
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/camera/analytics/zones")]
 		Task<object> GetDeviceCameraAnalyticsZones(

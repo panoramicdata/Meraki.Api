@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// List the syslog servers for a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/syslogServers")]
 		Task<object> GetNetworkSyslogServers(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the syslog servers for a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkSyslogServers"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/syslogServers")]

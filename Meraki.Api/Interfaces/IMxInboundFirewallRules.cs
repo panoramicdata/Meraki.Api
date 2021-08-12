@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the inbound firewall rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
 		Task<object> GetNetworkApplianceFirewallInboundFirewallRules(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the inbound firewall rules of an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkApplianceFirewallInboundFirewallRules"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]

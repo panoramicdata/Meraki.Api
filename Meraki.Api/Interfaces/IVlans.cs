@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Add a VLAN
 		/// </remarks>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="vlanCreationRequest"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/appliance/vlans")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Delete a VLAN from a network
 		/// </remarks>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="vlanId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/appliance/vlans/{vlanId}")]
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Return a VLAN
 		/// </remarks>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="vlanId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/vlans/{vlanId}")]
@@ -62,7 +62,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// List the VLANs for an MX network
 		/// </remarks>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/vlans")]
 		Task<List<Vlan>> GetNetworkVlansAsync(
@@ -75,7 +75,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Returns the enabled status of VLANs for the network
 		/// </remarks>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/vlans/settings")]
 		Task<VlansEnabledState> GetNetworkVlanEnabledStatesAsync(
@@ -88,7 +88,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Update a VLAN
 		/// </remarks>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="vlanId"></param>
 		/// <param name="vlanSpec"></param>
 		/// <returns>Task of Vlan</returns>
@@ -105,7 +105,7 @@ namespace Meraki.Api.Interfaces
 		/// <remarks>
 		/// Enable/Disable VLANs for the given network
 		/// </remarks>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkVlansEnabledState"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/vlans/settings")]

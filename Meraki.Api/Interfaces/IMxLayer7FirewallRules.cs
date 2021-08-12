@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// List the MX L7 firewall rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/l7FirewallRules")]
 		Task<object> GetNetworkL7FirewallRules(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the MX L7 firewall rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkL7FirewallRules"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/l7FirewallRules")]

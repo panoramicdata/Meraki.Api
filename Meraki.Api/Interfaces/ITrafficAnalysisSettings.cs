@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the traffic analysis settings for a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/trafficAnalysisSettings")]
 		Task<object> GetNetworkTrafficAnalysisSettings(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the traffic analysis settings for a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkTrafficAnalysisSettings"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/trafficAnalysisSettings")]

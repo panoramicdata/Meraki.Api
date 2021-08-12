@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the port forwarding rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/portForwardingRules")]
 		Task<object> GetNetworkPortForwardingRules([AliasAs("networkId")]string networkId);
@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the port forwarding rules for an MX network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkPortForwardingRules"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/portForwardingRules")]

@@ -12,30 +12,22 @@ namespace Meraki.Api.Interfaces
 	public interface ILicenses
 	{
 		/// <summary>
-		/// assignOrganizationLicensesSeats
-		/// </summary>
-		/// <remarks>
 		/// Assign SM seats to a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
 		[Post("/organizations/{organizationId}/licenses/assignSeats")]
-		Task<object> AssignOrganizationLicensesSeatsAsync(
+		Task<AssignSeatsResponse> AssignOrganizationLicensesSeatsAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]LicenseSeatsAssignmentRequest licenseSeatsAssignmentRequest,
+			[Body]LicenseSeatsAssignmentRequest LicenseSeatsAssignmentRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getOrganizationLicense
-		/// </summary>
-		/// <remarks>
 		/// Display a license
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="licenseId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="licenseId">The license id</param>
 		[Get("/organizations/{organizationId}/licenses/{licenseId}")]
 		Task<OrganizationLicense> GetAsync(
 			[AliasAs("organizationId")]string organizationId,
@@ -43,20 +35,16 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getOrganizationLicenses
-		/// </summary>
-		/// <remarks>
 		/// List the licenses for an organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <param name="deviceSerial">Filter the licenses to those assigned to a particular device (optional)</param>
 		/// <param name="networkId">Filter the licenses to those assigned in a particular network (optional)</param>
 		/// <param name="state">Filter the licenses to those in a particular state. Can be one of &#39;active&#39;, &#39;expired&#39;, &#39;expiring&#39;, &#39;unused&#39;, &#39;unusedActive&#39; or &#39;recentlyQueued&#39; (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/licenses")]
 		Task<List<OrganizationLicense>> GetPageAsync(
 			[AliasAs("organizationId")]string organizationId,
@@ -69,69 +57,53 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// moveOrganizationLicenses
-		/// </summary>
-		/// <remarks>
 		/// Move licenses to another organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="licenseMoveRequest"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="LicenseMoveRequest">Body for moving a license</param>
 		[Post("/organizations/{organizationId}/licenses/move")]
-		Task<object> MoveToOrganizationAsync(
+		Task<LicenseMoveRequest> MoveToOrganizationAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]LicenseMoveRequest licenseMoveRequest,
+			[Body]LicenseMoveRequest LicenseMoveRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// moveOrganizationLicensesSeats
-		/// </summary>
-		/// <remarks>
 		/// Move SM seats to another organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="licenseSeatsMoveRequest"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="LicenseSeatsMoveRequest">Body for moving SM seats</param>
 		[Post("/organizations/{organizationId}/licenses/moveSeats")]
-		Task<object> MoveSeatsAsync(
+		Task<LicenseSeatsMoveRequest> MoveSeatsAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]LicenseSeatsMoveRequest licenseSeatsMoveRequest,
+			[Body]LicenseSeatsMoveRequest LicenseSeatsMoveRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// renewOrganizationLicensesSeats
-		/// </summary>
-		/// <remarks>
 		/// Renew SM seats of a license
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="licenseSeatsRenewalRequest"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="LicenseSeatsRenewalRequest">Body for renewing SM seats</param>
 		[Post("/organizations/{organizationId}/licenses/renewSeats")]
-		Task<object> RenewSeatsAsync(
+		Task<AssignSeatsResponse> RenewSeatsAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]LicenseSeatsRenewalRequest licenseSeatsRenewalRequest,
+			[Body]LicenseSeatsRenewalRequest LicenseSeatsRenewalRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateOrganizationLicense
-		/// </summary>
-		/// <remarks>
 		/// Update a license
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
-		/// <param name="licenseId"></param>
-		/// <param name="updateOrganizationLicense"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="licenseId">The license id</param>
+		/// <param name="UpdateOrganizationLicense">Body for updating a license</param>
 		[Put("/organizations/{organizationId}/licenses/{licenseId}")]
-		Task<object> UpdateAsync(
+		Task<OrganizationLicense> UpdateAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("licenseId")]string licenseId,
-			[Body]LicenseUpdateRequest updateOrganizationLicense,
+			[Body]LicenseUpdateRequest UpdateOrganizationLicense,
 			CancellationToken cancellationToken = default);
 	}
 }

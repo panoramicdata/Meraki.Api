@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// Add a switch to a stack
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="switchStackId"></param>
 		/// <param name="addNetworkSwitchStack"></param>
 		/// <returns>Task of Object</returns>
@@ -37,7 +37,7 @@ namespace Meraki.Api.Interfaces
 		/// Create a stack
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="createNetworkSwitchStack"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/switch/switchStacks")]
@@ -54,7 +54,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a stack
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="switchStackId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/switch/switchStacks/{switchStackId}")]
@@ -71,7 +71,7 @@ namespace Meraki.Api.Interfaces
 		/// Show a switch stack
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="switchStackId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/switchStacks/{switchStackId}")]
@@ -88,7 +88,7 @@ namespace Meraki.Api.Interfaces
 		/// List the switch stacks in a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/switchStacks")]
 		Task<List<SwitchStack>> GetNetworkSwitchStacksAsync(
@@ -102,7 +102,7 @@ namespace Meraki.Api.Interfaces
 		/// Remove a switch from a stack
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="switchStackId"></param>
 		/// <param name="removeNetworkSwitchStack"></param>
 		/// <returns>Task of Object</returns>
@@ -121,7 +121,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a layer 3 static route for a switch stack
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="staticRouteId"></param>
 		/// <param name="switchStackId"></param>
 		/// <returns>Task of Object</returns>
@@ -139,7 +139,7 @@ namespace Meraki.Api.Interfaces
 		/// Update a layer 3 static route for a switch stack
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="staticRouteId"></param>
 		/// <param name="switchStackId"></param>
 		/// <param name="updateNetworkSwitchStackRoutingStaticRoute"></param>
@@ -159,7 +159,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a layer 3 static route for a switch stack
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="switchStackId"></param>
 		/// <param name="staticRouteId"></param>
 		/// <returns>Task of void</returns>

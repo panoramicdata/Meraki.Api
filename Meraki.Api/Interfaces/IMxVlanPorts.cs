@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Return per-port VLAN settings for a single MX port.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="appliancePortId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/ports/{portId}")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// List per-port VLAN settings for all ports of a MX.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/ports")]
 		Task<object> GetNetworkAppliancePorts(
@@ -46,7 +46,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the per-port VLAN settings for a single MX port.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="appliancePortId"></param>
 		/// <param name="updateNetworkAppliancePort"> (optional)</param>
 		/// <returns>Task of Object</returns>

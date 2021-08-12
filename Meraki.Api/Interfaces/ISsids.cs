@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the SSID statuses of an access point
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/wireless/status")]
 		Task<object> GetNetworkDeviceWirelessStatus(
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a single MR SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}")]
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// List the MR SSIDs in a network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids")]
 		Task<List<NetworkSsid>> GetAllAsync(
@@ -62,7 +62,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the attributes of an MR SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkSsid"> (optional)</param>
 		/// <returns>Task of Object</returns>
@@ -80,7 +80,7 @@ namespace Meraki.Api.Interfaces
 		/// List all Identity PSKs in a wireless network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
@@ -96,7 +96,7 @@ namespace Meraki.Api.Interfaces
 		/// List all Identity PSKs in a wireless network
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="createNetworkWirelessSsidIdentityPsk"></param>
 		/// <returns>Task of Object</returns>
@@ -114,7 +114,7 @@ namespace Meraki.Api.Interfaces
 		/// Return an Identity PSK
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="identityPskId"></param>
 		/// <returns>Task of Object</returns>
@@ -132,7 +132,7 @@ namespace Meraki.Api.Interfaces
 		/// Update an Identity PSK
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="identityPskId"></param>
 		/// <param name="updateNetworkWirelessSsidIdentityPsk"></param>
@@ -152,7 +152,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete an Identity PSK
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="identityPskId"></param>
 		/// <returns>Task of void</returns>
@@ -170,7 +170,7 @@ namespace Meraki.Api.Interfaces
 		/// Modify the splash page settings for the given SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkWirelessSsidSplashSettings"></param>
 		/// <returns>Task of Object</returns>
@@ -188,7 +188,7 @@ namespace Meraki.Api.Interfaces
 		/// Display the splash page settings for the given SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
@@ -204,7 +204,7 @@ namespace Meraki.Api.Interfaces
 		/// List the device type group policies for the SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
@@ -220,7 +220,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the device type group policies for the SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
@@ -237,7 +237,7 @@ namespace Meraki.Api.Interfaces
 		/// List the Bonjour forwarding setting and rules for the SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/bonjourForwarding")]
@@ -253,7 +253,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the bonjour forwarding setting and rules for the SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkWirelessSsidBonjourForwarding"></param>
 		/// <returns>Task of Object</returns>
@@ -271,7 +271,7 @@ namespace Meraki.Api.Interfaces
 		/// List the VPN settings for the SSID.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/vpn")]
@@ -287,7 +287,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the VPN settings for the SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="updateNetworkWirelessSsidVpn"></param>
 		/// <returns>Task of Object</returns>
@@ -305,7 +305,7 @@ namespace Meraki.Api.Interfaces
 		/// List the outage schedule for the SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/schedules")]
@@ -321,7 +321,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the outage schedule for the SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/schedules")]
@@ -338,7 +338,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the EAP overridden parameters for an SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/eapOverride")]
@@ -354,7 +354,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the EAP overridden parameters for an SSID.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/eapOverride")]
@@ -371,7 +371,7 @@ namespace Meraki.Api.Interfaces
 		/// Return the Hotspot 2.0 settings for an SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
@@ -387,7 +387,7 @@ namespace Meraki.Api.Interfaces
 		/// Update the Hotspot 2.0 settings of an SSID
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="number"></param>
 		/// <param name="hotspot20"></param>
 		/// <returns>Task of Object</returns>

@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Create a SAML role
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="createOrganizationSamlRole"></param>
 		/// <returns>Task of Object</returns>
 		[Post("/organizations/{organizationId}/samlRoles")]
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		/// Remove a SAML role
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="samlRoleId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
@@ -48,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// Return a SAML role
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="samlRoleId"></param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
@@ -64,7 +64,7 @@ namespace Meraki.Api.Interfaces
 		/// List the SAML roles for this organization
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/samlRoles")]
 		Task<object> GetOrganizationSamlRoles(
@@ -78,7 +78,7 @@ namespace Meraki.Api.Interfaces
 		/// Update a SAML role
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="samlRoleId"></param>
 		/// <param name="updateOrganizationSamlRole"> (optional)</param>
 		/// <returns>Task of Object</returns>

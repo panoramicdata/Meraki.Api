@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// Returns the SAML SSO enabled settings for an organization.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/saml")]
 		Task<Saml> GetOrganizationSaml(
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// Updates the SAML SSO enabled settings for an organization.
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The Organization id</param>
+		/// <param name="organizationId">The organization id</param>
 		/// <param name="updateOrganizationSaml"> (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Put("/organizations/{organizationId}/saml")]

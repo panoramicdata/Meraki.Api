@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// Add a switch port schedule
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="createNetworkSwitchPortSchedule"></param>
 		/// <returns>The created Switch Port Schedule</returns>
 		[Post("/networks/{networkId}/switch/portSchedules")]
@@ -33,7 +33,7 @@ namespace Meraki.Api.Interfaces
 		/// Delete a switch port schedule
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="portScheduleId"></param>
 		/// <returns>Task of void</returns>
 		[Delete("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
@@ -49,7 +49,7 @@ namespace Meraki.Api.Interfaces
 		/// List switch port schedules
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <returns>A list of switch port schedules</returns>
 		[Get("/networks/{networkId}/switch/portSchedules")]
 		Task<List<SwitchPortSchedule>> GetNetworkSwitchPortSchedules(
@@ -63,7 +63,7 @@ namespace Meraki.Api.Interfaces
 		/// Update a switch port schedule
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
+		/// <param name="networkId">The network id</param>
 		/// <param name="portScheduleId"></param>
 		/// <param name="updateNetworkSwitchPortSchedule"> (optional)</param>
 		/// <returns>Task of Object</returns>

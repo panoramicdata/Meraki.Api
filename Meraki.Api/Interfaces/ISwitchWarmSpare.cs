@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// Return warm spare configuration for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switch/warmSpare")]
 		Task<SwitchWarmSpare> GetDeviceSwitchWarmSpare(
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// Update warm spare configuration for a switch
 		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial"></param>
+		/// <param name="serial">The serial number</param>
 		/// <param name="updateDeviceSwitchWarmSpare"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/devices/{serial}/switch/warmSpare")]
