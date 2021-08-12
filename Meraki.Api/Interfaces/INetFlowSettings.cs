@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface INetFlowSettings
 	{
 		/// <summary>
-		/// getNetworkNetflowSettings
-		/// </summary>
-		/// <remarks>
 		/// Return the NetFlow traffic reporting settings for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/netflowSettings")]
-		Task<object> GetNetworkNetflowSettings(
-			[AliasAs("networkId")]string networkId
+		Task<NetflowSettingsUpdateRequest> GetNetworkNetflowSettingsAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkNetflowSettings
-		/// </summary>
-		/// <remarks>
 		/// Update the NetFlow traffic reporting settings for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkNetflowSettings"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkNetflowSettings">Body for updating netflow traffic</param>
 		[Put("/networks/{networkId}/netflowSettings")]
-		Task<object> UpdateNetworkNetflowSettings(
+		Task<NetflowSettingsUpdateRequest> UpdateNetworkNetflowSettingsAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]NetflowSettingsUpdateRequest updateNetworkNetflowSettings
+			[Body]NetflowSettingsUpdateRequest UpdateNetworkNetflowSettings,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

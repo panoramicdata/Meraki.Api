@@ -12,44 +12,33 @@ namespace Meraki.Api.Interfaces
 	public interface IMqttBrokers
 	{
 		/// <summary>
-		/// getNetworkMqttBrokers
-		/// </summary>
-		/// <remarks>
 		/// List the MQTT brokers for this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/mqttBrokers")]
 		Task<List<NetworkMqttBroker>> GetNetworkMqttBrokersAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// createNetworkMqttBroker
-		/// </summary>
-		/// <remarks>
 		/// Add an MQTT broker
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="createNetworkMqttBroker"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkMqttBroker">Body for adding an MQTT broker</param>
 		[Post("/networks/{networkId}/mqttBrokers")]
 		Task<NetworkMqttBroker> CreateNetworkMqttBrokerAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkMqttBroker createNetworkMqttBroker,
+			[Body] NetworkMqttBroker CreateNetworkMqttBroker,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkMqttBroker
-		/// </summary>
-		/// <remarks>
 		/// Return an MQTT broker
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="mqttBrokerId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="mqttBrokerId">The MQTT broker id</param>
 		[Get("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
 		Task<NetworkMqttBroker> GetNetworkMqttBrokerAsync(
 			[AliasAs("networkId")] string networkId,
@@ -57,33 +46,25 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateNetworkMqttBroker
-		/// </summary>
-		/// <remarks>
 		/// Update an MQTT broker
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="mqttBrokerId"></param>
-		/// <param name="updateNetworkMqttBroker"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="mqttBrokerId">The MQTT broker id</param>
+		/// <param name="UpdateNetworkMqttBroker">Body for updating an MQTT broker</param>
 		[Put("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
-		Task<object> UpdateNetworkMqttBrokerAsync(
+		Task<NetworkMqttBroker> UpdateNetworkMqttBrokerAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("mqttBrokerId")] string mqttBrokerId,
-			[Body] NetworkMqttBroker updateNetworkMqttBroker,
+			[Body] NetworkMqttBroker UpdateNetworkMqttBroker,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// deleteNetworkMqttBroker
-		/// </summary>
-		/// <remarks>
 		/// Delete an MQTT broker
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="mqttBrokerId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="mqttBrokerId">The MQTT broker id</param>
 		[Delete("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
 		Task DeleteNetworkMqttBrokerAsync(
 			[AliasAs("networkId")] string networkId,

@@ -12,11 +12,8 @@ namespace Meraki.Api.Interfaces
 	public interface INetworks
 	{
 		/// <summary>
-		/// bindNetwork
-		/// </summary>
-		/// <remarks>
 		/// Bind a network to a template.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="bindNetwork"></param>
@@ -28,11 +25,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// combineOrganizationNetworks
-		/// </summary>
-		/// <remarks>
 		/// Combine multiple networks into a single network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="combineOrganizationNetworks"></param>
@@ -44,11 +38,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// createOrganizationNetwork
-		/// </summary>
-		/// <remarks>
 		/// Create a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="createOrganizationNetwork"></param>
@@ -60,11 +51,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// deleteNetwork
-		/// </summary>
-		/// <remarks>
 		/// Delete a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <returns>Task of void</returns>
@@ -74,11 +62,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetwork
-		/// </summary>
-		/// <remarks>
 		/// Return a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
@@ -88,57 +73,45 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkSwitchAccessPolicies
+		/// List the access policies for a switch network.
 		/// </summary>
-		/// <remarks>
-		/// List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/accessPolicies")]
-		Task<object> GetNetworkAccessPolicies(
+		Task<object> GetNetworkAccessPoliciesAsync(
 			[AliasAs("networkId")] string networkId
 			);
 
 		/// <summary>
-		/// getNetworkAirMarshal
-		/// </summary>
-		/// <remarks>
 		/// List Air Marshal scan results from a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 7 days. (optional)</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/airMarshal")]
-		Task<object> GetNetworkAirMarshal(
+		Task<object> GetNetworkAirMarshalAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("t0")] string t0 = null!,
 			[AliasAs("timespan")] double? timespan = null
 			);
 
 		/// <summary>
-		/// getNetworkSiteToSiteVpn
-		/// </summary>
-		/// <remarks>
 		/// Return the site-to-site VPN settings of a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
-		Task<object> GetNetworkSiteToSiteVpn(
+		Task<object> GetNetworkSiteToSiteVpnAsync(
 			[AliasAs("networkId")] string networkId
 			);
 
 		/// <summary>
-		/// Get Network Traffic
-		/// </summary>
-		/// <remarks>
 		/// Return the traffic analysis data for this network
-		/// </remarks>
+		/// </summary>
 		/// <param name="networkId">The network id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 30 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 30 days. (optional)</param>
@@ -153,11 +126,8 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// getOrganizationNetworks
-		/// </summary>
-		/// <remarks>
 		/// List the networks that the user has privileges on in an organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="configTemplateId">An optional parameter that is the ID of a config template. Will return all networks bound to that template. (optional)</param>
@@ -179,11 +149,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// splitNetwork
-		/// </summary>
-		/// <remarks>
 		/// Split a combined network into individual networks for each type of device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
@@ -193,11 +160,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// unbindNetwork
-		/// </summary>
-		/// <remarks>
 		/// Unbind a network from a template.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <returns>Task of void</returns>
@@ -208,11 +172,8 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// Update Network
-		/// </summary>
-		/// <remarks>
 		/// Update a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="networkUpdateRequest"> (optional)</param>
@@ -225,32 +186,26 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// updateNetworkSiteToSiteVpn
-		/// </summary>
-		/// <remarks>
 		/// Update the site-to-site VPN settings of a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkSiteToSiteVpn"></param>
 		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
-		Task<object> UpdateNetworkSiteToSiteVpn(
+		Task<object> UpdateNetworkSiteToSiteVpnAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] SiteToSiteVpnUpdateRequest updateNetworkSiteToSiteVpn
 			);
 
 		/// <summary>
-		/// getNetworkApplianceSettings
-		/// </summary>
-		/// <remarks>
 		/// Return the appliance settings for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/settings")]
-		Task<ApplianceSettings> GetNetworkApplianceSettings(
+		Task<ApplianceSettings> GetNetworkApplianceSettingsAsync(
 			[AliasAs("networkId")] string networkId
 			);
 	}

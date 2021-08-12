@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface IMgUplinkSettings
 	{
 		/// <summary>
-		/// getNetworkCellularGatewaySettingsUplink
-		/// </summary>
-		/// <remarks>
 		/// Returns the uplink settings for your MG network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/cellularGateway/settings/uplink")]
-		Task<object> GetNetworkCellularGatewaySettingsUplink(
-			[AliasAs("networkId")]string networkId
+		Task<NetworkCellularGatewaySettingsUplinkUpdateRequest> GetNetworkCellularGatewaySettingsUplinkAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkCellularGatewaySettingsUplink
-		/// </summary>
-		/// <remarks>
 		/// Updates the uplink settings for your MG network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkCellularGatewaySettingsUplink"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkCellularGatewaySettingsUplink">Body for updating uplink settings</param>
 		[Put("/networks/{networkId}/cellularGateway/settings/uplink")]
-		Task<object> UpdateNetworkCellularGatewaySettingsUplink(
+		Task<NetworkCellularGatewaySettingsUplinkUpdateRequest> UpdateNetworkCellularGatewaySettingsUplinkAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]NetworkCellularGatewaySettingsUplinkUpdateRequest updateNetworkCellularGatewaySettingsUplink
+			[Body]NetworkCellularGatewaySettingsUplinkUpdateRequest UpdateNetworkCellularGatewaySettingsUplink,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

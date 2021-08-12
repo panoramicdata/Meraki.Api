@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface IMxLayer7FirewallRules
 	{
 		/// <summary>
-		/// getNetworkL7FirewallRules
-		/// </summary>
-		/// <remarks>
 		/// List the MX L7 firewall rules for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/l7FirewallRules")]
-		Task<object> GetNetworkL7FirewallRules(
-			[AliasAs("networkId")]string networkId
+		Task<Layer7FirewallRulesUpdateRequest> GetNetworkL7FirewallRulesAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkL7FirewallRules
-		/// </summary>
-		/// <remarks>
 		/// Update the MX L7 firewall rules for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkL7FirewallRules"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkL7FirewallRules">Body for updating firewall rules</param>
 		[Put("/networks/{networkId}/l7FirewallRules")]
-		Task<object> UpdateNetworkL7FirewallRules(
+		Task<Layer7FirewallRulesUpdateRequest> UpdateNetworkL7FirewallRulesAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]Layer7FirewallRulesUpdateRequest updateNetworkL7FirewallRules
+			[Body]Layer7FirewallRulesUpdateRequest UpdateNetworkL7FirewallRules,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

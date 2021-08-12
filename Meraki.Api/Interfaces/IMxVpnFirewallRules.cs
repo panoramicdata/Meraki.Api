@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface IMxVpnFirewallRules
 	{
 		/// <summary>
-		/// getOrganizationVpnFirewallRules
-		/// </summary>
-		/// <remarks>
 		/// Return the firewall rules for an organization&#39;s site-to-site VPN
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/vpnFirewallRules")]
-		Task<object> GetOrganizationVpnFirewallRules(
-			[AliasAs("organizationId")]string organizationId
+		[Get("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
+		Task<VpnFirewallRulesUpdateRequest> GetOrganizationVpnFirewallRulesAsync(
+			[AliasAs("organizationId")]string organizationId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateOrganizationVpnFirewallRules
-		/// </summary>
-		/// <remarks>
 		/// Update the firewall rules of an organization&#39;s site-to-site VPN
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="updateOrganizationVpnFirewallRules"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/organizations/{organizationId}/vpnFirewallRules")]
-		Task<object> UpdateOrganizationVpnFirewallRules(
+		/// <param name="UpdateOrganizationVpnFirewallRules">Body for updating firewall rules</param>
+		[Put("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
+		Task<VpnFirewallRulesUpdateRequest> UpdateOrganizationVpnFirewallRulesAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]VpnFirewallRulesUpdateRequest updateOrganizationVpnFirewallRules
+			[Body]VpnFirewallRulesUpdateRequest UpdateOrganizationVpnFirewallRules,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

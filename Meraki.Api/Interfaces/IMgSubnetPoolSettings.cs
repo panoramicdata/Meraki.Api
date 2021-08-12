@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface IMgSubnetPoolSettings
 	{
 		/// <summary>
-		/// getNetworkCellularGatewaySettingsSubnetPool
-		/// </summary>
-		/// <remarks>
 		/// Return the subnet pool and mask configured for MGs in the network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/cellularGateway/settings/subnetPool")]
-		Task<object> GetNetworkCellularGatewaySettingsSubnetPool(
-			[AliasAs("networkId")]string networkId
+		Task<NetworkCellularGatewaySettingsSubnetPool> GetNetworkCellularGatewaySettingsSubnetPoolAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkCellularGatewaySettingsSubnetPool
-		/// </summary>
-		/// <remarks>
 		/// Update the subnet pool and mask configuration for MGs in the network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkCellularGatewaySettingsSubnetPool"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkCellularGatewaySettingsSubnetPool">Body for updating subnet pool and mask config</param>
 		[Put("/networks/{networkId}/cellularGateway/settings/subnetPool")]
-		Task<object> UpdateNetworkCellularGatewaySettingsSubnetPool(
+		Task<NetworkCellularGatewaySettingsSubnetPool> UpdateNetworkCellularGatewaySettingsSubnetPoolAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]NetworkCellularGatewaySettingsSubnetPoolUpdateRequest updateNetworkCellularGatewaySettingsSubnetPool
+			[Body]NetworkCellularGatewaySettingsSubnetPoolUpdateRequest UpdateNetworkCellularGatewaySettingsSubnetPool,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

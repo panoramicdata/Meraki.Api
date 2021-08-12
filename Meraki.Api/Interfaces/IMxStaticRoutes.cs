@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,82 +12,67 @@ namespace Meraki.Api.Interfaces
 	public interface IMxStaticRoutes
 	{
 		/// <summary>
-		/// createNetworkStaticRoute
-		/// </summary>
-		/// <remarks>
 		/// Add a static route for an MX or teleworker network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="createNetworkStaticRoute"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CreateNetworkStaticRoute">Body for adding a static route</param>
 		[Post("/networks/{networkId}/staticRoutes")]
-		Task<object> CreateNetworkStaticRoute(
+		Task<StaticRouteUpdateRequest> CreateNetworkStaticRouteAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]StaticRouteCreationRequest createNetworkStaticRoute
+			[Body]StaticRouteCreationRequest CreateNetworkStaticRoute,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkStaticRoute
-		/// </summary>
-		/// <remarks>
 		/// Delete a static route from an MX or teleworker network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="staticRouteId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="staticRouteId">The static route id</param>
 		[Delete("/networks/{networkId}/staticRoutes/{staticRouteId}")]
-		Task DeleteNetworkStaticRoute(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("staticRouteId")]string staticRouteId
-			);
-
-		/// <summary>
-		/// getNetworkStaticRoute
-		/// </summary>
-		/// <remarks>
-		/// Return a static route for an MX or teleworker network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="staticRouteId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/staticRoutes/{staticRouteId}")]
-		Task<object> GetNetworkStaticRoute(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("staticRouteId")]string staticRouteId
-			);
-
-		/// <summary>
-		/// getNetworkStaticRoutes
-		/// </summary>
-		/// <remarks>
-		/// List the static routes for an MX or teleworker network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/staticRoutes")]
-		Task<object> GetNetworkStaticRoutes(
-			[AliasAs("networkId")]string networkId
-			);
-
-		/// <summary>
-		/// updateNetworkStaticRoute
-		/// </summary>
-		/// <remarks>
-		/// Update a static route for an MX or teleworker network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="staticRouteId"></param>
-		/// <param name="updateNetworkStaticRoute"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/staticRoutes/{staticRouteId}")]
-		Task<object> UpdateNetworkStaticRoute(
+		Task DeleteNetworkStaticRouteAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("staticRouteId")]string staticRouteId,
-			[Body]StaticRouteUpdateRequest updateNetworkStaticRoute);
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Return a static route for an MX or teleworker network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="staticRouteId">The static route id</param>
+		[Get("/networks/{networkId}/staticRoutes/{staticRouteId}")]
+		Task<StaticRouteUpdateRequest> GetNetworkStaticRouteAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("staticRouteId")]string staticRouteId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// List the static routes for an MX or teleworker network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/staticRoutes")]
+		Task<List<StaticRouteUpdateRequest>> GetNetworkStaticRoutesAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update a static route for an MX or teleworker network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="staticRouteId">The static route id</param>
+		/// <param name="UpdateNetworkStaticRoute">Body for updating a static route</param>
+		[Put("/networks/{networkId}/staticRoutes/{staticRouteId}")]
+		Task<StaticRouteUpdateRequest> UpdateNetworkStaticRouteAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("staticRouteId")]string staticRouteId,
+			[Body]StaticRouteUpdateRequest UpdateNetworkStaticRoute,
+			CancellationToken cancellationToken = default);
 	}
 }

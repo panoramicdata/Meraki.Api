@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,51 +12,42 @@ namespace Meraki.Api.Interfaces
 	public interface IMxVlanPorts
 	{
 		/// <summary>
-		/// getNetworkAppliancePort
-		/// </summary>
-		/// <remarks>
 		/// Return per-port VLAN settings for a single MX port.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="appliancePortId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="appliancePortId">The appliance port id</param>
 		[Get("/networks/{networkId}/appliance/ports/{portId}")]
-		Task<object> GetNetworkAppliancePort(
+		Task<NetworkAppliancePortUpdateRequest> GetNetworkAppliancePortAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("portId")]string appliancePortId
+			[AliasAs("portId")]string appliancePortId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkAppliancePorts
-		/// </summary>
-		/// <remarks>
 		/// List per-port VLAN settings for all ports of a MX.
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</experception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/ports")]
-		Task<object> GetNetworkAppliancePorts(
-			[AliasAs("networkId")]string networkId
+		Task<List<NetworkAppliancePortUpdateRequest>> GetNetworkAppliancePortsAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkAppliancePort
-		/// </summary>
-		/// <remarks>
 		/// Update the per-port VLAN settings for a single MX port.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="appliancePortId"></param>
-		/// <param name="updateNetworkAppliancePort"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="appliancePortId">The appliance port id</param>
+		/// <param name="UpdateNetworkAppliancePort">Body for updating the per-port VLAN settings</param>
 		[Put("/networks/{networkId}/appliancePorts/{appliancePortId}")]
-		Task<object> UpdateNetworkAppliancePort(
+		Task<NetworkAppliancePortUpdateRequest> UpdateNetworkAppliancePortAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("appliancePortId")]string appliancePortId,
-			[Body]NetworkAppliancePortUpdateRequest updateNetworkAppliancePort
+			[Body]NetworkAppliancePortUpdateRequest UpdateNetworkAppliancePort,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface IMgPortForwardingRules
 	{
 		/// <summary>
-		/// getDeviceCellularGatewaySettingsPortForwardingRules
-		/// </summary>
-		/// <remarks>
 		/// Returns the port forwarding rules for a single MG.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/cellularGateway/settings/portForwardingRules")]
-		Task<object> GetDeviceCellularGatewaySettingsPortForwardingRules(
-			[AliasAs("serial")]string serial
+		Task<CellularGatewaySettingsPortForwardingRulesUpdateRequest> GetDeviceCellularGatewaySettingsPortForwardingRulesAsync(
+			[AliasAs("serial")]string serial,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateDeviceCellularGatewaySettingsPortForwardingRules
-		/// </summary>
-		/// <remarks>
 		/// Updates the port forwarding rules for a single MG.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="updateDeviceCellularGatewaySettingsPortForwardingRules"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateDeviceCellularGatewaySettingsPortForwardingRules">Body for updating port forwarding rules</param>
 		[Put("/devices/{serial}/cellularGateway/settings/portForwardingRules")]
-		Task<object> UpdateDeviceCellularGatewaySettingsPortForwardingRules(
+		Task<CellularGatewaySettingsPortForwardingRulesUpdateRequest> UpdateDeviceCellularGatewaySettingsPortForwardingRulesAsync(
 			[AliasAs("serial")]string serial,
-			[Body]CellularGatewaySettingsPortForwardingRulesUpdateRequest updateDeviceCellularGatewaySettingsPortForwardingRules
+			[Body]CellularGatewaySettingsPortForwardingRulesUpdateRequest UpdateDeviceCellularGatewaySettingsPortForwardingRules,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

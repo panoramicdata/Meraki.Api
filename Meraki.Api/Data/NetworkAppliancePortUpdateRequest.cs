@@ -9,6 +9,12 @@ namespace Meraki.Api.Data
 	public partial class NetworkAppliancePortUpdateRequest
 	{
 		/// <summary>
+		/// Number
+		/// </summary>
+		[DataMember(Name = "number")]
+		public int? Number { get; set; }
+
+		/// <summary>
 		/// The status of the port
 		/// </summary>
 		/// <value>The status of the port</value>

@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,87 +12,72 @@ namespace Meraki.Api.Interfaces
 	public interface INamedTagScopes
 	{
 		/// <summary>
-		/// createNetworkSmTargetGroup
-		/// </summary>
-		/// <remarks>
 		/// Add a target group
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="createNetworkSmTargetGroup"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CreateNetworkSmTargetGroup">Body for adding target group</param>
 		[Post("/networks/{networkId}/sm/targetGroups")]
-		Task<object> CreateNetworkSmTargetGroup(
+		Task<SmTargetGroupCreationRequest> CreateNetworkSmTargetGroupAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]SmTargetGroupCreationRequest createNetworkSmTargetGroup
+			[Body]SmTargetGroupCreationRequest CreateNetworkSmTargetGroup,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkSmTargetGroup
-		/// </summary>
-		/// <remarks>
 		/// Delete a target group from a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="targetGroupId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="targetGroupId">The target group id</param>
 		[Delete("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
-		Task DeleteNetworkSmTargetGroup(
+		Task DeleteNetworkSmTargetGroupAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("targetGroupId")]string targetGroupId
+			[AliasAs("targetGroupId")]string targetGroupId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmTargetGroup
-		/// </summary>
-		/// <remarks>
 		/// Return a target group
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="targetGroupId"></param>
+		/// <param name="targetGroupId">The target group id</param>
 		/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
-		Task<object> GetNetworkSmTargetGroup(
+		Task<SmTargetGroupCreationRequest> GetNetworkSmTargetGroupAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("targetGroupId")]string targetGroupId,
-			[AliasAs("withDetails")]bool? withDetails = null
+			[AliasAs("withDetails")]bool? withDetails = null,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmTargetGroups
-		/// </summary>
-		/// <remarks>
 		/// List the target groups in this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/targetGroups")]
-		Task<object> GetNetworkSmTargetGroups(
+		Task<List<SmTargetGroupCreationRequest>> GetNetworkSmTargetGroupsAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("withDetails")]bool? withDetails = null
+			[AliasAs("withDetails")]bool? withDetails = null,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkSmTargetGroup
-		/// </summary>
-		/// <remarks>
 		/// Update a target group
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="targetGroupId"></param>
-		/// <param name="updateNetworkSmTargetGroup"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="targetGroupId">The target group id</param>
+		/// <param name="UpdateNetworkSmTargetGroup">Body for updating a target group</param>
 		[Put("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
-		Task<object> UpdateNetworkSmTargetGroup(
+		Task<SmTargetGroupCreationRequest> UpdateNetworkSmTargetGroupAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("targetGroupId")]string targetGroupId,
-			[Body]SmTargetGroupUpdateRequest updateNetworkSmTargetGroup
+			[Body]SmTargetGroupUpdateRequest UpdateNetworkSmTargetGroup,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

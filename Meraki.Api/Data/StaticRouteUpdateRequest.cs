@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -9,6 +10,18 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public partial class StaticRouteUpdateRequest
 	{
+		/// <summary>
+		/// Id
+		/// </summary>
+		[DataMember(Name = "id")]
+		public string? Id { get; set; }
+
+		/// <summary>
+		/// Network id
+		/// </summary>
+		[DataMember(Name = "networkId")]
+		public string? NetworkId { get; set; }
+
 		/// <summary>
 		/// The name of the static route
 		/// </summary>

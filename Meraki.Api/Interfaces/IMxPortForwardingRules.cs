@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,28 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface IMxPortForwardingRules
 	{
 		/// <summary>
-		/// getNetworkPortForwardingRules
-		/// </summary>
-		/// <remarks>
 		/// Return the port forwarding rules for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/portForwardingRules")]
-		Task<object> GetNetworkPortForwardingRules([AliasAs("networkId")]string networkId);
+		Task<PortForwardingRulesUpdateRequest> GetNetworkPortForwardingRulesAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
+			);
 
 		/// <summary>
-		/// updateNetworkPortForwardingRules
-		/// </summary>
-		/// <remarks>
 		/// Update the port forwarding rules for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkPortForwardingRules"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkPortForwardingRules">Body for updating port forwarding rules</param>
 		[Put("/networks/{networkId}/portForwardingRules")]
-		Task<object> UpdateNetworkPortForwardingRules([AliasAs("networkId")]string networkId, [Body]PortForwardingRulesUpdateRequest updateNetworkPortForwardingRules);
+		Task<PortForwardingRulesUpdateRequest> UpdateNetworkPortForwardingRulesAsync(
+			[AliasAs("networkId")]string networkId, 
+			[Body]PortForwardingRulesUpdateRequest UpdateNetworkPortForwardingRules,
+			CancellationToken cancellationToken = default
+			);
 	}
 }

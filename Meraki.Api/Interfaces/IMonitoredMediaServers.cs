@@ -1,6 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -11,83 +12,68 @@ namespace Meraki.Api.Interfaces
 	public interface IMonitoredMediaServers
 	{
 		/// <summary>
-		/// createOrganizationInsightMonitoredMediaServer
-		/// </summary>
-		/// <remarks>
 		/// Add a media server to be monitored for this organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="createOrganizationInsightMonitoredMediaServer"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CreateOrganizationInsightMonitoredMediaServer">Body for adding a media server</param>
 		[Post("/organizations/{organizationId}/insight/monitoredMediaServers")]
-		Task<object> CreateOrganizationInsightMonitoredMediaServer(
+		Task<InsightMonitoredMediaServers> CreateOrganizationInsightMonitoredMediaServerAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]InsightMonitoredMediaServerCreationRequest createOrganizationInsightMonitoredMediaServer
+			[Body]InsightMonitoredMediaServerCreationRequest CreateOrganizationInsightMonitoredMediaServer,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteOrganizationInsightMonitoredMediaServer
-		/// </summary>
-		/// <remarks>
 		/// Delete a monitored media server from this organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="monitoredMediaServerId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="monitoredMediaServerId">The monitored media server id</param>
 		[Delete("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
-		Task DeleteOrganizationInsightMonitoredMediaServer(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId
-			);
-
-		/// <summary>
-		/// getOrganizationInsightMonitoredMediaServer
-		/// </summary>
-		/// <remarks>
-		/// Return a monitored media server for this organization
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The organization id</param>
-		/// <param name="monitoredMediaServerId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
-		Task<InsightMonitoredMediaServers> GetOrganizationInsightMonitoredMediaServer(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId
-			);
-
-		/// <summary>
-		/// getOrganizationInsightMonitoredMediaServers
-		/// </summary>
-		/// <remarks>
-		/// List the monitored media servers for this organization
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The organization id</param>
-		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/insight/monitoredMediaServers")]
-		Task<List<InsightMonitoredMediaServers>> GetOrganizationInsightMonitoredMediaServers(
-			[AliasAs("organizationId")]string organizationId
-			);
-
-		/// <summary>
-		/// updateOrganizationInsightMonitoredMediaServer
-		/// </summary>
-		/// <remarks>
-		/// Update a monitored media server for this organization
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The organization id</param>
-		/// <param name="monitoredMediaServerId"></param>
-		/// <param name="updateOrganizationInsightMonitoredMediaServer"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
-		Task<object> UpdateOrganizationInsightMonitoredMediaServer(
+		Task DeleteOrganizationInsightMonitoredMediaServerAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId,
-			[Body]InsightMonitoredMediaServerUpdateRequest updateOrganizationInsightMonitoredMediaServer
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Return a monitored media server for this organization
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="monitoredMediaServerId">The monitored media server id</param>
+		[Get("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
+		Task<InsightMonitoredMediaServers> GetOrganizationInsightMonitoredMediaServerAsync(
+			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// List the monitored media servers for this organization
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		[Get("/organizations/{organizationId}/insight/monitoredMediaServers")]
+		Task<List<InsightMonitoredMediaServers>> GetOrganizationInsightMonitoredMediaServersAsync(
+			[AliasAs("organizationId")]string organizationId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update a monitored media server for this organization
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="monitoredMediaServerId">The monitored media server id</param>
+		/// <param name="UpdateOrganizationInsightMonitoredMediaServer">Body for updating a monitored media server</param>
+		[Put("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
+		Task<InsightMonitoredMediaServers> UpdateOrganizationInsightMonitoredMediaServerAsync(
+			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId,
+			[Body]InsightMonitoredMediaServerUpdateRequest UpdateOrganizationInsightMonitoredMediaServer,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

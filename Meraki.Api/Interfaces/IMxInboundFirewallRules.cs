@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface IMxInboundFirewallRules
 	{
 		/// <summary>
-		/// getNetworkApplianceFirewallInboundFirewallRules
-		/// </summary>
-		/// <remarks>
 		/// Return the inbound firewall rules for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
-		Task<object> GetNetworkApplianceFirewallInboundFirewallRules(
-			[AliasAs("networkId")]string networkId
+		Task<NetworkApplianceFirewallInboundFirewallRulesUpdateRequest> GetNetworkApplianceFirewallInboundFirewallRulesAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkApplianceFirewallInboundFirewallRules
-		/// </summary>
-		/// <remarks>
 		/// Update the inbound firewall rules of an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkApplianceFirewallInboundFirewallRules"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkApplianceFirewallInboundFirewallRules">Body for updating inbound firewall rules</param>
 		[Put("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
-		Task<object> UpdateNetworkApplianceFirewallInboundFirewallRules(
+		Task<NetworkApplianceFirewallInboundFirewallRulesUpdateRequest> UpdateNetworkApplianceFirewallInboundFirewallRulesAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]NetworkApplianceFirewallInboundFirewallRulesUpdateRequest updateNetworkApplianceFirewallInboundFirewallRules
+			[Body]NetworkApplianceFirewallInboundFirewallRulesUpdateRequest UpdateNetworkApplianceFirewallInboundFirewallRules,
+			CancellationToken cancellationToken = default
 			);
 	}
 }
