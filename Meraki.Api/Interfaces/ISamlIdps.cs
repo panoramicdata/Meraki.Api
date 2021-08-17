@@ -12,81 +12,65 @@ namespace Meraki.Api.Interfaces
 	public interface ISamlIdps
 	{
 		/// <summary>
-		/// getOrganizationSamlIdps
-		/// </summary>
-		/// <remarks>
 		/// List the SAML IdPs in your organization.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/saml/idps")]
-		Task<List<SamlIdps>> GetOrganizationSamlIdps(
-			[AliasAs("organizationId")]string organizationId
+		Task<List<SamlIdps>> GetOrganizationSamlIdpsAsync(
+			[AliasAs("organizationId")]string organizationId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// createOrganizationSamlIdp
-		/// </summary>
-		/// <remarks>
 		/// Create a SAML IdP for your organization.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="createOrganizationSamlIdp"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CreateOrganizationSamlIdp">Body for creating a SAML IdP</param>
 		[Post("/organizations/{organizationId}/saml/idps")]
 		Task<SamlIdpsCreateRequest> CreateOrganizationSamlIdpAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body]SamlIdpsCreateRequest createOrganizationSamlIdp
+			[Body]SamlIdpsCreateRequest CreateOrganizationSamlIdp,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getOrganizationSamlIdp
-		/// </summary>
-		/// <remarks>
 		/// Get a SAML IdP from your organization.
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The organization id</param>
-		/// <param name="idpId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/organizations/{organizationId}/saml/idps/{idpId}")]
-		Task<SamlIdps> GetOrganizationSamlIdp(
-			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("idpId")] string idpId
-			);
-
-		/// <summary>
-		/// updateOrganizationSamlIdp
 		/// </summary>
-		/// <remarks>
-		/// Update a SAML IdP in your organization
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="idpId"></param>
-		/// <param name="updateOrganizationSamlIdp"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/organizations/{organizationId}/saml/idps/{idpId}")]
-		Task<SamlIdpsCreateRequest> UpdateOrganizationSamlIdp(
+		/// <param name="idpId">The IdP id</param>
+		[Get("/organizations/{organizationId}/saml/idps/{idpId}")]
+		Task<SamlIdps> GetOrganizationSamlIdpAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("idpId")] string idpId,
-			[Body] SamlIdpsCreateRequest updateOrganizationSamlIdp
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteOrganizationSamlIdp
+		/// Update a SAML IdP in your organization
 		/// </summary>
-		/// <remarks>
-		/// Remove a SAML IdP in your organization.
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="idpId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="idpId">The IdP id</param>
+		/// <param name="UpdateOrganizationSamlIdp">Body for updating a SAML IdP</param>
+		[Put("/organizations/{organizationId}/saml/idps/{idpId}")]
+		Task<SamlIdpsCreateRequest> UpdateOrganizationSamlIdpAsync(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("idpId")] string idpId,
+			[Body] SamlIdpsCreateRequest UpdateOrganizationSamlIdp,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Remove a SAML IdP in your organization.
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="idpId">The IdP id</param>
 		[Delete("/organizations/{organizationId}/saml/idps/{idpId}")]
-		Task DeleteOrganizationSamlIdp(
+		Task DeleteOrganizationSamlIdpAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("idpId")] string idpId,
 			CancellationToken cancellationToken = default);

@@ -12,51 +12,39 @@ namespace Meraki.Api.Interfaces
 	public interface ISwitchStacks
 	{
 		/// <summary>
-		/// addNetworkSwitchStack
-		/// </summary>
-		/// <remarks>
 		/// Add a switch to a stack
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="switchStackId"></param>
-		/// <param name="addNetworkSwitchStack"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="switchStackId">The switch stack id</param>
+		/// <param name="AddNetworkSwitchStack"></param>
 		[Post("/networks/{networkId}/switch/switchStacks/{switchStackId}/add")]
-		Task<object> AddNetworkSwitchStackAsync(
+		Task<SwitchStack> AddNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
-			[Body] NetworkSwitchStackCreationRequest addNetworkSwitchStack,
+			[Body] NetworkSwitchStackCreationRequest AddNetworkSwitchStack,
 			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// createNetworkSwitchStack
-		/// </summary>
-		/// <remarks>
 		/// Create a stack
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="createNetworkSwitchStack"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CreateNetworkSwitchStack"></param>
 		[Post("/networks/{networkId}/switch/switchStacks")]
 		Task<SwitchStack> CreateNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchStackCreationRequest createNetworkSwitchStack,
+			[Body] SwitchStackCreationRequest CreateNetworkSwitchStack,
 			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkSwitchStack
-		/// </summary>
-		/// <remarks>
 		/// Delete a stack
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="switchStackId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="switchStackId">The switch stack id</param>
 		[Delete("/networks/{networkId}/switch/switchStacks/{switchStackId}")]
 		Task DeleteNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
@@ -65,15 +53,11 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// getNetworkSwitchStack
-		/// </summary>
-		/// <remarks>
 		/// Show a switch stack
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="switchStackId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="switchStackId">The switch stack id</param>
 		[Get("/networks/{networkId}/switch/switchStacks/{switchStackId}")]
 		Task<SwitchStack> GetNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
@@ -82,89 +66,71 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// getNetworkSwitchStacks
-		/// </summary>
-		/// <remarks>
 		/// List the switch stacks in a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/switchStacks")]
 		Task<List<SwitchStack>> GetNetworkSwitchStacksAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// removeNetworkSwitchStack
-		/// </summary>
-		/// <remarks>
 		/// Remove a switch from a stack
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="switchStackId"></param>
-		/// <param name="removeNetworkSwitchStack"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="switchStackId">The switch stack id</param>
+		/// <param name="RemoveNetworkSwitchStack"></param>
 		[Post("/networks/{networkId}/switch/switchStacks/{switchStackId}/remove")]
-		Task<object> RemoveNetworkSwitchStackAsync(
+		Task<SwitchStack> RemoveNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
-			[Body] RemoveNetworkSwitchStack removeNetworkSwitchStack,
+			[Body] RemoveNetworkSwitchStack RemoveNetworkSwitchStack,
 			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSwitchStackRoutingStaticRoute
-		/// </summary>
-		/// <remarks>
 		/// Return a layer 3 static route for a switch stack
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="staticRouteId"></param>
-		/// <param name="switchStackId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
-		Task<SwitchStaticRoute> GetNetworkSwitchStackRoutingStaticRoute(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("switchStackId")] string switchStackId,
-			[AliasAs("staticRouteId")] string staticRouteId
-			);
-
-		/// <summary>
-		/// updateNetworkSwitchStackRoutingStaticRoute
 		/// </summary>
-		/// <remarks>
-		/// Update a layer 3 static route for a switch stack
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="staticRouteId"></param>
-		/// <param name="switchStackId"></param>
-		/// <param name="updateNetworkSwitchStackRoutingStaticRoute"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
-		Task<SwitchStaticRoute> UpdateNetworkSwitchStackRoutingStaticRoute(
+		/// <param name="staticRouteId">The static route id</param>
+		/// <param name="switchStackId">The switch stack id</param>
+		[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
+		Task<SwitchStaticRoute> GetNetworkSwitchStackRoutingStaticRouteAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
 			[AliasAs("staticRouteId")] string staticRouteId,
-			[Body] SwitchStaticRouteCreationRequest updateNetworkSwitchStackRoutingStaticRoute
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkSwitchStackRoutingStaticRoute
+		/// Update a layer 3 static route for a switch stack
 		/// </summary>
-		/// <remarks>
-		/// Delete a layer 3 static route for a switch stack
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="switchStackId"></param>
-		/// <param name="staticRouteId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="staticRouteId">The static route id</param>
+		/// <param name="switchStackId">The switch stack id</param>
+		/// <param name="UpdateNetworkSwitchStackRoutingStaticRoute"></param>
+		[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
+		Task<SwitchStaticRoute> UpdateNetworkSwitchStackRoutingStaticRouteAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("switchStackId")] string switchStackId,
+			[AliasAs("staticRouteId")] string staticRouteId,
+			[Body] SwitchStaticRouteCreationRequest UpdateNetworkSwitchStackRoutingStaticRoute,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Delete a layer 3 static route for a switch stack
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="switchStackId">The switch stack id</param>
+		/// <param name="staticRouteId">The static route id</param>
 		[Delete("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
-		Task DeleteNetworkSwitchStackRoutingStaticRoute(
+		Task DeleteNetworkSwitchStackRoutingStaticRouteAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
 			[AliasAs("staticRouteId")] string staticRouteId,

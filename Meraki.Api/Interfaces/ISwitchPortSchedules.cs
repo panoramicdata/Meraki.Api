@@ -1,6 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -11,67 +12,55 @@ namespace Meraki.Api.Interfaces
 	public interface ISwitchPortSchedules
 	{
 		/// <summary>
-		/// createNetworkSwitchPortSchedule
-		/// </summary>
-		/// <remarks>
 		/// Add a switch port schedule
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="createNetworkSwitchPortSchedule"></param>
-		/// <returns>The created Switch Port Schedule</returns>
+		/// <param name="CreateNetworkSwitchPortSchedule"></param>
 		[Post("/networks/{networkId}/switch/portSchedules")]
-		Task<SwitchPortSchedule> CreateNetworkSwitchPortSchedule(
+		Task<SwitchPortSchedule> CreateNetworkSwitchPortScheduleAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchPortScheduleCreationRequest createNetworkSwitchPortSchedule
+			[Body] SwitchPortScheduleCreationRequest CreateNetworkSwitchPortSchedule,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkSwitchPortSchedule
-		/// </summary>
-		/// <remarks>
 		/// Delete a switch port schedule
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="portScheduleId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="portScheduleId">The port schedule id</param>
 		[Delete("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
-		Task DeleteNetworkSwitchPortSchedule(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("portScheduleId")] string portScheduleId
-			);
-
-		/// <summary>
-		/// getNetworkSwitchPortSchedules
-		/// </summary>
-		/// <remarks>
-		/// List switch port schedules
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <returns>A list of switch port schedules</returns>
-		[Get("/networks/{networkId}/switch/portSchedules")]
-		Task<List<SwitchPortSchedule>> GetNetworkSwitchPortSchedules(
-			[AliasAs("networkId")] string networkId
-			);
-
-		/// <summary>
-		/// updateNetworkSwitchPortSchedule
-		/// </summary>
-		/// <remarks>
-		/// Update a switch port schedule
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="portScheduleId"></param>
-		/// <param name="updateNetworkSwitchPortSchedule"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
-		Task<SwitchPortSchedule> UpdateNetworkSwitchPortSchedule(
+		Task DeleteNetworkSwitchPortScheduleAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("portScheduleId")] string portScheduleId,
-			[Body] SwitchPortScheduleCreationRequest updateNetworkSwitchPortSchedule
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// List switch port schedules
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/switch/portSchedules")]
+		Task<List<SwitchPortSchedule>> GetNetworkSwitchPortSchedulesAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update a switch port schedule
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="portScheduleId">The port schedule id</param>
+		/// <param name="UpdateNetworkSwitchPortSchedule"></param>
+		[Put("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
+		Task<SwitchPortSchedule> UpdateNetworkSwitchPortScheduleAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("portScheduleId")] string portScheduleId,
+			[Body] SwitchPortScheduleCreationRequest UpdateNetworkSwitchPortSchedule,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

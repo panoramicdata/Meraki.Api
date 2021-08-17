@@ -12,11 +12,8 @@ namespace Meraki.Api.Interfaces
 	public interface IWirelessHealth
 	{
 		/// <summary>
-		/// getNetworkClientConnectionStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated connectivity info for a given client on this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network ID</param>
 		/// <param name="clientId">The client ID (MAC)</param>
@@ -27,9 +24,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="ssid">Filter results by SSID (optional)</param>
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
-		/// <returns>Task of NetworkClientConnectionStats</returns>
 		[Get("/networks/{networkId}/wireless/clients/{clientId}/connectionStats")]
-		Task<NetworkClientConnectionStats> GetNetworkClientConnectionStats(
+		Task<NetworkClientConnectionStats> GetNetworkClientConnectionStatsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			[AliasAs("t0")]string t0 = null!,
@@ -42,11 +38,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkClientLatencyStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated latency info for a given client on this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network ID</param>
 		/// <param name="clientId">The client ID (MAC)</param>
@@ -58,9 +51,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
-		/// <returns>Task of NetworkClientLatencyStats</returns>
 		[Get("/networks/{networkId}/wireless/clients/{clientId}/latencyStats")]
-		Task<NetworkClientLatencyStats> GetNetworkClientLatencyStats(
+		Task<NetworkClientLatencyStats> GetNetworkClientLatencyStatsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("clientId")]string clientId,
 			[AliasAs("t0")]string t0 = null!,
@@ -74,11 +66,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkClientsConnectionStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated connectivity info for this network, grouped by clients
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network ID</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -88,9 +77,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="ssid">Filter results by SSID (optional)</param>
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
-		/// <returns>Task of List of NetworkClientConnectionStats</returns>
 		[Get("/networks/{networkId}/wireless/clients/connectionStats")]
-		Task<List<NetworkClientConnectionStats>> GetNetworkClientsConnectionStats(
+		Task<List<NetworkClientConnectionStats>> GetNetworkClientsConnectionStatsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -102,11 +90,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkClientsLatencyStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated latency info for this network, grouped by clients
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -117,9 +102,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
-		/// <returns>Task of List of NetworkClientLatencyStats</returns>
 		[Get("/networks/{networkId}/wireless/clients/latencyStats")]
-		Task<List<NetworkClientLatencyStats>> GetNetworkClientsLatencyStats(
+		Task<List<NetworkClientLatencyStats>> GetNetworkClientsLatencyStatsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -132,11 +116,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkConnectionStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated connectivity info for this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network ID</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -146,9 +127,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="ssid">Filter results by SSID (optional)</param>
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
-		/// <returns>Task of ConnectionStats</returns>
 		[Get("/networks/{networkId}/wireless/connectionStats")]
-		Task<ConnectionStats> GetNetworkConnectionStats(
+		Task<ConnectionStats> GetNetworkConnectionStatsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -160,11 +140,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkDeviceConnectionStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated connectivity info for a given AP on this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -174,9 +151,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="ssid">Filter results by SSID (optional)</param>
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
-		/// <returns>Task of NetworkDeviceConnectionStats</returns>
 		[Get("/devices/{serial}/wireless/connectionStats")]
-		Task<NetworkDeviceConnectionStats> GetNetworkDeviceConnectionStats(
+		Task<NetworkDeviceConnectionStats> GetNetworkDeviceConnectionStatsAsync(
 			[AliasAs("serial")]string serial,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -188,11 +164,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkDeviceLatencyStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated latency info for a given AP on this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -203,9 +176,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
-		/// <returns>Task of NetworkDeviceLatencyStats</returns>
 		[Get("/devices/{serial}/wireless/latencyStats")]
-		Task<NetworkDeviceLatencyStats> GetNetworkDeviceLatencyStats(
+		Task<NetworkDeviceLatencyStats> GetNetworkDeviceLatencyStatsAsync(
 			[AliasAs("serial")]string serial,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -218,11 +190,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkDevicesConnectionStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated connectivity info for this network, grouped by node
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network ID</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -232,9 +201,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="ssid">Filter results by SSID (optional)</param>
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
-		/// <returns>Task of List of NetworkDeviceConnectionStats</returns>
 		[Get("/networks/{networkId}/wireless/devices/connectionStats")]
-		Task<List<NetworkDeviceConnectionStats>> GetNetworkDevicesConnectionStats(
+		Task<List<NetworkDeviceConnectionStats>> GetNetworkDevicesConnectionStatsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -246,11 +214,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkDevicesLatencyStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated latency info for this network, grouped by node
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network ID</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -261,9 +226,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
-		/// <returns>Task of List of NetworkDeviceLatencyStats</returns>
 		[Get("/networks/{networkId}/wireless/devices/latencyStats")]
-		Task<List<NetworkDeviceLatencyStats>> GetNetworkDevicesLatencyStats(
+		Task<List<NetworkDeviceLatencyStats>> GetNetworkDevicesLatencyStatsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -276,11 +240,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkFailedConnections
-		/// </summary>
-		/// <remarks>
 		/// List of all failed client connection events on this network in a given time range
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -292,9 +253,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="serial">Filter by AP (optional)</param>
 		/// <param name="clientId">Filter by client MAC (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/failedConnections")]
-		Task<object> GetNetworkFailedConnections(
+		Task<List<FailedConnection>> GetNetworkFailedConnectionsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -304,14 +264,12 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("vlan")]int? vlan = null,
 			[AliasAs("apTag")]string apTag = null!,
 			[AliasAs("serial")]string serial = null!,
-			[AliasAs("clientId")]string clientId = null!);
+			[AliasAs("clientId")]string clientId = null!,
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkLatencyStats
-		/// </summary>
-		/// <remarks>
 		/// Aggregated latency info for this network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network ID</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -322,9 +280,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vlan">Filter results by VLAN (optional)</param>
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
-		/// <returns>Task of LatencyStats</returns>
 		[Get("/networks/{networkId}/wireless/latencyStats")]
-		Task<LatencyStats> GetNetworkLatencyStats(
+		Task<LatencyStats> GetNetworkLatencyStatsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("t0")]string t0 = null!,
 			[AliasAs("t1")]string t1 = null!,
@@ -337,11 +294,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkWirelessLatencyHistory
-		/// </summary>
-		/// <remarks>
 		/// Aggregated latency info for this network, grouped by clients
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
@@ -355,9 +309,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="band">Filter results by band (either '2.4' or '5').</param>
 		/// <param name="ssid">Filter results by SSID number.</param>
 		/// <param name="accessCategory">Filter by access category.</param>
-		/// <returns>Task of List of NetworkClientLatencyStats</returns>
 		[Get("/networks/{networkId}/wireless/latencyHistory")]
-		Task<List<LatencyHistory>> GetNetworkWirelessLatencyHistory(
+		Task<List<LatencyHistory>> GetNetworkWirelessLatencyHistoryAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("t0")] string t0 = null!,
 			[AliasAs("t1")] string t1 = null!,
@@ -373,19 +326,15 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkWirelessMeshStatuses
-		/// </summary>
-		/// <remarks>
 		/// Aggregated latency info for this network, grouped by clients
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 500. Default is 50.</param>
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
-		/// <returns>Task of List of NetworkClientLatencyStats</returns>
 		[Get("/networks/{networkId}/wireless/meshStatuses")]
-		Task<List<LatencyHistory>> GetNetworkWirelessMeshStatuses(
+		Task<List<LatencyHistory>> GetNetworkWirelessMeshStatusesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("perPage")] int? perPage = null,
 			[AliasAs("startingAfter")] string? startingAfter = null,

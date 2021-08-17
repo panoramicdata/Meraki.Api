@@ -11,16 +11,12 @@ namespace Meraki.Api.Interfaces
 	public interface ISmNetworkApnsCert
 	{
 		/// <summary>
-		/// getOrganizationSmApnsCert
-		/// </summary>
-		/// <remarks>
 		/// Get the organization's APNS certificate
-		/// </remarks>
+		/// </summary>		
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/sm/apnsCert")]
-		Task<ApnsCert> GetOrganizationSmApnsCert(
+		Task<ApnsCert> GetOrganizationSmApnsCertAsync(
 			[AliasAs("organizationId")]string organizationId,
 			CancellationToken cancellationToken = default);
 	}

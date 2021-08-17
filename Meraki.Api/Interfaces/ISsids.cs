@@ -12,29 +12,22 @@ namespace Meraki.Api.Interfaces
 	public interface ISsids
 	{
 		/// <summary>
-		/// getNetworkDeviceWirelessStatus
-		/// </summary>
-		/// <remarks>
 		/// Return the SSID statuses of an access point
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/wireless/status")]
-		Task<object> GetNetworkDeviceWirelessStatus(
-			[AliasAs("serial")]string serial
+		Task<WirelessStatus> GetNetworkDeviceWirelessStatusAsync(
+			[AliasAs("serial")]string serial,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSsid
-		/// </summary>
-		/// <remarks>
 		/// Return a single MR SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}")]
 		Task<NetworkSsid> GetAsync(
 			[AliasAs("networkId")]string networkId,
@@ -42,360 +35,294 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkSsids
-		/// </summary>
-		/// <remarks>
 		/// List the MR SSIDs in a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/ssids")]
 		Task<List<NetworkSsid>> GetAllAsync(
 			[AliasAs("networkId")]string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateNetworkSsid
-		/// </summary>
-		/// <remarks>
 		/// Update the attributes of an MR SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="updateNetworkSsid"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
+		/// <param name="UpdateNetworkSsid"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}")]
 		Task<NetworkSsid> UpdateAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("number")]string number,
-			[Body]SsidUpdateRequest updateNetworkSsid,
+			[Body]SsidUpdateRequest UpdateNetworkSsid,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkWirelessSsidIdentityPsks
-		/// </summary>
-		/// <remarks>
 		/// List all Identity PSKs in a wireless network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
-		Task<List<IdentityPsks>> GetNetworkWirelessSsidIdentityPsks(
+		Task<List<IdentityPsks>> GetNetworkWirelessSsidIdentityPsksAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number
+			[AliasAs("number")] string number,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// createNetworkWirelessSsidIdentityPsk
-		/// </summary>
-		/// <remarks>
 		/// List all Identity PSKs in a wireless network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="createNetworkWirelessSsidIdentityPsk"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
+		/// <param name="CreateNetworkWirelessSsidIdentityPsk"></param>
 		[Post("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
-		Task<IdentityPsks> CreateNetworkWirelessSsidIdentityPsk(
+		Task<IdentityPsks> CreateNetworkWirelessSsidIdentityPskAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]IdentityPsks createNetworkWirelessSsidIdentityPsk
+			[Body]IdentityPsks CreateNetworkWirelessSsidIdentityPsk,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkWirelessSsidIdentityPsk
-		/// </summary>
-		/// <remarks>
 		/// Return an Identity PSK
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="identityPskId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
-		Task<IdentityPsks> GetNetworkWirelessSsidIdentityPsk(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number,
-			[AliasAs("identityPskId")] string identityPskId
-			);
-
-		/// <summary>
-		/// updateNetworkWirelessSsidIdentityPsk
 		/// </summary>
-		/// <remarks>
-		/// Update an Identity PSK
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="identityPskId"></param>
-		/// <param name="updateNetworkWirelessSsidIdentityPsk"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
-		Task<IdentityPsks> UpdateNetworkWirelessSsidIdentityPsk(
+		/// <param name="number">The SSID number</param>
+		/// <param name="identityPskId">The identity psk id</param>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
+		Task<IdentityPsks> GetNetworkWirelessSsidIdentityPskAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
 			[AliasAs("identityPskId")] string identityPskId,
-			[Body]IdentityPsks updateNetworkWirelessSsidIdentityPsk
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkWirelessSsidIdentityPsk
+		/// Update an Identity PSK
 		/// </summary>
-		/// <remarks>
-		/// Delete an Identity PSK
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="identityPskId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="number">The SSID number</param>
+		/// <param name="identityPskId">The identity psk id</param>
+		/// <param name="UpdateNetworkWirelessSsidIdentityPsk"></param>
+		[Put("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
+		Task<IdentityPsks> UpdateNetworkWirelessSsidIdentityPskAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[AliasAs("identityPskId")] string identityPskId,
+			[Body]IdentityPsks UpdateNetworkWirelessSsidIdentityPsk,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Delete an Identity PSK
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="number">The SSID number</param>
+		/// <param name="identityPskId">The identity psk id</param>
 		[Delete("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
-		Task DeleteNetworkWirelessSsidIdentityPsk(
+		Task DeleteNetworkWirelessSsidIdentityPskAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
 			[AliasAs("identityPskId")] string identityPskId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateNetworkWirelessSsidSplashSettings
-		/// </summary>
-		/// <remarks>
 		/// Modify the splash page settings for the given SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="updateNetworkWirelessSsidSplashSettings"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
+		/// <param name="UpdateNetworkWirelessSsidSplashSettings"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
-		Task<SsidSplashSettings> UpdateNetworkWirelessSsidSplashSettings(
+		Task<SsidSplashSettings> UpdateNetworkWirelessSsidSplashSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]SsidSplashSettings updateNetworkWirelessSsidSplashSettings
+			[Body]SsidSplashSettings UpdateNetworkWirelessSsidSplashSettings,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkWirelessSsidSplashSettings
-		/// </summary>
-		/// <remarks>
 		/// Display the splash page settings for the given SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
-		Task<SsidSplashSettings> GetNetworkWirelessSsidSplashSettings(
+		Task<SsidSplashSettings> GetNetworkWirelessSsidSplashSettingsAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number
+			[AliasAs("number")] string number,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkWirelessSsidDeviceTypeGroupPolicies
-		/// </summary>
-		/// <remarks>
 		/// List the device type group policies for the SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
-		Task<DeviceTypeGroupPolicies> GetNetworkWirelessSsidDeviceTypeGroupPolicies(
+		Task<DeviceTypeGroupPolicies> GetNetworkWirelessSsidDeviceTypeGroupPoliciesAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number
+			[AliasAs("number")] string number,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkWirelessSsidDeviceTypeGroupPolicies
-		/// </summary>
-		/// <remarks>
 		/// Update the device type group policies for the SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
-		Task<DeviceTypeGroupPolicies> UpdateNetworkWirelessSsidDeviceTypeGroupPolicies(
+		Task<DeviceTypeGroupPolicies> UpdateNetworkWirelessSsidDeviceTypeGroupPoliciesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]DeviceTypeGroupPolicies updateNetworkWirelessSsidDeviceTypeGroupPolicies
+			[Body]DeviceTypeGroupPolicies UpdateNetworkWirelessSsidDeviceTypeGroupPolicies,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkWirelessSsidBonjourForwarding
-		/// </summary>
-		/// <remarks>
 		/// List the Bonjour forwarding setting and rules for the SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/bonjourForwarding")]
-		Task<BonjourForwarding> GetNetworkWirelessSsidBonjourForwarding(
+		Task<BonjourForwarding> GetNetworkWirelessSsidBonjourForwardingAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number
+			[AliasAs("number")] string number,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkWirelessSsidBonjourForwarding
-		/// </summary>
-		/// <remarks>
 		/// Update the bonjour forwarding setting and rules for the SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="updateNetworkWirelessSsidBonjourForwarding"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
+		/// <param name="UpdateNetworkWirelessSsidBonjourForwarding"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/bonjourForwarding")]
-		Task<BonjourForwarding> UpdateNetworkWirelessSsidBonjourForwarding(
+		Task<BonjourForwarding> UpdateNetworkWirelessSsidBonjourForwardingAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]BonjourForwarding updateNetworkWirelessSsidBonjourForwarding
+			[Body]BonjourForwarding UpdateNetworkWirelessSsidBonjourForwarding,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkWirelessSsidVpn
-		/// </summary>
-		/// <remarks>
 		/// List the VPN settings for the SSID.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/vpn")]
-		Task<VpnSettings> GetNetworkWirelessSsidVpn(
+		Task<VpnSettings> GetNetworkWirelessSsidVpnAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number
+			[AliasAs("number")] string number,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkWirelessSsidVpn
-		/// </summary>
-		/// <remarks>
 		/// Update the VPN settings for the SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="updateNetworkWirelessSsidVpn"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
+		/// <param name="UpdateNetworkWirelessSsidVpn"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/vpn")]
-		Task<VpnSettings> UpdateNetworkWirelessSsidVpn(
+		Task<VpnSettings> UpdateNetworkWirelessSsidVpnAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]VpnSettings updateNetworkWirelessSsidVpn
+			[Body]VpnSettings UpdateNetworkWirelessSsidVpn,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkWirelessSsidSchedules
-		/// </summary>
-		/// <remarks>
 		/// List the outage schedule for the SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/schedules")]
-		Task<Schedules> GetNetworkWirelessSsidSchedules(
+		Task<Schedules> GetNetworkWirelessSsidSchedulesAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number
+			[AliasAs("number")] string number,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkWirelessSsidSchedules
-		/// </summary>
-		/// <remarks>
 		/// Update the outage schedule for the SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/schedules")]
-		Task<Schedules> UpdateNetworkWirelessSsidSchedules(
+		Task<Schedules> UpdateNetworkWirelessSsidSchedulesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]Schedules updateNetworkWirelessSsidSchedules
+			[Body]Schedules UpdateNetworkWirelessSsidSchedules,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkWirelessSsidEapOverride
-		/// </summary>
-		/// <remarks>
 		/// Return the EAP overridden parameters for an SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/eapOverride")]
-		Task<EapOverride> GetNetworkWirelessSsidEapOverride(
+		Task<EapOverride> GetNetworkWirelessSsidEapOverrideAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number
+			[AliasAs("number")] string number,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkWirelessSsidEapOverride
-		/// </summary>
-		/// <remarks>
 		/// Update the EAP overridden parameters for an SSID.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/eapOverride")]
-		Task<EapOverride> UpdateNetworkWirelessSsidEapOverride(
+		Task<EapOverride> UpdateNetworkWirelessSsidEapOverrideAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]EapOverride EapOverrideUpdateRequest
+			[Body]EapOverride EapOverrideUpdateRequest,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkWirelessSsidHotspot20
-		/// </summary>
-		/// <remarks>
 		/// Return the Hotspot 2.0 settings for an SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
-		Task<Hotspot20> GetNetworkWirelessSsidHotspot20(
+		Task<Hotspot20> GetNetworkWirelessSsidHotspot20Async(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number
+			[AliasAs("number")] string number,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkWirelessSsidHotspot20
-		/// </summary>
-		/// <remarks>
 		/// Update the Hotspot 2.0 settings of an SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="hotspot20"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="number">The SSID number</param>
+		/// <param name="Hotspot20"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
-		Task<Hotspot20> UpdateNetworkWirelessSsidHotspot20(
+		Task<Hotspot20> UpdateNetworkWirelessSsidHotspot20Async(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]Hotspot20 hotspot20
+			[Body]Hotspot20 Hotspot20,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

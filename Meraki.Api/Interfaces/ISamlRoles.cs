@@ -10,82 +10,62 @@ namespace Meraki.Api.Interfaces
 	public interface ISamlRoles
 	{
 		/// <summary>
-		/// createOrganizationSamlRole
-		/// </summary>
-		/// <remarks>
 		/// Create a SAML role
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="createOrganizationSamlRole"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CreateOrganizationSamlRole">Body for creating a SAML role</param>
 		[Post("/organizations/{organizationId}/samlRoles")]
-		Task<object> CreateOrganizationSamlRole(
+		Task<SamlRole> CreateOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]SamlRoleCreateRequest createOrganizationSamlRole
+			[Body]SamlRoleCreateRequest CreateOrganizationSamlRole
 			);
 
 		/// <summary>
-		/// deleteOrganizationSamlRole
-		/// </summary>
-		/// <remarks>
 		/// Remove a SAML role
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="samlRoleId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="samlRoleId">The SAML role id</param>
 		[Delete("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
-		Task DeleteOrganizationSamlRole(
+		Task DeleteOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("samlRoleId")]string samlRoleId
 			);
 
 		/// <summary>
-		/// getOrganizationSamlRole
-		/// </summary>
-		/// <remarks>
 		/// Return a SAML role
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="samlRoleId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="samlRoleId">The SAML role id</param>
 		[Get("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
-		Task<object> GetOrganizationSamlRole(
+		Task<object> GetOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("samlRoleId")]string samlRoleId
 			);
 
 		/// <summary>
-		/// getOrganizationSamlRoles
-		/// </summary>
-		/// <remarks>
 		/// List the SAML roles for this organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/samlRoles")]
-		Task<object> GetOrganizationSamlRoles(
+		Task<SamlRole> GetOrganizationSamlRolesAsync(
 			[AliasAs("organizationId")]string organizationId
 			);
 
 		/// <summary>
-		/// updateOrganizationSamlRole
-		/// </summary>
-		/// <remarks>
 		/// Update a SAML role
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="samlRoleId"></param>
-		/// <param name="updateOrganizationSamlRole"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="samlRoleId">The SAML role id</param>
+		/// <param name="UpdateOrganizationSamlRole">Body for updating a SAML role</param>
 		[Put("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
-		Task<object> UpdateOrganizationSamlRole(
+		Task<SamlRole> UpdateOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")]string organizationId,
 			[AliasAs("samlRoleId")]string samlRoleId,
-			[Body]SamlRoleUpdateRequest updateOrganizationSamlRole);
+			[Body]SamlRoleUpdateRequest UpdateOrganizationSamlRole);
 	}
 }

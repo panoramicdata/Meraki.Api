@@ -9,6 +9,18 @@ namespace Meraki.Api.Data
 	public partial class WirelessRfProfileCreationRequest
 	{
 		/// <summary>
+		/// Id
+		/// </summary>
+		[DataMember(Name = "id")]
+		public string? Id { get; set; }
+
+		/// <summary>
+		///	Network id
+		/// </summary>
+		[DataMember(Name = "networkId")]
+		public string? NetworkId { get; set; }
+
+		/// <summary>
 		/// The name of the new profile. Must be unique. This param is required on creation.
 		/// </summary>
 		/// <value>The name of the new profile. Must be unique. This param is required on creation.</value>

@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,63 +11,51 @@ namespace Meraki.Api.Interfaces
 	public interface ISnmpSettings
 	{
 		/// <summary>
-		/// getNetworkSnmpSettings
-		/// </summary>
-		/// <remarks>
 		/// Return the SNMP settings for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/snmpSettings")]
-		Task<object> GetNetworkSnmpSettings(
-			[AliasAs("networkId")]string networkId
+		Task<SnmpSettingsUpdateRequest> GetNetworkSnmpSettingsAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getOrganizationSnmp
-		/// </summary>
-		/// <remarks>
 		/// Return the SNMP settings for an organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/snmp")]
-		Task<object> GetOrganizationSnmp(
-			[AliasAs("organizationId")]string organizationId
+		Task<SnmpUpdateRequest> GetOrganizationSnmpAsync(
+			[AliasAs("organizationId")]string organizationId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkSnmpSettings
-		/// </summary>
-		/// <remarks>
 		/// Update the SNMP settings for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkSnmpSettings"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkSnmpSettings"></param>
 		[Put("/networks/{networkId}/snmpSettings")]
-		Task<object> UpdateNetworkSnmpSettings(
+		Task<SnmpSettingsUpdateRequest> UpdateNetworkSnmpSettingsAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]SnmpSettingsUpdateRequest updateNetworkSnmpSettings
+			[Body]SnmpSettingsUpdateRequest UpdateNetworkSnmpSettings,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateOrganizationSnmp
-		/// </summary>
-		/// <remarks>
 		/// Update the SNMP settings for an organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="updateOrganizationSnmp"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateOrganizationSnmp"></param>
 		[Put("/organizations/{organizationId}/snmp")]
-		Task<object> UpdateOrganizationSnmp(
+		Task<SnmpUpdateRequest> UpdateOrganizationSnmpAsync(
 			[AliasAs("organizationId")]string organizationId,
-			[Body]SnmpUpdateRequest updateOrganizationSnmp
+			[Body]SnmpUpdateRequest UpdateOrganizationSnmp,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

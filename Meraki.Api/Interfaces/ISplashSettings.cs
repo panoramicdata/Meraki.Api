@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,37 +11,31 @@ namespace Meraki.Api.Interfaces
 	public interface ISplashSettings
 	{
 		/// <summary>
-		/// getNetworkSsidSplashSettings
-		/// </summary>
-		/// <remarks>
 		/// Display the splash page settings for the given SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/ssids/{number}/splashSettings")]
-		Task<object> GetNetworkSsidSplashSettings(
+		/// <param name="number">The SSID number</param>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
+		Task<SsidSplashSettingsUpdateRequest> GetNetworkSsidSplashSettingsAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number
+			[AliasAs("number")]string number,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkSsidSplashSettings
-		/// </summary>
-		/// <remarks>
 		/// Modify the splash page settings for the given SSID
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="updateNetworkSsidSplashSettings"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/ssids/{number}/splashSettings")]
-		Task<object> UpdateNetworkSsidSplashSettings(
+		/// <param name="number">The SSID number</param>
+		/// <param name="UpdateNetworkSsidSplashSettings"></param>
+		[Put("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
+		Task<SsidSplashSettingsUpdateRequest> UpdateNetworkSsidSplashSettingsAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("number")]string number,
-			[Body]SsidSplashSettingsUpdateRequest updateNetworkSsidSplashSettings
+			[Body]SsidSplashSettingsUpdateRequest UpdateNetworkSsidSplashSettings,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

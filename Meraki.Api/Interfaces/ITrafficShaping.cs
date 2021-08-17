@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,170 +12,136 @@ namespace Meraki.Api.Interfaces
 	public interface ITrafficShaping
 	{
 		/// <summary>
-		/// getNetworkSsidTrafficShaping
-		/// </summary>
-		/// <remarks>
 		/// Display the traffic shaping settings for a SSID on an MR network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/ssids/{number}/trafficShaping")]
-		Task<object> GetNetworkSsidTrafficShaping(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number
-			);
-
-		/// <summary>
-		/// getNetworkTrafficShaping
 		/// </summary>
-		/// <remarks>
-		/// Display the traffic shaping settings rules for an MX network
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/trafficShaping")]
-		Task<object> GetNetworkTrafficShaping(
-			[AliasAs("networkId")]string networkId
-			);
-
-		/// <summary>
-		/// getNetworkTrafficShapingApplicationCategories
-		/// </summary>
-		/// <remarks>
-		/// Returns the application categories for traffic shaping rules.
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/trafficShaping/applicationCategories")]
-		Task<object> GetNetworkTrafficShapingApplicationCategories(
-			[AliasAs("networkId")]string networkId
-			);
-
-		/// <summary>
-		/// getNetworkTrafficShapingDscpTaggingOptions
-		/// </summary>
-		/// <remarks>
-		/// Returns the available DSCP tagging options for your traffic shaping rules.
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/trafficShaping/dscpTaggingOptions")]
-		Task<object> GetNetworkTrafficShapingDscpTaggingOptions(
-			[AliasAs("networkId")]string networkId
-			);
-
-		/// <summary>
-		/// updateNetworkSsidTrafficShaping
-		/// </summary>
-		/// <remarks>
-		/// Update the traffic shaping settings for an SSID on an MR network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="number"></param>
-		/// <param name="updateNetworkSsidTrafficShaping"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/ssids/{number}/trafficShaping")]
-		Task<object> UpdateNetworkSsidTrafficShaping(
+		/// <param name="number">The SSID number</param>
+		[Get("/networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules")]
+		Task<SsidTrafficShapingUpdateRequest> GetNetworkWirelessSsidTrafficShapingRulesAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("number")]string number,
-			[Body]SsidTrafficShapingUpdateRequest updateNetworkSsidTrafficShaping
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkTrafficShaping
+		/// Display the traffic shaping settings rules for an MX network
 		/// </summary>
-		/// <remarks>
-		/// Update the traffic shaping settings rules for an MX network
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkTrafficShaping"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/trafficShaping")]
-		Task<object> UpdateNetworkTrafficShaping(
+		[Get("/networks/{networkId}/appliance/trafficShaping/rules")]
+		Task<TrafficShapingUpdateRequest> GetNetworkApplianceTrafficShapingRulesAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]TrafficShapingUpdateRequest updateNetworkTrafficShaping
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkApplianceTrafficShapingCustomPerformanceClasses
+		/// Returns the application categories for traffic shaping rules.
 		/// </summary>
-		/// <remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/trafficShaping/applicationCategories")]
+		Task<L7ApplicationCategories> GetNetworkTrafficShapingApplicationCategoriesAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Returns the available DSCP tagging options for your traffic shaping rules.
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/trafficShaping/dscpTaggingOptions")]
+		Task<List<DscpTaggingValues>> GetNetworkTrafficShapingDscpTaggingOptionsAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update the traffic shaping settings for an SSID on an MR network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="number">The SSID number</param>
+		/// <param name="UpdateNetworkSsidTrafficShaping"></param>
+		[Put("/networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules")]
+		Task<SsidTrafficShapingUpdateRequest> UpdateNetworkWirelessSsidTrafficShapingRulesAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("number")]string number,
+			[Body]SsidTrafficShapingUpdateRequest UpdateNetworkSsidTrafficShaping,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update the traffic shaping settings for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="UpdateNetworkTrafficShaping"></param>
+		[Put("/networks/{networkId}/appliance/trafficShaping")]
+		Task<TrafficShapingUpdateRequest> UpdateNetworkApplianceTrafficShapingAsync(
+			[AliasAs("networkId")]string networkId,
+			[Body]TrafficShapingUpdateRequest UpdateNetworkTrafficShaping,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
 		/// List all custom performance classes for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
-		Task<CustomPerformanceClasses> GetNetworkApplianceTrafficShapingCustomPerformanceClasses(
-			[AliasAs("networkId")] string networkId
+		Task<CustomPerformanceClasses> GetNetworkApplianceTrafficShapingCustomPerformanceClassesAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// createNetworkApplianceTrafficShapingCustomPerformanceClass
-		/// </summary>
-		/// <remarks>
 		/// Add a custom performance class for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
-		Task<CustomPerformanceClassesRequest> CreateNetworkApplianceTrafficShapingCustomPerformanceClass(
+		Task<CustomPerformanceClassesRequest> CreateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]CustomPerformanceClassesRequest createNetworkApplianceTrafficShapingCustomPerformanceClass	
+			[Body]CustomPerformanceClassesRequest CreateNetworkApplianceTrafficShapingCustomPerformanceClass,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkApplianceTrafficShapingCustomPerformanceClass
-		/// </summary>
-		/// <remarks>
 		/// Return a custom performance class for an MX network
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="customPerformanceClassId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
-		Task<CustomPerformanceClasses> GetNetworkApplianceTrafficShapingCustomPerformanceClass(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("customPerformanceClassId")] string customPerformanceClassId
-			);
-
-		/// <summary>
-		/// updateNetworkApplianceTrafficShapingCustomPerformanceClass
 		/// </summary>
-		/// <remarks>
-		/// Update a custom performance class for an MX network
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="customPerformanceClassId"></param>
-		/// <param name="updateNetworkApplianceTrafficShapingCustomPerformanceClass"></param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
-		Task<CustomPerformanceClasses> UpdateNetworkApplianceTrafficShapingCustomPerformanceClass(
+		/// <param name="customPerformanceClassId">The custom performance class id</param>
+		[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
+		Task<CustomPerformanceClasses> GetNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
-			[Body]CustomPerformanceClassesRequest updateNetworkApplianceTrafficShapingCustomPerformanceClass
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkApplianceTrafficShapingCustomPerformanceClass
+		/// Update a custom performance class for an MX network
 		/// </summary>
-		/// <remarks>
-		/// Delete a custom performance class from an MX network
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="customPerformanceClassId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="customPerformanceClassId">The custom performance class id</param>
+		/// <param name="UpdateNetworkApplianceTrafficShapingCustomPerformanceClass"></param>
+		[Put("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
+		Task<CustomPerformanceClasses> UpdateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
+			[Body]CustomPerformanceClassesRequest UpdateNetworkApplianceTrafficShapingCustomPerformanceClass,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Delete a custom performance class from an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="customPerformanceClassId">The custom performance class id</param>
 		[Delete("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
 		Task DeleteAsync(
 			[AliasAs("networkId")] string networkId,
@@ -182,91 +149,74 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkApplianceTrafficShapingUplinkBandwidth
-		/// </summary>
-		/// <remarks>
 		/// Returns the uplink bandwidth settings for your MX network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping/uplinkBandwidth")]
-		Task<UplinkBandwidth> GetNetworkApplianceTrafficShapingUplinkBandwidth(
-			[AliasAs("networkId")] string networkId
+		Task<UplinkBandwidth> GetNetworkApplianceTrafficShapingUplinkBandwidthAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkApplianceTrafficShapingUplinkBandwidth
-		/// </summary>
-		/// <remarks>
 		/// Updates the uplink bandwidth settings for your MX network.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkApplianceTrafficShapingUplinkBandwidth"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkApplianceTrafficShapingUplinkBandwidth"></param>
 		[Put("/networks/{networkId}/appliance/trafficShaping/uplinkBandwidth")]
-		Task<UplinkBandwidth> UpdateNetworkApplianceTrafficShapingUplinkBandwidth(
+		Task<UplinkBandwidth> UpdateNetworkApplianceTrafficShapingUplinkBandwidthAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]UplinkBandwidth updateNetworkApplianceTrafficShapingUplinkBandwidth
+			[Body]UplinkBandwidth UpdateNetworkApplianceTrafficShapingUplinkBandwidth,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkApplianceTrafficShapingUplinkSelection
-		/// </summary>
-		/// <remarks>
 		/// Show uplink selection settings for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <returns>Task of Object</returns>
+		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
-		Task<UplinkSelection> GetNetworkApplianceTrafficShapingUpinkSelection(
-			[AliasAs("networkId")] string networkIld
+		Task<UplinkSelection> GetNetworkApplianceTrafficShapingUpinkSelectionAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkApplianceTrafficShapingUplinkSelection
-		/// </summary>
-		/// <remarks>
 		/// Update uplink selection settings for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Put("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
-		Task<UplinkSelection> UpdateNetworkApplianceTrafficShapingUplinkSelection(
+		Task<UplinkSelection> UpdateNetworkApplianceTrafficShapingUplinkSelectionAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]UplinkSelection updateNetworkApplianceTrafficShapingUplinkSelection
+			[Body]UplinkSelection UpdateNetworkApplianceTrafficShapingUplinkSelection,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkApplianceTrafficShaping
-		/// </summary>
-		/// <remarks>
 		/// Display the traffic shaping settings for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/trafficShaping")]
-		Task<NetworkApplianceTrafficShaping> GetNetworkApplianceTrafficShaping(
-			[AliasAs("networkId")] string networkId
+		Task<NetworkApplianceTrafficShaping> GetNetworkApplianceTrafficShapingAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkApplianceTrafficShaping
-		/// </summary>
-		/// <remarks>
 		/// Update the traffic shaping settings for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkApplianceTrafficShaping"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkApplianceTrafficShaping"></param>
 		[Get("/networks/{networkId}/appliance/trafficShaping")]
-		Task<object> UpdateNetworkApplianceTrafficShaping(
+		Task<NetworkApplianceTrafficShaping> UpdateNetworkApplianceTrafficShapingAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]NetworkApplianceTrafficShaping updateNetworkApplianceTrafficShaping
+			[Body]NetworkApplianceTrafficShaping UpdateNetworkApplianceTrafficShaping,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

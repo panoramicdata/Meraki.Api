@@ -11,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface IWirelessAlternateManagement
 	{
 		/// <summary>
-		/// getNetworkWirelessAlternateManagementInterface
-		/// </summary>
-		/// <remarks>
 		/// Return an action batch
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/alternateManagementInterface")]
-		Task<WirelessAlternateManagementInterface> GetNetworkWirelessAlternateManagementInterface(
-			[AliasAs("networkId")]string networkId
+		Task<WirelessAlternateManagementInterface> GetNetworkWirelessAlternateManagementInterfaceAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkWirelessAlternateManagementInterface
+		/// Update an action batch
 		/// </summary>
-		/// <remarks>
-		/// Return an action batch
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkWirelessAlternateManagementInterface"
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkWirelessAlternateManagementInterface"></param>
 		[Put("/networks/{networkId}/wireless/alternateManagementInterface")]
-		Task<WirelessAlternateManagementInterface> UpdateNetworkWirelessAlternateManagementInterface(
+		Task<WirelessAlternateManagementInterface> UpdateNetworkWirelessAlternateManagementInterfaceAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] WirelessAlternateManagementInterface updateNetworkWirelessAlternateManagementInterface
+			[Body] WirelessAlternateManagementInterface UpdateNetworkWirelessAlternateManagementInterface,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

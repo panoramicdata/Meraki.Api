@@ -12,29 +12,21 @@ namespace Meraki.Api.Interfaces
 	public interface IVlans
 	{
 		/// <summary>
-		/// createNetworkVlan
-		/// </summary>
-		/// <remarks>
 		/// Add a VLAN
-		/// </remarks>
+		/// </summary>
 		/// <param name="networkId">The network id</param>
-		/// <param name="vlanCreationRequest"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="VlanCreationRequest"></param>
 		[Post("/networks/{networkId}/appliance/vlans")]
 		Task<Vlan> CreateNetworkVlanAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] VlanCreationRequest vlanCreationRequest,
+			[Body] VlanCreationRequest VlanCreationRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// Delete a Network VLAN
-		/// </summary>
-		/// <remarks>
 		/// Delete a VLAN from a network
-		/// </remarks>
+		/// </summary>
 		/// <param name="networkId">The network id</param>
-		/// <param name="vlanId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="vlanId">The VLAN id</param>
 		[Delete("/networks/{networkId}/appliance/vlans/{vlanId}")]
 		Task DeleteNetworkVlanAsync(
 			[AliasAs("networkId")] string networkId,
@@ -42,14 +34,10 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// Gets a Network VLAN
-		/// </summary>
-		/// <remarks>
 		/// Return a VLAN
-		/// </remarks>
+		/// </summary>
 		/// <param name="networkId">The network id</param>
-		/// <param name="vlanId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="vlanId">The VLAN id</param>
 		[Get("/networks/{networkId}/appliance/vlans/{vlanId}")]
 		Task<Vlan> GetNetworkVlanAsync(
 			[AliasAs("networkId")] string networkId,
@@ -57,61 +45,47 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// Gets all network VLANs
-		/// </summary>
-		/// <remarks>
 		/// List the VLANs for an MX network
-		/// </remarks>
+		/// </summary>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/vlans")]
 		Task<List<Vlan>> GetNetworkVlansAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getNetworkVlansEnabledState
-		/// </summary>
-		/// <remarks>
 		/// Returns the enabled status of VLANs for the network
-		/// </remarks>
+		/// </summary>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/appliance/vlans/settings")]
 		Task<VlansEnabledState> GetNetworkVlanEnabledStatesAsync(
-			[AliasAs("networkId")] string networkId
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkVlan
-		/// </summary>
-		/// <remarks>
 		/// Update a VLAN
-		/// </remarks>
+		/// </summary>
 		/// <param name="networkId">The network id</param>
-		/// <param name="vlanId"></param>
-		/// <param name="vlanSpec"></param>
-		/// <returns>Task of Vlan</returns>
+		/// <param name="vlanId">The VLAN id</param>
+		/// <param name="VlanSpec"></param>
 		[Put("/networks/{networkId}/appliance/vlans/{vlanId}")]
 		Task<Vlan> UpdateNetworkVlanAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("vlanId")] string vlanId,
-			[Body] VlanSpec vlanSpec,
+			[Body] VlanSpec VlanSpec,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateNetworkVlansEnabledState
-		/// </summary>
-		/// <remarks>
 		/// Enable/Disable VLANs for the given network
-		/// </remarks>
+		/// </summary>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkVlansEnabledState"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkVlansEnabledState"></param>
 		[Put("/networks/{networkId}/appliance/vlans/settings")]
 		Task<VlansEnabledState> UpdateNetworkVlanEnabledStatesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] VlansEnabledState updateNetworkVlansEnabledState
+			[Body] VlansEnabledState UpdateNetworkVlansEnabledState,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

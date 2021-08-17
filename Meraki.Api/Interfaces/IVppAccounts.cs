@@ -12,31 +12,23 @@ namespace Meraki.Api.Interfaces
 	public interface IVppAccounts
 	{
 		/// <summary>
-		/// getOrganizationSmVppAccounts
-		/// </summary>
-		/// <remarks>
 		/// List the VPP accounts in the organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/sm/vppAccounts")]
-		Task<List<SmVppAccount>> GetOrganizationSmVppAccounts(
+		Task<List<SmVppAccount>> GetOrganizationSmVppAccountsAsync(
 			[AliasAs("organizationId")]string organizationId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// getOrganizationSmVppAccount
-		/// </summary>
-		/// <remarks>
 		/// List the VPP accounts in the organization
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="vppAccountId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="vppAccountId">The VPP account id</param>
 		[Get("/organizations/{organizationId}/sm/vppAccounts/{vppAccountId}")]
-		Task<SmVppAccount> GetOrganizationSmVppAccount(
+		Task<SmVppAccount> GetOrganizationSmVppAccountAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("vppAccountId")] string vppAccountId,
 			CancellationToken cancellationToken = default);

@@ -12,11 +12,8 @@ namespace Meraki.Api.Interfaces
 	public interface ISignalQualityHistory
 	{
 		/// <summary>
-		/// getNetworkWirelessSignalQualityHistory
-		/// </summary>
-		/// <remarks>
 		/// Return signal quality (SNR/RSSI) over time for a device or network client
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today.</param>
@@ -29,9 +26,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP tag; either :clientId or :deviceSerial must be jointly specified.</param>
 		/// <param name="band">Filter results by band (either '2.4' or '5').</param>
 		/// <param name="ssid">Filter results by SSID number.</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/signalQualityHistory")]
-		Task<List<SignalQualityHistory>> GetNetworkWirelessSignalQualityHistory(
+		Task<List<SignalQualityHistory>> GetNetworkWirelessSignalQualityHistoryAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("t0")] string? t0 = null,
 			[AliasAs("t1")] string? t1 = null,
@@ -42,7 +38,8 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("deviceSerial")] string? deviceSerial = null,
 			[AliasAs("apTag")] string? apTag = null,
 			[AliasAs("band")] string? band = null,
-			[AliasAs("ssid")] string? ssid = null
+			[AliasAs("ssid")] string? ssid = null,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

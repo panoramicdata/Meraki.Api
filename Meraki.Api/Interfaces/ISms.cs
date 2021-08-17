@@ -1,7 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
-using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -12,252 +12,194 @@ namespace Meraki.Api.Interfaces
 	public interface ISms
 	{
 		/// <summary>
-		/// checkinNetworkSmDevices
-		/// </summary>
-		/// <remarks>
 		/// Force check-in a set of devices
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="checkinNetworkSmDevices"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CheckinNetworkSmDevices">Body for check-in of device</param>
 		[Post("/networks/{networkId}/sm/devices/checkin")]
-		Task<CheckinNetworkSmDevices> CheckinNetworkSmDevices(
+		Task<CheckinNetworkSmDevices> CheckinNetworkSmDevicesAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]CheckinNetworkSmDevices checkinNetworkSmDevices
+			[Body]CheckinNetworkSmDevices CheckinNetworkSmDevices,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// modifyNetworkSmDevicesTags
-		/// </summary>
-		/// <remarks>
 		/// Add, delete, or update the tags of a set of devices
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Post("/networks/{networkId}/sm/devices/modifyTags")]
-		Task<CheckinNetworkSmDevices> ModifyNetworkSmDevicesTags(
+		Task<CheckinNetworkSmDevices> ModifyNetworkSmDevicesTagsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]ModifyNetworkDeviceTags modifyNetworkSmDevicesTags
+			[Body]ModifyNetworkDeviceTags ModifyNetworkSmDevicesTags,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		///// lockNetworkSmDevices
-		///// </summary>
-		///// <remarks>
-		///// Lock a set of devices
-		///// </remarks>
-		///// <exception cref="Refit.ApiException">Thrown when fails to make API call</exception>
-		///// <param name="networkId"></param>
-		///// <param name="checkinNetworkSmDevices"> (optional)</param>
-		///// <returns>Task of Object</returns>
+		/// Lock a set of devices
+		/// </summary>
+		/// <exception cref="Refit.ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId"></param>
+		/// <param name="LockNetworkSmDevices">Body for locking a set of devices</param>
 		[Post("/networks/{networkId}/sm/devices/lock")]
-		Task<CheckinNetworkSmDevices> LockNetworkSmDevices(
+		Task<CheckinNetworkSmDevices> LockNetworkSmDevicesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]CheckinNetworkSmDevices lockNetworkSmDevices
+			[Body]CheckinNetworkSmDevices LockNetworkSmDevices,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// createNetworkSmAppPolaris
-		/// </summary>
-		/// <remarks>
-		/// Create a new Polaris app
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="createNetworkSmAppPolaris"></param>
-		/// <returns>Task of Object</returns>
-		[Post("/networks/{networkId}/sm/app/polaris")]
-		Task<object> CreateNetworkSmAppPolaris(
-			[AliasAs("networkId")]string networkId,
-			[Body]SmAppPolarisCreationRequest createNetworkSmAppPolaris
-			);
-
-		/// <summary>
-		/// createNetworkSmBypassActivationLockAttempt
-		/// </summary>
-		/// <remarks>
 		/// Bypass activation lock attempt
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="createNetworkSmBypassActivationLockAttempt"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CreateNetworkSmBypassActivationLockAttempt">Body for bypassing a lock attempt</param>
 		[Post("/networks/{networkId}/sm/bypassActivationLockAttempts")]
-		Task<object> CreateNetworkSmBypassActivationLockAttempt(
+		Task<object> CreateNetworkSmBypassActivationLockAttemptAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]SmBypassActivationLockAttemptCreationRequest createNetworkSmBypassActivationLockAttempt
+			[Body]SmBypassActivationLockAttemptCreationRequest CreateNetworkSmBypassActivationLockAttempt,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkSmAppPolaris
-		/// </summary>
-		/// <remarks>
 		/// Delete a Cisco Polaris app
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="appId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="appId">The app id</param>
 		[Delete("/networks/{networkId}/sm/app/polaris/{appId}")]
-		Task<object> DeleteNetworkSmAppPolaris(
+		Task<object> DeleteNetworkSmAppPolarisAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("appId")]string appId
+			[AliasAs("appId")]string appId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmAppPolaris
-		/// </summary>
-		/// <remarks>
 		/// Get details for a Cisco Polaris app if it exists
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="bundleId">The bundle ID of the app to be found, defaults to com.cisco.ciscosecurity.app (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/app/polaris")]
-		Task<object> GetNetworkSmAppPolaris(
+		Task<object> GetNetworkSmAppPolarisAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("bundleId")]string bundleId = null!
+			[AliasAs("bundleId")]string bundleId = null!,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmBypassActivationLockAttempt
-		/// </summary>
-		/// <remarks>
 		/// Bypass activation lock attempt status
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="attemptId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="attemptId">The attempt id</param>
 		[Get("/networks/{networkId}/sm/bypassActivationLockAttempts/{attemptId}")]
-		Task<object> GetNetworkSmBypassActivationLockAttempt(
+		Task<BypassLockResponse> GetNetworkSmBypassActivationLockAttemptAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("attemptId")]string attemptId
+			[AliasAs("attemptId")]string attemptId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmCellularUsageHistory
-		/// </summary>
-		/// <remarks>
 		/// Return the client's daily cellular data usage history
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/cellularUsageHistory")]
-		Task<object> GetNetworkSmCellularUsageHistory(
+		Task<List<ClientUsageHistory>> GetNetworkSmCellularUsageHistoryAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmCerts
-		/// </summary>
-		/// <remarks>
 		/// List the certs on a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/certs")]
-		Task<object> GetNetworkSmCerts(
+		Task<List<DeviceCert>> GetNetworkSmCertsAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmConnectivity
-		/// </summary>
-		/// <remarks>
 		/// Returns historical connectivity data (whether a device is regularly checking in to Dashboard).
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="id"></param>
-		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
-		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
-		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{id}/connectivity")]
-		Task<object> GetNetworkSmConnectivity(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("id")]string id,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!
-			);
-
-		/// <summary>
-		/// getNetworkSmDesktopLogs
 		/// </summary>
-		/// <remarks>
-		/// Return historical records of various Systems Manager network connection details for desktop devices.
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="id"></param>
+		/// <param name="deviceId">The device id</param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/{id}/desktopLogs")]
-		Task<object> GetNetworkSmDesktopLogs(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("id")]string id,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!
-			);
-
-		/// <summary>
-		/// getNetworkSmDeviceCommandLogs
-		/// </summary>
-		/// <remarks>
-		/// Return historical records of commands sent to Systems Manager devices
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
-		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
-		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/devices/{deviceId}/deviceCommandLogs")]
-		Task<object> GetNetworkSmDeviceCommandLogs(
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/connectivity")]
+		Task<DeviceConnectivity> GetNetworkSmConnectivityAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("deviceId")]string deviceId,
 			[AliasAs("perPage")]int? perPage = null,
 			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!
+			[AliasAs("endingBefore")]string endingBefore = null!,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmDeviceProfiles
+		/// Return historical records of various Systems Manager network connection details for desktop devices.
 		/// </summary>
-		/// <remarks>
-		/// Get the profiles associated with a device
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}/sm/devices/{deviceId}/deviceProfiles")]
-		Task<object> GetNetworkSmDeviceProfiles(
+		/// <param name="deviceId">The device id</param>
+		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
+		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
+		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/desktopLogs")]
+		Task<List<DesktopLogs>> GetNetworkSmDesktopLogsAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("perPage")]int? perPage = null,
+			[AliasAs("startingAfter")]string startingAfter = null!,
+			[AliasAs("endingBefore")]string endingBefore = null!,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmDevices
+		/// Return historical records of commands sent to Systems Manager devices
 		/// </summary>
-		/// <remarks>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="deviceId">The device id</param>
+		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
+		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
+		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/deviceCommandLogs")]
+		Task<List<CommandLogs>> GetNetworkSmDeviceCommandLogsAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("perPage")]int? perPage = null,
+			[AliasAs("startingAfter")]string startingAfter = null!,
+			[AliasAs("endingBefore")]string endingBefore = null!,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Get the profiles associated with a device
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="deviceId">The device id</param>
+		[Get("/networks/{networkId}/sm/devices/{deviceId}/deviceProfiles")]
+		Task<List<DeviceProfile>> GetNetworkSmDeviceProfilesAsync(
+			[AliasAs("networkId")]string networkId,
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
 		/// List the devices enrolled in an SM network with various specified fields and filters
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="fields">Additional fields that will be displayed for each device. Multiple fields can be passed in as comma separated values.     The default fields are: id, name, tags, ssid, wifiMac, osName, systemModel, uuid, and serialNumber. The additional fields are: ip,     systemType, availableDeviceCapacity, kioskAppName, biosVersion, lastConnected, missingAppsCount, userSuppliedAddress, location, lastUser,     ownerEmail, ownerUsername, publicIp, phoneNumber, diskInfoJson, deviceCapacity, isManaged, hadMdm, isSupervised, meid, imei, iccid,     simCarrierNetwork, cellularDataUsed, isHotspotEnabled, createdAt, batteryEstCharge, quarantined, avName, avRunning, asName, fwName,     isRooted, loginRequired, screenLockEnabled, screenLockDelay, autoLoginDisabled, autoTags, hasMdm, hasDesktopAgent, diskEncryptionEnabled,     hardwareEncryptionCaps, passCodeLock, usesHardwareKeystore, and androidSecurityPatchVersion. (optional)</param>
@@ -267,9 +209,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="scope">Specify a scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags as comma separated values. (optional)</param>
 		/// <param name="batchSize">Number of devices to return, 1000 is the default as well as the max. (optional)</param>
 		/// <param name="batchToken">If the network has more devices than the batch size, a batch token will be returned     as a part of the device list. To see the remainder of the devices, pass in the batchToken as a parameter in the next request.     Requests made with the batchToken do not require additional parameters as the batchToken includes the parameters passed in     with the original request. Additional parameters passed in with the batchToken will be ignored. (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/devices")]
-		Task<object> GetNetworkSmDevices(
+		Task<SmDevices> GetNetworkSmDevicesAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("fields")]string fields = null!,
 			[AliasAs("wifiMacs")]string wifiMacs = null!,
@@ -277,259 +218,200 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("ids")]string ids = null!,
 			[AliasAs("scope")]string scope = null!,
 			[AliasAs("batchSize")]int? batchSize = null,
-			[AliasAs("batchToken")]string batchToken = null!
+			[AliasAs("batchToken")]string batchToken = null!,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmNetworkAdapters
-		/// </summary>
-		/// <remarks>
 		/// List the network adapters of a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/networkAdapters")]
-		Task<object> GetNetworkSmNetworkAdapters(
+		Task<List<NetworkAdapter>> GetNetworkSmNetworkAdaptersAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmPerformanceHistory
-		/// </summary>
-		/// <remarks>
 		/// Return historical records of various Systems Manager client metrics for desktop devices.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="id"></param>
+		/// <param name="id">The SM id</param>
 		/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
 		/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/{id}/performanceHistory")]
-		Task<object> GetNetworkSmPerformanceHistory(
+		Task<List<SmDevicePerformanceHistory>> GetNetworkSmPerformanceHistoryAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("id")]string id,
 			[AliasAs("perPage")]int? perPage = null,
 			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!
+			[AliasAs("endingBefore")]string endingBefore = null!,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmProfiles
-		/// </summary>
-		/// <remarks>
 		/// List all profiles in a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/profiles")]
-		Task<SmProfile> GetNetworkSmProfiles(
-			[AliasAs("networkId")]string networkId
+		Task<SmProfile> GetNetworkSmProfilesAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmRestrictions
-		/// </summary>
-		/// <remarks>
 		/// List the restrictions on a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/restrictions")]
-		Task<object> GetNetworkSmRestrictions(
+		Task<List<SmDeviceRestrictions>> GetNetworkSmRestrictionsAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmSecurityCenters
-		/// </summary>
-		/// <remarks>
 		/// List the security centers on a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/securityCenters")]
-		Task<object> GetNetworkSmSecurityCenters(
+		Task<List<SecurityCenter>> GetNetworkSmSecurityCentersAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmSoftwares
-		/// </summary>
-		/// <remarks>
 		/// Get a list of softwares associated with a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/softwares")]
-		Task<object> GetNetworkSmSoftwares(
+		Task<List<Software>> GetNetworkSmSoftwaresAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmUserDeviceProfiles
-		/// </summary>
-		/// <remarks>
 		/// Get the profiles associated with a user
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="userId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="userId">The user id</param>
 		[Get("/networks/{networkId}/sm/users/{userId}/deviceProfiles")]
-		Task<object> GetNetworkSmUserDeviceProfiles(
+		Task<List<DeviceProfile>> GetNetworkSmUserDeviceProfilesAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("userId")]string userId
+			[AliasAs("userId")]string userId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmUserSoftwares
-		/// </summary>
-		/// <remarks>
 		/// Get a list of softwares associated with a user
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="userId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="userId">The user id</param>
 		[Get("/networks/{networkId}/sm/users/{userId}/softwares")]
-		Task<object> GetNetworkSmUserSoftwares(
+		Task<List<Software>> GetNetworkSmUserSoftwaresAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("userId")]string userId
+			[AliasAs("userId")]string userId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmUsers
-		/// </summary>
-		/// <remarks>
 		/// List the owners in an SM network with various specified fields and filters
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="ids">Filter users by id(s). Multiple ids can be passed in as comma separated values. (optional)</param>
 		/// <param name="usernames">Filter users by username(s). Multiple usernames can be passed in as comma separated values. (optional)</param>
 		/// <param name="emails">Filter users by email(s). Multiple emails can be passed in as comma separated values. (optional)</param>
 		/// <param name="scope">Specifiy a scope (one of all, none, withAny, withAll, withoutAny, withoutAll) and a set of tags as comma separated values. (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/sm/users")]
-		Task<List<SmNetworkUsers>> GetNetworkSmUsers(
+		Task<List<SmNetworkUsers>> GetNetworkSmUsersAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("ids")]string ids = null!,
 			[AliasAs("usernames")]string usernames = null!,
 			[AliasAs("emails")]string emails = null!,
-			[AliasAs("scope")]string scope = null!
+			[AliasAs("scope")]string scope = null!,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkSmWlanLists
-		/// </summary>
-		/// <remarks>
 		/// List the saved SSID names on a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/wlanLists")]
-		Task<object> GetNetworkSmWlanLists(
+		Task<List<WlanList>> GetNetworkSmWlanListsAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// moveNetworkSmDevices
-		/// </summary>
-		/// <remarks>
 		/// Move a set of devices to a new network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="moveNetworkSmDevices"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="MoveNetworkSmDevices">Body for moving devices</param>
 		[Post("/networks/{networkId}/sm/devices/move")]
-		Task<MoveNetworkSmDevices> MoveNetworkSmDevices(
+		Task<MoveNetworkSmDevices> MoveNetworkSmDevicesAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]MoveNetworkSmDevices moveNetworkSmDevices
+			[Body]MoveNetworkSmDevices MoveNetworkSmDevices,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// refreshNetworkSmDeviceDetails
-		/// </summary>
-		/// <remarks>
 		/// Refresh the details of a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="deviceId">The device id</param>
 		[Post("/networks/{networkId}/sm/devices/{deviceId}/refreshDetails")]
-		Task RefreshNetworkSmDeviceDetails(
+		Task RefreshNetworkSmDeviceDetailsAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// unenrollNetworkSmDevice
-		/// </summary>
-		/// <remarks>
 		/// Unenroll a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="deviceId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="deviceId">The device id</param>
 		[Post("/networks/{networkId}/sm/devices/{deviceId}/unenroll")]
-		Task<object> UnenrollNetworkSmDevice(
+		Task<UpdateOnboardingStatusResponse> UnenrollNetworkSmDeviceAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId
+			[AliasAs("deviceId")]string deviceId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkSmAppPolaris
-		/// </summary>
-		/// <remarks>
-		/// Update an existing Polaris app
-		/// </remarks>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="appId"></param>
-		/// <param name="updateNetworkSmAppPolaris"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/networks/{networkId}/sm/app/polaris/{appId}")]
-		Task<object> UpdateNetworkSmAppPolaris(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("appId")]string appId,
-			[Body]SmAppPolarisUpdateRequest updateNetworkSmAppPolaris
-			);
-
-		/// <summary>
-		/// updateNetworkSmDeviceFields
-		/// </summary>
-		/// <remarks>
 		/// Modify the fields of a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkSmDeviceFields"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkSmDeviceFields">Body for modifying a device</param>
 		[Put("/networks/{networkId}/sm/devices/fields")]
-		Task<object> UpdateNetworkSmDeviceFields(
+		Task<SmDeviceFieldsUpdateRequest> UpdateNetworkSmDeviceFieldsAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]SmDeviceFieldsUpdateRequest updateNetworkSmDeviceFields
+			[Body]SmDeviceFieldsUpdateRequest UpdateNetworkSmDeviceFields,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface ISwitchAcls
 	{
 		/// <summary>
-		/// getNetworkSwitchAccessControlLists
-		/// </summary>
-		/// <remarks>
 		/// Return the access control lists for a MS network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/switch/accessControlLists")]
-		Task<object> GetNetworkSwitchAccessControlLists(
-			[AliasAs("networkId")]string networkId
+		Task<SwitchAccessControlListRulesUpdateRequest> GetNetworkSwitchAccessControlListsAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkSwitchAccessControlLists
-		/// </summary>
-		/// <remarks>
 		/// Update the access control lists for a MS network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkSwitchAccessControlLists"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkSwitchAccessControlLists"></param>
 		[Put("/networks/{networkId}/switch/accessControlLists")]
-		Task<object> UpdateNetworkSwitchAccessControlLists(
+		Task<SwitchAccessControlListRulesUpdateRequest> UpdateNetworkSwitchAccessControlListsAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]SwitchAccessControlListRulesUpdateRequest updateNetworkSwitchAccessControlLists
+			[Body]SwitchAccessControlListRulesUpdateRequest UpdateNetworkSwitchAccessControlLists,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

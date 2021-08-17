@@ -1,3 +1,4 @@
+using Meraki.Api.Data;
 using Refit;
 using System.Threading.Tasks;
 
@@ -9,16 +10,12 @@ namespace Meraki.Api.Interfaces
 	public interface IOpenApiSpec
 	{
 		/// <summary>
-		/// getOrganizationOpenapiSpec
-		/// </summary>
-		/// <remarks>
 		/// Return the OpenAPI 2.0 Specification of the organization&#39;s API documentation in JSON
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/openapiSpec")]
-		Task<object> GetOrganizationOpenapiSpec(
+		Task<OpenApiSpecs> GetOrganizationOpenapiSpecAsync(
 			[AliasAs("organizationId")]string organizationId
 			);
 	}

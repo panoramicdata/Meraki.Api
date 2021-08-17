@@ -11,19 +11,15 @@ namespace Meraki.Api.Interfaces
 	public interface ISmNetworkDevices
 	{
 		/// <summary>
-		/// wipeNetworkSmDevices
-		/// </summary>
-		/// <remarks>
 		/// Wipe a device
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="wipeNetworkSmDevices"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="WipeNetworkSmDevices">Body for wiping a device</param>
 		[Post("/networks/{networkId}/sm/devices/wipe")]
-		Task<object> WipeNetworkSmDevices(
+		Task<WipeNetworkSmDevice> WipeNetworkSmDevicesAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]WipeNetworkSmDevice wipeNetworkSmDevices,
+			[Body]WipeNetworkSmDevice WipeNetworkSmDevices,
 			CancellationToken cancellationToken = default);
 	}
 }

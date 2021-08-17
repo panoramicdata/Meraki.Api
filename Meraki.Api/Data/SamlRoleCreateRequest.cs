@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Net.Http.Headers;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data

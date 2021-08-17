@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,32 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface ISaml
 	{
 		/// <summary>
-		/// getOrganizationSaml
-		/// </summary>
-		/// <remarks>
 		/// Returns the SAML SSO enabled settings for an organization.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/organizations/{organizationId}/saml")]
-		Task<Saml> GetOrganizationSaml(
-			[AliasAs("organizationId")]string organizationId
+		Task<Saml> GetOrganizationSamlAsync(
+			[AliasAs("organizationId")]string organizationId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateOrganizationSaml
-		/// </summary>
-		/// <remarks>
 		/// Updates the SAML SSO enabled settings for an organization.
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="updateOrganizationSaml"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateOrganizationSaml">Body for updating SAML SSO enabled settings</param>
 		[Put("/organizations/{organizationId}/saml")]
-		Task<Saml> UpdateOrganizationSaml(
+		Task<Saml> UpdateOrganizationSamlAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] Saml updateOrganizationSaml);
+			[Body] Saml UpdateOrganizationSaml,
+			CancellationToken cancellationToken = default
+			);
 	}
 }

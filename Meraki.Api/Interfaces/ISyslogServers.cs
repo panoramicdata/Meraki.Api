@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,33 +11,27 @@ namespace Meraki.Api.Interfaces
 	public interface ISyslogServers
 	{
 		/// <summary>
-		/// getNetworkSyslogServers
-		/// </summary>
-		/// <remarks>
 		/// List the syslog servers for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/syslogServers")]
-		Task<object> GetNetworkSyslogServers(
-			[AliasAs("networkId")]string networkId
+		Task<SyslogServersUpdateRequest> GetNetworkSyslogServersAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateNetworkSyslogServers
-		/// </summary>
-		/// <remarks>
 		/// Update the syslog servers for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkSyslogServers"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkSyslogServers"></param>
 		[Put("/networks/{networkId}/syslogServers")]
-		Task<object> UpdateNetworkSyslogServers(
+		Task<SyslogServersUpdateRequest> UpdateNetworkSyslogServersAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]SyslogServersUpdateRequest updateNetworkSyslogServers
+			[Body]SyslogServersUpdateRequest UpdateNetworkSyslogServers,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

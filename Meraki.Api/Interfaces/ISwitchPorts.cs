@@ -12,88 +12,72 @@ namespace Meraki.Api.Interfaces
 	public interface ISwitchPorts
 	{
 		/// <summary>
-		/// getDeviceSwitchPort
-		/// </summary>
-		/// <remarks>
 		/// Return a switch port
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="number"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="portId">The port id</param>
 		[Get("/devices/{serial}/switch/ports/{portId}")]
-		Task<DeviceSwitchPort> GetDeviceSwitchPort(
+		Task<DeviceSwitchPort> GetDeviceSwitchPortAsync(
 			[AliasAs("serial")]string serial,
-			[AliasAs("portId")]string number,
+			[AliasAs("portId")]string portId,
 			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getDeviceSwitchPortStatuses
-		/// </summary>
-		/// <remarks>
 		/// Return the status for all the ports of a switch
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switch/ports/statuses")]
-		Task<List<SwitchPortStatus>> GetDeviceSwitchPortStatuses(
+		Task<List<SwitchPortStatus>> GetDeviceSwitchPortStatusesAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("t0")] string t0 = null!,
-			[AliasAs("timespan")] double? timespan = null
+			[AliasAs("timespan")] double? timespan = null,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getDeviceSwitchPortStatusesPackets
-		/// </summary>
-		/// <remarks>
 		/// Return the packet counters for all the ports of a switch
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 1 day from today. (optional)</param>
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 1 day. The default is 1 day. (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Get("/devices/{serial}/switchPortStatuses/packets")]
-		Task<object> GetDeviceSwitchPortStatusesPackets(
+		[Get("/devices/{serial}/switch/ports/statuses/packets")]
+		Task<List<PacketsList>> GetDeviceSwitchPortStatusesPacketsAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("t0")] string t0 = null!,
-			[AliasAs("timespan")] double? timespan = null
+			[AliasAs("timespan")] double? timespan = null,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getDeviceSwitchPorts
-		/// </summary>
-		/// <remarks>
 		/// List the switch ports for a switch
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <returns>Task of list of DeviceSwitchPorts</returns>
 		[Get("/devices/{serial}/switch/ports")]
-		Task<List<DeviceSwitchPort>> GetDeviceSwitchPorts(
+		Task<List<DeviceSwitchPort>> GetDeviceSwitchPortsAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateDeviceSwitchPort
-		/// </summary>
-		/// <remarks>
 		/// Update a switch port
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="updateDeviceSwitchPort"> (optional)</param>
-		/// <returns>Task of Object</returns>
-		[Put("/devices/{serial}/switchPorts/{portId}")]
-		Task<object> UpdateDeviceSwitchPort(
+		/// <param name="portId">The port id</param>
+		/// <param name="UpdateDeviceSwitchPort"></param>
+		[Put("/devices/{serial}/switch/ports/{portId}")]
+		Task<DeviceSwitchPort> UpdateDeviceSwitchPortAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("portId")] string portId,
-			[Body] SwitchPortUpdateRequest updateDeviceSwitchPort
+			[Body] SwitchPortUpdateRequest UpdateDeviceSwitchPort,
+			CancellationToken cancellationToken = default
 			);
 	}
 }

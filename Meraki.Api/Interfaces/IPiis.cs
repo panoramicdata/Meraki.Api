@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -10,43 +12,34 @@ namespace Meraki.Api.Interfaces
 	public interface IPiis
 	{
 		/// <summary>
-		/// createNetworkPiiRequest
+		/// Submit a new delete or restrict processing PII request
 		/// </summary>
-		/// <remarks>
-		/// Submit a new delete or restrict processing PII request  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests &#x60;&#x60;&#x60;
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="createNetworkPiiRequest"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="CreateNetworkPiiRequest">Body for creating a PII request</param>
 		[Post("/networks/{networkId}/pii/requests")]
-		Task<object> CreateNetworkPiiRequest(
+		Task<PiiResponse> CreateNetworkPiiRequestAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]PiiCreationRequest createNetworkPiiRequest
+			[Body]PiiCreationRequest CreateNetworkPiiRequest,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// deleteNetworkPiiRequest
+		/// Delete a restrict processing PII request
 		/// </summary>
-		/// <remarks>
-		/// Delete a restrict processing PII request  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests/{requestId} &#x60;&#x60;&#x60;
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="requestId"></param>
-		/// <returns>Task of void</returns>
+		/// <param name="requestId">The request id</param>
 		[Delete("/networks/{networkId}/pii/requests/{requestId}")]
-		Task DeleteNetworkPiiRequest(
+		Task DeleteNetworkPiiRequestAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("requestId")]string requestId
+			[AliasAs("requestId")]string requestId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkPiiPiiKeys
-		/// </summary>
-		/// <remarks>
 		/// List the keys required to access Personally Identifiable Information (PII) for a given identifier
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="username">The username of a Systems Manager user (optional)</param>
@@ -55,54 +48,45 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial of a Systems Manager device (optional)</param>
 		/// <param name="imei">The IMEI of a Systems Manager device (optional)</param>
 		/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/pii/piiKeys")]
-		Task<object> GetNetworkPiiPiiKeys(
+		Task<PiiPiiKeys> GetNetworkPiiPiiKeysAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("username")]string username = null!,
 			[AliasAs("email")]string email = null!,
 			[AliasAs("mac")]string mac = null!,
 			[AliasAs("serial")]string serial = null!,
 			[AliasAs("imei")]string imei = null!,
-			[AliasAs("bluetoothMac")]string bluetoothMac = null!
+			[AliasAs("bluetoothMac")]string bluetoothMac = null!,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkPiiRequest
+		/// Return a PII request
 		/// </summary>
-		/// <remarks>
-		/// Return a PII request  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests/{requestId} &#x60;&#x60;&#x60;
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="requestId"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="requestId">The request id</param>
 		[Get("/networks/{networkId}/pii/requests/{requestId}")]
-		Task<object> GetNetworkPiiRequest(
+		Task<PiiResponse> GetNetworkPiiRequestAsync(
 			[AliasAs("networkId")]string networkId,
-			[AliasAs("requestId")]string requestId
+			[AliasAs("requestId")]string requestId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkPiiRequests
+		/// List the PII requests for this network or organization
 		/// </summary>
-		/// <remarks>
-		/// List the PII requests for this network or organization  ## ALTERNATE PATH  &#x60;&#x60;&#x60; /organizations/{organizationId}/pii/requests &#x60;&#x60;&#x60;
-		/// </remarks>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/pii/requests")]
-		Task<object> GetNetworkPiiRequests(
-			[AliasAs("networkId")]string networkId
+		Task<List<PiiResponse>> GetNetworkPiiRequestsAsync(
+			[AliasAs("networkId")]string networkId,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkPiiSmDevicesForKey
-		/// </summary>
-		/// <remarks>
 		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager device ID(s) associated with that identifier
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="username">The username of a Systems Manager user (optional)</param>
@@ -111,24 +95,21 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial of a Systems Manager device (optional)</param>
 		/// <param name="imei">The IMEI of a Systems Manager device (optional)</param>
 		/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/pii/smDevicesForKey")]
-		Task<object> GetNetworkPiiSmDevicesForKey(
+		Task<PiiSmKey> GetNetworkPiiSmDevicesForKeyAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("username")]string username = null!,
 			[AliasAs("email")]string email = null!,
 			[AliasAs("mac")]string mac = null!,
 			[AliasAs("serial")]string serial = null!,
 			[AliasAs("imei")]string imei = null!,
-			[AliasAs("bluetoothMac")]string bluetoothMac = null!
+			[AliasAs("bluetoothMac")]string bluetoothMac = null!,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// getNetworkPiiSmOwnersForKey
-		/// </summary>
-		/// <remarks>
 		/// Given a piece of Personally Identifiable Information (PII), return the Systems Manager owner ID(s) associated with that identifier
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="username">The username of a Systems Manager user (optional)</param>
@@ -137,15 +118,15 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial of a Systems Manager device (optional)</param>
 		/// <param name="imei">The IMEI of a Systems Manager device (optional)</param>
 		/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/pii/smOwnersForKey")]
-		Task<object> GetNetworkPiiSmOwnersForKey(
+		Task<PiiSmKey> GetNetworkPiiSmOwnersForKeyAsync(
 			[AliasAs("networkId")]string networkId,
 			[AliasAs("username")]string username = null!,
 			[AliasAs("email")]string email = null!,
 			[AliasAs("mac")]string mac = null!,
 			[AliasAs("serial")]string serial = null!,
 			[AliasAs("imei")]string imei = null!,
-			[AliasAs("bluetoothMac")]string bluetoothMac = null!);
+			[AliasAs("bluetoothMac")]string bluetoothMac = null!,
+			CancellationToken cancellationToken = default);
 	}
 }

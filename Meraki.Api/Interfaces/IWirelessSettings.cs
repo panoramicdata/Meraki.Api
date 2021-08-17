@@ -11,33 +11,25 @@ namespace Meraki.Api.Interfaces
 	public interface IWirelessSettings
 	{
 		/// <summary>
-		/// getNetworkWirelessSettings
-		/// </summary>
-		/// <remarks>
 		/// Return the wireless settings for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
 		[Get("/networks/{networkId}/wireless/settings")]
 		Task<WirelessSettings> GetAsync(
 			[AliasAs("networkId")]string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// updateNetworkWirelessSettings
-		/// </summary>
-		/// <remarks>
 		/// Update the wireless settings for a network
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkWirelessSettings"> (optional)</param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateNetworkWirelessSettings"></param>
 		[Put("/networks/{networkId}/wireless/settings")]
 		Task<WirelessSettings> UpdateAsync(
 			[AliasAs("networkId")]string networkId,
-			[Body]WirelessSettingsUpdateDto updateNetworkWirelessSettings,
+			[Body]WirelessSettingsUpdateDto UpdateNetworkWirelessSettings,
 			CancellationToken cancellationToken = default);
 	}
 }

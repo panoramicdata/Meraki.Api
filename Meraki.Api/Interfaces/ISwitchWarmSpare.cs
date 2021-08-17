@@ -11,33 +11,26 @@ namespace Meraki.Api.Interfaces
 	public interface ISwitchWarmSpare
 	{
 		/// <summary>
-		/// getDeviceSwitchWarmSpare
-		/// </summary>
-		/// <remarks>
 		/// Return warm spare configuration for a switch
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <returns>Task of Object</returns>
 		[Get("/devices/{serial}/switch/warmSpare")]
-		Task<SwitchWarmSpare> GetDeviceSwitchWarmSpare(
-			[AliasAs("serial")]string serial
+		Task<SwitchWarmSpare> GetDeviceSwitchWarmSpareAsync(
+			[AliasAs("serial")]string serial,
+			CancellationToken cancellationToken = default
 			);
 
 		/// <summary>
-		/// updateDeviceSwitchWarmSpare
-		/// </summary>
-		/// <remarks>
 		/// Update warm spare configuration for a switch
-		/// </remarks>
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="updateDeviceSwitchWarmSpare"></param>
-		/// <returns>Task of Object</returns>
+		/// <param name="UpdateDeviceSwitchWarmSpare"></param>
 		[Put("/devices/{serial}/switch/warmSpare")]
-		Task<object> UpdateAsync(
+		Task<SwitchWarmSpare> UpdateAsync(
 			[AliasAs("serial")]string serial,
-			[Body]SwitchWarmSpareUpdateRequest updateDeviceSwitchWarmSpare,
+			[Body]SwitchWarmSpareUpdateRequest UpdateDeviceSwitchWarmSpare,
 			CancellationToken cancellationToken = default);
 	}
 }
