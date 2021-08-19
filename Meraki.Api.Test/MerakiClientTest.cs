@@ -53,6 +53,10 @@ namespace Meraki.Api.Test
 
 				// Load in the config
 				_configuration = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(fileInfo.FullName));
+				if(_configuration is null)
+				{
+					throw new ConfigurationException("Configuration did not deserialize");
+				}
 				_configuration.Validate();
 				return _configuration;
 			}
