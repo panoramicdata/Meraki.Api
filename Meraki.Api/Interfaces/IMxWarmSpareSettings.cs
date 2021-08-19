@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/warmSpareSettings")]
 		Task<WarmSpare> GetNetworkWarmSpareSettingsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Post("/networks/{networkId}/swapWarmSpare")]
 		Task<WarmSpare> SwapNetworkWarmspareAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -40,8 +40,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkWarmSpareSettings">Body for updating warm spare settings</param>
 		[Put("/networks/{networkId}/warmSpareSettings")]
 		Task<WarmSpare> UpdateNetworkWarmSpareSettingsAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]WarmSpareSettingsUpdateRequest UpdateNetworkWarmSpareSettings,
+			[AliasAs("networkId")] string networkId,
+			[Body] WarmSpareSettingsUpdateRequest UpdateNetworkWarmSpareSettings,
 			CancellationToken cancellationToken = default
 			);
 	}

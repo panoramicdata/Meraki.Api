@@ -20,9 +20,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
 		[Get("/devices/{serial}/clients")]
 		Task<List<DeviceClient>> GetAllAsync(
-			[AliasAs("serial")]string serial,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("timespan")]double? timespan = null,
+			[AliasAs("serial")] string serial,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("timespan")] double? timespan = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -33,8 +33,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId">The client id</param>
 		[Get("/networks/{networkId}/clients/{clientId}")]
 		Task<Client> GetAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -49,12 +49,12 @@ namespace Meraki.Api.Interfaces
 		/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 86400. The default is 86400. (optional)</param>
 		[Get("/networks/{networkId}/wireless/clients/{clientId}/latencyHistory")]
 		Task<List<ClientLatencyHistory>> GetLatencyHistoryAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("resolution")]int? resolution = null,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("resolution")] int? resolution = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -65,8 +65,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId">The client id</param>
 		[Get("/networks/{networkId}/clients/{clientId}/policy")]
 		Task<ClientPolicyUpdateRequest> GetPolicyAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -77,8 +77,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId">The client id</param>
 		[Get("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
 		Task<ClientSplashAuthorizationStatusUpdateRequest> GetSplashAuthorizationStatusAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -92,11 +92,11 @@ namespace Meraki.Api.Interfaces
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		[Get("/networks/{networkId}/clients/{clientId}/trafficHistory")]
 		Task<List<ClientTrafficHistory>> GetTrafficHistoryAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -107,8 +107,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId">The client id</param>
 		[Get("/networks/{networkId}/clients/{clientId}/usageHistory")]
 		Task<List<ClientUsageHistory>> GetUsageHistoryAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -131,20 +131,20 @@ namespace Meraki.Api.Interfaces
 		/// <param name="recentDeviceConnections">Filters clients based on recent connection type. Can be one of 'Wired' or 'Wireless'.</param>
 		[Get("/networks/{networkId}/clients")]
 		Task<List<Client>> GetByNetworkAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
-			[AliasAs("statuses")]string? statuses = null,
-			[AliasAs("ip")]string? ip = null,
-			[AliasAs("ip6")]string? ip6 = null,
-			[AliasAs("ip6Local")]string? ip6Local = null,
-			[AliasAs("mac")]string? mac = null,
-			[AliasAs("os")]string? os = null,
-			[AliasAs("description")]string? description = null,
-			[AliasAs("recentDeviceConnections")]List<string>? recentDeviceConnections = null,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
+			[AliasAs("statuses")] string? statuses = null,
+			[AliasAs("ip")] string? ip = null,
+			[AliasAs("ip6")] string? ip6 = null,
+			[AliasAs("ip6Local")] string? ip6Local = null,
+			[AliasAs("mac")] string? mac = null,
+			[AliasAs("os")] string? os = null,
+			[AliasAs("description")] string? description = null,
+			[AliasAs("recentDeviceConnections")] List<string>? recentDeviceConnections = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -155,8 +155,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="ClientProvisionRequest">Body for provisioning a client</param>
 		[Post("/networks/{networkId}/clients/provision")]
 		Task<ClientProvisionRequest> ProvisionAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]ClientProvisionRequest ClientProvisionRequest,
+			[AliasAs("networkId")] string networkId,
+			[Body] ClientProvisionRequest ClientProvisionRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -168,9 +168,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="ClientPolicyUpdateRequest">Body for updating client policy</param>
 		[Put("/networks/{networkId}/clients/{clientId}/policy")]
 		Task<ClientPolicyUpdateRequest> UpdatePolicyAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
-			[Body]ClientPolicyUpdateRequest ClientPolicyUpdateRequest,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
+			[Body] ClientPolicyUpdateRequest ClientPolicyUpdateRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -182,9 +182,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkClientSplashAuthorizationStatus">Body for updating client's splash authorization</param>
 		[Put("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
 		Task<ClientSplashAuthorizationStatusUpdateRequest> UpdateSplashAuthorizationStatusAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
-			[Body]ClientSplashAuthorizationStatusUpdateRequest UpdateNetworkClientSplashAuthorizationStatus,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
+			[Body] ClientSplashAuthorizationStatusUpdateRequest UpdateNetworkClientSplashAuthorizationStatus,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

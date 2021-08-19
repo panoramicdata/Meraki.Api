@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/wireless/settings")]
 		Task<WirelessSettings> GetAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -28,8 +28,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkWirelessSettings"></param>
 		[Put("/networks/{networkId}/wireless/settings")]
 		Task<WirelessSettings> UpdateAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]WirelessSettingsUpdateDto UpdateNetworkWirelessSettings,
+			[AliasAs("networkId")] string networkId,
+			[Body] WirelessSettingsUpdateDto UpdateNetworkWirelessSettings,
 			CancellationToken cancellationToken = default);
 	}
 }

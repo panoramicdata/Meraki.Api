@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/firewall/firewalledServices")]
 		Task<List<FirewalledService>> GetNetworkFirewalledServicesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 	}

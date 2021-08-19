@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/cellularGateway/settings/uplink")]
 		Task<NetworkCellularGatewaySettingsUplinkUpdateRequest> GetNetworkCellularGatewaySettingsUplinkAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkCellularGatewaySettingsUplink">Body for updating uplink settings</param>
 		[Put("/networks/{networkId}/cellularGateway/settings/uplink")]
 		Task<NetworkCellularGatewaySettingsUplinkUpdateRequest> UpdateNetworkCellularGatewaySettingsUplinkAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]NetworkCellularGatewaySettingsUplinkUpdateRequest UpdateNetworkCellularGatewaySettingsUplink,
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkCellularGatewaySettingsUplinkUpdateRequest UpdateNetworkCellularGatewaySettingsUplink,
 			CancellationToken cancellationToken = default
 			);
 	}

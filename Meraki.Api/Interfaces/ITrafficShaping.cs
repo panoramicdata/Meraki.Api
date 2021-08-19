@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules")]
 		Task<SsidTrafficShapingUpdateRequest> GetNetworkWirelessSsidTrafficShapingRulesAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
 			CancellationToken cancellationToken = default
 			);
 
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/trafficShaping/rules")]
 		Task<TrafficShapingUpdateRequest> GetNetworkApplianceTrafficShapingRulesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -42,7 +42,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/trafficShaping/applicationCategories")]
 		Task<L7ApplicationCategories> GetNetworkTrafficShapingApplicationCategoriesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -53,7 +53,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/trafficShaping/dscpTaggingOptions")]
 		Task<List<DscpTaggingValues>> GetNetworkTrafficShapingDscpTaggingOptionsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -66,9 +66,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSsidTrafficShaping"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules")]
 		Task<SsidTrafficShapingUpdateRequest> UpdateNetworkWirelessSsidTrafficShapingRulesAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number,
-			[Body]SsidTrafficShapingUpdateRequest UpdateNetworkSsidTrafficShaping,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body] SsidTrafficShapingUpdateRequest UpdateNetworkSsidTrafficShaping,
 			CancellationToken cancellationToken = default
 			);
 
@@ -80,8 +80,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkTrafficShaping"></param>
 		[Put("/networks/{networkId}/appliance/trafficShaping")]
 		Task<TrafficShapingUpdateRequest> UpdateNetworkApplianceTrafficShapingAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]TrafficShapingUpdateRequest UpdateNetworkTrafficShaping,
+			[AliasAs("networkId")] string networkId,
+			[Body] TrafficShapingUpdateRequest UpdateNetworkTrafficShaping,
 			CancellationToken cancellationToken = default
 			);
 
@@ -104,7 +104,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
 		Task<CustomPerformanceClassesRequest> CreateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]CustomPerformanceClassesRequest CreateNetworkApplianceTrafficShapingCustomPerformanceClass,
+			[Body] CustomPerformanceClassesRequest CreateNetworkApplianceTrafficShapingCustomPerformanceClass,
 			CancellationToken cancellationToken = default
 			);
 
@@ -132,7 +132,7 @@ namespace Meraki.Api.Interfaces
 		Task<CustomPerformanceClasses> UpdateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
-			[Body]CustomPerformanceClassesRequest UpdateNetworkApplianceTrafficShapingCustomPerformanceClass,
+			[Body] CustomPerformanceClassesRequest UpdateNetworkApplianceTrafficShapingCustomPerformanceClass,
 			CancellationToken cancellationToken = default
 			);
 
@@ -168,7 +168,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/appliance/trafficShaping/uplinkBandwidth")]
 		Task<UplinkBandwidth> UpdateNetworkApplianceTrafficShapingUplinkBandwidthAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]UplinkBandwidth UpdateNetworkApplianceTrafficShapingUplinkBandwidth,
+			[Body] UplinkBandwidth UpdateNetworkApplianceTrafficShapingUplinkBandwidth,
 			CancellationToken cancellationToken = default
 			);
 
@@ -191,7 +191,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
 		Task<UplinkSelection> UpdateNetworkApplianceTrafficShapingUplinkSelectionAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]UplinkSelection UpdateNetworkApplianceTrafficShapingUplinkSelection,
+			[Body] UplinkSelection UpdateNetworkApplianceTrafficShapingUplinkSelection,
 			CancellationToken cancellationToken = default
 			);
 
@@ -215,7 +215,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/networks/{networkId}/appliance/trafficShaping")]
 		Task<NetworkApplianceTrafficShaping> UpdateNetworkApplianceTrafficShapingAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]NetworkApplianceTrafficShaping UpdateNetworkApplianceTrafficShaping,
+			[Body] NetworkApplianceTrafficShaping UpdateNetworkApplianceTrafficShaping,
 			CancellationToken cancellationToken = default
 			);
 	}

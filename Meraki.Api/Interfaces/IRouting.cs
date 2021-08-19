@@ -27,7 +27,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/devices/{serial}/switch/routing/interfaces")]
 		Task<RoutingInterface> CreateDeviceSwitchRoutingInterfaceAsync(
 			[AliasAs("serial")] string serial,
-			[Body]RoutingInterface CreateDeviceSwitchRoutingInterface,
+			[Body] RoutingInterface CreateDeviceSwitchRoutingInterface,
 			CancellationToken cancellationToken = default
 			);
 
@@ -55,7 +55,7 @@ namespace Meraki.Api.Interfaces
 		Task<RoutingInterface> UpdateDeviceSwitchRoutingInterfaceAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
-			[Body]RoutingInterfaceUpdateRequest UpdateDeviceSwitchRoutingInterface,
+			[Body] RoutingInterfaceUpdateRequest UpdateDeviceSwitchRoutingInterface,
 			CancellationToken cancellationToken = default
 			);
 

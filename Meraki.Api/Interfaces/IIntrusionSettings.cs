@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/security/intrusion")]
 		Task<NetworkSecurityIntrusionSettingsUpdateRequest> GetNetworkSecurityIntrusionSettingsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/appliance/security/intrusion")]
 		Task<SecurityIntrusionSettingsUpdateRequest> GetOrganizationSecurityIntrusionSettingsAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -40,8 +40,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSecurityIntrusionSettings">Body for updating security intrusion settings</param>
 		[Put("/networks/{networkId}/appliance/security/intrusion")]
 		Task<NetworkSecurityIntrusionSettingsUpdateRequest> UpdateNetworkSecurityIntrusionSettingsAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]NetworkSecurityIntrusionSettingsUpdateRequest UpdateNetworkSecurityIntrusionSettings,
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkSecurityIntrusionSettingsUpdateRequest UpdateNetworkSecurityIntrusionSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -53,8 +53,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateOrganizationSecurityIntrusionSettings">Body for updating security intrusion settings</param>
 		[Put("/organizations/{organizationId}/security/intrusionSettings")]
 		Task<SecurityIntrusionSettingsUpdateRequest> UpdateOrganizationSecurityIntrusionSettingsAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]SecurityIntrusionSettingsUpdateRequest UpdateOrganizationSecurityIntrusionSettings,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] SecurityIntrusionSettingsUpdateRequest UpdateOrganizationSecurityIntrusionSettings,
 			CancellationToken cancellationToken = default
 			);
 	}

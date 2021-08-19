@@ -26,15 +26,15 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		[Get("/networks/{networkId}/wireless/clients/{clientId}/connectionStats")]
 		Task<NetworkClientConnectionStats> GetNetworkClientConnectionStatsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -53,16 +53,16 @@ namespace Meraki.Api.Interfaces
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		[Get("/networks/{networkId}/wireless/clients/{clientId}/latencyStats")]
 		Task<NetworkClientLatencyStats> GetNetworkClientLatencyStatsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
-			[AliasAs("fields")]string fields = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
+			[AliasAs("fields")] string fields = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -79,14 +79,14 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		[Get("/networks/{networkId}/wireless/clients/connectionStats")]
 		Task<List<NetworkClientConnectionStats>> GetNetworkClientsConnectionStatsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -104,15 +104,15 @@ namespace Meraki.Api.Interfaces
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		[Get("/networks/{networkId}/wireless/clients/latencyStats")]
 		Task<List<NetworkClientLatencyStats>> GetNetworkClientsLatencyStatsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
-			[AliasAs("fields")]string fields = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
+			[AliasAs("fields")] string fields = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -129,14 +129,14 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		[Get("/networks/{networkId}/wireless/connectionStats")]
 		Task<ConnectionStats> GetNetworkConnectionStatsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -153,14 +153,14 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		[Get("/devices/{serial}/wireless/connectionStats")]
 		Task<NetworkDeviceConnectionStats> GetNetworkDeviceConnectionStatsAsync(
-			[AliasAs("serial")]string serial,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
+			[AliasAs("serial")] string serial,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -178,15 +178,15 @@ namespace Meraki.Api.Interfaces
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		[Get("/devices/{serial}/wireless/latencyStats")]
 		Task<NetworkDeviceLatencyStats> GetNetworkDeviceLatencyStatsAsync(
-			[AliasAs("serial")]string serial,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
-			[AliasAs("fields")]string fields = null!,
+			[AliasAs("serial")] string serial,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
+			[AliasAs("fields")] string fields = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -203,14 +203,14 @@ namespace Meraki.Api.Interfaces
 		/// <param name="apTag">Filter results by AP Tag (optional)</param>
 		[Get("/networks/{networkId}/wireless/devices/connectionStats")]
 		Task<List<NetworkDeviceConnectionStats>> GetNetworkDevicesConnectionStatsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -228,15 +228,15 @@ namespace Meraki.Api.Interfaces
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		[Get("/networks/{networkId}/wireless/devices/latencyStats")]
 		Task<List<NetworkDeviceLatencyStats>> GetNetworkDevicesLatencyStatsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
-			[AliasAs("fields")]string fields = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
+			[AliasAs("fields")] string fields = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -255,16 +255,16 @@ namespace Meraki.Api.Interfaces
 		/// <param name="clientId">Filter by client MAC (optional)</param>
 		[Get("/networks/{networkId}/wireless/failedConnections")]
 		Task<List<FailedConnection>> GetNetworkFailedConnectionsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
-			[AliasAs("serial")]string serial = null!,
-			[AliasAs("clientId")]string clientId = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
+			[AliasAs("serial")] string serial = null!,
+			[AliasAs("clientId")] string clientId = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -282,15 +282,15 @@ namespace Meraki.Api.Interfaces
 		/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
 		[Get("/networks/{networkId}/wireless/latencyStats")]
 		Task<LatencyStats> GetNetworkLatencyStatsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("band")]string band = null!,
-			[AliasAs("ssid")]int? ssid = null,
-			[AliasAs("vlan")]int? vlan = null,
-			[AliasAs("apTag")]string apTag = null!,
-			[AliasAs("fields")]string fields = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("band")] string band = null!,
+			[AliasAs("ssid")] int? ssid = null,
+			[AliasAs("vlan")] int? vlan = null,
+			[AliasAs("apTag")] string apTag = null!,
+			[AliasAs("fields")] string fields = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -319,7 +319,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("autoResolution")] bool? autoResolution = null,
 			[AliasAs("clientId")] string? clientId = null,
 			[AliasAs("deviceSerial")] string? deviceSerial = null,
-			[AliasAs("apTag")] string? apTag = null,	
+			[AliasAs("apTag")] string? apTag = null,
 			[AliasAs("band")] string? band = null,
 			[AliasAs("ssid")] string? ssid = null,
 			[AliasAs("accessCategory")] string? accessCategory = null,

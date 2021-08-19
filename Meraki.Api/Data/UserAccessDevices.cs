@@ -55,6 +55,6 @@ namespace Meraki.Api.Data
 		/// Trusted access connections
 		/// </summary>
 		[DataMember(Name = "trustedAccessConnections")]
-		public TrustedAccessConnections TrustedAccessConnections  { get; set; } = new();
+		public TrustedAccessConnections TrustedAccessConnections { get; set; } = new();
 	}
 }

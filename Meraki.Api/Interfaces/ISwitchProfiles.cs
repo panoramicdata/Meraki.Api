@@ -18,8 +18,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="configTemplateId">The configuration id</param>
 		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switchProfiles")]
 		Task<List<SwitchProfile>> GetAllAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("configTemplateId")]string configTemplateId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("configTemplateId")] string configTemplateId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -69,7 +69,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("configTemplateId")] string configTemplateId,
 			[AliasAs("profileId")] string profileId,
 			[AliasAs("portId")] string portId,
-			[Body]ConfigTemplateSwitchProfilePorts UpdateOrganizationConfigTemplateSwitchProfilePort,
+			[Body] ConfigTemplateSwitchProfilePorts UpdateOrganizationConfigTemplateSwitchProfilePort,
 			CancellationToken cancellationToken = default
 			);
 	}

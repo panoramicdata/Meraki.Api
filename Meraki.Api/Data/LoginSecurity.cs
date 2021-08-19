@@ -79,6 +79,6 @@ namespace Meraki.Api.Data
 		/// Login ip ranges
 		/// </summary>
 		[DataMember(Name = "loginIpRanges")]
-		public List<string> LoginIpRanges { get; set; } = new();	
+		public List<string> LoginIpRanges { get; set; } = new();
 	}
 }

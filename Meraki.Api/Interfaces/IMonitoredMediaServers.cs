@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateOrganizationInsightMonitoredMediaServer">Body for adding a media server</param>
 		[Post("/organizations/{organizationId}/insight/monitoredMediaServers")]
 		Task<InsightMonitoredMediaServers> CreateOrganizationInsightMonitoredMediaServerAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]InsightMonitoredMediaServerCreationRequest CreateOrganizationInsightMonitoredMediaServer,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] InsightMonitoredMediaServerCreationRequest CreateOrganizationInsightMonitoredMediaServer,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="monitoredMediaServerId">The monitored media server id</param>
 		[Delete("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 		Task DeleteOrganizationInsightMonitoredMediaServerAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("monitoredMediaServerId")] string monitoredMediaServerId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -45,8 +45,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="monitoredMediaServerId">The monitored media server id</param>
 		[Get("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 		Task<InsightMonitoredMediaServers> GetOrganizationInsightMonitoredMediaServerAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("monitoredMediaServerId")] string monitoredMediaServerId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -57,7 +57,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/insight/monitoredMediaServers")]
 		Task<List<InsightMonitoredMediaServers>> GetOrganizationInsightMonitoredMediaServersAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -70,9 +70,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateOrganizationInsightMonitoredMediaServer">Body for updating a monitored media server</param>
 		[Put("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 		Task<InsightMonitoredMediaServers> UpdateOrganizationInsightMonitoredMediaServerAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("monitoredMediaServerId")]string monitoredMediaServerId,
-			[Body]InsightMonitoredMediaServerUpdateRequest UpdateOrganizationInsightMonitoredMediaServer,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("monitoredMediaServerId")] string monitoredMediaServerId,
+			[Body] InsightMonitoredMediaServerUpdateRequest UpdateOrganizationInsightMonitoredMediaServer,
 			CancellationToken cancellationToken = default
 			);
 	}

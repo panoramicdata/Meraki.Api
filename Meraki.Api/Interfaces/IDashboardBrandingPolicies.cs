@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateOrganizationBrandingPolicy">Body for creating an organization's branding policy</param>
 		[Post("/organizations/{organizationId}/brandingPolicies")]
 		Task<BrandingPolicyCreationRequest> CreateOrganizationBrandingPolicy(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]BrandingPolicyCreationRequest CreateOrganizationBrandingPolicy,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] BrandingPolicyCreationRequest CreateOrganizationBrandingPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="brandingPolicyId">The branding policy id</param>
 		[Delete("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 		Task DeleteOrganizationBrandingPolicy(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("brandingPolicyId")]string brandingPolicyId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("brandingPolicyId")] string brandingPolicyId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -44,7 +44,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies")]
 		Task<List<BrandingPolicyCreationRequest>> GetOrganizationBrandingPolicies(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -55,7 +55,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies/priorities")]
 		Task<BrandingPoliciesPrioritiesUpdateRequest> GetOrganizationBrandingPoliciesPriorities(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -67,8 +67,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="brandingPolicyId">The branding policy id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 		Task<BrandingPolicyCreationRequest> GetOrganizationBrandingPolicy(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("brandingPolicyId")]string brandingPolicyId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("brandingPolicyId")] string brandingPolicyId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -80,8 +80,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateOrganizationBrandingPoliciesPriorities">Body for updating an organization branding policies priorities</param>
 		[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
 		Task<BrandingPoliciesPrioritiesUpdateRequest> UpdateOrganizationBrandingPoliciesPriorities(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]BrandingPoliciesPrioritiesUpdateRequest UpdateOrganizationBrandingPoliciesPriorities,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] BrandingPoliciesPrioritiesUpdateRequest UpdateOrganizationBrandingPoliciesPriorities,
 			CancellationToken cancellationToken = default
 			);
 
@@ -94,9 +94,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateOrganizationBrandingPolicy">Body for updating an organization's branding policy</param>
 		[Put("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 		Task<BrandingPolicyCreationRequest> UpdateOrganizationBrandingPolicy(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("brandingPolicyId")]string brandingPolicyId,
-			[Body]BrandingPolicyUpdateRequest UpdateOrganizationBrandingPolicy,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("brandingPolicyId")] string brandingPolicyId,
+			[Body] BrandingPolicyUpdateRequest UpdateOrganizationBrandingPolicy,
 			CancellationToken cancellationToken = default
 			);
 	}

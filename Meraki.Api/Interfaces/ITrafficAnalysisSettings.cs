@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/trafficAnalysis")]
 		Task<TrafficAnalysisSettingsUpdateRequest> GetNetworkTrafficAnalysisAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkTrafficAnalysisSettings"></param>
 		[Put("/networks/{networkId}/trafficAnalysis")]
 		Task<TrafficAnalysisSettingsUpdateRequest> UpdateNetworkTrafficAnalysisAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]TrafficAnalysisSettingsUpdateRequest UpdateNetworkTrafficAnalysisSettings,
+			[AliasAs("networkId")] string networkId,
+			[Body] TrafficAnalysisSettingsUpdateRequest UpdateNetworkTrafficAnalysisSettings,
 			CancellationToken cancellationToken = default
 			);
 	}

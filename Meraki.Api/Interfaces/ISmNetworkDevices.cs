@@ -18,8 +18,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="WipeNetworkSmDevices">Body for wiping a device</param>
 		[Post("/networks/{networkId}/sm/devices/wipe")]
 		Task<WipeNetworkSmDevice> WipeNetworkSmDevicesAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]WipeNetworkSmDevice WipeNetworkSmDevices,
+			[AliasAs("networkId")] string networkId,
+			[Body] WipeNetworkSmDevice WipeNetworkSmDevices,
 			CancellationToken cancellationToken = default);
 	}
 }

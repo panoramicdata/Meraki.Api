@@ -30,8 +30,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceSerial">Filter results by an AP's serial number.</param>
 		[Get("/networks/{networkId}/wireless/clients/{clientId}/connectivityEvents")]
 		Task<List<ConnectivityEvents>> GetNetworkWirelessClientConnectivityEventsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("clientId")]string clientId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("clientId")] string clientId,
 			[AliasAs("perPage")] int? perPage = null,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,

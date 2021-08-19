@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// </summary>
 	[DataContract]
 	public class SwitchStaticRouteCreationRequest
-	{	
+	{
 		/// <summary>
 		/// Name
 		/// </summary>

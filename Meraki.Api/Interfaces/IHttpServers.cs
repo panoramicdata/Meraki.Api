@@ -20,8 +20,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkHttpServer">Body for creating a network HTTP server</param>
 		[Post("/networks/{networkId}/webhooks/httpServers")]
 		Task<HttpServers> CreateNetworkHttpServerAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]HttpServerCreationRequest CreateNetworkHttpServer,
+			[AliasAs("networkId")] string networkId,
+			[Body] HttpServerCreationRequest CreateNetworkHttpServer,
 			CancellationToken cancellationToken = default
 			);
 
@@ -33,8 +33,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkHttpServersWebhookTest">Body for creating a network HTTP server webhook test</param>
 		[Post("/networks/{networkId}/webhooks/webhookTests")]
 		Task<WebhookTest> CreateNetworkHttpServersWebhookTestAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]HttpServersWebhookTestCreationRequest CreateNetworkHttpServersWebhookTest,
+			[AliasAs("networkId")] string networkId,
+			[Body] HttpServersWebhookTestCreationRequest CreateNetworkHttpServersWebhookTest,
 			CancellationToken cancellationToken = default
 			);
 
@@ -46,8 +46,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="httpServerId">The id of a HTTP server</param>
 		[Delete("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 		Task DeleteNetworkHttpServerAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("httpServerId")]string httpServerId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("httpServerId")] string httpServerId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -59,8 +59,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="httpServerId">The id of a HTTP server</param>
 		[Get("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 		Task<HttpServers> GetNetworkHttpServerAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("httpServerId")]string httpServerId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("httpServerId")] string httpServerId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -71,7 +71,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/webhooks/httpServers")]
 		Task<List<HttpServers>> GetNetworkWebhooksHttpServersAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -83,8 +83,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="webhookTestId">The id of a webhook test</param>
 		[Get("/networks/{networkId}/webhooks/webhookTests/{webhookTestId}")]
 		Task<WebSocket> GetNetworkHttpServersWebhookTestAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("webhookTestId")]string webhookTestId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("webhookTestId")] string webhookTestId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -97,9 +97,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkHttpServer">Body for updating a network HTTP server</param>
 		[Put("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 		Task<HttpServers> UpdateNetworkHttpServerAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			[AliasAs("httpServerId")] string httpServerId,
-			[Body]HttpServerUpdateRequest UpdateNetworkHttpServer,
+			[Body] HttpServerUpdateRequest UpdateNetworkHttpServer,
 			CancellationToken cancellationToken = default
 			);
 	}

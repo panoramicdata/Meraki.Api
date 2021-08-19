@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/saml/idps")]
 		Task<List<SamlIdps>> GetOrganizationSamlIdpsAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/saml/idps")]
 		Task<SamlIdpsCreateRequest> CreateOrganizationSamlIdpAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body]SamlIdpsCreateRequest CreateOrganizationSamlIdp,
+			[Body] SamlIdpsCreateRequest CreateOrganizationSamlIdp,
 			CancellationToken cancellationToken = default
 			);
 

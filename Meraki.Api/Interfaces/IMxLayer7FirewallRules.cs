@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/l7FirewallRules")]
 		Task<Layer7FirewallRulesUpdateRequest> GetNetworkL7FirewallRulesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkL7FirewallRules">Body for updating firewall rules</param>
 		[Put("/networks/{networkId}/l7FirewallRules")]
 		Task<Layer7FirewallRulesUpdateRequest> UpdateNetworkL7FirewallRulesAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]Layer7FirewallRulesUpdateRequest UpdateNetworkL7FirewallRules,
+			[AliasAs("networkId")] string networkId,
+			[Body] Layer7FirewallRulesUpdateRequest UpdateNetworkL7FirewallRules,
 			CancellationToken cancellationToken = default
 			);
 	}

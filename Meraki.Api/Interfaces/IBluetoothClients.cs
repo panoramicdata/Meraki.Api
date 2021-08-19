@@ -21,10 +21,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="connectivityHistoryTimespan">The timespan, in seconds, for the connectivityHistory data. By default 1 day, 86400, will be used. (optional)</param>
 		[Get("/networks/{networkId}/bluetoothClients/{bluetoothClientId}")]
 		Task<BluetoothClient> GetAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("bluetoothClientId")]string bluetoothClientId,
-			[AliasAs("includeConnectivityHistory")]bool? includeConnectivityHistory = null,
-			[AliasAs("connectivityHistoryTimespan")]int? connectivityHistoryTimespan = null,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("bluetoothClientId")] string bluetoothClientId,
+			[AliasAs("includeConnectivityHistory")] bool? includeConnectivityHistory = null,
+			[AliasAs("connectivityHistoryTimespan")] int? connectivityHistoryTimespan = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -40,13 +40,13 @@ namespace Meraki.Api.Interfaces
 		/// <param name="includeConnectivityHistory">Include the connectivity history for this client (optional)</param>
 		[Get("/networks/{networkId}/bluetoothClients")]
 		Task<List<BluetoothClient>> GetAllAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
-			[AliasAs("includeConnectivityHistory")]bool? includeConnectivityHistory = null,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
+			[AliasAs("includeConnectivityHistory")] bool? includeConnectivityHistory = null,
 			CancellationToken cancellationToken = default);
 	}
 }

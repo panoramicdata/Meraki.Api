@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateOrganizationActionBatch">Body for creating organization action batch</param>
 		[Post("/organizations/{organizationId}/actionBatches")]
 		Task<ActionBatch> CreateAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]ActionBatchCreationRequest CreateOrganizationActionBatch,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] ActionBatchCreationRequest CreateOrganizationActionBatch,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -31,8 +31,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="actionBatchId"></param>
 		[Delete("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
 		Task DeleteAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("actionBatchId")]string actionBatchId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("actionBatchId")] string actionBatchId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -44,8 +44,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="actionBatchId">The action batch id</param>
 		[Get("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
 		Task<ActionBatch> GetAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("actionBatchId")]string actionBatchId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("actionBatchId")] string actionBatchId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -57,8 +57,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="status">Filter batches by status. Valid types are pending, completed, and failed.</param>
 		[Get("/organizations/{organizationId}/actionBatches")]
 		Task<List<ActionBatch>> GetAllAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("status")]string? status = null,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("status")] string? status = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -70,9 +70,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateOrganizationActionBatch">Body for updating organization action batch</param>
 		[Put("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
 		Task<ActionBatch> UpdateAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("actionBatchId")]string actionBatchId,
-			[Body]ActionBatchUpdateRequest UpdateOrganizationActionBatch = null!,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("actionBatchId")] string actionBatchId,
+			[Body] ActionBatchUpdateRequest UpdateOrganizationActionBatch = null!,
 			CancellationToken cancellationToken = default);
 	}
 }

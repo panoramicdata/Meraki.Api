@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/netflowSettings")]
 		Task<NetflowSettingsUpdateRequest> GetNetworkNetflowSettingsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkNetflowSettings">Body for updating netflow traffic</param>
 		[Put("/networks/{networkId}/netflowSettings")]
 		Task<NetflowSettingsUpdateRequest> UpdateNetworkNetflowSettingsAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]NetflowSettingsUpdateRequest UpdateNetworkNetflowSettings,
+			[AliasAs("networkId")] string networkId,
+			[Body] NetflowSettingsUpdateRequest UpdateNetworkNetflowSettings,
 			CancellationToken cancellationToken = default
 			);
 	}

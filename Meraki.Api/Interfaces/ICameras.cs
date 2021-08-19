@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="GenerateNetworkCameraSnapshot">Body for generating network camera snapshot</param>
 		[Post("/devices/{serial}/camera/generateSnapshot")]
 		Task<CameraSnapshot> GetSnapshotAsync(
-			[AliasAs("serial")]string serial,
-			[Body]CameraSnapshotRequest GenerateNetworkCameraSnapshot,
+			[AliasAs("serial")] string serial,
+			[Body] CameraSnapshotRequest GenerateNetworkCameraSnapshot,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/camera/qualityAndRetentionSettings")]
 		Task<CameraQualityAndRetentionSettings> GetQualityAndRetentionSettingsAsync(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -40,7 +40,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/camera/schedules")]
 		Task<CameraSchedule> GetSchedulesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -51,8 +51,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="timestamp">[optional] The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds). If no timestamp is specified, we will assume current time. (optional)</param>
 		[Get("/devices/{serial}/camera/videoLink")]
 		Task<VideoLink> GetVideoLinkAsync(
-			[AliasAs("serial")]string serial,
-			[AliasAs("timestamp")]string timestamp = null!,
+			[AliasAs("serial")] string serial,
+			[AliasAs("timestamp")] string timestamp = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -63,8 +63,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CameraQualityAndRetentionSettingsUpdateRequest">Body for updating camera quality and retention settings</param>
 		[Put("/devices/{serial}/camera/qualityAndRetentionSettings")]
 		Task<CameraQualityAndRetentionSettings> UpdateQualityAndRetentionSettingsAsync(
-			[AliasAs("serial")]string serial,
-			[Body]CameraQualityAndRetentionSettingsUpdateRequest CameraQualityAndRetentionSettingsUpdateRequest,
+			[AliasAs("serial")] string serial,
+			[Body] CameraQualityAndRetentionSettingsUpdateRequest CameraQualityAndRetentionSettingsUpdateRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -87,7 +87,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/devices/{serial}/camera/wirelessProfiles")]
 		Task<WirelessProfiles> UpdateDeviceCameraWirelessProfilesAsync(
 			[AliasAs("serial")] string serial,
-			[Body]WirelessProfiles UpdateDeviceCameraWirelessProfiles,
+			[Body] WirelessProfiles UpdateDeviceCameraWirelessProfiles,
 			CancellationToken cancellationToken = default
 			);
 
@@ -126,7 +126,7 @@ namespace Meraki.Api.Interfaces
 		Task<NetworkWirelessProfiles> UpdateNetworkCameraWirelessProfileAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("wirelessProfileId")] string wirelessProfileId,
-			[Body]NetworkWirelessProfilesCreateRequest UpdateNetworkCameraWirelessProfile,
+			[Body] NetworkWirelessProfilesCreateRequest UpdateNetworkCameraWirelessProfile,
 			CancellationToken cancellationToken = default
 			);
 
@@ -139,7 +139,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/camera/wirelessProfiles")]
 		Task<NetworkWirelessProfiles> CreateNetworkCameraWirelessProfileAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]NetworkWirelessProfilesCreateRequest CreateNetworkCameraWirelessProfile,
+			[Body] NetworkWirelessProfilesCreateRequest CreateNetworkCameraWirelessProfile,
 			CancellationToken cancellationToken = default
 			);
 
@@ -176,7 +176,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/camera/onboarding/statuses")]
 		Task<UpdateOnboardingStatusResponse> UpdateOrganizationCameraOnboardingStatusesAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body]UpdateOnboardingStatus UpdateNetworkCameraWirelessProfile,
+			[Body] UpdateOnboardingStatus UpdateNetworkCameraWirelessProfile,
 			CancellationToken cancellationToken = default
 			);
 	}

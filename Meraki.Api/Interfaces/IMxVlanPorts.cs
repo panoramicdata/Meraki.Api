@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="appliancePortId">The appliance port id</param>
 		[Get("/networks/{networkId}/appliance/ports/{portId}")]
 		Task<NetworkAppliancePortUpdateRequest> GetNetworkAppliancePortAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("portId")]string appliancePortId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("portId")] string appliancePortId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/ports")]
 		Task<List<NetworkAppliancePortUpdateRequest>> GetNetworkAppliancePortsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -44,9 +44,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkAppliancePort">Body for updating the per-port VLAN settings</param>
 		[Put("/networks/{networkId}/appliancePorts/{appliancePortId}")]
 		Task<NetworkAppliancePortUpdateRequest> UpdateNetworkAppliancePortAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("appliancePortId")]string appliancePortId,
-			[Body]NetworkAppliancePortUpdateRequest UpdateNetworkAppliancePort,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("appliancePortId")] string appliancePortId,
+			[Body] NetworkAppliancePortUpdateRequest UpdateNetworkAppliancePort,
 			CancellationToken cancellationToken = default
 			);
 	}

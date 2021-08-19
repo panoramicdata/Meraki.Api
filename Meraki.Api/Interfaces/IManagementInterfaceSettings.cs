@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/managementInterfaceSettings")]
 		Task<WanSpecs> GetAsync(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -28,8 +28,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="ManagementInterfaceSettingsUpdateDto">Body for updating management interface settings</param>
 		[Put("/devices/{serial}/managementInterfaceSettings")]
 		Task<WanSpecs> UpdateAsync(
-			[AliasAs("serial")]string serial,
-			[Body]ManagementInterfaceSettingsUpdateRequest ManagementInterfaceSettingsUpdateDto,
+			[AliasAs("serial")] string serial,
+			[Body] ManagementInterfaceSettingsUpdateRequest ManagementInterfaceSettingsUpdateDto,
 			CancellationToken cancellationToken = default);
 	}
 }

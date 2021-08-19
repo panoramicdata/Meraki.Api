@@ -32,21 +32,21 @@ namespace Meraki.Api.Interfaces
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		[Get("/networks/{networkId}/events")]
 		Task<NetworkEvents> GetNetworkEventsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("productType")]string productType = null!,
-			[AliasAs("includedEventTypes")]List<string> includedEventTypes = null!,
-			[AliasAs("excludedEventTypes")]List<string> excludedEventTypes = null!,
-			[AliasAs("deviceMac")]string deviceMac = null!,
-			[AliasAs("deviceSerial")]string deviceSerial = null!,
-			[AliasAs("deviceName")]string deviceName = null!,
-			[AliasAs("clientIp")]string clientIp = null!,
-			[AliasAs("clientMac")]string clientMac = null!,
-			[AliasAs("clientName")]string clientName = null!,
-			[AliasAs("smDeviceMac")]string smDeviceMac = null!,
-			[AliasAs("smDeviceName")]string smDeviceName = null!,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("productType")] string productType = null!,
+			[AliasAs("includedEventTypes")] List<string> includedEventTypes = null!,
+			[AliasAs("excludedEventTypes")] List<string> excludedEventTypes = null!,
+			[AliasAs("deviceMac")] string deviceMac = null!,
+			[AliasAs("deviceSerial")] string deviceSerial = null!,
+			[AliasAs("deviceName")] string deviceName = null!,
+			[AliasAs("clientIp")] string clientIp = null!,
+			[AliasAs("clientMac")] string clientMac = null!,
+			[AliasAs("clientName")] string clientName = null!,
+			[AliasAs("smDeviceMac")] string smDeviceMac = null!,
+			[AliasAs("smDeviceName")] string smDeviceName = null!,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -57,7 +57,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/events/eventTypes")]
 		Task<List<EventType>> GetNetworkEventsEventTypesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/cellularGateway/dhcp")]
 		Task<NetworkCellularGatewaySettingsDhcpUpdateRequest> GetNetworkCellularGatewaySettingsDhcpAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkCellularGatewaySettingsDhcp">Body for updating DHCP settings</param>
 		[Put("/networks/{networkId}/cellularGateway/dhcp")]
 		Task<NetworkCellularGatewaySettingsDhcpUpdateRequest> UpdateNetworkCellularGatewaySettingsDhcpAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]NetworkCellularGatewaySettingsDhcpUpdateRequest UpdateNetworkCellularGatewaySettingsDhcp,
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkCellularGatewaySettingsDhcpUpdateRequest UpdateNetworkCellularGatewaySettingsDhcp,
 			CancellationToken cancellationToken = default
 			);
 	}

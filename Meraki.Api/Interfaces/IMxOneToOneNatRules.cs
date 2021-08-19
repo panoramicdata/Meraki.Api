@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/firewall/oneToOneNatRules")]
 		Task<OneToOneNatRulesUpdateRequest> GetNetworkOneToOneNatRulesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateNetworkOneToOneNatRules">Body for updating mapping rules</param>
 		[Put("/networks/{networkId}/appliance/firewall/oneToOneNatRules")]
 		Task<OneToOneNatRulesUpdateRequest> UpdateNetworkOneToOneNatRulesAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]OneToOneNatRulesUpdateRequest updateNetworkOneToOneNatRules,
+			[AliasAs("networkId")] string networkId,
+			[Body] OneToOneNatRulesUpdateRequest updateNetworkOneToOneNatRules,
 			CancellationToken cancellationToken = default
 			);
 	}

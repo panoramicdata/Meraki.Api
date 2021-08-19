@@ -15,8 +15,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/firewall/l7FirewallRules")]
 		Task<SsidL7FirewallRules> GetNetworkWirelessSsidFirewallL7FirewallRulesAsync(
-		[AliasAs("networkId")]string networkId,
-		[AliasAs("number")]string number,
+		[AliasAs("networkId")] string networkId,
+		[AliasAs("number")] string number,
 		CancellationToken cancellationToken = default
 			);
 
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		Task<SsidL7FirewallRules> UpdateNetworkWirelessSsidFirewallL7FirewallRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
-		[Body]SsidL7FirewallRules UpdateNetworkWirelessSsidFirewallL7FirewallRules,
+		[Body] SsidL7FirewallRules UpdateNetworkWirelessSsidFirewallL7FirewallRules,
 		CancellationToken cancellationToken = default
 			);
 	}

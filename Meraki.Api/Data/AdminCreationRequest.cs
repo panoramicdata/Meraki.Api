@@ -50,4 +50,3 @@ namespace Meraki.Api.Data
 		public List<Network> Networks { get; set; } = null!;
 	}
 }
-		

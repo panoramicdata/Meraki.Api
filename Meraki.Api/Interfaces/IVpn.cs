@@ -72,7 +72,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/appliance/vpn/bgp")]
 		Task<VpnBgp> UpdateNetworkApplianceVpnBgp(
 			[AliasAs("networkId")] string networkId,
-			[Body]VpnBgp UpdateNetworkApplianceVpnBgp,
+			[Body] VpnBgp UpdateNetworkApplianceVpnBgp,
 			CancellationToken cancellationToken = default
 			);
 	}

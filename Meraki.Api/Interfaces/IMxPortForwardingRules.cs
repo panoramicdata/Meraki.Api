@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/portForwardingRules")]
 		Task<PortForwardingRulesUpdateRequest> GetNetworkPortForwardingRulesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkPortForwardingRules">Body for updating port forwarding rules</param>
 		[Put("/networks/{networkId}/portForwardingRules")]
 		Task<PortForwardingRulesUpdateRequest> UpdateNetworkPortForwardingRulesAsync(
-			[AliasAs("networkId")]string networkId, 
-			[Body]PortForwardingRulesUpdateRequest UpdateNetworkPortForwardingRules,
+			[AliasAs("networkId")] string networkId,
+			[Body] PortForwardingRulesUpdateRequest UpdateNetworkPortForwardingRules,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkCameraQualityRetentionProfile">Body for creating quality retention profile</param>
 		[Post("/networks/{networkId}/camera/qualityRetentionProfiles")]
 		Task<CameraQualityAndRetentionSettings> CreateAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]CameraQualityAndRetentionProfileCreationRequest CreateNetworkCameraQualityRetentionProfile,
+			[AliasAs("networkId")] string networkId,
+			[Body] CameraQualityAndRetentionProfileCreationRequest CreateNetworkCameraQualityRetentionProfile,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -31,8 +31,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="qualityRetentionProfileId">The quality retention profile id</param>
 		[Delete("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 		Task DeleteAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("qualityRetentionProfileId")] string qualityRetentionProfileId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -43,8 +43,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="qualityRetentionProfileId">The quality retention profile id</param>
 		[Get("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 		Task<QualityRetentionProfile> GetAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("qualityRetentionProfileId")] string qualityRetentionProfileId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -54,7 +54,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/camera/qualityRetentionProfiles")]
 		Task<List<QualityRetentionProfile>> GetAllAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -66,9 +66,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkCameraQualityRetentionProfile">Body for updating quality retention profile</param>
 		[Put("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 		Task<CameraQualityAndRetentionSettings> UpdateAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("qualityRetentionProfileId")]string qualityRetentionProfileId,
-			[Body]CameraQualityAndRetentionProfileUpdateRequest UpdateNetworkCameraQualityRetentionProfile,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("qualityRetentionProfileId")] string qualityRetentionProfileId,
+			[Body] CameraQualityAndRetentionProfileUpdateRequest UpdateNetworkCameraQualityRetentionProfile,
 			CancellationToken cancellationToken = default);
 	}
 }

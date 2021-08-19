@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="configTemplateId">The config template id</param>
 		[Delete("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
 		Task DeleteAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("configTemplateId")]string configTemplateId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("configTemplateId")] string configTemplateId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -31,8 +31,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="configTemplateId">The config template id</param>
 		[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
 		Task<ConfigurationTemplate> GetOrganizationConfigTemplateAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("configTemplateId")]string configTemplateId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("configTemplateId")] string configTemplateId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -56,7 +56,7 @@ namespace Meraki.Api.Interfaces
 		Task<ConfigurationTemplate> UpdateOrganizationConfigTemplateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("configTemplateId")] string configTemplateId,
-			[Body]ConfigurationTemplateUpdate UpdateOrganizationConfigTemplate,
+			[Body] ConfigurationTemplateUpdate UpdateOrganizationConfigTemplate,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

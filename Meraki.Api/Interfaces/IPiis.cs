@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkPiiRequest">Body for creating a PII request</param>
 		[Post("/networks/{networkId}/pii/requests")]
 		Task<PiiResponse> CreateNetworkPiiRequestAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]PiiCreationRequest CreateNetworkPiiRequest,
+			[AliasAs("networkId")] string networkId,
+			[Body] PiiCreationRequest CreateNetworkPiiRequest,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="requestId">The request id</param>
 		[Delete("/networks/{networkId}/pii/requests/{requestId}")]
 		Task DeleteNetworkPiiRequestAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("requestId")]string requestId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("requestId")] string requestId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -50,13 +50,13 @@ namespace Meraki.Api.Interfaces
 		/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
 		[Get("/networks/{networkId}/pii/piiKeys")]
 		Task<PiiPiiKeys> GetNetworkPiiPiiKeysAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("username")]string username = null!,
-			[AliasAs("email")]string email = null!,
-			[AliasAs("mac")]string mac = null!,
-			[AliasAs("serial")]string serial = null!,
-			[AliasAs("imei")]string imei = null!,
-			[AliasAs("bluetoothMac")]string bluetoothMac = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("username")] string username = null!,
+			[AliasAs("email")] string email = null!,
+			[AliasAs("mac")] string mac = null!,
+			[AliasAs("serial")] string serial = null!,
+			[AliasAs("imei")] string imei = null!,
+			[AliasAs("bluetoothMac")] string bluetoothMac = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -68,8 +68,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="requestId">The request id</param>
 		[Get("/networks/{networkId}/pii/requests/{requestId}")]
 		Task<PiiResponse> GetNetworkPiiRequestAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("requestId")]string requestId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("requestId")] string requestId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -80,7 +80,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/pii/requests")]
 		Task<List<PiiResponse>> GetNetworkPiiRequestsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -97,13 +97,13 @@ namespace Meraki.Api.Interfaces
 		/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
 		[Get("/networks/{networkId}/pii/smDevicesForKey")]
 		Task<PiiSmKey> GetNetworkPiiSmDevicesForKeyAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("username")]string username = null!,
-			[AliasAs("email")]string email = null!,
-			[AliasAs("mac")]string mac = null!,
-			[AliasAs("serial")]string serial = null!,
-			[AliasAs("imei")]string imei = null!,
-			[AliasAs("bluetoothMac")]string bluetoothMac = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("username")] string username = null!,
+			[AliasAs("email")] string email = null!,
+			[AliasAs("mac")] string mac = null!,
+			[AliasAs("serial")] string serial = null!,
+			[AliasAs("imei")] string imei = null!,
+			[AliasAs("bluetoothMac")] string bluetoothMac = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -120,13 +120,13 @@ namespace Meraki.Api.Interfaces
 		/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
 		[Get("/networks/{networkId}/pii/smOwnersForKey")]
 		Task<PiiSmKey> GetNetworkPiiSmOwnersForKeyAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("username")]string username = null!,
-			[AliasAs("email")]string email = null!,
-			[AliasAs("mac")]string mac = null!,
-			[AliasAs("serial")]string serial = null!,
-			[AliasAs("imei")]string imei = null!,
-			[AliasAs("bluetoothMac")]string bluetoothMac = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("username")] string username = null!,
+			[AliasAs("email")] string email = null!,
+			[AliasAs("mac")] string mac = null!,
+			[AliasAs("serial")] string serial = null!,
+			[AliasAs("imei")] string imei = null!,
+			[AliasAs("bluetoothMac")] string bluetoothMac = null!,
 			CancellationToken cancellationToken = default);
 	}
 }

@@ -26,15 +26,15 @@ namespace Meraki.Api.Interfaces
 		/// <param name="adminId">Filters on the given Admin (optional)</param>
 		[Get("/organizations/{organizationId}/configurationChanges")]
 		Task<List<ChangeLogEntry>> GetAllAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
-			[AliasAs("networkId")]string networkId = null!,
-			[AliasAs("adminId")]string adminId = null!,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
+			[AliasAs("networkId")] string networkId = null!,
+			[AliasAs("adminId")] string adminId = null!,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkSmTargetGroup">Body for adding target group</param>
 		[Post("/networks/{networkId}/sm/targetGroups")]
 		Task<SmTargetGroupCreationRequest> CreateNetworkSmTargetGroupAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SmTargetGroupCreationRequest CreateNetworkSmTargetGroup,
+			[AliasAs("networkId")] string networkId,
+			[Body] SmTargetGroupCreationRequest CreateNetworkSmTargetGroup,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="targetGroupId">The target group id</param>
 		[Delete("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 		Task DeleteNetworkSmTargetGroupAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("targetGroupId")]string targetGroupId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("targetGroupId")] string targetGroupId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -46,9 +46,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
 		[Get("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 		Task<SmTargetGroupCreationRequest> GetNetworkSmTargetGroupAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("targetGroupId")]string targetGroupId,
-			[AliasAs("withDetails")]bool? withDetails = null,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("targetGroupId")] string targetGroupId,
+			[AliasAs("withDetails")] bool? withDetails = null,
 			CancellationToken cancellationToken = default
 			);
 
@@ -60,8 +60,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
 		[Get("/networks/{networkId}/sm/targetGroups")]
 		Task<List<SmTargetGroupCreationRequest>> GetNetworkSmTargetGroupsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("withDetails")]bool? withDetails = null,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("withDetails")] bool? withDetails = null,
 			CancellationToken cancellationToken = default
 			);
 
@@ -74,9 +74,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSmTargetGroup">Body for updating a target group</param>
 		[Put("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 		Task<SmTargetGroupCreationRequest> UpdateNetworkSmTargetGroupAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("targetGroupId")]string targetGroupId,
-			[Body]SmTargetGroupUpdateRequest UpdateNetworkSmTargetGroup,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("targetGroupId")] string targetGroupId,
+			[Body] SmTargetGroupUpdateRequest UpdateNetworkSmTargetGroup,
 			CancellationToken cancellationToken = default
 			);
 	}

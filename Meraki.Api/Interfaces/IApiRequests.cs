@@ -29,18 +29,18 @@ namespace Meraki.Api.Interfaces
 		/// <param name="sourceIp">Filter the results by the IP address of the originating API request (optional)</param>
 		[Get("/organizations/{organizationId}/apiRequests")]
 		Task<List<ApiUsage>> GetPageAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
-			[AliasAs("adminId")]string adminId = null!,
-			[AliasAs("path")]string path = null!,
-			[AliasAs("method")]string method = null!,
-			[AliasAs("responseCode")]int? responseCode = null,
-			[AliasAs("sourceIp")]string sourceIp = null!,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
+			[AliasAs("adminId")] string adminId = null!,
+			[AliasAs("path")] string path = null!,
+			[AliasAs("method")] string method = null!,
+			[AliasAs("responseCode")] int? responseCode = null,
+			[AliasAs("sourceIp")] string sourceIp = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -53,10 +53,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 31 days. (optional)</param>
 		[Get("/organizations/{organizationId}/apiRequests/overview")]
 		Task<ApiUsageOverview> GetOverviewAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
 			CancellationToken cancellationToken = default);
 	}
 }

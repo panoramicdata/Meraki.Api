@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkGroupPolicy">Body for creating a network group policy</param>
 		[Post("/networks/{networkId}/groupPolicies")]
 		Task<GroupPolicyCreationRequest> CreateNetworkGroupPolicyAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]GroupPolicyCreationRequest CreateNetworkGroupPolicy,
+			[AliasAs("networkId")] string networkId,
+			[Body] GroupPolicyCreationRequest CreateNetworkGroupPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="groupPolicyId">The group policy id</param>
 		[Delete("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 		Task DeleteNetworkGroupPolicyAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("groupPolicyId")]string groupPolicyId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("groupPolicyId")] string groupPolicyId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -44,7 +44,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/groupPolicies")]
 		Task<List<GroupPolicyCreationRequest>> GetNetworkGroupPoliciesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -56,8 +56,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="groupPolicyId">The group policy id</param>
 		[Get("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 		Task<GroupPolicyCreationRequest> GetNetworkGroupPolicyAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("groupPolicyId")]string groupPolicyId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("groupPolicyId")] string groupPolicyId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -70,9 +70,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkGroupPolicy">Body for updating a network group policy</param>
 		[Put("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 		Task<GroupPolicyUpdateRequest> UpdateNetworkGroupPolicyAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("groupPolicyId")]string groupPolicyId,
-			[Body]GroupPolicyUpdateRequest UpdateNetworkGroupPolicy,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("groupPolicyId")] string groupPolicyId,
+			[Body] GroupPolicyUpdateRequest UpdateNetworkGroupPolicy,
 			CancellationToken cancellationToken = default);
 	}
 }

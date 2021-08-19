@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkSwitchSettingsQosRule"></param>
 		[Post("/networks/{networkId}/switch/qosRules")]
 		Task<SwitchSettingsQosRule> CreateNetworkSwitchQosRuleAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchSettingsQosRuleCreationRequest CreateNetworkSwitchSettingsQosRule,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsQosRuleCreationRequest CreateNetworkSwitchSettingsQosRule,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="qosRuleId">The quality of service rule id</param>
 		[Delete("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 		Task DeleteNetworkSwitchQosRuleAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("qosRuleId")]string qosRuleId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("qosRuleId")] string qosRuleId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -44,7 +44,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/settings")]
 		Task<SwitchSettingsUpdateRequest> GetNetworkSwitchSettingsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -55,7 +55,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/dhcpServerPolicy")]
 		Task<SwitchSettingsDhcpServerPolicyUpdateRequest> GetNetworkSwitchDhcpServerPolicyAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -66,7 +66,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/dscpToCosMappings")]
 		Task<SwitchSettingsDscpToCosMappingsUpdateRequest> GetNetworkSwitchDscpToCosMappingsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -77,7 +77,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/mtu")]
 		Task<SwitchSettingsMtuUpdateRequest> GetNetworkSwitchMtuAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -88,7 +88,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/routing/multicast")]
 		Task<SwitchSettingsMulticastUpdateRequest> GetNetworkSwitchRoutingMulticastAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -100,8 +100,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="qosRuleId">The quality of service rule id</param>
 		[Get("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 		Task<SwitchSettingsQosRule> GetNetworkSwitchQosRuleAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("qosRuleId")]string qosRuleId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("qosRuleId")] string qosRuleId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -112,7 +112,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/qosRules")]
 		Task<List<SwitchSettingsQosRule>> GetNetworkSwitchQosRulesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -134,7 +134,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/stormControl")]
 		Task<SwitchSettingsStormControlUpdateRequest> GetNetworkSwitchStormControlAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -145,7 +145,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/stp")]
 		Task<SwitchSettingsStpUpdateRequest> GetNetworkSwitchStpAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -157,8 +157,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchSettings"></param>
 		[Put("/networks/{networkId}/switch/settings")]
 		Task<SwitchSettingsUpdateRequest> UpdateNetworkSwitchSettingsAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchSettingsUpdateRequest UpdateNetworkSwitchSettings,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsUpdateRequest UpdateNetworkSwitchSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -170,8 +170,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchSettingsDhcpServerPolicy"></param>
 		[Put("/networks/{networkId}/switch/dhcpServerPolicy")]
 		Task<SwitchSettingsDhcpServerPolicyUpdateRequest> UpdateNetworkSwitchDhcpServerPolicyAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchSettingsDhcpServerPolicyUpdateRequest UpdateNetworkSwitchSettingsDhcpServerPolicy,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsDhcpServerPolicyUpdateRequest UpdateNetworkSwitchSettingsDhcpServerPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -183,8 +183,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchSettingsDscpToCosMappings"></param>
 		[Put("/networks/{networkId}/switch/dscpToCosMappings")]
 		Task<SwitchSettingsDscpToCosMappingsUpdateRequest> UpdateNetworkSwitchDscpToCosMappingsAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchSettingsDscpToCosMappingsUpdateRequest UpdateNetworkSwitchSettingsDscpToCosMappings,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsDscpToCosMappingsUpdateRequest UpdateNetworkSwitchSettingsDscpToCosMappings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -196,8 +196,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchSettingsMtu"></param>
 		[Put("/networks/{networkId}/switch/mtu")]
 		Task<SwitchSettingsMtuUpdateRequest> UpdateNetworkSwitchMtuAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchSettingsMtuUpdateRequest UpdateNetworkSwitchSettingsMtu,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsMtuUpdateRequest UpdateNetworkSwitchSettingsMtu,
 			CancellationToken cancellationToken = default
 			);
 
@@ -209,8 +209,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchSettingsMulticast"></param>
 		[Put("/networks/{networkId}/switch/routing/multicast")]
 		Task<SwitchSettingsMulticastUpdateRequest> UpdateNetworkSwitchRoutingMulticastAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchSettingsMulticastUpdateRequest UpdateNetworkSwitchSettingsMulticast,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsMulticastUpdateRequest UpdateNetworkSwitchSettingsMulticast,
 			CancellationToken cancellationToken = default
 			);
 
@@ -223,9 +223,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchSettingsQosRule"></param>
 		[Put("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 		Task<SwitchSettingsQosRuleUpdateRequest> UpdateNetworkSwitchQosRuleAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("qosRuleId")]string qosRuleId,
-			[Body]SwitchSettingsQosRuleUpdateRequest UpdateNetworkSwitchSettingsQosRule,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("qosRuleId")] string qosRuleId,
+			[Body] SwitchSettingsQosRuleUpdateRequest UpdateNetworkSwitchSettingsQosRule,
 			CancellationToken cancellationToken = default
 			);
 
@@ -237,8 +237,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchSettingsQosRulesOrder"></param>
 		[Put("/networks/{networkId}/switch/qosRules/order")]
 		Task<SwitchSettingsQosRulesOrderUpdateRequest> UpdateNetworkSwitchQosRulesOrderAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchSettingsQosRulesOrderUpdateRequest UpdateNetworkSwitchSettingsQosRulesOrder,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsQosRulesOrderUpdateRequest UpdateNetworkSwitchSettingsQosRulesOrder,
 			CancellationToken cancellationToken = default
 			);
 
@@ -250,8 +250,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchSettingsStormControl"></param>
 		[Put("/networks/{networkId}/switch/stormControl")]
 		Task<SwitchSettingsStormControlUpdateRequest> UpdateNetworkSwitchStormControl(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchSettingsStormControlUpdateRequest UpdateNetworkSwitchSettingsStormControl,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsStormControlUpdateRequest UpdateNetworkSwitchSettingsStormControl,
 			CancellationToken cancellationToken = default
 			);
 
@@ -263,8 +263,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchSettingsStp"></param>
 		[Put("/networks/{networkId}/switch/stp")]
 		Task<SwitchSettingsStpUpdateRequest> UpdateNetworkSwitchStpAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchSettingsStpUpdateRequest UpdateNetworkSwitchSettingsStp,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsStpUpdateRequest UpdateNetworkSwitchSettingsStp,
 			CancellationToken cancellationToken = default
 			);
 	}

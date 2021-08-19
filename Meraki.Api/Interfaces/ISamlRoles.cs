@@ -17,8 +17,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateOrganizationSamlRole">Body for creating a SAML role</param>
 		[Post("/organizations/{organizationId}/samlRoles")]
 		Task<SamlRole> CreateOrganizationSamlRoleAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]SamlRoleCreateRequest CreateOrganizationSamlRole
+			[AliasAs("organizationId")] string organizationId,
+			[Body] SamlRoleCreateRequest CreateOrganizationSamlRole
 			);
 
 		/// <summary>
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="samlRoleId">The SAML role id</param>
 		[Delete("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
 		Task DeleteOrganizationSamlRoleAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("samlRoleId")]string samlRoleId
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("samlRoleId")] string samlRoleId
 			);
 
 		/// <summary>
@@ -41,8 +41,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="samlRoleId">The SAML role id</param>
 		[Get("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
 		Task<object> GetOrganizationSamlRoleAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("samlRoleId")]string samlRoleId
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("samlRoleId")] string samlRoleId
 			);
 
 		/// <summary>
@@ -52,7 +52,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/samlRoles")]
 		Task<SamlRole> GetOrganizationSamlRolesAsync(
-			[AliasAs("organizationId")]string organizationId
+			[AliasAs("organizationId")] string organizationId
 			);
 
 		/// <summary>
@@ -64,8 +64,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateOrganizationSamlRole">Body for updating a SAML role</param>
 		[Put("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
 		Task<SamlRole> UpdateOrganizationSamlRoleAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("samlRoleId")]string samlRoleId,
-			[Body]SamlRoleUpdateRequest UpdateOrganizationSamlRole);
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("samlRoleId")] string samlRoleId,
+			[Body] SamlRoleUpdateRequest UpdateOrganizationSamlRole);
 	}
 }

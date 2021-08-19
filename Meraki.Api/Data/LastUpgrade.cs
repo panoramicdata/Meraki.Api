@@ -24,6 +24,6 @@ namespace Meraki.Api.Data
 		/// To version
 		/// </summary>
 		[DataMember(Name = "toVersion")]
-		public Version ToVersion { get; set; } = new();	
+		public Version ToVersion { get; set; } = new();
 	}
 }

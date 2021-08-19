@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/wireless/status")]
 		Task<WirelessStatus> GetNetworkDeviceWirelessStatusAsync(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
 
@@ -30,8 +30,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}")]
 		Task<NetworkSsid> GetAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -41,7 +41,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/wireless/ssids")]
 		Task<List<NetworkSsid>> GetAllAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -53,9 +53,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSsid"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}")]
 		Task<NetworkSsid> UpdateAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number,
-			[Body]SsidUpdateRequest UpdateNetworkSsid,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body] SsidUpdateRequest UpdateNetworkSsid,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -82,7 +82,7 @@ namespace Meraki.Api.Interfaces
 		Task<IdentityPsks> CreateNetworkWirelessSsidIdentityPskAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]IdentityPsks CreateNetworkWirelessSsidIdentityPsk,
+			[Body] IdentityPsks CreateNetworkWirelessSsidIdentityPsk,
 			CancellationToken cancellationToken = default
 			);
 
@@ -114,7 +114,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
 			[AliasAs("identityPskId")] string identityPskId,
-			[Body]IdentityPsks UpdateNetworkWirelessSsidIdentityPsk,
+			[Body] IdentityPsks UpdateNetworkWirelessSsidIdentityPsk,
 			CancellationToken cancellationToken = default
 			);
 
@@ -143,7 +143,7 @@ namespace Meraki.Api.Interfaces
 		Task<SsidSplashSettings> UpdateNetworkWirelessSsidSplashSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]SsidSplashSettings UpdateNetworkWirelessSsidSplashSettings,
+			[Body] SsidSplashSettings UpdateNetworkWirelessSsidSplashSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -183,7 +183,7 @@ namespace Meraki.Api.Interfaces
 		Task<DeviceTypeGroupPolicies> UpdateNetworkWirelessSsidDeviceTypeGroupPoliciesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]DeviceTypeGroupPolicies UpdateNetworkWirelessSsidDeviceTypeGroupPolicies,
+			[Body] DeviceTypeGroupPolicies UpdateNetworkWirelessSsidDeviceTypeGroupPolicies,
 			CancellationToken cancellationToken = default
 			);
 
@@ -211,7 +211,7 @@ namespace Meraki.Api.Interfaces
 		Task<BonjourForwarding> UpdateNetworkWirelessSsidBonjourForwardingAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]BonjourForwarding UpdateNetworkWirelessSsidBonjourForwarding,
+			[Body] BonjourForwarding UpdateNetworkWirelessSsidBonjourForwarding,
 			CancellationToken cancellationToken = default
 			);
 
@@ -239,7 +239,7 @@ namespace Meraki.Api.Interfaces
 		Task<VpnSettings> UpdateNetworkWirelessSsidVpnAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]VpnSettings UpdateNetworkWirelessSsidVpn,
+			[Body] VpnSettings UpdateNetworkWirelessSsidVpn,
 			CancellationToken cancellationToken = default
 			);
 
@@ -266,7 +266,7 @@ namespace Meraki.Api.Interfaces
 		Task<Schedules> UpdateNetworkWirelessSsidSchedulesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]Schedules UpdateNetworkWirelessSsidSchedules,
+			[Body] Schedules UpdateNetworkWirelessSsidSchedules,
 			CancellationToken cancellationToken = default
 			);
 
@@ -293,7 +293,7 @@ namespace Meraki.Api.Interfaces
 		Task<EapOverride> UpdateNetworkWirelessSsidEapOverrideAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]EapOverride EapOverrideUpdateRequest,
+			[Body] EapOverride EapOverrideUpdateRequest,
 			CancellationToken cancellationToken = default
 			);
 
@@ -321,7 +321,7 @@ namespace Meraki.Api.Interfaces
 		Task<Hotspot20> UpdateNetworkWirelessSsidHotspot20Async(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body]Hotspot20 Hotspot20,
+			[Body] Hotspot20 Hotspot20,
 			CancellationToken cancellationToken = default
 			);
 	}

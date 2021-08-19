@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/networks/{networkId}/wireless/billing")]
 		Task<NetworkWirelessBilling> UpdateNetworkWirelessBillingAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]NetworkWirelessBilling UpdateNetworkWirelessBilling,
+			[Body] NetworkWirelessBilling UpdateNetworkWirelessBilling,
 			CancellationToken cancellationToken = default
 			);
 	}

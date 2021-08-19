@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="ssid">Filter results by SSID number.</param>
 		[Get("/networks/{networkId}/wireless/dataRateHistory")]
 		Task<List<DataRateHistory>> GetNetworkWirelessDataRateHistoryAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			[AliasAs("t0")] string? t0 = null,
 			[AliasAs("t1")] string? t1 = null,
 			[AliasAs("timespan")] double? timespan = null,

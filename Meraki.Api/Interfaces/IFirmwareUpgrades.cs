@@ -41,7 +41,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/firmwareUpgrades/rollbacks")]
 		Task<NetworkFirmwareUpgrade> CreateNetworkFirmwareUpgradesRollbackAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]FirmwareUpgradeRollbackRequest CreateNetworkFirmwareUpgradesRollback,
+			[Body] FirmwareUpgradeRollbackRequest CreateNetworkFirmwareUpgradesRollback,
 			CancellationToken cancellationToken = default
 			);
 	}

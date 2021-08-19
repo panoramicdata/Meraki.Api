@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/alerts/settings")]
 		Task<AlertSettingsUpdateRequest> GetNetworkAlertsSettingsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -28,8 +28,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkAlertSettings">Body for updating network alert settings</param>
 		[Put("/networks/{networkId}/alerts/settings")]
 		Task<AlertSettingsUpdateRequest> UpdateNetworkAlertSettingsAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]AlertSettingsUpdateRequest UpdateNetworkAlertSettings = null!,
+			[AliasAs("networkId")] string networkId,
+			[Body] AlertSettingsUpdateRequest UpdateNetworkAlertSettings = null!,
 			CancellationToken cancellationToken = default);
 	}
 }

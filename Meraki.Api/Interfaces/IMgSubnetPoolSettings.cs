@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/cellularGateway/settings/subnetPool")]
 		Task<NetworkCellularGatewaySettingsSubnetPool> GetNetworkCellularGatewaySettingsSubnetPoolAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkCellularGatewaySettingsSubnetPool">Body for updating subnet pool and mask config</param>
 		[Put("/networks/{networkId}/cellularGateway/settings/subnetPool")]
 		Task<NetworkCellularGatewaySettingsSubnetPool> UpdateNetworkCellularGatewaySettingsSubnetPoolAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]NetworkCellularGatewaySettingsSubnetPoolUpdateRequest UpdateNetworkCellularGatewaySettingsSubnetPool,
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkCellularGatewaySettingsSubnetPoolUpdateRequest UpdateNetworkCellularGatewaySettingsSubnetPool,
 			CancellationToken cancellationToken = default
 			);
 	}

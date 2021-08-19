@@ -18,8 +18,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
 		Task<SsidSplashSettingsUpdateRequest> GetNetworkSsidSplashSettingsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,9 +32,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSsidSplashSettings"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
 		Task<SsidSplashSettingsUpdateRequest> UpdateNetworkSsidSplashSettingsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number,
-			[Body]SsidSplashSettingsUpdateRequest UpdateNetworkSsidSplashSettings,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body] SsidSplashSettingsUpdateRequest UpdateNetworkSsidSplashSettings,
 			CancellationToken cancellationToken = default
 			);
 	}

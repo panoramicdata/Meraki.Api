@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/syslogServers")]
 		Task<SyslogServersUpdateRequest> GetNetworkSyslogServersAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSyslogServers"></param>
 		[Put("/networks/{networkId}/syslogServers")]
 		Task<SyslogServersUpdateRequest> UpdateNetworkSyslogServersAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SyslogServersUpdateRequest UpdateNetworkSyslogServers,
+			[AliasAs("networkId")] string networkId,
+			[Body] SyslogServersUpdateRequest UpdateNetworkSyslogServers,
 			CancellationToken cancellationToken = default
 			);
 	}

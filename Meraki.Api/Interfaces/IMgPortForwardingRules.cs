@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/cellularGateway/settings/portForwardingRules")]
 		Task<CellularGatewaySettingsPortForwardingRulesUpdateRequest> GetDeviceCellularGatewaySettingsPortForwardingRulesAsync(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateDeviceCellularGatewaySettingsPortForwardingRules">Body for updating port forwarding rules</param>
 		[Put("/devices/{serial}/cellularGateway/settings/portForwardingRules")]
 		Task<CellularGatewaySettingsPortForwardingRulesUpdateRequest> UpdateDeviceCellularGatewaySettingsPortForwardingRulesAsync(
-			[AliasAs("serial")]string serial,
-			[Body]CellularGatewaySettingsPortForwardingRulesUpdateRequest UpdateDeviceCellularGatewaySettingsPortForwardingRules,
+			[AliasAs("serial")] string serial,
+			[Body] CellularGatewaySettingsPortForwardingRulesUpdateRequest UpdateDeviceCellularGatewaySettingsPortForwardingRules,
 			CancellationToken cancellationToken = default
 			);
 	}

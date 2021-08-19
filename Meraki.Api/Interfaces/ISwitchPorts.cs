@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="portId">The port id</param>
 		[Get("/devices/{serial}/switch/ports/{portId}")]
 		Task<DeviceSwitchPort> GetDeviceSwitchPortAsync(
-			[AliasAs("serial")]string serial,
-			[AliasAs("portId")]string portId,
+			[AliasAs("serial")] string serial,
+			[AliasAs("portId")] string portId,
 			CancellationToken cancellationToken = default
 			);
 

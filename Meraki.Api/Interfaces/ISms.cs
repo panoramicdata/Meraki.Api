@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CheckinNetworkSmDevices">Body for check-in of device</param>
 		[Post("/networks/{networkId}/sm/devices/checkin")]
 		Task<CheckinNetworkSmDevices> CheckinNetworkSmDevicesAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]CheckinNetworkSmDevices CheckinNetworkSmDevices,
+			[AliasAs("networkId")] string networkId,
+			[Body] CheckinNetworkSmDevices CheckinNetworkSmDevices,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/sm/devices/modifyTags")]
 		Task<CheckinNetworkSmDevices> ModifyNetworkSmDevicesTagsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]ModifyNetworkDeviceTags ModifyNetworkSmDevicesTags,
+			[Body] ModifyNetworkDeviceTags ModifyNetworkSmDevicesTags,
 			CancellationToken cancellationToken = default
 			);
 
@@ -45,7 +45,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/sm/devices/lock")]
 		Task<CheckinNetworkSmDevices> LockNetworkSmDevicesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]CheckinNetworkSmDevices LockNetworkSmDevices,
+			[Body] CheckinNetworkSmDevices LockNetworkSmDevices,
 			CancellationToken cancellationToken = default
 			);
 
@@ -57,8 +57,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkSmBypassActivationLockAttempt">Body for bypassing a lock attempt</param>
 		[Post("/networks/{networkId}/sm/bypassActivationLockAttempts")]
 		Task<object> CreateNetworkSmBypassActivationLockAttemptAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SmBypassActivationLockAttemptCreationRequest CreateNetworkSmBypassActivationLockAttempt,
+			[AliasAs("networkId")] string networkId,
+			[Body] SmBypassActivationLockAttemptCreationRequest CreateNetworkSmBypassActivationLockAttempt,
 			CancellationToken cancellationToken = default
 			);
 
@@ -70,8 +70,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="appId">The app id</param>
 		[Delete("/networks/{networkId}/sm/app/polaris/{appId}")]
 		Task<object> DeleteNetworkSmAppPolarisAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("appId")]string appId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("appId")] string appId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -83,8 +83,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="bundleId">The bundle ID of the app to be found, defaults to com.cisco.ciscosecurity.app (optional)</param>
 		[Get("/networks/{networkId}/sm/app/polaris")]
 		Task<object> GetNetworkSmAppPolarisAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("bundleId")]string bundleId = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("bundleId")] string bundleId = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -96,8 +96,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="attemptId">The attempt id</param>
 		[Get("/networks/{networkId}/sm/bypassActivationLockAttempts/{attemptId}")]
 		Task<BypassLockResponse> GetNetworkSmBypassActivationLockAttemptAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("attemptId")]string attemptId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("attemptId")] string attemptId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -109,8 +109,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/cellularUsageHistory")]
 		Task<List<ClientUsageHistory>> GetNetworkSmCellularUsageHistoryAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -122,8 +122,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/certs")]
 		Task<List<DeviceCert>> GetNetworkSmCertsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -138,11 +138,11 @@ namespace Meraki.Api.Interfaces
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/connectivity")]
 		Task<DeviceConnectivity> GetNetworkSmConnectivityAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -157,11 +157,11 @@ namespace Meraki.Api.Interfaces
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/desktopLogs")]
 		Task<List<DesktopLogs>> GetNetworkSmDesktopLogsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -176,11 +176,11 @@ namespace Meraki.Api.Interfaces
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/deviceCommandLogs")]
 		Task<List<CommandLogs>> GetNetworkSmDeviceCommandLogsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -192,8 +192,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/deviceProfiles")]
 		Task<List<DeviceProfile>> GetNetworkSmDeviceProfilesAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -211,14 +211,14 @@ namespace Meraki.Api.Interfaces
 		/// <param name="batchToken">If the network has more devices than the batch size, a batch token will be returned     as a part of the device list. To see the remainder of the devices, pass in the batchToken as a parameter in the next request.     Requests made with the batchToken do not require additional parameters as the batchToken includes the parameters passed in     with the original request. Additional parameters passed in with the batchToken will be ignored. (optional)</param>
 		[Get("/networks/{networkId}/sm/devices")]
 		Task<SmDevices> GetNetworkSmDevicesAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("fields")]string fields = null!,
-			[AliasAs("wifiMacs")]string wifiMacs = null!,
-			[AliasAs("serials")]string serials = null!,
-			[AliasAs("ids")]string ids = null!,
-			[AliasAs("scope")]string scope = null!,
-			[AliasAs("batchSize")]int? batchSize = null,
-			[AliasAs("batchToken")]string batchToken = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("fields")] string fields = null!,
+			[AliasAs("wifiMacs")] string wifiMacs = null!,
+			[AliasAs("serials")] string serials = null!,
+			[AliasAs("ids")] string ids = null!,
+			[AliasAs("scope")] string scope = null!,
+			[AliasAs("batchSize")] int? batchSize = null,
+			[AliasAs("batchToken")] string batchToken = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -230,8 +230,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/networkAdapters")]
 		Task<List<NetworkAdapter>> GetNetworkSmNetworkAdaptersAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -246,11 +246,11 @@ namespace Meraki.Api.Interfaces
 		/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 		[Get("/networks/{networkId}/sm/{id}/performanceHistory")]
 		Task<List<SmDevicePerformanceHistory>> GetNetworkSmPerformanceHistoryAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("id")]string id,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("id")] string id,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -261,7 +261,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/sm/profiles")]
 		Task<SmProfile> GetNetworkSmProfilesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -273,8 +273,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/restrictions")]
 		Task<List<SmDeviceRestrictions>> GetNetworkSmRestrictionsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -286,8 +286,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/securityCenters")]
 		Task<List<SecurityCenter>> GetNetworkSmSecurityCentersAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -299,8 +299,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/softwares")]
 		Task<List<Software>> GetNetworkSmSoftwaresAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -312,8 +312,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="userId">The user id</param>
 		[Get("/networks/{networkId}/sm/users/{userId}/deviceProfiles")]
 		Task<List<DeviceProfile>> GetNetworkSmUserDeviceProfilesAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("userId")]string userId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("userId")] string userId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -325,8 +325,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="userId">The user id</param>
 		[Get("/networks/{networkId}/sm/users/{userId}/softwares")]
 		Task<List<Software>> GetNetworkSmUserSoftwaresAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("userId")]string userId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("userId")] string userId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -341,11 +341,11 @@ namespace Meraki.Api.Interfaces
 		/// <param name="scope">Specifiy a scope (one of all, none, withAny, withAll, withoutAny, withoutAll) and a set of tags as comma separated values. (optional)</param>
 		[Get("/networks/{networkId}/sm/users")]
 		Task<List<SmNetworkUsers>> GetNetworkSmUsersAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("ids")]string ids = null!,
-			[AliasAs("usernames")]string usernames = null!,
-			[AliasAs("emails")]string emails = null!,
-			[AliasAs("scope")]string scope = null!,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("ids")] string ids = null!,
+			[AliasAs("usernames")] string usernames = null!,
+			[AliasAs("emails")] string emails = null!,
+			[AliasAs("scope")] string scope = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -357,8 +357,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Get("/networks/{networkId}/sm/devices/{deviceId}/wlanLists")]
 		Task<List<WlanList>> GetNetworkSmWlanListsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -370,8 +370,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="MoveNetworkSmDevices">Body for moving devices</param>
 		[Post("/networks/{networkId}/sm/devices/move")]
 		Task<MoveNetworkSmDevices> MoveNetworkSmDevicesAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]MoveNetworkSmDevices MoveNetworkSmDevices,
+			[AliasAs("networkId")] string networkId,
+			[Body] MoveNetworkSmDevices MoveNetworkSmDevices,
 			CancellationToken cancellationToken = default
 			);
 
@@ -383,8 +383,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Post("/networks/{networkId}/sm/devices/{deviceId}/refreshDetails")]
 		Task RefreshNetworkSmDeviceDetailsAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -396,8 +396,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="deviceId">The device id</param>
 		[Post("/networks/{networkId}/sm/devices/{deviceId}/unenroll")]
 		Task<UpdateOnboardingStatusResponse> UnenrollNetworkSmDeviceAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("deviceId")]string deviceId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("deviceId")] string deviceId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -409,8 +409,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSmDeviceFields">Body for modifying a device</param>
 		[Put("/networks/{networkId}/sm/devices/fields")]
 		Task<SmDeviceFieldsUpdateRequest> UpdateNetworkSmDeviceFieldsAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SmDeviceFieldsUpdateRequest UpdateNetworkSmDeviceFields,
+			[AliasAs("networkId")] string networkId,
+			[Body] SmDeviceFieldsUpdateRequest UpdateNetworkSmDeviceFields,
 			CancellationToken cancellationToken = default
 			);
 	}

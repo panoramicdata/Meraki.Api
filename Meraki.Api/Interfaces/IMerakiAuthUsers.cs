@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="merakiAuthUserId">The meraki user id</param>
 		[Get("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 		Task<MerakiAuthUsers> GetNetworkMerakiAuthUserAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("merakiAuthUserId")]string merakiAuthUserId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -35,7 +35,7 @@ namespace Meraki.Api.Interfaces
 		Task<MerakiAuthUsers> UpdateNetworkMerakiAuthUserAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
-			[Body]MerakiAuthUsers UpdateNetworkMerakiAuthUser,
+			[Body] MerakiAuthUsers UpdateNetworkMerakiAuthUser,
 			CancellationToken cancellationToken = default
 			);
 
@@ -46,7 +46,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/merakiAuthUsers")]
 		Task<List<MerakiAuthUsers>> GetNetworkMerakiAuthUsersAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 

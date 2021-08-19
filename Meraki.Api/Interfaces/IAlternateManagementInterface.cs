@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/alternateManagementInterface")]
 		Task<AlternateManagementInterface> UpdateNetworkSwitchAlternateManagementInterfaceAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]AlternateManagementInterface UpdateNetworkSwitchAlternateManagementInterface,
+			[Body] AlternateManagementInterface UpdateNetworkSwitchAlternateManagementInterface,
 			CancellationToken cancellationToken = default
 			);
 	}

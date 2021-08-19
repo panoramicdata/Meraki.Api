@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/snmpSettings")]
 		Task<SnmpSettingsUpdateRequest> GetNetworkSnmpSettingsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/snmp")]
 		Task<SnmpUpdateRequest> GetOrganizationSnmpAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -40,8 +40,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSnmpSettings"></param>
 		[Put("/networks/{networkId}/snmpSettings")]
 		Task<SnmpSettingsUpdateRequest> UpdateNetworkSnmpSettingsAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SnmpSettingsUpdateRequest UpdateNetworkSnmpSettings,
+			[AliasAs("networkId")] string networkId,
+			[Body] SnmpSettingsUpdateRequest UpdateNetworkSnmpSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -53,8 +53,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateOrganizationSnmp"></param>
 		[Put("/organizations/{organizationId}/snmp")]
 		Task<SnmpUpdateRequest> UpdateOrganizationSnmpAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]SnmpUpdateRequest UpdateOrganizationSnmp,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] SnmpUpdateRequest UpdateOrganizationSnmp,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkFloorPlan">Body for uploading a network floor plan</param>
 		[Post("/networks/{networkId}/floorPlans")]
 		Task<FloorPlan> CreateNetworkFloorPlanAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]FloorPlanCreationRequest CreateNetworkFloorPlan,
+			[AliasAs("networkId")] string networkId,
+			[Body] FloorPlanCreationRequest CreateNetworkFloorPlan,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="floorPlanId">The floor plan id</param>
 		[Delete("/networks/{networkId}/floorPlans/{floorPlanId}")]
 		Task DeleteNetworkFloorPlanAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("floorPlanId")]string floorPlanId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("floorPlanId")] string floorPlanId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -45,8 +45,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="floorPlanId">The floor plan id</param>
 		[Get("/networks/{networkId}/floorPlans/{floorPlanId}")]
 		Task<FloorPlan> GetNetworkFloorPlanAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("floorPlanId")]string floorPlanId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("floorPlanId")] string floorPlanId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -57,7 +57,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/floorPlans")]
 		Task<List<FloorPlan>> GetNetworkFloorPlansAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -70,9 +70,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkFloorPlan">Body for updating a network floor plan</param>
 		[Put("/networks/{networkId}/floorPlans/{floorPlanId}")]
 		Task<FloorPlan> UpdateNetworkFloorPlanAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("floorPlanId")]string floorPlanId,
-			[Body]FloorPlanUpdateRequest UpdateNetworkFloorPlan,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("floorPlanId")] string floorPlanId,
+			[Body] FloorPlanUpdateRequest UpdateNetworkFloorPlan,
 			CancellationToken cancellationToken = default);
 	}
 }

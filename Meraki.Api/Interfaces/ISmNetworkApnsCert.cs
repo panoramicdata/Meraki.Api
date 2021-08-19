@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/sm/apnsCert")]
 		Task<ApnsCert> GetOrganizationSmApnsCertAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 	}
 }

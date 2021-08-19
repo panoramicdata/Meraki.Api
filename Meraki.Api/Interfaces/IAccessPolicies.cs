@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/switch/accessPolicies")]
 		Task<AccessPolicy> CreateNetworkSwitchAccessPolicyAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body]AccessPolicy CreateNetworkSwitchAccessPolicy,
+			[Body] AccessPolicy CreateNetworkSwitchAccessPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -59,7 +59,7 @@ namespace Meraki.Api.Interfaces
 		Task<AccessPolicy> UpdateNetworkSwitchAccessPolicyAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("accessPolicyNumber")] string accessPolicyNumber,
-			[Body]AccessPolicy UpdateNetworkSwitchAccessPolicy,
+			[Body] AccessPolicy UpdateNetworkSwitchAccessPolicy,
 			CancellationToken cancellationToken = default
 			);
 

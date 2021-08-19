@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkWirelessRfProfile">Body for creating an RF profile</param>
 		[Post("/networks/{networkId}/wireless/rfProfiles")]
 		Task<WirelessRfProfileCreationRequest> CreateNetworkWirelessRfProfileAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]WirelessRfProfileCreationRequest CreateNetworkWirelessRfProfile,
+			[AliasAs("networkId")] string networkId,
+			[Body] WirelessRfProfileCreationRequest CreateNetworkWirelessRfProfile,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="rfProfileId">The RF profile id</param>
 		[Delete("/networks/{networkId}/wireless/rfProfiles/{rfProfileId}")]
 		Task DeleteNetworkWirelessRfProfileAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("rfProfileId")]string rfProfileId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("rfProfileId")] string rfProfileId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -44,7 +44,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/wireless/radio/settings")]
 		Task<RadioGhzSettings> GetNetworkDeviceWirelessRadioSettingsAsync(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
 
@@ -56,8 +56,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="rfProfileId">The RF profile id</param>
 		[Get("/networks/{networkId}/wireless/rfProfiles/{rfProfileId}")]
 		Task<WirelessRfProfileCreationRequest> GetNetworkWirelessRfProfileAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("rfProfileId")]string rfProfileId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("rfProfileId")] string rfProfileId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -69,8 +69,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="includeTemplateProfiles">If the network is bound to a template, this parameter controls whether or not the non-basic RF profiles defined on the template     should be included in the response alongside the non-basic profiles defined on the bound network. Defaults to false.  (optional)</param>
 		[Get("/networks/{networkId}/wireless/rfProfiles")]
 		Task<List<WirelessRfProfileCreationRequest>> GetNetworkWirelessRfProfilesAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("includeTemplateProfiles")]bool? includeTemplateProfiles = null,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("includeTemplateProfiles")] bool? includeTemplateProfiles = null,
 			CancellationToken cancellationToken = default
 			);
 
@@ -82,8 +82,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkDeviceWirelessRadioSettings">Body for updating radio settings</param>
 		[Put("/devices/{serial}/wireless/radio/settings")]
 		Task<WirelessRadioSettingsUpdateRequest> UpdateNetworkDeviceWirelessRadioSettingsAsync(
-            [AliasAs("serial")]string serial,
-			[Body]WirelessRadioSettingsUpdateRequest UpdateNetworkDeviceWirelessRadioSettings,
+			[AliasAs("serial")] string serial,
+			[Body] WirelessRadioSettingsUpdateRequest UpdateNetworkDeviceWirelessRadioSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -96,9 +96,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkWirelessRfProfile">Body for updating a specified RF profile</param>
 		[Put("/networks/{networkId}/wireless/rfProfiles/{rfProfileId}")]
 		Task<WirelessRfProfileCreationRequest> UpdateNetworkWirelessRfProfileAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("rfProfileId")]string rfProfileId,
-			[Body]WirelessRfProfileUpdateRequest UpdateNetworkWirelessRfProfile,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("rfProfileId")] string rfProfileId,
+			[Body] WirelessRfProfileUpdateRequest UpdateNetworkWirelessRfProfile,
 			CancellationToken cancellationToken = default
 			);
 	}

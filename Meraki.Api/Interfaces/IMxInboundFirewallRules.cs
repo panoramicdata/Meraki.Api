@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
 		Task<NetworkApplianceFirewallInboundFirewallRulesUpdateRequest> GetNetworkApplianceFirewallInboundFirewallRulesAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkApplianceFirewallInboundFirewallRules">Body for updating inbound firewall rules</param>
 		[Put("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
 		Task<NetworkApplianceFirewallInboundFirewallRulesUpdateRequest> UpdateNetworkApplianceFirewallInboundFirewallRulesAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]NetworkApplianceFirewallInboundFirewallRulesUpdateRequest UpdateNetworkApplianceFirewallInboundFirewallRules,
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkApplianceFirewallInboundFirewallRulesUpdateRequest UpdateNetworkApplianceFirewallInboundFirewallRules,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -189,7 +189,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/loginSecurity")]
 		Task<LoginSecurity> UpdateOrganizationLoginSecurityAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body]LoginSecurity UpdateOrganizationLoginSecurity,
+			[Body] LoginSecurity UpdateOrganizationLoginSecurity,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -211,7 +211,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/adaptivePolicy/acls")]
 		Task<List<Acls>> CreateOrganizationAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body]Acls Acls,
+			[Body] Acls Acls,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -237,7 +237,7 @@ namespace Meraki.Api.Interfaces
 		Task<Acls> UpdateOrganizationAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("id")] string id,
-			[Body]Acls Acls,
+			[Body] Acls Acls,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -270,7 +270,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/adaptivePolicy/settings")]
 		Task<AdaptivePolicySettings> UpdateOrganizationAdaptivePolicySettingsAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body]AdaptivePolicySettings AdaptivePolicySettings,
+			[Body] AdaptivePolicySettings AdaptivePolicySettings,
 			CancellationToken cancellationToken = default);
 	}
 }

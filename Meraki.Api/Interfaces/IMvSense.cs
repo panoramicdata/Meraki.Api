@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/camera/analytics/live")]
 		Task<CameraLive> GetDeviceCameraAnalyticsLiveAsync(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
 
@@ -33,11 +33,11 @@ namespace Meraki.Api.Interfaces
 		/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
 		[Get("/devices/{serial}/camera/analytics/overview")]
 		Task<List<CameraOverview>> GetDeviceCameraAnalyticsOverviewAsync(
-			[AliasAs("serial")]string serial,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("objectType")]string objectType = null!,
+			[AliasAs("serial")] string serial,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("objectType")] string objectType = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -49,8 +49,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
 		[Get("/devices/{serial}/camera/analytics/recent")]
 		Task<List<CameraOverview>> GetDeviceCameraAnalyticsRecentAsync(
-			[AliasAs("serial")]string serial,
-			[AliasAs("objectType")]string objectType = null!,
+			[AliasAs("serial")] string serial,
+			[AliasAs("objectType")] string objectType = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -67,13 +67,13 @@ namespace Meraki.Api.Interfaces
 		/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
 		[Get("/devices/{serial}/camera/analytics/zones/{zoneId}/history")]
 		Task<List<CameraZoneHistory>> GetDeviceCameraAnalyticsZoneHistoryAsync(
-			[AliasAs("serial")]string serial,
-			[AliasAs("zoneId")]string zoneId,
-			[AliasAs("t0")]string t0 = null!,
-			[AliasAs("t1")]string t1 = null!,
-			[AliasAs("timespan")]double? timespan = null,
-			[AliasAs("resolution")]int? resolution = null,
-			[AliasAs("objectType")]string objectType = null!,
+			[AliasAs("serial")] string serial,
+			[AliasAs("zoneId")] string zoneId,
+			[AliasAs("t0")] string t0 = null!,
+			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("resolution")] int? resolution = null,
+			[AliasAs("objectType")] string objectType = null!,
 			CancellationToken cancellationToken = default
 			);
 
@@ -84,7 +84,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/camera/analytics/zones")]
 		Task<List<CameraZone>> GetDeviceCameraAnalyticsZonesAsync(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -19,8 +19,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="CreateNetworkSwitchLinkAggregation">Body for creating a link aggregation group</param>
 		[Post("/networks/{networkId}/switch/linkAggregations")]
 		Task<SwitchLinkAggregationCreationRequest> CreateNetworkSwitchLinkAggregationAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]SwitchLinkAggregationCreationRequest CreateNetworkSwitchLinkAggregation,
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchLinkAggregationCreationRequest CreateNetworkSwitchLinkAggregation,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,8 +32,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="linkAggregationId">The link aggregation id</param>
 		[Delete("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
 		Task DeleteNetworkSwitchLinkAggregationAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("linkAggregationId")]string linkAggregationId,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("linkAggregationId")] string linkAggregationId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -44,7 +44,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/linkAggregations")]
 		Task<List<SwitchLinkAggregationCreationRequest>> GetNetworkSwitchLinkAggregationsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -57,9 +57,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSwitchLinkAggregation">Body for updating a link aggregation group</param>
 		[Put("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
 		Task<SwitchLinkAggregationCreationRequest> UpdateNetworkSwitchLinkAggregationAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("linkAggregationId")]string linkAggregationId,
-			[Body]SwitchLinkAggregationCreationRequest UpdateNetworkSwitchLinkAggregation,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("linkAggregationId")] string linkAggregationId,
+			[Body] SwitchLinkAggregationCreationRequest UpdateNetworkSwitchLinkAggregation,
 			CancellationToken cancellationToken = default
 			);
 	}

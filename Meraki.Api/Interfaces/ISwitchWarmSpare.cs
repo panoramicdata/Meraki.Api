@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/switch/warmSpare")]
 		Task<SwitchWarmSpare> GetDeviceSwitchWarmSpareAsync(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateDeviceSwitchWarmSpare"></param>
 		[Put("/devices/{serial}/switch/warmSpare")]
 		Task<SwitchWarmSpare> UpdateAsync(
-			[AliasAs("serial")]string serial,
-			[Body]SwitchWarmSpareUpdateRequest UpdateDeviceSwitchWarmSpare,
+			[AliasAs("serial")] string serial,
+			[Body] SwitchWarmSpareUpdateRequest UpdateDeviceSwitchWarmSpare,
 			CancellationToken cancellationToken = default);
 	}
 }

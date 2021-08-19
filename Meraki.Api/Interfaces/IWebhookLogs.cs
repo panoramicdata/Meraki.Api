@@ -25,7 +25,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="url">The URL the webhook was sent to (optional)</param>
 		[Get("/organizations/{organizationId}/webhookLogs")]
 		Task<List<WebhookLog>> GetOrganizationWebhookLogsAsync(
-			[AliasAs("organizationId")]string organizationId,
+			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("t0")] string t0 = null!,
 			[AliasAs("t1")] string t1 = null!,
 			[AliasAs("timespan")] double? timespan = null,

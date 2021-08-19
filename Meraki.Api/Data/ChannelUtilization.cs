@@ -37,6 +37,6 @@ namespace Meraki.Api.Data
 		/// Wifi1
 		/// </summary>
 		[DataMember(Name = "wifi1")]
-		public List<Wifi> Wifi1 { get; set; } = new();	
+		public List<Wifi> Wifi1 { get; set; } = new();
 	}
 }

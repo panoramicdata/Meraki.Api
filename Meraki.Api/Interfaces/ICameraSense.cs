@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial id</param>
 		[Get("/devices/{serial}/camera/sense")]
 		Task<CameraSense> GetDeviceCameraSenseAsync(
-			[AliasAs("serial")]string serial,
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -29,7 +29,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/devices/{serial}/camera/sense")]
 		Task<CameraSense> UpdateDeviceCameraSenseAsync(
 			[AliasAs("serial")] string serial,
-			[Body]CameraSenseUpdateRequest UpdateDeviceCameraSense,
+			[Body] CameraSenseUpdateRequest UpdateDeviceCameraSense,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

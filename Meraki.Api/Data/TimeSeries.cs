@@ -24,6 +24,6 @@ namespace Meraki.Api.Data
 		/// Latency ms
 		/// </summary>
 		[DataMember(Name = "latencyMs")]
-		public float LatencyMs { get; set; }	
+		public float LatencyMs { get; set; }
 	}
 }

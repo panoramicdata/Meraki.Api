@@ -18,8 +18,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="number">The SSID number</param>
 		[Get("/networks/{networkId}/ssids/{number}/l3FirewallRules")]
 		Task<SsidLayer3FirewallRulesUpdateRequest> GetNetworkSsidL3FirewallRulesAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,9 +32,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkSsidL3FirewallRules">Body for updating L3 firewall rules</param>
 		[Put("/networks/{networkId}/ssids/{number}/l3FirewallRules")]
 		Task<SsidLayer3FirewallRulesUpdateRequest> UpdateNetworkSsidL3FirewallRulesAsync(
-			[AliasAs("networkId")]string networkId,
-			[AliasAs("number")]string number,
-			[Body]SsidLayer3FirewallRulesUpdateRequest UpdateNetworkSsidL3FirewallRules,
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("number")] string number,
+			[Body] SsidLayer3FirewallRulesUpdateRequest UpdateNetworkSsidL3FirewallRules,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -18,8 +18,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[Post("/organizations/{organizationId}/licenses/assignSeats")]
 		Task<AssignSeatsResponse> AssignOrganizationLicensesSeatsAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]LicenseSeatsAssignmentRequest LicenseSeatsAssignmentRequest,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] LicenseSeatsAssignmentRequest LicenseSeatsAssignmentRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -30,8 +30,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="licenseId">The license id</param>
 		[Get("/organizations/{organizationId}/licenses/{licenseId}")]
 		Task<OrganizationLicense> GetAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("licenseId")]string licenseId,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("licenseId")] string licenseId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -47,13 +47,13 @@ namespace Meraki.Api.Interfaces
 		/// <param name="state">Filter the licenses to those in a particular state. Can be one of &#39;active&#39;, &#39;expired&#39;, &#39;expiring&#39;, &#39;unused&#39;, &#39;unusedActive&#39; or &#39;recentlyQueued&#39; (optional)</param>
 		[Get("/organizations/{organizationId}/licenses")]
 		Task<List<OrganizationLicense>> GetPageAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("perPage")]int? perPage = null,
-			[AliasAs("startingAfter")]string startingAfter = null!,
-			[AliasAs("endingBefore")]string endingBefore = null!,
-			[AliasAs("deviceSerial")]string deviceSerial = null!,
-			[AliasAs("networkId")]string networkId = null!,
-			[AliasAs("state")]string state = null!,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("startingAfter")] string startingAfter = null!,
+			[AliasAs("endingBefore")] string endingBefore = null!,
+			[AliasAs("deviceSerial")] string deviceSerial = null!,
+			[AliasAs("networkId")] string networkId = null!,
+			[AliasAs("state")] string state = null!,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -64,8 +64,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="LicenseMoveRequest">Body for moving a license</param>
 		[Post("/organizations/{organizationId}/licenses/move")]
 		Task<LicenseMoveRequest> MoveToOrganizationAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]LicenseMoveRequest LicenseMoveRequest,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] LicenseMoveRequest LicenseMoveRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -76,8 +76,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="LicenseSeatsMoveRequest">Body for moving SM seats</param>
 		[Post("/organizations/{organizationId}/licenses/moveSeats")]
 		Task<LicenseSeatsMoveRequest> MoveSeatsAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]LicenseSeatsMoveRequest LicenseSeatsMoveRequest,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] LicenseSeatsMoveRequest LicenseSeatsMoveRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -88,8 +88,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="LicenseSeatsRenewalRequest">Body for renewing SM seats</param>
 		[Post("/organizations/{organizationId}/licenses/renewSeats")]
 		Task<AssignSeatsResponse> RenewSeatsAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[Body]LicenseSeatsRenewalRequest LicenseSeatsRenewalRequest,
+			[AliasAs("organizationId")] string organizationId,
+			[Body] LicenseSeatsRenewalRequest LicenseSeatsRenewalRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -101,9 +101,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateOrganizationLicense">Body for updating a license</param>
 		[Put("/organizations/{organizationId}/licenses/{licenseId}")]
 		Task<OrganizationLicense> UpdateAsync(
-			[AliasAs("organizationId")]string organizationId,
-			[AliasAs("licenseId")]string licenseId,
-			[Body]LicenseUpdateRequest UpdateOrganizationLicense,
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("licenseId")] string licenseId,
+			[Body] LicenseUpdateRequest UpdateOrganizationLicense,
 			CancellationToken cancellationToken = default);
 	}
 }

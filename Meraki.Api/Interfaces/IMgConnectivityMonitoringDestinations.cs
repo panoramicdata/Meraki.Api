@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
 		Task<NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest> GetNetworkCellularGatewaySettingsConnectivityMonitoringDestinationsAsync(
-			[AliasAs("networkId")]string networkId,
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -29,8 +29,8 @@ namespace Meraki.Api.Interfaces
 		/// <param name="UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations">Body for updating the connectivity testing destinations</param>
 		[Put("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
 		Task<NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest> UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinationsAsync(
-			[AliasAs("networkId")]string networkId,
-			[Body]NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations,
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations,
 			CancellationToken cancellationToken = default
 			);
 	}
