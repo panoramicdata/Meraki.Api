@@ -11,7 +11,7 @@ namespace Meraki.Api.Data
 		public DateTime CreatedAt { get; set; }
 
 		[DataMember(Name = "id")]
-		public string Id { get; set; }
+		public string Id { get; set; } = string.Empty;
 
 		[DataMember(Name = "xml")]
 		public string Xml { get; set; } = string.Empty;

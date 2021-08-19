@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchAlternateManagementInterface">Body for updating network switch alternate management interface</param>
+		/// <param name="updateNetworkSwitchAlternateManagementInterface">Body for updating network switch alternate management interface</param>
 		[Put("/networks/{networkId}/switch/alternateManagementInterface")]
 		Task<AlternateManagementInterface> UpdateNetworkSwitchAlternateManagementInterfaceAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] AlternateManagementInterface UpdateNetworkSwitchAlternateManagementInterface,
+			[Body] AlternateManagementInterface updateNetworkSwitchAlternateManagementInterface,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="GenerateNetworkCameraSnapshot">Body for generating network camera snapshot</param>
+		/// <param name="generateNetworkCameraSnapshot">Body for generating network camera snapshot</param>
 		[Post("/devices/{serial}/camera/generateSnapshot")]
 		Task<CameraSnapshot> GetSnapshotAsync(
 			[AliasAs("serial")] string serial,
-			[Body] CameraSnapshotRequest GenerateNetworkCameraSnapshot,
+			[Body] CameraSnapshotRequest generateNetworkCameraSnapshot,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -60,11 +60,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="CameraQualityAndRetentionSettingsUpdateRequest">Body for updating camera quality and retention settings</param>
+		/// <param name="cameraQualityAndRetentionSettingsUpdateRequest">Body for updating camera quality and retention settings</param>
 		[Put("/devices/{serial}/camera/qualityAndRetentionSettings")]
 		Task<CameraQualityAndRetentionSettings> UpdateQualityAndRetentionSettingsAsync(
 			[AliasAs("serial")] string serial,
-			[Body] CameraQualityAndRetentionSettingsUpdateRequest CameraQualityAndRetentionSettingsUpdateRequest,
+			[Body] CameraQualityAndRetentionSettingsUpdateRequest cameraQualityAndRetentionSettingsUpdateRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -83,11 +83,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="UpdateDeviceCameraWirelessProfiles">Body for updating camera wireless profiles</param>
+		/// <param name="updateDeviceCameraWirelessProfiles">Body for updating camera wireless profiles</param>
 		[Put("/devices/{serial}/camera/wirelessProfiles")]
 		Task<WirelessProfiles> UpdateDeviceCameraWirelessProfilesAsync(
 			[AliasAs("serial")] string serial,
-			[Body] WirelessProfiles UpdateDeviceCameraWirelessProfiles,
+			[Body] WirelessProfiles updateDeviceCameraWirelessProfiles,
 			CancellationToken cancellationToken = default
 			);
 
@@ -121,12 +121,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="wirelessProfileId">The wireless profile id</param>
-		/// <param name="UpdateNetworkCameraWirelessProfile">Body for updating camera wireless profile</param>
+		/// <param name="updateNetworkCameraWirelessProfile">Body for updating camera wireless profile</param>
 		[Put("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
 		Task<NetworkWirelessProfiles> UpdateNetworkCameraWirelessProfileAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("wirelessProfileId")] string wirelessProfileId,
-			[Body] NetworkWirelessProfilesCreateRequest UpdateNetworkCameraWirelessProfile,
+			[Body] NetworkWirelessProfilesCreateRequest updateNetworkCameraWirelessProfile,
 			CancellationToken cancellationToken = default
 			);
 
@@ -135,11 +135,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkCameraWirelessProfile">Body for creating camera wireless profile</param>
+		/// <param name="createNetworkCameraWirelessProfile">Body for creating camera wireless profile</param>
 		[Post("/networks/{networkId}/camera/wirelessProfiles")]
 		Task<NetworkWirelessProfiles> CreateNetworkCameraWirelessProfileAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkWirelessProfilesCreateRequest CreateNetworkCameraWirelessProfile,
+			[Body] NetworkWirelessProfilesCreateRequest createNetworkCameraWirelessProfile,
 			CancellationToken cancellationToken = default
 			);
 
@@ -176,7 +176,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/camera/onboarding/statuses")]
 		Task<UpdateOnboardingStatusResponse> UpdateOrganizationCameraOnboardingStatusesAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] UpdateOnboardingStatus UpdateNetworkCameraWirelessProfile,
+			[Body] UpdateOnboardingStatus updateNetworkCameraWirelessProfile,
 			CancellationToken cancellationToken = default
 			);
 	}

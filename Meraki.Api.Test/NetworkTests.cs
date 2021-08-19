@@ -269,7 +269,7 @@ namespace Meraki.Api.Test
 			fetchedDevice.Should().NotBeNull();
 
 			// updating the device with a too-long address should fail
-			Func<Task> Action = async () =>
+			Func<Task> action = async () =>
 			{
 				await MerakiClient
 					.Devices
@@ -277,7 +277,7 @@ namespace Meraki.Api.Test
 					.ConfigureAwait(false);
 			};
 
-			await Action
+			await action
 				.Should()
 				.ThrowAsync<ApiException>()
 				.ConfigureAwait(false);
@@ -381,7 +381,7 @@ namespace Meraki.Api.Test
 				.DeleteAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
-			Action = async () =>
+			action = async () =>
 			{
 				var _ = await MerakiClient
 					.Networks
@@ -389,7 +389,7 @@ namespace Meraki.Api.Test
 					.ConfigureAwait(false);
 			};
 
-			await Action
+			await action
 				.Should()
 				.ThrowAsync<ApiException>()
 				.ConfigureAwait(false);
@@ -510,7 +510,7 @@ namespace Meraki.Api.Test
 			// Currently does not work (404 error, and also in Postman)
 			var switchPorts = await MerakiClient
 				.SwitchPorts
-				.GetDeviceSwitchPorts(Configuration.TestCameraSerial, default)
+				.GetDeviceSwitchPortsAsync(Configuration.TestCameraSerial, default)
 				.ConfigureAwait(false);
 
 			switchPorts.Should().NotBeNull();

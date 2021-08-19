@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Meraki.Api.Data;
+using Refit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -160,12 +161,18 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 			CheckOrganization(createdOrganization, initialOrganizationName);
 
+			await Task.Delay(TimeSpan.FromSeconds(5))
+				.ConfigureAwait(false);
+
 			// Read
 			var refetchedOrganization = await MerakiClient
 				.Organizations
 				.GetAsync(createdOrganization.Id)
 				.ConfigureAwait(false);
 			CheckOrganization(refetchedOrganization, initialOrganizationName, createdOrganization.Id);
+
+			await Task.Delay(TimeSpan.FromSeconds(5))
+				.ConfigureAwait(false);
 
 			// Update
 			const string newOrganizationName = "TestOrganizationNewName";
@@ -175,10 +182,16 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 			CheckOrganization(updatedOrganization, newOrganizationName, createdOrganization.Id);
 
+			await Task.Delay(TimeSpan.FromSeconds(5))
+				.ConfigureAwait(false);
+
 			// Delete
 			await MerakiClient
 				.Organizations
 				.DeleteAsync(createdOrganization.Id)
+				.ConfigureAwait(false);
+
+			await Task.Delay(TimeSpan.FromSeconds(5))
 				.ConfigureAwait(false);
 
 			// It should be gone now
@@ -191,7 +204,7 @@ namespace Meraki.Api.Test
 			};
 			await act
 				.Should()
-				.ThrowAsync<InvalidOperationException>()
+				.ThrowAsync<ApiException>()
 				.ConfigureAwait(false);
 		}
 

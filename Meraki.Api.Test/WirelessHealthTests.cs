@@ -22,7 +22,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkClientLatencyStats(
+				.GetNetworkClientLatencyStatsAsync(
 					Configuration.TestNetworkId,
 					Configuration.TestMac,
 					timespan: _timespan,
@@ -40,7 +40,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkClientsLatencyStats(
+				.GetNetworkClientsLatencyStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
 					cancellationToken: default)
@@ -58,7 +58,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkDeviceLatencyStats(
+				.GetNetworkDeviceLatencyStatsAsync(
 					Configuration.TestNetworkId,
 					Configuration.TestDeviceSerial,
 					timespan: _timespan,
@@ -76,7 +76,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkDevicesLatencyStats(
+				.GetNetworkDevicesLatencyStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
 					cancellationToken: default)
@@ -93,7 +93,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkLatencyStats(
+				.GetNetworkLatencyStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
 					cancellationToken: default)
@@ -110,7 +110,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkClientConnectionStats(
+				.GetNetworkClientConnectionStatsAsync(
 					Configuration.TestNetworkId,
 					Configuration.TestMac,
 					timespan: _timespan,
@@ -128,7 +128,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkClientsConnectionStats(
+				.GetNetworkClientsConnectionStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
 					cancellationToken: default)
@@ -146,7 +146,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkDeviceConnectionStats(
+				.GetNetworkDeviceConnectionStatsAsync(
 					Configuration.TestNetworkId,
 					Configuration.TestDeviceSerial,
 					timespan: _timespan,
@@ -164,7 +164,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkDevicesConnectionStats(
+				.GetNetworkDevicesConnectionStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
 					cancellationToken: default)
@@ -181,7 +181,7 @@ namespace Meraki.Api.Test
 
 			var stats = await MerakiClient
 				.WirelessHealth
-				.GetNetworkConnectionStats(
+				.GetNetworkConnectionStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
 					cancellationToken: default)

@@ -37,11 +37,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSecurityIntrusionSettings">Body for updating security intrusion settings</param>
+		/// <param name="updateNetworkSecurityIntrusionSettings">Body for updating security intrusion settings</param>
 		[Put("/networks/{networkId}/appliance/security/intrusion")]
 		Task<NetworkSecurityIntrusionSettingsUpdateRequest> UpdateNetworkSecurityIntrusionSettingsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkSecurityIntrusionSettingsUpdateRequest UpdateNetworkSecurityIntrusionSettings,
+			[Body] NetworkSecurityIntrusionSettingsUpdateRequest updateNetworkSecurityIntrusionSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -50,11 +50,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="UpdateOrganizationSecurityIntrusionSettings">Body for updating security intrusion settings</param>
+		/// <param name="updateOrganizationSecurityIntrusionSettings">Body for updating security intrusion settings</param>
 		[Put("/organizations/{organizationId}/security/intrusionSettings")]
 		Task<SecurityIntrusionSettingsUpdateRequest> UpdateOrganizationSecurityIntrusionSettingsAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] SecurityIntrusionSettingsUpdateRequest UpdateOrganizationSecurityIntrusionSettings,
+			[Body] SecurityIntrusionSettingsUpdateRequest updateOrganizationSecurityIntrusionSettings,
 			CancellationToken cancellationToken = default
 			);
 	}

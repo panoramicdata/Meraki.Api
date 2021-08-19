@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="OrganizationClaimRequest">Body for making a claim request</param>
+		/// <param name="organizationClaimRequest">Body for making a claim request</param>
 		[Post("/organizations/{organizationId}/claim")]
 		Task<OrganizationClaimResponse> ClaimAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] OrganizationClaimRequest OrganizationClaimRequest,
+			[Body] OrganizationClaimRequest organizationClaimRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -28,21 +28,21 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CloneOrganization">Body for cloning an organization</param>
+		/// <param name="cloneOrganization">Body for cloning an organization</param>
 		[Post("/organizations/{organizationId}/clone")]
 		Task<Organization> CloneAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] CloneOrganization CloneOrganization,
+			[Body] CloneOrganization cloneOrganization,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// Create a new organization
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="CreateOrganization">Body for creating an organization</param>
+		/// <param name="createOrganization">Body for creating an organization</param>
 		[Post("/organizations")]
 		Task<Organization> CreateAsync(
-			[Body] OrganizationCreateRequest CreateOrganization,
+			[Body] OrganizationCreateRequest createOrganization,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -92,7 +92,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="includeLicenseInfo">When this parameter is true, each entity in the response will include the license expiration date of the device (if any). Only applies to organizations that support per-device licensing. Defaults to false. (optional)</param>
-		[Get("/organizations/{organizationId}/inventory")]
+		[Get("/organizations/{organizationId}/inventoryDevices")]
 		Task<List<InventoryItem>> GetInventoryAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("includeLicenseInfo")] bool? includeLicenseInfo = null,
@@ -151,11 +151,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="UpdateOrganization">Body for updating an organization</param>
+		/// <param name="updateOrganization">Body for updating an organization</param>
 		[Put("/organizations/{organizationId}")]
 		Task<Organization> UpdateAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] OrganizationUpdateRequest UpdateOrganization,
+			[Body] OrganizationUpdateRequest updateOrganization,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -163,11 +163,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="PeerList">Body for updating a peer list</param>
+		/// <param name="peerList">Body for updating a peer list</param>
 		[Put("/organizations/{organizationId}/thirdPartyVPNPeers")]
 		Task<ThirdPartyVpnPeersUpdateRequest> UpdateThirdPartyVpnPeersAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] ThirdPartyVpnPeersUpdateRequest PeerList,
+			[Body] ThirdPartyVpnPeersUpdateRequest peerList,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -185,11 +185,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="UpdateOrganizationLoginSecurity">Body for updating login settings</param>
+		/// <param name="updateOrganizationLoginSecurity">Body for updating login settings</param>
 		[Put("/organizations/{organizationId}/loginSecurity")]
 		Task<LoginSecurity> UpdateOrganizationLoginSecurityAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] LoginSecurity UpdateOrganizationLoginSecurity,
+			[Body] LoginSecurity updateOrganizationLoginSecurity,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -207,11 +207,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="Acls">Body for creating an ACL</param>
+		/// <param name="acls">Body for creating an ACL</param>
 		[Post("/organizations/{organizationId}/adaptivePolicy/acls")]
 		Task<List<Acls>> CreateOrganizationAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] Acls Acls,
+			[Body] Acls acls,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -232,12 +232,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="id">The ACL id</param>
-		/// <param name="Acls">Body for returning ACL information</param>
+		/// <param name="acls">Body for returning ACL information</param>
 		[Put("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
 		Task<Acls> UpdateOrganizationAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("id")] string id,
-			[Body] Acls Acls,
+			[Body] Acls acls,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -270,7 +270,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/organizations/{organizationId}/adaptivePolicy/settings")]
 		Task<AdaptivePolicySettings> UpdateOrganizationAdaptivePolicySettingsAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] AdaptivePolicySettings AdaptivePolicySettings,
+			[Body] AdaptivePolicySettings adaptivePolicySettings,
 			CancellationToken cancellationToken = default);
 	}
 }

@@ -27,11 +27,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CreateOrganizationSamlIdp">Body for creating a SAML IdP</param>
+		/// <param name="createOrganizationSamlIdp">Body for creating a SAML IdP</param>
 		[Post("/organizations/{organizationId}/saml/idps")]
 		Task<SamlIdpsCreateRequest> CreateOrganizationSamlIdpAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] SamlIdpsCreateRequest CreateOrganizationSamlIdp,
+			[Body] SamlIdpsCreateRequest createOrganizationSamlIdp,
 			CancellationToken cancellationToken = default
 			);
 
@@ -54,12 +54,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="idpId">The IdP id</param>
-		/// <param name="UpdateOrganizationSamlIdp">Body for updating a SAML IdP</param>
+		/// <param name="updateOrganizationSamlIdp">Body for updating a SAML IdP</param>
 		[Put("/organizations/{organizationId}/saml/idps/{idpId}")]
 		Task<SamlIdpsCreateRequest> UpdateOrganizationSamlIdpAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("idpId")] string idpId,
-			[Body] SamlIdpsCreateRequest UpdateOrganizationSamlIdp,
+			[Body] SamlIdpsCreateRequest updateOrganizationSamlIdp,
 			CancellationToken cancellationToken = default
 			);
 

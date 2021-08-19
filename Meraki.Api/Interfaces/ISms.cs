@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CheckinNetworkSmDevices">Body for check-in of device</param>
+		/// <param name="checkinNetworkSmDevices">Body for check-in of device</param>
 		[Post("/networks/{networkId}/sm/devices/checkin")]
 		Task<CheckinNetworkSmDevices> CheckinNetworkSmDevicesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] CheckinNetworkSmDevices CheckinNetworkSmDevices,
+			[Body] CheckinNetworkSmDevices checkinNetworkSmDevices,
 			CancellationToken cancellationToken = default
 			);
 
@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/sm/devices/modifyTags")]
 		Task<CheckinNetworkSmDevices> ModifyNetworkSmDevicesTagsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] ModifyNetworkDeviceTags ModifyNetworkSmDevicesTags,
+			[Body] ModifyNetworkDeviceTags modifyNetworkSmDevicesTags,
 			CancellationToken cancellationToken = default
 			);
 
@@ -41,11 +41,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="Refit.ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId"></param>
-		/// <param name="LockNetworkSmDevices">Body for locking a set of devices</param>
+		/// <param name="lockNetworkSmDevices">Body for locking a set of devices</param>
 		[Post("/networks/{networkId}/sm/devices/lock")]
 		Task<CheckinNetworkSmDevices> LockNetworkSmDevicesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] CheckinNetworkSmDevices LockNetworkSmDevices,
+			[Body] CheckinNetworkSmDevices lockNetworkSmDevices,
 			CancellationToken cancellationToken = default
 			);
 
@@ -54,11 +54,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkSmBypassActivationLockAttempt">Body for bypassing a lock attempt</param>
+		/// <param name="createNetworkSmBypassActivationLockAttempt">Body for bypassing a lock attempt</param>
 		[Post("/networks/{networkId}/sm/bypassActivationLockAttempts")]
 		Task<object> CreateNetworkSmBypassActivationLockAttemptAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SmBypassActivationLockAttemptCreationRequest CreateNetworkSmBypassActivationLockAttempt,
+			[Body] SmBypassActivationLockAttemptCreationRequest createNetworkSmBypassActivationLockAttempt,
 			CancellationToken cancellationToken = default
 			);
 
@@ -367,11 +367,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="MoveNetworkSmDevices">Body for moving devices</param>
+		/// <param name="moveNetworkSmDevices">Body for moving devices</param>
 		[Post("/networks/{networkId}/sm/devices/move")]
 		Task<MoveNetworkSmDevices> MoveNetworkSmDevicesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] MoveNetworkSmDevices MoveNetworkSmDevices,
+			[Body] MoveNetworkSmDevices moveNetworkSmDevices,
 			CancellationToken cancellationToken = default
 			);
 
@@ -406,11 +406,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSmDeviceFields">Body for modifying a device</param>
+		/// <param name="updateNetworkSmDeviceFields">Body for modifying a device</param>
 		[Put("/networks/{networkId}/sm/devices/fields")]
 		Task<SmDeviceFieldsUpdateRequest> UpdateNetworkSmDeviceFieldsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SmDeviceFieldsUpdateRequest UpdateNetworkSmDeviceFields,
+			[Body] SmDeviceFieldsUpdateRequest updateNetworkSmDeviceFields,
 			CancellationToken cancellationToken = default
 			);
 	}

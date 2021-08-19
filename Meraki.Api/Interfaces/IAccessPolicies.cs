@@ -27,11 +27,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkSwitchAccessPolicy">Body for creating network switch access policy</param>
+		/// <param name="createNetworkSwitchAccessPolicy">Body for creating network switch access policy</param>
 		[Post("/networks/{networkId}/switch/accessPolicies")]
 		Task<AccessPolicy> CreateNetworkSwitchAccessPolicyAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] AccessPolicy CreateNetworkSwitchAccessPolicy,
+			[Body] AccessPolicy createNetworkSwitchAccessPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -54,12 +54,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="accessPolicyNumber">The access policy number</param>
-		/// <param name="UpdateNetworkSwitchAccessPolicy">Body for updating network switch access policy</param>
+		/// <param name="updateNetworkSwitchAccessPolicy">Body for updating network switch access policy</param>
 		[Put("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
 		Task<AccessPolicy> UpdateNetworkSwitchAccessPolicyAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("accessPolicyNumber")] string accessPolicyNumber,
-			[Body] AccessPolicy UpdateNetworkSwitchAccessPolicy,
+			[Body] AccessPolicy updateNetworkSwitchAccessPolicy,
 			CancellationToken cancellationToken = default
 			);
 

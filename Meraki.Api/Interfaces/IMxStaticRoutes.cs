@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkStaticRoute">Body for adding a static route</param>
+		/// <param name="createNetworkStaticRoute">Body for adding a static route</param>
 		[Post("/networks/{networkId}/staticRoutes")]
 		Task<StaticRouteUpdateRequest> CreateNetworkStaticRouteAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] StaticRouteCreationRequest CreateNetworkStaticRoute,
+			[Body] StaticRouteCreationRequest createNetworkStaticRoute,
 			CancellationToken cancellationToken = default
 			);
 
@@ -67,12 +67,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="staticRouteId">The static route id</param>
-		/// <param name="UpdateNetworkStaticRoute">Body for updating a static route</param>
+		/// <param name="updateNetworkStaticRoute">Body for updating a static route</param>
 		[Put("/networks/{networkId}/staticRoutes/{staticRouteId}")]
 		Task<StaticRouteUpdateRequest> UpdateNetworkStaticRouteAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("staticRouteId")] string staticRouteId,
-			[Body] StaticRouteUpdateRequest UpdateNetworkStaticRoute,
+			[Body] StaticRouteUpdateRequest updateNetworkStaticRoute,
 			CancellationToken cancellationToken = default);
 	}
 }

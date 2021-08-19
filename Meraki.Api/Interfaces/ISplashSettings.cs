@@ -29,12 +29,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
-		/// <param name="UpdateNetworkSsidSplashSettings"></param>
+		/// <param name="updateNetworkSsidSplashSettings"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
 		Task<SsidSplashSettingsUpdateRequest> UpdateNetworkSsidSplashSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] SsidSplashSettingsUpdateRequest UpdateNetworkSsidSplashSettings,
+			[Body] SsidSplashSettingsUpdateRequest updateNetworkSsidSplashSettings,
 			CancellationToken cancellationToken = default
 			);
 	}
