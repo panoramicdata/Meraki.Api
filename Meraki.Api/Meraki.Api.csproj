@@ -5,7 +5,7 @@
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<PackageIcon>Icon.png</PackageIcon>
-		<Copyright>Panoramic Data Limited 2020</Copyright>
+		<Copyright>Panoramic Data Limited 2021</Copyright>
 		<PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/panoramicdata/Meraki.Api</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
@@ -17,7 +17,18 @@
 		<Authors>Panoramic Data Limited</Authors>
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
-		<PackageReleaseNotes>Update default value of DayPortSchedule properties.</PackageReleaseNotes>
+		<PackageReleaseNotes>
+			Updated from v0 to v1.11.
+			All methods now end in 'Async'.
+			All classes have been implemented.
+			Corrected exception documentation.
+			Corrected code formatting.
+			Populated parameter help text.
+			Method summary text provided throughout.
+			Updated unit tests.
+			Please note there will be breaking changes in this release, however we will be maintaining the v1 naming.
+			Please review the Meraki release notes for a list of all changes: https://developer.cisco.com/meraki/whats-new/
+		</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
