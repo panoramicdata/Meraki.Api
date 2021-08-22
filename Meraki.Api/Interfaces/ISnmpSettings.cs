@@ -37,11 +37,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSnmpSettings"></param>
+		/// <param name="updateNetworkSnmpSettings"></param>
 		[Put("/networks/{networkId}/snmpSettings")]
 		Task<SnmpSettingsUpdateRequest> UpdateNetworkSnmpSettingsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SnmpSettingsUpdateRequest UpdateNetworkSnmpSettings,
+			[Body] SnmpSettingsUpdateRequest updateNetworkSnmpSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -50,11 +50,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="UpdateOrganizationSnmp"></param>
+		/// <param name="updateOrganizationSnmp"></param>
 		[Put("/organizations/{organizationId}/snmp")]
 		Task<SnmpUpdateRequest> UpdateOrganizationSnmpAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] SnmpUpdateRequest UpdateOrganizationSnmp,
+			[Body] SnmpUpdateRequest updateOrganizationSnmp,
 			CancellationToken cancellationToken = default
 			);
 	}

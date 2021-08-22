@@ -15,11 +15,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="WipeNetworkSmDevices">Body for wiping a device</param>
+		/// <param name="wipeNetworkSmDevices">Body for wiping a device</param>
 		[Post("/networks/{networkId}/sm/devices/wipe")]
 		Task<WipeNetworkSmDevice> WipeNetworkSmDevicesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] WipeNetworkSmDevice WipeNetworkSmDevices,
+			[Body] WipeNetworkSmDevice wipeNetworkSmDevices,
 			CancellationToken cancellationToken = default);
 	}
 }

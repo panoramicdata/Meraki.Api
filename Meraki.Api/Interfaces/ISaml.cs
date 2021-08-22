@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="UpdateOrganizationSaml">Body for updating SAML SSO enabled settings</param>
+		/// <param name="updateOrganizationSaml">Body for updating SAML SSO enabled settings</param>
 		[Put("/organizations/{organizationId}/saml")]
 		Task<Saml> UpdateOrganizationSamlAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] Saml UpdateOrganizationSaml,
+			[Body] Saml updateOrganizationSaml,
 			CancellationToken cancellationToken = default
 			);
 	}

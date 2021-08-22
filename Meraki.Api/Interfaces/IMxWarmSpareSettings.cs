@@ -37,11 +37,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkWarmSpareSettings">Body for updating warm spare settings</param>
+		/// <param name="updateNetworkWarmSpareSettings">Body for updating warm spare settings</param>
 		[Put("/networks/{networkId}/warmSpareSettings")]
 		Task<WarmSpare> UpdateNetworkWarmSpareSettingsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] WarmSpareSettingsUpdateRequest UpdateNetworkWarmSpareSettings,
+			[Body] WarmSpareSettingsUpdateRequest updateNetworkWarmSpareSettings,
 			CancellationToken cancellationToken = default
 			);
 	}

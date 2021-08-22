@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkSwitchLinkAggregation">Body for creating a link aggregation group</param>
+		/// <param name="createNetworkSwitchLinkAggregation">Body for creating a link aggregation group</param>
 		[Post("/networks/{networkId}/switch/linkAggregations")]
 		Task<SwitchLinkAggregationCreationRequest> CreateNetworkSwitchLinkAggregationAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchLinkAggregationCreationRequest CreateNetworkSwitchLinkAggregation,
+			[Body] SwitchLinkAggregationCreationRequest createNetworkSwitchLinkAggregation,
 			CancellationToken cancellationToken = default
 			);
 
@@ -54,12 +54,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="linkAggregationId">The link aggregation id</param>
-		/// <param name="UpdateNetworkSwitchLinkAggregation">Body for updating a link aggregation group</param>
+		/// <param name="updateNetworkSwitchLinkAggregation">Body for updating a link aggregation group</param>
 		[Put("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
 		Task<SwitchLinkAggregationCreationRequest> UpdateNetworkSwitchLinkAggregationAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("linkAggregationId")] string linkAggregationId,
-			[Body] SwitchLinkAggregationCreationRequest UpdateNetworkSwitchLinkAggregation,
+			[Body] SwitchLinkAggregationCreationRequest updateNetworkSwitchLinkAggregation,
 			CancellationToken cancellationToken = default
 			);
 	}

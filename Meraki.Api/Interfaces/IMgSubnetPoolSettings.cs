@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkCellularGatewaySettingsSubnetPool">Body for updating subnet pool and mask config</param>
+		/// <param name="updateNetworkCellularGatewaySettingsSubnetPool">Body for updating subnet pool and mask config</param>
 		[Put("/networks/{networkId}/cellularGateway/settings/subnetPool")]
 		Task<NetworkCellularGatewaySettingsSubnetPool> UpdateNetworkCellularGatewaySettingsSubnetPoolAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkCellularGatewaySettingsSubnetPoolUpdateRequest UpdateNetworkCellularGatewaySettingsSubnetPool,
+			[Body] NetworkCellularGatewaySettingsSubnetPoolUpdateRequest updateNetworkCellularGatewaySettingsSubnetPool,
 			CancellationToken cancellationToken = default
 			);
 	}

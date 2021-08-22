@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="UpdateDeviceCellularGatewaySettingsPortForwardingRules">Body for updating port forwarding rules</param>
+		/// <param name="updateDeviceCellularGatewaySettingsPortForwardingRules">Body for updating port forwarding rules</param>
 		[Put("/devices/{serial}/cellularGateway/settings/portForwardingRules")]
 		Task<CellularGatewaySettingsPortForwardingRulesUpdateRequest> UpdateDeviceCellularGatewaySettingsPortForwardingRulesAsync(
 			[AliasAs("serial")] string serial,
-			[Body] CellularGatewaySettingsPortForwardingRulesUpdateRequest UpdateDeviceCellularGatewaySettingsPortForwardingRules,
+			[Body] CellularGatewaySettingsPortForwardingRulesUpdateRequest updateDeviceCellularGatewaySettingsPortForwardingRules,
 			CancellationToken cancellationToken = default
 			);
 	}

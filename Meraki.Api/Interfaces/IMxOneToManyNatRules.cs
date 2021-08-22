@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkOneToManyNatRules">Body for updating mapping rules</param>
+		/// <param name="updateNetworkOneToManyNatRules">Body for updating mapping rules</param>
 		[Put("/networks/{networkId}/appliance/firewall/oneToManyNatRules")]
 		Task<OneToManyNatRulesUpdateRequest> UpdateNetworkOneToManyNatRulesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] OneToManyNatRulesUpdateRequest UpdateNetworkOneToManyNatRules,
+			[Body] OneToManyNatRulesUpdateRequest updateNetworkOneToManyNatRules,
 			CancellationToken cancellationToken = default
 			);
 	}

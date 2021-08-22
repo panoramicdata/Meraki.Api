@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkPortForwardingRules">Body for updating port forwarding rules</param>
+		/// <param name="updateNetworkPortForwardingRules">Body for updating port forwarding rules</param>
 		[Put("/networks/{networkId}/portForwardingRules")]
 		Task<PortForwardingRulesUpdateRequest> UpdateNetworkPortForwardingRulesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] PortForwardingRulesUpdateRequest UpdateNetworkPortForwardingRules,
+			[Body] PortForwardingRulesUpdateRequest updateNetworkPortForwardingRules,
 			CancellationToken cancellationToken = default
 			);
 	}

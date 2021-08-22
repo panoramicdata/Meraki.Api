@@ -19,7 +19,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/licenses/assignSeats")]
 		Task<AssignSeatsResponse> AssignOrganizationLicensesSeatsAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] LicenseSeatsAssignmentRequest LicenseSeatsAssignmentRequest,
+			[Body] LicenseSeatsAssignmentRequest licenseSeatsAssignmentRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -61,11 +61,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="LicenseMoveRequest">Body for moving a license</param>
+		/// <param name="licenseMoveRequest">Body for moving a license</param>
 		[Post("/organizations/{organizationId}/licenses/move")]
 		Task<LicenseMoveRequest> MoveToOrganizationAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] LicenseMoveRequest LicenseMoveRequest,
+			[Body] LicenseMoveRequest licenseMoveRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -73,11 +73,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="LicenseSeatsMoveRequest">Body for moving SM seats</param>
+		/// <param name="licenseSeatsMoveRequest">Body for moving SM seats</param>
 		[Post("/organizations/{organizationId}/licenses/moveSeats")]
 		Task<LicenseSeatsMoveRequest> MoveSeatsAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] LicenseSeatsMoveRequest LicenseSeatsMoveRequest,
+			[Body] LicenseSeatsMoveRequest licenseSeatsMoveRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -85,11 +85,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="LicenseSeatsRenewalRequest">Body for renewing SM seats</param>
+		/// <param name="licenseSeatsRenewalRequest">Body for renewing SM seats</param>
 		[Post("/organizations/{organizationId}/licenses/renewSeats")]
 		Task<AssignSeatsResponse> RenewSeatsAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] LicenseSeatsRenewalRequest LicenseSeatsRenewalRequest,
+			[Body] LicenseSeatsRenewalRequest licenseSeatsRenewalRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -98,12 +98,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="licenseId">The license id</param>
-		/// <param name="UpdateOrganizationLicense">Body for updating a license</param>
+		/// <param name="updateOrganizationLicense">Body for updating a license</param>
 		[Put("/organizations/{organizationId}/licenses/{licenseId}")]
 		Task<OrganizationLicense> UpdateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("licenseId")] string licenseId,
-			[Body] LicenseUpdateRequest UpdateOrganizationLicense,
+			[Body] LicenseUpdateRequest updateOrganizationLicense,
 			CancellationToken cancellationToken = default);
 	}
 }

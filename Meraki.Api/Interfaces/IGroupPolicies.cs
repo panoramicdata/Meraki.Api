@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkGroupPolicy">Body for creating a network group policy</param>
+		/// <param name="createNetworkGroupPolicy">Body for creating a network group policy</param>
 		[Post("/networks/{networkId}/groupPolicies")]
 		Task<GroupPolicyCreationRequest> CreateNetworkGroupPolicyAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] GroupPolicyCreationRequest CreateNetworkGroupPolicy,
+			[Body] GroupPolicyCreationRequest createNetworkGroupPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -67,12 +67,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="groupPolicyId"></param>
-		/// <param name="UpdateNetworkGroupPolicy">Body for updating a network group policy</param>
+		/// <param name="updateNetworkGroupPolicy">Body for updating a network group policy</param>
 		[Put("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 		Task<GroupPolicyUpdateRequest> UpdateNetworkGroupPolicyAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("groupPolicyId")] string groupPolicyId,
-			[Body] GroupPolicyUpdateRequest UpdateNetworkGroupPolicy,
+			[Body] GroupPolicyUpdateRequest updateNetworkGroupPolicy,
 			CancellationToken cancellationToken = default);
 	}
 }

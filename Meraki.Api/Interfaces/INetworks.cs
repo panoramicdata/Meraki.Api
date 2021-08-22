@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="BindNetwork">Body for binding a network</param>
+		/// <param name="bindNetwork">Body for binding a network</param>
 		[Post("/networks/{networkId}/bind")]
 		Task BindConfigurationTemplateAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] ConfigurationTemplateBindRequest BindNetwork,
+			[Body] ConfigurationTemplateBindRequest bindNetwork,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -28,11 +28,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CombineOrganizationNetworks">Body for combining networks</param>
+		/// <param name="combineOrganizationNetworks">Body for combining networks</param>
 		[Post("/organizations/{organizationId}/networks/combine")]
 		Task<CombineNetworkResponse> CombineOrganizationNetworksAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] CombineOrganizationNetworksRequest CombineOrganizationNetworks,
+			[Body] CombineOrganizationNetworksRequest combineOrganizationNetworks,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -40,11 +40,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CreateOrganizationNetwork">Body for creating a network</param>
+		/// <param name="createOrganizationNetwork">Body for creating a network</param>
 		[Post("/organizations/{organizationId}/networks")]
 		Task<Network> CreateAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] NetworkCreationRequest CreateOrganizationNetwork,
+			[Body] NetworkCreationRequest createOrganizationNetwork,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -169,11 +169,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="NetworkUpdateRequest">Body for updating a network</param>
+		/// <param name="networkUpdateRequest">Body for updating a network</param>
 		[Put("/networks/{networkId}")]
 		Task<NetworkResponse> UpdateNetworkAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkUpdateRequest NetworkUpdateRequest,
+			[Body] NetworkUpdateRequest networkUpdateRequest,
 			CancellationToken cancellationToken = default
 			);
 
@@ -182,11 +182,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSiteToSiteVpn">Body for updating VPN settings</param>
+		/// <param name="updateNetworkSiteToSiteVpn">Body for updating VPN settings</param>
 		[Put("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 		Task<SiteToSiteVpnUpdateRequest> UpdateNetworkSiteToSiteVpnAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SiteToSiteVpnUpdateRequest UpdateNetworkSiteToSiteVpn,
+			[Body] SiteToSiteVpnUpdateRequest updateNetworkSiteToSiteVpn,
 			CancellationToken cancellationToken = default
 			);
 

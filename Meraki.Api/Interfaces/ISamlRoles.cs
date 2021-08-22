@@ -14,11 +14,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CreateOrganizationSamlRole">Body for creating a SAML role</param>
+		/// <param name="createOrganizationSamlRole">Body for creating a SAML role</param>
 		[Post("/organizations/{organizationId}/samlRoles")]
 		Task<SamlRole> CreateOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] SamlRoleCreateRequest CreateOrganizationSamlRole
+			[Body] SamlRoleCreateRequest createOrganizationSamlRole
 			);
 
 		/// <summary>
@@ -61,11 +61,11 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="samlRoleId">The SAML role id</param>
-		/// <param name="UpdateOrganizationSamlRole">Body for updating a SAML role</param>
+		/// <param name="updateOrganizationSamlRole">Body for updating a SAML role</param>
 		[Put("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
 		Task<SamlRole> UpdateOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("samlRoleId")] string samlRoleId,
-			[Body] SamlRoleUpdateRequest UpdateOrganizationSamlRole);
+			[Body] SamlRoleUpdateRequest updateOrganizationSamlRole);
 	}
 }

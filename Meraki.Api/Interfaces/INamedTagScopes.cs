@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkSmTargetGroup">Body for adding target group</param>
+		/// <param name="createNetworkSmTargetGroup">Body for adding target group</param>
 		[Post("/networks/{networkId}/sm/targetGroups")]
 		Task<SmTargetGroupCreationRequest> CreateNetworkSmTargetGroupAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SmTargetGroupCreationRequest CreateNetworkSmTargetGroup,
+			[Body] SmTargetGroupCreationRequest createNetworkSmTargetGroup,
 			CancellationToken cancellationToken = default
 			);
 
@@ -71,12 +71,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="targetGroupId">The target group id</param>
-		/// <param name="UpdateNetworkSmTargetGroup">Body for updating a target group</param>
+		/// <param name="updateNetworkSmTargetGroup">Body for updating a target group</param>
 		[Put("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 		Task<SmTargetGroupCreationRequest> UpdateNetworkSmTargetGroupAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("targetGroupId")] string targetGroupId,
-			[Body] SmTargetGroupUpdateRequest UpdateNetworkSmTargetGroup,
+			[Body] SmTargetGroupUpdateRequest updateNetworkSmTargetGroup,
 			CancellationToken cancellationToken = default
 			);
 	}

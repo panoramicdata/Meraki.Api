@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="UpdateOrganizationVpnFirewallRules">Body for updating firewall rules</param>
+		/// <param name="updateOrganizationVpnFirewallRules">Body for updating firewall rules</param>
 		[Put("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
 		Task<VpnFirewallRulesUpdateRequest> UpdateOrganizationVpnFirewallRulesAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] VpnFirewallRulesUpdateRequest UpdateOrganizationVpnFirewallRules,
+			[Body] VpnFirewallRulesUpdateRequest updateOrganizationVpnFirewallRules,
 			CancellationToken cancellationToken = default
 			);
 	}

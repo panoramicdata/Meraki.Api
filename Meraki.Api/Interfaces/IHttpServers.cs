@@ -17,11 +17,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkHttpServer">Body for creating a network HTTP server</param>
+		/// <param name="createNetworkHttpServer">Body for creating a network HTTP server</param>
 		[Post("/networks/{networkId}/webhooks/httpServers")]
 		Task<HttpServers> CreateNetworkHttpServerAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] HttpServerCreationRequest CreateNetworkHttpServer,
+			[Body] HttpServerCreationRequest createNetworkHttpServer,
 			CancellationToken cancellationToken = default
 			);
 
@@ -30,11 +30,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkHttpServersWebhookTest">Body for creating a network HTTP server webhook test</param>
+		/// <param name="createNetworkHttpServersWebhookTest">Body for creating a network HTTP server webhook test</param>
 		[Post("/networks/{networkId}/webhooks/webhookTests")]
 		Task<WebhookTest> CreateNetworkHttpServersWebhookTestAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] HttpServersWebhookTestCreationRequest CreateNetworkHttpServersWebhookTest,
+			[Body] HttpServersWebhookTestCreationRequest createNetworkHttpServersWebhookTest,
 			CancellationToken cancellationToken = default
 			);
 
@@ -94,12 +94,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="httpServerId">The id of a HTTP server</param>
-		/// <param name="UpdateNetworkHttpServer">Body for updating a network HTTP server</param>
+		/// <param name="updateNetworkHttpServer">Body for updating a network HTTP server</param>
 		[Put("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 		Task<HttpServers> UpdateNetworkHttpServerAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("httpServerId")] string httpServerId,
-			[Body] HttpServerUpdateRequest UpdateNetworkHttpServer,
+			[Body] HttpServerUpdateRequest updateNetworkHttpServer,
 			CancellationToken cancellationToken = default
 			);
 	}

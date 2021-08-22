@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkWirelessRfProfile">Body for creating an RF profile</param>
+		/// <param name="createNetworkWirelessRfProfile">Body for creating an RF profile</param>
 		[Post("/networks/{networkId}/wireless/rfProfiles")]
 		Task<WirelessRfProfileCreationRequest> CreateNetworkWirelessRfProfileAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] WirelessRfProfileCreationRequest CreateNetworkWirelessRfProfile,
+			[Body] WirelessRfProfileCreationRequest createNetworkWirelessRfProfile,
 			CancellationToken cancellationToken = default
 			);
 
@@ -79,11 +79,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="UpdateNetworkDeviceWirelessRadioSettings">Body for updating radio settings</param>
+		/// <param name="updateNetworkDeviceWirelessRadioSettings">Body for updating radio settings</param>
 		[Put("/devices/{serial}/wireless/radio/settings")]
 		Task<WirelessRadioSettingsUpdateRequest> UpdateNetworkDeviceWirelessRadioSettingsAsync(
 			[AliasAs("serial")] string serial,
-			[Body] WirelessRadioSettingsUpdateRequest UpdateNetworkDeviceWirelessRadioSettings,
+			[Body] WirelessRadioSettingsUpdateRequest updateNetworkDeviceWirelessRadioSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -93,12 +93,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="rfProfileId">The RF profile id</param>
-		/// <param name="UpdateNetworkWirelessRfProfile">Body for updating a specified RF profile</param>
+		/// <param name="updateNetworkWirelessRfProfile">Body for updating a specified RF profile</param>
 		[Put("/networks/{networkId}/wireless/rfProfiles/{rfProfileId}")]
 		Task<WirelessRfProfileCreationRequest> UpdateNetworkWirelessRfProfileAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("rfProfileId")] string rfProfileId,
-			[Body] WirelessRfProfileUpdateRequest UpdateNetworkWirelessRfProfile,
+			[Body] WirelessRfProfileUpdateRequest updateNetworkWirelessRfProfile,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkPiiRequest">Body for creating a PII request</param>
+		/// <param name="createNetworkPiiRequest">Body for creating a PII request</param>
 		[Post("/networks/{networkId}/pii/requests")]
 		Task<PiiResponse> CreateNetworkPiiRequestAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] PiiCreationRequest CreateNetworkPiiRequest,
+			[Body] PiiCreationRequest createNetworkPiiRequest,
 			CancellationToken cancellationToken = default
 			);
 

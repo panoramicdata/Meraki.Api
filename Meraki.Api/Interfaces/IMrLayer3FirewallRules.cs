@@ -29,12 +29,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
-		/// <param name="UpdateNetworkSsidL3FirewallRules">Body for updating L3 firewall rules</param>
+		/// <param name="updateNetworkSsidL3FirewallRules">Body for updating L3 firewall rules</param>
 		[Put("/networks/{networkId}/ssids/{number}/l3FirewallRules")]
 		Task<SsidLayer3FirewallRulesUpdateRequest> UpdateNetworkSsidL3FirewallRulesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] SsidLayer3FirewallRulesUpdateRequest UpdateNetworkSsidL3FirewallRules,
+			[Body] SsidLayer3FirewallRulesUpdateRequest updateNetworkSsidL3FirewallRules,
 			CancellationToken cancellationToken = default
 			);
 	}

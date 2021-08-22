@@ -25,11 +25,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSettings">Body for updating network settings</param>
+		/// <param name="updateNetworkSettings">Body for updating network settings</param>
 		[Put("/networks/{networkId}/settings")]
 		Task<NetworkSettings> UpdateNetworkSettingsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkSettings UpdateNetworkSettings,
+			[Body] NetworkSettings updateNetworkSettings,
 			CancellationToken cancellationToken = default
 			);
 	}

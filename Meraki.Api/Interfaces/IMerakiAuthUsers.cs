@@ -30,12 +30,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="merakiAuthUserId">The meraki user id</param>
-		/// <param name="UpdateNetworkMerakiAuthUser">Body for updating a user</param>
+		/// <param name="updateNetworkMerakiAuthUser">Body for updating a user</param>
 		[Put("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 		Task<MerakiAuthUsers> UpdateNetworkMerakiAuthUserAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
-			[Body] MerakiAuthUsers UpdateNetworkMerakiAuthUser,
+			[Body] MerakiAuthUsers updateNetworkMerakiAuthUser,
 			CancellationToken cancellationToken = default
 			);
 
@@ -55,11 +55,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkMerakiAuthUser">Body for updating a meraki user</param>
+		/// <param name="updateNetworkMerakiAuthUser">Body for updating a meraki user</param>
 		[Put("/networks/{networkId}/merakiAuthUsers")]
 		Task<MerakiAuthUsers> UpdateNetworkMerakiAuthUserAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] MerakiAuthUsers UpdateNetworkMerakiAuthUser,
+			[Body] MerakiAuthUsers updateNetworkMerakiAuthUser,
 			CancellationToken cancellationToken = default
 			);
 
@@ -68,11 +68,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkMerakiAuthUser">Body for authorizing a meraki user</param>
+		/// <param name="createNetworkMerakiAuthUser">Body for authorizing a meraki user</param>
 		[Post("/networks/{networkId}/merakiAuthUsers")]
 		Task<MerakiAuthUsers> CreateNetworkMerakiAuthUserAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] MerakiAuthUsers CreateNetworkMerakiAuthUser,
+			[Body] MerakiAuthUsers createNetworkMerakiAuthUser,
 			CancellationToken cancellationToken = default
 			);
 

@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkL3FirewallRules">Body for updating L3 firewall rules</param>
+		/// <param name="updateNetworkL3FirewallRules">Body for updating L3 firewall rules</param>
 		[Put("/networks/{networkId}/appliance/firewall/l3FirewallRules")]
 		Task<Layer3FirewallRulesUpdateRequest> UpdateNetworkL3FirewallRulesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] Layer3FirewallRulesUpdateRequest UpdateNetworkL3FirewallRules,
+			[Body] Layer3FirewallRulesUpdateRequest updateNetworkL3FirewallRules,
 			CancellationToken cancellationToken = default);
 	}
 }

@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CreateOrganizationInsightMonitoredMediaServer">Body for adding a media server</param>
+		/// <param name="createOrganizationInsightMonitoredMediaServer">Body for adding a media server</param>
 		[Post("/organizations/{organizationId}/insight/monitoredMediaServers")]
 		Task<InsightMonitoredMediaServers> CreateOrganizationInsightMonitoredMediaServerAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] InsightMonitoredMediaServerCreationRequest CreateOrganizationInsightMonitoredMediaServer,
+			[Body] InsightMonitoredMediaServerCreationRequest createOrganizationInsightMonitoredMediaServer,
 			CancellationToken cancellationToken = default
 			);
 
@@ -67,12 +67,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="monitoredMediaServerId">The monitored media server id</param>
-		/// <param name="UpdateOrganizationInsightMonitoredMediaServer">Body for updating a monitored media server</param>
+		/// <param name="updateOrganizationInsightMonitoredMediaServer">Body for updating a monitored media server</param>
 		[Put("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 		Task<InsightMonitoredMediaServers> UpdateOrganizationInsightMonitoredMediaServerAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("monitoredMediaServerId")] string monitoredMediaServerId,
-			[Body] InsightMonitoredMediaServerUpdateRequest UpdateOrganizationInsightMonitoredMediaServer,
+			[Body] InsightMonitoredMediaServerUpdateRequest updateOrganizationInsightMonitoredMediaServer,
 			CancellationToken cancellationToken = default
 			);
 	}

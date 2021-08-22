@@ -30,14 +30,6 @@ namespace Meraki.Api.Test
 			Validate(firstResult);
 		}
 
-		private void Validate(Organization org)
-		{
-			org.Should().NotBeNull();
-			string.IsNullOrWhiteSpace(org.Id).Should().BeFalse();
-			string.IsNullOrWhiteSpace(org.Name).Should().BeFalse();
-			string.IsNullOrWhiteSpace(org.Url).Should().BeFalse();
-		}
-
 		[Fact]
 		public async void GetAsync_Succeeds()
 		{
@@ -208,7 +200,15 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 		}
 
-		private void CheckOrganization(
+		private static void Validate(Organization org)
+		{
+			org.Should().NotBeNull();
+			string.IsNullOrWhiteSpace(org.Id).Should().BeFalse();
+			string.IsNullOrWhiteSpace(org.Name).Should().BeFalse();
+			string.IsNullOrWhiteSpace(org.Url).Should().BeFalse();
+		}
+
+		private static void CheckOrganization(
 			Organization organization,
 			string initialOrganizationName,
 			string? id = default)

@@ -50,12 +50,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
-		/// <param name="UpdateNetworkSsid"></param>
+		/// <param name="updateNetworkSsid"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}")]
 		Task<NetworkSsid> UpdateAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] SsidUpdateRequest UpdateNetworkSsid,
+			[Body] SsidUpdateRequest updateNetworkSsid,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -77,12 +77,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
-		/// <param name="CreateNetworkWirelessSsidIdentityPsk"></param>
+		/// <param name="createNetworkWirelessSsidIdentityPsk"></param>
 		[Post("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
 		Task<IdentityPsks> CreateNetworkWirelessSsidIdentityPskAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] IdentityPsks CreateNetworkWirelessSsidIdentityPsk,
+			[Body] IdentityPsks createNetworkWirelessSsidIdentityPsk,
 			CancellationToken cancellationToken = default
 			);
 
@@ -108,13 +108,13 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
 		/// <param name="identityPskId">The identity psk id</param>
-		/// <param name="UpdateNetworkWirelessSsidIdentityPsk"></param>
+		/// <param name="updateNetworkWirelessSsidIdentityPsk"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
 		Task<IdentityPsks> UpdateNetworkWirelessSsidIdentityPskAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
 			[AliasAs("identityPskId")] string identityPskId,
-			[Body] IdentityPsks UpdateNetworkWirelessSsidIdentityPsk,
+			[Body] IdentityPsks updateNetworkWirelessSsidIdentityPsk,
 			CancellationToken cancellationToken = default
 			);
 
@@ -138,12 +138,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
-		/// <param name="UpdateNetworkWirelessSsidSplashSettings"></param>
+		/// <param name="updateNetworkWirelessSsidSplashSettings"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
 		Task<SsidSplashSettings> UpdateNetworkWirelessSsidSplashSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] SsidSplashSettings UpdateNetworkWirelessSsidSplashSettings,
+			[Body] SsidSplashSettings updateNetworkWirelessSsidSplashSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -183,7 +183,7 @@ namespace Meraki.Api.Interfaces
 		Task<DeviceTypeGroupPolicies> UpdateNetworkWirelessSsidDeviceTypeGroupPoliciesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] DeviceTypeGroupPolicies UpdateNetworkWirelessSsidDeviceTypeGroupPolicies,
+			[Body] DeviceTypeGroupPolicies updateNetworkWirelessSsidDeviceTypeGroupPolicies,
 			CancellationToken cancellationToken = default
 			);
 
@@ -206,12 +206,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
-		/// <param name="UpdateNetworkWirelessSsidBonjourForwarding"></param>
+		/// <param name="updateNetworkWirelessSsidBonjourForwarding"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/bonjourForwarding")]
 		Task<BonjourForwarding> UpdateNetworkWirelessSsidBonjourForwardingAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] BonjourForwarding UpdateNetworkWirelessSsidBonjourForwarding,
+			[Body] BonjourForwarding updateNetworkWirelessSsidBonjourForwarding,
 			CancellationToken cancellationToken = default
 			);
 
@@ -234,12 +234,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
-		/// <param name="UpdateNetworkWirelessSsidVpn"></param>
+		/// <param name="updateNetworkWirelessSsidVpn"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/vpn")]
 		Task<VpnSettings> UpdateNetworkWirelessSsidVpnAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] VpnSettings UpdateNetworkWirelessSsidVpn,
+			[Body] VpnSettings updateNetworkWirelessSsidVpn,
 			CancellationToken cancellationToken = default
 			);
 
@@ -266,7 +266,7 @@ namespace Meraki.Api.Interfaces
 		Task<Schedules> UpdateNetworkWirelessSsidSchedulesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] Schedules UpdateNetworkWirelessSsidSchedules,
+			[Body] Schedules updateNetworkWirelessSsidSchedules,
 			CancellationToken cancellationToken = default
 			);
 
@@ -293,7 +293,7 @@ namespace Meraki.Api.Interfaces
 		Task<EapOverride> UpdateNetworkWirelessSsidEapOverrideAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] EapOverride EapOverrideUpdateRequest,
+			[Body] EapOverride eapOverrideUpdateRequest,
 			CancellationToken cancellationToken = default
 			);
 
@@ -316,12 +316,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
-		/// <param name="Hotspot20"></param>
+		/// <param name="hotspot20"></param>
 		[Put("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
 		Task<Hotspot20> UpdateNetworkWirelessSsidHotspot20Async(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,
-			[Body] Hotspot20 Hotspot20,
+			[Body] Hotspot20 hotspot20,
 			CancellationToken cancellationToken = default
 			);
 	}

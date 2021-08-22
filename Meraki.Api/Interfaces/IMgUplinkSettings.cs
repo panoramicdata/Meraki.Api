@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkCellularGatewaySettingsUplink">Body for updating uplink settings</param>
+		/// <param name="updateNetworkCellularGatewaySettingsUplink">Body for updating uplink settings</param>
 		[Put("/networks/{networkId}/cellularGateway/settings/uplink")]
 		Task<NetworkCellularGatewaySettingsUplinkUpdateRequest> UpdateNetworkCellularGatewaySettingsUplinkAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkCellularGatewaySettingsUplinkUpdateRequest UpdateNetworkCellularGatewaySettingsUplink,
+			[Body] NetworkCellularGatewaySettingsUplinkUpdateRequest updateNetworkCellularGatewaySettingsUplink,
 			CancellationToken cancellationToken = default
 			);
 	}

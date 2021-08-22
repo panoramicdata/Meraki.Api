@@ -41,12 +41,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="appliancePortId">The appliance port id</param>
-		/// <param name="UpdateNetworkAppliancePort">Body for updating the per-port VLAN settings</param>
+		/// <param name="updateNetworkAppliancePort">Body for updating the per-port VLAN settings</param>
 		[Put("/networks/{networkId}/appliancePorts/{appliancePortId}")]
 		Task<NetworkAppliancePortUpdateRequest> UpdateNetworkAppliancePortAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("appliancePortId")] string appliancePortId,
-			[Body] NetworkAppliancePortUpdateRequest UpdateNetworkAppliancePort,
+			[Body] NetworkAppliancePortUpdateRequest updateNetworkAppliancePort,
 			CancellationToken cancellationToken = default
 			);
 	}

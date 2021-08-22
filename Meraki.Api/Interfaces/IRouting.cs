@@ -27,7 +27,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/devices/{serial}/switch/routing/interfaces")]
 		Task<RoutingInterface> CreateDeviceSwitchRoutingInterfaceAsync(
 			[AliasAs("serial")] string serial,
-			[Body] RoutingInterface CreateDeviceSwitchRoutingInterface,
+			[Body] RoutingInterface createDeviceSwitchRoutingInterface,
 			CancellationToken cancellationToken = default
 			);
 
@@ -50,12 +50,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId">The interface id</param>
-		/// <param name="UpdateDeviceSwitchRoutingInterface">Body for returning an interface</param>
+		/// <param name="updateDeviceSwitchRoutingInterface">Body for returning an interface</param>
 		[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 		Task<RoutingInterface> UpdateDeviceSwitchRoutingInterfaceAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
-			[Body] RoutingInterfaceUpdateRequest UpdateDeviceSwitchRoutingInterface,
+			[Body] RoutingInterfaceUpdateRequest updateDeviceSwitchRoutingInterface,
 			CancellationToken cancellationToken = default
 			);
 
@@ -91,12 +91,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId">The interface id</param>
-		/// <param name="UpdateDeviceSwitchRoutingInterfaceDhcp">Body for updating an interface</param>
+		/// <param name="updateDeviceSwitchRoutingInterfaceDhcp">Body for updating an interface</param>
 		[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 		Task<DHCPRoutingInterface> UpdateDeviceSwitchRoutingInterfaceDhcpAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
-			[Body] DHCPRoutingInterface UpdateDeviceSwitchRoutingInterfaceDhcp,
+			[Body] DHCPRoutingInterface updateDeviceSwitchRoutingInterfaceDhcp,
 			CancellationToken cancellationToken = default
 			);
 

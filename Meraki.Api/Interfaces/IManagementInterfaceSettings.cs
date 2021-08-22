@@ -25,11 +25,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="ManagementInterfaceSettingsUpdateDto">Body for updating management interface settings</param>
+		/// <param name="managementInterfaceSettingsUpdateDto">Body for updating management interface settings</param>
 		[Put("/devices/{serial}/managementInterfaceSettings")]
 		Task<WanSpecs> UpdateAsync(
 			[AliasAs("serial")] string serial,
-			[Body] ManagementInterfaceSettingsUpdateRequest ManagementInterfaceSettingsUpdateDto,
+			[Body] ManagementInterfaceSettingsUpdateRequest managementInterfaceSettingsUpdateDto,
 			CancellationToken cancellationToken = default);
 	}
 }

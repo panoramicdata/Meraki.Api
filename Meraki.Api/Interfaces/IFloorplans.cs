@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkFloorPlan">Body for uploading a network floor plan</param>
+		/// <param name="createNetworkFloorPlan">Body for uploading a network floor plan</param>
 		[Post("/networks/{networkId}/floorPlans")]
 		Task<FloorPlan> CreateNetworkFloorPlanAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] FloorPlanCreationRequest CreateNetworkFloorPlan,
+			[Body] FloorPlanCreationRequest createNetworkFloorPlan,
 			CancellationToken cancellationToken = default
 			);
 
@@ -67,12 +67,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="floorPlanId">The floor plan id</param>
-		/// <param name="UpdateNetworkFloorPlan">Body for updating a network floor plan</param>
+		/// <param name="updateNetworkFloorPlan">Body for updating a network floor plan</param>
 		[Put("/networks/{networkId}/floorPlans/{floorPlanId}")]
 		Task<FloorPlan> UpdateNetworkFloorPlanAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("floorPlanId")] string floorPlanId,
-			[Body] FloorPlanUpdateRequest UpdateNetworkFloorPlan,
+			[Body] FloorPlanUpdateRequest updateNetworkFloorPlan,
 			CancellationToken cancellationToken = default);
 	}
 }

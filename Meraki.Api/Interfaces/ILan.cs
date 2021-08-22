@@ -23,11 +23,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkApplianceSingleLan">Body for updating a single LAN config</param>
+		/// <param name="updateNetworkApplianceSingleLan">Body for updating a single LAN config</param>
 		[Put("/networks/{networkId}/appliance/singleLan")]
 		Task<LanConfiguration> UpdateNetworkApplianceSingleLanAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] LanConfiguration UpdateNetworkApplianceSingleLan,
+			[Body] LanConfiguration updateNetworkApplianceSingleLan,
 			CancellationToken cancellationToken = default
 			);
 	}
