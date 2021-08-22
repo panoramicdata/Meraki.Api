@@ -5,7 +5,6 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class SecurityCenter
 	{
-
 		[DataMember(Name = "isRooted")]
 		public bool IsRooted { get; set; }
 

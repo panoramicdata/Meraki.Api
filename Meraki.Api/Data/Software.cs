@@ -6,7 +6,6 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class Software
 	{
-
 		[DataMember(Name = "appId")]
 		public string AppId { get; set; } = string.Empty;
 

@@ -32,9 +32,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("perPage")] int? perPage = null,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
-#pragma warning disable CA1054 // URI-like parameters should not be strings
 			[AliasAs("url")] string url = null!,
-#pragma warning restore CA1054 // URI-like parameters should not be strings
 			CancellationToken cancellationToken = default);
 	}
 }

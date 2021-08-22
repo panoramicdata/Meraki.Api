@@ -36,6 +36,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AsyncFixer" Version="1.5.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -48,6 +52,14 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="refit" Version="6.0.94" />
 		<PackageReference Include="Refit.Newtonsoft.Json" Version="6.0.94" />
+		<PackageReference Include="Roslynator.Analyzers" Version="3.2.2">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.2.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>

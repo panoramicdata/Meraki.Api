@@ -4,7 +4,6 @@ using Xunit.Abstractions;
 
 namespace Meraki.Api.Test
 {
-
 	public class SwitchPortScheduleTests : MerakiClientTest
 	{
 		public SwitchPortScheduleTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)

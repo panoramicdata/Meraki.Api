@@ -20,6 +20,5 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "byNetwork")]
 		public List<ByNetworks> ByNetwork { get; set; } = new();
-
 	}
 }

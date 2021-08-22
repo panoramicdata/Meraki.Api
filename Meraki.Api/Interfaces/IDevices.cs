@@ -172,7 +172,7 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// Clone port-level and some switch-level configuration settings from a source switch to one or more target switches.		
+		/// Clone port-level and some switch-level configuration settings from a source switch to one or more target switches.
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>

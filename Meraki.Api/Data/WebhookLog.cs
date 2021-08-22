@@ -6,7 +6,6 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class WebhookLog
 	{
-
 		[DataMember(Name = "organizationId")]
 		public string OrganizationId { get; set; } = string.Empty;
 

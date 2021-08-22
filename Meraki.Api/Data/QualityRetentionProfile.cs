@@ -67,7 +67,5 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "videoSettings")]
 		public VideoSettings VideoSettings { get; set; } = new();
-
-
 	}
 }

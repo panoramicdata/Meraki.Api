@@ -49,7 +49,5 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "wireless")]
 		public Appliance Wireless { get; set; } = new();
-
-
 	}
 }

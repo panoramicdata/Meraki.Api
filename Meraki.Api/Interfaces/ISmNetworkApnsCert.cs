@@ -12,7 +12,7 @@ namespace Meraki.Api.Interfaces
 	{
 		/// <summary>
 		/// Get the organization's APNS certificate
-		/// </summary>		
+		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/sm/apnsCert")]

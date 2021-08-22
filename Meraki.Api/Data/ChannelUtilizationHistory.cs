@@ -22,7 +22,7 @@ namespace Meraki.Api.Data
 
 		/// <summary>
 		/// Utilization total
-		/// </summary>	
+		/// </summary>
 		[DataMember(Name = "utilizationTotal")]
 		public double UtilizationTotal { get; set; } = 0;
 

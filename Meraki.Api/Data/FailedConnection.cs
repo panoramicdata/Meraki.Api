@@ -6,7 +6,6 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class FailedConnection
 	{
-
 		[DataMember(Name = "ssidNumber")]
 		public int SsidNumber { get; set; }
 

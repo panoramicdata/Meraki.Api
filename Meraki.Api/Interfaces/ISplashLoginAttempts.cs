@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
 {
-
 	/// <summary>
 	/// Splash login attempts
 	/// </summary>

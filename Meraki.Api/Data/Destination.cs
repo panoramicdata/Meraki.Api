@@ -25,6 +25,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Boolean indicating whether this is the default testing destination (true) or not (false). Defaults to false. Only one default is allowed</value>
 		[DataMember(Name = "default", EmitDefaultValue = false)]
-		public bool? _Default { get; set; }
+		public bool? Default { get; set; }
 	}
 }

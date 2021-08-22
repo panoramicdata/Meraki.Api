@@ -6,7 +6,6 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class WlanList
 	{
-
 		[DataMember(Name = "createdAt")]
 		public DateTime CreatedAt { get; set; }
 
@@ -16,5 +15,4 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "xml")]
 		public string Xml { get; set; } = string.Empty;
 	}
-
 }

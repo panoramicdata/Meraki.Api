@@ -22,9 +22,9 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "dnsNameservers", EmitDefaultValue = false)]
 		public string DnsNameservers { get; set; } = string.Empty;
 		/// <summary>
-		/// list of fixed IP representing the the DNS Name servers when the mode is &#39;custom&#39;
+		/// list of fixed IP representing the DNS Name servers when the mode is &#39;custom&#39;
 		/// </summary>
-		/// <value>list of fixed IP representing the the DNS Name servers when the mode is &#39;custom&#39;</value>
+		/// <value>list of fixed IP representing the DNS Name servers when the mode is &#39;custom&#39;</value>
 		[DataMember(Name = "dnsCustomNameservers", EmitDefaultValue = false)]
 		public List<string> DnsCustomNameservers { get; set; } = new();
 	}

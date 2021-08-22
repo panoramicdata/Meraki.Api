@@ -103,7 +103,6 @@ namespace Meraki.Api.Data
 		/// adminSplashUrl
 		/// </summary>
 		[DataMember(Name = "adminSplashUrl")]
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:Uri properties should not be strings", Justification = "This is an API POCO.  String is appropriate.")]
 		public string AdminSplashUrl { get; set; } = string.Empty;
 
 		/// <summary>
