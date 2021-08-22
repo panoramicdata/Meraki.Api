@@ -152,11 +152,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="ClientProvisionRequest">Body for provisioning a client</param>
+		/// <param name="clientProvisionRequest">Body for provisioning a client</param>
 		[Post("/networks/{networkId}/clients/provision")]
 		Task<ClientProvisionRequest> ProvisionAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] ClientProvisionRequest ClientProvisionRequest,
+			[Body] ClientProvisionRequest clientProvisionRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -165,12 +165,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="clientId">The client id</param>
-		/// <param name="ClientPolicyUpdateRequest">Body for updating client policy</param>
+		/// <param name="clientPolicyUpdateRequest">Body for updating client policy</param>
 		[Put("/networks/{networkId}/clients/{clientId}/policy")]
 		Task<ClientPolicyUpdateRequest> UpdatePolicyAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("clientId")] string clientId,
-			[Body] ClientPolicyUpdateRequest ClientPolicyUpdateRequest,
+			[Body] ClientPolicyUpdateRequest clientPolicyUpdateRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -179,12 +179,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="clientId">The client id</param>
-		/// <param name="UpdateNetworkClientSplashAuthorizationStatus">Body for updating client's splash authorization</param>
+		/// <param name="updateNetworkClientSplashAuthorizationStatus">Body for updating client's splash authorization</param>
 		[Put("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
 		Task<ClientSplashAuthorizationStatusUpdateRequest> UpdateSplashAuthorizationStatusAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("clientId")] string clientId,
-			[Body] ClientSplashAuthorizationStatusUpdateRequest UpdateNetworkClientSplashAuthorizationStatus,
+			[Body] ClientSplashAuthorizationStatusUpdateRequest updateNetworkClientSplashAuthorizationStatus,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

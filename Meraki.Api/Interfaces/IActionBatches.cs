@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CreateOrganizationActionBatch">Body for creating organization action batch</param>
+		/// <param name="createOrganizationActionBatch">Body for creating organization action batch</param>
 		[Post("/organizations/{organizationId}/actionBatches")]
 		Task<ActionBatch> CreateAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] ActionBatchCreationRequest CreateOrganizationActionBatch,
+			[Body] ActionBatchCreationRequest createOrganizationActionBatch,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -67,12 +67,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="actionBatchId">The action batch id</param>
-		/// <param name="UpdateOrganizationActionBatch">Body for updating organization action batch</param>
+		/// <param name="updateOrganizationActionBatch">Body for updating organization action batch</param>
 		[Put("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
 		Task<ActionBatch> UpdateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("actionBatchId")] string actionBatchId,
-			[Body] ActionBatchUpdateRequest UpdateOrganizationActionBatch = null!,
+			[Body] ActionBatchUpdateRequest updateOrganizationActionBatch = null!,
 			CancellationToken cancellationToken = default);
 	}
 }

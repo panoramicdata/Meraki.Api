@@ -51,12 +51,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="configTemplateId">The config template id</param>
-		/// <param name="UpdateOrganizationConfigTemplate">Body for updating an organization's config template</param>
+		/// <param name="updateOrganizationConfigTemplate">Body for updating an organization's config template</param>
 		[Put("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
 		Task<ConfigurationTemplate> UpdateOrganizationConfigTemplateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("configTemplateId")] string configTemplateId,
-			[Body] ConfigurationTemplateUpdate UpdateOrganizationConfigTemplate,
+			[Body] ConfigurationTemplateUpdate updateOrganizationConfigTemplate,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -64,12 +64,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CreateOrganizationConfigTemplate">The config template id</param>
+		/// <param name="createOrganizationConfigTemplate">The config template id</param>
 		[Post("/organizations/{organizationId}/configTemplates")]
 		Task<ConfigurationTemplateUpdate> CreateOrganizationConfigTemplateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("configTemplateId")] string configTemplateId,
-			[Body] ConfigurationTemplateUpdate CreateOrganizationConfigTemplate,
+			[Body] ConfigurationTemplateUpdate createOrganizationConfigTemplate,
 			CancellationToken cancellationToken = default);
 	}
 }

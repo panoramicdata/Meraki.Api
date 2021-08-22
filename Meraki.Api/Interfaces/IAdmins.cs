@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CreateOrganizationAdmin">Body for creating organization admin</param>
+		/// <param name="createOrganizationAdmin">Body for creating organization admin</param>
 		[Post("/organizations/{organizationId}/admins")]
 		Task<Admin> CreateAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] AdminCreationRequest CreateOrganizationAdmin,
+			[Body] AdminCreationRequest createOrganizationAdmin,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -51,12 +51,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="id">The admin id</param>
-		/// <param name="AdminUpdateRequest">Body for updating admin</param>
+		/// <param name="adminUpdateRequest">Body for updating admin</param>
 		[Put("/organizations/{organizationId}/admins/{id}")]
 		Task<Admin> UpdateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("id")] string id,
-			[Body] AdminUpdateRequest AdminUpdateRequest,
+			[Body] AdminUpdateRequest adminUpdateRequest,
 			CancellationToken cancellationToken = default);
 	}
 }

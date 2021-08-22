@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="NetworkContentFilteringUpdateRequest">Body for updating content filtering settings</param>
+		/// <param name="networkContentFilteringUpdateRequest">Body for updating content filtering settings</param>
 		[Put("/networks/{networkId}/contentFiltering")]
 		Task<ContentFiltering> UpdateNetworkContentFilteringAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkContentFilteringUpdateRequest NetworkContentFilteringUpdateRequest,
+			[Body] NetworkContentFilteringUpdateRequest networkContentFilteringUpdateRequest,
 			CancellationToken cancellationToken = default
 			);
 	}

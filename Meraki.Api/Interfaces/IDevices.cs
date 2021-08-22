@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="DeviceLedsBlinkRequest">Body for blinking device leds</param>
+		/// <param name="deviceLedsBlinkRequest">Body for blinking device leds</param>
 		[Post("/devices/{serial}/blinkLeds")]
 		Task<DeviceLedsBlinkResponse> BlinkLedsAsync(
 			[AliasAs("serial")] string serial,
-			[Body] DeviceLedsBlinkRequest? DeviceLedsBlinkRequest = null,
+			[Body] DeviceLedsBlinkRequest? deviceLedsBlinkRequest = null,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -28,11 +28,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="ClaimNetworkDevices">Body for claiming a network device</param>
+		/// <param name="claimNetworkDevices">Body for claiming a network device</param>
 		[Post("/networks/{networkId}/devices/claim")]
 		Task ClaimAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] DeviceClaimRequest ClaimNetworkDevices,
+			[Body] DeviceClaimRequest claimNetworkDevices,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -40,11 +40,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="DeviceSwitchPortsCycleRequest">Body for cycling switch ports</param>
+		/// <param name="deviceSwitchPortsCycleRequest">Body for cycling switch ports</param>
 		[Post("/devices/{serial}/switch/ports/cycle")]
 		Task<DeviceSwitchPortsCycleRequest> CycleSwitchPortsAsync(
 			[AliasAs("serial")] string serial,
-			[Body] DeviceSwitchPortsCycleRequest DeviceSwitchPortsCycleRequest,
+			[Body] DeviceSwitchPortsCycleRequest deviceSwitchPortsCycleRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -164,11 +164,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="UpdateNetworkDevice">Body for updating a network device</param>
+		/// <param name="updateNetworkDevice">Body for updating a network device</param>
 		[Put("/devices/{serial}")]
 		Task<Device> UpdateAsync(
 			[AliasAs("serial")] string serial,
-			[Body] DeviceUpdateRequest UpdateNetworkDevice,
+			[Body] DeviceUpdateRequest updateNetworkDevice,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -176,11 +176,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CloneOrganizationSwitchDevices">Body for cloning an organization's switch devices</param>
+		/// <param name="cloneOrganizationSwitchDevices">Body for cloning an organization's switch devices</param>
 		[Post("/organizations/{organizationId}/switch/devices/clone")]
 		Task<CloneOrganizationSwitchDevices> CloneOrganizationSwitchDevicesAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] CloneOrganizationSwitchDevices CloneOrganizationSwitchDevices,
+			[Body] CloneOrganizationSwitchDevices cloneOrganizationSwitchDevices,
 			CancellationToken cancellationToken = default
 			);
 	}

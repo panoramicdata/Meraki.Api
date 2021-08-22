@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="CreateOrganizationBrandingPolicy">Body for creating an organization's branding policy</param>
+		/// <param name="createOrganizationBrandingPolicy">Body for creating an organization's branding policy</param>
 		[Post("/organizations/{organizationId}/brandingPolicies")]
 		Task<BrandingPolicyCreationRequest> CreateOrganizationBrandingPolicy(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] BrandingPolicyCreationRequest CreateOrganizationBrandingPolicy,
+			[Body] BrandingPolicyCreationRequest createOrganizationBrandingPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -77,11 +77,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="UpdateOrganizationBrandingPoliciesPriorities">Body for updating an organization branding policies priorities</param>
+		/// <param name="updateOrganizationBrandingPoliciesPriorities">Body for updating an organization branding policies priorities</param>
 		[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
 		Task<BrandingPoliciesPrioritiesUpdateRequest> UpdateOrganizationBrandingPoliciesPriorities(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] BrandingPoliciesPrioritiesUpdateRequest UpdateOrganizationBrandingPoliciesPriorities,
+			[Body] BrandingPoliciesPrioritiesUpdateRequest updateOrganizationBrandingPoliciesPriorities,
 			CancellationToken cancellationToken = default
 			);
 
@@ -91,12 +91,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="brandingPolicyId"></param>
-		/// <param name="UpdateOrganizationBrandingPolicy">Body for updating an organization's branding policy</param>
+		/// <param name="updateOrganizationBrandingPolicy">Body for updating an organization's branding policy</param>
 		[Put("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 		Task<BrandingPolicyCreationRequest> UpdateOrganizationBrandingPolicy(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("brandingPolicyId")] string brandingPolicyId,
-			[Body] BrandingPolicyUpdateRequest UpdateOrganizationBrandingPolicy,
+			[Body] BrandingPolicyUpdateRequest updateOrganizationBrandingPolicy,
 			CancellationToken cancellationToken = default
 			);
 	}

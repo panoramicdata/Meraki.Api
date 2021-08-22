@@ -25,11 +25,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial id</param>
-		/// <param name="UpdateDeviceCameraSense">Body for updating device camera sense</param>
+		/// <param name="updateDeviceCameraSense">Body for updating device camera sense</param>
 		[Put("/devices/{serial}/camera/sense")]
 		Task<CameraSense> UpdateDeviceCameraSenseAsync(
 			[AliasAs("serial")] string serial,
-			[Body] CameraSenseUpdateRequest UpdateDeviceCameraSense,
+			[Body] CameraSenseUpdateRequest updateDeviceCameraSense,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
