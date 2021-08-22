@@ -1,5 +1,7 @@
 # Meraki.Api
 
+This project implements access to the v1 Meraki API
+
 To use the Meraki API nuget package:
 
 ## Visual Studio
@@ -52,7 +54,7 @@ namespace My.Project
 
 The Meraki API documentation can be found here:
 
-- [Meraki API Documentation v0](https://dashboard.meraki.com/api_docs/v0)
+- [Meraki API Documentation v1](https://developer.cisco.com/meraki/api-v1/)
 
 ## Testing
 
