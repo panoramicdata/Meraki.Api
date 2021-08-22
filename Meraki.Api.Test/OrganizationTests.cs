@@ -121,11 +121,9 @@ namespace Meraki.Api.Test
 
 			var license = organizationDeviceLicenses.FirstOrDefault();
 
-			license = null!;
-
 			var organizationDeviceLicense = await MerakiClient
 				.Licenses
-				.GetAsync(Configuration.TestOrganizationId, license.Id)
+				.GetAsync(Configuration.TestOrganizationId, license!.Id)
 				.ConfigureAwait(false);
 
 			organizationDeviceLicense.Should().NotBeNull();
