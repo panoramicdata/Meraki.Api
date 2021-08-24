@@ -71,12 +71,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="portId">The port id</param>
-		/// <param name="UpdateDeviceSwitchPort"></param>
+		/// <param name="deviceSwitchPort">The new configuration</param>
 		[Put("/devices/{serial}/switch/ports/{portId}")]
 		Task<DeviceSwitchPort> UpdateDeviceSwitchPortAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("portId")] string portId,
-			[Body] SwitchPortUpdateRequest UpdateDeviceSwitchPort,
+			[Body] DeviceSwitchPort deviceSwitchPort,
 			CancellationToken cancellationToken = default
 			);
 	}
