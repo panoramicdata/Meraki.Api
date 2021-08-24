@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 
@@ -51,6 +52,7 @@ namespace Meraki.Api.Data
 		/// The VLAN of the switch port. A null value will clear the value set for trunk ports.
 		/// </summary>
 		[DataMember(Name = "vlan")]
+		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 		public int? Vlan { get; set; }
 
 		/// <summary>
@@ -105,6 +107,7 @@ namespace Meraki.Api.Data
 		/// The ID of the port schedule. A value of null will clear the port schedule
 		/// </summary>
 		[DataMember(Name = "portScheduleId")]
+		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 		public string? PortScheduleId { get; set; }
 
 		/// <summary>
