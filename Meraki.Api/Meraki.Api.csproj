@@ -18,16 +18,7 @@
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageReleaseNotes>
-			Updated from v0 to v1.11.
-			All methods now end in 'Async'.
-			All classes have been implemented.
-			Corrected exception documentation.
-			Corrected code formatting.
-			Populated parameter help text.
-			Method summary text provided throughout.
-			Updated unit tests.
-			Please note there will be breaking changes in this release, however we will be maintaining the v1 naming.
-			Please review the Meraki release notes for a list of all changes: https://developer.cisco.com/meraki/whats-new/
+			Fixed DeviceSwitchPort model.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
