@@ -3,7 +3,6 @@ using Meraki.Api.Data;
 using Refit;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -47,7 +46,7 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetThirdPartyVpnPeersAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			result.Should().BeOfType<List<ThirdPartyVpnPeer>>();
+			result.Should().BeOfType<ThirdPartyVpnPeerResponse>();
 			result.Should().NotBeNull();
 		}
 
@@ -76,9 +75,15 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetOrganizationLicenses_Succeeds()
 		{
+			if (Configuration.TestOrganizationIdSupportingPerDeviceLicensing is null)
+			{
+				// We'll skip this test then
+				return;
+			}
+
 			var licenses = await MerakiClient
 				.Licenses
-				.GetPageAsync(Configuration.TestOrganizationId)
+				.GetPageAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 				.ConfigureAwait(false);
 
 			licenses.Should().NotBeNull();
@@ -112,24 +117,29 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetOrganizationDeviceLicense_Succeeds()
 		{
+			if (Configuration.TestOrganizationIdSupportingPerDeviceLicensing is null)
+			{
+				// We'll skip this test then
+				return;
+			}
+
 			var organizationDeviceLicenses = await MerakiClient
 				.Licenses
-				.GetPageAsync(Configuration.TestOrganizationId, cancellationToken: default)
+				.GetPageAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 				.ConfigureAwait(false);
 
-			organizationDeviceLicenses.Should().NotBeNull();
-
-			var license = organizationDeviceLicenses.FirstOrDefault();
+			organizationDeviceLicenses.Should().NotBeNullOrEmpty();
+			var license = organizationDeviceLicenses[0];
 
 			var organizationDeviceLicense = await MerakiClient
 				.Licenses
-				.GetAsync(Configuration.TestOrganizationId, license!.Id)
+				.GetAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing, license.Id)
 				.ConfigureAwait(false);
 
 			organizationDeviceLicense.Should().NotBeNull();
 		}
 
-		[Fact]
+		[Fact(Skip = "Not part of general run")]
 		public async void ClaimDeviceAsync_Succeeds()
 		{
 			var result = await MerakiClient
@@ -215,6 +225,7 @@ namespace Meraki.Api.Test
 			organization.Id.Should().NotBeNullOrWhiteSpace();
 			if (id != null)
 			{
+				// Compare the id
 				organization.Id.Should().Be(id);
 			}
 			organization.Name.Should().Be(initialOrganizationName);
