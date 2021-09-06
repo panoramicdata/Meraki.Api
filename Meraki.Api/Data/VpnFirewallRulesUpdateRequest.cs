@@ -13,14 +13,14 @@ namespace Meraki.Api.Data
 		/// An ordered array of the firewall rules (not including the default rule)
 		/// </summary>
 		/// <value>An ordered array of the firewall rules (not including the default rule)</value>
-		[DataMember(Name = "rules", EmitDefaultValue = false)]
+		[DataMember(Name = "rules")]
 		public List<VpnFirewallRule> Rules { get; set; } = null!;
 
 		/// <summary>
 		/// Log the special default rule (boolean value - enable only if you&#39;ve configured a syslog server) (optional)
 		/// </summary>
 		/// <value>Log the special default rule (boolean value - enable only if you&#39;ve configured a syslog server) (optional)</value>
-		[DataMember(Name = "syslogDefaultRule", EmitDefaultValue = false)]
+		[DataMember(Name = "syslogDefaultRule")]
 		public bool? SyslogDefaultRule { get; set; }
 	}
 }

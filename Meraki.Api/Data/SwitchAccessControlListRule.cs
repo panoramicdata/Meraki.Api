@@ -12,60 +12,60 @@ namespace Meraki.Api.Data
 		/// Description of the rule (optional).
 		/// </summary>
 		/// <value>Description of the rule (optional).</value>
-		[DataMember(Name = "comment", EmitDefaultValue = false)]
+		[DataMember(Name = "comment")]
 		public string Comment { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or Sets Policy
 		/// </summary>
-		[DataMember(Name = "policy", EmitDefaultValue = false)]
+		[DataMember(Name = "policy")]
 		public AllowOrDeny Policy { get; set; }
 
 		/// <summary>
 		/// Gets or Sets IpVersion
 		/// </summary>
-		[DataMember(Name = "ipVersion", EmitDefaultValue = false)]
+		[DataMember(Name = "ipVersion")]
 		public IpVersion IpVersion { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Protocol
 		/// </summary>
-		[DataMember(Name = "protocol", EmitDefaultValue = false)]
+		[DataMember(Name = "protocol")]
 		public TcpUdpAnyProtocol Protocol { get; set; }
 
 		/// <summary>
 		/// Source IP address (in IP or CIDR notation) or &#39;any&#39;.
 		/// </summary>
 		/// <value>Source IP address (in IP or CIDR notation) or &#39;any&#39;.</value>
-		[DataMember(Name = "srcCidr", EmitDefaultValue = false)]
+		[DataMember(Name = "srcCidr")]
 		public string SourceCidr { get; set; } = null!;
 
 		/// <summary>
 		/// Source port. Must be in the range  of 1-65535 or &#39;any&#39;. Default is &#39;any&#39;.
 		/// </summary>
 		/// <value>Source port. Must be in the range  of 1-65535 or &#39;any&#39;. Default is &#39;any&#39;.</value>
-		[DataMember(Name = "srcPort", EmitDefaultValue = false)]
+		[DataMember(Name = "srcPort")]
 		public string SourcePort { get; set; } = null!;
 
 		/// <summary>
 		/// Destination IP address (in IP or CIDR notation) or &#39;any&#39;.
 		/// </summary>
 		/// <value>Destination IP address (in IP or CIDR notation) or &#39;any&#39;.</value>
-		[DataMember(Name = "dstCidr", EmitDefaultValue = false)]
+		[DataMember(Name = "dstCidr")]
 		public string DestinationCidr { get; set; } = null!;
 
 		/// <summary>
 		/// Destination port. Must be in the range of 1-65535 or &#39;any&#39;. Default is &#39;any&#39;.
 		/// </summary>
 		/// <value>Destination port. Must be in the range of 1-65535 or &#39;any&#39;. Default is &#39;any&#39;.</value>
-		[DataMember(Name = "dstPort", EmitDefaultValue = false)]
+		[DataMember(Name = "dstPort")]
 		public string DestinationPort { get; set; } = null!;
 
 		/// <summary>
 		/// Incoming traffic VLAN. Must be in the range of 1-4095 or &#39;any&#39;. Default is &#39;any&#39;.
 		/// </summary>
 		/// <value>Incoming traffic VLAN. Must be in the range of 1-4095 or &#39;any&#39;. Default is &#39;any&#39;.</value>
-		[DataMember(Name = "vlan", EmitDefaultValue = false)]
+		[DataMember(Name = "vlan")]
 		public string Vlan { get; set; } = null!;
 	}
 }

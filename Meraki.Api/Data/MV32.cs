@@ -11,13 +11,13 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Gets or Sets Quality
 		/// </summary>
-		[DataMember(Name = "quality", EmitDefaultValue = false)]
+		[DataMember(Name = "quality")]
 		public StandardEnhancedQuality Quality { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Resolution
 		/// </summary>
-		[DataMember(Name = "resolution", EmitDefaultValue = false)]
+		[DataMember(Name = "resolution")]
 		public Mv32Resolution Resolution { get; set; }
 	}
 }

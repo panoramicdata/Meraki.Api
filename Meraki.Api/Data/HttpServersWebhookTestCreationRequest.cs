@@ -12,7 +12,7 @@ namespace Meraki.Api.Data
 		/// The URL where the test webhook will be sent
 		/// </summary>
 		/// <value>The URL where the test webhook will be sent</value>
-		[DataMember(Name = "url", EmitDefaultValue = false)]
+		[DataMember(Name = "url")]
 		public string Url { get; set; } = null!;
 	}
 }

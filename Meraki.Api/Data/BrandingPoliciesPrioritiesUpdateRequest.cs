@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// A list of branding policy IDs arranged in ascending priority order (IDs later in the array have higher priority).
 		/// </summary>
 		/// <value>A list of branding policy IDs arranged in ascending priority order (IDs later in the array have higher priority).</value>
-		[DataMember(Name = "brandingPolicyIds", EmitDefaultValue = false)]
+		[DataMember(Name = "brandingPolicyIds")]
 		public List<string> BrandingPolicyIds { get; set; } = new();
 	}
 }

@@ -12,7 +12,7 @@ namespace Meraki.Api.Data
 		/// The serial of the switch to be added
 		/// </summary>
 		/// <value>The serial of the switch to be added</value>
-		[DataMember(Name = "serial", EmitDefaultValue = false)]
+		[DataMember(Name = "serial")]
 		public string Serial { get; set; } = null!;
 	}
 }

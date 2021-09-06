@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// An array of 1:Many nat rules
 		/// </summary>
 		/// <value>An array of 1:Many nat rules</value>
-		[DataMember(Name = "rules", EmitDefaultValue = false)]
+		[DataMember(Name = "rules")]
 		public List<OneToManyNatRule> Rules { get; set; } = null!;
 	}
 }

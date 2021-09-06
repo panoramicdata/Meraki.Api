@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// The list of connectivity monitoring destinations
 		/// </summary>
 		/// <value>The list of connectivity monitoring destinations</value>
-		[DataMember(Name = "destinations", EmitDefaultValue = false)]
+		[DataMember(Name = "destinations")]
 		public List<Destination> Destinations { get; set; } = new();
 	}
 }

@@ -12,14 +12,14 @@ namespace Meraki.Api.Data
 		/// The file sha256 hash to whitelist
 		/// </summary>
 		/// <value>The file sha256 hash to whitelist</value>
-		[DataMember(Name = "sha256", EmitDefaultValue = false)]
+		[DataMember(Name = "sha256")]
 		public string Sha256 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Comment about the whitelisted entity
 		/// </summary>
 		/// <value>Comment about the whitelisted entity</value>
-		[DataMember(Name = "comment", EmitDefaultValue = false)]
+		[DataMember(Name = "comment")]
 		public string Comment { get; set; } = string.Empty;
 	}
 }

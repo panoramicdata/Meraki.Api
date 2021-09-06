@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// An array of port forwarding params
 		/// </summary>
 		/// <value>An array of port forwarding params</value>
-		[DataMember(Name = "rules", EmitDefaultValue = false)]
+		[DataMember(Name = "rules")]
 		public List<PortForwardingRules> Rules { get; set; } = new();
 	}
 }

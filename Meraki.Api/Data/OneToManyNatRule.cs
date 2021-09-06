@@ -13,20 +13,20 @@ namespace Meraki.Api.Data
 		/// The IP address that will be used to access the internal resource from the WAN
 		/// </summary>
 		/// <value>The IP address that will be used to access the internal resource from the WAN</value>
-		[DataMember(Name = "publicIp", EmitDefaultValue = false)]
+		[DataMember(Name = "publicIp")]
 		public string PublicIp { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or Sets Uplink
 		/// </summary>
-		[DataMember(Name = "uplink", EmitDefaultValue = false)]
+		[DataMember(Name = "uplink")]
 		public WanUplink Uplink { get; set; }
 
 		/// <summary>
 		/// An array of associated forwarding rules
 		/// </summary>
 		/// <value>An array of associated forwarding rules</value>
-		[DataMember(Name = "portRules", EmitDefaultValue = false)]
+		[DataMember(Name = "portRules")]
 		public List<PortRule> PortRules { get; set; } = null!;
 	}
 }

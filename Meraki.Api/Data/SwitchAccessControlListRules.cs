@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// An ordered array of the access control list rules (not including the default rule). An empty array will clear the rules.
 		/// </summary>
 		/// <value>An ordered array of the access control list rules (not including the default rule). An empty array will clear the rules.</value>
-		[DataMember(Name = "rules", EmitDefaultValue = false)]
+		[DataMember(Name = "rules")]
 		public List<SwitchAccessControlListRule> Rules { get; set; } = null!;
 	}
 }

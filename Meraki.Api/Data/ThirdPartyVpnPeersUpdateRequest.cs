@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// The list of VPN peers
 		/// </summary>
 		/// <value>The list of VPN peers</value>
-		[DataMember(Name = "peers", EmitDefaultValue = false)]
+		[DataMember(Name = "peers")]
 		public List<ThirdPartyVpnPeer> Peers { get; set; } = new List<ThirdPartyVpnPeer>();
 	}
 }

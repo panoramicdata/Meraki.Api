@@ -11,12 +11,12 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Gets or Sets Settings
 		/// </summary>
-		[DataMember(Name = "settings", EmitDefaultValue = false)]
+		[DataMember(Name = "settings")]
 		public Setting Settings { get; set; }
 		/// <summary>
 		/// Gets or Sets BandwidthLimits
 		/// </summary>
-		[DataMember(Name = "bandwidthLimits", EmitDefaultValue = false)]
+		[DataMember(Name = "bandwidthLimits")]
 		public BandwidthLimits BandwidthLimits { get; set; } = null!;
 	}
 }

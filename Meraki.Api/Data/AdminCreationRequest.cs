@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// The email of the dashboard administrator. This attribute can not be updated.
 		/// </summary>
 		/// <value>The email of the dashboard administrator. This attribute can not be updated.</value>
-		[DataMember(Name = "email", EmitDefaultValue = false)]
+		[DataMember(Name = "email")]
 		public string Email { get; set; } = null!;
 
 		/// <summary>
@@ -26,27 +26,27 @@ namespace Meraki.Api.Data
 		/// The name of the dashboard administrator
 		/// </summary>
 		/// <value>The name of the dashboard administrator</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
+		[DataMember(Name = "name")]
 		public string Name { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or Sets OrgAccess
 		/// </summary>
-		[DataMember(Name = "orgAccess", EmitDefaultValue = false)]
+		[DataMember(Name = "orgAccess")]
 		public OrgAccess OrgAccess { get; set; }
 
 		/// <summary>
 		/// The list of tags that the dashboard administrator has privileges on
 		/// </summary>
 		/// <value>The list of tags that the dashboard administrator has privileges on</value>
-		[DataMember(Name = "tags", EmitDefaultValue = false)]
+		[DataMember(Name = "tags")]
 		public List<Tag> Tags { get; set; } = null!;
 
 		/// <summary>
 		/// The list of networks that the dashboard administrator has privileges on
 		/// </summary>
 		/// <value>The list of networks that the dashboard administrator has privileges on</value>
-		[DataMember(Name = "networks", EmitDefaultValue = false)]
+		[DataMember(Name = "networks")]
 		public List<Network> Networks { get; set; } = null!;
 	}
 }

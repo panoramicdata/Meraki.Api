@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// Sets a list of specific SNORT® signatures to whitelist
 		/// </summary>
 		/// <value>Sets a list of specific SNORT® signatures to whitelist</value>
-		[DataMember(Name = "whitelistedRules", EmitDefaultValue = false)]
+		[DataMember(Name = "whitelistedRules")]
 		public List<WhitelistedRule> WhitelistedRules { get; set; } = new();
 	}
 }

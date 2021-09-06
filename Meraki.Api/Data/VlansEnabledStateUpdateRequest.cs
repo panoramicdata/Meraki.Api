@@ -12,7 +12,7 @@ namespace Meraki.Api.Data
 		/// Boolean indicating whether to enable (true) or disable (false) VLANs for the network
 		/// </summary>
 		/// <value>Boolean indicating whether to enable (true) or disable (false) VLANs for the network</value>
-		[DataMember(Name = "enabled", EmitDefaultValue = false)]
+		[DataMember(Name = "enabled")]
 		public bool? Enabled { get; set; }
 	}
 }

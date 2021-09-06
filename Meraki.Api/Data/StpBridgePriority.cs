@@ -13,28 +13,28 @@ namespace Meraki.Api.Data
 		/// List of switch profile IDs
 		/// </summary>
 		/// <value>List of switch profile IDs</value>
-		[DataMember(Name = "switchProfiles", EmitDefaultValue = false)]
+		[DataMember(Name = "switchProfiles")]
 		public List<string>? SwitchProfiles { get; set; }
 
 		/// <summary>
 		/// List of switch serial numbers
 		/// </summary>
 		/// <value>List of switch serial numbers</value>
-		[DataMember(Name = "switches", EmitDefaultValue = false)]
+		[DataMember(Name = "switches")]
 		public List<string>? Switches { get; set; }
 
 		/// <summary>
 		/// List of stack IDs
 		/// </summary>
 		/// <value>List of stack IDs</value>
-		[DataMember(Name = "stacks", EmitDefaultValue = false)]
+		[DataMember(Name = "stacks")]
 		public List<string>? Stacks { get; set; }
 
 		/// <summary>
 		/// STP priority for switch, stacks, or switch profiles
 		/// </summary>
 		/// <value>STP priority for switch, stacks, or switch profiles</value>
-		[DataMember(Name = "stpPriority", EmitDefaultValue = false)]
+		[DataMember(Name = "stpPriority")]
 		public int? StpPriority { get; set; }
 	}
 }

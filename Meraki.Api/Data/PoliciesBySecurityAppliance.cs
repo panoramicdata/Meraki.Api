@@ -11,7 +11,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Gets or Sets DevicePolicy
 		/// </summary>
-		[DataMember(Name = "devicePolicy", EmitDefaultValue = false)]
+		[DataMember(Name = "devicePolicy")]
 		public DevicePolicy1 DevicePolicy { get; set; }
 	}
 }

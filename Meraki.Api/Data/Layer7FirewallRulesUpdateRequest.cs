@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// An ordered array of the MX L7 firewall rules
 		/// </summary>
 		/// <value>An ordered array of the MX L7 firewall rules</value>
-		[DataMember(Name = "rules", EmitDefaultValue = false)]
+		[DataMember(Name = "rules")]
 		public List<Layer7FirewallRule> Rules { get; set; } = null!;
 	}
 }

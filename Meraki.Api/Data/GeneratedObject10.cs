@@ -12,7 +12,7 @@ namespace Meraki.Api.Data
 		/// New authorization status for the SSID (true, false).
 		/// </summary>
 		/// <value>New authorization status for the SSID (true, false).</value>
-		[DataMember(Name = "isAuthorized", EmitDefaultValue = false)]
+		[DataMember(Name = "isAuthorized")]
 		public bool? IsAuthorized { get; set; }
 
 		/// <summary>

@@ -11,13 +11,13 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Gets or Sets BandOperationMode
 		/// </summary>
-		[DataMember(Name = "bandOperationMode", EmitDefaultValue = false)]
+		[DataMember(Name = "bandOperationMode")]
 		public BandOperationMode BandOperationMode { get; set; }
 		/// <summary>
 		/// Steers client to most open band. Can be either true or false. Defaults to true.
 		/// </summary>
 		/// <value>Steers client to most open band. Can be either true or false. Defaults to true.</value>
-		[DataMember(Name = "bandSteeringEnabled", EmitDefaultValue = false)]
+		[DataMember(Name = "bandSteeringEnabled")]
 		public bool? BandSteeringEnabled { get; set; }
 	}
 }

@@ -12,21 +12,21 @@ namespace Meraki.Api.Data
 		/// The name of the new static route
 		/// </summary>
 		/// <value>The name of the new static route</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
+		[DataMember(Name = "name")]
 		public string Name { get; set; } = null!;
 
 		/// <summary>
 		/// The subnet of the static route
 		/// </summary>
 		/// <value>The subnet of the static route</value>
-		[DataMember(Name = "subnet", EmitDefaultValue = false)]
+		[DataMember(Name = "subnet")]
 		public string Subnet { get; set; } = null!;
 
 		/// <summary>
 		/// The gateway IP (next hop) of the static route
 		/// </summary>
 		/// <value>The gateway IP (next hop) of the static route</value>
-		[DataMember(Name = "gatewayIp", EmitDefaultValue = false)]
+		[DataMember(Name = "gatewayIp")]
 		public string GatewayIp { get; set; } = null!;
 	}
 }

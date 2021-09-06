@@ -12,13 +12,13 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Gets or Sets Mode
 		/// </summary>
-		[DataMember(Name = "mode", EmitDefaultValue = false)]
+		[DataMember(Name = "mode")]
 		public TrafficAnalysisMode Mode { get; set; } = new();
 		/// <summary>
 		/// The list of items that make up the custom pie chart for traffic reporting.
 		/// </summary>
 		/// <value>The list of items that make up the custom pie chart for traffic reporting.</value>
-		[DataMember(Name = "customPieChartItems", EmitDefaultValue = false)]
+		[DataMember(Name = "customPieChartItems")]
 		public List<CustomPieChartItem> CustomPieChartItems { get; set; } = new();
 	}
 }
