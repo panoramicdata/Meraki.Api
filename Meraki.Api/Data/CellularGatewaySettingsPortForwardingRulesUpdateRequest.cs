@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateDeviceCellularGatewaySettingsPortForwardingRules
 	/// </summary>
 	[DataContract]
-	public partial class CellularGatewaySettingsPortForwardingRulesUpdateRequest
+	public class CellularGatewaySettingsPortForwardingRulesUpdateRequest
 	{
 		/// <summary>
 		/// An array of port forwarding params

@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Traffic uplink preferences
 	/// </summary>
 	[DataContract]
-	public partial class TrafficUplinkPreferences
+	public class TrafficUplinkPreferences
 	{
 		/// <summary>
 		/// Traffic filters

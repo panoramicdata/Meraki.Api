@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Rule12
 	/// </summary>
 	[DataContract]
-	public partial class SwitchAccessControlListRule
+	public class SwitchAccessControlListRule
 	{
 		/// <summary>
 		/// Description of the rule (optional).

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// MoveNetworkSmDevices
 	/// </summary>
 	[DataContract]
-	public partial class MoveNetworkSmDevices
+	public class MoveNetworkSmDevices
 	{
 		/// <summary>
 		/// The wifiMacs of the devices to be moved.

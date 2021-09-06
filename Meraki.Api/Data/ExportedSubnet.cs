@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Exported subnet
 	/// </summary>
 	[DataContract]
-	public partial class ExportedSubnet
+	public class ExportedSubnet
 	{
 		/// <summary>
 		/// Subnet

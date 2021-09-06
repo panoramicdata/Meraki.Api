@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateOrganizationLicense
 	/// </summary>
 	[DataContract]
-	public partial class LicenseUpdateRequest
+	public class LicenseUpdateRequest
 	{
 		/// <summary>
 		/// The serial number of the device to assign this license to. Set this to null to unassign the license. If a different license is already active on the device, this parameter will control queueing/dequeuing this license.

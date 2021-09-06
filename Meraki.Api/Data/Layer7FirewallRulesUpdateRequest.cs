@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkL7FirewallRules
 	/// </summary>
 	[DataContract]
-	public partial class Layer7FirewallRulesUpdateRequest
+	public class Layer7FirewallRulesUpdateRequest
 	{
 		/// <summary>
 		/// An ordered array of the MX L7 firewall rules

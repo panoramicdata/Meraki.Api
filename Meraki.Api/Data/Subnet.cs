@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Subnet
 	/// </summary>
 	[DataContract]
-	public partial class Subnet
+	public class Subnet
 	{
 		/// <summary>
 		/// The CIDR notation subnet used within the VPN

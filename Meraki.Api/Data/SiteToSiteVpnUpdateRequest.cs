@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSiteToSiteVpn
 	/// </summary>
 	[DataContract]
-	public partial class SiteToSiteVpnUpdateRequest
+	public class SiteToSiteVpnUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets Mode

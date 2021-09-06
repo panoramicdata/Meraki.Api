@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsMtu
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsMtuUpdateRequest
+	public class SwitchSettingsMtuUpdateRequest
 	{
 		/// <summary>
 		/// MTU size for the entire network. Default value is 9578.

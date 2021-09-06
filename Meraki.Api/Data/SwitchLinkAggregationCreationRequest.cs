@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSwitchLinkAggregation
 	/// </summary>
 	[DataContract]
-	public partial class SwitchLinkAggregationCreationRequest
+	public class SwitchLinkAggregationCreationRequest
 	{
 		/// <summary>
 		/// Id

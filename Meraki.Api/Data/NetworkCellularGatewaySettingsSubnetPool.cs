@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkCellularGatewaySettingsSubnetPool
 	/// </summary>
 	[DataContract]
-	public partial class NetworkCellularGatewaySettingsSubnetPool
+	public class NetworkCellularGatewaySettingsSubnetPool
 	{
 		/// <summary>
 		/// Mask used for the subnet of all MGs in  this network.

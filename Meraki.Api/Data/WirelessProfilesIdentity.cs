@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The identity of the wireless profile. Required for creating wireless profiles in 8021x-radius auth mode.
 	/// </summary>
 	[DataContract]
-	public partial class WirelessProfilesIdentity
+	public class WirelessProfilesIdentity
 	{
 		/// <summary>
 		/// The password of the identity.

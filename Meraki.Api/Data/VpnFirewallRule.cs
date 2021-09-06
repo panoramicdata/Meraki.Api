@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Rule14
 	/// </summary>
 	[DataContract]
-	public partial class VpnFirewallRule
+	public class VpnFirewallRule
 	{
 		/// <summary>
 		/// Description of the rule (optional)

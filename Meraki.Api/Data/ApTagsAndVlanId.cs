@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// ApTagsAndVlanId
 	/// </summary>
 	[DataContract]
-	public partial class ApTagsAndVlanId
+	public class ApTagsAndVlanId
 	{
 		/// <summary>
 		/// Comma-separated list of AP tags

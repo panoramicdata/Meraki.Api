@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkFloorPlan
 	/// </summary>
 	[DataContract]
-	public partial class FloorPlanUpdateRequest
+	public class FloorPlanUpdateRequest
 	{
 		/// <summary>
 		/// The name of your floor plan.

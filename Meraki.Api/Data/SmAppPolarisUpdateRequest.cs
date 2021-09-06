@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSmAppPolaris
 	/// </summary>
 	[DataContract]
-	public partial class SmAppPolarisUpdateRequest
+	public class SmAppPolarisUpdateRequest
 	{
 		/// <summary>
 		/// optional: The scope (one of all, none, automatic, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be assigned

@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetwork
 	/// </summary>
 	[DataContract]
-	public partial class NetworkUpdateRequest
+	public class NetworkUpdateRequest
 	{
 		/// <summary>
 		/// The name of the network

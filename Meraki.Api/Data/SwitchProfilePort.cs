@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// SwitchProfilePort
 	/// </summary>
 	[DataContract]
-	public partial class SwitchProfilePort
+	public class SwitchProfilePort
 	{
 		/// <summary>
 		/// Profile identifier.

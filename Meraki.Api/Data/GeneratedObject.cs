@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The number for the SSID
 	/// </summary>
 	[DataContract]
-	public partial class GeneratedObject
+	public class GeneratedObject
 	{
 		/// <summary>
 		/// Gets or Sets DevicePolicy

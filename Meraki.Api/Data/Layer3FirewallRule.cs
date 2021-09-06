@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// L3FirewallRule
 	/// </summary>
 	[DataContract]
-	public partial class Layer3FirewallRule
+	public class Layer3FirewallRule
 	{
 		/// <summary>
 		/// Description of the rule (optional)

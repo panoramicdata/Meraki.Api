@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// The firewall and traffic shaping rules and settings for your policy.
 	/// </summary>
 	[DataContract]
-	public partial class FirewallAndTrafficShaping
+	public class FirewallAndTrafficShaping
 	{
 		/// <summary>
 		/// Gets or Sets Settings

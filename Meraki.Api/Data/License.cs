@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// License
 	/// </summary>
 	[DataContract]
-	public partial class License
+	public class License
 	{
 		/// <summary>
 		/// The key of the license

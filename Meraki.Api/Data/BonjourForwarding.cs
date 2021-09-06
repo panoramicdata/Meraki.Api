@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// The Bonjour settings for your group policy. Only valid if your network has a wireless configuration.
 	/// </summary>
 	[DataContract]
-	public partial class BonjourForwarding
+	public class BonjourForwarding
 	{
 		/// <summary>
 		/// Gets or Sets Settings

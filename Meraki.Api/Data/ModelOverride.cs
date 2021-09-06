@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// ModelOverride
 	/// </summary>
 	[DataContract]
-	public partial class ModelOverride
+	public class ModelOverride
 	{
 		/// <summary>
 		/// List of switch serials. Applicable only for switch network.

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// AddNetworkSwitchStack
 	/// </summary>
 	[DataContract]
-	public partial class NetworkSwitchStackCreationRequest
+	public class NetworkSwitchStackCreationRequest
 	{
 		/// <summary>
 		/// The serial of the switch to be added

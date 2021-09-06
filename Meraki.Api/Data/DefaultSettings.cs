@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Default multicast setting for entire network. IGMP snooping and Flood unknown multicast traffic settings are enabled by default.
 	/// </summary>
 	[DataContract]
-	public partial class DefaultSettings
+	public class DefaultSettings
 	{
 		/// <summary>
 		/// IGMP snooping setting for entire network

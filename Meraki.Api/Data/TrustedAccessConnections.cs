@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Trusted access connections
 	/// </summary>
 	[DataContract]
-	public partial class TrustedAccessConnections
+	public class TrustedAccessConnections
 	{
 		/// <summary>
 		/// Trusted access config id

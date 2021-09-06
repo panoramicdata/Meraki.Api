@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkAlertSettings
 	/// </summary>
 	[DataContract]
-	public partial class AlertSettingsUpdateRequest
+	public class AlertSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets DefaultDestinations

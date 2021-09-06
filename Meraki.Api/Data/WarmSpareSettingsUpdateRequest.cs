@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkWarmSpareSettings
 	/// </summary>
 	[DataContract]
-	public partial class WarmSpareSettingsUpdateRequest
+	public class WarmSpareSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Enable warm spare

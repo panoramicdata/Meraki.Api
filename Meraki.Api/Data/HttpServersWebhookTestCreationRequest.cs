@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkHttpServersWebhookTest
 	/// </summary>
 	[DataContract]
-	public partial class HttpServersWebhookTestCreationRequest
+	public class HttpServersWebhookTestCreationRequest
 	{
 		/// <summary>
 		/// The URL where the test webhook will be sent

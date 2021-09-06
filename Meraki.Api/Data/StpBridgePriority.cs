@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// StpBridgePriority
 	/// </summary>
 	[DataContract]
-	public partial class StpBridgePriority
+	public class StpBridgePriority
 	{
 		/// <summary>
 		/// List of switch profile IDs

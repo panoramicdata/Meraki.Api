@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Uplink
 	/// </summary>
 	[DataContract]
-	public partial class VpnStatusUplink
+	public class VpnStatusUplink
 	{
 		/// <summary>
 		/// Interface

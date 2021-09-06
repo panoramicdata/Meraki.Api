@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The longitude and latitude of the bottom left corner of your floor plan.
 	/// </summary>
 	[DataContract]
-	public partial class GeoLocation
+	public class GeoLocation
 	{
 		/// <summary>
 		/// Latitude

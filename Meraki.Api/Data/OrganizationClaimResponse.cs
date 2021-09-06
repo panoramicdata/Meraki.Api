@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// ClaimRequest
 	/// </summary>
 	[DataContract]
-	public partial class OrganizationClaimResponse
+	public class OrganizationClaimResponse
 	{
 		/// <summary>
 		/// The numbers of the orders that should be claimed

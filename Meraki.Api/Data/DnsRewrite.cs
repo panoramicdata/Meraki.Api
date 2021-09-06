@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// DNS servers rewrite settings
 	/// </summary>
 	[DataContract]
-	public partial class DnsRewrite
+	public class DnsRewrite
 	{
 		/// <summary>
 		/// Boolean indicating whether or not DNS server rewrite is enabled. If disabled, upstream DNS will be used

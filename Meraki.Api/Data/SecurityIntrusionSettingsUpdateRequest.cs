@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateOrganizationSecurityIntrusionSettings
 	/// </summary>
 	[DataContract]
-	public partial class SecurityIntrusionSettingsUpdateRequest
+	public class SecurityIntrusionSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Sets a list of specific SNORT® signatures to whitelist

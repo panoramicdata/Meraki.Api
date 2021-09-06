@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkStaticRoute
 	/// </summary>
 	[DataContract]
-	public partial class StaticRouteCreationRequest
+	public class StaticRouteCreationRequest
 	{
 		/// <summary>
 		/// The name of the new static route

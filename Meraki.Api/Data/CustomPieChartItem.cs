@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CustomPieChartItem
 	/// </summary>
 	[DataContract]
-	public partial class CustomPieChartItem
+	public class CustomPieChartItem
 	{
 		/// <summary>
 		/// The name of the custom pie chart item.

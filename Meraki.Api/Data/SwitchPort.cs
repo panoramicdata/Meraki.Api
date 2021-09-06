@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// SwitchPort
 	/// </summary>
 	[DataContract]
-	public partial class SwitchPort
+	public class SwitchPort
 	{
 		/// <summary>
 		/// Serial number of the switch.

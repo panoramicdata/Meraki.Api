@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Mos summary
 	/// </summary>
 	[DataContract]
-	public partial class MosSummary
+	public class MosSummary
 	{
 		/// <summary>
 		/// Sender uplink

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The current setting for 802.11r
 	/// </summary>
 	[DataContract]
-	public partial class Dot11r
+	public class Dot11r
 	{
 		/// <summary>
 		/// (Optional) Whether 802.11r is adaptive or not.

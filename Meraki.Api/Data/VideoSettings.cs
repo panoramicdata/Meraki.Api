@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Video quality and resolution settings for all the camera models.
 	/// </summary>
 	[DataContract]
-	public partial class VideoSettings
+	public class VideoSettings
 	{
 		/// <summary>
 		/// Gets or Sets MV21MV71

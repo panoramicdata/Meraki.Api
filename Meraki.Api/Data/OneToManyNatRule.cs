@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Rule7
 	/// </summary>
 	[DataContract]
-	public partial class OneToManyNatRule
+	public class OneToManyNatRule
 	{
 		/// <summary>
 		/// The IP address that will be used to access the internal resource from the WAN

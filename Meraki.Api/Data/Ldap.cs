@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Ldap
 	/// </summary>
 	[DataContract]
-	public partial class Ldap
+	public class Ldap
 	{
 		/// <summary>
 		/// The base distinguished name of users on the LDAP server.

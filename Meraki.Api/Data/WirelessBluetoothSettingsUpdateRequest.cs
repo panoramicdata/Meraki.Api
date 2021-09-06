@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateDeviceWirelessBluetoothSettings
 	/// </summary>
 	[DataContract]
-	public partial class WirelessBluetoothSettingsUpdateRequest
+	public class WirelessBluetoothSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Desired UUID of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.

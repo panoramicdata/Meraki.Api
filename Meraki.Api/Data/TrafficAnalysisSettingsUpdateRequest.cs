@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkTrafficAnalysisSettings
 	/// </summary>
 	[DataContract]
-	public partial class TrafficAnalysisSettingsUpdateRequest
+	public class TrafficAnalysisSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets Mode

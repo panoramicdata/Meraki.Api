@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations
 	/// </summary>
 	[DataContract]
-	public partial class NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest
+	public class NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest
 	{
 		/// <summary>
 		/// The list of connectivity monitoring destinations

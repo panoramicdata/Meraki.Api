@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// WhitelistedRule
 	/// </summary>
 	[DataContract]
-	public partial class WhitelistedRule
+	public class WhitelistedRule
 	{
 		/// <summary>
 		/// A rule identifier of the format meraki:intrusion/snort/GID/&lt;gid&gt;/SID/&lt;sid&gt;. gid and sid can be obtained from either https://www.snort.org/rule-docs or as ruleIds from the security events in /organization/[orgId]/securityEvents

@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkVlan
 	/// </summary>
 	[DataContract]
-	public partial class VlanUpdateRequest
+	public class VlanUpdateRequest
 	{
 		/// <summary>
 		/// The name of the VLAN

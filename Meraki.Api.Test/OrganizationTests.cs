@@ -201,9 +201,9 @@ namespace Meraki.Api.Test
 		private static void Validate(Organization org)
 		{
 			org.Should().NotBeNull();
-			string.IsNullOrWhiteSpace(org.Id).Should().BeFalse();
-			string.IsNullOrWhiteSpace(org.Name).Should().BeFalse();
-			string.IsNullOrWhiteSpace(org.Url).Should().BeFalse();
+			org.Id.Should().NotBeNullOrWhiteSpace();
+			org.Name.Should().NotBeNullOrWhiteSpace();
+			org.Url.Should().NotBeNullOrWhiteSpace();
 		}
 
 		private static void CheckOrganization(

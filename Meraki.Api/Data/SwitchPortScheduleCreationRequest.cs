@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSwitchPortSchedule
 	/// </summary>
 	[DataContract]
-	public partial class SwitchPortScheduleCreationRequest
+	public class SwitchPortScheduleCreationRequest
 	{
 		/// <summary>
 		/// The name for your port schedule. Required

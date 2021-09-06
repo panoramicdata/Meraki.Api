@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Settings related to 2.4Ghz band
 	/// </summary>
 	[DataContract]
-	public partial class TwoPointFourGhzSettings
+	public class TwoPointFourGhzSettings
 	{
 		/// <summary>
 		/// Sets max power (dBm) of 2.4Ghz band. Can be integer between 5 and 30. Defaults to 30.

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Jitter summary
 	/// </summary>
 	[DataContract]
-	public partial class JitterSummary
+	public class JitterSummary
 	{
 		/// <summary>
 		/// Sender uplink

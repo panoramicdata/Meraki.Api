@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateOrganizationActionBatch
 	/// </summary>
 	[DataContract]
-	public partial class ActionBatchUpdateRequest
+	public class ActionBatchUpdateRequest
 	{
 		/// <summary>
 		/// A boolean representing whether or not the batch has been confirmed. This property cannot be unset once it is true.

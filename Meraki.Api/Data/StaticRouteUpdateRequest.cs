@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkStaticRoute
 	/// </summary>
 	[DataContract]
-	public partial class StaticRouteUpdateRequest
+	public class StaticRouteUpdateRequest
 	{
 		/// <summary>
 		/// Id

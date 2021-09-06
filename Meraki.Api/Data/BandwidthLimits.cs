@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The bandwidth settings for the &#39;cellular&#39; uplink
 	/// </summary>
 	[DataContract]
-	public partial class BandwidthLimits
+	public class BandwidthLimits
 	{
 		/// <summary>
 		/// The maximum upload limit (integer, in Kbps). null indicates no limit

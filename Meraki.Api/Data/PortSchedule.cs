@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The schedule for switch port scheduling. Schedules are applied to days of the week.     When it&#39;s empty, default schedule with all days of a week are configured.     Any unspecified day in the schedule is added as a default schedule configuration of the day.
 	/// </summary>
 	[DataContract]
-	public partial class PortSchedule
+	public class PortSchedule
 	{
 		/// <summary>
 		/// Gets or Sets Monday

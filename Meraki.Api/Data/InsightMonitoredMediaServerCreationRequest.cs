@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateOrganizationInsightMonitoredMediaServer
 	/// </summary>
 	[DataContract]
-	public partial class InsightMonitoredMediaServerCreationRequest
+	public class InsightMonitoredMediaServerCreationRequest
 	{
 		/// <summary>
 		/// The name of the VoIP provider

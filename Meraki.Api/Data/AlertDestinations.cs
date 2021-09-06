@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// A hash of destinations for this specific alert
 	/// </summary>
 	[DataContract]
-	public partial class AlertDestinations
+	public class AlertDestinations
 	{
 		/// <summary>
 		/// A list of emails that will receive information about the alert

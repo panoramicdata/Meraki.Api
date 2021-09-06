@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The schedule for the group policy. Schedules are applied to days of the week.
 	/// </summary>
 	[DataContract]
-	public partial class Scheduling
+	public class Scheduling
 	{
 		/// <summary>
 		/// Whether scheduling is enabled (true) or disabled (false). Defaults to false. If true, the schedule objects for each day of the week (monday - sunday) are parsed.

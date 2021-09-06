@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Upgrade window
 	/// </summary>
 	[DataContract]
-	public partial class UpgradeWindow
+	public class UpgradeWindow
 	{
 		/// <summary>
 		/// Hour of day

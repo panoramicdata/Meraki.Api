@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSmTargetGroup
 	/// </summary>
 	[DataContract]
-	public partial class SmTargetGroupUpdateRequest
+	public class SmTargetGroupUpdateRequest
 	{
 		/// <summary>
 		/// The name of this target group

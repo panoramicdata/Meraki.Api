@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkPiiRequest
 	/// </summary>
 	[DataContract]
-	public partial class PiiCreationRequest
+	public class PiiCreationRequest
 	{
 		/// <summary>
 		/// Gets or Sets Type

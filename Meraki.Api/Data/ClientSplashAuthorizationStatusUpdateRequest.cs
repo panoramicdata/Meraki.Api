@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkClientSplashAuthorizationStatus
 	/// </summary>
 	[DataContract]
-	public partial class ClientSplashAuthorizationStatusUpdateRequest
+	public class ClientSplashAuthorizationStatusUpdateRequest
 	{
 		/// <summary>
 		/// The target SSIDs. Each SSID must be enabled and must have Click-through splash enabled. For each SSID where isAuthorized is true, the expiration time will automatically be set according to the SSID&#39;s splash frequency. Not all networks support configuring all SSIDs

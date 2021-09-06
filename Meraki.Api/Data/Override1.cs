@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Override1
 	/// </summary>
 	[DataContract]
-	public partial class Override1
+	public class Override1
 	{
 		/// <summary>
 		/// List of switch profiles ids for template network

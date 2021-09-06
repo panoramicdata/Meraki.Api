@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CellularGatewaySettingsPortForwardingRule
 	/// </summary>
 	[DataContract]
-	public partial class CellularGatewaySettingsPortForwardingRule
+	public class CellularGatewaySettingsPortForwardingRule
 	{
 		/// <summary>
 		/// A descriptive name for the rule

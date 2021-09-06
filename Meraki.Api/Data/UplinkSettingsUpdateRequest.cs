@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkUplinkSettings
 	/// </summary>
 	[DataContract]
-	public partial class UplinkSettingsUpdateRequest
+	public class UplinkSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets BandwidthLimits

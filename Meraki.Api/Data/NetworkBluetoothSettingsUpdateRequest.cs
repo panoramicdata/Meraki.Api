@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkBluetoothSettings
 	/// </summary>
 	[DataContract]
-	public partial class NetworkBluetoothSettingsUpdateRequest
+	public class NetworkBluetoothSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Whether APs will scan for Bluetooth enabled clients. (true, false)

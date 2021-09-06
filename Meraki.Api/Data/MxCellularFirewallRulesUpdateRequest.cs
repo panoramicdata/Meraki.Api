@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkCellularFirewallRules
 	/// </summary>
 	[DataContract]
-	public partial class MxCellularFirewallRulesUpdateRequest
+	public class MxCellularFirewallRulesUpdateRequest
 	{
 		/// <summary>
 		/// An ordered array of the firewall rules (not including the default rule)

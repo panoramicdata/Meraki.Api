@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Config overrides
 	/// </summary>
 	[DataContract]
-	public partial class ConfigOverrides
+	public class ConfigOverrides
 	{
 		/// <summary>
 		/// Type

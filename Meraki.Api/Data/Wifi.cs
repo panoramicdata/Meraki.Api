@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Wi-fi
 	/// </summary>
 	[DataContract]
-	public partial class Wifi
+	public class Wifi
 	{
 		/// <summary>
 		/// Start time

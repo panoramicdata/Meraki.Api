@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Value
 	/// </summary>
 	[DataContract]
-	public partial class TrafficFiltersValue
+	public class TrafficFiltersValue
 	{
 		/// <summary>
 		/// Protocol

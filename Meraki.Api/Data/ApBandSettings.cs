@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Settings that will be enabled if selectionType is set to &#39;ap&#39;.
 	/// </summary>
 	[DataContract]
-	public partial class ApBandSettings
+	public class ApBandSettings
 	{
 		/// <summary>
 		/// Gets or Sets BandOperationMode

@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// WAN 1 settings
 	/// </summary>
 	[DataContract]
-	public partial class Wan
+	public class Wan
 	{
 		/// <summary>
 		/// Gets or Sets WanEnabled

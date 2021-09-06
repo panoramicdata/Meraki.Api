@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSsidL3FirewallRules
 	/// </summary>
 	[DataContract]
-	public partial class SsidLayer3FirewallRulesUpdateRequest
+	public class SsidLayer3FirewallRulesUpdateRequest
 	{
 		/// <summary>
 		/// An ordered array of the firewall rules for this SSID (not including the local LAN access rule or the default rule)

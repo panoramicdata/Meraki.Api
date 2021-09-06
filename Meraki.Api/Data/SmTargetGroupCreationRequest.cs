@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSmTargetGroup
 	/// </summary>
 	[DataContract]
-	public partial class SmTargetGroupCreationRequest
+	public class SmTargetGroupCreationRequest
 	{
 		/// <summary>
 		/// The name of this target group

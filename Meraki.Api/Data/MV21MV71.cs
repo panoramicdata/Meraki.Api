@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Quality and resolution for MV21/MV71 camera models.
 	/// </summary>
 	[DataContract]
-	public partial class Mv21Mv71
+	public class Mv21Mv71
 	{
 		/// <summary>
 		/// Gets or Sets Quality

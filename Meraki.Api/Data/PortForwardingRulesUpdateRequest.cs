@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkPortForwardingRules
 	/// </summary>
 	[DataContract]
-	public partial class PortForwardingRulesUpdateRequest
+	public class PortForwardingRulesUpdateRequest
 	{
 		/// <summary>
 		/// An array of port forwarding params

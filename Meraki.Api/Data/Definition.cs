@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Definition
 	/// </summary>
 	[DataContract]
-	public partial class Definition
+	public class Definition
 	{
 		/// <summary>
 		/// Gets or Sets Type

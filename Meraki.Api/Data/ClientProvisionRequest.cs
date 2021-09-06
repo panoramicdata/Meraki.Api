@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// ProvisionNetworkClients
 	/// </summary>
 	[DataContract]
-	public partial class ClientProvisionRequest
+	public class ClientProvisionRequest
 	{
 		/// <summary>
 		/// Gets or Sets DevicePolicy

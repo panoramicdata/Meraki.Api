@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateOrganizationSnmp
 	/// </summary>
 	[DataContract]
-	public partial class SnmpUpdateRequest
+	public class SnmpUpdateRequest
 	{
 		/// <summary>
 		/// Boolean indicating whether SNMP version 2c is enabled for the organization.

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Hub
 	/// </summary>
 	[DataContract]
-	public partial class Hub
+	public class Hub
 	{
 		/// <summary>
 		/// The network ID of the hub.

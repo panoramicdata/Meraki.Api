@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Splash image
 	/// </summary>
 	[DataContract]
-	public partial class SplashImage
+	public class SplashImage
 	{
 		/// <summary>
 		/// Extension

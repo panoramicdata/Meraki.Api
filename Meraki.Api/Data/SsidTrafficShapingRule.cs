@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Rule11
 	/// </summary>
 	[DataContract]
-	public partial class SsidTrafficShapingRule
+	public class SsidTrafficShapingRule
 	{
 		/// <summary>
 		/// A list of objects describing the definitions of your traffic shaping rule. At least one definition is required.

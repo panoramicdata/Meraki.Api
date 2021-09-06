@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// The network-wide destinations for all alerts on the network.
 	/// </summary>
 	[DataContract]
-	public partial class DefaultDestinations
+	public class DefaultDestinations
 	{
 		/// <summary>
 		/// A list of emails that will recieve the alert(s).

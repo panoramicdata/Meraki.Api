@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// RadiusAccountingServer
 	/// </summary>
 	[DataContract]
-	public partial class RadiusAccountingServer
+	public class RadiusAccountingServer
 	{
 		/// <summary>
 		/// IP address to which the APs will send RADIUS accounting messages

@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateOrganizationSamlRole
 	/// </summary>
 	[DataContract]
-	public partial class SamlRole
+	public class SamlRole
 	{
 		/// <summary>
 		/// Id

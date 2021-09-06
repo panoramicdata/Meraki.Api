@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateOrganization
 	/// </summary>
 	[DataContract]
-	public partial class OrganizationUpdateRequest
+	public class OrganizationUpdateRequest
 	{
 		/// <summary>
 		/// The name of the organization

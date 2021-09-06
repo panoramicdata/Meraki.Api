@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Rule9
 	/// </summary>
 	[DataContract]
-	public partial class PortForwardingRules
+	public class PortForwardingRules
 	{
 		/// <summary>
 		/// A descriptive name for the rule

@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateOrganizationAdmin
 	/// </summary>
 	[DataContract]
-	public partial class AdminUpdateRequest
+	public class AdminUpdateRequest
 	{
 		/// <summary>
 		/// The name of the dashboard administrator

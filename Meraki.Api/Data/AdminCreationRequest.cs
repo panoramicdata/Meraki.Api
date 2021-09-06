@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateOrganizationAdmin
 	/// </summary>
 	[DataContract]
-	public partial class AdminCreationRequest
+	public class AdminCreationRequest
 	{
 		/// <summary>
 		/// The email of the dashboard administrator. This attribute can not be updated.

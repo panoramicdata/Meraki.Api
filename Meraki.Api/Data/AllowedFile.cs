@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// AllowedFile
 	/// </summary>
 	[DataContract]
-	public partial class AllowedFile
+	public class AllowedFile
 	{
 		/// <summary>
 		/// The file sha256 hash to whitelist

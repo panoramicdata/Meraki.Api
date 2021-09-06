@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The VLAN tagging settings for your group policy. Only available if your network has a wireless configuration.
 	/// </summary>
 	[DataContract]
-	public partial class VlanTagging
+	public class VlanTagging
 	{
 		/// <summary>
 		/// Gets or Sets Settings

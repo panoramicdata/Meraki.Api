@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Source
 	/// </summary>
 	[DataContract]
-	public partial class ValueSource
+	public class ValueSource
 	{
 		/// <summary>
 		/// Port

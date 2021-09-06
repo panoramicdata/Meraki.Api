@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkAppliancePort
 	/// </summary>
 	[DataContract]
-	public partial class NetworkAppliancePortUpdateRequest
+	public class NetworkAppliancePortUpdateRequest
 	{
 		/// <summary>
 		/// Number

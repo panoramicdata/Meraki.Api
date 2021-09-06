@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// PortRule
 	/// </summary>
 	[DataContract]
-	public partial class PortRule
+	public class PortRule
 	{
 		/// <summary>
 		/// A description of the rule

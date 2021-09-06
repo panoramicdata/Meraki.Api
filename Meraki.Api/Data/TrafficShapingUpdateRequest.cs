@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkTrafficShaping
 	/// </summary>
 	[DataContract]
-	public partial class TrafficShapingUpdateRequest
+	public class TrafficShapingUpdateRequest
 	{
 		/// <summary>
 		/// Whether default traffic shaping rules are enabled (true) or disabled (false).     There are 4 default rules, which can     be seen on your network&#39;s traffic shaping page. Note that default rules     count against the rule limit of 8.

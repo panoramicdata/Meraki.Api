@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The ids of the wireless profile to assign to the given camera
 	/// </summary>
 	[DataContract]
-	public partial class WirelessProfilesIds
+	public class WirelessProfilesIds
 	{
 		/// <summary>
 		/// The id of the backup wireless profile

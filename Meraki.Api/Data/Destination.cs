@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Destination
 	/// </summary>
 	[DataContract]
-	public partial class Destination
+	public class Destination
 	{
 		/// <summary>
 		/// The IP address to test connectivity with

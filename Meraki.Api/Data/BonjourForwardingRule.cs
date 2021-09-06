@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Rule3
 	/// </summary>
 	[DataContract]
-	public partial class BonjourForwardingRule
+	public class BonjourForwardingRule
 	{
 		/// <summary>
 		/// A description for your Bonjour forwarding rule. Optional.

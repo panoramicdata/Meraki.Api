@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsStp
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsStpUpdateRequest
+	public class SwitchSettingsStpUpdateRequest
 	{
 		/// <summary>
 		/// The spanning tree protocol status in network

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The new fields of the device. Each field of this object is optional.
 	/// </summary>
 	[DataContract]
-	public partial class DeviceFields
+	public class DeviceFields
 	{
 		/// <summary>
 		/// New name for the device

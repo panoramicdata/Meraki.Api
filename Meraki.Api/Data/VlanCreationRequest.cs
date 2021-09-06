@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkVlan
 	/// </summary>
 	[DataContract]
-	public partial class VlanCreationRequest
+	public class VlanCreationRequest
 	{
 		/// <summary>
 		/// The VLAN ID of the new VLAN (must be between 1 and 4094)

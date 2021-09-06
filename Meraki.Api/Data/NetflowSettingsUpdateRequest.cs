@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkNetflowSettings
 	/// </summary>
 	[DataContract]
-	public partial class NetflowSettingsUpdateRequest
+	public class NetflowSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Boolean indicating whether NetFlow traffic reporting is enabled (true) or disabled (false).

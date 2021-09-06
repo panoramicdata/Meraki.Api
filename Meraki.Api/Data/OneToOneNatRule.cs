@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Rule8
 	/// </summary>
 	[DataContract]
-	public partial class OneToOneNatRule
+	public class OneToOneNatRule
 	{
 		/// <summary>
 		/// A descriptive name for the rule

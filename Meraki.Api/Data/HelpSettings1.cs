@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Settings for describing the modifications to various Help page features. Each property in this object accepts one of     &#39;default or inherit&#39; (do not modify functionality), &#39;hide&#39; (remove the section from Dashboard), or &#39;show&#39; (always show     the section on Dashboard). Some properties in this object also accept custom HTML used to replace the section on     Dashboard; see the documentation for each property to see the allowed values.
 	/// </summary>
 	[DataContract]
-	public partial class BrandingPolicyHelpSettings
+	public class BrandingPolicyHelpSettings
 	{
 		/// <summary>
 		/// Gets or Sets HelpTab

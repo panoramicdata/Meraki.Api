@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Settings related to 5Ghz band
 	/// </summary>
 	[DataContract]
-	public partial class FiveGhzSettings
+	public class FiveGhzSettings
 	{
 		/// <summary>
 		/// Sets max power (dBm) of 5Ghz band. Can be integer between 8 and 30. Defaults to 30.

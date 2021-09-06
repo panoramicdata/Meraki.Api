@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkHttpServer
 	/// </summary>
 	[DataContract]
-	public partial class HttpServerUpdateRequest
+	public class HttpServerUpdateRequest
 	{
 		/// <summary>
 		/// A name for easy reference to the HTTP server

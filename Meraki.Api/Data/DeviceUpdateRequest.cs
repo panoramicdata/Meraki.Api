@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkDevice
 	/// </summary>
 	[DataContract]
-	public partial class DeviceUpdateRequest
+	public class DeviceUpdateRequest
 	{
 		/// <summary>
 		/// The name of a device

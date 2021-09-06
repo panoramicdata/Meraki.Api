@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsDhcpServerPolicy
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsDhcpServerPolicyUpdateRequest
+	public class SwitchSettingsDhcpServerPolicyUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets DefaultPolicy

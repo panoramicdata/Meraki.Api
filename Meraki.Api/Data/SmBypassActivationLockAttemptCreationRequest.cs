@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSmBypassActivationLockAttempt
 	/// </summary>
 	[DataContract]
-	public partial class SmBypassActivationLockAttemptCreationRequest
+	public class SmBypassActivationLockAttemptCreationRequest
 	{
 		/// <summary>
 		/// The ids of the devices to attempt activation lock bypass.

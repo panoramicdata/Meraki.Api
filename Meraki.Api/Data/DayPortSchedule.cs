@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// A schedule object.
 	/// </summary>
 	[DataContract]
-	public partial class DayPortSchedule
+	public class DayPortSchedule
 	{
 		/// <summary>
 		/// Whether the schedule is active (true) or inactive (false) during the time specified between 'from' and 'to'. Defaults to true.

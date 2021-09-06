@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsMulticast
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsMulticastUpdateRequest
+	public class SwitchSettingsMulticastUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets DefaultSettings

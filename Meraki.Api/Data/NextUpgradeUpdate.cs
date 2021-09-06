@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Pending firmware update
 	/// </summary>
 	[DataContract]
-	public partial class NextUpgradeUpdate
+	public class NextUpgradeUpdate
 	{
 		/// <summary>
 		/// Time of last successful upgrade

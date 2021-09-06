@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Reasons
 	/// </summary>
 	[DataContract]
-	public partial class Reasons
+	public class Reasons
 	{
 		/// <summary>
 		/// Category

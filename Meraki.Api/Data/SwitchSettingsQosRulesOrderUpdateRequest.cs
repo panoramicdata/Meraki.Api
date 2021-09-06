@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsQosRulesOrder
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsQosRulesOrderUpdateRequest
+	public class SwitchSettingsQosRulesOrderUpdateRequest
 	{
 		/// <summary>
 		/// A list of quality of service rule IDs arranged in order in which they should be processed by the switch.

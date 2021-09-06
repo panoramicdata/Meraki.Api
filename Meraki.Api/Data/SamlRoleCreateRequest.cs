@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateOrganizationSamlRole
 	/// </summary>
 	[DataContract]
-	public partial class SamlRoleCreateRequest
+	public class SamlRoleCreateRequest
 	{
 		/// <summary>
 		/// The role of the SAML administrator

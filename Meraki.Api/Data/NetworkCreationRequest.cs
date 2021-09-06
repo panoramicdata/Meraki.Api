@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateOrganizationNetwork
 	/// </summary>
 	[DataContract]
-	public partial class NetworkCreationRequest
+	public class NetworkCreationRequest
 	{
 		/// <summary>
 		/// The name of the new network

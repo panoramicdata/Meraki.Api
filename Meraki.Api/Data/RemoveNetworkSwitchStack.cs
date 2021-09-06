@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// RemoveNetworkSwitchStack
 	/// </summary>
 	[DataContract]
-	public partial class RemoveNetworkSwitchStack
+	public class RemoveNetworkSwitchStack
 	{
 		/// <summary>
 		/// The serial of the switch to be removed

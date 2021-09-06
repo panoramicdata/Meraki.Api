@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Settings for describing which kinds of admins this policy applies to.
 	/// </summary>
 	[DataContract]
-	public partial class AdminSettings
+	public class AdminSettings
 	{
 		/// <summary>
 		/// Gets or Sets AppliesTo

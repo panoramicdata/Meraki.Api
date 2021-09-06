@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The details of the SSID config.
 	/// </summary>
 	[DataContract]
-	public partial class WirelessProfilesSsid
+	public class WirelessProfilesSsid
 	{
 		/// <summary>
 		/// The auth mode of the SSID. It can be set to ('psk', '8021x-radius').

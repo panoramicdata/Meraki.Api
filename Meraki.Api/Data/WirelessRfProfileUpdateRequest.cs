@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkWirelessRfProfile
 	/// </summary>
 	[DataContract]
-	public partial class WirelessRfProfileUpdateRequest
+	public class WirelessRfProfileUpdateRequest
 	{
 		/// <summary>
 		/// The name of the new profile. Must be unique.

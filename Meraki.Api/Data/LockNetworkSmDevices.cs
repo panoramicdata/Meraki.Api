@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// LockNetworkSmDevices
 	/// </summary>
 	[DataContract]
-	public partial class LockNetworkSmDevices
+	public class LockNetworkSmDevices
 	{
 		/// <summary>
 		/// The wifiMacs of the devices to be locked.

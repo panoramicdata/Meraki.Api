@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettings
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsUpdateRequest
+	public class SwitchSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Management VLAN

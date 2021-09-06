@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// User
 	/// </summary>
 	[DataContract]
-	public partial class User
+	public class User
 	{
 		/// <summary>
 		/// The username for the SNMP user. Required.

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkWirelessSettings
 	/// </summary>
 	[DataContract]
-	public partial class WirelessSettingsUpdateDto
+	public class WirelessSettingsUpdateDto
 	{
 		/// <summary>
 		/// Toggle for enabling or disabling meshing in a network

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsQosRule
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsQosRuleUpdateRequest
+	public class SwitchSettingsQosRuleUpdateRequest
 	{
 		/// <summary>
 		/// The VLAN of the incoming packet. A null value will match any VLAN.

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkDeviceManagementInterfaceSettings
 	/// </summary>
 	[DataContract]
-	public partial class ManagementInterfaceSettingsUpdateRequest
+	public class ManagementInterfaceSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets Wan1

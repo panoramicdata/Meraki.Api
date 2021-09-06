@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsStormControl
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsStormControlUpdateRequest
+	public class SwitchSettingsStormControlUpdateRequest
 	{
 		/// <summary>
 		/// Percentage (1 to 99) of total available port bandwidth for broadcast traffic type. Default value 100 percent rate is to clear the configuration.

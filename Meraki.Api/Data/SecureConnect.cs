@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Secure connect settings
 	/// </summary>
 	[DataContract]
-	public partial class SecureConnect
+	public class SecureConnect
 	{
 		/// <summary>
 		/// Enabled?

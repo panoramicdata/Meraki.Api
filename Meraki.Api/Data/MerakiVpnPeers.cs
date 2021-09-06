@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Meraki vpn peers
 	/// </summary>
 	[DataContract]
-	public partial class MerakiVpnPeers
+	public class MerakiVpnPeers
 	{
 		/// <summary>
 		/// NetworkId

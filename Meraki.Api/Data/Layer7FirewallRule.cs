@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// L7FirewallRule
 	/// </summary>
 	[DataContract]
-	public partial class Layer7FirewallRule
+	public class Layer7FirewallRule
 	{
 		/// <summary>
 		/// Gets or Sets Policy

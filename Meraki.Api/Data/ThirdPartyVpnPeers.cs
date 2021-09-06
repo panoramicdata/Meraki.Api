@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Third party vpn peers
 	/// </summary>
 	[DataContract]
-	public partial class ThirdPartyVpnPeers
+	public class ThirdPartyVpnPeers
 	{
 		/// <summary>
 		/// Name

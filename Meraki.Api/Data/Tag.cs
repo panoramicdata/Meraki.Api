@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Tag
 	/// </summary>
 	[DataContract]
-	public partial class Tag
+	public class Tag
 	{
 		/// <summary>
 		/// The name of the tag

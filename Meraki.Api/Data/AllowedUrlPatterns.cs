@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Settings for whitelisted URL patterns
 	/// </summary>
 	[DataContract]
-	public partial class AllowedUrlPatterns
+	public class AllowedUrlPatterns
 	{
 		/// <summary>
 		/// Gets or Sets Settings

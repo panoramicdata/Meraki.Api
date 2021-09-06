@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSsidTrafficShaping
 	/// </summary>
 	[DataContract]
-	public partial class SsidTrafficShapingUpdateRequest
+	public class SsidTrafficShapingUpdateRequest
 	{
 		/// <summary>
 		/// Whether traffic shaping rules are applied to clients on your SSID.

@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// MoveOrganizationLicenses
 	/// </summary>
 	[DataContract]
-	public partial class LicenseMoveRequest
+	public class LicenseMoveRequest
 	{
 		/// <summary>
 		/// The ID of the organization to move the licenses to

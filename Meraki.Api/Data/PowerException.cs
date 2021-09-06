@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// PowerException
 	/// </summary>
 	[DataContract]
-	public partial class PowerException
+	public class PowerException
 	{
 		/// <summary>
 		/// Serial number of the switch

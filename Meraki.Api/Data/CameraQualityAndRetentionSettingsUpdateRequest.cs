@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateDeviceCameraQualityAndRetentionSettings
 	/// </summary>
 	[DataContract]
-	public partial class CameraQualityAndRetentionSettingsUpdateRequest
+	public class CameraQualityAndRetentionSettingsUpdateRequest
 	{
 		/// <summary>
 		/// The ID of a quality and retention profile to assign to the camera. The profile&#39;s settings will override all of the per-camera quality and retention settings. If the value of this parameter is null, any existing profile will be unassigned from the camera.

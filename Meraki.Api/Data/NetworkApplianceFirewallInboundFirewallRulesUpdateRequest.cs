@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkApplianceFirewallInboundFirewallRules
 	/// </summary>
 	[DataContract]
-	public partial class NetworkApplianceFirewallInboundFirewallRulesUpdateRequest
+	public class NetworkApplianceFirewallInboundFirewallRulesUpdateRequest
 	{
 		/// <summary>
 		/// An ordered array of the firewall rules (not including the default rule)

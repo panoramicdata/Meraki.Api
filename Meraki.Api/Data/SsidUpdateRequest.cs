@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSsid
 	/// </summary>
 	[DataContract]
-	public partial class SsidUpdateRequest
+	public class SsidUpdateRequest
 	{
 		/// <summary>
 		/// The name of the SSID

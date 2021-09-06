@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The LDAP servers to be used for authentication.
 	/// </summary>
 	[DataContract]
-	public partial class LdapServer
+	public class LdapServer
 	{
 		/// <summary>
 		/// UDP port the LDAP server listens on.

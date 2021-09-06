@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Splash authorization for SSID 0
 	/// </summary>
 	[DataContract]
-	public partial class GeneratedObject10
+	public class GeneratedObject10
 	{
 		/// <summary>
 		/// New authorization status for the SSID (true, false).

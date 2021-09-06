@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Network device to be updated
 	/// </summary>
 	[DataContract]
-	public partial class Appliance
+	public class Appliance
 	{
 		/// <summary>
 		/// Next upgrade

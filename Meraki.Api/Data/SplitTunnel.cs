@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Split tunnel
 	/// </summary>
 	[DataContract]
-	public partial class SplitTunnel
+	public class SplitTunnel
 	{
 		/// <summary>
 		/// Enabled

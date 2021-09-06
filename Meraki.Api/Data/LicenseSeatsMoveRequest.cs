@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// MoveOrganizationLicensesSeats
 	/// </summary>
 	[DataContract]
-	public partial class LicenseSeatsMoveRequest
+	public class LicenseSeatsMoveRequest
 	{
 		/// <summary>
 		/// The ID of the organization to move the SM seats to

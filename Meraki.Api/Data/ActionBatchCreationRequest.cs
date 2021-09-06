@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateOrganizationActionBatch
 	/// </summary>
 	[DataContract]
-	public partial class ActionBatchCreationRequest
+	public class ActionBatchCreationRequest
 	{
 		/// <summary>
 		/// Set to true for immediate execution. Set to false if the action should be previewed before executing. This property cannot be unset once it is true. Defaults to false.

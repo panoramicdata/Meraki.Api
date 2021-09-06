@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// WipeNetworkSmDevice
 	/// </summary>
 	[DataContract]
-	public partial class WipeNetworkSmDevice
+	public class WipeNetworkSmDevice
 	{
 		/// <summary>
 		/// The wifiMac of the device to be wiped.

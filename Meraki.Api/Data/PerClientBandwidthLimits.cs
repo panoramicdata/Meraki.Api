@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// An object describing the bandwidth settings for your rule.
 	/// </summary>
 	[DataContract]
-	public partial class PerClientBandwidthLimits
+	public class PerClientBandwidthLimits
 	{
 		/// <summary>
 		/// How bandwidth limits are applied by your rule. Can be one of &#39;network default&#39;, &#39;ignore&#39; or &#39;custom&#39;.

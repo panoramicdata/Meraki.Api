@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// A mapping of uplinks to their bandwidth settings (be sure to check which uplinks are supported for your network)
 	/// </summary>
 	[DataContract]
-	public partial class BandwidthLimits7
+	public class BandwidthLimits7
 	{
 		/// <summary>
 		/// Gets or Sets Wan1

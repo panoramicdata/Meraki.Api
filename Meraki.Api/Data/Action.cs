@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Action
 	/// </summary>
 	[DataContract]
-	public partial class Action
+	public class Action
 	{
 		/// <summary>
 		/// Unique identifier for the resource to be acted on

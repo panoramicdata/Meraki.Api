@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkVlansEnabledState
 	/// </summary>
 	[DataContract]
-	public partial class VlansEnabledState
+	public class VlansEnabledState
 	{
 		/// <summary>
 		/// Boolean indicating whether to enable (true) or disable (false) VLANs for the network

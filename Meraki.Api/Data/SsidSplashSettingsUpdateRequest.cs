@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSsidSplashSettings
 	/// </summary>
 	[DataContract]
-	public partial class SsidSplashSettingsUpdateRequest
+	public class SsidSplashSettingsUpdateRequest
 	{
 		/// <summary>
 		/// [optional] The custom splash URL of the click-through splash page. Note that the URL can be configured without necessarily being used. In order to enable the custom URL, see &#39;useSplashUrl&#39;

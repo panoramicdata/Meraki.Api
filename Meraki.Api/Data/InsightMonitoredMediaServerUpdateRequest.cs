@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateOrganizationInsightMonitoredMediaServer
 	/// </summary>
 	[DataContract]
-	public partial class InsightMonitoredMediaServerUpdateRequest
+	public class InsightMonitoredMediaServerUpdateRequest
 	{
 		/// <summary>
 		/// The name of the VoIP provider

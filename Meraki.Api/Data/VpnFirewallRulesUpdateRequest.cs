@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateOrganizationVpnFirewallRules
 	/// </summary>
 	[DataContract]
-	public partial class VpnFirewallRulesUpdateRequest
+	public class VpnFirewallRulesUpdateRequest
 	{
 		/// <summary>
 		/// An ordered array of the firewall rules (not including the default rule)

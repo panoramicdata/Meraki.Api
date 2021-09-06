@@ -5,7 +5,7 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// (Optional) The credentials of the user account to be used by the AP to bind to your LDAP server. The LDAP account should have permissions on all your LDAP servers.
 	/// </summary>
-	public partial class Credentials
+	public class Credentials
 	{
 		/// <summary>
 		/// The distinguished name of the LDAP user account (example: cn=user,dc=meraki,dc=com).

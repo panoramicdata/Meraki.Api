@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// AllowedInbound
 	/// </summary>
 	[DataContract]
-	public partial class AllowedInbound
+	public class AllowedInbound
 	{
 		/// <summary>
 		/// Gets or Sets Protocol

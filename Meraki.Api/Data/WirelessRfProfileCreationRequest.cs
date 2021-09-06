@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkWirelessRfProfile
 	/// </summary>
 	[DataContract]
-	public partial class WirelessRfProfileCreationRequest
+	public class WirelessRfProfileCreationRequest
 	{
 		/// <summary>
 		/// Id

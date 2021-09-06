@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// GenerateNetworkCameraSnapshot
 	/// </summary>
 	[DataContract]
-	public partial class CameraSnapshotRequest
+	public class CameraSnapshotRequest
 	{
 		/// <summary>
 		/// [optional] The snapshot will be taken from this time on the camera. The timestamp is expected to be in ISO 8601 format. If no timestamp is specified, we will assume current time.

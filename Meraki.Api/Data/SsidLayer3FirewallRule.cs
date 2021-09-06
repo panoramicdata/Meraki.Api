@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Rule10
 	/// </summary>
 	[DataContract]
-	public partial class SsidLayer3FirewallRule
+	public class SsidLayer3FirewallRule
 	{
 		/// <summary>
 		/// Description of the rule (optional)

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Mapping
 	/// </summary>
 	[DataContract]
-	public partial class Mapping
+	public class Mapping
 	{
 		/// <summary>
 		/// The Differentiated Services Code Point (DSCP) tag in the IP header that will be mapped to a particular Class-of-Service (CoS) queue. Value can be in the range of 0 to 63 inclusive.

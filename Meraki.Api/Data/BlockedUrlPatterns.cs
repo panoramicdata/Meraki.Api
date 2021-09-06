@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Settings for blacklisted URL patterns
 	/// </summary>
 	[DataContract]
-	public partial class BlockedUrlPatterns
+	public class BlockedUrlPatterns
 	{
 		/// <summary>
 		/// Gets or Sets Settings

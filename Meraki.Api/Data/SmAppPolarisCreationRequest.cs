@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSmAppPolaris
 	/// </summary>
 	[DataContract]
-	public partial class SmAppPolarisCreationRequest
+	public class SmAppPolarisCreationRequest
 	{
 		/// <summary>
 		/// The scope (one of all, none, automatic, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be assigned

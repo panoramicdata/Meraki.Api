@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkCameraQualityRetentionProfile
 	/// </summary>
 	[DataContract]
-	public partial class CameraQualityAndRetentionProfileCreationRequest
+	public class CameraQualityAndRetentionProfileCreationRequest
 	{
 		/// <summary>
 		/// The name of the new profile. Must be unique. This parameter is required.

@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Server
 	/// </summary>
 	[DataContract]
-	public partial class ServerSettings
+	public class ServerSettings
 	{
 		/// <summary>
 		/// The IP address of the syslog server

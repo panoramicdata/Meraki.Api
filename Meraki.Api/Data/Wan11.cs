@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The bandwidth settings for the &#39;wan1&#39; uplink
 	/// </summary>
 	[DataContract]
-	public partial class Wan11
+	public class Wan11
 	{
 		/// <summary>
 		/// The maximum upload limit (integer, in Kbps). null indicates no limit

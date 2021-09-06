@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkHttpServer
 	/// </summary>
 	[DataContract]
-	public partial class HttpServerCreationRequest
+	public class HttpServerCreationRequest
 	{
 		/// <summary>
 		/// A name for easy reference to the HTTP server

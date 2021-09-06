@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Latest mesh performance
 	/// </summary>
 	[DataContract]
-	public partial class LatestMeshPerformance
+	public class LatestMeshPerformance
 	{
 		/// <summary>
 		/// Mbps

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Quality and resolution for MV02 camera models.
 	/// </summary>
 	[DataContract]
-	public partial class Mv02
+	public class Mv02
 	{
 		/// <summary>
 		/// Gets or Sets Quality

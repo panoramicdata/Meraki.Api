@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkDeviceWirelessRadioSettings
 	/// </summary>
 	[DataContract]
-	public partial class WirelessRadioSettingsUpdateRequest
+	public class WirelessRadioSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Serial

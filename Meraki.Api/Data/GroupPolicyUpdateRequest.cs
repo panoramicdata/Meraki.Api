@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkGroupPolicy
 	/// </summary>
 	[DataContract]
-	public partial class GroupPolicyUpdateRequest
+	public class GroupPolicyUpdateRequest
 	{
 		/// <summary>
 		/// The name for your group policy.

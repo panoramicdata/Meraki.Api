@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSmDeviceFields
 	/// </summary>
 	[DataContract]
-	public partial class SmDeviceFieldsUpdateRequest
+	public class SmDeviceFieldsUpdateRequest
 	{
 		/// <summary>
 		/// The wifiMac of the device to be modified.

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkClientPolicy
 	/// </summary>
 	[DataContract]
-	public partial class ClientPolicyUpdateRequest
+	public class ClientPolicyUpdateRequest
 	{
 		/// <summary>
 		/// MAC address

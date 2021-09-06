@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSyslogServers
 	/// </summary>
 	[DataContract]
-	public partial class SyslogServersUpdateRequest
+	public class SyslogServersUpdateRequest
 	{
 		/// <summary>
 		/// A list of the syslog servers for this network

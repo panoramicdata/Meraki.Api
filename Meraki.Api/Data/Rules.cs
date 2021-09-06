@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Rules
 	/// </summary>
 	[DataContract]
-	public partial class Rules
+	public class Rules
 	{
 		/// <summary>
 		/// Policy

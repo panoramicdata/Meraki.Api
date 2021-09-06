@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// AllowedUrl
 	/// </summary>
 	[DataContract]
-	public partial class AllowedUrl
+	public class AllowedUrl
 	{
 		/// <summary>
 		/// The url to whitelist

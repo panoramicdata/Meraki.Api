@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateOrganizationBrandingPolicy
 	/// </summary>
 	[DataContract]
-	public partial class BrandingPolicyCreationRequest
+	public class BrandingPolicyCreationRequest
 	{
 		/// <summary>
 		/// Name of the Dashboard branding policy.

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The current setting for certificate verification.
 	/// </summary>
 	[DataContract]
-	public partial class CertificateAuthentication
+	public class CertificateAuthentication
 	{
 		/// <summary>
 		/// (Optional) The URL of the OCSP responder to verify client certificate status.

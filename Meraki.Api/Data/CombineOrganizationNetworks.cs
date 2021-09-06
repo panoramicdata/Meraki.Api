@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CombineOrganizationNetworks
 	/// </summary>
 	[DataContract]
-	public partial class CombineOrganizationNetworksRequest
+	public class CombineOrganizationNetworksRequest
 	{
 		/// <summary>
 		/// The name of the combined network

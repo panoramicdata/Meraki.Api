@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSwitchSettingsQosRule
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsQosRule
+	public class SwitchSettingsQosRule
 	{
 		/// <summary>
 		/// Id

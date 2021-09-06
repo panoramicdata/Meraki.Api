@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Device type policies
 	/// </summary>
 	[DataContract]
-	public partial class DeviceTypePolicies
+	public class DeviceTypePolicies
 	{
 		/// <summary>
 		/// Device type

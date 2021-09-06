@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Set the included/excluded networks from the intrusion engine (optional - omitting will leave current config unchanged). This is available only in &#39;passthrough&#39; mode
 	/// </summary>
 	[DataContract]
-	public partial class ProtectedNetworks
+	public class ProtectedNetworks
 	{
 		/// <summary>
 		/// true/false whether to use special IPv4 addresses: https://tools.ietf.org/html/rfc5735 (required). Default value is true if none currently saved

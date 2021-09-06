@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The current setting for password-based authentication.
 	/// </summary>
 	[DataContract]
-	public partial class PasswordAuthentication
+	public class PasswordAuthentication
 	{
 		/// <summary>
 		/// Whether or not to use EAP-TTLS/PAP or PEAP-GTC password-based authentication via LDAP lookup.

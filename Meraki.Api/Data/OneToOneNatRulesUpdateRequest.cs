@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkOneToOneNatRules
 	/// </summary>
 	[DataContract]
-	public partial class OneToOneNatRulesUpdateRequest
+	public class OneToOneNatRulesUpdateRequest
 	{
 		/// <summary>
 		/// An array of 1:1 nat rules

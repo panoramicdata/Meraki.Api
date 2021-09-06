@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkL3FirewallRules
 	/// </summary>
 	[DataContract]
-	public partial class Layer3FirewallRulesUpdateRequest
+	public class Layer3FirewallRulesUpdateRequest
 	{
 		/// <summary>
 		/// An ordered array of the firewall rules (not including the default rule)

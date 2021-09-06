@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSwitchStack
 	/// </summary>
 	[DataContract]
-	public partial class SwitchStackCreationRequest
+	public class SwitchStackCreationRequest
 	{
 		/// <summary>
 		/// The name of the new stack

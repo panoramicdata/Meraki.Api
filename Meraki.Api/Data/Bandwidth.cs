@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The bandwidth settings for clients bound to your group policy.
 	/// </summary>
 	[DataContract]
-	public partial class Bandwidth
+	public class Bandwidth
 	{
 		/// <summary>
 		/// Gets or Sets Settings

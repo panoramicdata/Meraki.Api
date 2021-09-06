@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Alert
 	/// </summary>
 	[DataContract]
-	public partial class Alert
+	public class Alert
 	{
 		/// <summary>
 		/// The type of alert

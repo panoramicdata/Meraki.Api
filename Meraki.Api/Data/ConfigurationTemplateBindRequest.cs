@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// A ConfigurationTemplate bind request
 	/// </summary>
 	[DataContract]
-	public partial class ConfigurationTemplateBindRequest
+	public class ConfigurationTemplateBindRequest
 	{
 		/// <summary>
 		/// The ID of the template to which the network should be bound.

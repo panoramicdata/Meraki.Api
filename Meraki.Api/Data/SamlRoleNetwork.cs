@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Network2
 	/// </summary>
 	[DataContract]
-	public partial class SamlRoleNetwork
+	public class SamlRoleNetwork
 	{
 		/// <summary>
 		/// The network ID

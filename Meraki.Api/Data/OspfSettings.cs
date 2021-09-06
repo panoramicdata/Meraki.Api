@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// OSPF settings
 	/// </summary>
 	[DataContract]
-	public partial class OspfSettings
+	public class OspfSettings
 	{
 		/// <summary>
 		/// Area
