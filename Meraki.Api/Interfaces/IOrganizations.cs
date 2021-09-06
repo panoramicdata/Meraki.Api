@@ -114,7 +114,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers")]
-		Task<List<ThirdPartyVpnPeer>> GetThirdPartyVpnPeersAsync(
+		Task<ThirdPartyVpnPeerResponse> GetThirdPartyVpnPeersAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
