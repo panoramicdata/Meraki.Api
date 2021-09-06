@@ -25,7 +25,7 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async Task ClearNetworkSwitchAccessControlLists()
+		public async Task CreateNewNetworkSwitchAccessControlLists()
 		{
 			var testNetwork = await CreateTestNetworkAsync().ConfigureAwait(false);
 
@@ -40,26 +40,48 @@ namespace Meraki.Api.Test
 				acls.Rules.Should().ContainSingle();
 				acls.Rules[0].Comment.Should().Be("Default rule");
 
-				// Add a new rule
-				var newRule = new SwitchAccessControlListRule
+				// Add a new rules
+				var denySsh = new SwitchAccessControlListRule
 				{
-					Comment = "Deny SSH",
+					Comment = "1. Deny SSH",
 					Policy = AllowOrDeny.Deny,
 					IpVersion = IpVersion.Ipv4,
 					Protocol = TcpUdpAnyProtocol.Tcp,
 
 					SourceCidr = "10.1.10.0/24",
 					SourcePort = "any",
-					DestinationCidr = "172.16.30/24",
+					DestinationCidr = "172.16.30.0/24",
 					DestinationPort = "22",
 					Vlan = "10"
 				};
-				acls.Rules.Add(newRule);
+				var allowHttp = new SwitchAccessControlListRule
+				{
+					Comment = "2. Allow HTTP",
+					Policy = AllowOrDeny.Allow,
+					IpVersion = IpVersion.Ipv4,
+					Protocol = TcpUdpAnyProtocol.Tcp,
+
+					SourceCidr = "10.1.10.0/24",
+					SourcePort = "any",
+					DestinationCidr = "172.16.30.0/24",
+					DestinationPort = "80",
+					Vlan = "10"
+				};
 
 				// Update the rules
 				await MerakiClient
 					.SwitchAcls
-					.UpdateNetworkSwitchAccessControlListsAsync(testNetwork.Id, acls)
+					.UpdateNetworkSwitchAccessControlListsAsync(
+						testNetwork.Id,
+						new()
+						{
+							Rules = new()
+							{
+								denySsh,
+								allowHttp
+							}
+						}
+					)
 					.ConfigureAwait(false);
 
 				// Get the rules and check they're both there
@@ -71,10 +93,11 @@ namespace Meraki.Api.Test
 				// We should have 2 rules now
 				acls.Should().NotBeNull();
 				acls.Rules.Should().HaveCount(2);
-				// Our new rule should be first
-				acls.Rules[0].Comment.Should().Be(newRule.Comment);
+				// Our new rules should be first
+				acls.Rules[0].Comment.Should().Be(denySsh.Comment);
+				acls.Rules[1].Comment.Should().Be(allowHttp.Comment);
 				// The default rule should be last
-				acls.Rules[1].Comment.Should().Be("Default rule");
+				acls.Rules[^1].Comment.Should().Be("Default rule");
 			}
 			finally
 			{
