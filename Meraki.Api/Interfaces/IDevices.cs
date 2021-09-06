@@ -134,8 +134,8 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		[Get("/devices/{serial}/managementInterfaceSettings")]
-		Task<DeviceManagementInterfaceSettings> GetNetworkDeviceManagementInterfaceSettingsAsync(
+		[Get("/devices/{serial}/managementInterface")]
+		Task<DeviceManagementInterfaceSettings> GetDeviceManagementInterfaceAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -164,11 +164,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="updateNetworkDevice">Body for updating a network device</param>
+		/// <param name="device">Body for updating a device</param>
 		[Put("/devices/{serial}")]
 		Task<Device> UpdateAsync(
 			[AliasAs("serial")] string serial,
-			[Body] DeviceUpdateRequest updateNetworkDevice,
+			[Body] Device device,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

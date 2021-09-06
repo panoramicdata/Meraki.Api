@@ -271,9 +271,10 @@ namespace Meraki.Api.Test
 			// updating the device with a too-long address should fail
 			Func<Task> action = async () =>
 			{
+				fetchedDevice.Address = new string('x', Device.MaxAddressLength + 1);
 				await MerakiClient
 					.Devices
-					.UpdateAsync(newNetwork.Id, new DeviceUpdateRequest { Address = new string('x', Device.MaxAddressLength + 1) })
+					.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
 					.ConfigureAwait(false);
 			};
 
@@ -283,15 +284,17 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			//// But an OK length should succeed
+			fetchedDevice.Address = new string('x', Device.MaxAddressLength);
 			await MerakiClient
 				.Devices
-				.UpdateAsync(newNetwork.Id, new DeviceUpdateRequest { Address = new string('X', Device.MaxAddressLength) })
+				.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Setting the address should succeed
+			fetchedDevice.Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA";
 			await MerakiClient
 				.Devices
-				.UpdateAsync(newNetwork.Id, new DeviceUpdateRequest { Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA" })
+				.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Get the management interface settings

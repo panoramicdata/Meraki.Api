@@ -92,7 +92,7 @@ namespace Meraki.Api.Test
 
 				// We should have 2 rules now
 				acls.Should().NotBeNull();
-				acls.Rules.Should().HaveCount(2);
+				acls.Rules.Should().HaveCount(3);
 				// Our new rules should be first
 				acls.Rules[0].Comment.Should().Be(denySsh.Comment);
 				acls.Rules[1].Comment.Should().Be(allowHttp.Comment);

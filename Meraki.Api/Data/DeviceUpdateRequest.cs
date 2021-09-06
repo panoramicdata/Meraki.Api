@@ -62,13 +62,13 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The ID of a switch profile to bind to the device (for available switch profiles, see the &#39;Switch Profiles&#39; endpoint). Use null to unbind the switch device from the current profile. For a device to be bindable to a switch profile, it must (1) be a switch, and (2) belong to a network that is bound to a configuration template.</value>
 		[DataMember(Name = "switchProfileId")]
-		public string SwitchProfileId { get; set; } = string.Empty;
+		public string? SwitchProfileId { get; set; }
 
 		/// <summary>
 		/// The floor plan to associate to this device. null disassociates the device from the floorplan.
 		/// </summary>
 		/// <value>The floor plan to associate to this device. null disassociates the device from the floorplan.</value>
 		[DataMember(Name = "floorPlanId")]
-		public string FloorPlanId { get; set; } = string.Empty;
+		public string? FloorPlanId { get; set; }
 	}
 }

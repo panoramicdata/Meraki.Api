@@ -131,5 +131,12 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "wan2Ip")]
 		public string? Wan2Ip { get; set; }
+
+		/// <summary>
+		/// Whether or not to set the latitude and longitude of a device based on the new address. Only applies when lat and lng are not specified.
+		/// Only used when sending updates
+		/// </summary>
+		[DataMember(Name = "moveMapMarker")]
+		public bool? MoveMapMarker { get; set; }
 	}
 }
