@@ -7,15 +7,8 @@ namespace Meraki.Api.Data
 	/// Peer
 	/// </summary>
 	[DataContract]
-	public class ThirdPartyVpnPeer
+	public class ThirdPartyVpnPeer : NamedItem
 	{
-		/// <summary>
-		/// The name of the VPN peer
-		/// </summary>
-		/// <value>The name of the VPN peer</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
-		public string Name { get; set; } = null!;
-
 		/// <summary>
 		/// The public IP of the VPN peer
 		/// </summary>
