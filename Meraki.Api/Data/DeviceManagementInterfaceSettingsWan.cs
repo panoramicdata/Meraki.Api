@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -13,7 +14,7 @@ namespace Meraki.Api.Data
 		/// Is WAN enabled
 		/// </summary>
 		[DataMember(Name = "wanEnabled")]
-		public string WanEnabled { get; set; } = string.Empty;
+		public WanEnabledStatus WanEnabled { get; set; }
 
 		/// <summary>
 		/// Is WAN using static IP
@@ -49,6 +50,7 @@ namespace Meraki.Api.Data
 		/// The VLAN
 		/// </summary>
 		[DataMember(Name = "vlan")]
-		public string Vlan { get; set; } = string.Empty;
+		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
+		public string? Vlan { get; set; }
 	}
 }

@@ -22,9 +22,7 @@ namespace Meraki.Api
 		/// </summary>
 		/// <param name="options"></param>
 		/// <param name="logger"></param>
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 		public MerakiClient(MerakiClientOptions options, ILogger? logger = default)
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 		{
 			_logger = logger ?? NullLogger.Instance;
 			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), _logger);
@@ -102,6 +100,7 @@ namespace Meraki.Api
 			Sms = RestService.For<ISms>(_httpClient, refitSettings);
 			SnmpSettings = RestService.For<ISnmpSettings>(_httpClient, refitSettings);
 			SplashSettings = RestService.For<ISplashSettings>(_httpClient, refitSettings);
+			SplashLoginAttempts = RestService.For<ISplashLoginAttempts>(_httpClient, refitSettings);
 			Ssids = RestService.For<ISsids>(_httpClient, refitSettings);
 			SwitchAcls = RestService.For<ISwitchAcls>(_httpClient, refitSettings);
 			SwitchPorts = RestService.For<ISwitchPorts>(_httpClient, refitSettings);
