@@ -65,7 +65,7 @@ namespace Meraki.Api.Test
 		protected MerakiClient MerakiClient
 			=> _merakiClient ??= new MerakiClient(Configuration.MerakiClientOptions, Logger);
 
-		protected async Task<Network> GetTestNetworkAsync()
+		protected async Task<Network> GetFirstNetworkAsync()
 		{
 			var networks = await MerakiClient
 				.Organizations
@@ -75,5 +75,34 @@ namespace Meraki.Api.Test
 			networks.Should().NotBeEmpty();
 			return networks[0];
 		}
+
+		protected async Task<Network> CreateTestNetworkAsync()
+		{
+			var network = await MerakiClient
+				.Networks
+				.CreateAsync(
+					Configuration.TestOrganizationId,
+					new NetworkCreationRequest
+					{
+						Name = $"XUnit {Guid.NewGuid()}",
+						ProductTypes = new()
+						{
+							"appliance",
+							"switch",
+							"camera"
+						},
+						Notes = $"Created as part of unit testing on {DateTime.UtcNow}, should be removed automatically"
+					}
+				)
+				.ConfigureAwait(false);
+			network.Should().NotBeNull();
+			return network;
+		}
+
+		protected async Task RemoveNetworkAsync(string networkId)
+			=> await MerakiClient
+				.Networks
+				.DeleteAsync(networkId)
+				.ConfigureAwait(false);
 	}
 }

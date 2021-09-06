@@ -46,7 +46,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetAllSsidsAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
@@ -60,7 +60,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetAllDevicesAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
@@ -398,7 +398,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetClientsAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
@@ -412,7 +412,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetBluetoothClientsAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
@@ -426,7 +426,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetWirelessSettingsAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			// Get the wireless settings
@@ -497,7 +497,7 @@ namespace Meraki.Api.Test
 		{
 			foreach (var _ in Enumerable.Range(0, 10))
 			{
-				await GetTestNetworkAsync()
+				await GetFirstNetworkAsync()
 					.ConfigureAwait(false);
 			}
 		}
