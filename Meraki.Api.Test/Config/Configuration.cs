@@ -33,6 +33,11 @@ namespace Meraki.Api.Test.Config
 		public string TestCameraSerial { get; set; } = string.Empty;
 
 		/// <summary>
+		/// Test Switch Serial
+		/// </summary>
+		public string TestSwitchSerial { get; set; } = string.Empty;
+
+		/// <summary>
 		/// Test Camera Network Name
 		/// </summary>
 		public string TestCameraNetworkId { get; set; } = string.Empty;

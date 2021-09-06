@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -19,7 +20,7 @@ namespace Meraki.Api.Data
 		/// Description
 		/// </summary>
 		[DataMember(Name = "description")]
-		public string Description { get; set; } = default!;
+		public string? Description { get; set; }
 
 		/// <summary>
 		/// The mac
@@ -31,13 +32,13 @@ namespace Meraki.Api.Data
 		/// The IP address
 		/// </summary>
 		[DataMember(Name = "ip")]
-		public string Ip { get; set; } = default!;
+		public string? Ip { get; set; }
 
 		/// <summary>
 		/// The user
 		/// </summary>
 		[DataMember(Name = "user")]
-		public string User { get; set; } = default!;
+		public string? User { get; set; }
 
 		/// <summary>
 		/// The VLAN
@@ -49,25 +50,31 @@ namespace Meraki.Api.Data
 		/// The switch port
 		/// </summary>
 		[DataMember(Name = "switchport")]
-		public object Switchport { get; set; } = default!;
+		public string Switchport { get; set; } = default!;
 
 		/// <summary>
 		/// The IPv6 address
 		/// </summary>
 		[DataMember(Name = "ip6")]
-		public string Ip6 { get; set; } = default!;
+		public string? Ip6 { get; set; }
+
+		/// <summary>
+		/// The IPv6 local address
+		/// </summary>
+		[DataMember(Name = "ip6Local")]
+		public string? Ip6Local { get; set; }
 
 		/// <summary>
 		/// When this client was first seen
 		/// </summary>
 		[DataMember(Name = "firstSeen")]
-		public int FirstSeen { get; set; }
+		public DateTime FirstSeen { get; set; }
 
 		/// <summary>
 		/// When this client was last seen
 		/// </summary>
 		[DataMember(Name = "lastSeen")]
-		public int LastSeen { get; set; }
+		public DateTime LastSeen { get; set; }
 
 		/// <summary>
 		/// The manufacturer
@@ -79,13 +86,13 @@ namespace Meraki.Api.Data
 		/// The Operating system
 		/// </summary>
 		[DataMember(Name = "os")]
-		public string Os { get; set; } = default!;
+		public string? Os { get; set; }
 
 		/// <summary>
 		/// SSID
 		/// </summary>
 		[DataMember(Name = "ssid")]
-		public string Ssid { get; set; } = string.Empty;
+		public string? Ssid { get; set; }
 
 		/// <summary>
 		/// Wireless capabilities
@@ -109,7 +116,7 @@ namespace Meraki.Api.Data
 		/// The notes
 		/// </summary>
 		[DataMember(Name = "notes")]
-		public string Notes { get; set; } = default!;
+		public string? Notes { get; set; }
 
 		/// <summary>
 		/// SM Installed
@@ -128,5 +135,20 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "clientVpnConnections")]
 		public List<ClientVpnConnections> ClientVpnConnections { get; set; } = new();
+
+		/// <summary>
+		/// The groupPolicy8021x
+		/// </summary>
+		[DataMember(Name = "groupPolicy8021x")]
+		public string? GroupPolicy8021x { get; set; }
+
+		/// <summary>
+		/// The adaptivePolicyGroup
+		/// </summary>
+		[DataMember(Name = "adaptivePolicyGroup")]
+		public object? AdaptivePolicyGroup { get; set; }
+
+		[DataMember(Name = "usage")]
+		public UsageInKb Usage { get; set; } = new();
 	}
 }

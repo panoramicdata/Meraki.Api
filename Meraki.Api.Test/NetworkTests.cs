@@ -464,7 +464,7 @@ namespace Meraki.Api.Test
 			// Get a snapshot from the camera
 			var newResult = await MerakiClient
 				.Cameras
-				.GetSnapshotAsync(Configuration.TestCameraSerial!, new CameraSnapshotRequest { Fullframe = true })
+				.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
 				.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 
@@ -493,7 +493,7 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void GetFast_Succeeds()
+		public async void GetRepeatedlyInQuickSuccession_Succeeds()
 		{
 			foreach (var _ in Enumerable.Range(0, 10))
 			{
@@ -505,15 +505,14 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetDeviceSwitchPortsAsync_Succeeds()
 		{
-			Configuration.TestCameraSerial.Should().NotBeNull();
+			Configuration.TestSwitchSerial.Should().NotBeNull();
 
-			// Currently does not work (404 error, and also in Postman)
 			var switchPorts = await MerakiClient
 				.SwitchPorts
-				.GetDeviceSwitchPortsAsync(Configuration.TestCameraSerial, default)
+				.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, default)
 				.ConfigureAwait(false);
 
-			switchPorts.Should().NotBeNull();
+			switchPorts.Should().NotBeNullOrEmpty();
 		}
 
 		[Fact]
