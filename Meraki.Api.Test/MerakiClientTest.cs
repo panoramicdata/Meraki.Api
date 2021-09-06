@@ -53,7 +53,7 @@ namespace Meraki.Api.Test
 
 				// Load in the config
 				_configuration = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(fileInfo.FullName));
-				if(_configuration is null)
+				if (_configuration is null)
 				{
 					throw new ConfigurationException("Configuration did not deserialize");
 				}
@@ -68,8 +68,8 @@ namespace Meraki.Api.Test
 		protected async Task<Network> GetTestNetworkAsync()
 		{
 			var networks = await MerakiClient
-				.Networks
-				.GetAllAsync(Configuration.TestOrganizationId)
+				.Organizations
+				.GetNetworksAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			networks.Should().NotBeNull();
 			networks.Should().NotBeEmpty();

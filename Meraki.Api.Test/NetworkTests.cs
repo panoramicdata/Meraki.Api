@@ -19,22 +19,22 @@ namespace Meraki.Api.Test
 		{
 		}
 
-		[Fact]
-		public async void GetNetworksAsync_Succeeds()
-		{
-			var result = await MerakiClient
-				.Networks
-				.GetAllAsync(Configuration.TestOrganizationId)
-				.ConfigureAwait(false);
+		//[Fact]
+		//public async void GetNetworksAsync_Succeeds()
+		//{
+		//	var result = await MerakiClient
+		//		.Networks
+		//		.GetAllAsync(Configuration.TestOrganizationId)
+		//		.ConfigureAwait(false);
 
-			result.Should().BeOfType<List<Network>>();
-			result.Should().NotBeNull();
-			result.Should().NotBeEmpty();
-			var firstResult = result[0];
-			Validate(firstResult);
-		}
+		//	result.Should().BeOfType<List<Network>>();
+		//	result.Should().NotBeNull();
+		//	result.Should().NotBeEmpty();
+		//	var firstResult = result[0];
+		//	ValidateNetwork(firstResult);
+		//}
 
-		private static void Validate(Network network)
+		internal static void ValidateNetwork(Network network)
 		{
 			network.Should().NotBeNull();
 			string.IsNullOrWhiteSpace(network.Id).Should().BeFalse();
@@ -131,8 +131,8 @@ namespace Meraki.Api.Test
 		{
 			// Perform any clean-up
 			var networks = await MerakiClient
-							.Networks
-							.GetAllAsync(Configuration.TestOrganizationId)
+							.Organizations
+							.GetNetworksAsync(Configuration.TestOrganizationId)
 							.ConfigureAwait(false);
 			var oldNetwork = networks.SingleOrDefault(n => n.Name == networkName);
 			if (oldNetwork != default)

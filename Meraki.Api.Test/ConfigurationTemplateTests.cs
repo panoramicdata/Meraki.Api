@@ -26,8 +26,8 @@ namespace Meraki.Api.Test
 			var configurationTemplate = configurationTemplates[0];
 
 			var result = await MerakiClient
-				.Networks
-				.GetAllAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
+				.Organizations
+				.GetNetworksAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 		}

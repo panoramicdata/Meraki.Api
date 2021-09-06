@@ -26,7 +26,7 @@ namespace Meraki.Api.Test
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
 			var firstResult = result[0];
-			Validate(firstResult);
+			ValidateOrganisation(firstResult);
 		}
 
 		[Fact]
@@ -36,7 +36,7 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			Validate(result);
+			ValidateOrganisation(result);
 		}
 
 		[Fact]
@@ -139,7 +139,9 @@ namespace Meraki.Api.Test
 			organizationDeviceLicense.Should().NotBeNull();
 		}
 
+#pragma warning disable xUnit1004 // Test methods should not be skipped
 		[Fact(Skip = "Not part of general run")]
+#pragma warning restore xUnit1004 // Test methods should not be skipped
 		public async void ClaimDeviceAsync_Succeeds()
 		{
 			var result = await MerakiClient
@@ -208,7 +210,22 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 		}
 
-		private static void Validate(Organization org)
+		[Fact]
+		public async void GetNetworksAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.Organizations
+				.GetNetworksAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+
+			result.Should().BeOfType<List<Network>>();
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
+			var firstResult = result[0];
+			NetworkTests.ValidateNetwork(firstResult);
+		}
+
+		private static void ValidateOrganisation(Organization org)
 		{
 			org.Should().NotBeNull();
 			org.Id.Should().NotBeNullOrWhiteSpace();
