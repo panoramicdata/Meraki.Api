@@ -64,5 +64,17 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "notes")]
 		public string Notes { get; set; } = string.Empty;
+
+		/// <summary>
+		/// EnrollmentString
+		/// </summary>
+		[DataMember(Name = "enrollmentString")]
+		public string? EnrollmentString { get; set; }
+
+		/// <summary>
+		/// URL
+		/// </summary>
+		[DataMember(Name = "url")]
+		public string Url { get; set; } = string.Empty;
 	}
 }
