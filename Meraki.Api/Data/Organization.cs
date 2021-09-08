@@ -11,9 +11,15 @@ namespace Meraki.Api.Data
 	public class Organization : NamedIdentifiedItem
 	{
 		/// <summary>
-		/// The URL
+		/// Readonly: URL
 		/// </summary>
-		[DataMember]
-		public string Url { get; set; } = default!;
+		[DataMember(Name = "url")]
+		public string Url { get; set; } = string.Empty;
+
+		/// <summary>
+		/// API-specific settings
+		/// </summary>
+		[DataMember(Name = "api")]
+		public OrganizationApi Api { get; set; } = new();
 	}
 }
