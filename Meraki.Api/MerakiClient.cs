@@ -36,7 +36,10 @@ namespace Meraki.Api
 					// By default nulls should not be rendered out, this will allow the receiving API to apply any defaults.
 					// Use [JsonProperty(NullValueHandling = NullValueHandling.Include)] to send
 					// nulls for specific properties, i.e. disassociating port schedule ids from a port
-					NullValueHandling = NullValueHandling.Ignore
+					NullValueHandling = NullValueHandling.Ignore,
+#if DEBUG
+					MissingMemberHandling = MissingMemberHandling.Error
+#endif
 				})
 			};
 
