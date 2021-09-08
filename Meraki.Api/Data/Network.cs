@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -20,12 +21,14 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// timeZone
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "timeZone")]
 		public string TimeZone { get; set; } = default!;
 
 		/// <summary>
 		/// tags
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "tags")]
 		public List<string> Tags { get; set; } = default!;
 
@@ -57,17 +60,23 @@ namespace Meraki.Api.Data
 		/// Product types
 		/// </summary>
 		[DataMember(Name = "productTypes")]
+		[ApiAccess(ApiAccess.ReadCreate)]
 		public List<string> ProductTypes { get; set; } = new List<string>();
 
 		/// <summary>
 		/// Notes
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "notes")]
 		public string Notes { get; set; } = string.Empty;
 
 		/// <summary>
-		/// EnrollmentString
+		/// A unique identifier which can be used for device enrollment or
+		/// easy access through the Meraki SM Registration page or the
+		/// Self Service Portal. Please note that changing this field may
+		/// cause existing bookmarks to break.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "enrollmentString")]
 		public string? EnrollmentString { get; set; }
 
