@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchAccessControlLists
 	/// </summary>
 	[DataContract]
-	public class SwitchAccessControlListRulesUpdateRequest
+	public class SwitchAccessControlListRules
 	{
 		/// <summary>
 		/// An ordered array of the access control list rules (not including the default rule). An empty array will clear the rules.
