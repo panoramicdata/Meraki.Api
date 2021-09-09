@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -9,6 +10,7 @@ namespace Meraki.Api.Data
 		/// If true, enable the access to the Cisco Meraki Dashboard API
 		/// </summary>
 		[DataMember(Name = "enabled")]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		public bool Enabled { get; set; }
 	}
 }
