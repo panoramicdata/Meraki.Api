@@ -68,8 +68,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/organizations/{organizationId}/configTemplates")]
 		Task<ConfigurationTemplateUpdate> CreateOrganizationConfigTemplateAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("configTemplateId")] string configTemplateId,
-			[Body] ConfigurationTemplateUpdate createOrganizationConfigTemplate,
+			[Body] ConfigurationTemplateCreateRequest createOrganizationConfigTemplate,
 			CancellationToken cancellationToken = default);
 	}
 }
