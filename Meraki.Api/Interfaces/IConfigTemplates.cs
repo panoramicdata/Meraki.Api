@@ -64,9 +64,9 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="createOrganizationConfigTemplate">The config template id</param>
+		/// <param name="createOrganizationConfigTemplate">The config template data</param>
 		[Post("/organizations/{organizationId}/configTemplates")]
-		Task<ConfigurationTemplateUpdate> CreateOrganizationConfigTemplateAsync(
+		Task<ConfigurationTemplate> CreateOrganizationConfigTemplateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[Body] ConfigurationTemplateCreateRequest createOrganizationConfigTemplate,
 			CancellationToken cancellationToken = default);
