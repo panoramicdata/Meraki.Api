@@ -14,5 +14,11 @@ namespace Meraki.Api.Data
 		/// <value>The name of the organization</value>
 		[DataMember(Name = "name")]
 		public string Name { get; set; } = string.Empty;
+
+		/// <summary>
+		/// API-specific settings
+		/// </summary>
+		[DataMember(Name = "api")]
+		public OrganizationApi Api { get; set; } = new();
 	}
 }
