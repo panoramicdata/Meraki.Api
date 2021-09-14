@@ -54,6 +54,7 @@ namespace Meraki.Api.Data
 		/// configTemplateId
 		/// </summary>
 		[DataMember(Name = "configTemplateId")]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		public string? ConfigurationTemplateId { get; set; }
 
 		/// <summary>
