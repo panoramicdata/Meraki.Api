@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Meraki.Api.Data
 {
+	[DataContract]
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum ProductType
 	{

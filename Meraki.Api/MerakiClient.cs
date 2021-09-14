@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Refit;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 
 namespace Meraki.Api
@@ -38,8 +40,9 @@ namespace Meraki.Api
 					// nulls for specific properties, i.e. disassociating port schedule ids from a port
 					NullValueHandling = NullValueHandling.Ignore,
 #if DEBUG
-					MissingMemberHandling = MissingMemberHandling.Error
+					MissingMemberHandling = MissingMemberHandling.Error,
 #endif
+					Converters = new List<JsonConverter> { new StringEnumConverter() }
 				})
 			};
 
