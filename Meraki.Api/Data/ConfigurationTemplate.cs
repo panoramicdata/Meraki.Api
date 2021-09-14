@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "productTypes")]
 		[ApiAccess(ApiAccess.Read)]
-		public List<string> ProductTypes { get; set; } = new();
+		public List<ProductType> ProductTypes { get; set; } = new();
 
 		/// <summary>
 		/// The timezone of the configuration template.

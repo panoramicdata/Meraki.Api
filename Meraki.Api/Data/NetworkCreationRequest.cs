@@ -42,7 +42,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The product type(s) of the new network.</value>
 		[DataMember(Name = "productTypes")]
-		public List<string> ProductTypes { get; set; } = new();
+		public List<ProductType> ProductTypes { get; set; } = new();
 
 		/// <summary>
 		/// Add any notes or additional information about this network here.

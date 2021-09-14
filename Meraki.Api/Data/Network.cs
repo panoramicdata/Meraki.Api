@@ -61,7 +61,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "productTypes")]
 		[ApiAccess(ApiAccess.ReadCreate)]
-		public List<string> ProductTypes { get; set; } = new List<string>();
+		public List<ProductType> ProductTypes { get; set; } = new();
 
 		/// <summary>
 		/// Notes

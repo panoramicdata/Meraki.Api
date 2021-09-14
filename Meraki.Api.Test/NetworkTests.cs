@@ -88,7 +88,7 @@ namespace Meraki.Api.Test
 					new NetworkCreationRequest
 					{
 						Name = networkName,
-						ProductTypes = new List<string> { "wireless" },
+						ProductTypes = new() { ProductType.Wireless },
 						Tags = new List<string>(),
 						TimeZone = "Europe/London"
 					})

@@ -43,7 +43,7 @@ namespace Meraki.Api.Data
 		/// Product types
 		/// </summary>
 		[DataMember(Name = "productTypes")]
-		public List<string> ProductTypes { get; set; } = new();
+		public List<ProductType> ProductTypes { get; set; } = new();
 
 		/// <summary>
 		/// Enrollment string

@@ -87,9 +87,9 @@ namespace Meraki.Api.Test
 						Name = $"XUnit {Guid.NewGuid()}",
 						ProductTypes = new()
 						{
-							"appliance",
-							"switch",
-							"camera"
+							ProductType.Appliance,
+							ProductType.Switch,
+							ProductType.Camera
 						},
 						Notes = $"Created as part of unit testing on {DateTime.UtcNow}, should be removed automatically"
 					}
