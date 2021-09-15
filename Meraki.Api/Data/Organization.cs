@@ -8,7 +8,6 @@ namespace Meraki.Api.Data
 	/// An organization
 	/// </summary>
 	[DataContract]
-	[DebuggerDisplay("{" + nameof(Name) + "}")]
 	public class Organization : NamedIdentifiedItem
 	{
 		/// <summary>
