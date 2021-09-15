@@ -8,7 +8,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// A network
 	/// </summary>
-	[DebuggerDisplay($"{{{nameof(Name)}}} ({{{nameof(Id)}}})")]
 	[DataContract]
 	public class Network : NamedIdentifiedItem
 	{
