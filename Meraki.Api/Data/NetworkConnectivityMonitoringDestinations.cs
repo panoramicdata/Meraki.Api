@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -13,6 +14,7 @@ namespace Meraki.Api.Data
 		/// The list of connectivity monitoring destinations
 		/// </summary>
 		/// <value>The list of connectivity monitoring destinations</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "destinations")]
 		public List<Destination> Destinations { get; set; } = new();
 	}

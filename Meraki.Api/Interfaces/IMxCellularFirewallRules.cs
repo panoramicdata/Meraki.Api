@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/cellularFirewallRules")]
-		Task<MxCellularFirewallRulesUpdateRequest> GetAsync(
+		Task<MxCellularFirewallRules> GetAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkCellularFirewallRules">Body for updating network cellular firewall rules</param>
+		/// <param name="mxCellularFirewallRules">Body for updating network cellular firewall rules</param>
 		[Put("/networks/{networkId}/cellularFirewallRules")]
-		Task<MxCellularFirewallRulesUpdateRequest> UpdateAsync(
+		Task<MxCellularFirewallRules> UpdateAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] MxCellularFirewallRulesUpdateRequest updateNetworkCellularFirewallRules,
+			[Body] MxCellularFirewallRules mxCellularFirewallRules,
 			CancellationToken cancellationToken = default
 			);
 	}

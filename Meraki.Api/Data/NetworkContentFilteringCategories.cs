@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -12,6 +13,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Categories
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "categories")]
 		public List<Categories> Categories { get; set; } = new();
 	}
