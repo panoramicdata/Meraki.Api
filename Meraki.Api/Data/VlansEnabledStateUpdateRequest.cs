@@ -14,7 +14,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Boolean indicating whether to enable (true) or disable (false) VLANs for the network</value>
 		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "enabled")]
+		[DataMember(Name = "vlansEnabled")]
 		public bool? Enabled { get; set; }
 	}
 }
