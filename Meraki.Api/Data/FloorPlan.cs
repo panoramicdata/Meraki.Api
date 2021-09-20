@@ -60,14 +60,14 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "width")]
-		public int Width { get; set; }
+		public double Width { get; set; }
 
 		/// <summary>
 		/// Height
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "height")]
-		public int Height { get; set; }
+		public double Height { get; set; }
 
 		/// <summary>
 		/// Center
