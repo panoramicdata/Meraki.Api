@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -11,18 +12,21 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// code
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "code")]
 		public long Code { get; set; }
 
 		/// <summary>
 		/// type
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "type")]
-		public string Type { get; set; } = string.Empty;
+		public DhcpOptionType Type { get; set; }
 
 		/// <summary>
 		/// value
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "value")]
 		public string Value { get; set; } = string.Empty;
 	}

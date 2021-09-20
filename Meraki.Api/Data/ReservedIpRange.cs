@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -11,18 +12,21 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Start IP
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "start")]
 		public string Start { get; set; } = string.Empty;
 
 		/// <summary>
 		/// End IP
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "end")]
 		public string End { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Comment
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "comment")]
 		public string Comment { get; set; } = string.Empty;
 	}
