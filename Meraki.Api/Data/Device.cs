@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Meraki.Api.Attributes;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
@@ -17,30 +18,35 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The latitude of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "lat")]
 		public float Latitude { get; set; }
 
 		/// <summary>
 		/// The longitude of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "lng")]
 		public float Longitude { get; set; }
 
 		/// <summary>
 		/// The address of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "address")]
 		public string Address { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The notes for the device. String. Limited to 255 characters.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "notes")]
 		public string? Notes { get; set; }
 
 		/// <summary>
 		/// The list of tags of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "tags")]
 		public List<string> Tags { get; set; } = new();
 
@@ -53,6 +59,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// ReadOnly: The Serial of a device
 		/// </summary>
+		[Key]
 		[DataMember(Name = "serial")]
 		public string Serial { get; set; } = string.Empty;
 
@@ -71,12 +78,14 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Readonly: The LAN IP address
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "lanIp")]
 		public string LanIp { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Readonly: The beacon ID parameters
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "beaconIdParams")]
 		public BeaconIdParams BeaconIdParams { get; set; } = new BeaconIdParams();
 
@@ -95,6 +104,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The floor plan to associate to this device. null disassociates the device from the floorplan.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "floorPlanId")]
 		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 		public string? FloorPlanId { get; set; }
@@ -104,6 +114,7 @@ namespace Meraki.Api.Data
 		/// Use null to unbind the switch device from the current profile. For a device to be bindable to a switch profile,
 		/// it must (1) be a switch, and (2) belong to a network that is bound to a configuration template.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "switchProfileId")]
 		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 		public string? SwitchProfileId { get; set; }
@@ -123,12 +134,14 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Readonly: WAN 1 IP address
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "wan1Ip")]
 		public string? Wan1Ip { get; set; }
 
 		/// <summary>
 		/// Readonly: WAN 2 IP address
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "wan2Ip")]
 		public string? Wan2Ip { get; set; }
 
