@@ -20,7 +20,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Image URL
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "imageUrl")]
 		public string ImageUrl { get; set; } = string.Empty;
 
@@ -39,6 +39,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Image MD5
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "imageMd5")]
 		public string ImageMd5 { get; set; } = string.Empty;
 
