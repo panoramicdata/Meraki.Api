@@ -8,21 +8,13 @@ namespace Meraki.Api.Data
 	/// A configuration template
 	/// </summary>
 	[DataContract]
-	public class ConfigurationTemplate : NamedIdentifiedItem
+	public class ConfigurationTemplate : NetworkOrConfigurationTemplate
 	{
 		/// <summary>
-		/// Readonly: ProductTypes
+		/// Product types
 		/// </summary>
 		[DataMember(Name = "productTypes")]
 		[ApiAccess(ApiAccess.Read)]
-		public List<ProductType> ProductTypes { get; set; } = new();
-
-		/// <summary>
-		/// The timezone of the configuration template.
-		/// For a list of allowed timezones, please see the 'TZ' column in the table in https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-		/// </summary>
-		[DataMember(Name = "timeZone")]
-		[ApiAccess(ApiAccess.CreateUpdate)]
-		public string TimeZone { get; set; } = string.Empty;
+		public override List<ProductType> ProductTypes { get; set; } = new();
 	}
 }

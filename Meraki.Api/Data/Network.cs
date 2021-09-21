@@ -1,6 +1,5 @@
 ﻿using Meraki.Api.Attributes;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -9,22 +8,22 @@ namespace Meraki.Api.Data
 	/// A network
 	/// </summary>
 	[DataContract]
-	public class Network : NamedIdentifiedItem
+	public class Network : NetworkOrConfigurationTemplate
 	{
 		public const int MaxNameLength = 38;
+
+		/// <summary>
+		/// Product types
+		/// </summary>
+		[DataMember(Name = "productTypes")]
+		[ApiAccess(ApiAccess.ReadCreate)]
+		public override List<ProductType> ProductTypes { get; set; } = new();
 
 		/// <summary>
 		/// OrganizationId
 		/// </summary>
 		[DataMember(Name = "organizationId")]
 		public string OrganizationId { get; set; } = default!;
-
-		/// <summary>
-		/// timeZone
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "timeZone")]
-		public string TimeZone { get; set; } = default!;
 
 		/// <summary>
 		/// tags
@@ -57,13 +56,6 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "configTemplateId")]
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		public string? ConfigurationTemplateId { get; set; }
-
-		/// <summary>
-		/// Product types
-		/// </summary>
-		[DataMember(Name = "productTypes")]
-		[ApiAccess(ApiAccess.ReadCreate)]
-		public List<ProductType> ProductTypes { get; set; } = new();
 
 		/// <summary>
 		/// Notes
