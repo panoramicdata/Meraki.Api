@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateDeviceCellularGatewaySettings
 	/// </summary>
 	[DataContract]
-	public class CellularGatewaySettingsUpdateRequest
+	public class CellularGatewaySettings
 	{
 		/// <summary>
 		/// list of all reserved IP ranges for a single MG

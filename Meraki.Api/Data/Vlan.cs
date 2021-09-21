@@ -41,7 +41,7 @@ namespace Meraki.Api.Data
 		/// Fixed IP assignments
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "fixedIpAssignment")]
+		[DataMember(Name = "fixedIpAssignments")]
 		public Dictionary<string, FixedIpAssignment> FixedIpAssignments { get; set; } = new Dictionary<string, FixedIpAssignment>();
 
 		/// <summary>
