@@ -530,5 +530,37 @@ namespace Meraki.Api.Test
 
 			switchStacks.Should().NotBeNull();
 		}
+
+		[Fact]
+		public async void ReadOnlyStopsCreate_Succeeds()
+		{
+			var originalIsReadOnly = MerakiClient.IsReadOnly;
+			MerakiClient.SetReadOnly(true);
+			try
+			{
+				// Create network
+				var exception = await Assert.ThrowsAsync<InvalidOperationException>(
+					() => MerakiClient
+						.Networks
+						.CreateAsync(
+							Configuration.TestOrganizationId,
+							new NetworkCreationRequest
+							{
+								Name = Guid.NewGuid().ToString(),
+								ProductTypes = new() { ProductType.Wireless },
+								Tags = new List<string>(),
+								TimeZone = "Europe/London",
+								Notes = $"Created at {DateTime.UtcNow:u} during unit testing, OK to delete"
+							}
+						)
+					).ConfigureAwait(false);
+				exception.Message.Should().Be("The client options have been configured to only allow read actions");
+			}
+			finally
+			{
+				// Restore the original ReadOnly state
+				MerakiClient.SetReadOnly(originalIsReadOnly);
+			}
+		}
 	}
 }

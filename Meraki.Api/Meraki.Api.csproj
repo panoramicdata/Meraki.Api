@@ -18,7 +18,7 @@
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageReleaseNotes>
-			ProductType is now an enum.
+			Added ReadOnly to MerakiClientOptions
 		</PackageReleaseNotes>
 	</PropertyGroup>
 

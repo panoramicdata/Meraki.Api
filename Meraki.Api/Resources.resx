@@ -126,4 +126,7 @@
   <data name="Disposing" xml:space="preserve">
     <value>Disposing...</value>
   </data>
+  <data name="OnlyReadOnlyOperationsPermitted" xml:space="preserve">
+    <value>The client options have been configured to only allow read actions</value>
+  </data>
 </root>

@@ -15,6 +15,7 @@ namespace Meraki.Api
 	/// </summary>
 	public class MerakiClient : IDisposable
 	{
+		private readonly MerakiClientOptions _options;
 		private readonly ILogger _logger;
 		private readonly HttpClient _httpClient;
 		private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
@@ -26,6 +27,7 @@ namespace Meraki.Api
 		/// <param name="logger"></param>
 		public MerakiClient(MerakiClientOptions options, ILogger? logger = default)
 		{
+			_options = options;
 			_logger = logger ?? NullLogger.Instance;
 			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), _logger);
 			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v1") };
@@ -503,6 +505,16 @@ namespace Meraki.Api
 		/// Wireless settings
 		/// </summary>
 		public IWirelessSettings WirelessSettings { get; }
+
+		/// <summary>
+		/// Used to find out whether the client has the ReadOnly option set
+		/// </summary>
+		public bool IsReadOnly => _options.ReadOnly;
+
+		/// <summary>
+		/// Used to change the Options Readonly state after client is created
+		/// </summary>
+		public void SetReadOnly(bool readOnly) => _options.ReadOnly = readOnly;
 
 		#region IDisposable Support
 		private bool _disposedValue; // To detect redundant calls

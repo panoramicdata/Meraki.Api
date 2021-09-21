@@ -21,6 +21,16 @@ namespace Meraki.Api
 
 		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 		{
+			if (_options.ReadOnly)
+			{
+				// Simplistic ReadOnly implementation to ensure only reading from the API
+				// Check that this is a GET
+				if (request.Method != HttpMethod.Get)
+				{
+					throw new InvalidOperationException(Resources.OnlyReadOnlyOperationsPermitted);
+				}
+			}
+
 			// Ensure the API key is set
 			if (_options.ApiKey?.Length == 0)
 			{
