@@ -116,7 +116,7 @@ namespace Meraki.Api.Data
 		public string? Cidr { get; set; }
 
 		/// <summary>
-		/// Cidr
+		/// Mask
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "mask")]
