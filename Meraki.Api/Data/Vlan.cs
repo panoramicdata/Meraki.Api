@@ -104,8 +104,22 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Template VLAN Type
 		/// </summary>
-		[ApiAccess(ApiAccess.Read)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "templateVlanType")]
 		public string? TemplateVlanType { get; set; }
+
+		/// <summary>
+		/// Cidr
+		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[DataMember(Name = "cidr")]
+		public string? Cidr { get; set; }
+
+		/// <summary>
+		/// Cidr
+		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[DataMember(Name = "mask")]
+		public int? Mask { get; set; }
 	}
 }
