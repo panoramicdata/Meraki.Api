@@ -10,21 +10,21 @@ namespace Meraki.Api.Data
 	public class DhcpOption
 	{
 		/// <summary>
-		/// code
+		/// Code
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "code")]
-		public long Code { get; set; }
+		public int Code { get; set; }
 
 		/// <summary>
-		/// type
+		/// Type
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "type")]
 		public DhcpOptionType Type { get; set; }
 
 		/// <summary>
-		/// value
+		/// Value
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "value")]

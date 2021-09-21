@@ -8,18 +8,12 @@ namespace Meraki.Api.Data
 	/// A VLAN
 	/// </summary>
 	[DataContract]
-	public class Vlan : NamedItem
+	public class Vlan : NamedIdentifiedItem
 	{
-		/// <summary>
-		/// Id
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "id")]
-		public string Id { get; set; } = null!;
-
 		/// <summary>
 		/// Network Id
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "networkId")]
 		public string NetworkId { get; set; } = string.Empty;
 
@@ -40,71 +34,78 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Fixed IP assignments
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "fixedIpAssignments")]
 		public Dictionary<string, FixedIpAssignment> FixedIpAssignments { get; set; } = new Dictionary<string, FixedIpAssignment>();
 
 		/// <summary>
 		/// Reserved IP ranges
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "reservedIpRanges")]
 		public List<ReservedIpRange> ReservedIpRanges { get; set; } = new List<ReservedIpRange>();
 
 		/// <summary>
 		/// DNS nameservers
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dnsNameservers")]
 		public string DnsNameServers { get; set; } = string.Empty;
 
 		/// <summary>
 		/// DHCP handling
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dhcpHandling")]
-		public string DhcpHandling { get; set; } = string.Empty;
+		public DhcpHandling DhcpHandling { get; set; }
 
 		/// <summary>
 		/// DHCP lease time
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dhcpLeaseTime")]
 		public DhcpLeaseTime DhcpLeaseTime { get; set; }
 
 		/// <summary>
 		/// DHCP Boot options enabled
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dhcpBootOptionsEnabled")]
 		public bool DhcpBootOptionsEnabled { get; set; }
 
 		/// <summary>
 		/// DHCP boot next server
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dhcpBootNextServer")]
-		public object DhcpBootNextServer { get; set; } = new object(); // Not clear if this should be a string
+		public string DhcpBootNextServer { get; set; } = string.Empty;
 
 		/// <summary>
 		/// DHCP boot filename
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dhcpBootFilename")]
-		public object DhcpBootFilename { get; set; } = new object(); // Not clear if this should be a string
+		public string DhcpBootFilename { get; set; } = string.Empty;
 
 		/// <summary>
 		/// DHCP options
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dhcpOptions")]
 		public List<DhcpOption> DhcpOptions { get; set; } = new List<DhcpOption>();
 
 		/// <summary>
 		/// DHCP relay server IPs
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dhcpRelayServerIps")]
 		public List<string> DhcpRelayServerIps { get; set; } = new List<string>();
+
+		/// <summary>
+		/// Template VLAN Type
+		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
+		[DataMember(Name = "templateVlanType")]
+		public string? TemplateVlanType { get; set; }
 	}
 }
