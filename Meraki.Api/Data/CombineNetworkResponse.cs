@@ -12,6 +12,6 @@ namespace Meraki.Api.Data
 		/// Resulting network
 		/// </summary>
 		[DataMember(Name = "resultingNetwork")]
-		public NetworkResponse ResultingNetwork { get; set; } = new();
+		public Network ResultingNetwork { get; set; } = new();
 	}
 }

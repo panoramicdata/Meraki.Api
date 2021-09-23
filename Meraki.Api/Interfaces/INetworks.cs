@@ -173,7 +173,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="networkUpdateRequest">Body for updating a network</param>
 		[Put("/networks/{networkId}")]
-		Task<NetworkResponse> UpdateNetworkAsync(
+		Task<Network> UpdateNetworkAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] NetworkUpdateRequest networkUpdateRequest,
 			CancellationToken cancellationToken = default
