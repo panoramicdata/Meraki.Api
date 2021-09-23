@@ -92,5 +92,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "url")]
 		public string Url { get; set; } = string.Empty;
+
+		/// <summary>
+		/// ProductType
+		/// </summary>
+		[DataMember(Name = "productType")]
+		public string ProductType { get; set; } = string.Empty;
 	}
 }
