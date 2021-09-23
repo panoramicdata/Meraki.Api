@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// An inventory item
 	/// </summary>
-	public class InventoryItem
+	public class InventoryItem : NamedItem
 	{
 		/// <summary>
 		/// mac
@@ -46,10 +46,10 @@ namespace Meraki.Api.Data
 		public string? PublicIp { get; set; }
 
 		/// <summary>
-		/// name
+		/// OrderNumber
 		/// </summary>
-		[DataMember(Name = "name")]
-		public string? Name { get; set; }
+		[DataMember(Name = "orderNumber")]
+		public string? OrderNumber { get; set; }
 
 		/// <summary>
 		/// name
