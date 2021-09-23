@@ -97,6 +97,6 @@ namespace Meraki.Api.Data
 		/// ProductType
 		/// </summary>
 		[DataMember(Name = "productType")]
-		public string ProductType { get; set; } = string.Empty;
+		public ProductType ProductType { get; set; }
 	}
 }
