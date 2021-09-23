@@ -35,7 +35,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>A unique identifier which can be used for device enrollment or easy access through the Meraki SM Registration page or the Self Service Portal. Please note that changing this field may cause existing bookmarks to break.</value>
 		[DataMember(Name = "enrollmentString")]
-		public string EnrollmentString { get; set; } = string.Empty;
+		public string? EnrollmentString { get; set; }
 
 		/// <summary>
 		/// Add any notes or additional information about this network here.
