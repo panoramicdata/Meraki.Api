@@ -80,5 +80,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "loginIpRanges")]
 		public List<string> LoginIpRanges { get; set; } = new();
+
+		/// <summary>
+		/// ApiAuthentication
+		/// </summary>
+		[DataMember(Name = "apiAuthentication")]
+		public ApiAuthentication? ApiAuthentication { get; set; } = new();
 	}
 }
