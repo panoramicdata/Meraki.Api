@@ -12,9 +12,9 @@ namespace Meraki.Api
 	/// </summary>
 	public partial class MerakiClient
 	{
-		public async Task<List<T>> GetAllPagesAsync<T>(
+		public async Task<List<T>> GetAllAsync<T>(
 			Func<int, string?, CancellationToken, Task<List<T>>> pageFactoryAsync,
-			int perPage,
+			int perPage = 100000,
 			CancellationToken cancellationToken = default)
 		{
 			var allEntries = new List<T>();

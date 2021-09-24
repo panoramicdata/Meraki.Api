@@ -140,7 +140,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("configTemplateId")] string? configTemplateId = null,
 			[AliasAs("tags")] List<string>? tags = null,
 			[AliasAs("tagsFilterType")] string? tagsFilterType = null,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			CancellationToken cancellationToken = default);

@@ -23,7 +23,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/appliance/vpn/stats")]
 		Task<List<VpnStats>> GetOrganizationApplianceVpnStats(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			[AliasAs("networkIds")] List<string>? networkIds = null,
@@ -45,7 +45,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/appliance/vpn/statuses")]
 		Task<List<VpnStatus>> GetOrganizationApplianceVpnStatuses(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			[AliasAs("networkIds")] List<string>? networkIds = null,

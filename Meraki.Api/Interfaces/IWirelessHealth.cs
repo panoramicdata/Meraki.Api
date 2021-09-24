@@ -336,7 +336,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/networks/{networkId}/wireless/meshStatuses")]
 		Task<List<LatencyHistory>> GetNetworkWirelessMeshStatusesAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			CancellationToken cancellationToken = default);
