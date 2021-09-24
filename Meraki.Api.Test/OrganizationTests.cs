@@ -248,5 +248,44 @@ namespace Meraki.Api.Test
 			organization.Name.Should().Be(initialOrganizationName);
 			organization.Url.Should().NotBeNullOrWhiteSpace();
 		}
+
+		[Fact]
+		public async void GetAllNetworksAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.GetAllOrganizationNetworks(Configuration.TestOrganizationId, perPage: 3)
+				.ConfigureAwait(false);
+
+			result.Should().BeOfType<List<Network>>();
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
+			var firstResult = result[0];
+			NetworkTests.ValidateNetwork(firstResult);
+		}
+
+		[Fact]
+		public async void GetAllPagesForNetworksAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.GetAllPagesAsync(
+					(perPage, startingAfter, cancellationToken)
+					=> MerakiClient
+						.Organizations
+						.GetNetworksAsync(
+							Configuration.TestOrganizationId,
+							perPage: perPage,
+							startingAfter: startingAfter,
+							cancellationToken: cancellationToken
+						),
+					3
+				)
+				.ConfigureAwait(false);
+
+			result.Should().BeOfType<List<Network>>();
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
+			var firstResult = result[0];
+			NetworkTests.ValidateNetwork(firstResult);
+		}
 	}
 }
