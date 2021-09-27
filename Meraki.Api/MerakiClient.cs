@@ -7,13 +7,14 @@ using Refit;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Meraki.Api
 {
 	/// <summary>
 	/// A Meraki Dashboard API client
 	/// </summary>
-	public class MerakiClient : IDisposable
+	public partial class MerakiClient : IDisposable
 	{
 		private readonly MerakiClientOptions _options;
 		private readonly ILogger _logger;
@@ -29,7 +30,7 @@ namespace Meraki.Api
 		{
 			_options = options;
 			_logger = logger ?? NullLogger.Instance;
-			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), _logger);
+			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), this, _logger);
 			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v1") };
 			_httpClient.Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds);
 			var refitSettings = new RefitSettings
@@ -510,6 +511,8 @@ namespace Meraki.Api
 		/// Used to find out whether the client has the ReadOnly option set
 		/// </summary>
 		public bool IsReadOnly => _options.ReadOnly;
+
+		public HttpResponseHeaders? LastResponseHeaders { get; set; }
 
 		/// <summary>
 		/// Used to change the Options Readonly state after client is created

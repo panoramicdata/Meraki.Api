@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("t0")] string t0 = null!,
 			[AliasAs("t1")] string t1 = null!,
 			[AliasAs("timespan")] double? timespan = null,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
@@ -53,7 +53,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("t0")] string t0 = null!,
 			[AliasAs("t1")] string t1 = null!,
 			[AliasAs("timespan")] double? timespan = null,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
@@ -76,7 +76,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("t0")] string t0 = null!,
 			[AliasAs("t1")] string t1 = null!,
 			[AliasAs("timespan")] double? timespan = null,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default

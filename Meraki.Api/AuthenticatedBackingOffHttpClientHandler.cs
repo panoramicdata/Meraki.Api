@@ -10,16 +10,23 @@ namespace Meraki.Api
 	internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 	{
 		private readonly MerakiClientOptions _options;
+		private readonly MerakiClient _merakiClient;
 		private readonly ILogger _logger;
 		private readonly LogLevel _levelToLogAt = LogLevel.Trace;
 
-		public AuthenticatedBackingOffHttpClientHandler(MerakiClientOptions options, ILogger logger)
+		public AuthenticatedBackingOffHttpClientHandler(
+			MerakiClientOptions options,
+			MerakiClient merakiClient,
+			ILogger logger)
 		{
 			_options = options;
+			_merakiClient = merakiClient;
 			_logger = logger;
 		}
 
-		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+		protected override async Task<HttpResponseMessage> SendAsync(
+			HttpRequestMessage request,
+			CancellationToken cancellationToken)
 		{
 			if (_options.ReadOnly)
 			{
@@ -64,6 +71,8 @@ namespace Meraki.Api
 
 				// Complete the action
 				var httpResponseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+
+				_merakiClient.LastResponseHeaders = httpResponseMessage.Headers;
 
 				// Only do diagnostic logging if we're at the level we want to enable for as this is more efficient
 				if (_logger.IsEnabled(_levelToLogAt))
