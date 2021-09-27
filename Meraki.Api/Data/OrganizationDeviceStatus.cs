@@ -1,4 +1,6 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -24,7 +26,7 @@ namespace Meraki.Api.Data
 		/// publicIp
 		/// </summary>
 		[DataMember(Name = "publicIp")]
-		public string PublicIp { get; set; } = string.Empty;
+		public string? PublicIp { get; set; }
 
 		/// <summary>
 		/// networkId
@@ -42,13 +44,13 @@ namespace Meraki.Api.Data
 		/// lastReportedAt
 		/// </summary>
 		[DataMember(Name = "lastReportedAt")]
-		public string LastReportedAt { get; set; } = string.Empty;
+		public string? LastReportedAt { get; set; }
 
 		/// <summary>
 		/// lanIp
 		/// </summary>
 		[DataMember(Name = "lanIp")]
-		public string LanIp { get; set; } = string.Empty;
+		public string? LanIp { get; set; };
 
 		/// <summary>
 		/// usingCellularFailover
@@ -60,13 +62,13 @@ namespace Meraki.Api.Data
 		/// wan1Ip
 		/// </summary>
 		[DataMember(Name = "wan1Ip")]
-		public string Wan1Ip { get; set; } = string.Empty;
+		public string? Wan1Ip { get; set; }
 
 		/// <summary>
 		/// wan2Ip
 		/// </summary>
 		[DataMember(Name = "wan2Ip")]
-		public string Wan2Ip { get; set; } = string.Empty;
+		public string? Wan2Ip { get; set; }
 
 		/// <summary>
 		/// The Device ProductType
@@ -81,9 +83,21 @@ namespace Meraki.Api.Data
 		public object? Components { get; set; }
 
 		/// <summary>
-		/// model
+		/// Model
 		/// </summary>
 		[DataMember(Name = "model")]
-		public string? Model { get; set; } = string.Empty;
+		public string? Model { get; set; }
+
+		/// <summary>
+		/// Tags
+		/// </summary>
+		[DataMember(Name = "tags")]
+		public List<string> Tags { get; set; } = new();
+
+		/// <summary>
+		/// ConfigurationUpdatedAt
+		/// </summary>
+		[DataMember(Name = "configurationUpdatedAt")]
+		public DateTime? ConfigurationUpdatedAt { get; set; }
 	}
 }
