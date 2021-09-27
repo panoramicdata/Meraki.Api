@@ -67,5 +67,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "wan2Ip")]
 		public string Wan2Ip { get; set; } = string.Empty;
+
+		/// <summary>
+		/// The Device ProductType
+		/// </summary>
+		[DataMember(Name = "productType")]
+		public ProductType? productType { get; set; }
 	}
 }
