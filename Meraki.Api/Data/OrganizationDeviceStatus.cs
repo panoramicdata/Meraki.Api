@@ -79,5 +79,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "components")]
 		public object? Components { get; set; }
+
+		/// <summary>
+		/// model
+		/// </summary>
+		[DataMember(Name = "model")]
+		public string? Model { get; set; } = string.Empty;
 	}
 }
