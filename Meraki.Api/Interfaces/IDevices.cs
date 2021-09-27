@@ -130,16 +130,6 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
-		/// Return the management interface settings for a device
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial">The serial number</param>
-		[Get("/devices/{serial}/managementInterface")]
-		Task<DeviceManagementInterfaceSettings> GetDeviceManagementInterfaceAsync(
-			[AliasAs("serial")] string serial,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
 		/// Reboot a device
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
