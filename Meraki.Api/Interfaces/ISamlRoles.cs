@@ -1,5 +1,6 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -46,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="samlRoleId">The SAML role id</param>
 		/// <param name="cancellationToken">Cancellation token</param>
 		[Get("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
-		Task<object> GetOrganizationSamlRoleAsync(
+		Task<SamlRole> GetOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("samlRoleId")] string samlRoleId,
 			CancellationToken cancellationToken
@@ -59,7 +60,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="cancellationToken">Cancellation token</param>
 		[Get("/organizations/{organizationId}/samlRoles")]
-		Task<SamlRole> GetOrganizationSamlRolesAsync(
+		Task<List<SamlRole>> GetOrganizationSamlRolesAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken
 			);
