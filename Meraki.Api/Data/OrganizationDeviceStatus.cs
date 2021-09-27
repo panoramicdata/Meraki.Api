@@ -50,7 +50,7 @@ namespace Meraki.Api.Data
 		/// lanIp
 		/// </summary>
 		[DataMember(Name = "lanIp")]
-		public string? LanIp { get; set; };
+		public string? LanIp { get; set; }
 
 		/// <summary>
 		/// usingCellularFailover
