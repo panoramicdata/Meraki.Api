@@ -73,5 +73,11 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "productType")]
 		public ProductType? productType { get; set; }
+
+		/// <summary>
+		/// Components - the structure of this is unclear at this time
+		/// </summary>
+		[DataMember(Name = "components")]
+		public object? Components { get; set; }
 	}
 }
