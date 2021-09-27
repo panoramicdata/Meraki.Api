@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// A named, identified item
 	/// </summary>
-	[DebuggerDisplay($"{{{nameof(Name)}}} ({{{nameof(Id)}}})")]
+	[DebuggerDisplay("{" + nameof(Name) + "} ({" + nameof(Id) + "})")]
 	[DataContract]
 	public abstract class NamedIdentifiedItem : IdentifiedItem
 	{
