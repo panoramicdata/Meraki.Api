@@ -28,7 +28,7 @@ namespace Meraki.Api
 				allEntries.AddRange(pageResponse);
 
 				// Check the Link response header
-				if (LastResponseHeaders?.TryGetValues("Link", out var linkHeaders) == true)
+				if (LastResponseHeaders is not null && LastResponseHeaders.TryGetValues("Link", out var linkHeaders))
 				{
 					// We found a Link header
 					var linkHeader = linkHeaders.FirstOrDefault();

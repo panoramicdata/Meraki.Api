@@ -8,7 +8,7 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// A device switch port
 	/// </summary>
-	[DebuggerDisplay($"{{{nameof(PortId)}}} ({{{nameof(Name)}}})")]
+	[DebuggerDisplay("{" + nameof(PortId) + "} ({" + nameof(Name) + "})")]
 	[DataContract]
 	public class DeviceSwitchPort : NamedItem
 	{
