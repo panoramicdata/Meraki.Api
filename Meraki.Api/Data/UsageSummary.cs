@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Usage summary
 	/// </summary>
 	[DataContract]
-	public partial class UsageSummary
+	public class UsageSummary
 	{
 		/// <summary>
 		/// Received in kilobytes

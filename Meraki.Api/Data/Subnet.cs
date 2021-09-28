@@ -6,20 +6,20 @@ namespace Meraki.Api.Data
 	/// Subnet
 	/// </summary>
 	[DataContract]
-	public partial class Subnet
+	public class Subnet
 	{
 		/// <summary>
 		/// The CIDR notation subnet used within the VPN
 		/// </summary>
 		/// <value>The CIDR notation subnet used within the VPN</value>
-		[DataMember(Name = "localSubnet", EmitDefaultValue = false)]
+		[DataMember(Name = "localSubnet")]
 		public string LocalSubnet { get; set; } = null!;
 
 		/// <summary>
 		/// Indicates the presence of the subnet in the VPN
 		/// </summary>
 		/// <value>Indicates the presence of the subnet in the VPN</value>
-		[DataMember(Name = "useVpn", EmitDefaultValue = false)]
+		[DataMember(Name = "useVpn")]
 		public bool? UseVpn { get; set; }
 	}
 }

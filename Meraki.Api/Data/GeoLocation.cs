@@ -6,20 +6,20 @@ namespace Meraki.Api.Data
 	/// The longitude and latitude of the bottom left corner of your floor plan.
 	/// </summary>
 	[DataContract]
-	public partial class GeoLocation
+	public class GeoLocation
 	{
 		/// <summary>
 		/// Latitude
 		/// </summary>
 		/// <value>Latitude</value>
-		[DataMember(Name = "lat", EmitDefaultValue = false)]
+		[DataMember(Name = "lat")]
 
 		public double? Latitude { get; set; }
 		/// <summary>
 		/// Longitude
 		/// </summary>
 		/// <value>Longitude</value>
-		[DataMember(Name = "lng", EmitDefaultValue = false)]
+		[DataMember(Name = "lng")]
 		public double? Longitude { get; set; }
 	}
 }

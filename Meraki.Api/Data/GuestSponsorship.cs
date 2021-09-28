@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Guest sponsorship
 	/// </summary>
 	[DataContract]
-	public partial class GuestSponsorship
+	public class GuestSponsorship
 	{
 		/// <summary>
 		/// Duration in minutes

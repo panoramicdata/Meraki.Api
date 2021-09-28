@@ -6,20 +6,20 @@ namespace Meraki.Api.Data
 	/// Tag
 	/// </summary>
 	[DataContract]
-	public partial class Tag
+	public class Tag
 	{
 		/// <summary>
 		/// The name of the tag
 		/// </summary>
 		/// <value>The name of the tag</value>
-		[DataMember(Name = "tag", EmitDefaultValue = false)]
+		[DataMember(Name = "tag")]
 		public string TagText { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The privilege of the dashboard administrator on the tag
 		/// </summary>
 		/// <value>The privilege of the dashboard administrator on the tag</value>
-		[DataMember(Name = "access", EmitDefaultValue = false)]
+		[DataMember(Name = "access")]
 		public string Access { get; set; } = string.Empty;
 	}
 }

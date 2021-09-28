@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// An administrator
 	/// </summary>
 	[DataContract]
-	public class Admin : NamedItem
+	public class Admin : NamedIdentifiedItem
 	{
 		/// <summary>
 		/// The administrator's Email

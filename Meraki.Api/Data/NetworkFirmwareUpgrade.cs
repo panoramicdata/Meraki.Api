@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Network Firmware Upgrade
 	/// </summary>
 	[DataContract]
-	public partial class NetworkFirmwareUpgrade
+	public class NetworkFirmwareUpgrade
 	{
 		/// <summary>
 		/// Upgrade window

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Array of access point serial number and IP assignment. Note: accessPoints IP assignment is not applicable for template networks, in other words, do not put 'accessPoints' in the body when updating template networks. Also, an empty 'accessPoints' array will remove all previous static IP assignments
 	/// </summary>
 	[DataContract]
-	public partial class AccessPoints
+	public class AccessPoints
 	{
 		/// <summary>
 		/// Serial number of access point to be configured with alternate management IP

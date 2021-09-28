@@ -123,20 +123,10 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/devices")]
 		Task<List<Device>> GetPageByOrganizationAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			[AliasAs("configurationUpdatedAfter")] string configurationUpdatedAfter = null!,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// Return the management interface settings for a device
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial">The serial number</param>
-		[Get("/devices/{serial}/managementInterfaceSettings")]
-		Task<DeviceManagementInterfaceSettings> GetNetworkDeviceManagementInterfaceSettingsAsync(
-			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -164,11 +154,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="updateNetworkDevice">Body for updating a network device</param>
+		/// <param name="device">Body for updating a device</param>
 		[Put("/devices/{serial}")]
 		Task<Device> UpdateAsync(
 			[AliasAs("serial")] string serial,
-			[Body] DeviceUpdateRequest updateNetworkDevice,
+			[Body] Device device,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

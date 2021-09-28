@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The Active Directory servers to be used for authentication.
 	/// </summary>
 	[DataContract]
-	public partial class ActiveDirectoryServers
+	public class ActiveDirectoryServers
 	{
 		/// <summary>
 		/// (Optional) UDP port the Active Directory server listens on. By default, uses port 3268.

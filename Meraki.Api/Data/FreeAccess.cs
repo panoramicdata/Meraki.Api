@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Free access
 	/// </summary>
 	[DataContract]
-	public partial class FreeAccess
+	public class FreeAccess
 	{
 		/// <summary>
 		/// Duration in minutes

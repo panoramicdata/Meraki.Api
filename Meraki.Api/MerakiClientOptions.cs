@@ -41,6 +41,11 @@ namespace Meraki.Api
 		/// </summary>
 		public int MaxAttemptCount { get; set; } = 5;
 
+		/// <summary>
+		/// When true, only GETs are permitted
+		/// </summary>
+		public bool ReadOnly { get; set; }
+
 		public void Validate()
 		{
 			// ApiNode

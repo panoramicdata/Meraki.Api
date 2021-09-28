@@ -7,24 +7,24 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsDhcpServerPolicy
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsDhcpServerPolicyUpdateRequest
+	public class SwitchSettingsDhcpServerPolicyUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets DefaultPolicy
 		/// </summary>
-		[DataMember(Name = "defaultPolicy", EmitDefaultValue = false)]
+		[DataMember(Name = "defaultPolicy")]
 		public DefaultPolicy DefaultPolicy { get; set; }
 		/// <summary>
 		/// List the MAC addresses of DHCP servers to permit on the network. Applicable only if defaultPolicy is set to block. An empty array will clear the entries.
 		/// </summary>
 		/// <value>List the MAC addresses of DHCP servers to permit on the network. Applicable only if defaultPolicy is set to block. An empty array will clear the entries.</value>
-		[DataMember(Name = "allowedServers", EmitDefaultValue = false)]
+		[DataMember(Name = "allowedServers")]
 		public List<string> AllowedServers { get; set; } = new();
 		/// <summary>
 		/// List the MAC addresses of DHCP servers to block on the network. Applicable only if defaultPolicy is set to allow. An empty array will clear the entries.
 		/// </summary>
 		/// <value>List the MAC addresses of DHCP servers to block on the network. Applicable only if defaultPolicy is set to allow. An empty array will clear the entries.</value>
-		[DataMember(Name = "blockedServers", EmitDefaultValue = false)]
+		[DataMember(Name = "blockedServers")]
 		public List<string> BlockedServers { get; set; } = new();
 	}
 }

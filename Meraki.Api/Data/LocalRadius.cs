@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The current setting for Local Authentication, a built-in RADIUS server on the access point. Only valid if authMode is '8021x-localradius'.
 	/// </summary>
 	[DataContract]
-	public partial class LocalRadius
+	public class LocalRadius
 	{
 		/// <summary>
 		/// The duration (in seconds) for which LDAP and OCSP lookups are cached.

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Application usage
 	/// </summary>
 	[DataContract]
-	public partial class SubclassApplicationUsage
+	public class SubclassApplicationUsage
 	{
 		/// <summary>
 		/// Application

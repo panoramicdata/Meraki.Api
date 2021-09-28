@@ -6,13 +6,13 @@ namespace Meraki.Api.Data
 	/// CreateOrganization
 	/// </summary>
 	[DataContract]
-	public partial class OrganizationCreateRequest
+	public class OrganizationCreateRequest
 	{
 		/// <summary>
 		/// The name of the organization
 		/// </summary>
 		/// <value>The name of the organization</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
+		[DataMember(Name = "name")]
 		public string Name { get; set; } = null!;
 	}
 }

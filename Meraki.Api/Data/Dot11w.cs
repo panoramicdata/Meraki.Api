@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The current setting for Protected Management Frames (802.11w).
 	/// </summary>
 	[DataContract]
-	public partial class Dot11w
+	public class Dot11w
 	{
 		/// <summary>
 		/// Enabled

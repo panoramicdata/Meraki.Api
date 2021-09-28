@@ -6,12 +6,12 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkUplinkSettings
 	/// </summary>
 	[DataContract]
-	public partial class UplinkSettingsUpdateRequest
+	public class UplinkSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets BandwidthLimits
 		/// </summary>
-		[DataMember(Name = "bandwidthLimits", EmitDefaultValue = false)]
+		[DataMember(Name = "bandwidthLimits")]
 		public BandwidthLimits7 BandwidthLimits { get; set; } = null!;
 	}
 }

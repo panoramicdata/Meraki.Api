@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,13 +8,14 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkCellularFirewallRules
 	/// </summary>
 	[DataContract]
-	public partial class MxCellularFirewallRulesUpdateRequest
+	public class MxCellularFirewallRules
 	{
 		/// <summary>
 		/// An ordered array of the firewall rules (not including the default rule)
 		/// </summary>
 		/// <value>An ordered array of the firewall rules (not including the default rule)</value>
-		[DataMember(Name = "rules", EmitDefaultValue = false)]
+		[ApiAccess(ApiAccess.ReadWrite)]
+		[DataMember(Name = "rules")]
 		public List<MxCellularFirewallRule> Rules { get; set; } = new();
 	}
 }

@@ -3,16 +3,10 @@
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// DeviceLedsBlinkResponse
+	/// BlinkNetworkDeviceLeds response showing what was actually used
 	/// </summary>
 	[DataContract]
-	public class DeviceLedsBlinkResponse
+	public class DeviceLedsBlinkResponse : DeviceLedsBlinkRequest
 	{
-		/// <summary>
-		/// Whether the request was successfully sent to the device
-		/// </summary>
-		[DataMember(Name = "sentToDevice")]
-
-		public bool SentToDevice { get; set; }
 	}
 }

@@ -6,25 +6,25 @@ namespace Meraki.Api.Data
 	/// UpdateDeviceWirelessBluetoothSettings
 	/// </summary>
 	[DataContract]
-	public partial class WirelessBluetoothSettingsUpdateRequest
+	public class WirelessBluetoothSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Desired UUID of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.
 		/// </summary>
 		/// <value>Desired UUID of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.</value>
-		[DataMember(Name = "uuid", EmitDefaultValue = false)]
+		[DataMember(Name = "uuid")]
 		public string Uuid { get; set; } = string.Empty;
 		/// <summary>
 		/// Desired major value of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.
 		/// </summary>
 		/// <value>Desired major value of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.</value>
-		[DataMember(Name = "major", EmitDefaultValue = false)]
+		[DataMember(Name = "major")]
 		public int? Major { get; set; }
 		/// <summary>
 		/// Desired minor value of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.
 		/// </summary>
 		/// <value>Desired minor value of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.</value>
-		[DataMember(Name = "minor", EmitDefaultValue = false)]
+		[DataMember(Name = "minor")]
 		public int? Minor { get; set; }
 	}
 }

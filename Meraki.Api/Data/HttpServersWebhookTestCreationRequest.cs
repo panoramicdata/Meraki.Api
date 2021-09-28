@@ -6,13 +6,13 @@ namespace Meraki.Api.Data
 	/// CreateNetworkHttpServersWebhookTest
 	/// </summary>
 	[DataContract]
-	public partial class HttpServersWebhookTestCreationRequest
+	public class HttpServersWebhookTestCreationRequest
 	{
 		/// <summary>
 		/// The URL where the test webhook will be sent
 		/// </summary>
 		/// <value>The URL where the test webhook will be sent</value>
-		[DataMember(Name = "url", EmitDefaultValue = false)]
+		[DataMember(Name = "url")]
 		public string Url { get; set; } = null!;
 	}
 }

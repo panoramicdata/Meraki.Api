@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -7,9 +8,16 @@ namespace Meraki.Api.Data
 	/// A network
 	/// </summary>
 	[DataContract]
-	public class Network : NamedIdentifiedItem
+	public class Network : NetworkOrConfigurationTemplate
 	{
 		public const int MaxNameLength = 38;
+
+		/// <summary>
+		/// Product types
+		/// </summary>
+		[DataMember(Name = "productTypes")]
+		[ApiAccess(ApiAccess.ReadCreate)]
+		public override List<ProductType> ProductTypes { get; set; } = new();
 
 		/// <summary>
 		/// OrganizationId
@@ -18,14 +26,9 @@ namespace Meraki.Api.Data
 		public string OrganizationId { get; set; } = default!;
 
 		/// <summary>
-		/// timeZone
-		/// </summary>
-		[DataMember(Name = "timeZone")]
-		public string TimeZone { get; set; } = default!;
-
-		/// <summary>
 		/// tags
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "tags")]
 		public List<string> Tags { get; set; } = default!;
 
@@ -51,18 +54,30 @@ namespace Meraki.Api.Data
 		/// configTemplateId
 		/// </summary>
 		[DataMember(Name = "configTemplateId")]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		public string? ConfigurationTemplateId { get; set; }
-
-		/// <summary>
-		/// Product types
-		/// </summary>
-		[DataMember(Name = "productTypes")]
-		public List<string> ProductTypes { get; set; } = new List<string>();
 
 		/// <summary>
 		/// Notes
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "notes")]
 		public string Notes { get; set; } = string.Empty;
+
+		/// <summary>
+		/// A unique identifier which can be used for device enrollment or
+		/// easy access through the Meraki SM Registration page or the
+		/// Self Service Portal. Please note that changing this field may
+		/// cause existing bookmarks to break.
+		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[DataMember(Name = "enrollmentString")]
+		public string? EnrollmentString { get; set; }
+
+		/// <summary>
+		/// URL
+		/// </summary>
+		[DataMember(Name = "url")]
+		public string Url { get; set; } = string.Empty;
 	}
 }

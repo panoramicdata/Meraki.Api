@@ -6,18 +6,18 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkDeviceManagementInterfaceSettings
 	/// </summary>
 	[DataContract]
-	public partial class ManagementInterfaceSettingsUpdateRequest
+	public class ManagementInterfaceSettingsUpdateRequest
 	{
 		/// <summary>
 		/// Gets or Sets Wan1
 		/// </summary>
-		[DataMember(Name = "wan1", EmitDefaultValue = false)]
+		[DataMember(Name = "wan1")]
 		public Wan Wan1 { get; set; } = new();
 
 		/// <summary>
 		/// Gets or Sets Wan2
 		/// </summary>
-		[DataMember(Name = "wan2", EmitDefaultValue = false)]
+		[DataMember(Name = "wan2")]
 		public Wan Wan2 { get; set; } = new();
 	}
 }

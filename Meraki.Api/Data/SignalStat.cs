@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Signal stat
 	/// </summary>
 	[DataContract]
-	public partial class SignalStat
+	public class SignalStat
 	{
 		/// <summary>
 		/// Rsrp

@@ -6,20 +6,20 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSmTargetGroup
 	/// </summary>
 	[DataContract]
-	public partial class SmTargetGroupCreationRequest
+	public class SmTargetGroupCreationRequest
 	{
 		/// <summary>
 		/// The name of this target group
 		/// </summary>
 		/// <value>The name of this target group</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
+		[DataMember(Name = "name")]
 		public string Name { get; set; } = null!;
 
 		/// <summary>
 		/// The scope and tag options of the target group. Comma separated values beginning with one of withAny, withAll, withoutAny, withoutAll, all, none, followed by tags. Default to none if empty.
 		/// </summary>
 		/// <value>The scope and tag options of the target group. Comma separated values beginning with one of withAny, withAll, withoutAny, withoutAll, all, none, followed by tags. Default to none if empty.</value>
-		[DataMember(Name = "scope", EmitDefaultValue = false)]
+		[DataMember(Name = "scope")]
 		public string Scope { get; set; } = null!;
 	}
 }

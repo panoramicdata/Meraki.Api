@@ -36,7 +36,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The upgrade strategy to apply to the network. Must be one of 'minimizeUpgradeTime' or 'minimizeClientDowntime'. Requires firmware version MR 26.8 or higher'
 		/// </summary>
-		[DataMember(Name = "upgradeStrategy", EmitDefaultValue = false)]
+		[DataMember(Name = "upgradeStrategy")]
 		public string UpgradeStrategy { get; set; } = string.Empty;
 	}
 }

@@ -19,22 +19,22 @@ namespace Meraki.Api.Test
 		{
 		}
 
-		[Fact]
-		public async void GetNetworksAsync_Succeeds()
-		{
-			var result = await MerakiClient
-				.Networks
-				.GetAllAsync(Configuration.TestOrganizationId)
-				.ConfigureAwait(false);
+		//[Fact]
+		//public async void GetNetworksAsync_Succeeds()
+		//{
+		//	var result = await MerakiClient
+		//		.Networks
+		//		.GetAllAsync(Configuration.TestOrganizationId)
+		//		.ConfigureAwait(false);
 
-			result.Should().BeOfType<List<Network>>();
-			result.Should().NotBeNull();
-			result.Should().NotBeEmpty();
-			var firstResult = result[0];
-			Validate(firstResult);
-		}
+		//	result.Should().BeOfType<List<Network>>();
+		//	result.Should().NotBeNull();
+		//	result.Should().NotBeEmpty();
+		//	var firstResult = result[0];
+		//	ValidateNetwork(firstResult);
+		//}
 
-		private static void Validate(Network network)
+		internal static void ValidateNetwork(Network network)
 		{
 			network.Should().NotBeNull();
 			string.IsNullOrWhiteSpace(network.Id).Should().BeFalse();
@@ -46,7 +46,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetAllSsidsAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
@@ -60,7 +60,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetAllDevicesAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
@@ -88,7 +88,7 @@ namespace Meraki.Api.Test
 					new NetworkCreationRequest
 					{
 						Name = networkName,
-						ProductTypes = new List<string> { "wireless" },
+						ProductTypes = new() { ProductType.Wireless },
 						Tags = new List<string>(),
 						TimeZone = "Europe/London"
 					})
@@ -131,8 +131,8 @@ namespace Meraki.Api.Test
 		{
 			// Perform any clean-up
 			var networks = await MerakiClient
-							.Networks
-							.GetAllAsync(Configuration.TestOrganizationId)
+							.Organizations
+							.GetNetworksAsync(Configuration.TestOrganizationId)
 							.ConfigureAwait(false);
 			var oldNetwork = networks.SingleOrDefault(n => n.Name == networkName);
 			if (oldNetwork != default)
@@ -271,9 +271,10 @@ namespace Meraki.Api.Test
 			// updating the device with a too-long address should fail
 			Func<Task> action = async () =>
 			{
+				fetchedDevice.Address = new string('x', Device.MaxAddressLength + 1);
 				await MerakiClient
 					.Devices
-					.UpdateAsync(newNetwork.Id, new DeviceUpdateRequest { Address = new string('x', Device.MaxAddressLength + 1) })
+					.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
 					.ConfigureAwait(false);
 			};
 
@@ -283,15 +284,17 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			//// But an OK length should succeed
+			fetchedDevice.Address = new string('x', Device.MaxAddressLength);
 			await MerakiClient
 				.Devices
-				.UpdateAsync(newNetwork.Id, new DeviceUpdateRequest { Address = new string('X', Device.MaxAddressLength) })
+				.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Setting the address should succeed
+			fetchedDevice.Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA";
 			await MerakiClient
 				.Devices
-				.UpdateAsync(newNetwork.Id, new DeviceUpdateRequest { Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA" })
+				.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Get the management interface settings
@@ -398,7 +401,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetClientsAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
@@ -412,7 +415,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetBluetoothClientsAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			var result = await MerakiClient
@@ -426,7 +429,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetWirelessSettingsAsync_Succeeds()
 		{
-			var network = await GetTestNetworkAsync()
+			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
 			// Get the wireless settings
@@ -464,7 +467,7 @@ namespace Meraki.Api.Test
 			// Get a snapshot from the camera
 			var newResult = await MerakiClient
 				.Cameras
-				.GetSnapshotAsync(Configuration.TestCameraSerial!, new CameraSnapshotRequest { Fullframe = true })
+				.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
 				.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 
@@ -493,11 +496,11 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void GetFast_Succeeds()
+		public async void GetRepeatedlyInQuickSuccession_Succeeds()
 		{
 			foreach (var _ in Enumerable.Range(0, 10))
 			{
-				await GetTestNetworkAsync()
+				await GetFirstNetworkAsync()
 					.ConfigureAwait(false);
 			}
 		}
@@ -505,15 +508,14 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetDeviceSwitchPortsAsync_Succeeds()
 		{
-			Configuration.TestCameraSerial.Should().NotBeNull();
+			Configuration.TestSwitchSerial.Should().NotBeNull();
 
-			// Currently does not work (404 error, and also in Postman)
 			var switchPorts = await MerakiClient
 				.SwitchPorts
-				.GetDeviceSwitchPortsAsync(Configuration.TestCameraSerial, default)
+				.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, default)
 				.ConfigureAwait(false);
 
-			switchPorts.Should().NotBeNull();
+			switchPorts.Should().NotBeNullOrEmpty();
 		}
 
 		[Fact]
@@ -527,6 +529,38 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			switchStacks.Should().NotBeNull();
+		}
+
+		[Fact]
+		public async void ReadOnlyStopsCreate_Succeeds()
+		{
+			var originalIsReadOnly = MerakiClient.IsReadOnly;
+			MerakiClient.SetReadOnly(true);
+			try
+			{
+				// Create network
+				var exception = await Assert.ThrowsAsync<InvalidOperationException>(
+					() => MerakiClient
+						.Networks
+						.CreateAsync(
+							Configuration.TestOrganizationId,
+							new NetworkCreationRequest
+							{
+								Name = Guid.NewGuid().ToString(),
+								ProductTypes = new() { ProductType.Wireless },
+								Tags = new List<string>(),
+								TimeZone = "Europe/London",
+								Notes = $"Created at {DateTime.UtcNow:u} during unit testing, OK to delete"
+							}
+						)
+					).ConfigureAwait(false);
+				exception.Message.Should().Be("The client options have been configured to only allow read actions");
+			}
+			finally
+			{
+				// Restore the original ReadOnly state
+				MerakiClient.SetReadOnly(originalIsReadOnly);
+			}
 		}
 	}
 }

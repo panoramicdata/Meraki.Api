@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Meraki.Api.Attributes;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 
@@ -14,68 +16,76 @@ namespace Meraki.Api.Data
 		public const int MaxAddressLength = 255;
 
 		/// <summary>
-		/// Latitude
+		/// The latitude of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "lat")]
 		public float Latitude { get; set; }
 
 		/// <summary>
-		/// Longitude
+		/// The longitude of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "lng")]
 		public float Longitude { get; set; }
 
 		/// <summary>
-		/// Address
+		/// The address of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "address")]
 		public string Address { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Notes
+		/// The notes for the device. String. Limited to 255 characters.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "notes")]
 		public string? Notes { get; set; }
 
 		/// <summary>
-		/// Tags
+		/// The list of tags of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "tags")]
 		public List<string> Tags { get; set; } = new();
 
 		/// <summary>
-		/// Network Id
+		/// ReadOnly: The Network Id of a device
 		/// </summary>
 		[DataMember(Name = "networkId")]
 		public string NetworkId { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Serial
+		/// ReadOnly: The Serial of a device
 		/// </summary>
+		[Key]
 		[DataMember(Name = "serial")]
 		public string Serial { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Model
+		/// ReadOnly: The model of a device
 		/// </summary>
 		[DataMember(Name = "model")]
 		public string Model { get; set; } = string.Empty;
 
 		/// <summary>
-		/// The MAC address
+		/// ReadOnly: The MAC address of a device
 		/// </summary>
 		[DataMember(Name = "mac")]
 		public string Mac { get; set; } = string.Empty;
 
 		/// <summary>
-		/// The LAN IP address
+		/// Readonly: The LAN IP address
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "lanIp")]
 		public string LanIp { get; set; } = string.Empty;
 
 		/// <summary>
-		/// The beacon ID parameters
+		/// Readonly: The beacon ID parameters
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "beaconIdParams")]
 		public BeaconIdParams BeaconIdParams { get; set; } = new BeaconIdParams();
 
@@ -86,45 +96,60 @@ namespace Meraki.Api.Data
 		public string ConfigurationUpdatedAt { get; set; } = string.Empty;
 
 		/// <summary>
-		/// firmware
+		/// Readonly: The firmware version of a device
 		/// </summary>
 		[DataMember(Name = "firmware")]
 		public string Firmware { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Floor Plan Id
+		/// The floor plan to associate to this device. null disassociates the device from the floorplan.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "floorPlanId")]
-		public string FloorPlanId { get; set; } = string.Empty;
+		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
+		public string? FloorPlanId { get; set; }
 
 		/// <summary>
-		/// Switch Profile Id
+		/// The ID of a switch profile to bind to the device (for available switch profiles, see the 'Switch Profiles' endpoint).
+		/// Use null to unbind the switch device from the current profile. For a device to be bindable to a switch profile,
+		/// it must (1) be a switch, and (2) belong to a network that is bound to a configuration template.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "switchProfileId")]
-		public string SwitchProfileId { get; set; } = string.Empty;
+		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
+		public string? SwitchProfileId { get; set; }
 
 		/// <summary>
-		/// URL
+		/// Readonly: URL
 		/// </summary>
 		[DataMember(Name = "url")]
 		public string Url { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Wireless MAC address
+		/// Readonly: Wireless MAC address
 		/// </summary>
 		[DataMember(Name = "wirelessMac")]
 		public string WirelessMac { get; set; } = string.Empty;
 
 		/// <summary>
-		/// WAN 1 IP address
+		/// Readonly: WAN 1 IP address
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "wan1Ip")]
-		public string Wan1Ip { get; set; } = string.Empty;
+		public string? Wan1Ip { get; set; }
 
 		/// <summary>
-		/// WAN 2 IP address
+		/// Readonly: WAN 2 IP address
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "wan2Ip")]
-		public string Wan2Ip { get; set; } = string.Empty;
+		public string? Wan2Ip { get; set; }
+
+		/// <summary>
+		/// Whether or not to set the latitude and longitude of a device based on the new address. Only applies when lat and lng are not specified.
+		/// Only used when sending updates
+		/// </summary>
+		[DataMember(Name = "moveMapMarker")]
+		public bool? MoveMapMarker { get; set; }
 	}
 }

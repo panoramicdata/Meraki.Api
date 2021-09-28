@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Last upgrade
 	/// </summary>
 	[DataContract]
-	public partial class LastUpgrade
+	public class LastUpgrade
 	{
 		/// <summary>
 		/// Time

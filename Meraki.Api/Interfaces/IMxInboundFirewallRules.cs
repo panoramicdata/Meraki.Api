@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Meraki.Api.Interfaces
 {
 	/// <summary>
-	/// Represents a collection of functions to interact with the API endpoints
+	/// Inbound firewall rules for an MX network
 	/// </summary>
 	public interface IMxInboundFirewallRules
 	{
@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
-		Task<NetworkApplianceFirewallInboundFirewallRulesUpdateRequest> GetNetworkApplianceFirewallInboundFirewallRulesAsync(
+		Task<NetworkApplianceInboundFirewallRules> GetNetworkApplianceInboundFirewallRulesAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -26,11 +26,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkApplianceFirewallInboundFirewallRules">Body for updating inbound firewall rules</param>
+		/// <param name="networkApplianceInboundFirewallRules">Body for updating inbound firewall rules</param>
 		[Put("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
-		Task<NetworkApplianceFirewallInboundFirewallRulesUpdateRequest> UpdateNetworkApplianceFirewallInboundFirewallRulesAsync(
+		Task<NetworkApplianceInboundFirewallRules> UpdateNetworkApplianceInboundFirewallRulesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkApplianceFirewallInboundFirewallRulesUpdateRequest updateNetworkApplianceFirewallInboundFirewallRules,
+			[Body] NetworkApplianceInboundFirewallRules networkApplianceInboundFirewallRules,
 			CancellationToken cancellationToken = default
 			);
 	}

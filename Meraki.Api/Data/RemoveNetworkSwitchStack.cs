@@ -6,13 +6,13 @@ namespace Meraki.Api.Data
 	/// RemoveNetworkSwitchStack
 	/// </summary>
 	[DataContract]
-	public partial class RemoveNetworkSwitchStack
+	public class RemoveNetworkSwitchStack
 	{
 		/// <summary>
 		/// The serial of the switch to be removed
 		/// </summary>
 		/// <value>The serial of the switch to be removed</value>
-		[DataMember(Name = "serial", EmitDefaultValue = false)]
+		[DataMember(Name = "serial")]
 		public string Serial { get; set; } = string.Empty;
 	}
 }

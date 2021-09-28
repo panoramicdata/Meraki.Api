@@ -7,30 +7,30 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkContentFiltering
 	/// </summary>
 	[DataContract]
-	public partial class NetworkContentFilteringUpdateRequest
+	public class NetworkContentFilteringUpdateRequest
 	{
 		/// <summary>
 		/// A whitelist of URL patterns to allow
 		/// </summary>
 		/// <value>A whitelist of URL patterns to allow</value>
-		[DataMember(Name = "allowedUrlPatterns", EmitDefaultValue = false)]
+		[DataMember(Name = "allowedUrlPatterns")]
 		public List<string> AllowedUrlPatterns { get; set; } = new();
 		/// <summary>
 		/// A blacklist of URL patterns to block
 		/// </summary>
 		/// <value>A blacklist of URL patterns to block</value>
-		[DataMember(Name = "blockedUrlPatterns", EmitDefaultValue = false)]
+		[DataMember(Name = "blockedUrlPatterns")]
 		public List<string> BlockedUrlPatterns { get; set; } = new();
 		/// <summary>
 		/// A list of URL categories to block
 		/// </summary>
 		/// <value>A list of URL categories to block</value>
-		[DataMember(Name = "blockedUrlCategories", EmitDefaultValue = false)]
+		[DataMember(Name = "blockedUrlCategories")]
 		public List<string> BlockedUrlCategories { get; set; } = new();
 		/// <summary>
 		/// Gets or Sets UrlCategoryListSize
 		/// </summary>
-		[DataMember(Name = "urlCategoryListSize", EmitDefaultValue = false)]
+		[DataMember(Name = "urlCategoryListSize")]
 		public UrlCategoryListSize UrlCategoryListSize { get; set; }
 	}
 }

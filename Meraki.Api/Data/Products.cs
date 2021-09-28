@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Products
 	/// </summary>
 	[DataContract]
-	public partial class Products
+	public class Products
 	{
 		/// <summary>
 		/// Camera

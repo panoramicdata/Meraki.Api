@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// CreateNetworkWirelessRfProfile
 	/// </summary>
 	[DataContract]
-	public partial class WirelessRfProfileCreationRequest
+	public class WirelessRfProfileCreationRequest
 	{
 		/// <summary>
 		/// Id
@@ -24,44 +24,44 @@ namespace Meraki.Api.Data
 		/// The name of the new profile. Must be unique. This param is required on creation.
 		/// </summary>
 		/// <value>The name of the new profile. Must be unique. This param is required on creation.</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
+		[DataMember(Name = "name")]
 		public string Name { get; set; } = null!;
 
 		/// <summary>
 		/// Steers client to best available access point. Can be either true or false. Defaults to true.
 		/// </summary>
 		/// <value>Steers client to best available access point. Can be either true or false. Defaults to true.</value>
-		[DataMember(Name = "clientBalancingEnabled", EmitDefaultValue = false)]
+		[DataMember(Name = "clientBalancingEnabled")]
 		public bool? ClientBalancingEnabled { get; set; }
 
 		/// <summary>
 		/// Gets or Sets MinBitrateType
 		/// </summary>
-		[DataMember(Name = "minBitrateType", EmitDefaultValue = false)]
+		[DataMember(Name = "minBitrateType")]
 		public MinBitrateType MinBitrateType { get; set; }
 
 		/// <summary>
 		/// Gets or Sets BandSelectionType
 		/// </summary>
-		[DataMember(Name = "bandSelectionType", EmitDefaultValue = false)]
+		[DataMember(Name = "bandSelectionType")]
 		public BandSelectionType BandSelectionType { get; set; }
 
 		/// <summary>
 		/// Gets or Sets ApBandSettings
 		/// </summary>
-		[DataMember(Name = "apBandSettings", EmitDefaultValue = false)]
+		[DataMember(Name = "apBandSettings")]
 		public ApBandSettings ApBandSettings { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or Sets TwoFourGhzSettings
 		/// </summary>
-		[DataMember(Name = "twoFourGhzSettings", EmitDefaultValue = false)]
+		[DataMember(Name = "twoFourGhzSettings")]
 		public TwoPointFourGhzSettings TwoFourGhzSettings { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or Sets FiveGhzSettings
 		/// </summary>
-		[DataMember(Name = "fiveGhzSettings", EmitDefaultValue = false)]
+		[DataMember(Name = "fiveGhzSettings")]
 		public FiveGhzSettings FiveGhzSettings { get; set; } = null!;
 	}
 }

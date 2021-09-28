@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Switch
 	/// </summary>
 	[DataContract]
-	public partial class SwitchUpdate
+	public class SwitchUpdate
 	{
 		/// <summary>
 		/// Participate in next beta release?

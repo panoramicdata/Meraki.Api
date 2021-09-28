@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Uplinks
 	/// </summary>
 	[DataContract]
-	public partial class Uplinks
+	public class Uplinks
 	{
 		/// <summary>
 		/// Interface

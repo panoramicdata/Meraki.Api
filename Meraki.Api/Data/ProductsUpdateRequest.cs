@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Products (update request)
 	/// </summary>
 	[DataContract]
-	public partial class ProductsUpdateRequest
+	public class ProductsUpdateRequest
 	{
 		/// <summary>
 		/// Appliance

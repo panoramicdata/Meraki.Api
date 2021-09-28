@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// (Optional) The credentials of the user account to be used by the AP to bind to your Active Directory server. The Active Directory account should have permissions on all your Active Directory servers. Only valid if the splashPage is 'Password-protected with Active Directory'.
 	/// </summary>
 	[DataContract]
-	public partial class ActiveDirectoryCredentials
+	public class ActiveDirectoryCredentials
 	{
 		/// <summary>
 		/// The logon name of the Active Directory account.

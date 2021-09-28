@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Performance class
 	/// </summary>
 	[DataContract]
-	public partial class PerformanceClass
+	public class PerformanceClass
 	{
 		/// <summary>
 		/// Type

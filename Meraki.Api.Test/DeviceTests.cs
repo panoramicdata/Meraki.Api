@@ -42,14 +42,12 @@ namespace Meraki.Api.Test
 		{
 			var devices = await MerakiClient
 				.Devices
-				.GetAllByNetworkAsync(Configuration.TestCameraNetworkId)
+				.GetAllByNetworkAsync(Configuration.TestNetworkId)
 				.ConfigureAwait(false);
 
 			devices
 				.Should()
-				.NotBeNull()
-				.And
-				.NotBeEmpty();
+				.NotBeNullOrEmpty();
 
 			var deviceSerial = devices[0].Serial;
 
@@ -64,27 +62,24 @@ namespace Meraki.Api.Test
 
 			if (device.Address != string.Empty)
 			{
+				device.Address = string.Empty;
 				await MerakiClient
 					.Devices
 					.UpdateAsync(
 						device.Serial,
-						new DeviceUpdateRequest
-						{
-							Address = string.Empty
-						}
+						device
 					)
 					.ConfigureAwait(false);
 			}
 			//Device now has blank address
+
+			device.Address = "Picadilly Circus, London";
+			device.MoveMapMarker = true;
 			var updatedDevice = await MerakiClient
 				.Devices
 				.UpdateAsync(
 					device.Serial,
-					new DeviceUpdateRequest
-					{
-						Address = "Picadilly Circus, London",
-						MoveMapMarker = true
-					}
+					device
 				)
 				.ConfigureAwait(false);
 
@@ -94,23 +89,22 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void BlinkDeviceAsync_Succeeds()
 		{
-			var devices = await MerakiClient
-				.Devices
-				.GetAllByNetworkAsync(Configuration.TestCameraNetworkId)
+			var deviceStatuses = await MerakiClient
+				.Organizations
+				.GetDeviceStatusesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 
-			devices
+			deviceStatuses
 				.Should()
-				.NotBeNull()
-				.And
-				.NotBeEmpty();
+				.NotBeNullOrEmpty();
 
-			var deviceSerial = devices[0].Serial;
+			var onlineDevice = deviceStatuses.Find(d => d.Status == "online");
+			onlineDevice.Should().NotBeNull("Could not find an online device");
 
 			var outcome = await MerakiClient
 				.Devices
 				.BlinkLedsAsync(
-					deviceSerial,
+					onlineDevice!.Serial,
 					new DeviceLedsBlinkRequest
 					{
 						Duration = 10,
@@ -121,8 +115,6 @@ namespace Meraki.Api.Test
 			outcome
 				.Should()
 				.NotBeNull();
-
-			outcome.SentToDevice.Should().BeTrue();
 		}
 
 		// Test disabled - could only test with temporary credentials.
@@ -143,8 +135,8 @@ namespace Meraki.Api.Test
 			var deviceSerial = devices[0].Serial;
 
 			var deviceManagementInterfaceSettings = await MerakiClient
-				.Devices
-				.GetNetworkDeviceManagementInterfaceSettingsAsync(deviceSerial)
+				.ManagementInterfaceSettings
+				.GetAsync(deviceSerial)
 				.ConfigureAwait(false);
 
 			deviceManagementInterfaceSettings

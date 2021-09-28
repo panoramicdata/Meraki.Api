@@ -3,7 +3,6 @@ using Meraki.Api.Data;
 using Refit;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -27,7 +26,7 @@ namespace Meraki.Api.Test
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
 			var firstResult = result[0];
-			Validate(firstResult);
+			ValidateOrganisation(firstResult);
 		}
 
 		[Fact]
@@ -37,7 +36,7 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			Validate(result);
+			ValidateOrganisation(result);
 		}
 
 		[Fact]
@@ -47,7 +46,7 @@ namespace Meraki.Api.Test
 				.Organizations
 				.GetThirdPartyVpnPeersAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-			result.Should().BeOfType<List<ThirdPartyVpnPeer>>();
+			result.Should().BeOfType<ThirdPartyVpnPeerResponse>();
 			result.Should().NotBeNull();
 		}
 
@@ -76,9 +75,15 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetOrganizationLicenses_Succeeds()
 		{
+			if (Configuration.TestOrganizationIdSupportingPerDeviceLicensing is null)
+			{
+				// We'll skip this test then
+				return;
+			}
+
 			var licenses = await MerakiClient
 				.Licenses
-				.GetPageAsync(Configuration.TestOrganizationId)
+				.GetPageAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 				.ConfigureAwait(false);
 
 			licenses.Should().NotBeNull();
@@ -112,24 +117,31 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetOrganizationDeviceLicense_Succeeds()
 		{
+			if (Configuration.TestOrganizationIdSupportingPerDeviceLicensing is null)
+			{
+				// We'll skip this test then
+				return;
+			}
+
 			var organizationDeviceLicenses = await MerakiClient
 				.Licenses
-				.GetPageAsync(Configuration.TestOrganizationId, cancellationToken: default)
+				.GetPageAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 				.ConfigureAwait(false);
 
-			organizationDeviceLicenses.Should().NotBeNull();
-
-			var license = organizationDeviceLicenses.FirstOrDefault();
+			organizationDeviceLicenses.Should().NotBeNullOrEmpty();
+			var license = organizationDeviceLicenses[0];
 
 			var organizationDeviceLicense = await MerakiClient
 				.Licenses
-				.GetAsync(Configuration.TestOrganizationId, license!.Id)
+				.GetAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing, license.Id)
 				.ConfigureAwait(false);
 
 			organizationDeviceLicense.Should().NotBeNull();
 		}
 
-		[Fact]
+#pragma warning disable xUnit1004 // Test methods should not be skipped
+		[Fact(Skip = "Not part of general run")]
+#pragma warning restore xUnit1004 // Test methods should not be skipped
 		public async void ClaimDeviceAsync_Succeeds()
 		{
 			var result = await MerakiClient
@@ -198,12 +210,27 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 		}
 
-		private static void Validate(Organization org)
+		[Fact]
+		public async void GetNetworksAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.Organizations
+				.GetNetworksAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+
+			result.Should().BeOfType<List<Network>>();
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
+			var firstResult = result[0];
+			NetworkTests.ValidateNetwork(firstResult);
+		}
+
+		private static void ValidateOrganisation(Organization org)
 		{
 			org.Should().NotBeNull();
-			string.IsNullOrWhiteSpace(org.Id).Should().BeFalse();
-			string.IsNullOrWhiteSpace(org.Name).Should().BeFalse();
-			string.IsNullOrWhiteSpace(org.Url).Should().BeFalse();
+			org.Id.Should().NotBeNullOrWhiteSpace();
+			org.Name.Should().NotBeNullOrWhiteSpace();
+			org.Url.Should().NotBeNullOrWhiteSpace();
 		}
 
 		private static void CheckOrganization(
@@ -215,10 +242,35 @@ namespace Meraki.Api.Test
 			organization.Id.Should().NotBeNullOrWhiteSpace();
 			if (id != null)
 			{
+				// Compare the id
 				organization.Id.Should().Be(id);
 			}
 			organization.Name.Should().Be(initialOrganizationName);
 			organization.Url.Should().NotBeNullOrWhiteSpace();
+		}
+
+		[Fact]
+		public async void GetAllPagesForNetworksAsync_Succeeds()
+		{
+			var result = await MerakiClient
+				.GetAllAsync(
+					(perPage, startingAfter, cancellationToken)
+					=> MerakiClient
+						.Organizations
+						.GetNetworksAsync(
+							Configuration.TestOrganizationId,
+							perPage: perPage,
+							startingAfter: startingAfter,
+							cancellationToken: cancellationToken
+						)
+				)
+				.ConfigureAwait(false);
+
+			result.Should().BeOfType<List<Network>>();
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
+			var firstResult = result[0];
+			NetworkTests.ValidateNetwork(firstResult);
 		}
 	}
 }

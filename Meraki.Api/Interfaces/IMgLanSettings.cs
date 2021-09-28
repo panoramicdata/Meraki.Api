@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/cellularGateway/lan")]
-		Task<CellularGatewaySettingsUpdateRequest> GetCellularGatewaySettingsAsync(
+		Task<CellularGatewaySettings> GetCellularGatewaySettingsAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -25,11 +25,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="cellularGatewaySettingsUpdateRequest">Body for updating LAN settings</param>
+		/// <param name="cellularGatewaySettings">Body for updating LAN settings</param>
 		[Put("/devices/{serial}/cellularGateway/lan")]
-		Task<CellularGatewaySettingsUpdateRequest> UpdateCellularGatewaySettingsAsync(
+		Task<CellularGatewaySettings> UpdateCellularGatewaySettingsAsync(
 			[AliasAs("serial")] string serial,
-			[Body] CellularGatewaySettingsUpdateRequest cellularGatewaySettingsUpdateRequest,
+			[Body] CellularGatewaySettings cellularGatewaySettings,
 			CancellationToken cancellationToken = default);
 	}
 }

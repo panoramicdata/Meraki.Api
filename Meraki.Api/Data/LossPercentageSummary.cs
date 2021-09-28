@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Loss percentage summary
 	/// </summary>
 	[DataContract]
-	public partial class LossPercentageSummary
+	public class LossPercentageSummary
 	{
 		/// <summary>
 		/// Sender uplink

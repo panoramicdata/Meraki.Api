@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Neighbors
 	/// </summary>
 	[DataContract]
-	public partial class Neighbors
+	public class Neighbors
 	{
 		/// <summary>
 		/// Ip

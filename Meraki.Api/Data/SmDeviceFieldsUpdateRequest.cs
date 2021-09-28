@@ -6,30 +6,30 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSmDeviceFields
 	/// </summary>
 	[DataContract]
-	public partial class SmDeviceFieldsUpdateRequest
+	public class SmDeviceFieldsUpdateRequest
 	{
 		/// <summary>
 		/// The wifiMac of the device to be modified.
 		/// </summary>
 		/// <value>The wifiMac of the device to be modified.</value>
-		[DataMember(Name = "wifiMac", EmitDefaultValue = false)]
+		[DataMember(Name = "wifiMac")]
 		public string WifiMac { get; set; } = string.Empty;
 		/// <summary>
 		/// The id of the device to be modified.
 		/// </summary>
 		/// <value>The id of the device to be modified.</value>
-		[DataMember(Name = "id", EmitDefaultValue = false)]
+		[DataMember(Name = "id")]
 		public string Id { get; set; } = string.Empty;
 		/// <summary>
 		/// The serial of the device to be modified.
 		/// </summary>
 		/// <value>The serial of the device to be modified.</value>
-		[DataMember(Name = "serial", EmitDefaultValue = false)]
+		[DataMember(Name = "serial")]
 		public string Serial { get; set; } = string.Empty;
 		/// <summary>
 		/// Gets or Sets DeviceFields
 		/// </summary>
-		[DataMember(Name = "deviceFields", EmitDefaultValue = false)]
+		[DataMember(Name = "deviceFields")]
 		public DeviceFields DeviceFields { get; set; } = new();
 	}
 }

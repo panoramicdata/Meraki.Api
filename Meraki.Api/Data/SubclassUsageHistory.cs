@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Usage history
 	/// </summary>
 	[DataContract]
-	public partial class SubclassUsageHistory
+	public class SubclassUsageHistory
 	{
 		/// <summary>
 		/// Ts

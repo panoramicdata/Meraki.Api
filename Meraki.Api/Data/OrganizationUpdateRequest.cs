@@ -6,13 +6,19 @@ namespace Meraki.Api.Data
 	/// UpdateOrganization
 	/// </summary>
 	[DataContract]
-	public partial class OrganizationUpdateRequest
+	public class OrganizationUpdateRequest
 	{
 		/// <summary>
 		/// The name of the organization
 		/// </summary>
 		/// <value>The name of the organization</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
+		[DataMember(Name = "name")]
 		public string Name { get; set; } = string.Empty;
+
+		/// <summary>
+		/// API-specific settings
+		/// </summary>
+		[DataMember(Name = "api")]
+		public OrganizationApi Api { get; set; } = new();
 	}
 }

@@ -32,7 +32,7 @@ namespace Meraki.Api.Interfaces
 		Task<List<ConnectivityEvents>> GetNetworkWirelessClientConnectivityEventsAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("clientId")] string clientId,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			[AliasAs("t0")] string? t0 = null,

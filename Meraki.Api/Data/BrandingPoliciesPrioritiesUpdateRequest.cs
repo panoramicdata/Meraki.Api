@@ -7,13 +7,13 @@ namespace Meraki.Api.Data
 	/// UpdateOrganizationBrandingPoliciesPriorities
 	/// </summary>
 	[DataContract]
-	public partial class BrandingPoliciesPrioritiesUpdateRequest
+	public class BrandingPoliciesPrioritiesUpdateRequest
 	{
 		/// <summary>
 		/// A list of branding policy IDs arranged in ascending priority order (IDs later in the array have higher priority).
 		/// </summary>
 		/// <value>A list of branding policy IDs arranged in ascending priority order (IDs later in the array have higher priority).</value>
-		[DataMember(Name = "brandingPolicyIds", EmitDefaultValue = false)]
+		[DataMember(Name = "brandingPolicyIds")]
 		public List<string> BrandingPolicyIds { get; set; } = new();
 	}
 }

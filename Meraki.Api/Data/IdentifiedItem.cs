@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -12,6 +13,8 @@ namespace Meraki.Api.Data
 		/// The Id
 		/// </summary>
 		[DataMember(Name = "id")]
+		[ApiAccess(ApiAccess.Read)]
+		[Key]
 		public string Id { get; set; } = string.Empty;
 	}
 }

@@ -5,7 +5,7 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// Latency summary
 	/// </summary>
-	public partial class LatencySummary
+	public class LatencySummary
 	{
 		/// <summary>
 		/// Sender uplink

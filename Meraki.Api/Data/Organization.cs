@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+﻿using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -7,13 +7,20 @@ namespace Meraki.Api.Data
 	/// An organization
 	/// </summary>
 	[DataContract]
-	[DebuggerDisplay("{" + nameof(Name) + "}")]
 	public class Organization : NamedIdentifiedItem
 	{
 		/// <summary>
-		/// The URL
+		/// Readonly: URL
 		/// </summary>
-		[DataMember]
-		public string Url { get; set; } = default!;
+		[DataMember(Name = "url")]
+		[ApiAccess(ApiAccess.Read)]
+		public string Url { get; set; } = string.Empty;
+
+		/// <summary>
+		/// API-specific settings
+		/// </summary>
+		[DataMember(Name = "api")]
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		public OrganizationApi Api { get; set; } = new();
 	}
 }

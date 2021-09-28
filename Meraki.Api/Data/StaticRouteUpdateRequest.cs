@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkStaticRoute
 	/// </summary>
 	[DataContract]
-	public partial class StaticRouteUpdateRequest
+	public class StaticRouteUpdateRequest
 	{
 		/// <summary>
 		/// Id
@@ -25,42 +25,42 @@ namespace Meraki.Api.Data
 		/// The name of the static route
 		/// </summary>
 		/// <value>The name of the static route</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
+		[DataMember(Name = "name")]
 		public string Name { get; set; } = null!;
 
 		/// <summary>
 		/// The subnet of the static route
 		/// </summary>
 		/// <value>The subnet of the static route</value>
-		[DataMember(Name = "subnet", EmitDefaultValue = false)]
+		[DataMember(Name = "subnet")]
 		public string Subnet { get; set; } = null!;
 
 		/// <summary>
 		/// The gateway IP (next hop) of the static route
 		/// </summary>
 		/// <value>The gateway IP (next hop) of the static route</value>
-		[DataMember(Name = "gatewayIp", EmitDefaultValue = false)]
+		[DataMember(Name = "gatewayIp")]
 		public string GatewayIp { get; set; } = null!;
 
 		/// <summary>
 		/// The enabled state of the static route
 		/// </summary>
 		/// <value>The enabled state of the static route</value>
-		[DataMember(Name = "enabled", EmitDefaultValue = false)]
+		[DataMember(Name = "enabled")]
 		public bool? Enabled { get; set; }
 
 		/// <summary>
 		/// The DHCP fixed IP assignments on the static route. This should be an object that contains mappings from MAC addresses to objects that themselves each contain \&quot;ip\&quot; and \&quot;name\&quot; string fields. See the sample request/response for more details.
 		/// </summary>
 		/// <value>The DHCP fixed IP assignments on the static route. This should be an object that contains mappings from MAC addresses to objects that themselves each contain \&quot;ip\&quot; and \&quot;name\&quot; string fields. See the sample request/response for more details.</value>
-		[DataMember(Name = "fixedIpAssignments", EmitDefaultValue = false)]
+		[DataMember(Name = "fixedIpAssignments")]
 		public object FixedIpAssignments { get; set; } = null!;
 
 		/// <summary>
 		/// The DHCP reserved IP ranges on the static route
 		/// </summary>
 		/// <value>The DHCP reserved IP ranges on the static route</value>
-		[DataMember(Name = "reservedIpRanges", EmitDefaultValue = false)]
+		[DataMember(Name = "reservedIpRanges")]
 		public List<ReservedIpRange> ReservedIpRanges { get; set; } = null!;
 	}
 }

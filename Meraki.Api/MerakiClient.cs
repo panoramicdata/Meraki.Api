@@ -2,17 +2,21 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Refit;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Meraki.Api
 {
 	/// <summary>
 	/// A Meraki Dashboard API client
 	/// </summary>
-	public class MerakiClient : IDisposable
+	public partial class MerakiClient : IDisposable
 	{
+		private readonly MerakiClientOptions _options;
 		private readonly ILogger _logger;
 		private readonly HttpClient _httpClient;
 		private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
@@ -22,12 +26,11 @@ namespace Meraki.Api
 		/// </summary>
 		/// <param name="options"></param>
 		/// <param name="logger"></param>
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 		public MerakiClient(MerakiClientOptions options, ILogger? logger = default)
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 		{
+			_options = options;
 			_logger = logger ?? NullLogger.Instance;
-			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), _logger);
+			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), this, _logger);
 			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v1") };
 			_httpClient.Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds);
 			var refitSettings = new RefitSettings
@@ -35,7 +38,14 @@ namespace Meraki.Api
 				ContentSerializer = new NewtonsoftJsonContentSerializer(
 				new JsonSerializerSettings
 				{
-					NullValueHandling = NullValueHandling.Ignore
+					// By default nulls should not be rendered out, this will allow the receiving API to apply any defaults.
+					// Use [JsonProperty(NullValueHandling = NullValueHandling.Include)] to send
+					// nulls for specific properties, i.e. disassociating port schedule ids from a port
+					NullValueHandling = NullValueHandling.Ignore,
+#if DEBUG
+					MissingMemberHandling = MissingMemberHandling.Error,
+#endif
+					Converters = new List<JsonConverter> { new StringEnumConverter() }
 				})
 			};
 
@@ -99,6 +109,7 @@ namespace Meraki.Api
 			Sms = RestService.For<ISms>(_httpClient, refitSettings);
 			SnmpSettings = RestService.For<ISnmpSettings>(_httpClient, refitSettings);
 			SplashSettings = RestService.For<ISplashSettings>(_httpClient, refitSettings);
+			SplashLoginAttempts = RestService.For<ISplashLoginAttempts>(_httpClient, refitSettings);
 			Ssids = RestService.For<ISsids>(_httpClient, refitSettings);
 			SwitchAcls = RestService.For<ISwitchAcls>(_httpClient, refitSettings);
 			SwitchPorts = RestService.For<ISwitchPorts>(_httpClient, refitSettings);
@@ -495,6 +506,18 @@ namespace Meraki.Api
 		/// Wireless settings
 		/// </summary>
 		public IWirelessSettings WirelessSettings { get; }
+
+		/// <summary>
+		/// Used to find out whether the client has the ReadOnly option set
+		/// </summary>
+		public bool IsReadOnly => _options.ReadOnly;
+
+		public HttpResponseHeaders? LastResponseHeaders { get; set; }
+
+		/// <summary>
+		/// Used to change the Options Readonly state after client is created
+		/// </summary>
+		public void SetReadOnly(bool readOnly) => _options.ReadOnly = readOnly;
 
 		#region IDisposable Support
 		private bool _disposedValue; // To detect redundant calls

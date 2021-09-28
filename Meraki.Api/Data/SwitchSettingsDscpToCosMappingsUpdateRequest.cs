@@ -7,13 +7,13 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsDscpToCosMappings
 	/// </summary>
 	[DataContract]
-	public partial class SwitchSettingsDscpToCosMappingsUpdateRequest
+	public class SwitchSettingsDscpToCosMappingsUpdateRequest
 	{
 		/// <summary>
 		/// An array of DSCP to CoS mappings. An empty array will reset the mappings to default.
 		/// </summary>
 		/// <value>An array of DSCP to CoS mappings. An empty array will reset the mappings to default.</value>
-		[DataMember(Name = "mappings", EmitDefaultValue = false)]
+		[DataMember(Name = "mappings")]
 		public List<Mapping> Mappings { get; set; } = new();
 	}
 }

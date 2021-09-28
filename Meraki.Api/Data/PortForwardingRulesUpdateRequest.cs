@@ -7,13 +7,13 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkPortForwardingRules
 	/// </summary>
 	[DataContract]
-	public partial class PortForwardingRulesUpdateRequest
+	public class PortForwardingRulesUpdateRequest
 	{
 		/// <summary>
 		/// An array of port forwarding params
 		/// </summary>
 		/// <value>An array of port forwarding params</value>
-		[DataMember(Name = "rules", EmitDefaultValue = false)]
+		[DataMember(Name = "rules")]
 		public List<PortForwardingRules> Rules { get; set; } = new();
 	}
 }

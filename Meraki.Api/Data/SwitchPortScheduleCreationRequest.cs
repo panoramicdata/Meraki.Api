@@ -6,19 +6,19 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSwitchPortSchedule
 	/// </summary>
 	[DataContract]
-	public partial class SwitchPortScheduleCreationRequest
+	public class SwitchPortScheduleCreationRequest
 	{
 		/// <summary>
 		/// The name for your port schedule. Required
 		/// </summary>
 		/// <value>The name for your port schedule. Required</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
+		[DataMember(Name = "name")]
 		public string Name { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or Sets PortSchedule
 		/// </summary>
-		[DataMember(Name = "portSchedule", EmitDefaultValue = false)]
+		[DataMember(Name = "portSchedule")]
 		public PortSchedule PortSchedule { get; set; } = null!;
 	}
 }

@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Version to be updated to
 	/// </summary>
 	[DataContract]
-	public partial class VersionUpdate
+	public class VersionUpdate
 	{
 		/// <summary>
 		/// Id

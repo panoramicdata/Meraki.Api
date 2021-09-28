@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Value
 	/// </summary>
 	[DataContract]
-	public partial class Value
+	public class Value
 	{
 		/// <summary>
 		/// Id

@@ -6,18 +6,18 @@ namespace Meraki.Api.Data
 	/// License
 	/// </summary>
 	[DataContract]
-	public partial class License
+	public class License
 	{
 		/// <summary>
 		/// The key of the license
 		/// </summary>
 		/// <value>The key of the license</value>
-		[DataMember(Name = "key", EmitDefaultValue = false)]
+		[DataMember(Name = "key")]
 		public string? Key { get; set; }
 		/// <summary>
 		/// Gets or Sets Mode
 		/// </summary>
-		[DataMember(Name = "mode", EmitDefaultValue = false)]
+		[DataMember(Name = "mode")]
 		public LicenseMode Mode { get; set; }
 	}
 }

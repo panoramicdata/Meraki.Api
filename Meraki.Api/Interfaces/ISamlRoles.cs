@@ -1,5 +1,7 @@
 using Meraki.Api.Data;
 using Refit;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
@@ -15,10 +17,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="createOrganizationSamlRole">Body for creating a SAML role</param>
+		/// <param name="cancellationToken">Cancellation token</param>
 		[Post("/organizations/{organizationId}/samlRoles")]
 		Task<SamlRole> CreateOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] SamlRoleCreateRequest createOrganizationSamlRole
+			[Body] SamlRoleCreateRequest createOrganizationSamlRole,
+			CancellationToken cancellationToken
 			);
 
 		/// <summary>
@@ -27,10 +31,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="samlRoleId">The SAML role id</param>
+		/// <param name="cancellationToken">Cancellation token</param>
 		[Delete("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
 		Task DeleteOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("samlRoleId")] string samlRoleId
+			[AliasAs("samlRoleId")] string samlRoleId,
+			CancellationToken cancellationToken
 			);
 
 		/// <summary>
@@ -39,10 +45,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="samlRoleId">The SAML role id</param>
+		/// <param name="cancellationToken">Cancellation token</param>
 		[Get("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
-		Task<object> GetOrganizationSamlRoleAsync(
+		Task<SamlRole> GetOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("samlRoleId")] string samlRoleId
+			[AliasAs("samlRoleId")] string samlRoleId,
+			CancellationToken cancellationToken
 			);
 
 		/// <summary>
@@ -50,9 +58,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
+		/// <param name="cancellationToken">Cancellation token</param>
 		[Get("/organizations/{organizationId}/samlRoles")]
-		Task<SamlRole> GetOrganizationSamlRolesAsync(
-			[AliasAs("organizationId")] string organizationId
+		Task<List<SamlRole>> GetOrganizationSamlRolesAsync(
+			[AliasAs("organizationId")] string organizationId,
+			CancellationToken cancellationToken
 			);
 
 		/// <summary>
@@ -62,10 +72,12 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="samlRoleId">The SAML role id</param>
 		/// <param name="updateOrganizationSamlRole">Body for updating a SAML role</param>
+		/// <param name="cancellationToken">Cancellation token</param>
 		[Put("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
 		Task<SamlRole> UpdateOrganizationSamlRoleAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("samlRoleId")] string samlRoleId,
-			[Body] SamlRoleUpdateRequest updateOrganizationSamlRole);
+			[Body] SamlRoleUpdateRequest updateOrganizationSamlRole,
+			CancellationToken cancellationToken);
 	}
 }

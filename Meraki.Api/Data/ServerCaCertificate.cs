@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// The CA certificate used to sign the LDAP server's key.
 	/// </summary>
 	[DataContract]
-	public partial class ServerCaCertificate
+	public class ServerCaCertificate
 	{
 		/// <summary>
 		/// The contents of the CA certificate. Must be in PEM or DER format.

@@ -43,7 +43,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("t0")] string t0 = null!,
 			[AliasAs("timespan")] double? timespan = null,
-			[AliasAs("perPage")] int? perPage = null,
+			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			[AliasAs("includeConnectivityHistory")] bool? includeConnectivityHistory = null,

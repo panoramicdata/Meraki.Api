@@ -7,13 +7,13 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkOneToOneNatRules
 	/// </summary>
 	[DataContract]
-	public partial class OneToOneNatRulesUpdateRequest
+	public class OneToOneNatRulesUpdateRequest
 	{
 		/// <summary>
 		/// An array of 1:1 nat rules
 		/// </summary>
 		/// <value>An array of 1:1 nat rules</value>
-		[DataMember(Name = "rules", EmitDefaultValue = false)]
+		[DataMember(Name = "rules")]
 		public List<OneToOneNatRule> Rules { get; set; } = null!;
 	}
 }

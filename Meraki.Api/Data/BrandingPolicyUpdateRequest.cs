@@ -6,32 +6,32 @@ namespace Meraki.Api.Data
 	/// UpdateOrganizationBrandingPolicy
 	/// </summary>
 	[DataContract]
-	public partial class BrandingPolicyUpdateRequest
+	public class BrandingPolicyUpdateRequest
 	{
 		/// <summary>
 		/// Name of the Dashboard branding policy.
 		/// </summary>
 		/// <value>Name of the Dashboard branding policy.</value>
-		[DataMember(Name = "name", EmitDefaultValue = false)]
+		[DataMember(Name = "name")]
 		public string? Name { get; set; }
 
 		/// <summary>
 		/// Boolean indicating whether this policy is enabled.
 		/// </summary>
 		/// <value>Boolean indicating whether this policy is enabled.</value>
-		[DataMember(Name = "enabled", EmitDefaultValue = false)]
+		[DataMember(Name = "enabled")]
 		public bool? Enabled { get; set; }
 
 		/// <summary>
 		/// Gets or Sets AdminSettings
 		/// </summary>
-		[DataMember(Name = "adminSettings", EmitDefaultValue = false)]
+		[DataMember(Name = "adminSettings")]
 		public AdminSettings? AdminSettings { get; set; }
 
 		/// <summary>
 		/// Gets or Sets HelpSettings
 		/// </summary>
-		[DataMember(Name = "helpSettings", EmitDefaultValue = false)]
+		[DataMember(Name = "helpSettings")]
 		public BrandingPolicyHelpSettings HelpSettings { get; set; } = new();
 	}
 }

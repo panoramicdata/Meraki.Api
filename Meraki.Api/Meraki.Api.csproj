@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<LangVersion>latest</LangVersion>
+		<LangVersion>9.0</LangVersion>
 		<Nullable>enable</Nullable>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Copyright>Panoramic Data Limited 2021</Copyright>
@@ -18,7 +18,7 @@
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageReleaseNotes>
-			Fixed DeviceSwitchPort model.
+			Added ReadOnly to MerakiClientOptions
 		</PackageReleaseNotes>
 	</PropertyGroup>
 

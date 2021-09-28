@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Billing
 	/// </summary>
 	[DataContract]
-	public partial class Billing
+	public class Billing
 	{
 		/// <summary>
 		/// Reply to email address

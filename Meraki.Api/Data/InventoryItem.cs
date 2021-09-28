@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -6,7 +7,7 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// An inventory item
 	/// </summary>
-	public class InventoryItem
+	public class InventoryItem : NamedItem
 	{
 		/// <summary>
 		/// mac
@@ -45,15 +46,27 @@ namespace Meraki.Api.Data
 		public string? PublicIp { get; set; }
 
 		/// <summary>
-		/// name
+		/// OrderNumber
 		/// </summary>
-		[DataMember(Name = "name")]
-		public string? Name { get; set; }
+		[DataMember(Name = "orderNumber")]
+		public string? OrderNumber { get; set; }
 
 		/// <summary>
 		/// name
 		/// </summary>
 		[DataMember(Name = "licenseExpirationDate")]
 		public string? LicenseExpirationDate { get; set; }
+
+		/// <summary>
+		/// The list of tags
+		/// </summary>
+		[DataMember(Name = "tags")]
+		public List<string> Tags { get; set; } = new();
+
+		/// <summary>
+		/// ProductType
+		/// </summary>
+		[DataMember(Name = "productType")]
+		public ProductType ProductType { get; set; }
 	}
 }

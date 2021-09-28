@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// To version
 	/// </summary>
 	[DataContract]
-	public partial class ToVersion
+	public class ToVersion
 	{
 		/// <summary>
 		/// Id

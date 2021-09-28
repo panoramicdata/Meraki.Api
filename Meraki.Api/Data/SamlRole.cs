@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// CreateOrganizationSamlRole
 	/// </summary>
 	[DataContract]
-	public partial class SamlRole
+	public class SamlRole
 	{
 		/// <summary>
 		/// Id
@@ -19,28 +19,28 @@ namespace Meraki.Api.Data
 		/// The role of the SAML administrator
 		/// </summary>
 		/// <value>The role of the SAML administrator</value>
-		[DataMember(Name = "role", EmitDefaultValue = false)]
+		[DataMember(Name = "role")]
 		public string Role { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The privilege of the SAML administrator on the organization
 		/// </summary>
 		/// <value>The privilege of the SAML administrator on the organization</value>
-		[DataMember(Name = "orgAccess", EmitDefaultValue = false)]
+		[DataMember(Name = "orgAccess")]
 		public string OrgAccess { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The list of tags that the SAML administrator has privleges on
 		/// </summary>
 		/// <value>The list of tags that the SAML administrator has privleges on</value>
-		[DataMember(Name = "tags", EmitDefaultValue = false)]
+		[DataMember(Name = "tags")]
 		public List<Tag> Tags { get; set; } = new();
 
 		/// <summary>
 		/// The list of networks that the SAML administrator has privileges on
 		/// </summary>
 		/// <value>The list of networks that the SAML administrator has privileges on</value>
-		[DataMember(Name = "networks", EmitDefaultValue = false)]
+		[DataMember(Name = "networks")]
 		public List<SamlRoleNetwork> Networks { get; set; } = new();
 	}
 }

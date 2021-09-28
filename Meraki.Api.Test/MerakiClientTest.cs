@@ -53,7 +53,7 @@ namespace Meraki.Api.Test
 
 				// Load in the config
 				_configuration = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(fileInfo.FullName));
-				if(_configuration is null)
+				if (_configuration is null)
 				{
 					throw new ConfigurationException("Configuration did not deserialize");
 				}
@@ -65,15 +65,44 @@ namespace Meraki.Api.Test
 		protected MerakiClient MerakiClient
 			=> _merakiClient ??= new MerakiClient(Configuration.MerakiClientOptions, Logger);
 
-		protected async Task<Network> GetTestNetworkAsync()
+		protected async Task<Network> GetFirstNetworkAsync()
 		{
 			var networks = await MerakiClient
-				.Networks
-				.GetAllAsync(Configuration.TestOrganizationId)
+				.Organizations
+				.GetNetworksAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			networks.Should().NotBeNull();
 			networks.Should().NotBeEmpty();
 			return networks[0];
 		}
+
+		protected async Task<Network> CreateTestNetworkAsync()
+		{
+			var network = await MerakiClient
+				.Networks
+				.CreateAsync(
+					Configuration.TestOrganizationId,
+					new NetworkCreationRequest
+					{
+						Name = $"XUnit {Guid.NewGuid()}",
+						ProductTypes = new()
+						{
+							ProductType.Appliance,
+							ProductType.Switch,
+							ProductType.Camera
+						},
+						Notes = $"Created as part of unit testing on {DateTime.UtcNow}, should be removed automatically"
+					}
+				)
+				.ConfigureAwait(false);
+			network.Should().NotBeNull();
+			return network;
+		}
+
+		protected async Task RemoveNetworkAsync(string networkId)
+			=> await MerakiClient
+				.Networks
+				.DeleteAsync(networkId)
+				.ConfigureAwait(false);
 	}
 }

@@ -7,13 +7,13 @@ namespace Meraki.Api.Data
 	/// UpdateDeviceCellularGatewaySettingsPortForwardingRules
 	/// </summary>
 	[DataContract]
-	public partial class CellularGatewaySettingsPortForwardingRulesUpdateRequest
+	public class CellularGatewaySettingsPortForwardingRulesUpdateRequest
 	{
 		/// <summary>
 		/// An array of port forwarding params
 		/// </summary>
 		/// <value>An array of port forwarding params</value>
-		[DataMember(Name = "rules", EmitDefaultValue = false)]
+		[DataMember(Name = "rules")]
 		public List<CellularGatewaySettingsPortForwardingRule> Rules { get; set; } = new();
 	}
 }
