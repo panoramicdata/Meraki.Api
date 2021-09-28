@@ -19,7 +19,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="createNetworkHttpServer">Body for creating a network HTTP server</param>
 		[Post("/networks/{networkId}/webhooks/httpServers")]
-		Task<HttpServers> CreateNetworkHttpServerAsync(
+		Task<HttpServer> CreateNetworkHttpServerAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] HttpServerCreationRequest createNetworkHttpServer,
 			CancellationToken cancellationToken = default
@@ -58,7 +58,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="httpServerId">The id of a HTTP server</param>
 		[Get("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
-		Task<HttpServers> GetNetworkHttpServerAsync(
+		Task<HttpServer> GetNetworkHttpServerAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("httpServerId")] string httpServerId,
 			CancellationToken cancellationToken = default
@@ -70,7 +70,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/webhooks/httpServers")]
-		Task<List<HttpServers>> GetNetworkWebhooksHttpServersAsync(
+		Task<List<HttpServer>> GetNetworkWebhooksHttpServersAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -96,10 +96,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="httpServerId">The id of a HTTP server</param>
 		/// <param name="updateNetworkHttpServer">Body for updating a network HTTP server</param>
 		[Put("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
-		Task<HttpServers> UpdateNetworkHttpServerAsync(
+		Task<HttpServer> UpdateNetworkHttpServerAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("httpServerId")] string httpServerId,
-			[Body] HttpServerUpdateRequest updateNetworkHttpServer,
+			[Body] HttpServer httpServer,
 			CancellationToken cancellationToken = default
 			);
 	}
