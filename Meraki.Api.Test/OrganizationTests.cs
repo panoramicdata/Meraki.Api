@@ -55,7 +55,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await MerakiClient
 				.Organizations
-				.GetInventoryAsync(Configuration.TestOrganizationId)
+				.GetInventoryDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();

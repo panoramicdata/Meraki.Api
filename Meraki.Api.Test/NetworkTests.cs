@@ -165,7 +165,7 @@ namespace Meraki.Api.Test
 			// Get the device
 			var devices = await MerakiClient
 				.Organizations
-				.GetInventoryAsync(Configuration.TestOrganizationId)
+				.GetInventoryDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
 			if (device?.NetworkId != null)
