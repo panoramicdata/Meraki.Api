@@ -14,7 +14,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetDeviceAsync_Succeeds()
 		{
-			var devices = await MerakiClient
+			var devices = await TestMerakiClient
 				.Devices
 				.GetAllByNetworkAsync(Configuration.TestCameraNetworkId)
 				.ConfigureAwait(false);
@@ -27,7 +27,7 @@ namespace Meraki.Api.Test
 
 			var deviceSerial = devices[0].Serial;
 
-			var device = await MerakiClient
+			var device = await TestMerakiClient
 				.Devices
 				.GetAsync(deviceSerial)
 				.ConfigureAwait(false);
@@ -40,7 +40,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void PutDeviceAsync_WithMoveMapMarker_Succeeds()
 		{
-			var devices = await MerakiClient
+			var devices = await TestMerakiClient
 				.Devices
 				.GetAllByNetworkAsync(Configuration.TestNetworkId)
 				.ConfigureAwait(false);
@@ -51,7 +51,7 @@ namespace Meraki.Api.Test
 
 			var deviceSerial = devices[0].Serial;
 
-			var device = await MerakiClient
+			var device = await TestMerakiClient
 				.Devices
 				.GetAsync(deviceSerial)
 				.ConfigureAwait(false);
@@ -63,7 +63,7 @@ namespace Meraki.Api.Test
 			if (device.Address != string.Empty)
 			{
 				device.Address = string.Empty;
-				await MerakiClient
+				await TestMerakiClient
 					.Devices
 					.UpdateAsync(
 						device.Serial,
@@ -75,7 +75,7 @@ namespace Meraki.Api.Test
 
 			device.Address = "Picadilly Circus, London";
 			device.MoveMapMarker = true;
-			var updatedDevice = await MerakiClient
+			var updatedDevice = await TestMerakiClient
 				.Devices
 				.UpdateAsync(
 					device.Serial,
@@ -89,7 +89,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void BlinkDeviceAsync_Succeeds()
 		{
-			var deviceStatuses = await MerakiClient
+			var deviceStatuses = await TestMerakiClient
 				.Organizations
 				.GetDeviceStatusesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
@@ -101,7 +101,7 @@ namespace Meraki.Api.Test
 			var onlineDevice = deviceStatuses.Find(d => d.Status == "online");
 			onlineDevice.Should().NotBeNull("Could not find an online device");
 
-			var outcome = await MerakiClient
+			var outcome = await TestMerakiClient
 				.Devices
 				.BlinkLedsAsync(
 					onlineDevice!.Serial,
@@ -121,7 +121,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetDeviceNetworkManagementSettingsAsync_Succeeds()
 		{
-			var devices = await MerakiClient
+			var devices = await TestMerakiClient
 				.Devices
 				.GetAllByNetworkAsync(Configuration.TestNetworkId)
 				.ConfigureAwait(false);
@@ -134,7 +134,7 @@ namespace Meraki.Api.Test
 
 			var deviceSerial = devices[0].Serial;
 
-			var deviceManagementInterfaceSettings = await MerakiClient
+			var deviceManagementInterfaceSettings = await TestMerakiClient
 				.ManagementInterfaceSettings
 				.GetAsync(deviceSerial)
 				.ConfigureAwait(false);

@@ -15,7 +15,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetPageAsync_Succeeds()
 		{
-			var result = await MerakiClient
+			var result = await TestMerakiClient
 				.ApiRequests
 				.GetPageAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
@@ -26,7 +26,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetOverviewAsync_Succeeds()
 		{
-			var result = await MerakiClient
+			var result = await TestMerakiClient
 				.ApiRequests
 				.GetOverviewAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);

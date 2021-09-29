@@ -140,7 +140,7 @@ namespace Meraki.Api.Interfaces
 		Task<DeviceConnectivity> GetNetworkSmConnectivityAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("deviceId")] string deviceId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
@@ -159,7 +159,7 @@ namespace Meraki.Api.Interfaces
 		Task<List<DesktopLogs>> GetNetworkSmDesktopLogsAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("deviceId")] string deviceId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
@@ -178,7 +178,7 @@ namespace Meraki.Api.Interfaces
 		Task<List<CommandLogs>> GetNetworkSmDeviceCommandLogsAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("deviceId")] string deviceId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default
@@ -248,7 +248,7 @@ namespace Meraki.Api.Interfaces
 		Task<List<SmDevicePerformanceHistory>> GetNetworkSmPerformanceHistoryAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("id")] string id,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default

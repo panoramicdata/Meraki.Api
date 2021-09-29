@@ -30,7 +30,7 @@ namespace Meraki.Api.Test
 				try
 				{
 					stopwatch.Restart();
-					var result = await MerakiClient
+					var result = await TestMerakiClient
 					.Organizations
 					.GetAsync(Configuration.TestOrganizationId)
 					.ConfigureAwait(false);

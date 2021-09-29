@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/appliance/uplink/statuses")]
 		Task<List<UplinkStatus>> GetOrganizationApplianceUplinkStatusesAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			[AliasAs("networkIds")] List<string>? networkIds = null,
@@ -45,7 +45,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/uplinks/statuses")]
 		Task<List<UplinkStatus>> GetOrganizationUplinksStatusesAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			[AliasAs("networkIds")] List<string>? networkIds = null,
@@ -68,7 +68,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/cellularGateway/uplink/statuses")]
 		Task<List<UplinkStatus>> GetOrganizationCellularGatewayUplinkStatusesAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			[AliasAs("networkIds")] List<string>? networkIds = null,

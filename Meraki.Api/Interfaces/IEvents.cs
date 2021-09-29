@@ -44,7 +44,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("clientName")] string clientName = null!,
 			[AliasAs("smDeviceMac")] string smDeviceMac = null!,
 			[AliasAs("smDeviceName")] string smDeviceName = null!,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default

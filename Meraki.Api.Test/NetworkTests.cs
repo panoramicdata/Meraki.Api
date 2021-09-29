@@ -49,7 +49,7 @@ namespace Meraki.Api.Test
 			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
-			var result = await MerakiClient
+			var result = await TestMerakiClient
 				.Ssids
 				.GetAllAsync(network.Id)
 				.ConfigureAwait(false);
@@ -63,7 +63,7 @@ namespace Meraki.Api.Test
 			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
-			var result = await MerakiClient
+			var result = await TestMerakiClient
 				.Devices
 				.GetAllByNetworkAsync(network.Id)
 				.ConfigureAwait(false);
@@ -81,7 +81,7 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			// Create network
-			var newNetwork = await MerakiClient
+			var newNetwork = await TestMerakiClient
 				.Networks
 				.CreateAsync(
 					Configuration.TestOrganizationId,
@@ -95,7 +95,7 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			// And delete it again
-			await MerakiClient
+			await TestMerakiClient
 				.Networks
 				.DeleteAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -108,7 +108,7 @@ namespace Meraki.Api.Test
 
 			Func<Task> action = async () =>
 			{
-				var newNetwork = await MerakiClient
+				var newNetwork = await TestMerakiClient
 					 .Networks
 					 .CreateAsync(
 					Configuration.TestOrganizationId,
@@ -130,7 +130,7 @@ namespace Meraki.Api.Test
 		private async Task EnsureNetworkRemovedAsync(string networkName)
 		{
 			// Perform any clean-up
-			var networks = await MerakiClient
+			var networks = await TestMerakiClient
 							.Organizations
 							.GetNetworksAsync(Configuration.TestOrganizationId)
 							.ConfigureAwait(false);
@@ -138,19 +138,19 @@ namespace Meraki.Api.Test
 			if (oldNetwork != default)
 			{
 				// Get all network devices and remove them
-				var oldNetworkDevices = await MerakiClient
+				var oldNetworkDevices = await TestMerakiClient
 					.Devices
 					.GetAllByNetworkAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
 				foreach (var oldNetworkDevice in oldNetworkDevices)
 				{
-					await MerakiClient
+					await TestMerakiClient
 						.Devices
 						.RemoveAsync(oldNetwork.Id)
 						.ConfigureAwait(false);
 				}
 
-				await MerakiClient
+				await TestMerakiClient
 					.Networks
 					.DeleteAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
@@ -163,7 +163,7 @@ namespace Meraki.Api.Test
 			const string networkName = "Meraki.Api Unit Test";
 
 			// Get the device
-			var devices = await MerakiClient
+			var devices = await TestMerakiClient
 				.Organizations
 				.GetInventoryDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
@@ -171,7 +171,7 @@ namespace Meraki.Api.Test
 			if (device?.NetworkId != null)
 			{
 				// Unclaim the device
-				await MerakiClient
+				await TestMerakiClient
 					 .Devices
 					 .RemoveAsync(device.NetworkId)
 					 .ConfigureAwait(false);
@@ -182,7 +182,7 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			// Create network
-			var newNetwork = await MerakiClient
+			var newNetwork = await TestMerakiClient
 				.Networks
 				.CreateAsync(
 					Configuration.TestOrganizationId,
@@ -197,7 +197,7 @@ namespace Meraki.Api.Test
 			newNetwork.Should().NotBeNull();
 
 			// Re-fetch the network
-			var refetchedNetwork = await MerakiClient
+			var refetchedNetwork = await TestMerakiClient
 				.Networks
 				.GetAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -205,14 +205,14 @@ namespace Meraki.Api.Test
 			newNetwork.Name.Should().Be(refetchedNetwork.Name);
 
 			// Bind and unbind a configuration template
-			var configurationTemplates = await MerakiClient
+			var configurationTemplates = await TestMerakiClient
 				.ConfigurationTemplates
 				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			configurationTemplates.Should().NotBeNull();
 			configurationTemplates.Should().NotBeEmpty();
 			var configurationTemplate = configurationTemplates[0];
-			await MerakiClient
+			await TestMerakiClient
 				.Networks
 				.BindConfigurationTemplateAsync(
 					newNetwork.Id,
@@ -224,7 +224,7 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			// Get all VLANs - should be the default one
-			var initialVlans = await MerakiClient
+			var initialVlans = await TestMerakiClient
 				.Vlans
 				.GetNetworkVlansAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -235,7 +235,7 @@ namespace Meraki.Api.Test
 			vlan10 = null!;
 
 			// Update a VLAN
-			var updatedVlan = await MerakiClient
+			var updatedVlan = await TestMerakiClient
 				.Vlans
 				.UpdateNetworkVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
 				{
@@ -255,13 +255,13 @@ namespace Meraki.Api.Test
 			updatedVlan.Should().NotBeNull();
 
 			//--- Claim/Remove device
-			await MerakiClient
+			await TestMerakiClient
 				.Devices
 				.ClaimAsync(newNetwork.Id, new DeviceClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
 				.ConfigureAwait(false);
 
 			// Make sure it's there.
-			var fetchedDevice = await MerakiClient
+			var fetchedDevice = await TestMerakiClient
 				.Devices
 				.GetAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -272,7 +272,7 @@ namespace Meraki.Api.Test
 			Func<Task> action = async () =>
 			{
 				fetchedDevice.Address = new string('x', Device.MaxAddressLength + 1);
-				await MerakiClient
+				await TestMerakiClient
 					.Devices
 					.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
 					.ConfigureAwait(false);
@@ -285,20 +285,20 @@ namespace Meraki.Api.Test
 
 			//// But an OK length should succeed
 			fetchedDevice.Address = new string('x', Device.MaxAddressLength);
-			await MerakiClient
+			await TestMerakiClient
 				.Devices
 				.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Setting the address should succeed
 			fetchedDevice.Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA";
-			await MerakiClient
+			await TestMerakiClient
 				.Devices
 				.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Get the management interface settings
-			var wanSpecs = await MerakiClient
+			var wanSpecs = await TestMerakiClient
 				.ManagementInterfaceSettings
 				.GetAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -323,7 +323,7 @@ namespace Meraki.Api.Test
 					WanEnabledStatus = WanEnabledStatus.Disabled
 				}
 			};
-			var updatedWanSpecs = await MerakiClient
+			var updatedWanSpecs = await TestMerakiClient
 				.ManagementInterfaceSettings
 				.UpdateAsync(newNetwork.Id, new ManagementInterfaceSettingsUpdateRequest
 				{
@@ -343,7 +343,7 @@ namespace Meraki.Api.Test
 			updatedWanSpecs.Should().NotBeNull();
 
 			//// Get the management interface settings
-			var wanSpecsRefetch = await MerakiClient
+			var wanSpecsRefetch = await TestMerakiClient
 				.ManagementInterfaceSettings
 				.GetAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -355,7 +355,7 @@ namespace Meraki.Api.Test
 			wanSpecsRefetch.Wan1.StaticDns![0].Should().BeEquivalentTo(googleDns);
 
 			// Get all organization devices and make sure ours is present
-			var allOrganizationDevices = await MerakiClient
+			var allOrganizationDevices = await TestMerakiClient
 				.Devices
 				.GetPageByOrganizationAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
@@ -366,12 +366,12 @@ namespace Meraki.Api.Test
 			// Create complete - now undo everything
 			// ----------
 
-			await MerakiClient
+			await TestMerakiClient
 				.Devices
 				.RemoveAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
-			await MerakiClient
+			await TestMerakiClient
 				.Networks
 				.UnbindConfigurationTemplateAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -379,14 +379,14 @@ namespace Meraki.Api.Test
 			//--- Delete the network
 
 			// Delete the network
-			await MerakiClient
+			await TestMerakiClient
 				.Networks
 				.DeleteAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			action = async () =>
 			{
-				var _ = await MerakiClient
+				var _ = await TestMerakiClient
 					.Networks
 					.GetAsync(newNetwork.Id)
 					.ConfigureAwait(false);
@@ -404,7 +404,7 @@ namespace Meraki.Api.Test
 			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
-			var result = await MerakiClient
+			var result = await TestMerakiClient
 				.Clients
 				.GetByNetworkAsync(network.Id)
 				.ConfigureAwait(false);
@@ -418,7 +418,7 @@ namespace Meraki.Api.Test
 			var network = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 
-			var result = await MerakiClient
+			var result = await TestMerakiClient
 				.BluetoothClients
 				.GetAllAsync(network.Id)
 				.ConfigureAwait(false);
@@ -433,7 +433,7 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			// Get the wireless settings
-			var originalResult = await MerakiClient
+			var originalResult = await TestMerakiClient
 				.WirelessSettings
 				.GetAsync(network.Id)
 				.ConfigureAwait(false);
@@ -442,7 +442,7 @@ namespace Meraki.Api.Test
 			originalResult.Should().BeOfType<List<BluetoothClient>>();
 
 			// Re-set the wireless settings (to the same values)
-			var newResult = await MerakiClient
+			var newResult = await TestMerakiClient
 				.WirelessSettings
 				.UpdateAsync(network.Id, new WirelessSettingsUpdateDto
 				{
@@ -465,7 +465,7 @@ namespace Meraki.Api.Test
 		public async void GetCameraSnapshotAsync_Succeeds()
 		{
 			// Get a snapshot from the camera
-			var newResult = await MerakiClient
+			var newResult = await TestMerakiClient
 				.Cameras
 				.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
 				.ConfigureAwait(false);
@@ -488,7 +488,7 @@ namespace Meraki.Api.Test
 			Configuration.TestCameraNetworkId.Should().NotBeNull();
 
 			// Get a snapshot from the camera
-			var newResult = await MerakiClient
+			var newResult = await TestMerakiClient
 				.Cameras
 				.GetVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
 				.ConfigureAwait(false);
@@ -510,7 +510,7 @@ namespace Meraki.Api.Test
 		{
 			Configuration.TestSwitchSerial.Should().NotBeNull();
 
-			var switchPorts = await MerakiClient
+			var switchPorts = await TestMerakiClient
 				.SwitchPorts
 				.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, default)
 				.ConfigureAwait(false);
@@ -523,7 +523,7 @@ namespace Meraki.Api.Test
 		{
 			Configuration.TestCameraNetworkId.Should().NotBeNull();
 
-			var switchStacks = await MerakiClient
+			var switchStacks = await TestMerakiClient
 				.SwitchStacks
 				.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, default)
 				.ConfigureAwait(false);
@@ -534,13 +534,13 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void ReadOnlyStopsCreate_Succeeds()
 		{
-			var originalIsReadOnly = MerakiClient.IsReadOnly;
-			MerakiClient.SetReadOnly(true);
+			var originalIsReadOnly = TestMerakiClient.IsReadOnly;
+			TestMerakiClient.SetReadOnly(true);
 			try
 			{
 				// Create network
 				var exception = await Assert.ThrowsAsync<InvalidOperationException>(
-					() => MerakiClient
+					() => TestMerakiClient
 						.Networks
 						.CreateAsync(
 							Configuration.TestOrganizationId,
@@ -559,7 +559,7 @@ namespace Meraki.Api.Test
 			finally
 			{
 				// Restore the original ReadOnly state
-				MerakiClient.SetReadOnly(originalIsReadOnly);
+				TestMerakiClient.SetReadOnly(originalIsReadOnly);
 			}
 		}
 	}

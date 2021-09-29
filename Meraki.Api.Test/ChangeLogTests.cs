@@ -15,7 +15,7 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetChangeLogEntriesAsync_Succeeds()
 		{
-			var result = await MerakiClient
+			var result = await TestMerakiClient
 				.ChangeLogs
 				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);

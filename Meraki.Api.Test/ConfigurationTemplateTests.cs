@@ -25,7 +25,7 @@ namespace Meraki.Api.Test
 
 			var configurationTemplate = configurationTemplates[0];
 
-			var result = await MerakiClient
+			var result = await TestMerakiClient
 				.Organizations
 				.GetNetworksAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 				.ConfigureAwait(false);
@@ -40,7 +40,7 @@ namespace Meraki.Api.Test
 			// Get their associated switch profiles (for the first up to 3)
 			foreach (var configurationTemplate in configurationTemplates.Take(3))
 			{
-				var switchProfiles = await MerakiClient
+				var switchProfiles = await TestMerakiClient
 					.SwitchProfiles
 					.GetAllAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 					.ConfigureAwait(false);
@@ -55,7 +55,7 @@ namespace Meraki.Api.Test
 
 		private async Task<List<ConfigurationTemplate>> GetAllAsync()
 		{
-			var configurationTemplates = await MerakiClient
+			var configurationTemplates = await TestMerakiClient
 				.ConfigurationTemplates
 				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);

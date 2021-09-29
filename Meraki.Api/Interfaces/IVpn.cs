@@ -23,7 +23,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/appliance/vpn/stats")]
 		Task<List<VpnStats>> GetOrganizationApplianceVpnStats(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 300,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			[AliasAs("networkIds")] List<string>? networkIds = null,
@@ -45,7 +45,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/appliance/vpn/statuses")]
 		Task<List<VpnStatus>> GetOrganizationApplianceVpnStatuses(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 300,
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			[AliasAs("networkIds")] List<string>? networkIds = null,
@@ -68,11 +68,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkApplianceVpnBgp"></param>
+		/// <param name="updateNetworkApplianceVpnBgp"></param>
 		[Put("/networks/{networkId}/appliance/vpn/bgp")]
 		Task<VpnBgp> UpdateNetworkApplianceVpnBgp(
 			[AliasAs("networkId")] string networkId,
-			[Body] VpnBgp UpdateNetworkApplianceVpnBgp,
+			[Body] VpnBgp updateNetworkApplianceVpnBgp,
 			CancellationToken cancellationToken = default
 			);
 	}

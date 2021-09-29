@@ -20,7 +20,7 @@ namespace Meraki.Api.Test
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 			Configuration.TestMac.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkClientLatencyStatsAsync(
 					Configuration.TestNetworkId,
@@ -38,7 +38,7 @@ namespace Meraki.Api.Test
 		{
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkClientsLatencyStatsAsync(
 					Configuration.TestNetworkId,
@@ -56,7 +56,7 @@ namespace Meraki.Api.Test
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 			Configuration.TestDeviceSerial.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkDeviceLatencyStatsAsync(
 					Configuration.TestNetworkId,
@@ -74,7 +74,7 @@ namespace Meraki.Api.Test
 		{
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkDevicesLatencyStatsAsync(
 					Configuration.TestNetworkId,
@@ -91,7 +91,7 @@ namespace Meraki.Api.Test
 		{
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkLatencyStatsAsync(
 					Configuration.TestNetworkId,
@@ -108,7 +108,7 @@ namespace Meraki.Api.Test
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 			Configuration.TestMac.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkClientConnectionStatsAsync(
 					Configuration.TestNetworkId,
@@ -126,7 +126,7 @@ namespace Meraki.Api.Test
 		{
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkClientsConnectionStatsAsync(
 					Configuration.TestNetworkId,
@@ -144,7 +144,7 @@ namespace Meraki.Api.Test
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 			Configuration.TestDeviceSerial.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkDeviceConnectionStatsAsync(
 					Configuration.TestNetworkId,
@@ -162,7 +162,7 @@ namespace Meraki.Api.Test
 		{
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkDevicesConnectionStatsAsync(
 					Configuration.TestNetworkId,
@@ -179,7 +179,7 @@ namespace Meraki.Api.Test
 		{
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
-			var stats = await MerakiClient
+			var stats = await TestMerakiClient
 				.WirelessHealth
 				.GetNetworkConnectionStatsAsync(
 					Configuration.TestNetworkId,

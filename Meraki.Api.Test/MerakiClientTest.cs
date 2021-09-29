@@ -62,12 +62,12 @@ namespace Meraki.Api.Test
 			}
 		}
 
-		protected MerakiClient MerakiClient
+		protected MerakiClient TestMerakiClient
 			=> _merakiClient ??= new MerakiClient(Configuration.MerakiClientOptions, Logger);
 
 		protected async Task<Network> GetFirstNetworkAsync()
 		{
-			var networks = await MerakiClient
+			var networks = await TestMerakiClient
 				.Organizations
 				.GetNetworksAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
@@ -78,7 +78,7 @@ namespace Meraki.Api.Test
 
 		protected async Task<Network> CreateTestNetworkAsync()
 		{
-			var network = await MerakiClient
+			var network = await TestMerakiClient
 				.Networks
 				.CreateAsync(
 					Configuration.TestOrganizationId,
@@ -100,7 +100,7 @@ namespace Meraki.Api.Test
 		}
 
 		protected async Task RemoveNetworkAsync(string networkId)
-			=> await MerakiClient
+			=> await TestMerakiClient
 				.Networks
 				.DeleteAsync(networkId)
 				.ConfigureAwait(false);

@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/networks/{networkId}/sm/userAccessDevices")]
 		Task<List<UserAccessDevices>> GetNetworkSmUserAccessDevicesAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			CancellationToken cancellationToken = default

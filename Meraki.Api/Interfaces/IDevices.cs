@@ -123,7 +123,7 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/devices")]
 		Task<List<Device>> GetPageByOrganizationAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("perPage")] int? perPage = 1000,
 			[AliasAs("startingAfter")] string startingAfter = null!,
 			[AliasAs("endingBefore")] string endingBefore = null!,
 			[AliasAs("configurationUpdatedAfter")] string configurationUpdatedAfter = null!,
