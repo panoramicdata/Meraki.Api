@@ -10,7 +10,7 @@ namespace Meraki.Api.Data
 	/// A Device
 	/// </summary>
 	[DataContract]
-	[DebuggerDisplay("{" + nameof(Serial) + "}")]
+	[DebuggerDisplay("{" + nameof(Serial) + "} ({" + nameof(Model) + "} - {" + nameof(Name) + "})")]
 	public class Device : NamedItem
 	{
 		public const int MaxAddressLength = 255;
