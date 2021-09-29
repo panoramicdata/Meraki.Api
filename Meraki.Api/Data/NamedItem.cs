@@ -12,6 +12,6 @@ namespace Meraki.Api.Data
 		/// The name
 		/// </summary>
 		[DataMember(Name = "name")]
-		public string? Name { get; set; }
+		public string Name { get; set; } = string.Empty;
 	}
 }

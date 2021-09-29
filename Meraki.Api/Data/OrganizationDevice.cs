@@ -10,12 +10,6 @@ namespace Meraki.Api.Data
 	public class OrganizationDevice : NamedItem
 	{
 		/// <summary>
-		/// name
-		/// </summary>
-		[DataMember(Name = "name")]
-		new public string Name { get; set; } = string.Empty;
-
-		/// <summary>
 		/// serial
 		/// </summary>
 		[DataMember(Name = "serial")]
