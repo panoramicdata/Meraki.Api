@@ -51,10 +51,12 @@ namespace Meraki.Api.Data
 		public bool DisableRemoteStatusPage { get; set; }
 
 		/// <summary>
-		/// configTemplateId
+		/// The ID of the template to which the network should be bound.
+		/// null if not bound to a ConfigurationTemplate
 		/// </summary>
 		[DataMember(Name = "configTemplateId")]
-		[ApiAccess(ApiAccess.ReadUpdate)]
+		[ApiAccess(ApiAccess.Read)]
+		[ApiForeignKey(typeof(ConfigurationTemplate))]
 		public string? ConfigurationTemplateId { get; set; }
 
 		/// <summary>

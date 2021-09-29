@@ -53,58 +53,66 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// ReadOnly: The Network Id of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
+		[ApiForeignKey(typeof(Network))]
 		[DataMember(Name = "networkId")]
 		public string NetworkId { get; set; } = string.Empty;
 
 		/// <summary>
 		/// ReadOnly: The Serial of a device
 		/// </summary>
-		[Key]
+		[ApiKey]
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "serial")]
 		public string Serial { get; set; } = string.Empty;
 
 		/// <summary>
 		/// ReadOnly: The model of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "model")]
 		public string Model { get; set; } = string.Empty;
 
 		/// <summary>
 		/// ReadOnly: The MAC address of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "mac")]
 		public string Mac { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Readonly: The LAN IP address
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "lanIp")]
 		public string LanIp { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Readonly: The beacon ID parameters
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "beaconIdParams")]
 		public BeaconIdParams BeaconIdParams { get; set; } = new BeaconIdParams();
 
 		/// <summary>
 		/// When the configuration was last updated
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "configurationUpdatedAt")]
 		public string ConfigurationUpdatedAt { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Readonly: The firmware version of a device
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "firmware")]
 		public string Firmware { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The floor plan to associate to this device. null disassociates the device from the floorplan.
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[ApiForeignKey(typeof(FloorPlan))]
 		[DataMember(Name = "floorPlanId")]
 		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 		public string? FloorPlanId { get; set; }
@@ -114,7 +122,8 @@ namespace Meraki.Api.Data
 		/// Use null to unbind the switch device from the current profile. For a device to be bindable to a switch profile,
 		/// it must (1) be a switch, and (2) belong to a network that is bound to a configuration template.
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[ApiForeignKey(typeof(SwitchProfile))]
 		[DataMember(Name = "switchProfileId")]
 		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 		public string? SwitchProfileId { get; set; }
@@ -122,26 +131,28 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Readonly: URL
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "url")]
 		public string Url { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Readonly: Wireless MAC address
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "wirelessMac")]
 		public string WirelessMac { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Readonly: WAN 1 IP address
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "wan1Ip")]
 		public string? Wan1Ip { get; set; }
 
 		/// <summary>
 		/// Readonly: WAN 2 IP address
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "wan2Ip")]
 		public string? Wan2Ip { get; set; }
 
@@ -150,6 +161,7 @@ namespace Meraki.Api.Data
 		/// Only used when sending updates
 		/// </summary>
 		[DataMember(Name = "moveMapMarker")]
+		[ApiAccess(ApiAccess.Update)]
 		public bool? MoveMapMarker { get; set; }
 	}
 }

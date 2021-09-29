@@ -14,7 +14,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "id")]
 		[ApiAccess(ApiAccess.Read)]
-		[Key]
+		[ApiKey]
 		public string Id { get; set; } = string.Empty;
 	}
 }

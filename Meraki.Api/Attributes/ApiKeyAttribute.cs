@@ -6,7 +6,7 @@ namespace Meraki.Api.Attributes
 	/// Denotes the property that uniquely identifies the entity
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-	public class KeyAttribute : Attribute
+	public class ApiKeyAttribute : Attribute
 	{
 	}
 }

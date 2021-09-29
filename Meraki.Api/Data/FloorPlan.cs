@@ -13,7 +13,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Floor plan id
 		/// </summary>
-		[Key]
+		[ApiKey]
 		[DataMember(Name = "floorPlanId")]
 		public string FloorPlanId { get; set; } = string.Empty;
 
