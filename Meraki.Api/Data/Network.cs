@@ -22,6 +22,8 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// OrganizationId
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
+		[ApiForeignKey(typeof(Organization))]
 		[DataMember(Name = "organizationId")]
 		public string OrganizationId { get; set; } = default!;
 
@@ -33,30 +35,12 @@ namespace Meraki.Api.Data
 		public List<string> Tags { get; set; } = default!;
 
 		/// <summary>
-		/// type
-		/// </summary>
-		[DataMember(Name = "type")]
-		public string Type { get; set; } = default!;
-
-		/// <summary>
-		/// disableMyMerakiCom
-		/// </summary>
-		[DataMember(Name = "disableMyMerakiCom")]
-		public bool DisableMyMerakiCom { get; set; }
-
-		/// <summary>
-		/// disableRemoteStatusPage
-		/// </summary>
-		[DataMember(Name = "disableRemoteStatusPage")]
-		public bool DisableRemoteStatusPage { get; set; }
-
-		/// <summary>
 		/// The ID of the template to which the network should be bound.
 		/// null if not bound to a ConfigurationTemplate
 		/// </summary>
-		[DataMember(Name = "configTemplateId")]
 		[ApiAccess(ApiAccess.Read)]
 		[ApiForeignKey(typeof(ConfigurationTemplate))]
+		[DataMember(Name = "configTemplateId")]
 		public string? ConfigurationTemplateId { get; set; }
 
 		/// <summary>
@@ -79,6 +63,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// URL
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "url")]
 		public string Url { get; set; } = string.Empty;
 	}
