@@ -33,7 +33,7 @@ namespace Meraki.Api
 			_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), this, _logger);
 			_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v1") };
 			_httpClient.Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds);
-			var refitSettings = new RefitSettings
+			_refitSettings = new RefitSettings
 			{
 				ContentSerializer = new NewtonsoftJsonContentSerializer(
 				new JsonSerializerSettings
@@ -49,83 +49,90 @@ namespace Meraki.Api
 				})
 			};
 
-			ActionBatches = RestService.For<IActionBatches>(_httpClient, refitSettings);
-			Admins = RestService.For<IAdmins>(_httpClient, refitSettings);
-			AlertSettings = RestService.For<IAlertSettings>(_httpClient, refitSettings);
-			ApiRequests = RestService.For<IApiRequests>(_httpClient, refitSettings);
-			BluetoothClients = RestService.For<IBluetoothClients>(_httpClient, refitSettings);
-			BluetoothSettings = RestService.For<IBluetoothSettings>(_httpClient, refitSettings);
-			CameraQualityRetentionProfiles = RestService.For<ICameraQualityRetentionProfiles>(_httpClient, refitSettings);
-			Cameras = RestService.For<ICameras>(_httpClient, refitSettings);
-			ChangeLogs = RestService.For<IChangeLogs>(_httpClient, refitSettings);
-			Clients = RestService.For<IClients>(_httpClient, refitSettings);
-			ConfigurationTemplates = RestService.For<IConfigurationTemplates>(_httpClient, refitSettings);
-			ConnectivityMonitoringDestinations = RestService.For<IConnectivityMonitoringDestinations>(_httpClient, refitSettings);
-			ContentFilteringCategories = RestService.For<IContentFilteringCategories>(_httpClient, refitSettings);
-			ContentFilteringRules = RestService.For<IContentFilteringRules>(_httpClient, refitSettings);
-			DashboardBrandingPolicies = RestService.For<IDashboardBrandingPolicies>(_httpClient, refitSettings);
-			Devices = RestService.For<IDevices>(_httpClient, refitSettings);
-			Events = RestService.For<IEvents>(_httpClient, refitSettings);
-			FirewalledServices = RestService.For<IFirewalledServices>(_httpClient, refitSettings);
-			Floorplans = RestService.For<IFloorplans>(_httpClient, refitSettings);
-			GroupPolicies = RestService.For<IGroupPolicies>(_httpClient, refitSettings);
-			HttpServers = RestService.For<IHttpServers>(_httpClient, refitSettings);
-			IntrusionSettings = RestService.For<IIntrusionSettings>(_httpClient, refitSettings);
-			Licenses = RestService.For<ILicenses>(_httpClient, refitSettings);
-			LinkAggregations = RestService.For<ILinkAggregations>(_httpClient, refitSettings);
-			MalwareSettings = RestService.For<IMalwareSettings>(_httpClient, refitSettings);
-			ManagementInterfaceSettings = RestService.For<IManagementInterfaceSettings>(_httpClient, refitSettings);
-			MerakiAuthUsers = RestService.For<IMerakiAuthUsers>(_httpClient, refitSettings);
-			MgConnectivityMonitoringDestinations = RestService.For<IMgConnectivityMonitoringDestinations>(_httpClient, refitSettings);
-			MgDhcpSettings = RestService.For<IMgDhcpSettings>(_httpClient, refitSettings);
-			MgLanSettings = RestService.For<IMgLanSettings>(_httpClient, refitSettings);
-			MgPortForwardingRules = RestService.For<IMgPortForwardingRules>(_httpClient, refitSettings);
-			MgSubnetPoolSettings = RestService.For<IMgSubnetPoolSettings>(_httpClient, refitSettings);
-			MgUplinkSettings = RestService.For<IMgUplinkSettings>(_httpClient, refitSettings);
-			MonitoredMediaServers = RestService.For<IMonitoredMediaServers>(_httpClient, refitSettings);
-			MrLayer3FirewallRules = RestService.For<IMrLayer3FirewallRules>(_httpClient, refitSettings);
-			MvSense = RestService.For<IMvSense>(_httpClient, refitSettings);
-			MxCellularFirewallRules = RestService.For<IMxCellularFirewallRules>(_httpClient, refitSettings);
-			MxInboundFirewallRules = RestService.For<IMxInboundFirewallRules>(_httpClient, refitSettings);
-			MxLayer3FirewallRules = RestService.For<IMxLayer3FirewallRules>(_httpClient, refitSettings);
-			MxLayer7ApplicationCategories = RestService.For<IMxLayer7ApplicationCategories>(_httpClient, refitSettings);
-			MxLayer7FirewallRules = RestService.For<IMxLayer7FirewallRules>(_httpClient, refitSettings);
-			MxOneToManyNatRules = RestService.For<IMxOneToManyNatRules>(_httpClient, refitSettings);
-			MxOneToOneNatRules = RestService.For<IMxOneToOneNatRules>(_httpClient, refitSettings);
-			MxPortForwardingRules = RestService.For<IMxPortForwardingRules>(_httpClient, refitSettings);
-			MxStaticRoutes = RestService.For<IMxStaticRoutes>(_httpClient, refitSettings);
-			MxVlanPorts = RestService.For<IMxVlanPorts>(_httpClient, refitSettings);
-			MxVpnFirewalls = RestService.For<IMxVpnFirewallRules>(_httpClient, refitSettings);
-			MxWarmSpareSettings = RestService.For<IMxWarmSpareSettings>(_httpClient, refitSettings);
-			NamedTagScopes = RestService.For<INamedTagScopes>(_httpClient, refitSettings);
-			NetFlowSettings = RestService.For<INetFlowSettings>(_httpClient, refitSettings);
-			Networks = RestService.For<INetworks>(_httpClient, refitSettings);
-			OpenApiSpec = RestService.For<IOpenApiSpec>(_httpClient, refitSettings);
-			Organizations = RestService.For<IOrganizations>(_httpClient, refitSettings);
-			Piis = RestService.For<IPiis>(_httpClient, refitSettings);
-			RadioSettings = RestService.For<IRadioSettings>(_httpClient, refitSettings);
-			SamlRoles = RestService.For<ISamlRoles>(_httpClient, refitSettings);
-			SecurityEvents = RestService.For<ISecurityEvents>(_httpClient, refitSettings);
-			Sms = RestService.For<ISms>(_httpClient, refitSettings);
-			SnmpSettings = RestService.For<ISnmpSettings>(_httpClient, refitSettings);
-			SplashSettings = RestService.For<ISplashSettings>(_httpClient, refitSettings);
-			SplashLoginAttempts = RestService.For<ISplashLoginAttempts>(_httpClient, refitSettings);
-			Ssids = RestService.For<ISsids>(_httpClient, refitSettings);
-			SwitchAcls = RestService.For<ISwitchAcls>(_httpClient, refitSettings);
-			SwitchPorts = RestService.For<ISwitchPorts>(_httpClient, refitSettings);
-			SwitchPortSchedules = RestService.For<ISwitchPortSchedules>(_httpClient, refitSettings);
-			SwitchProfiles = RestService.For<ISwitchProfiles>(_httpClient, refitSettings);
-			SwitchSettings = RestService.For<ISwitchSettings>(_httpClient, refitSettings);
-			SwitchStacks = RestService.For<ISwitchStacks>(_httpClient, refitSettings);
-			SyslogServers = RestService.For<ISyslogServers>(_httpClient, refitSettings);
-			TrafficAnalysisSettings = RestService.For<ITrafficAnalysisSettings>(_httpClient, refitSettings);
-			TrafficShaping = RestService.For<ITrafficShaping>(_httpClient, refitSettings);
-			UplinkSettings = RestService.For<IUplink>(_httpClient, refitSettings);
-			Vlans = RestService.For<IVlans>(_httpClient, refitSettings);
-			WebhookLogs = RestService.For<IWebhookLogs>(_httpClient, refitSettings);
-			WirelessHealth = RestService.For<IWirelessHealth>(_httpClient, refitSettings);
-			WirelessSettings = RestService.For<IWirelessSettings>(_httpClient, refitSettings);
+#pragma warning disable CS8601 // Possible null reference assignment. - Not Applicable for RefitFor
+			ActionBatches = RefitFor(ActionBatches);
+			Admins = RefitFor(Admins);
+			AlertSettings = RefitFor(AlertSettings);
+			ApiRequests = RefitFor(ApiRequests);
+			BluetoothClients = RefitFor(BluetoothClients);
+			BluetoothSettings = RefitFor(BluetoothSettings);
+			CameraQualityRetentionProfiles = RefitFor(CameraQualityRetentionProfiles);
+			Cameras = RefitFor(Cameras);
+			ChangeLogs = RefitFor(ChangeLogs);
+			Clients = RefitFor(Clients);
+			ConfigurationTemplates = RefitFor(ConfigurationTemplates);
+			ConnectivityMonitoringDestinations = RefitFor(ConnectivityMonitoringDestinations);
+			ContentFilteringCategories = RefitFor(ContentFilteringCategories);
+			ContentFilteringRules = RefitFor(ContentFilteringRules);
+			DashboardBrandingPolicies = RefitFor(DashboardBrandingPolicies);
+			Devices = RefitFor(Devices);
+			Events = RefitFor(Events);
+			FirewalledServices = RefitFor(FirewalledServices);
+			Floorplans = RefitFor(Floorplans);
+			GroupPolicies = RefitFor(GroupPolicies);
+			HttpServers = RefitFor(HttpServers);
+			IntrusionSettings = RefitFor(IntrusionSettings);
+			Licenses = RefitFor(Licenses);
+			LinkAggregations = RefitFor(LinkAggregations);
+			MalwareSettings = RefitFor(MalwareSettings);
+			ManagementInterfaceSettings = RefitFor(ManagementInterfaceSettings);
+			MerakiAuthUsers = RefitFor(MerakiAuthUsers);
+			MgConnectivityMonitoringDestinations = RefitFor(MgConnectivityMonitoringDestinations);
+			MgDhcpSettings = RefitFor(MgDhcpSettings);
+			MgLanSettings = RefitFor(MgLanSettings);
+			MgPortForwardingRules = RefitFor(MgPortForwardingRules);
+			MgSubnetPoolSettings = RefitFor(MgSubnetPoolSettings);
+			MgUplinkSettings = RefitFor(MgUplinkSettings);
+			MonitoredMediaServers = RefitFor(MonitoredMediaServers);
+			MrLayer3FirewallRules = RefitFor(MrLayer3FirewallRules);
+			MvSense = RefitFor(MvSense);
+			MxCellularFirewallRules = RefitFor(MxCellularFirewallRules);
+			MxInboundFirewallRules = RefitFor(MxInboundFirewallRules);
+			MxLayer3FirewallRules = RefitFor(MxLayer3FirewallRules);
+			MxLayer7ApplicationCategories = RefitFor(MxLayer7ApplicationCategories);
+			MxLayer7FirewallRules = RefitFor(MxLayer7FirewallRules);
+			MxOneToManyNatRules = RefitFor(MxOneToManyNatRules);
+			MxOneToOneNatRules = RefitFor(MxOneToOneNatRules);
+			MxPortForwardingRules = RefitFor(MxPortForwardingRules);
+			MxStaticRoutes = RefitFor(MxStaticRoutes);
+			MxVlanPorts = RefitFor(MxVlanPorts);
+			MxVpnFirewalls = RefitFor(MxVpnFirewalls);
+			MxWarmSpareSettings = RefitFor(MxWarmSpareSettings);
+			NamedTagScopes = RefitFor(NamedTagScopes);
+			NetFlowSettings = RefitFor(NetFlowSettings);
+			Networks = RefitFor(Networks);
+			OpenApiSpec = RefitFor(OpenApiSpec);
+			Organizations = RefitFor(Organizations);
+			Piis = RefitFor(Piis);
+			RadioSettings = RefitFor(RadioSettings);
+			SamlRoles = RefitFor(SamlRoles);
+			SecurityEvents = RefitFor(SecurityEvents);
+			Sms = RefitFor(Sms);
+			SnmpSettings = RefitFor(SnmpSettings);
+			SplashSettings = RefitFor(SplashSettings);
+			SplashLoginAttempts = RefitFor(SplashLoginAttempts);
+			Ssids = RefitFor(Ssids);
+			SwitchAcls = RefitFor(SwitchAcls);
+			SwitchPorts = RefitFor(SwitchPorts);
+			SwitchPortSchedules = RefitFor(SwitchPortSchedules);
+			SwitchProfiles = RefitFor(SwitchProfiles);
+			SwitchSettings = RefitFor(SwitchSettings);
+			SwitchStacks = RefitFor(SwitchStacks);
+			SyslogServers = RefitFor(SyslogServers);
+			TrafficAnalysisSettings = RefitFor(TrafficAnalysisSettings);
+			TrafficShaping = RefitFor(TrafficShaping);
+			UplinkSettings = RefitFor(UplinkSettings);
+			Vlans = RefitFor(Vlans);
+			WebhookLogs = RefitFor(WebhookLogs);
+			WirelessHealth = RefitFor(WirelessHealth);
+			WirelessSettings = RefitFor(WirelessSettings);
+#pragma warning restore CS8601 // Possible null reference assignment.
 		}
+
+		private T RefitFor<T>(T _)
+			=> RestService.For<T>(_httpClient, _refitSettings);
+
+		private readonly RefitSettings _refitSettings;
 
 		/// <summary>
 		/// Action batches
