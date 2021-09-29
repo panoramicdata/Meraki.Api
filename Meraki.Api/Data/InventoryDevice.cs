@@ -1,4 +1,5 @@
 ﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -60,10 +61,17 @@ namespace Meraki.Api.Data
 		public string ClaimedAt { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Licence expiration date
+		/// Tags
 		/// </summary>
 		[ApiAccess(ApiAccess.Read)]
-		[DataMember(Name = "licenceExpirationDate")]
-		public string LicenceExpirationDate { get; set; } = string.Empty;
+		[DataMember(Name = "tags")]
+		public List<string> Tags { get; set; } = new();
+
+		/// <summary>
+		/// Product Type
+		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
+		[DataMember(Name = "productType")]
+		public ProductType ProductType { get; set; }
 	}
 }
