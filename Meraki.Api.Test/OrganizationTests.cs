@@ -3,6 +3,7 @@ using Meraki.Api.Data;
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -263,7 +264,8 @@ namespace Meraki.Api.Test
 							startingAfter: startingAfter,
 							cancellationToken: cancellationToken
 						),
-					3
+					3,
+					CancellationToken.None
 				)
 				.ConfigureAwait(false);
 
@@ -286,8 +288,24 @@ namespace Meraki.Api.Test
 							Configuration.TestOrganizationId,
 							startingAfter: startingAfter,
 							cancellationToken: cancellationToken
-						)
+						),
+					CancellationToken.None
 				)
+				.ConfigureAwait(false);
+
+			result.Should().BeOfType<List<Network>>();
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
+			var firstResult = result[0];
+			NetworkTests.ValidateNetwork(firstResult);
+		}
+
+		[Fact]
+		public async void GetAllNetworksAsync_Succeeds()
+		{
+			var result = await TestMerakiClient
+				.Organizations
+				.GetAllNetworksAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 
 			result.Should().BeOfType<List<Network>>();

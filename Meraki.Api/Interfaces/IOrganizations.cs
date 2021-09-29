@@ -314,5 +314,35 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("startingAfter")] string? startingAfter = null,
 			[AliasAs("endingBefore")] string? endingBefore = null,
 			CancellationToken cancellationToken = default);
+
+		[Get("/organizations/{organizationId}/networks")]
+		internal Task<ApiResponse<List<Network>>> GetNetworksApiResponseAsync(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("configTemplateId")] string? configTemplateId = null,
+			[AliasAs("tags")] List<string>? tags = null,
+			[AliasAs("tagsFilterType")] string? tagsFilterType = null,
+			[AliasAs("perPage")] int? perPage = 100000,
+			[AliasAs("startingAfter")] string? startingAfter = null,
+			[AliasAs("endingBefore")] string? endingBefore = null,
+			CancellationToken cancellationToken = default);
+
+		Task<List<Network>> GetAllNetworksAsync(
+			string organizationId,
+			string? configTemplateId = null,
+			List<string>? tags = null,
+			string? tagsFilterType = null,
+			CancellationToken cancellationToken = default)
+			=> MerakiClient.GetAllAsync(
+					(startingAfter, cancellationToken)
+					=> GetNetworksApiResponseAsync(
+							organizationId,
+							configTemplateId,
+							tags,
+							tagsFilterType,
+							startingAfter: startingAfter,
+							cancellationToken: cancellationToken
+						),
+						cancellationToken
+				);
 	}
 }
