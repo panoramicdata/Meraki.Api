@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Inventory devices
 	/// </summary>
 	[DataContract]
-	public class InventoryDevices
+	public class InventoryDevice
 	{
 		/// <summary>
 		/// Mac

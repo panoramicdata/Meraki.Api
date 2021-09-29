@@ -22,7 +22,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="usedState">Filter results by used or unused inventory. Accepted values are "used" or "unused".</param>
 		/// <param name="search">Search for devices in inventory based on serial number, mac address, or model.</param>
 		[Get("/organizations/{organizationId}/inventoryDevices")]
-		Task<List<InventoryDevices>> GetOrganizationInventoryDevicesAsync(
+		Task<List<InventoryDevice>> GetOrganizationInventoryDevicesAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("perPage")] int? perPage = 100000,
 			[AliasAs("startingAfter")] string? startingAfter = null,
@@ -38,7 +38,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="serial">The serial number</param>
 		[Get("/organizations/{organizationId}/inventoryDevices/{serial}")]
-		Task<InventoryDevices> GetOrganizationInventoryDeviceAsync(
+		Task<InventoryDevice> GetOrganizationInventoryDeviceAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
