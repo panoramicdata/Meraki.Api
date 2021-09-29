@@ -14,6 +14,7 @@ namespace Meraki.Api.Data
 		/// Network Id
 		/// </summary>
 		[ApiAccess(ApiAccess.Read)]
+		[ApiForeignKey(typeof(Network))]
 		[DataMember(Name = "networkId")]
 		public string NetworkId { get; set; } = string.Empty;
 
