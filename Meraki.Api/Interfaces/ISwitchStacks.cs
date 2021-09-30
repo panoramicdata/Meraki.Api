@@ -12,19 +12,14 @@ namespace Meraki.Api.Interfaces
 	public interface ISwitchStacks
 	{
 		/// <summary>
-		/// Add a switch to a stack
+		/// List the switch stacks in a network
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="switchStackId">The switch stack id</param>
-		/// <param name="AddNetworkSwitchStack"></param>
-		[Post("/networks/{networkId}/switch/switchStacks/{switchStackId}/add")]
-		Task<SwitchStack> AddNetworkSwitchStackAsync(
+		[Get("/networks/{networkId}/switch/stacks")]
+		Task<List<SwitchStack>> GetNetworkSwitchStacksAsync(
 			[AliasAs("networkId")] string networkId,
-			[AliasAs("switchStackId")] string switchStackId,
-			[Body] NetworkSwitchStackCreationRequest AddNetworkSwitchStack,
-			CancellationToken cancellationToken = default
-			);
+			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// Create a stack
@@ -32,23 +27,10 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="CreateNetworkSwitchStack"></param>
-		[Post("/networks/{networkId}/switch/switchStacks")]
+		[Post("/networks/{networkId}/switch/stacks")]
 		Task<SwitchStack> CreateNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] SwitchStackCreationRequest CreateNetworkSwitchStack,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Delete a stack
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="switchStackId">The switch stack id</param>
-		[Delete("/networks/{networkId}/switch/switchStacks/{switchStackId}")]
-		Task DeleteNetworkSwitchStackAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("switchStackId")] string switchStackId,
 			CancellationToken cancellationToken = default
 			);
 
@@ -58,7 +40,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="switchStackId">The switch stack id</param>
-		[Get("/networks/{networkId}/switch/switchStacks/{switchStackId}")]
+		[Get("/networks/{networkId}/switch/stacks/{switchStackId}")]
 		Task<SwitchStack> GetNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
@@ -66,14 +48,32 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// List the switch stacks in a network
+		/// Delete a stack
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/switch/switchStacks")]
-		Task<List<SwitchStack>> GetNetworkSwitchStacksAsync(
+		/// <param name="switchStackId">The switch stack id</param>
+		[Delete("/networks/{networkId}/switch/stacks/{switchStackId}")]
+		Task DeleteNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default);
+			[AliasAs("switchStackId")] string switchStackId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Add a switch to a stack
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="switchStackId">The switch stack id</param>
+		/// <param name="AddNetworkSwitchStack"></param>
+		[Post("/networks/{networkId}/switch/stacks/{switchStackId}/add")]
+		Task<SwitchStack> AddNetworkSwitchStackAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("switchStackId")] string switchStackId,
+			[Body] NetworkSwitchStackCreationRequest AddNetworkSwitchStack,
+			CancellationToken cancellationToken = default
+			);
 
 		/// <summary>
 		/// Remove a switch from a stack
@@ -82,13 +82,15 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="switchStackId">The switch stack id</param>
 		/// <param name="RemoveNetworkSwitchStack"></param>
-		[Post("/networks/{networkId}/switch/switchStacks/{switchStackId}/remove")]
+		[Post("/networks/{networkId}/switch/stacks/{switchStackId}/remove")]
 		Task<SwitchStack> RemoveNetworkSwitchStackAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("switchStackId")] string switchStackId,
 			[Body] RemoveNetworkSwitchStack RemoveNetworkSwitchStack,
 			CancellationToken cancellationToken = default
 			);
+
+		// Routing
 
 		/// <summary>
 		/// Return a layer 3 static route for a switch stack
