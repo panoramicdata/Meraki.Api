@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -16,14 +17,9 @@ namespace Meraki.Api.Data
 		public string LicenseType { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Id
-		/// </summary>
-		[DataMember(Name = "id")]
-		public new string Id { get; set; } = string.Empty;
-
-		/// <summary>
 		/// LicenseKey
 		/// </summary>
+		[ApiKey]
 		[DataMember(Name = "licenseKey")]
 		public string LicenseKey { get; set; } = string.Empty;
 
@@ -36,12 +32,16 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// DeviceSerial
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[ApiForeignKey(typeof(Device))]
 		[DataMember(Name = "deviceSerial")]
 		public string DeviceSerial { get; set; } = string.Empty;
 
 		/// <summary>
 		/// NetworkId
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadCreate)]
+		[ApiForeignKey(typeof(Network))]
 		[DataMember(Name = "networkId")]
 		public string NetworkId { get; set; } = string.Empty;
 
@@ -54,6 +54,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// SeatCount
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadCreate)]
 		[DataMember(Name = "seatCount")]
 		public int? SeatCount { get; set; }
 
