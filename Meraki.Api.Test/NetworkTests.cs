@@ -132,7 +132,7 @@ namespace Meraki.Api.Test
 			// Perform any clean-up
 			var networks = await TestMerakiClient
 							.Organizations
-							.GetNetworksAsync(Configuration.TestOrganizationId)
+							.GetNetworksPagedAsync(Configuration.TestOrganizationId)
 							.ConfigureAwait(false);
 			var oldNetwork = networks.SingleOrDefault(n => n.Name == networkName);
 			if (oldNetwork != default)

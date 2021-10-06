@@ -216,7 +216,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
-				.GetNetworksAsync(Configuration.TestOrganizationId)
+				.GetNetworksPagedAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 
 			result.Should().BeOfType<List<Network>>();
@@ -258,7 +258,7 @@ namespace Meraki.Api.Test
 					(perPage, startingAfter, cancellationToken)
 					=> TestMerakiClient
 						.Organizations
-						.GetNetworksAsync(
+						.GetNetworksPagedAsync(
 							Configuration.TestOrganizationId,
 							perPage: perPage,
 							startingAfter: startingAfter,
@@ -284,7 +284,7 @@ namespace Meraki.Api.Test
 					(startingAfter, cancellationToken)
 					=> TestMerakiClient
 						.Organizations
-						.GetNetworksAsync(
+						.GetNetworksPagedAsync(
 							Configuration.TestOrganizationId,
 							startingAfter: startingAfter,
 							cancellationToken: cancellationToken
