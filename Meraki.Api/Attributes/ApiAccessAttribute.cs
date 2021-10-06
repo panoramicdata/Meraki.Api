@@ -5,7 +5,7 @@ namespace Meraki.Api.Attributes
 	/// <summary>
 	/// Used to denote how the property can be used with the API
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 	public class ApiAccessAttribute : Attribute
 	{
 		public ApiAccessAttribute(ApiAccess apiAccess)

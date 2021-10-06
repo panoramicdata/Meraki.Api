@@ -2,7 +2,7 @@
 
 namespace Meraki.Api.Attributes
 {
-	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 	public class ApiForeignKeyAttribute : Attribute
 	{
 		public ApiForeignKeyAttribute(Type foreignType)
