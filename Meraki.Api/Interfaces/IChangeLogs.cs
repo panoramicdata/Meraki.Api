@@ -25,17 +25,51 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">Filters on the given network (optional)</param>
 		/// <param name="adminId">Filters on the given Admin (optional)</param>
 		[Get("/organizations/{organizationId}/configurationChanges")]
-		Task<List<ChangeLogEntry>> GetAllAsync(
+		Task<List<ChangeLogEntry>> GetPagedAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[AliasAs("t0")] string t0 = null!,
-			[AliasAs("t1")] string t1 = null!,
+			[AliasAs("t0")] string? t0 = null,
+			[AliasAs("t1")] string? t1 = null,
 			[AliasAs("timespan")] double? timespan = null,
 			[AliasAs("perPage")] int? perPage = 5000,
-			[AliasAs("startingAfter")] string startingAfter = null!,
-			[AliasAs("endingBefore")] string endingBefore = null!,
-			[AliasAs("networkId")] string networkId = null!,
-			[AliasAs("adminId")] string adminId = null!,
-			CancellationToken cancellationToken = default
-			);
+			[AliasAs("startingAfter")] string? startingAfter = null,
+			[AliasAs("endingBefore")] string? endingBefore = null,
+			[AliasAs("networkId")] string? networkId = null,
+			[AliasAs("adminId")] string? adminId = null,
+			CancellationToken cancellationToken = default);
+
+		[Get("/organizations/{organizationId}/configurationChanges")]
+		internal Task<ApiResponse<List<ChangeLogEntry>>> GetPagedApiResponseAsync(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("t0")] string? t0 = null,
+			[AliasAs("t1")] string? t1 = null,
+			[AliasAs("timespan")] double? timespan = null,
+			[AliasAs("perPage")] int? perPage = 5000,
+			[AliasAs("startingAfter")] string? startingAfter = null,
+			[AliasAs("endingBefore")] string? endingBefore = null,
+			[AliasAs("networkId")] string? networkId = null,
+			[AliasAs("adminId")] string? adminId = null,
+			CancellationToken cancellationToken = default);
+
+		Task<List<ChangeLogEntry>> GetAllAsync(
+			string organizationId,
+			string? t0 = null,
+			string? t1 = null,
+			double? timespan = null,
+			string? networkId = null,
+			string? adminId = null,
+			CancellationToken cancellationToken = default)
+				=> MerakiClient.GetAllAsync(
+					(startingAfter, cancellationToken)
+					=> GetPagedApiResponseAsync(
+						organizationId,
+						t0,
+						t1,
+						timespan,
+						startingAfter: startingAfter,
+						networkId: networkId,
+						adminId: adminId,
+						cancellationToken: cancellationToken)
+					, cancellationToken
+					);
 	}
 }
