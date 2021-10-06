@@ -218,7 +218,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/adaptivePolicy/acls")]
-		Task<List<Acls>> GetOrganizationAdaptivePolicyAclsAsync(
+		Task<List<AdaptivePolicyAcl>> GetOrganizationAdaptivePolicyAclsAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
@@ -229,9 +229,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="acls">Body for creating an ACL</param>
 		[Post("/organizations/{organizationId}/adaptivePolicy/acls")]
-		Task<List<Acls>> CreateOrganizationAdaptivePolicyAclAsync(
+		Task<List<AdaptivePolicyAcl>> CreateOrganizationAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] Acls acls,
+			[Body] AdaptivePolicyAcl acls,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -241,7 +241,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="id">The ACL id</param>
 		[Get("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
-		Task<Acls> GetOrganizationAdaptivePolicyAclAsync(
+		Task<AdaptivePolicyAcl> GetOrganizationAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("id")] string id,
 			CancellationToken cancellationToken = default);
@@ -254,10 +254,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="id">The ACL id</param>
 		/// <param name="acls">Body for returning ACL information</param>
 		[Put("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
-		Task<Acls> UpdateOrganizationAdaptivePolicyAclAsync(
+		Task<AdaptivePolicyAcl> UpdateOrganizationAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("id")] string id,
-			[Body] Acls acls,
+			[Body] AdaptivePolicyAcl acls,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
