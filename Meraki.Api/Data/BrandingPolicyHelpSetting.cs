@@ -4,18 +4,14 @@ using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
-	/// <summary>
-	/// The 'Help -> Data protection requests' Dashboard subtab on which requests to delete, restrict, or export end-user data can     be audited. Can be one of 'default or inherit', 'hide' or 'show'.
-	/// </summary>
-	/// <value>The 'Help -> Data protection requests' Dashboard subtab on which requests to delete, restrict, or export end-user data can     be audited. Can be one of 'default or inherit', 'hide' or 'show'.</value>
 	[JsonConverter(typeof(StringEnumConverter))]
-	public enum DataProtectionRequestsSubtab
+	public enum BrandingPolicyHelpSetting
 	{
 		/// <summary>
 		/// Enum Defaultorinherit for "default or inherit"
 		/// </summary>
 		[EnumMember(Value = "default or inherit")]
-		Defaultorinherit,
+		DefaultOrInherit = 1,
 
 		/// <summary>
 		/// Enum Hide for "hide"

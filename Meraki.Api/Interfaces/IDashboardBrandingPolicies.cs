@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="createOrganizationBrandingPolicy">Body for creating an organization's branding policy</param>
+		/// <param name="brandingPolicy">Body for creating an organization's branding policy</param>
 		[Post("/organizations/{organizationId}/brandingPolicies")]
-		Task<BrandingPolicyCreationRequest> CreateOrganizationBrandingPolicy(
+		Task<BrandingPolicy> CreateOrganizationBrandingPolicy(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] BrandingPolicyCreationRequest createOrganizationBrandingPolicy,
+			[Body] BrandingPolicy brandingPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -43,7 +43,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies")]
-		Task<List<BrandingPolicyCreationRequest>> GetOrganizationBrandingPolicies(
+		Task<List<BrandingPolicy>> GetOrganizationBrandingPolicies(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
@@ -54,7 +54,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies/priorities")]
-		Task<BrandingPoliciesPrioritiesUpdateRequest> GetOrganizationBrandingPoliciesPriorities(
+		Task<BrandingPoliciesPriorities> GetOrganizationBrandingPoliciesPriorities(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
@@ -66,7 +66,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="brandingPolicyId">The branding policy id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
-		Task<BrandingPolicyCreationRequest> GetOrganizationBrandingPolicy(
+		Task<BrandingPolicy> GetOrganizationBrandingPolicy(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("brandingPolicyId")] string brandingPolicyId,
 			CancellationToken cancellationToken = default
@@ -77,11 +77,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
-		/// <param name="updateOrganizationBrandingPoliciesPriorities">Body for updating an organization branding policies priorities</param>
+		/// <param name="brandingPoliciesPriorities">Body for updating an organization branding policies priorities</param>
 		[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
-		Task<BrandingPoliciesPrioritiesUpdateRequest> UpdateOrganizationBrandingPoliciesPriorities(
+		Task<BrandingPoliciesPriorities> UpdateOrganizationBrandingPoliciesPriorities(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] BrandingPoliciesPrioritiesUpdateRequest updateOrganizationBrandingPoliciesPriorities,
+			[Body] BrandingPoliciesPriorities brandingPoliciesPriorities,
 			CancellationToken cancellationToken = default
 			);
 
@@ -91,12 +91,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="brandingPolicyId"></param>
-		/// <param name="updateOrganizationBrandingPolicy">Body for updating an organization's branding policy</param>
+		/// <param name="brandingPolicy">Body for updating an organization's branding policy</param>
 		[Put("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
-		Task<BrandingPolicyCreationRequest> UpdateOrganizationBrandingPolicy(
+		Task<BrandingPolicy> UpdateOrganizationBrandingPolicy(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("brandingPolicyId")] string brandingPolicyId,
-			[Body] BrandingPolicyUpdateRequest updateOrganizationBrandingPolicy,
+			[Body] BrandingPolicy brandingPolicy,
 			CancellationToken cancellationToken = default
 			);
 	}

@@ -1,37 +1,41 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// UpdateOrganizationBrandingPolicy
+	/// CreateOrganizationBrandingPolicy
 	/// </summary>
 	[DataContract]
-	public class BrandingPolicyUpdateRequest
+	public class BrandingPolicy : NamedItem
 	{
 		/// <summary>
-		/// Name of the Dashboard branding policy.
+		/// The Id of the Branding Policy
 		/// </summary>
-		/// <value>Name of the Dashboard branding policy.</value>
-		[DataMember(Name = "name")]
-		public string? Name { get; set; }
+		[ApiKey]
+		[DataMember(Name = "brandingPolicyId")]
+		public string BrandingPolicyId { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Boolean indicating whether this policy is enabled.
 		/// </summary>
 		/// <value>Boolean indicating whether this policy is enabled.</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "enabled")]
 		public bool? Enabled { get; set; }
 
 		/// <summary>
 		/// Gets or Sets AdminSettings
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "adminSettings")]
-		public AdminSettings? AdminSettings { get; set; }
+		public AdminSettings AdminSettings { get; set; } = null!;
 
 		/// <summary>
 		/// Gets or Sets HelpSettings
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "helpSettings")]
-		public BrandingPolicyHelpSettings HelpSettings { get; set; } = new();
+		public HelpSettings HelpSettings { get; set; } = null!;
 	}
 }
