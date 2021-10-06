@@ -8,7 +8,7 @@ namespace Meraki.Api.Data
 	/// Gets or sets the branding policy IDs of an organization in priority order. IDs are ordered in ascending order of priority (IDs later in the array have higher priority).
 	/// </summary>
 	[DataContract]
-	public class BrandingPoliciesPriorities
+	public class BrandingPoliciesPriority
 	{
 		/// <summary>
 		/// A list of branding policy IDs arranged in ascending priority order (IDs later in the array have higher priority).

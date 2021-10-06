@@ -54,7 +54,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/brandingPolicies/priorities")]
-		Task<BrandingPoliciesPriorities> GetOrganizationBrandingPoliciesPriorities(
+		Task<BrandingPoliciesPriority> GetOrganizationBrandingPoliciesPriorities(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
@@ -79,9 +79,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="brandingPoliciesPriorities">Body for updating an organization branding policies priorities</param>
 		[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
-		Task<BrandingPoliciesPriorities> UpdateOrganizationBrandingPoliciesPriorities(
+		Task<BrandingPoliciesPriority> UpdateOrganizationBrandingPoliciesPriorities(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] BrandingPoliciesPriorities brandingPoliciesPriorities,
+			[Body] BrandingPoliciesPriority brandingPoliciesPriorities,
 			CancellationToken cancellationToken = default
 			);
 
