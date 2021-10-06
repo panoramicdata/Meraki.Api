@@ -84,7 +84,7 @@ namespace Meraki.Api.Test
 
 			var licenses = await TestMerakiClient
 				.Licenses
-				.GetPageAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
+				.GetPagedAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 				.ConfigureAwait(false);
 
 			licenses.Should().NotBeNull();
@@ -126,7 +126,7 @@ namespace Meraki.Api.Test
 
 			var organizationDeviceLicenses = await TestMerakiClient
 				.Licenses
-				.GetPageAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
+				.GetPagedAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 				.ConfigureAwait(false);
 
 			organizationDeviceLicenses.Should().NotBeNullOrEmpty();
