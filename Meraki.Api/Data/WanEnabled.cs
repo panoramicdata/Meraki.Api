@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// Enum Enabled for "enabled"
 		/// </summary>
 		[EnumMember(Value = "enabled")]
-		Enabled,
+		Enabled = 1,
 
 		/// <summary>
 		/// Enum Disabled for "disabled"
