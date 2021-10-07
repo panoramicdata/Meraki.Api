@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -12,18 +13,21 @@ namespace Meraki.Api.Data
 		/// Desired UUID of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.
 		/// </summary>
 		/// <value>Desired UUID of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "uuid")]
 		public string Uuid { get; set; } = string.Empty;
 		/// <summary>
 		/// Desired major value of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.
 		/// </summary>
 		/// <value>Desired major value of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "major")]
 		public int? Major { get; set; }
 		/// <summary>
 		/// Desired minor value of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.
 		/// </summary>
 		/// <value>Desired minor value of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "minor")]
 		public int? Minor { get; set; }
 	}
