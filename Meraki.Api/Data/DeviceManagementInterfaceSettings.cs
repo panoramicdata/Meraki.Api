@@ -3,7 +3,7 @@
 namespace Meraki.Api.Data
 {
 	[DataContract]
-	public class WanSpecs
+	public class DeviceManagementInterfaceSettings
 	{
 		/// <summary>
 		/// Dynamic DNS Hostnames
@@ -12,13 +12,13 @@ namespace Meraki.Api.Data
 		public DdnsHostnames? DdnsHostnames { get; set; }
 
 		/// <summary>
-		/// WAN 1 spec
+		/// WAN 1 settings
 		/// </summary>
 		[DataMember(Name = "wan1")]
 		public Wan? Wan1 { get; set; }
 
 		/// <summary>
-		/// WAN 2 spec
+		/// WAN 2 settings (only for MX devices)
 		/// </summary>
 		[DataMember(Name = "wan2")]
 		public Wan? Wan2 { get; set; }

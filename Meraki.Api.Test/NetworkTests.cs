@@ -299,14 +299,14 @@ namespace Meraki.Api.Test
 
 			//// Get the management interface settings
 			var wanSpecs = await TestMerakiClient
-				.ManagementInterfaceSettings
-				.GetAsync(newNetwork.Id)
+				.Devices
+				.GetManagementInterfaceAsync(fetchedDevice.Serial)
 				.ConfigureAwait(false);
-			wanSpecs.Should().BeOfType<WanSpecs>();
+			wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 			wanSpecs.Should().NotBeNull();
 
 			const string googleDns = "8.8.8.8";
-			var newWanSpecs = new WanSpecs
+			var newDeviceManagementInterfaceSettings = new DeviceManagementInterfaceSettings
 			{
 				Wan1 = new Wan
 				{
@@ -324,28 +324,28 @@ namespace Meraki.Api.Test
 				}
 			};
 			var updatedWanSpecs = await TestMerakiClient
-				.ManagementInterfaceSettings
-				.UpdateAsync(newNetwork.Id, new ManagementInterfaceSettingsUpdateRequest
+				.Devices
+				.UpdateManagementInterfaceAsync(fetchedDevice.Serial, new DeviceManagementInterfaceSettings
 				{
 					Wan1 = new Wan
 					{
-						StaticDns = newWanSpecs.Wan1.StaticDns,
-						StaticGatewayIp = newWanSpecs.Wan1.StaticGatewayIp,
-						StaticIp = newWanSpecs.Wan1.StaticIp,
-						StaticSubnetMask = newWanSpecs.Wan1.StaticSubnetMask,
-						UsingStaticIp = newWanSpecs.Wan1.UsingStaticIp,
-						Vlan = newWanSpecs.Wan1.Vlan,
-						WanEnabledStatus = newWanSpecs.Wan1.WanEnabledStatus,
+						StaticDns = newDeviceManagementInterfaceSettings.Wan1.StaticDns,
+						StaticGatewayIp = newDeviceManagementInterfaceSettings.Wan1.StaticGatewayIp,
+						StaticIp = newDeviceManagementInterfaceSettings.Wan1.StaticIp,
+						StaticSubnetMask = newDeviceManagementInterfaceSettings.Wan1.StaticSubnetMask,
+						UsingStaticIp = newDeviceManagementInterfaceSettings.Wan1.UsingStaticIp,
+						Vlan = newDeviceManagementInterfaceSettings.Wan1.Vlan,
+						WanEnabledStatus = newDeviceManagementInterfaceSettings.Wan1.WanEnabledStatus,
 					}
 				})
 				.ConfigureAwait(false);
-			updatedWanSpecs.Should().BeOfType<WanSpecs>();
+			updatedWanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 			updatedWanSpecs.Should().NotBeNull();
 
 			//// Get the management interface settings
 			var wanSpecsRefetch = await TestMerakiClient
-				.ManagementInterfaceSettings
-				.GetAsync(newNetwork.Id)
+				.Devices
+				.GetManagementInterfaceAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			wanSpecsRefetch.Should().NotBeNull();
 			wanSpecsRefetch.Wan1.Should().NotBeNull();

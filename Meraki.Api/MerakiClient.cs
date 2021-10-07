@@ -74,7 +74,6 @@ namespace Meraki.Api
 			Licenses = RefitFor(Licenses)!;
 			LinkAggregations = RefitFor(LinkAggregations)!;
 			MalwareSettings = RefitFor(MalwareSettings)!;
-			ManagementInterfaceSettings = RefitFor(ManagementInterfaceSettings)!;
 			MerakiAuthUsers = RefitFor(MerakiAuthUsers)!;
 			MgConnectivityMonitoringDestinations = RefitFor(MgConnectivityMonitoringDestinations)!;
 			MgDhcpSettings = RefitFor(MgDhcpSettings)!;
@@ -256,11 +255,6 @@ namespace Meraki.Api
 		/// Malware settings
 		/// </summary>
 		public IMalwareSettings MalwareSettings { get; }
-
-		/// <summary>
-		/// Management interface settings
-		/// </summary>
-		public IManagementInterfaceSettings ManagementInterfaceSettings { get; }
 
 		/// <summary>
 		/// Meraki auth users
