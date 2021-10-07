@@ -54,7 +54,7 @@ namespace Meraki.Api
 			AlertSettings = RefitFor(AlertSettings)!;
 			ApiRequests = RefitFor(ApiRequests)!;
 			BluetoothClients = RefitFor(BluetoothClients)!;
-			BluetoothSettings = RefitFor(BluetoothSettings)!;
+			Wireless = RefitFor(Wireless)!;
 			CameraQualityRetentionProfiles = RefitFor(CameraQualityRetentionProfiles)!;
 			Cameras = RefitFor(Cameras)!;
 			ChangeLogs = RefitFor(ChangeLogs)!;
@@ -158,9 +158,9 @@ namespace Meraki.Api
 		public IBluetoothClients BluetoothClients { get; }
 
 		/// <summary>
-		/// Bluetooth settings
+		/// Wireless devices/networks
 		/// </summary>
-		public IBluetoothSettings BluetoothSettings { get; }
+		public IWireless Wireless { get; }
 
 		/// <summary>
 		/// Camera quality retention policies

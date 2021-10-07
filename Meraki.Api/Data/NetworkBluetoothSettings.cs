@@ -6,20 +6,20 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkBluetoothSettings
 	/// </summary>
 	[DataContract]
-	public class NetworkBluetoothSettingsUpdateRequest
+	public class NetworkBluetoothSettings
 	{
 		/// <summary>
 		/// Whether APs will scan for Bluetooth enabled clients. (true, false)
 		/// </summary>
 		/// <value>Whether APs will scan for Bluetooth enabled clients. (true, false)</value>
 		[DataMember(Name = "scanningEnabled")]
-		public bool? ScanningEnabled { get; set; }
+		public bool ScanningEnabled { get; set; }
 		/// <summary>
 		/// Whether APs will advertise beacons. (true, false)
 		/// </summary>
 		/// <value>Whether APs will advertise beacons. (true, false)</value>
 		[DataMember(Name = "advertisingEnabled")]
-		public bool? AdvertisingEnabled { get; set; }
+		public bool AdvertisingEnabled { get; set; }
 		/// <summary>
 		/// The UUID to be used in the beacon identifier.
 		/// </summary>
