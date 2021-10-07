@@ -64,8 +64,8 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			var result = await TestMerakiClient
-				.Devices
-				.GetAllByNetworkAsync(network.Id)
+				.Networks
+				.GetAllDevicesAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<Device>>();
 			result.Should().NotBeNull();
@@ -139,8 +139,8 @@ namespace Meraki.Api.Test
 			{
 				// Get all network devices and remove them
 				var oldNetworkDevices = await TestMerakiClient
-					.Devices
-					.GetAllByNetworkAsync(oldNetwork.Id)
+					.Networks
+					.GetAllDevicesAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
 				foreach (var oldNetworkDevice in oldNetworkDevices)
 				{

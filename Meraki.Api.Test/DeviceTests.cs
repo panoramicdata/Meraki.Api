@@ -15,8 +15,8 @@ namespace Meraki.Api.Test
 		public async void GetDeviceAsync_Succeeds()
 		{
 			var devices = await TestMerakiClient
-				.Devices
-				.GetAllByNetworkAsync(Configuration.TestCameraNetworkId)
+				.Networks
+				.GetAllDevicesAsync(Configuration.TestCameraNetworkId)
 				.ConfigureAwait(false);
 
 			devices
@@ -41,8 +41,8 @@ namespace Meraki.Api.Test
 		public async void PutDeviceAsync_WithMoveMapMarker_Succeeds()
 		{
 			var devices = await TestMerakiClient
-				.Devices
-				.GetAllByNetworkAsync(Configuration.TestNetworkId)
+				.Networks
+				.GetAllDevicesAsync(Configuration.TestNetworkId)
 				.ConfigureAwait(false);
 
 			devices
@@ -122,8 +122,8 @@ namespace Meraki.Api.Test
 		public async void GetDeviceNetworkManagementSettingsAsync_Succeeds()
 		{
 			var devices = await TestMerakiClient
-				.Devices
-				.GetAllByNetworkAsync(Configuration.TestNetworkId)
+				.Networks
+				.GetAllDevicesAsync(Configuration.TestNetworkId)
 				.ConfigureAwait(false);
 
 			devices
