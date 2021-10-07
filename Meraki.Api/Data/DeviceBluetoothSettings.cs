@@ -3,10 +3,10 @@ using System.Runtime.Serialization;
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// UpdateDeviceWirelessBluetoothSettings
+	/// UpdateDeviceDeviceBluetoothSettings
 	/// </summary>
 	[DataContract]
-	public class WirelessBluetoothSettings
+	public class DeviceBluetoothSettings
 	{
 		/// <summary>
 		/// Desired UUID of the beacon. If the value is set to null it will reset to Dashboard&#39;s automatically generated value.

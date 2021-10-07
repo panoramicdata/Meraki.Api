@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The device serial number</param>
 		[Get("/devices/{serial}/wireless/bluetooth/settings")]
-		Task<WirelessBluetoothSettings> GetDeviceWirelessBluetoothSettingsAsync(
+		Task<DeviceBluetoothSettings> GetDeviceDeviceBluetoothSettingsAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -26,7 +26,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/bluetoothSettings")]
-		Task<NetworkBluetoothSettings> GetNetworkWirelessBluetoothSettingsAsync(
+		Task<NetworkBluetoothSettings> GetNetworkDeviceBluetoothSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
@@ -35,11 +35,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="updateDeviceWirelessBluetoothSettings">Body for updating device's wireless bluetooth settings</param>
+		/// <param name="updateDeviceDeviceBluetoothSettings">Body for updating device's wireless bluetooth settings</param>
 		[Put("/devices/{serial}/wireless/bluetooth/settings")]
-		Task<WirelessBluetoothSettings> UpdateDeviceWirelessBluetoothSettingsAsync(
+		Task<DeviceBluetoothSettings> UpdateDeviceDeviceBluetoothSettingsAsync(
 			[AliasAs("serial")] string serial,
-			[Body] WirelessBluetoothSettings updateDeviceWirelessBluetoothSettings,
+			[Body] DeviceBluetoothSettings updateDeviceDeviceBluetoothSettings,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -49,7 +49,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkBluetoothSettings">Body for updating network's wireless bluetooth settings</param>
 		[Put("/networks/{networkId}/wireless/bluetooth/settings")]
-		Task<NetworkBluetoothSettings> UpdateNetworkWirelessBluetoothSettingsAsync(
+		Task<NetworkBluetoothSettings> UpdateNetworkDeviceBluetoothSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] NetworkBluetoothSettings updateNetworkBluetoothSettings,
 			CancellationToken cancellationToken = default);
