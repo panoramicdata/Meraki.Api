@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "wanEnabled")]
-		public WanEnabledStatus WanEnabledStatus { get; set; }
+		public WanEnabledStatus? WanEnabledStatus { get; set; }
 
 		/// <summary>
 		/// Configue the interface to have static IP settings or use DHCP.
