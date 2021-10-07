@@ -201,5 +201,15 @@ namespace Meraki.Api.Interfaces
 			[Body] NetworkSettings updateNetworkSettings,
 			CancellationToken cancellationToken = default
 			);
+
+		/// <summary>
+		/// List the devices in a network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/devices")]
+		Task<List<Device>> GetAllDevicesAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default);
 	}
 }
