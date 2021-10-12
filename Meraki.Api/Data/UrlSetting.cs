@@ -5,10 +5,10 @@ using System.Runtime.Serialization;
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// How bandwidth limits are enforced. Can be 'network default', 'ignore' or 'custom'.
+	/// How URL patterns are applied. Can be 'network default', 'append' or 'override'.
 	/// </summary>
 	[JsonConverter(typeof(StringEnumConverter))]
-	public enum Setting
+	public enum UrlSetting
 	{
 		/// <summary>
 		/// Enum Networkdefault for "network default"
@@ -17,15 +17,15 @@ namespace Meraki.Api.Data
 		Networkdefault,
 
 		/// <summary>
-		/// Enum Ignore for "ignore"
+		/// Enum Append for "append"
 		/// </summary>
-		[EnumMember(Value = "ignore")]
-		Ignore,
+		[EnumMember(Value = "append")]
+		Append,
 
 		/// <summary>
-		/// Enum Custom for "custom"
+		/// Enum Override for "override"
 		/// </summary>
-		[EnumMember(Value = "custom")]
-		Custom
+		[EnumMember(Value = "override")]
+		Override
 	}
 }

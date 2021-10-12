@@ -68,7 +68,6 @@ namespace Meraki.Api
 			Events = RefitFor(Events)!;
 			FirewalledServices = RefitFor(FirewalledServices)!;
 			Floorplans = RefitFor(Floorplans)!;
-			GroupPolicies = RefitFor(GroupPolicies)!;
 			HttpServers = RefitFor(HttpServers)!;
 			IntrusionSettings = RefitFor(IntrusionSettings)!;
 			Licenses = RefitFor(Licenses)!;
@@ -99,6 +98,7 @@ namespace Meraki.Api
 			NamedTagScopes = RefitFor(NamedTagScopes)!;
 			NetFlowSettings = RefitFor(NetFlowSettings)!;
 			Networks = RefitFor(Networks)!;
+			NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
 			OpenApiSpec = RefitFor(OpenApiSpec)!;
 			Organizations = RefitFor(Organizations)!;
 			Piis = RefitFor(Piis)!;
@@ -225,11 +225,6 @@ namespace Meraki.Api
 		/// Floor plans
 		/// </summary>
 		public IFloorplans Floorplans { get; }
-
-		/// <summary>
-		/// Group policies
-		/// </summary>
-		public IGroupPolicies GroupPolicies { get; }
 
 		/// <summary>
 		/// HTTP servers
@@ -380,6 +375,11 @@ namespace Meraki.Api
 		/// Networks
 		/// </summary>
 		public INetworks Networks { get; }
+
+		/// <summary>
+		/// Group policies
+		/// </summary>
+		public INetworkGroupPolicies NetworkGroupPolicies { get; }
 
 		/// <summary>
 		/// Open API spec

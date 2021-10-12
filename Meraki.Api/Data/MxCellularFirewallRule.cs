@@ -29,7 +29,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "protocol")]
-		public TcpUdpIcmpAnyProtocol Protocol { get; set; }
+		public FirewallProtocol Protocol { get; set; }
 
 		/// <summary>
 		/// Comma-separated list of source port(s) (integer in the range 1-65535), or &#39;any&#39;

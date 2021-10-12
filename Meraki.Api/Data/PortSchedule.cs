@@ -12,42 +12,42 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Monday
 		/// </summary>
 		[DataMember(Name = "monday")]
-		public DayPortSchedule? Monday { get; set; }
+		public DaySchedule? Monday { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Tuesday
 		/// </summary>
 		[DataMember(Name = "tuesday")]
-		public DayPortSchedule? Tuesday { get; set; }
+		public DaySchedule? Tuesday { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Wednesday
 		/// </summary>
 		[DataMember(Name = "wednesday")]
-		public DayPortSchedule? Wednesday { get; set; }
+		public DaySchedule? Wednesday { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Thursday
 		/// </summary>
 		[DataMember(Name = "thursday")]
-		public DayPortSchedule? Thursday { get; set; }
+		public DaySchedule? Thursday { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Friday
 		/// </summary>
 		[DataMember(Name = "friday")]
-		public DayPortSchedule? Friday { get; set; }
+		public DaySchedule? Friday { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Saturday
 		/// </summary>
 		[DataMember(Name = "saturday")]
-		public DayPortSchedule? Saturday { get; set; }
+		public DaySchedule? Saturday { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Sunday
 		/// </summary>
 		[DataMember(Name = "sunday")]
-		public DayPortSchedule? Sunday { get; set; }
+		public DaySchedule? Sunday { get; set; }
 	}
 }

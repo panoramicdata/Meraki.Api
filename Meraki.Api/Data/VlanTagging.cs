@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -12,13 +13,14 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Settings
 		/// </summary>
 		[DataMember(Name = "settings")]
+		[ApiAccess(ApiAccess.ReadWrite)]
 		public Setting Settings { get; set; }
 
 		/// <summary>
-		/// The ID of the vlan you want to tag. This only applies if &#39;settings&#39; is set to &#39;custom&#39;.
+		/// The ID of the vlan you want to tag. This only applies if 'settings' is set to 'custom'.
 		/// </summary>
-		/// <value>The ID of the vlan you want to tag. This only applies if &#39;settings&#39; is set to &#39;custom&#39;.</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "vlanId")]
-		public string VlanId { get; set; } = null!;
+		public string? VlanId { get; set; }
 	}
 }

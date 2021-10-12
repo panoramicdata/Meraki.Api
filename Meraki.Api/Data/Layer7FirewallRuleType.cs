@@ -7,7 +7,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// Type of the L7 Rule. Must be 'application', 'applicationCategory', 'host', 'port' or 'ipRange'
 	/// </summary>
-	/// <value>Type of the L7 Rule. Must be 'application', 'applicationCategory', 'host', 'port' or 'ipRange'</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum Layer7FirewallRuleType
 	{

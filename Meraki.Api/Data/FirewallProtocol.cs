@@ -7,9 +7,8 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')
 	/// </summary>
-	/// <value>The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')</value>
 	[JsonConverter(typeof(StringEnumConverter))]
-	public enum TcpUdpIcmpAnyProtocol
+	public enum FirewallProtocol
 	{
 		/// <summary>
 		/// Enum Tcp for "tcp"

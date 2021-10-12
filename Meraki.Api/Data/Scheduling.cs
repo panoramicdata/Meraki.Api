@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,50 +12,57 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Whether scheduling is enabled (true) or disabled (false). Defaults to false. If true, the schedule objects for each day of the week (monday - sunday) are parsed.
 		/// </summary>
-		/// <value>Whether scheduling is enabled (true) or disabled (false). Defaults to false. If true, the schedule objects for each day of the week (monday - sunday) are parsed.</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "enabled")]
-		public bool? Enabled { get; set; }
+		public bool Enabled { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Monday
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "monday")]
-		public DayPortSchedule Monday { get; set; } = null!;
+		public DaySchedule Monday { get; set; } = new();
 
 		/// <summary>
 		/// Gets or Sets Tuesday
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "tuesday")]
-		public DayPortSchedule Tuesday { get; set; } = null!;
+		public DaySchedule Tuesday { get; set; } = new();
 
 		/// <summary>
 		/// Gets or Sets Wednesday
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "wednesday")]
-		public DayPortSchedule Wednesday { get; set; } = null!;
+		public DaySchedule Wednesday { get; set; } = new();
 
 		/// <summary>
 		/// Gets or Sets Thursday
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "thursday")]
-		public DayPortSchedule Thursday { get; set; } = null!;
+		public DaySchedule Thursday { get; set; } = new();
 
 		/// <summary>
 		/// Gets or Sets Friday
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "friday")]
-		public DayPortSchedule Friday { get; set; } = null!;
+		public DaySchedule Friday { get; set; } = new()!;
 
 		/// <summary>
 		/// Gets or Sets Saturday
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "saturday")]
-		public DayPortSchedule Saturday { get; set; } = null!;
+		public DaySchedule Saturday { get; set; } = new();
 
 		/// <summary>
 		/// Gets or Sets Sunday
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "sunday")]
-		public DayPortSchedule Sunday { get; set; } = null!;
+		public DaySchedule Sunday { get; set; } = new();
 	}
 }

@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -12,13 +13,14 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Gets or Sets Settings
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "settings")]
-		public Setting Settings { get; set; } = new();
+		public UrlSetting Settings { get; set; }
 
 		/// <summary>
 		/// A whitelist of URL patterns to allow
 		/// </summary>
-		/// <value>A whitelist of URL patterns to allow</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "patterns")]
 		public List<string> Patterns { get; set; } = new();
 	}

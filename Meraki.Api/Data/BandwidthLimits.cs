@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,13 +12,13 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The maximum upload limit (integer, in Kbps). null indicates no limit
 		/// </summary>
-		/// <value>The maximum upload limit (integer, in Kbps). null indicates no limit</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "limitUp")]
 		public int? LimitUp { get; set; }
 		/// <summary>
 		/// The maximum download limit (integer, in Kbps). null indicates no limit
 		/// </summary>
-		/// <value>The maximum download limit (integer, in Kbps). null indicates no limit</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "limitDown")]
 		public int? LimitDown { get; set; }
 	}

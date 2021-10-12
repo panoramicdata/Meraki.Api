@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,12 +12,14 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Gets or Sets Settings
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "settings")]
 		public Setting Settings { get; set; }
 		/// <summary>
 		/// Gets or Sets BandwidthLimits
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "bandwidthLimits")]
-		public BandwidthLimits BandwidthLimits { get; set; } = null!;
+		public BandwidthLimits BandwidthLimits { get; set; } = new();
 	}
 }

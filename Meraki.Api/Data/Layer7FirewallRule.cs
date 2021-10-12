@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,20 +12,22 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Gets or Sets Policy
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "policy")]
 		public Layer7FirewallRulePolicy Policy { get; set; }
 
 		/// <summary>
 		/// Gets or Sets Type
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "type")]
 		public Layer7FirewallRuleType Type { get; set; }
 
 		/// <summary>
-		/// The &#39;value&#39; of what you want to block. If &#39;type&#39; is &#39;host&#39;, &#39;port&#39; or &#39;ipRange&#39;, &#39;value&#39; must be a string matching either a hostname (e.g. somewhere.com), a port (e.g. 8080), or an IP range (e.g. 192.1.0.0/16). If &#39;type&#39; is &#39;application&#39; or &#39;applicationCategory&#39;, then &#39;value&#39; must be an object with an ID for the application.
+		/// The 'value' of what you want to block.If 'type' is 'host', 'port' or 'ipRange', 'value' must be a string matching either a hostname (e.g.somewhere.com), a port (e.g. 8080), or an IP range(e.g. 192.1.0.0/16). If 'type' is 'application' or 'applicationCategory', then 'value' must be an object with an ID for the application.
 		/// </summary>
-		/// <value>The &#39;value&#39; of what you want to block. If &#39;type&#39; is &#39;host&#39;, &#39;port&#39; or &#39;ipRange&#39;, &#39;value&#39; must be a string matching either a hostname (e.g. somewhere.com), a port (e.g. 8080), or an IP range (e.g. 192.1.0.0/16). If &#39;type&#39; is &#39;application&#39; or &#39;applicationCategory&#39;, then &#39;value&#39; must be an object with an ID for the application.</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "value")]
-		public string Value { get; set; } = null!;
+		public string Value { get; set; } = string.Empty;
 	}
 }

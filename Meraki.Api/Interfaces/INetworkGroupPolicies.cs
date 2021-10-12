@@ -9,7 +9,7 @@ namespace Meraki.Api.Interfaces
 	/// <summary>
 	/// Represents a collection of functions to interact with the API endpoints
 	/// </summary>
-	public interface IGroupPolicies
+	public interface INetworkGroupPolicies
 	{
 		/// <summary>
 		/// Create a group policy
@@ -18,9 +18,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="createNetworkGroupPolicy">Body for creating a network group policy</param>
 		[Post("/networks/{networkId}/groupPolicies")]
-		Task<GroupPolicyCreationRequest> CreateNetworkGroupPolicyAsync(
+		Task<GroupPolicy> CreateAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] GroupPolicyCreationRequest createNetworkGroupPolicy,
+			[Body] GroupPolicy createNetworkGroupPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -31,7 +31,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="groupPolicyId">The group policy id</param>
 		[Delete("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
-		Task DeleteNetworkGroupPolicyAsync(
+		Task DeleteAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("groupPolicyId")] string groupPolicyId,
 			CancellationToken cancellationToken = default
@@ -43,7 +43,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/groupPolicies")]
-		Task<List<GroupPolicyCreationRequest>> GetNetworkGroupPoliciesAsync(
+		Task<List<GroupPolicy>> GetAllAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -55,7 +55,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="groupPolicyId">The group policy id</param>
 		[Get("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
-		Task<GroupPolicyCreationRequest> GetNetworkGroupPolicyAsync(
+		Task<GroupPolicy> GetAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("groupPolicyId")] string groupPolicyId,
 			CancellationToken cancellationToken = default
@@ -69,10 +69,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="groupPolicyId"></param>
 		/// <param name="updateNetworkGroupPolicy">Body for updating a network group policy</param>
 		[Put("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
-		Task<GroupPolicyUpdateRequest> UpdateNetworkGroupPolicyAsync(
+		Task<GroupPolicy> UpdateAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("groupPolicyId")] string groupPolicyId,
-			[Body] GroupPolicyUpdateRequest updateNetworkGroupPolicy,
+			[Body] GroupPolicy updateNetworkGroupPolicy,
 			CancellationToken cancellationToken = default);
 	}
 }
