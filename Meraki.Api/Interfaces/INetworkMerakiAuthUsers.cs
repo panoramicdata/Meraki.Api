@@ -9,7 +9,7 @@ namespace Meraki.Api.Interfaces
 	/// <summary>
 	/// Represents a collection of functions to interact with the API endpoints
 	/// </summary>
-	public interface IMerakiAuthUsers
+	public interface INetworkMerakiAuthUsers
 	{
 		/// <summary>
 		/// Return the Meraki Auth splash guest, RADIUS, or client VPN user
@@ -18,7 +18,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="merakiAuthUserId">The meraki user id</param>
 		[Get("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
-		Task<MerakiAuthUsers> GetNetworkMerakiAuthUserAsync(
+		Task<MerakiAuthUser> GetAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
 			CancellationToken cancellationToken = default
@@ -30,12 +30,12 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="merakiAuthUserId">The meraki user id</param>
-		/// <param name="updateNetworkMerakiAuthUser">Body for updating a user</param>
+		/// <param name="merakiAuthUser">Body for updating a user</param>
 		[Put("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
-		Task<MerakiAuthUsers> UpdateNetworkMerakiAuthUserAsync(
+		Task<MerakiAuthUser> UpdateAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
-			[Body] MerakiAuthUsers updateNetworkMerakiAuthUser,
+			[Body] MerakiAuthUserCreateUpdateRequest merakiAuthUser,
 			CancellationToken cancellationToken = default
 			);
 
@@ -45,21 +45,8 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/merakiAuthUsers")]
-		Task<List<MerakiAuthUsers>> GetNetworkMerakiAuthUsersAsync(
+		Task<List<MerakiAuthUser>> GetAllAsync(
 			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update a user configured with Meraki Authentication
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkMerakiAuthUser">Body for updating a meraki user</param>
-		[Put("/networks/{networkId}/merakiAuthUsers")]
-		Task<MerakiAuthUsers> UpdateNetworkMerakiAuthUserAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] MerakiAuthUsers updateNetworkMerakiAuthUser,
 			CancellationToken cancellationToken = default
 			);
 
@@ -68,11 +55,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="createNetworkMerakiAuthUser">Body for authorizing a meraki user</param>
+		/// <param name="merakiAuthUser">Body for authorizing a meraki user</param>
 		[Post("/networks/{networkId}/merakiAuthUsers")]
-		Task<MerakiAuthUsers> CreateNetworkMerakiAuthUserAsync(
+		Task<MerakiAuthUser> CreateAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] MerakiAuthUsers createNetworkMerakiAuthUser,
+			[Body] MerakiAuthUserCreateUpdateRequest merakiAuthUser,
 			CancellationToken cancellationToken = default
 			);
 
@@ -83,7 +70,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="merakiAuthUserId">The meraki user id</param>
 		[Delete("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
-		Task DeleteNetworkMerakiAuthUserAsync(
+		Task DeleteAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
 			CancellationToken cancellationToken = default);

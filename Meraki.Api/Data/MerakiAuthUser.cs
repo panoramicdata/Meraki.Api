@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -6,41 +7,33 @@ namespace Meraki.Api.Data
 	/// Meraki users
 	/// </summary>
 	[DataContract]
-	public class MerakiAuthUsers
+	public class MerakiAuthUser : NamedIdentifiedItem
 	{
 		/// <summary>
-		/// Id
+		/// Email address of the user
 		/// </summary>
-		[DataMember(Name = "id")]
-		public string Id { get; set; } = string.Empty;
-
-		/// <summary>
-		/// Email
-		/// </summary>
+		[ApiAccess(ApiAccess.ReadCreate)]
 		[DataMember(Name = "email")]
 		public string Email { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Name
-		/// </summary>
-		[DataMember(Name = "name")]
-		public string Name { get; set; } = string.Empty;
-
-		/// <summary>
 		/// Created at
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "createdAt")]
 		public string CreatedAt { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Account type
+		/// Authorization type for user. Can be 'Guest' or '802.1X' for wireless networks, or 'Client VPN' for wired networks. Defaults to '802.1X'.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadCreate)]
 		[DataMember(Name = "accountType")]
 		public string AccountType { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Authorizations
+		/// Authorization zones and expiration dates for the user.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "id")]
 		public Authorizations Authorizations { get; set; } = new();
 	}

@@ -73,7 +73,6 @@ namespace Meraki.Api
 			Licenses = RefitFor(Licenses)!;
 			LinkAggregations = RefitFor(LinkAggregations)!;
 			MalwareSettings = RefitFor(MalwareSettings)!;
-			MerakiAuthUsers = RefitFor(MerakiAuthUsers)!;
 			MgConnectivityMonitoringDestinations = RefitFor(MgConnectivityMonitoringDestinations)!;
 			MgDhcpSettings = RefitFor(MgDhcpSettings)!;
 			MgLanSettings = RefitFor(MgLanSettings)!;
@@ -99,6 +98,7 @@ namespace Meraki.Api
 			NetFlowSettings = RefitFor(NetFlowSettings)!;
 			Networks = RefitFor(Networks)!;
 			NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
+			NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
 			OpenApiSpec = RefitFor(OpenApiSpec)!;
 			Organizations = RefitFor(Organizations)!;
 			Piis = RefitFor(Piis)!;
@@ -254,7 +254,7 @@ namespace Meraki.Api
 		/// <summary>
 		/// Meraki auth users
 		/// </summary>
-		public IMerakiAuthUsers MerakiAuthUsers { get; }
+		public INetworkMerakiAuthUsers NetworkMerakiAuthUsers { get; }
 
 		/// <summary>
 		/// MG connectivity monitoring destinations
