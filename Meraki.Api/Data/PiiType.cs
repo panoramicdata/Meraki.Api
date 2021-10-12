@@ -5,9 +5,8 @@ using System.Runtime.Serialization;
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// One of \"delete\" or \"restrict processing\"
+	/// One of "delete" or "restrict processing"
 	/// </summary>
-	/// <value>One of \"delete\" or \"restrict processing\"</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum PiiType
 	{

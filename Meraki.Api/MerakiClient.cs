@@ -100,9 +100,9 @@ namespace Meraki.Api
 			NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
 			NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
 			NetworkMqttBrokers = RefitFor(NetworkMqttBrokers)!;
+			NetworkPiiRequests = RefitFor(NetworkPiiRequests)!;
 			OpenApiSpec = RefitFor(OpenApiSpec)!;
 			Organizations = RefitFor(Organizations)!;
-			Piis = RefitFor(Piis)!;
 			RadioSettings = RefitFor(RadioSettings)!;
 			SamlRoles = RefitFor(SamlRoles)!;
 			SecurityEvents = RefitFor(SecurityEvents)!;
@@ -400,7 +400,7 @@ namespace Meraki.Api
 		/// <summary>
 		/// PIIs
 		/// </summary>
-		public IPiis Piis { get; }
+		public INetworkPiiRequests NetworkPiiRequests { get; }
 
 		/// <summary>
 		/// Radio settings
