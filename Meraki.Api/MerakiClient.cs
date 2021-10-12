@@ -99,6 +99,7 @@ namespace Meraki.Api
 			Networks = RefitFor(Networks)!;
 			NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
 			NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
+			NetworkMqttBrokers = RefitFor(NetworkMqttBrokers)!;
 			OpenApiSpec = RefitFor(OpenApiSpec)!;
 			Organizations = RefitFor(Organizations)!;
 			Piis = RefitFor(Piis)!;
@@ -255,6 +256,11 @@ namespace Meraki.Api
 		/// Meraki auth users
 		/// </summary>
 		public INetworkMerakiAuthUsers NetworkMerakiAuthUsers { get; }
+
+		/// <summary>
+		/// MQTT brokers
+		/// </summary>
+		public INetworkMqttBrokers NetworkMqttBrokers { get; }
 
 		/// <summary>
 		/// MG connectivity monitoring destinations

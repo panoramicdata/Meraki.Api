@@ -9,7 +9,7 @@ namespace Meraki.Api.Interfaces
 	/// <summary>
 	/// Admins interface
 	/// </summary>
-	public interface IMqttBrokers
+	public interface INetworkMqttBrokers
 	{
 		/// <summary>
 		/// List the MQTT brokers for this network
@@ -17,7 +17,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/mqttBrokers")]
-		Task<List<NetworkMqttBroker>> GetNetworkMqttBrokersAsync(
+		Task<List<NetworkMqttBroker>> GetAllAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="createNetworkMqttBroker">Body for adding an MQTT broker</param>
 		[Post("/networks/{networkId}/mqttBrokers")]
-		Task<NetworkMqttBroker> CreateNetworkMqttBrokerAsync(
+		Task<NetworkMqttBroker> CreateAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] NetworkMqttBroker createNetworkMqttBroker,
 			CancellationToken cancellationToken = default);
@@ -40,7 +40,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="mqttBrokerId">The MQTT broker id</param>
 		[Get("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
-		Task<NetworkMqttBroker> GetNetworkMqttBrokerAsync(
+		Task<NetworkMqttBroker> GetAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("mqttBrokerId")] string mqttBrokerId,
 			CancellationToken cancellationToken = default);
@@ -53,7 +53,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="mqttBrokerId">The MQTT broker id</param>
 		/// <param name="updateNetworkMqttBroker">Body for updating an MQTT broker</param>
 		[Put("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
-		Task<NetworkMqttBroker> UpdateNetworkMqttBrokerAsync(
+		Task<NetworkMqttBroker> UpdateAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("mqttBrokerId")] string mqttBrokerId,
 			[Body] NetworkMqttBroker updateNetworkMqttBroker,
@@ -66,7 +66,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="mqttBrokerId">The MQTT broker id</param>
 		[Delete("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
-		Task DeleteNetworkMqttBrokerAsync(
+		Task DeleteAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("mqttBrokerId")] string mqttBrokerId,
 			CancellationToken cancellationToken = default);
