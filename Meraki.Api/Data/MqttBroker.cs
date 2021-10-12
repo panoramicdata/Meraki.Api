@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Mqtt Broker Info
 	/// </summary>
 	[DataContract]
-	public class NetworkMqttBroker : NamedIdentifiedItem
+	public class MqttBroker : NamedIdentifiedItem
 	{
 		/// <summary>
 		/// Host name/IP address where the MQTT broker runs.
