@@ -14,8 +14,8 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The name
 		/// </summary>
-		[DataMember(Name = "name")]
 		[ApiAccess(ApiAccess.ReadWrite)]
+		[DataMember(Name = "name")]
 		public string Name { get; set; } = default!;
 	}
 }

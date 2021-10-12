@@ -7,20 +7,14 @@ namespace Meraki.Api.Data
 	/// CreateNetworkGroupPolicy
 	/// </summary>
 	[DataContract]
-	public class GroupPolicy
+	public class GroupPolicy : NamedItem
 	{
-		/// <summary>
-		/// The name for your group policy. Required.
-		/// </summary>
-		/// <value>The name for your group policy. Required.</value>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "name")]
-		public string Name { get; set; } = string.Empty;
-
 		/// <summary>
 		/// The Group Policy Id
 		/// </summary>
 		[ApiKey]
+		[ApiAccess(ApiAccess.Read)]
+		[DataMember(Name = "groupPolicyId")]
 		public string? GroupPolicyId { get; set; }
 
 		/// <summary>
