@@ -9,7 +9,6 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class MerakiAuthUserCreateUpdateRequest : MerakiAuthUser
 	{
-
 		/// <summary>
 		/// The password for this user account
 		/// </summary>
