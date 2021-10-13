@@ -95,7 +95,6 @@ namespace Meraki.Api
 			MxVpnFirewalls = RefitFor(MxVpnFirewalls)!;
 			MxWarmSpareSettings = RefitFor(MxWarmSpareSettings)!;
 			NamedTagScopes = RefitFor(NamedTagScopes)!;
-			NetFlowSettings = RefitFor(NetFlowSettings)!;
 			Networks = RefitFor(Networks)!;
 			NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
 			NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
@@ -371,11 +370,6 @@ namespace Meraki.Api
 		/// Named tag scopes
 		/// </summary>
 		public INamedTagScopes NamedTagScopes { get; }
-
-		/// <summary>
-		/// NetFlow settings
-		/// </summary>
-		public INetFlowSettings NetFlowSettings { get; }
 
 		/// <summary>
 		/// Networks
