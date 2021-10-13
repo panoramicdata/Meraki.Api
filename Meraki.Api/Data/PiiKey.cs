@@ -1,47 +1,54 @@
-﻿using System.Collections.Generic;
+﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// N1234
+	/// Pii Key
 	/// </summary>
 	[DataContract]
-	public class N1234
+	public class PiiKey
 	{
 		/// <summary>
-		/// Macs
+		/// The MAC of a network client device or a Systems Manager device
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "macs")]
 		public List<string> Macs { get; set; } = new();
 
 		/// <summary>
-		/// Emails
+		/// The email of a network user account or a Systems Manager device
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "emails")]
 		public List<string> Emails { get; set; } = new();
 
 		/// <summary>
-		/// Usernames
+		/// The username of a Systems Manager user
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "usernames")]
 		public List<string> Usernames { get; set; } = new();
 
 		/// <summary>
-		/// Serials
+		/// The serial of a Systems Manager device
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "serials")]
 		public List<string> Serials { get; set; } = new();
 
 		/// <summary>
-		/// IMeis
+		/// The IMEI of a Systems Manager device
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "imeis")]
 		public List<string> Imeis { get; set; } = new();
 
 		/// <summary>
-		/// Bluetooth macs
+		/// The MAC of a Bluetooth client
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "bluetoothMacs")]
 		public List<string> BluetoothMacs { get; set; } = new();
 	}
