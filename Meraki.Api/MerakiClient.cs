@@ -116,7 +116,6 @@ namespace Meraki.Api
 			SwitchProfiles = RefitFor(SwitchProfiles)!;
 			SwitchSettings = RefitFor(SwitchSettings)!;
 			SwitchStacks = RefitFor(SwitchStacks)!;
-			SyslogServers = RefitFor(SyslogServers)!;
 			TrafficAnalysisSettings = RefitFor(TrafficAnalysisSettings)!;
 			TrafficShaping = RefitFor(TrafficShaping)!;
 			UplinkSettings = RefitFor(UplinkSettings)!;
@@ -465,11 +464,6 @@ namespace Meraki.Api
 		/// Switch stacks
 		/// </summary>
 		public ISwitchStacks SwitchStacks { get; }
-
-		/// <summary>
-		/// Syslog servers
-		/// </summary>
-		public ISyslogServers SyslogServers { get; }
 
 		/// <summary>
 		/// Traffic analysis settings

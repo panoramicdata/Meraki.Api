@@ -7,13 +7,13 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSyslogServers
 	/// </summary>
 	[DataContract]
-	public class SyslogServersUpdateRequest
+	public class SyslogServers
 	{
 		/// <summary>
 		/// A list of the syslog servers for this network
 		/// </summary>
 		/// <value>A list of the syslog servers for this network</value>
 		[DataMember(Name = "servers")]
-		public List<ServerSettings> Servers { get; set; } = new();
+		public List<SyslogServer> Servers { get; set; } = new();
 	}
 }
