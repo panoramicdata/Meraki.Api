@@ -25,7 +25,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/bluetoothSettings")]
+		[Get("/networks/{networkId}/wireless/bluetooth/settings")]
 		Task<NetworkBluetoothSettings> GetNetworkBluetoothSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
@@ -35,7 +35,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="updateDeviceDeviceBluetoothSettings">Body for updating device's wireless bluetooth settings</param>
+		/// <param name="deviceBluetoothSettings">Body for updating device's wireless bluetooth settings</param>
 		[Put("/devices/{serial}/wireless/bluetooth/settings")]
 		Task<DeviceBluetoothSettings> UpdateDeviceBluetoothSettingsAsync(
 			[AliasAs("serial")] string serial,
@@ -47,7 +47,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkBluetoothSettings">Body for updating network's wireless bluetooth settings</param>
+		/// <param name="networkBluetoothSettings">Body for updating network's wireless bluetooth settings</param>
 		[Put("/networks/{networkId}/wireless/bluetooth/settings")]
 		Task<NetworkBluetoothSettings> UpdateNetworkBluetoothSettingsAsync(
 			[AliasAs("networkId")] string networkId,

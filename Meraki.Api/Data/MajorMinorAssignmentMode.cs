@@ -7,7 +7,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// The way major and minor number should be assigned to nodes in the network. ('Unique', 'Non-unique')
 	/// </summary>
-	/// <value>The way major and minor number should be assigned to nodes in the network. ('Unique', 'Non-unique')</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum MajorMinorAssignmentMode
 	{
@@ -15,7 +14,7 @@ namespace Meraki.Api.Data
 		/// Enum Unique for "Unique"
 		/// </summary>
 		[EnumMember(Value = "Unique")]
-		Unique,
+		Unique = 1,
 
 		/// <summary>
 		/// Enum Nonunique for "Non-unique"
