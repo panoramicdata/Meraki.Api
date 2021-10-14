@@ -1,4 +1,5 @@
 ﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -13,5 +14,11 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "timeZone")]
 		[ApiAccess(ApiAccess.ReadWrite)]
 		public string TimeZone { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Product Types
+		/// Implemented with different API AccessLevels by parents
+		/// </summary>
+		public abstract List<ProductType> ProductTypes { get; set; }
 	}
 }

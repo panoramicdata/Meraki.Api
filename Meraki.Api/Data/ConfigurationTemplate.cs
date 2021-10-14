@@ -15,6 +15,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[DataMember(Name = "productTypes")]
 		[ApiAccess(ApiAccess.Read)]
-		public List<ProductType> ProductTypes { get; set; } = new();
+		public override List<ProductType> ProductTypes { get; set; } = new();
 	}
 }
