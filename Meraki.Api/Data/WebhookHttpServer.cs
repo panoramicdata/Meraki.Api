@@ -22,5 +22,13 @@ namespace Meraki.Api.Data
 		[ApiAccess(ApiAccess.CreateUpdate)]
 		[DataMember(Name = "sharedSecret")]
 		public string SharedSecret { get; set; } = string.Empty;
+
+		/// <summary>
+		/// The Id of the Network the Webhook belongs to
+		/// </summary>
+		[ApiForeignKey(typeof(Network))]
+		[ApiAccess(ApiAccess.Read)]
+		[DataMember(Name = "networkId")]
+		public string NetworkId { get; set; } = string.Empty;
 	}
 }
