@@ -13,7 +13,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/snmpSettings")]
-		Task<NetworkSnmpSetting> GetNetworkSnmpSettingsAsync(
+		Task<NetworkSnmpSetting> GetAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -25,7 +25,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="networkSnmpSetting"></param>
 		[Put("/networks/{networkId}/snmpSettings")]
-		Task<NetworkSnmpSetting> UpdateNetworkSnmpSettingsAsync(
+		Task<NetworkSnmpSetting> UpdateAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] NetworkSnmpSetting networkSnmpSetting,
 			CancellationToken cancellationToken = default
