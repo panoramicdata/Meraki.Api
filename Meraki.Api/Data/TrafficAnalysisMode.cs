@@ -5,9 +5,8 @@ using System.Runtime.Serialization;
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// The traffic analysis mode for the network. Can be one of 'disabled' (do not collect traffic types),     'basic' (collect generic traffic categories), or 'detailed' (collect destination hostnames).
+	/// The traffic analysis mode for the network. Can be one of 'disabled' (do not collect traffic types), 'basic' (collect generic traffic categories), or 'detailed' (collect destination hostnames).
 	/// </summary>
-	/// <value>The traffic analysis mode for the network. Can be one of 'disabled' (do not collect traffic types),     'basic' (collect generic traffic categories), or 'detailed' (collect destination hostnames).</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum TrafficAnalysisMode
 	{

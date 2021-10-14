@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,17 +8,18 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkTrafficAnalysisSettings
 	/// </summary>
 	[DataContract]
-	public class TrafficAnalysisSettingsUpdateRequest
+	public class TrafficAnalysis
 	{
 		/// <summary>
 		/// Gets or Sets Mode
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "mode")]
-		public TrafficAnalysisMode Mode { get; set; } = new();
+		public TrafficAnalysisMode Mode { get; set; }
 		/// <summary>
 		/// The list of items that make up the custom pie chart for traffic reporting.
 		/// </summary>
-		/// <value>The list of items that make up the custom pie chart for traffic reporting.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "customPieChartItems")]
 		public List<CustomPieChartItem> CustomPieChartItems { get; set; } = new();
 	}

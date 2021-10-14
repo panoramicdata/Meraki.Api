@@ -116,7 +116,6 @@ namespace Meraki.Api
 			SwitchProfiles = RefitFor(SwitchProfiles)!;
 			SwitchSettings = RefitFor(SwitchSettings)!;
 			SwitchStacks = RefitFor(SwitchStacks)!;
-			TrafficAnalysisSettings = RefitFor(TrafficAnalysisSettings)!;
 			TrafficShaping = RefitFor(TrafficShaping)!;
 			UplinkSettings = RefitFor(UplinkSettings)!;
 			Vlans = RefitFor(Vlans)!;
@@ -464,11 +463,6 @@ namespace Meraki.Api
 		/// Switch stacks
 		/// </summary>
 		public ISwitchStacks SwitchStacks { get; }
-
-		/// <summary>
-		/// Traffic analysis settings
-		/// </summary>
-		public ITrafficAnalysisSettings TrafficAnalysisSettings { get; }
 
 		/// <summary>
 		/// Traffic shaping

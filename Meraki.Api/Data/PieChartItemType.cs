@@ -9,7 +9,7 @@ namespace Meraki.Api.Data
 	/// </summary>
 	/// <value>The signature type for the custom pie chart item. Can be one of 'host', 'port' or 'ipRange'.</value>
 	[JsonConverter(typeof(StringEnumConverter))]
-	public enum Type8
+	public enum PieChartItemType
 	{
 		/// <summary>
 		/// Enum Host for "host"
