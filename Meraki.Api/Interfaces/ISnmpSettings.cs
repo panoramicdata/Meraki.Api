@@ -11,17 +11,6 @@ namespace Meraki.Api.Interfaces
 	public interface ISnmpSettings
 	{
 		/// <summary>
-		/// Return the SNMP settings for a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/snmpSettings")]
-		Task<SnmpSettingsUpdateRequest> GetNetworkSnmpSettingsAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
 		/// Return the SNMP settings for an organization
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -29,19 +18,6 @@ namespace Meraki.Api.Interfaces
 		[Get("/organizations/{organizationId}/snmp")]
 		Task<SnmpUpdateRequest> GetOrganizationSnmpAsync(
 			[AliasAs("organizationId")] string organizationId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update the SNMP settings for a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkSnmpSettings"></param>
-		[Put("/networks/{networkId}/snmpSettings")]
-		Task<SnmpSettingsUpdateRequest> UpdateNetworkSnmpSettingsAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] SnmpSettingsUpdateRequest updateNetworkSnmpSettings,
 			CancellationToken cancellationToken = default
 			);
 

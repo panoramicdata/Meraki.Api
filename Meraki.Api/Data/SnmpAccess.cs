@@ -7,7 +7,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// The type of SNMP access. Can be one of 'none' (disabled), 'community' (V1/V2c), or 'users' (V3).
 	/// </summary>
-	/// <value>The type of SNMP access. Can be one of 'none' (disabled), 'community' (V1/V2c), or 'users' (V3).</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum SnmpAccess
 	{
