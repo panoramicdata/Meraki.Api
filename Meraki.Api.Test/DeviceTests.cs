@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Meraki.Api.Data;
+using Meraki.Api.Extensions;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -35,6 +36,23 @@ namespace Meraki.Api.Test
 
 			device.Serial.Should().Equals(deviceSerial);
 			device.Firmware.Should().NotBeNull();
+		}
+
+		[Fact]
+		public async void GetDevice_GetModelType_Succeeds()
+		{
+			var devices = await TestMerakiClient
+				.Networks
+				.GetAllDevicesAsync(Configuration.TestCameraNetworkId)
+				.ConfigureAwait(false);
+
+			devices
+				.Should()
+				.NotBeNull()
+				.And
+				.NotBeEmpty();
+
+			devices.TrueForAll(d => d.GetModelType() == ModelType.Camera);
 		}
 
 		[Fact]
