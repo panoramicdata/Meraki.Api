@@ -68,7 +68,6 @@ namespace Meraki.Api
 			Events = RefitFor(Events)!;
 			FirewalledServices = RefitFor(FirewalledServices)!;
 			Floorplans = RefitFor(Floorplans)!;
-			HttpServers = RefitFor(HttpServers)!;
 			IntrusionSettings = RefitFor(IntrusionSettings)!;
 			Licenses = RefitFor(Licenses)!;
 			LinkAggregations = RefitFor(LinkAggregations)!;
@@ -97,6 +96,7 @@ namespace Meraki.Api
 			NamedTagScopes = RefitFor(NamedTagScopes)!;
 			Networks = RefitFor(Networks)!;
 			NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
+			NetworkHttpServers = RefitFor(NetworkHttpServers)!;
 			NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
 			NetworkMqttBrokers = RefitFor(NetworkMqttBrokers)!;
 			NetworkPiiRequests = RefitFor(NetworkPiiRequests)!;
@@ -227,7 +227,7 @@ namespace Meraki.Api
 		/// <summary>
 		/// HTTP servers
 		/// </summary>
-		public IHttpServers HttpServers { get; }
+		public INetworkHttpServers NetworkHttpServers { get; }
 
 		/// <summary>
 		/// Intrusions settings
