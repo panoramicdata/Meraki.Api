@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Meraki.Api.Interfaces
 {
-	public interface INetworkSnmp
+	public interface INetworkSnmpSettings
 	{
 		/// <summary>
 		/// Return the SNMP settings for a network
@@ -13,7 +13,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/snmpSettings")]
-		Task<NetworkSnmp> GetNetworkSnmpSettingsAsync(
+		Task<NetworkSnmpSetting> GetNetworkSnmpSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -23,11 +23,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="networkSnmp"></param>
+		/// <param name="networkSnmpSetting"></param>
 		[Put("/networks/{networkId}/snmpSettings")]
-		Task<NetworkSnmp> UpdateNetworkSnmpSettingsAsync(
+		Task<NetworkSnmpSetting> UpdateNetworkSnmpSettingsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkSnmp networkSnmp,
+			[Body] NetworkSnmpSetting networkSnmpSetting,
 			CancellationToken cancellationToken = default
 			);
 	}

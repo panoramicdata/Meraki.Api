@@ -100,7 +100,7 @@ namespace Meraki.Api
 			NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
 			NetworkMqttBrokers = RefitFor(NetworkMqttBrokers)!;
 			NetworkPiiRequests = RefitFor(NetworkPiiRequests)!;
-			NetworkSnmp = RefitFor(NetworkSnmp)!;
+			NetworkSnmpSettings = RefitFor(NetworkSnmpSettings)!;
 			OpenApiSpec = RefitFor(OpenApiSpec)!;
 			Organizations = RefitFor(Organizations)!;
 			RadioSettings = RefitFor(RadioSettings)!;
@@ -263,7 +263,7 @@ namespace Meraki.Api
 		/// <summary>
 		/// SNMP settings
 		/// </summary>
-		public INetworkSnmp NetworkSnmp { get; }
+		public INetworkSnmpSettings NetworkSnmpSettings { get; }
 
 		/// <summary>
 		/// MG connectivity monitoring destinations

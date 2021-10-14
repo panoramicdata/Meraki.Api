@@ -8,7 +8,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSnmpSettings
 	/// </summary>
 	[DataContract]
-	public class NetworkSnmp
+	public class NetworkSnmpSetting
 	{
 		/// <summary>
 		/// Gets or Sets Access
