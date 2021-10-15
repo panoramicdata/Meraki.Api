@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -11,6 +12,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Network access permissions
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "access")]
 		public string Access { get; set; } = string.Empty;
 	}
