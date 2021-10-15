@@ -15,6 +15,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "rules")]
-		public List<CellularFirewallRule> Rules { get; set; } = new();
+		public List<FirewallRule> Rules { get; set; } = new();
 	}
 }

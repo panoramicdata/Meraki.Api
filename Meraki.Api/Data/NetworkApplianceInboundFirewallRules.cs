@@ -8,21 +8,20 @@ namespace Meraki.Api.Data
 	/// NetworkApplianceInboundFirewallRules
 	/// </summary>
 	[DataContract]
-	public class NetworkApplianceInboundFirewallRules
+	public class InboundFirewallRules
 	{
 		/// <summary>
 		/// An ordered array of the firewall rules (not including the default rule)
 		/// </summary>
-		/// <value>An ordered array of the firewall rules (not including the default rule)</value>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "rules")]
-		public List<CellularFirewallRule> Rules { get; set; } = new();
+		public List<FirewallRule> Rules { get; set; } = new();
+
 		/// <summary>
-		/// Log the special default rule (boolean value - enable only if you&#39;ve configured a syslog server) (optional)
+		/// Log the special default rule (boolean value - enable only if you've configured a syslog server) (optional)
 		/// </summary>
-		/// <value>Log the special default rule (boolean value - enable only if you&#39;ve configured a syslog server) (optional)</value>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "syslogDefaultRule")]
-		public bool? SyslogDefaultRule { get; set; }
+		public bool SyslogDefaultRule { get; set; }
 	}
 }
