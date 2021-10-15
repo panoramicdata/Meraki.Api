@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Rule1
 	/// </summary>
 	[DataContract]
-	public class CellularFirewallRule
+	public class FirewallRule
 	{
 		/// <summary>
 		/// Description of the rule (optional)
