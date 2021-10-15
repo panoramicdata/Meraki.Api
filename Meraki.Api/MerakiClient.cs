@@ -100,14 +100,12 @@ namespace Meraki.Api
 			NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
 			NetworkMqttBrokers = RefitFor(NetworkMqttBrokers)!;
 			NetworkPiiRequests = RefitFor(NetworkPiiRequests)!;
-			NetworkSnmpSettings = RefitFor(NetworkSnmpSettings)!;
 			OpenApiSpec = RefitFor(OpenApiSpec)!;
 			Organizations = RefitFor(Organizations)!;
 			RadioSettings = RefitFor(RadioSettings)!;
 			SamlRoles = RefitFor(SamlRoles)!;
 			SecurityEvents = RefitFor(SecurityEvents)!;
 			Sms = RefitFor(Sms)!;
-			SnmpSettings = RefitFor(SnmpSettings)!;
 			SplashSettings = RefitFor(SplashSettings)!;
 			SplashLoginAttempts = RefitFor(SplashLoginAttempts)!;
 			Ssids = RefitFor(Ssids)!;
@@ -259,11 +257,6 @@ namespace Meraki.Api
 		/// MQTT brokers
 		/// </summary>
 		public INetworkMqttBrokers NetworkMqttBrokers { get; }
-
-		/// <summary>
-		/// SNMP settings
-		/// </summary>
-		public INetworkSnmpSettings NetworkSnmpSettings { get; }
 
 		/// <summary>
 		/// MG connectivity monitoring destinations
@@ -419,11 +412,6 @@ namespace Meraki.Api
 		/// SMs
 		/// </summary>
 		public ISms Sms { get; }
-
-		/// <summary>
-		/// SNMP settings
-		/// </summary>
-		public ISnmpSettings SnmpSettings { get; }
 
 		/// <summary>
 		/// Splash login attempts
