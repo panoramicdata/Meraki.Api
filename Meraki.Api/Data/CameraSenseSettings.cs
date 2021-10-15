@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Camera sense
 	/// </summary>
 	[DataContract]
-	public class CameraSense
+	public class CameraSenseSettings
 	{
 		/// <summary>
 		/// Sense enabled?

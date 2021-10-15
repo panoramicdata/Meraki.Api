@@ -39,7 +39,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/camera/schedules")]
-		Task<CameraSchedule> GetSchedulesAsync(
+		Task<List<CameraSchedule>> GetSchedulesAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
@@ -73,7 +73,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		[Get("/devices/{serial}/camera/wirelessProfiles")]
-		Task<WirelessProfiles> GetDeviceCameraWirelessProfilesAsync(
+		Task<CameraWirelessProfiles> GetDeviceCameraWirelessProfilesAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
@@ -85,9 +85,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		/// <param name="updateDeviceCameraWirelessProfiles">Body for updating camera wireless profiles</param>
 		[Put("/devices/{serial}/camera/wirelessProfiles")]
-		Task<WirelessProfiles> UpdateDeviceCameraWirelessProfilesAsync(
+		Task<CameraWirelessProfiles> UpdateDeviceCameraWirelessProfilesAsync(
 			[AliasAs("serial")] string serial,
-			[Body] WirelessProfiles updateDeviceCameraWirelessProfiles,
+			[Body] CameraWirelessProfiles updateDeviceCameraWirelessProfiles,
 			CancellationToken cancellationToken = default
 			);
 

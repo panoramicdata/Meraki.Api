@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial id</param>
 		[Get("/devices/{serial}/camera/sense")]
-		Task<CameraSense> GetDeviceCameraSenseAsync(
+		Task<CameraSenseSettings> GetDeviceCameraSenseAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -27,7 +27,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial id</param>
 		/// <param name="updateDeviceCameraSense">Body for updating device camera sense</param>
 		[Put("/devices/{serial}/camera/sense")]
-		Task<CameraSense> UpdateDeviceCameraSenseAsync(
+		Task<CameraSenseSettings> UpdateDeviceCameraSenseAsync(
 			[AliasAs("serial")] string serial,
 			[Body] CameraSenseUpdateRequest updateDeviceCameraSense,
 			CancellationToken cancellationToken = default);

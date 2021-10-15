@@ -6,7 +6,7 @@ namespace Meraki.Api.Data
 	/// Quality retention profile
 	/// </summary>
 	[DataContract]
-	public class QualityRetentionProfile
+	public class CameraQualityRetentionProfile
 	{
 		/// <summary>
 		/// Id

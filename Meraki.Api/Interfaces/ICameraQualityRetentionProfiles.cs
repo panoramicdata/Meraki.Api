@@ -42,7 +42,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="qualityRetentionProfileId">The quality retention profile id</param>
 		[Get("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
-		Task<QualityRetentionProfile> GetAsync(
+		Task<CameraQualityRetentionProfile> GetAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("qualityRetentionProfileId")] string qualityRetentionProfileId,
 			CancellationToken cancellationToken = default);
@@ -53,7 +53,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/camera/qualityRetentionProfiles")]
-		Task<List<QualityRetentionProfile>> GetAllAsync(
+		Task<List<CameraQualityRetentionProfile>> GetAllAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
 
