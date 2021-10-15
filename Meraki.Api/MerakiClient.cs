@@ -66,6 +66,7 @@ namespace Meraki.Api
 			DashboardBrandingPolicies = RefitFor(DashboardBrandingPolicies)!;
 			Devices = RefitFor(Devices)!;
 			Events = RefitFor(Events)!;
+			Firewalls = RefitFor(Firewalls)!;
 			FirewalledServices = RefitFor(FirewalledServices)!;
 			Floorplans = RefitFor(Floorplans)!;
 			IntrusionSettings = RefitFor(IntrusionSettings)!;
@@ -81,7 +82,6 @@ namespace Meraki.Api
 			MonitoredMediaServers = RefitFor(MonitoredMediaServers)!;
 			MrLayer3FirewallRules = RefitFor(MrLayer3FirewallRules)!;
 			MvSense = RefitFor(MvSense)!;
-			MxCellularFirewallRules = RefitFor(MxCellularFirewallRules)!;
 			MxInboundFirewallRules = RefitFor(MxInboundFirewallRules)!;
 			MxLayer3FirewallRules = RefitFor(MxLayer3FirewallRules)!;
 			MxLayer7ApplicationCategories = RefitFor(MxLayer7ApplicationCategories)!;
@@ -216,6 +216,11 @@ namespace Meraki.Api
 		/// <summary>
 		/// Firewalled services
 		/// </summary>
+		public IFirewalls Firewalls { get; }
+
+		/// <summary>
+		/// Firewalled services
+		/// </summary>
 		public IFirewalledServices FirewalledServices { get; }
 
 		/// <summary>
@@ -302,11 +307,6 @@ namespace Meraki.Api
 		/// MV sense
 		/// </summary>
 		public IMvSense MvSense { get; }
-
-		/// <summary>
-		/// MX cellular firewall rules
-		/// </summary>
-		public IMxCellularFirewallRules MxCellularFirewallRules { get; }
 
 		/// <summary>
 		/// MX inbound firewall rules

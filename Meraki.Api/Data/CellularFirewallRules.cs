@@ -8,14 +8,13 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkCellularFirewallRules
 	/// </summary>
 	[DataContract]
-	public class MxCellularFirewallRules
+	public class CellularFirewallRules
 	{
 		/// <summary>
 		/// An ordered array of the firewall rules (not including the default rule)
 		/// </summary>
-		/// <value>An ordered array of the firewall rules (not including the default rule)</value>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "rules")]
-		public List<MxCellularFirewallRule> Rules { get; set; } = new();
+		public List<CellularFirewallRule> Rules { get; set; } = new();
 	}
 }

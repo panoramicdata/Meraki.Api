@@ -14,7 +14,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>An ordered array of the firewall rules (not including the default rule)</value>
 		[DataMember(Name = "rules")]
-		public List<MxCellularFirewallRule> Rules { get; set; } = new();
+		public List<CellularFirewallRule> Rules { get; set; } = new();
 		/// <summary>
 		/// Log the special default rule (boolean value - enable only if you&#39;ve configured a syslog server) (optional)
 		/// </summary>
