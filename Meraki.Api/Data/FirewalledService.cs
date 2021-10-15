@@ -13,21 +13,24 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Service
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiKey]
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "service")]
-		public string Service { get; set; } = string.Empty;
+		public FirewalledServiceType Service { get; set; }
 
 		/// <summary>
-		/// Access
+		/// A string indicating the rule for which IPs are allowed to use the specified service.
+		/// Acceptable values are "blocked" (no remote IPs can access the service), "restricted"
+		/// (only allowed IPs can access the service), and "unrestriced" (any remote IP can access the service). This field is required
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "access")]
-		public string Access { get; set; } = string.Empty;
+		public FirewalledServiceAccessType Access { get; set; }
 
 		/// <summary>
-		/// Allowed ips
+		/// An array of allowed IPs that can access the service. This field is required if "access" is set to "restricted". Otherwise this field is ignored
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "allowedIps")]
 		public List<string> AllowedIps { get; set; } = new();
 	}

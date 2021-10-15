@@ -67,7 +67,6 @@ namespace Meraki.Api
 			Devices = RefitFor(Devices)!;
 			Events = RefitFor(Events)!;
 			Firewalls = RefitFor(Firewalls)!;
-			FirewalledServices = RefitFor(FirewalledServices)!;
 			Floorplans = RefitFor(Floorplans)!;
 			IntrusionSettings = RefitFor(IntrusionSettings)!;
 			Licenses = RefitFor(Licenses)!;
@@ -217,11 +216,6 @@ namespace Meraki.Api
 		/// Firewalled services
 		/// </summary>
 		public IFirewalls Firewalls { get; }
-
-		/// <summary>
-		/// Firewalled services
-		/// </summary>
-		public IFirewalledServices FirewalledServices { get; }
 
 		/// <summary>
 		/// Floor plans
