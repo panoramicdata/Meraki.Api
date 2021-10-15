@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// Enum MD5 for "MD5"
 		/// </summary>
 		[EnumMember(Value = "MD5")]
-		Md5,
+		Md5 = 1,
 
 		/// <summary>
 		/// Enum SHA for "SHA"
