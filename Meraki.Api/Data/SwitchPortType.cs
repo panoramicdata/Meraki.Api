@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// Enum Trunk for "trunk"
 		/// </summary>
 		[EnumMember(Value = "trunk")]
-		Trunk,
+		Trunk = 1,
 
 		/// <summary>
 		/// Enum Access for "access"

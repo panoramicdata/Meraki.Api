@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// Enum Alertonly for "Alert only"
 		/// </summary>
 		[EnumMember(Value = "Alert only")]
-		Alertonly,
+		Alertonly = 1,
 
 		/// <summary>
 		/// Enum Enforce for "Enforce"

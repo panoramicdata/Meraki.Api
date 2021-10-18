@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// Enum Disabled for "disabled"
 		/// </summary>
 		[EnumMember(Value = "disabled")]
-		Disabled,
+		Disabled = 1,
 
 		/// <summary>
 		/// Enum Rootguard for "root guard"
