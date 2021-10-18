@@ -19,7 +19,7 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// any remote IP can access the service
 		/// </summary>
-		[EnumMember(Value = "unrestriced")]
-		Unrestriced
+		[EnumMember(Value = "unrestricted")]
+		Unrestricted
 	}
 }
