@@ -66,7 +66,7 @@ namespace Meraki.Api.Interfaces
 		Task<List<FirewalledService>> UpdateFirewalledServiceAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("service")] FirewalledServiceType serviceType,
-			[Body] FirewalledService service,
+			[Body] FirewalledService firewalledService,
 			CancellationToken cancellationToken = default
 			);
 
@@ -86,11 +86,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="networkApplianceInboundFirewallRules">Body for updating inbound firewall rules</param>
+		/// <param name="inboundFirewallRules">Body for updating inbound firewall rules</param>
 		[Put("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
 		Task<InboundFirewallRules> UpdateInboundFirewallRulesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] InboundFirewallRules networkApplianceInboundFirewallRules,
+			[Body] InboundFirewallRules inboundFirewallRules,
 			CancellationToken cancellationToken = default
 			);
 	}
