@@ -136,5 +136,12 @@ namespace Meraki.Api.Data
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "stormControlEnabled")]
 		public bool? StormControlEnabled { get; set; }
+
+		/// <summary>
+		/// The VLANs allowed on the switch profile port. Only applicable to trunk ports
+		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[DataMember(Name = "allowedVlans")]
+		public string? AllowedVlans { get; set; }
 	}
 }
