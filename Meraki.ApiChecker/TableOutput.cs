@@ -19,15 +19,8 @@ namespace Meraki.ApiChecker
 			Dictionary<string, List<MethodDetails>> implementedEndpoints,
 			string? tagRestriction)
 		{
-			if (tagRestriction is not null)
-			{
-				Console.WriteLine($"'{tagRestriction}' endpoints");
-			}
-			else
-			{
-				Console.WriteLine("Remaining endpoints");
-			}
-			var table = new Table(TableConfiguration.Unicode(), "Method", "Endpoint", "OperationId", "Tags", "Method");
+			var implementedTable = new Table(TableConfiguration.Unicode(), "Method", "Endpoint", "OperationId", "Tags", "Method");
+			var missingTable = new Table(TableConfiguration.Unicode(), "Method", "Endpoint", "OperationId", "Tags");
 			foreach (var pathKpv in apiSchema.Paths)
 			{
 				var operations = tagRestriction == null
@@ -41,17 +34,53 @@ namespace Meraki.ApiChecker
 					implementedEndpoints.TryGetValue(pathKpv.Key, out var implementation);
 					var existingImplementation = implementation?.SingleOrDefault(e => e.RefitAttribute.Method == refitMethod);
 
-					table.AddRow(
-						pathOperation.Key,
-						pathKpv.Key,
-						pathOperation.Value.OperationId,
-						string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
-						existingImplementation?.Method.Name ?? string.Empty);
+					if (existingImplementation != null)
+					{
+						implementedTable.AddRow(
+							pathOperation.Key,
+							pathKpv.Key,
+							pathOperation.Value.OperationId,
+							string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
+							existingImplementation?.Method.Name ?? string.Empty);
+					}
+					else
+					{
+						missingTable.AddRow(
+							pathOperation.Key,
+							pathKpv.Key,
+							pathOperation.Value.OperationId,
+							string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)));
+					}
+
 
 					pathKpv.Value.Operations.Remove(pathOperation);
 				}
 			}
-			Console.Write(table.ToString());
+			if (implementedTable.Rows.Count > 0)
+			{
+				if (tagRestriction is not null)
+				{
+					Console.WriteLine($"'{tagRestriction}' implemented endpoints");
+				}
+				else
+				{
+					Console.WriteLine("Remaining implemented endpoints");
+				}
+				Console.Write(implementedTable.ToString());
+			}
+
+			if (missingTable.Rows.Count > 0)
+			{
+				if (tagRestriction is not null)
+				{
+					Console.WriteLine($"'{tagRestriction}' missing endpoints");
+				}
+				else
+				{
+					Console.WriteLine("Remaining missing endpoints");
+				}
+				Console.Write(missingTable.ToString());
+			}
 
 		}
 	}
