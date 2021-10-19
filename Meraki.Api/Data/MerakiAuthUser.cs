@@ -34,7 +34,7 @@ namespace Meraki.Api.Data
 		/// Authorization zones and expiration dates for the user.
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "id")]
+		[DataMember(Name = "authorizations")]
 		public Authorizations Authorizations { get; set; } = new();
 	}
 }
