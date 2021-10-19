@@ -81,7 +81,6 @@ namespace Meraki.Api
 			MonitoredMediaServers = RefitFor(MonitoredMediaServers)!;
 			MrLayer3FirewallRules = RefitFor(MrLayer3FirewallRules)!;
 			MvSense = RefitFor(MvSense)!;
-			MxLayer3FirewallRules = RefitFor(MxLayer3FirewallRules)!;
 			MxLayer7ApplicationCategories = RefitFor(MxLayer7ApplicationCategories)!;
 			MxLayer7FirewallRules = RefitFor(MxLayer7FirewallRules)!;
 			MxOneToManyNatRules = RefitFor(MxOneToManyNatRules)!;
@@ -300,11 +299,6 @@ namespace Meraki.Api
 		/// MV sense
 		/// </summary>
 		public IMvSense MvSense { get; }
-
-		/// <summary>
-		/// MX layer 3 firewall rules
-		/// </summary>
-		public IMxLayer3FirewallRules MxLayer3FirewallRules { get; }
 
 		/// <summary>
 		/// MX layer 7 application categories

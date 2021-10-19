@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "rules")]
-		public List<FirewallRule> Rules { get; set; } = new();
+		public List<MxFirewallRule> Rules { get; set; } = new();
 
 		/// <summary>
 		/// Log the special default rule (boolean value - enable only if you've configured a syslog server) (optional)
