@@ -1,7 +1,7 @@
-﻿using BetterConsoleTables;
-using Meraki.ApiChecker.Extensions;
+﻿using Meraki.ApiChecker.Extensions;
 using Meraki.ApiChecker.Models;
 using Microsoft.OpenApi.Models;
+using Spectre.Console;
 
 namespace Meraki.ApiChecker
 {
@@ -19,8 +19,12 @@ namespace Meraki.ApiChecker
 			Dictionary<string, List<MethodDetails>> implementedEndpoints,
 			string? tagRestriction)
 		{
-			var implementedTable = new Table(TableConfiguration.Unicode(), "Method", "Endpoint", "OperationId", "Tags", "Method");
-			var missingTable = new Table(TableConfiguration.Unicode(), "Method", "Endpoint", "OperationId", "Tags");
+			var implementedTable = new Table()
+				.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation")
+				.BorderStyle("green");
+			var missingTable = new Table()
+				.AddColumns("Method", "Endpoint", "OperationId", "Tags")
+				.BorderStyle("red");
 			foreach (var pathKpv in apiSchema.Paths)
 			{
 				var operations = tagRestriction == null
@@ -37,7 +41,7 @@ namespace Meraki.ApiChecker
 					if (existingImplementation != null)
 					{
 						implementedTable.AddRow(
-							pathOperation.Key,
+							pathOperation.Key.ToString(),
 							pathKpv.Key,
 							pathOperation.Value.OperationId,
 							string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
@@ -46,7 +50,7 @@ namespace Meraki.ApiChecker
 					else
 					{
 						missingTable.AddRow(
-							pathOperation.Key,
+							pathOperation.Key.ToString(),
 							pathKpv.Key,
 							pathOperation.Value.OperationId,
 							string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)));
@@ -57,28 +61,22 @@ namespace Meraki.ApiChecker
 			}
 			if (implementedTable.Rows.Count > 0)
 			{
-				if (tagRestriction is not null)
-				{
-					Console.WriteLine($"'{tagRestriction}' implemented endpoints");
-				}
-				else
-				{
-					Console.WriteLine("Remaining implemented endpoints");
-				}
-				Console.Write(implementedTable.ToString());
+				implementedTable.Title(
+					tagRestriction is not null
+						? $"'{tagRestriction}' implemented endpoints"
+						: "Remaining implemented endpoints",
+					new Style(Color.Green));
+				AnsiConsole.Write(implementedTable);
 			}
 
 			if (missingTable.Rows.Count > 0)
 			{
-				if (tagRestriction is not null)
-				{
-					Console.WriteLine($"'{tagRestriction}' missing endpoints");
-				}
-				else
-				{
-					Console.WriteLine("Remaining missing endpoints");
-				}
-				Console.Write(missingTable.ToString());
+				missingTable.Title(
+					tagRestriction is not null
+						? $"'{tagRestriction}' missing endpoints"
+						: "Remaining missing endpoints",
+					new Style(Color.Red));
+				AnsiConsole.Write(missingTable);
 			}
 		}
 	}
