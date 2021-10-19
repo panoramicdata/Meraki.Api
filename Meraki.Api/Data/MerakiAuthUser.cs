@@ -36,6 +36,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "authorizations")]
-		public List<Authorizations> Authorizations { get; set; } = new();
+		public List<Authorization> Authorizations { get; set; } = new();
 	}
 }

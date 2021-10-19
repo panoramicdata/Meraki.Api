@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// Authorizations
 	/// </summary>
 	[DataContract]
-	public class Authorizations
+	public class Authorization
 	{
 		/// <summary>
 		/// SSID for which the user is being authorized
