@@ -1,4 +1,5 @@
 ﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -35,6 +36,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "authorizations")]
-		public Authorizations Authorizations { get; set; } = new();
+		public List<Authorizations> Authorizations { get; set; } = new();
 	}
 }
