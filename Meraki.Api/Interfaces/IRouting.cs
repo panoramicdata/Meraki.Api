@@ -92,7 +92,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId">The interface id</param>
 		/// <param name="updateDeviceSwitchRoutingInterfaceDhcp">Body for updating an interface</param>
-		[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
+		[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
 		Task<DHCPRoutingInterface> UpdateDeviceSwitchRoutingInterfaceDhcpAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,

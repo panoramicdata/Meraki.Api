@@ -103,7 +103,6 @@ namespace Meraki.Api
 			SamlRoles = RefitFor(SamlRoles)!;
 			SecurityEvents = RefitFor(SecurityEvents)!;
 			Sms = RefitFor(Sms)!;
-			SplashSettings = RefitFor(SplashSettings)!;
 			SplashLoginAttempts = RefitFor(SplashLoginAttempts)!;
 			Ssids = RefitFor(Ssids)!;
 			SwitchAcls = RefitFor(SwitchAcls)!;
@@ -399,11 +398,6 @@ namespace Meraki.Api
 		/// Splash login attempts
 		/// </summary>
 		public ISplashLoginAttempts SplashLoginAttempts { get; }
-
-		/// <summary>
-		/// Splash settings
-		/// </summary>
-		public ISplashSettings SplashSettings { get; }
 
 		/// <summary>
 		/// SSIDs

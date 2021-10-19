@@ -73,19 +73,6 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// Update the traffic shaping settings for an MX network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkTrafficShaping"></param>
-		[Put("/networks/{networkId}/appliance/trafficShaping")]
-		Task<TrafficShapingUpdateRequest> UpdateNetworkApplianceTrafficShapingAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] TrafficShapingUpdateRequest UpdateNetworkTrafficShaping,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
 		/// List all custom performance classes for an MX network
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -212,7 +199,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="UpdateNetworkApplianceTrafficShaping"></param>
-		[Get("/networks/{networkId}/appliance/trafficShaping")]
+		[Put("/networks/{networkId}/appliance/trafficShaping")]
 		Task<NetworkApplianceTrafficShaping> UpdateNetworkApplianceTrafficShapingAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] NetworkApplianceTrafficShaping UpdateNetworkApplianceTrafficShaping,

@@ -27,7 +27,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkWirelessBilling">Body for updating network wireless billing</param>
-		[Get("/networks/{networkId}/wireless/billing")]
+		[Put("/networks/{networkId}/wireless/billing")]
 		Task<NetworkWirelessBilling> UpdateNetworkWirelessBillingAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] NetworkWirelessBilling updateNetworkWirelessBilling,

@@ -26,7 +26,7 @@ namespace Meraki.Api.Interfaces
 		/// <summary>
 		/// Combine multiple networks into a single network
 		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <exception cref="ApiException">Thrown when fails to make API cg</exception>
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="combineOrganizationNetworks">Body for combining networks</param>
 		[Post("/organizations/{organizationId}/networks/combine")]
@@ -67,17 +67,6 @@ namespace Meraki.Api.Interfaces
 		Task<Network> GetAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// List the access policies for a switch network.
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/switch/accessPolicies")]
-		Task<List<AccessPolicy>> GetNetworkAccessPoliciesAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
 
 		/// <summary>
 		/// List Air Marshal scan results from a network

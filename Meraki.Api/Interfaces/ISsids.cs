@@ -179,7 +179,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="number">The SSID number</param>
-		[Get("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
+		[Put("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
 		Task<DeviceTypeGroupPolicies> UpdateNetworkWirelessSsidDeviceTypeGroupPoliciesAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("number")] string number,

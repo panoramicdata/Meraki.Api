@@ -28,7 +28,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		[Get("/devices/{serial}/camera/qualityAndRetentionSettings")]
+		[Get("/devices/{serial}/camera/qualityAndRetention")]
 		Task<CameraQualityAndRetentionSettings> GetQualityAndRetentionSettingsAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
@@ -61,7 +61,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="cameraQualityAndRetentionSettingsUpdateRequest">Body for updating camera quality and retention settings</param>
-		[Put("/devices/{serial}/camera/qualityAndRetentionSettings")]
+		[Put("/devices/{serial}/camera/qualityAndRetention")]
 		Task<CameraQualityAndRetentionSettings> UpdateQualityAndRetentionSettingsAsync(
 			[AliasAs("serial")] string serial,
 			[Body] CameraQualityAndRetentionSettingsUpdateRequest cameraQualityAndRetentionSettingsUpdateRequest,
