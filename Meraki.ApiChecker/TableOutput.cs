@@ -52,7 +52,6 @@ namespace Meraki.ApiChecker
 							string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)));
 					}
 
-
 					pathKpv.Value.Operations.Remove(pathOperation);
 				}
 			}
@@ -81,7 +80,6 @@ namespace Meraki.ApiChecker
 				}
 				Console.Write(missingTable.ToString());
 			}
-
 		}
 	}
 }
