@@ -20,7 +20,7 @@ namespace Meraki.Api.Data
 		/// TLS settings of the MQTT broker.
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "security")]
-		public MqttTlsSetting MqttTlsSetting { get; set; } = new();
+		[DataMember(Name = "tls")]
+		public MqttTlsSetting TlsSetting { get; set; } = new();
 	}
 }
