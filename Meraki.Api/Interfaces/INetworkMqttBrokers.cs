@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		[Post("/networks/{networkId}/mqttBrokers")]
 		Task<MqttBroker> CreateAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] MqttBroker createNetworkMqttBroker,
+			[Body] MqttBrokerCreateUpdateRequest createNetworkMqttBroker,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -56,7 +56,7 @@ namespace Meraki.Api.Interfaces
 		Task<MqttBroker> UpdateAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("mqttBrokerId")] string mqttBrokerId,
-			[Body] MqttBroker updateNetworkMqttBroker,
+			[Body] MqttBrokerCreateUpdateRequest updateNetworkMqttBroker,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
