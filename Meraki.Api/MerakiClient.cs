@@ -12,7 +12,7 @@ using System.Net.Http.Headers;
 namespace Meraki.Api
 {
 	/// <summary>
-	/// A Meraki Dashboard API client
+	/// A Meraki Dashboard API client!
 	/// </summary>
 	public partial class MerakiClient : IDisposable
 	{
