@@ -36,6 +36,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "blockedUrlCategories")]
-		public List<NamedIdentifiedItem> BlockedUrlCategories { get; set; } = new();
+		public List<ContentFilteringCategory> BlockedUrlCategories { get; set; } = new();
 	}
 }

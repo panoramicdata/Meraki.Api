@@ -15,6 +15,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "categories")]
-		public List<NamedIdentifiedItem> Categories { get; set; } = new();
+		public List<ContentFilteringCategory> Categories { get; set; } = new();
 	}
 }
