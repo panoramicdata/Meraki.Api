@@ -61,8 +61,6 @@ namespace Meraki.Api
 			Clients = RefitFor(Clients)!;
 			ConfigurationTemplates = RefitFor(ConfigurationTemplates)!;
 			ConnectivityMonitoringDestinations = RefitFor(ConnectivityMonitoringDestinations)!;
-			ContentFilteringCategories = RefitFor(ContentFilteringCategories)!;
-			ContentFilteringRules = RefitFor(ContentFilteringRules)!;
 			DashboardBrandingPolicies = RefitFor(DashboardBrandingPolicies)!;
 			Devices = RefitFor(Devices)!;
 			Events = RefitFor(Events)!;
@@ -183,16 +181,6 @@ namespace Meraki.Api
 		/// Connectivity monitoring destinations
 		/// </summary>
 		public IConnectivityMonitoringDestinations ConnectivityMonitoringDestinations { get; }
-
-		/// <summary>
-		/// Content filtering categories
-		/// </summary>
-		public IContentFilteringCategories ContentFilteringCategories { get; }
-
-		/// <summary>
-		/// Content filtering rules
-		/// </summary>
-		public IContentFilteringRules ContentFilteringRules { get; }
 
 		/// <summary>
 		/// Dashboard branding policies

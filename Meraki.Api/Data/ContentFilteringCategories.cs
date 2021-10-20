@@ -8,13 +8,13 @@ namespace Meraki.Api.Data
 	/// Content filtering catergories
 	/// </summary>
 	[DataContract]
-	public class NetworkContentFilteringCategories
+	public class ContentFilteringCategories
 	{
 		/// <summary>
 		/// Categories
 		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "categories")]
-		public List<Categories> Categories { get; set; } = new();
+		public List<NamedIdentifiedItem> Categories { get; set; } = new();
 	}
 }

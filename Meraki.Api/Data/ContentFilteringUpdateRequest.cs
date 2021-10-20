@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkContentFiltering
 	/// </summary>
 	[DataContract]
-	public class NetworkContentFilteringUpdateRequest
+	public class ContentFilteringUpdateRequest
 	{
 		/// <summary>
 		/// A whitelist of URL patterns to allow

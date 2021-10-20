@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// Enum TopSites for "topSites"
 		/// </summary>
 		[EnumMember(Value = "topSites")]
-		TopSites,
+		TopSites = 1,
 
 		/// <summary>
 		/// Enum FullList for "fullList"

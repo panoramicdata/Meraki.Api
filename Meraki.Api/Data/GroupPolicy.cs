@@ -43,7 +43,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "contentFiltering")]
-		public ContentFiltering ContentFiltering { get; set; } = new();
+		public ContentFilteringResult ContentFiltering { get; set; } = new();
 
 		/// <summary>
 		/// Gets or Sets SplashAuthSettings

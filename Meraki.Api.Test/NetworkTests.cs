@@ -357,7 +357,7 @@ namespace Meraki.Api.Test
 			// Get all organization devices and make sure ours is present
 			var allOrganizationDevices = await TestMerakiClient
 				.Organizations
-				.GetDevicesAsync(Configuration.TestOrganizationId)
+				.GetDevicesPagedAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			allOrganizationDevices.Should().NotBeNull();
 			allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();

@@ -95,7 +95,7 @@ namespace Meraki.Api.Test
 		{
 			var organizationDevices = await TestMerakiClient
 				.Organizations
-				.GetDevicesAsync(Configuration.TestOrganizationId, default)
+				.GetDevicesPagedAsync(Configuration.TestOrganizationId, default)
 				.ConfigureAwait(false);
 
 			organizationDevices.Should().NotBeNull();

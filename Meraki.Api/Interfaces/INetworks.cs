@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
@@ -295,6 +296,44 @@ namespace Meraki.Api.Interfaces
 		Task<NetworkSnmpSetting> UpdateSnmpAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] NetworkSnmpSetting networkSnmpSetting,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Return the content filtering settings for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkApplianceContentFiltering")]
+		[Get("/networks/{networkId}/contentFiltering")]
+		Task<ContentFilteringResult> GetContentFilteringAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update the content filtering settings for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="networkContentFilteringUpdateRequest">Body for updating content filtering settings</param>
+		[ApiOperationId("updateNetworkApplianceContentFiltering")]
+		[Put("/networks/{networkId}/contentFiltering")]
+		Task<ContentFilteringResult> UpdateContentFilteringAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] ContentFilteringUpdateRequest networkContentFilteringUpdateRequest,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// List all available content filtering categories for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkApplianceContentFiltering")]
+		[Get("/networks/{networkId}/appliance/contentFiltering/categories")]
+		Task<ContentFilteringCategories> GetContentFilteringCategoriesAsync(
+			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
 	}
