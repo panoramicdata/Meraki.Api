@@ -305,7 +305,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[ApiOperationId("getNetworkApplianceContentFiltering")]
-		[Get("/networks/{networkId}/contentFiltering")]
+		[Get("/networks/{networkId}/appliance/contentFiltering")]
 		Task<ContentFilteringResult> GetContentFilteringAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
@@ -318,7 +318,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="networkContentFilteringUpdateRequest">Body for updating content filtering settings</param>
 		[ApiOperationId("updateNetworkApplianceContentFiltering")]
-		[Put("/networks/{networkId}/contentFiltering")]
+		[Put("/networks/{networkId}/appliance/contentFiltering")]
 		Task<ContentFilteringResult> UpdateContentFilteringAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] ContentFilteringUpdateRequest networkContentFilteringUpdateRequest,
