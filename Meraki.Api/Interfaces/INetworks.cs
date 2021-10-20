@@ -330,7 +330,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		[ApiOperationId("getNetworkApplianceContentFiltering")]
+		[ApiOperationId("getNetworkApplianceContentFilteringCategories")]
 		[Get("/networks/{networkId}/appliance/contentFiltering/categories")]
 		Task<ContentFilteringCategories> GetContentFilteringCategoriesAsync(
 			[AliasAs("networkId")] string networkId,
