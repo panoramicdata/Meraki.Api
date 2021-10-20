@@ -4,6 +4,9 @@ Console.WriteLine($"{ThisAssembly.AssemblyName} v{ThisAssembly.AssemblyInformati
 
 var implementedEndpoints = InterfaceReader.GetEndPoints();
 var apiSchema = await OpenApiReader.GetSchemaAsync();
+
 TableOutput.DisplayAndPruneTag(apiSchema, implementedEndpoints, "configure");
 TableOutput.DisplayAndPruneTag(apiSchema, implementedEndpoints, "monitor");
-TableOutput.DisplayRemainingTags(apiSchema, implementedEndpoints);
+
+TableOutput.DisplayRemainingTags(apiSchema);
+TableOutput.DisplayRemainingInterfaces(implementedEndpoints);

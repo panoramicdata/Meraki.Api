@@ -8,15 +8,14 @@ namespace Meraki.ApiChecker
 	public static class TableOutput
 	{
 		public static void DisplayRemainingTags(
-			OpenApiDocument apiSchema,
-			Dictionary<string, List<MethodDetails>> implementedEndpoints)
+			OpenApiDocument apiSchema)
 		{
-			DisplayAndPruneTag(apiSchema, implementedEndpoints, null);
+			DisplayAndPruneTag(apiSchema, null, null);
 		}
 
 		public static void DisplayAndPruneTag(
 			OpenApiDocument apiSchema,
-			Dictionary<string, List<MethodDetails>> implementedEndpoints,
+			Dictionary<string, List<MethodDetails>>? implementedEndpoints,
 			string? tagRestriction)
 		{
 			var implementedTable = new Table()
@@ -35,7 +34,8 @@ namespace Meraki.ApiChecker
 				{
 					// Look for a matching operation
 					var refitMethod = pathOperation.Key.ToHttpMethod();
-					implementedEndpoints.TryGetValue(pathKpv.Key, out var implementation);
+					List<MethodDetails>? implementation = null;
+					implementedEndpoints?.TryGetValue(pathKpv.Key, out implementation);
 					var existingImplementation = implementation?.SingleOrDefault(e => e.RefitAttribute.Method == refitMethod);
 
 					if (existingImplementation != null)
@@ -46,6 +46,7 @@ namespace Meraki.ApiChecker
 							pathOperation.Value.OperationId,
 							string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
 							existingImplementation?.Method.Name ?? string.Empty);
+						implementedEndpoints?[pathKpv.Key].Remove(existingImplementation!);
 					}
 					else
 					{
@@ -78,6 +79,27 @@ namespace Meraki.ApiChecker
 					new Style(Color.Red));
 				AnsiConsole.Write(missingTable);
 			}
+		}
+
+		internal static void DisplayRemainingInterfaces(Dictionary<string, List<MethodDetails>> implementedEndpoints)
+		{
+			var extraTable = new Table()
+				.Title("Implementations without Endpoints", new Style(Color.Red))
+				.AddColumns("Method", "Endpoint", "Namespace", "Name")
+				.BorderStyle("red");
+			foreach (var implementation in implementedEndpoints)
+			{
+				foreach (var method in implementation.Value)
+				{
+					extraTable.AddRow(
+						method.RefitAttribute.Method.ToString(),
+						method.RefitAttribute.Path,
+						method.Method.DeclaringType?.FullName ?? string.Empty,
+						method.Method.Name
+						);
+				}
+			}
+			AnsiConsole.Write(extraTable);
 		}
 	}
 }
