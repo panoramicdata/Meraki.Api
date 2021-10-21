@@ -336,5 +336,29 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
+
+		/// <summary>
+		/// Return single LAN configuration
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/appliance/singleLan")]
+		Task<LanConfiguration> GetApplianceSingleLanAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update single LAN configuration
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="updateNetworkApplianceSingleLan">Body for updating a single LAN config</param>
+		[Put("/networks/{networkId}/appliance/singleLan")]
+		Task<LanConfiguration> UpdateApplianceSingleLanAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] LanConfiguration updateNetworkApplianceSingleLan,
+			CancellationToken cancellationToken = default
+			);
 	}
 }
