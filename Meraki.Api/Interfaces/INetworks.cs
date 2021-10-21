@@ -357,7 +357,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/appliance/singleLan")]
 		Task<LanConfiguration> UpdateApplianceSingleLanAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] LanConfiguration updateNetworkApplianceSingleLan,
+			[Body] LanConfigurationUpdateRequest updateNetworkApplianceSingleLan,
 			CancellationToken cancellationToken = default
 			);
 	}
