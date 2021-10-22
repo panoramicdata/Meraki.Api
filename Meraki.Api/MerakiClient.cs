@@ -80,7 +80,6 @@ namespace Meraki.Api
 			MrLayer3FirewallRules = RefitFor(MrLayer3FirewallRules)!;
 			MvSense = RefitFor(MvSense)!;
 			MxStaticRoutes = RefitFor(MxStaticRoutes)!;
-			MxVlanPorts = RefitFor(MxVlanPorts)!;
 			MxVpnFirewalls = RefitFor(MxVpnFirewalls)!;
 			MxWarmSpareSettings = RefitFor(MxWarmSpareSettings)!;
 			NamedTagScopes = RefitFor(NamedTagScopes)!;
@@ -286,11 +285,6 @@ namespace Meraki.Api
 		/// MX static routes
 		/// </summary>
 		public IMxStaticRoutes MxStaticRoutes { get; }
-
-		/// <summary>
-		/// MX VLAN ports
-		/// </summary>
-		public IMxVlanPorts MxVlanPorts { get; }
 
 		/// <summary>
 		/// MX VPN firewall rules
