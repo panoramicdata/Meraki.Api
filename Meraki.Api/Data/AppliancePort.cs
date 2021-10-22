@@ -45,6 +45,13 @@ namespace Meraki.Api.Data
 		public int? Vlan { get; set; }
 
 		/// <summary>
+		/// Comma-delimited list of the VLAN ID's allowed on the port, or 'all' to permit all VLAN's on the port.
+		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[DataMember(Name = "allowedVlans")]
+		public string? AllowedVlans { get; set; }
+
+		/// <summary>
 		/// The name of the policy. Only applicable to Access ports. Valid values are: 'open', '8021x-radius', 'mac-radius', 'hybris-radius' for MX64 or Z3 or any MX supporting the per port authentication feature. Otherwise, 'open' is the only valid value and 'open' is the default value if the field is missing.
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]
