@@ -79,7 +79,6 @@ namespace Meraki.Api
 			MonitoredMediaServers = RefitFor(MonitoredMediaServers)!;
 			MrLayer3FirewallRules = RefitFor(MrLayer3FirewallRules)!;
 			MvSense = RefitFor(MvSense)!;
-			MxPortForwardingRules = RefitFor(MxPortForwardingRules)!;
 			MxStaticRoutes = RefitFor(MxStaticRoutes)!;
 			MxVlanPorts = RefitFor(MxVlanPorts)!;
 			MxVpnFirewalls = RefitFor(MxVpnFirewalls)!;
@@ -282,11 +281,6 @@ namespace Meraki.Api
 		/// MV sense
 		/// </summary>
 		public IMvSense MvSense { get; }
-
-		/// <summary>
-		/// MX port forwarding rules
-		/// </summary>
-		public IMxPortForwardingRules MxPortForwardingRules { get; }
 
 		/// <summary>
 		/// MX static routes
