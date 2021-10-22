@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -7,12 +8,13 @@ namespace Meraki.Api.Data
 	/// L7 Application categories
 	/// </summary>
 	[DataContract]
-	public class L7ApplicationCategories
+	public class Layer7ApplicationCategories
 	{
 		/// <summary>
 		/// Application categories
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "applicationCategories")]
-		public List<ApplicationCategories> ApplicationCategories { get; set; } = new();
+		public List<ApplicationCategory> ApplicationCategories { get; set; } = new();
 	}
 }
