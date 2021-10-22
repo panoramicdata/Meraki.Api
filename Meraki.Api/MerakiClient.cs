@@ -80,7 +80,6 @@ namespace Meraki.Api
 			MrLayer3FirewallRules = RefitFor(MrLayer3FirewallRules)!;
 			MvSense = RefitFor(MvSense)!;
 			MxLayer7ApplicationCategories = RefitFor(MxLayer7ApplicationCategories)!;
-			MxLayer7FirewallRules = RefitFor(MxLayer7FirewallRules)!;
 			MxOneToManyNatRules = RefitFor(MxOneToManyNatRules)!;
 			MxOneToOneNatRules = RefitFor(MxOneToOneNatRules)!;
 			MxPortForwardingRules = RefitFor(MxPortForwardingRules)!;
@@ -291,11 +290,6 @@ namespace Meraki.Api
 		/// MX layer 7 application categories
 		/// </summary>
 		public IMxLayer7ApplicationCategories MxLayer7ApplicationCategories { get; }
-
-		/// <summary>
-		/// MX layer 7 firewall rules
-		/// </summary>
-		public IMxLayer7FirewallRules MxLayer7FirewallRules { get; }
 
 		/// <summary>
 		/// MX one-to-many NAT rules

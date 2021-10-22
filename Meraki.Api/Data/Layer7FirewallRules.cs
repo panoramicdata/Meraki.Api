@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,12 +8,12 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkL7FirewallRules
 	/// </summary>
 	[DataContract]
-	public class Layer7FirewallRulesUpdateRequest
+	public class Layer7FirewallRules
 	{
 		/// <summary>
 		/// An ordered array of the MX L7 firewall rules
 		/// </summary>
-		/// <value>An ordered array of the MX L7 firewall rules</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "rules")]
 		public List<Layer7FirewallRule> Rules { get; set; } = null!;
 	}
