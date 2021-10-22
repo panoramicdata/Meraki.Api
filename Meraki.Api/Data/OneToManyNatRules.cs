@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,13 +8,13 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkOneToManyNatRules
 	/// </summary>
 	[DataContract]
-	public class OneToManyNatRulesUpdateRequest
+	public class OneToManyNatRules
 	{
 		/// <summary>
 		/// An array of 1:Many nat rules
 		/// </summary>
-		/// <value>An array of 1:Many nat rules</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "rules")]
-		public List<OneToManyNatRule> Rules { get; set; } = null!;
+		public List<OneToManyNatRule> Rules { get; set; } = new();
 	}
 }

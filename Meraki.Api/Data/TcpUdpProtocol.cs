@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// Enum Tcp for "tcp"
 		/// </summary>
 		[EnumMember(Value = "tcp")]
-		Tcp,
+		Tcp = 1,
 
 		/// <summary>
 		/// Enum Udp for "udp"
