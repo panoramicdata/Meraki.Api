@@ -151,7 +151,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[ApiOperationId("getNetworkApplianceFirewallL7FirewallRulesApplicationCategories")]
 		[Get("/networks/{networkId}/appliance/firewall/l7FirewallRules/applicationCategories")]
-		Task<Layer7ApplicationCategories> GetNetworkL7FirewallRulesApplicationCategoriesAsync(
+		Task<Layer7ApplicationCategories> GetL7FirewallRulesApplicationCategoriesAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -179,6 +179,32 @@ namespace Meraki.Api.Interfaces
 		Task<OneToManyNatRules> UpdateOneToManyNatRulesAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] OneToManyNatRules oneToManyNatRules,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Return the 1:1 NAT mapping rules for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkApplianceFirewallOneToOneNatRules")]
+		[Get("/networks/{networkId}/appliance/firewall/oneToOneNatRules")]
+		Task<OneToOneNatRules> GetOneToOneNatRulesAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Set the 1:1 NAT mapping rules for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="oneToOneNatRules">Body for updating mapping rules</param>
+		[ApiOperationId("updateNetworkApplianceFirewallOneToOneNatRules")]
+		[Put("/networks/{networkId}/appliance/firewall/oneToOneNatRules")]
+		Task<OneToOneNatRules> UpdateOneToOneNatRulesAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] OneToOneNatRules oneToOneNatRules,
 			CancellationToken cancellationToken = default
 			);
 	}
