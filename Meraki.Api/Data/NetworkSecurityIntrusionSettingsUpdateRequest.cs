@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,18 +12,21 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Gets or Sets Mode
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "mode")]
-		public PreventionDetectionDisbledMode Mode { get; set; }
+		public SecurityIntrusionMode? Mode { get; set; }
 
 		/// <summary>
 		/// Gets or Sets IdsRulesets
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "idsRulesets")]
-		public IdsRuleset IdsRulesets { get; set; }
+		public SecurityIntrusionDetectionRuleSet? IdsRuleset { get; set; }
 
 		/// <summary>
 		/// Gets or Sets ProtectedNetworks
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "protectedNetworks")]
 		public ProtectedNetworks ProtectedNetworks { get; set; } = new();
 	}

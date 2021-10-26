@@ -7,15 +7,14 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// Set mode to 'disabled'/'detection'/'prevention' (optional - omitting will leave current config unchanged)
 	/// </summary>
-	/// <value>Set mode to 'disabled'/'detection'/'prevention' (optional - omitting will leave current config unchanged)</value>
 	[JsonConverter(typeof(StringEnumConverter))]
-	public enum PreventionDetectionDisbledMode
+	public enum SecurityIntrusionMode
 	{
 		/// <summary>
 		/// Enum Prevention for "prevention"
 		/// </summary>
 		[EnumMember(Value = "prevention")]
-		Prevention,
+		Prevention = 1,
 
 		/// <summary>
 		/// Enum Detection for "detection"

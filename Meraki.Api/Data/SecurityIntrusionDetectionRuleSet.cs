@@ -7,15 +7,14 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// Set the detection ruleset 'connectivity'/'balanced'/'security' (optional - omitting will leave current config unchanged). Default value is 'balanced' if none currently saved
 	/// </summary>
-	/// <value>Set the detection ruleset 'connectivity'/'balanced'/'security' (optional - omitting will leave current config unchanged). Default value is 'balanced' if none currently saved</value>
 	[JsonConverter(typeof(StringEnumConverter))]
-	public enum IdsRuleset
+	public enum SecurityIntrusionDetectionRuleSet
 	{
 		/// <summary>
 		/// Enum Connectivity for "connectivity"
 		/// </summary>
 		[EnumMember(Value = "connectivity")]
-		Connectivity,
+		Connectivity = 1,
 
 		/// <summary>
 		/// Enum Balanced for "balanced"

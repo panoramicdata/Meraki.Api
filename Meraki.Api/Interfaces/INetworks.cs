@@ -402,5 +402,29 @@ namespace Meraki.Api.Interfaces
 			[Body] AppliancePort appliancePort,
 			CancellationToken cancellationToken = default
 			);
+
+		/// <summary>
+		/// Returns all supported intrusion settings for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/appliance/security/intrusion")]
+		Task<NetworkSecurityIntrusionSettingsUpdateRequest> GetSecurityIntrusionSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Set the supported intrusion settings for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="updateNetworkSecurityIntrusionSettings">Body for updating security intrusion settings</param>
+		[Put("/networks/{networkId}/appliance/security/intrusion")]
+		Task<NetworkSecurityIntrusionSettingsUpdateRequest> UpdateSecurityIntrusionSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkSecurityIntrusionSettingsUpdateRequest updateNetworkSecurityIntrusionSettings,
+			CancellationToken cancellationToken = default
+			);
 	}
 }
