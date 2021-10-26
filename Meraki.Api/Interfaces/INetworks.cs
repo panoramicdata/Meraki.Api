@@ -367,6 +367,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="appliancePortId">The appliance port id</param>
+		[ApiOperationId("getNetworkAppliancePort")]
 		[Get("/networks/{networkId}/appliance/ports/{portId}")]
 		Task<AppliancePort> GetAppliancePortAsync(
 			[AliasAs("networkId")] string networkId,
@@ -379,6 +380,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</experception>
 		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkAppliancePorts")]
 		[Get("/networks/{networkId}/appliance/ports")]
 		Task<List<AppliancePort>> GetAppliancePortsAsync(
 			[AliasAs("networkId")] string networkId,
@@ -392,6 +394,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="portId">The appliance port id</param>
 		/// <param name="appliancePort">Body for updating the per-port VLAN settings</param>
+		[ApiOperationId("updateNetworkAppliancePorts")]
 		[Put("/networks/{networkId}/appliance/ports/{portId}")]
 		Task<AppliancePort> UpdateAppliancePortAsync(
 			[AliasAs("networkId")] string networkId,
