@@ -7,7 +7,7 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSecurityIntrusionSettings
 	/// </summary>
 	[DataContract]
-	public class NetworkSecurityIntrusionSettingsUpdateRequest
+	public class NetworkSecurityIntrusionSetting
 	{
 		/// <summary>
 		/// Gets or Sets Mode
