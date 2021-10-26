@@ -18,7 +18,7 @@
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageReleaseNotes>
-			Added ReadOnly to MerakiClientOptions
+			Updated several API endpoints. Please note, this version contains breaking changes and we intend to break more endpoints in the next release as well. Our aim is to stabilize in v.1.16.0.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
