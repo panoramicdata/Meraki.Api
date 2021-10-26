@@ -16,11 +16,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
-		/// <param name="deviceLedsBlinkRequest">Body for blinking device leds</param>
+		/// <param name="blinkLeds">Body for blinking device leds</param>
 		[Post("/devices/{serial}/blinkLeds")]
-		Task<DeviceLedsBlinkResponse> BlinkLedsAsync(
+		Task<BlinkLeds> BlinkLedsAsync(
 			[AliasAs("serial")] string serial,
-			[Body] DeviceLedsBlinkRequest? deviceLedsBlinkRequest = null,
+			[Body] BlinkLeds blinkLeds,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

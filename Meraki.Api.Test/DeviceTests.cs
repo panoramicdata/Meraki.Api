@@ -123,7 +123,7 @@ namespace Meraki.Api.Test
 				.Devices
 				.BlinkLedsAsync(
 					onlineDevice!.Serial,
-					new DeviceLedsBlinkRequest
+					new BlinkLeds
 					{
 						Duration = 10,
 						Period = 500
