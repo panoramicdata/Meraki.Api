@@ -125,7 +125,6 @@ namespace Meraki.Api.Data
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[ApiForeignKey(typeof(SwitchProfile))]
 		[DataMember(Name = "switchProfileId")]
-		[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 		public string? SwitchProfileId { get; set; }
 
 		/// <summary>
