@@ -66,7 +66,6 @@ namespace Meraki.Api
 			Events = RefitFor(Events)!;
 			Firewalls = RefitFor(Firewalls)!;
 			Floorplans = RefitFor(Floorplans)!;
-			IntrusionSettings = RefitFor(IntrusionSettings)!;
 			Licenses = RefitFor(Licenses)!;
 			LinkAggregations = RefitFor(LinkAggregations)!;
 			MgConnectivityMonitoringDestinations = RefitFor(MgConnectivityMonitoringDestinations)!;
@@ -204,11 +203,6 @@ namespace Meraki.Api
 		/// HTTP servers
 		/// </summary>
 		public INetworkHttpServers NetworkHttpServers { get; }
-
-		/// <summary>
-		/// Intrusions settings
-		/// </summary>
-		public IIntrusionSettings IntrusionSettings { get; }
 
 		/// <summary>
 		/// Licenses
