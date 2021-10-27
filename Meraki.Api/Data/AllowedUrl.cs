@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,13 +12,14 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The url to whitelist
 		/// </summary>
-		/// <value>The url to whitelist</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "url")]
 		public string Url { get; set; } = string.Empty;
+
 		/// <summary>
 		/// Comment about the whitelisted entity
 		/// </summary>
-		/// <value>Comment about the whitelisted entity</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "comment")]
 		public string Comment { get; set; } = string.Empty;
 	}

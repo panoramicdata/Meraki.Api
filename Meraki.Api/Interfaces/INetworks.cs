@@ -410,7 +410,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[ApiOperationId("getNetworkApplianceSecurityIntrusion")]
 		[Get("/networks/{networkId}/appliance/security/intrusion")]
-		Task<NetworkSecurityIntrusionSetting> GetSecurityIntrusionSettingsAsync(
+		Task<NetworkSecurityIntrusion> GetSecurityIntrusionAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -420,12 +420,38 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="networkSecurityIntrusionSetting">Body for updating security intrusion settings</param>
+		/// <param name="networkSecurityIntrusion">Body for updating security intrusion settings</param>
 		[ApiOperationId("updateNetworkApplianceSecurityIntrusion")]
 		[Put("/networks/{networkId}/appliance/security/intrusion")]
-		Task<NetworkSecurityIntrusionSetting> UpdateSecurityIntrusionSettingsAsync(
+		Task<NetworkSecurityIntrusion> UpdateSecurityIntrusionAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] NetworkSecurityIntrusionSetting networkSecurityIntrusionSetting,
+			[Body] NetworkSecurityIntrusion networkSecurityIntrusion,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Returns all supported malware settings for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkApplianceSecurityMalware")]
+		[Get("/networks/{networkId}/appliance/security/malware")]
+		Task<NetworkSecurityMalware> GetSecurityMalwareAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Set the supported malware settings for an MX network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="securityMalware">Body for updating malware settings</param>
+		[ApiOperationId("updateNetworkApplianceSecurityMalware")]
+		[Put("/networks/{networkId}/appliance/security/malware")]
+		Task<NetworkSecurityMalware> UpdateSecurityMalwareAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] NetworkSecurityMalware securityMalware,
 			CancellationToken cancellationToken = default
 			);
 	}

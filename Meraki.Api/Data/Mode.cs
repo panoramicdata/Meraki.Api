@@ -4,18 +4,14 @@ using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
-	/// <summary>
-	/// Set mode to 'enabled' to enable malware prevention, otherwise 'disabled'
-	/// </summary>
-	/// <value>Set mode to 'enabled' to enable malware prevention, otherwise 'disabled'</value>
 	[JsonConverter(typeof(StringEnumConverter))]
-	public enum EnabledDisabledMode
+	public enum Mode
 	{
 		/// <summary>
 		/// Enum Enabled for "enabled"
 		/// </summary>
 		[EnumMember(Value = "enabled")]
-		Enabled,
+		Enabled = 1,
 
 		/// <summary>
 		/// Enum Disabled for "disabled"

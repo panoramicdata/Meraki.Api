@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,14 +12,14 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The file sha256 hash to whitelist
 		/// </summary>
-		/// <value>The file sha256 hash to whitelist</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "sha256")]
 		public string Sha256 { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Comment about the whitelisted entity
 		/// </summary>
-		/// <value>Comment about the whitelisted entity</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "comment")]
 		public string Comment { get; set; } = string.Empty;
 	}
