@@ -14,7 +14,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "limitUp")]
-		public int LimitUp { get; set; };
+		public int LimitUp { get; set; }
 
 		/// <summary>
 		/// The download bandwidth limit in Kbps. (0 represents no limit.)
