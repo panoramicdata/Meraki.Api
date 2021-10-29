@@ -181,29 +181,5 @@ namespace Meraki.Api.Interfaces
 			[Body] UplinkSelection UpdateNetworkApplianceTrafficShapingUplinkSelection,
 			CancellationToken cancellationToken = default
 			);
-
-		/// <summary>
-		/// Display the traffic shaping settings for an MX network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/appliance/trafficShaping")]
-		Task<NetworkApplianceTrafficShaping> GetNetworkApplianceTrafficShapingAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update the traffic shaping settings for an MX network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkApplianceTrafficShaping"></param>
-		[Put("/networks/{networkId}/appliance/trafficShaping")]
-		Task<NetworkApplianceTrafficShaping> UpdateNetworkApplianceTrafficShapingAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] NetworkApplianceTrafficShaping UpdateNetworkApplianceTrafficShaping,
-			CancellationToken cancellationToken = default
-			);
 	}
 }
