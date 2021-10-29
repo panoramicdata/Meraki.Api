@@ -25,17 +25,6 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// Display the traffic shaping settings rules for an MX network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/appliance/trafficShaping/rules")]
-		Task<TrafficShapingUpdateRequest> GetNetworkApplianceTrafficShapingRulesAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
 		/// Returns the application categories for traffic shaping rules.
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>

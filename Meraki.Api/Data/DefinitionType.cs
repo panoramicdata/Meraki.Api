@@ -7,7 +7,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// The type of definition. Can be one of 'application', 'applicationCategory', 'host', 'port', 'ipRange' or 'localNet'.
 	/// </summary>
-	/// <value>The type of definition. Can be one of 'application', 'applicationCategory', 'host', 'port', 'ipRange' or 'localNet'.</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum DefinitionType
 	{
