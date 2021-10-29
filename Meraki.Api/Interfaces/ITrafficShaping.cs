@@ -73,69 +73,6 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// List all custom performance classes for an MX network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
-		Task<CustomPerformanceClasses> GetNetworkApplianceTrafficShapingCustomPerformanceClassesAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Add a custom performance class for an MX network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Post("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
-		Task<CustomPerformanceClassesRequest> CreateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] CustomPerformanceClassesRequest CreateNetworkApplianceTrafficShapingCustomPerformanceClass,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Return a custom performance class for an MX network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="customPerformanceClassId">The custom performance class id</param>
-		[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
-		Task<CustomPerformanceClasses> GetNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update a custom performance class for an MX network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="customPerformanceClassId">The custom performance class id</param>
-		/// <param name="UpdateNetworkApplianceTrafficShapingCustomPerformanceClass"></param>
-		[Put("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
-		Task<CustomPerformanceClasses> UpdateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
-			[Body] CustomPerformanceClassesRequest UpdateNetworkApplianceTrafficShapingCustomPerformanceClass,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Delete a custom performance class from an MX network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="customPerformanceClassId">The custom performance class id</param>
-		[Delete("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
-		Task DeleteAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
 		/// Returns the uplink bandwidth settings for your MX network.
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
