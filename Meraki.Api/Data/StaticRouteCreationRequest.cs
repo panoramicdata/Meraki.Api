@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -6,27 +7,20 @@ namespace Meraki.Api.Data
 	/// CreateNetworkStaticRoute
 	/// </summary>
 	[DataContract]
-	public class StaticRouteCreationRequest
+	public class StaticRouteCreationRequest : NamedItem
 	{
-		/// <summary>
-		/// The name of the new static route
-		/// </summary>
-		/// <value>The name of the new static route</value>
-		[DataMember(Name = "name")]
-		public string Name { get; set; } = null!;
-
 		/// <summary>
 		/// The subnet of the static route
 		/// </summary>
-		/// <value>The subnet of the static route</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "subnet")]
-		public string Subnet { get; set; } = null!;
+		public string Subnet { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The gateway IP (next hop) of the static route
 		/// </summary>
-		/// <value>The gateway IP (next hop) of the static route</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "gatewayIp")]
-		public string GatewayIp { get; set; } = null!;
+		public string GatewayIp { get; set; } = string.Empty;
 	}
 }

@@ -272,7 +272,7 @@ namespace Meraki.Api
 		/// <summary>
 		/// MX static routes
 		/// </summary>
-		public IMxStaticRoutes MxStaticRoutes { get; }
+		public INetworkAppliances MxStaticRoutes { get; }
 
 		/// <summary>
 		/// MX VPN firewall rules

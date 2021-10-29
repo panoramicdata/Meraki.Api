@@ -342,6 +342,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkApplianceSingleLan")]
 		[Get("/networks/{networkId}/appliance/singleLan")]
 		Task<LanConfiguration> GetApplianceSingleLanAsync(
 			[AliasAs("networkId")] string networkId,
@@ -354,6 +355,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkApplianceSingleLan">Body for updating a single LAN config</param>
+		[ApiOperationId("updateNetworkApplianceSingleLan")]
 		[Put("/networks/{networkId}/appliance/singleLan")]
 		Task<LanConfiguration> UpdateApplianceSingleLanAsync(
 			[AliasAs("networkId")] string networkId,

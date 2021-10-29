@@ -204,7 +204,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/loginSecurity")]
-		Task<LoginSecurity> GetOrganizationLoginSecurityAsync(
+		Task<LoginSecurity> GetLoginSecurityAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
@@ -215,7 +215,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="updateOrganizationLoginSecurity">Body for updating login settings</param>
 		[Put("/organizations/{organizationId}/loginSecurity")]
-		Task<LoginSecurity> UpdateOrganizationLoginSecurityAsync(
+		Task<LoginSecurity> UpdateLoginSecurityAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[Body] LoginSecurity updateOrganizationLoginSecurity,
 			CancellationToken cancellationToken = default);
@@ -226,7 +226,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/adaptivePolicy/acls")]
-		Task<List<AdaptivePolicyAcl>> GetOrganizationAdaptivePolicyAclsAsync(
+		Task<List<AdaptivePolicyAcl>> GetAdaptivePolicyAclsAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
@@ -237,7 +237,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="acls">Body for creating an ACL</param>
 		[Post("/organizations/{organizationId}/adaptivePolicy/acls")]
-		Task<List<AdaptivePolicyAcl>> CreateOrganizationAdaptivePolicyAclAsync(
+		Task<List<AdaptivePolicyAcl>> CreateAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[Body] AdaptivePolicyAcl acls,
 			CancellationToken cancellationToken = default);
@@ -249,7 +249,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="id">The ACL id</param>
 		[Get("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
-		Task<AdaptivePolicyAcl> GetOrganizationAdaptivePolicyAclAsync(
+		Task<AdaptivePolicyAcl> GetAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("id")] string id,
 			CancellationToken cancellationToken = default);
@@ -262,7 +262,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="id">The ACL id</param>
 		/// <param name="acls">Body for returning ACL information</param>
 		[Put("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
-		Task<AdaptivePolicyAcl> UpdateOrganizationAdaptivePolicyAclAsync(
+		Task<AdaptivePolicyAcl> UpdateAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("id")] string id,
 			[Body] AdaptivePolicyAcl acls,
@@ -275,7 +275,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		/// <param name="id">The ACL id</param>
 		[Delete("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
-		Task DeleteOrganizationAdaptivePolicyAclAsync(
+		Task DeleteAdaptivePolicyAclAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[AliasAs("id")] string id,
 			CancellationToken cancellationToken = default);
@@ -286,7 +286,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Get("/organizations/{organizationId}/adaptivePolicy/settings")]
-		Task<AdaptivePolicySettings> GetOrganizationAdaptivePolicySettingsAsync(
+		Task<AdaptivePolicySettings> GetAdaptivePolicySettingsAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default);
 
@@ -296,7 +296,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
 		[Put("/organizations/{organizationId}/adaptivePolicy/settings")]
-		Task<AdaptivePolicySettings> UpdateOrganizationAdaptivePolicySettingsAsync(
+		Task<AdaptivePolicySettings> UpdateAdaptivePolicySettingsAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[Body] AdaptivePolicySettings adaptivePolicySettings,
 			CancellationToken cancellationToken = default);
