@@ -30,5 +30,12 @@ namespace Meraki.Api.Data
 		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "networkId")]
 		public string NetworkId { get; set; } = string.Empty;
+
+		/// <summary>
+		/// The Webhook PayloadTemplate
+		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
+		[DataMember(Name = "payloadTemplate")]
+		public PayloadTemplate? PayloadTemplate { get; set; }
 	}
 }
