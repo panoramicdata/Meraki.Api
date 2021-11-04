@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -9,14 +10,16 @@ namespace Meraki.Api.Data
 	public class TrafficFilters
 	{
 		/// <summary>
-		/// Type
+		/// Type of this traffic filter. Must be one of: 'applicationCategory', 'application' or 'custom'
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "type")]
-		public string Type { get; set; } = string.Empty;
+		public TrafficFilterType Type { get; set; }
 
 		/// <summary>
-		/// Value
+		/// Value object of this traffic filter
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "value")]
 		public TrafficFiltersValue Value { get; set; } = new();
 	}

@@ -14,18 +14,12 @@ namespace Meraki.Api.Data
 		/// Enum Wan1 for "wan1"
 		/// </summary>
 		[EnumMember(Value = "wan1")]
-		Wan1,
+		Wan1 = 1,
 
 		/// <summary>
 		/// Enum Wan2 for "wan2"
 		/// </summary>
 		[EnumMember(Value = "wan2")]
 		Wan2,
-
-		/// <summary>
-		/// Enum Cellular for "cellular"
-		/// </summary>
-		[EnumMember(Value = "cellular")]
-		Cellular
 	}
 }

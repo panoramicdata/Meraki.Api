@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Meraki.Api.Attributes;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -10,33 +11,38 @@ namespace Meraki.Api.Data
 	public class UplinkSelection
 	{
 		/// <summary>
-		/// activeActiveAutoVpnEnabled
+		/// Toggle for enabling or disabling active-active AutoVPN
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "activeActiveAutoVpnEnabled")]
 		public bool ActiveActiveAutoVpnEnabled { get; set; }
 
 		/// <summary>
-		/// Default uplink
+		/// The default uplink. Must be one of: 'wan1' or 'wan2'
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "defaultUplink")]
-		public string DefaultUplink { get; set; } = string.Empty;
+		public Uplink DefaultUplink { get; set; }
 
 		/// <summary>
-		/// Load balancing enabled
+		/// Toggle for enabling or disabling load balancing
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "loadBalancingEnabled")]
 		public bool LoadBalancingEnabled { get; set; }
 
 		/// <summary>
-		/// wanTrafficUplinkPreferences
+		/// Array of uplink preference rules for WAN traffic
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "wanTrafficUplinkPreferences")]
-		public List<TrafficUplinkPreferences> WanTrafficUplinkPreferences { get; set; } = new();
+		public List<TrafficUplinkPreference> WanTrafficUplinkPreferences { get; set; } = new();
 
 		/// <summary>
-		/// vpnTrafficUplinkPreferences
+		/// Array of uplink preference rules for VPN traffic
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "vpnTrafficUplinkPreferences")]
-		public List<TrafficUplinkPreferences> VpnTrafficUplinkPreferences { get; set; } = new();
+		public List<TrafficUplinkPreference> VpnTrafficUplinkPreferences { get; set; } = new();
 	}
 }

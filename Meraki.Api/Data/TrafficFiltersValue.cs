@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -9,26 +10,30 @@ namespace Meraki.Api.Data
 	public class TrafficFiltersValue
 	{
 		/// <summary>
-		/// Protocol
+		/// Protocol of this custom type traffic filter. Must be one of: 'tcp', 'udp', 'icmp' or 'any'
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "protocol")]
-		public string? Protocol { get; set; }
+		public FirewallProtocol Protocol { get; set; }
 
 		/// <summary>
-		/// Source
+		/// Source of this custom type traffic filter
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "source")]
 		public ValueSource? Source { get; set; }
 
 		/// <summary>
-		/// Destination
+		/// Destination of this custom type traffic filter
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "destination")]
 		public ValueSource? Destination { get; set; }
 
 		/// <summary>
-		/// Id
+		/// ID of this applicationCategory or application type traffic filter. E.g.: "meraki:layer7/category/1", "meraki:layer7/application/4"
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "id")]
 		public string? Id { get; set; }
 	}
