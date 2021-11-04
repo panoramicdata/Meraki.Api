@@ -20,6 +20,6 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "bandwidthLimits")]
-		public BandwidthLimits BandwidthLimits { get; set; } = new();
+		public BandwidthLimit BandwidthLimits { get; set; } = new();
 	}
 }

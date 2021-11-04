@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -11,7 +12,8 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Bandwidth limits
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "bandwidthLimits")]
-		public BandwidthLimits7 BandwidthLimits { get; set; } = new();
+		public UplinkBandwidthLimits BandwidthLimits { get; set; } = new();
 	}
 }
