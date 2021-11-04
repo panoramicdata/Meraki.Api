@@ -7,7 +7,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// The site-to-site VPN mode. Can be one of 'none', 'spoke' or 'hub'
 	/// </summary>
-	/// <value>The site-to-site VPN mode. Can be one of 'none', 'spoke' or 'hub'</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum SiteToSiteVpnMode
 	{
@@ -15,7 +14,7 @@ namespace Meraki.Api.Data
 		/// Enum None for "none"
 		/// </summary>
 		[EnumMember(Value = "none")]
-		None,
+		None = 1,
 
 		/// <summary>
 		/// Enum Spoke for "spoke"

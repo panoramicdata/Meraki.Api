@@ -85,17 +85,6 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// Return the site-to-site VPN settings of a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
-		Task<SiteToSiteVpnUpdateRequest> GetNetworkSiteToSiteVpnAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
 		/// Return the traffic analysis data for this network
 		/// </summary>
 		/// <param name="networkId">The network id</param>
@@ -143,19 +132,6 @@ namespace Meraki.Api.Interfaces
 		Task<Network> UpdateNetworkAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] NetworkUpdateRequest networkUpdateRequest,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update the site-to-site VPN settings of a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkSiteToSiteVpn">Body for updating VPN settings</param>
-		[Put("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
-		Task<SiteToSiteVpnUpdateRequest> UpdateNetworkSiteToSiteVpnAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] SiteToSiteVpnUpdateRequest updateNetworkSiteToSiteVpn,
 			CancellationToken cancellationToken = default
 			);
 

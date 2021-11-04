@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,13 +12,15 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The network ID of the hub.
 		/// </summary>
-		/// <value>The network ID of the hub.</value>
+		[ApiForeignKey(typeof(Network))]
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "hubId")]
 		public string HubId { get; set; } = string.Empty;
+
 		/// <summary>
-		/// Only valid in &#39;spoke&#39; mode. Indicates whether default route traffic should be sent to this hub.
+		/// Only valid in 'spoke' mode. Indicates whether default route traffic should be sent to this hub.
 		/// </summary>
-		/// <value>Only valid in &#39;spoke&#39; mode. Indicates whether default route traffic should be sent to this hub.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "useDefaultRoute")]
 		public bool? UseDefaultRoute { get; set; }
 	}

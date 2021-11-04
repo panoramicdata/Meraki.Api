@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,15 +12,15 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The CIDR notation subnet used within the VPN
 		/// </summary>
-		/// <value>The CIDR notation subnet used within the VPN</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "localSubnet")]
-		public string LocalSubnet { get; set; } = null!;
+		public string LocalSubnet { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Indicates the presence of the subnet in the VPN
 		/// </summary>
-		/// <value>Indicates the presence of the subnet in the VPN</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "useVpn")]
-		public bool? UseVpn { get; set; }
+		public bool UseVpn { get; set; }
 	}
 }
