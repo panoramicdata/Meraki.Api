@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -9,21 +10,9 @@ namespace Meraki.Api.Data
 	public class ThirdPartyVpnPeers
 	{
 		/// <summary>
-		/// Name
+		/// The list of VPN peers
 		/// </summary>
-		[DataMember(Name = "name")]
-		public string Name { get; set; } = string.Empty;
-
-		/// <summary>
-		/// Public IP
-		/// </summary>
-		[DataMember(Name = "publicIp")]
-		public string PublicIp { get; set; } = string.Empty;
-
-		/// <summary>
-		/// Reachability
-		/// </summary>
-		[DataMember(Name = "reachability")]
-		public string Reachability { get; set; } = string.Empty;
+		[DataMember(Name = "peers")]
+		public List<ThirdPartyVpnPeer> Peers { get; set; } = new();
 	}
 }

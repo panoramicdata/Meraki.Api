@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
@@ -141,9 +142,22 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="organizationId">The organization id</param>
+		[ApiOperationId("getOrganizationApplianceVpnThirdPartyVPNPeers")]
 		[Get("/organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers")]
-		Task<ThirdPartyVpnPeerResponse> GetThirdPartyVpnPeersAsync(
+		Task<ThirdPartyVpnPeers> GetThirdPartyVpnPeersAsync(
 			[AliasAs("organizationId")] string organizationId,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Return the third party VPN peers for an organization
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		[ApiOperationId("getOrganizationApplianceVpnThirdPartyVPNPeers")]
+		[Put("/organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers")]
+		Task<ThirdPartyVpnPeers> UpdateThirdPartyVpnPeersAsync(
+			[AliasAs("organizationId")] string organizationId,
+			[Body] ThirdPartyVpnPeers peerList,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -184,18 +198,6 @@ namespace Meraki.Api.Interfaces
 		Task<Organization> UpdateAsync(
 			[AliasAs("organizationId")] string organizationId,
 			[Body] OrganizationUpdateRequest updateOrganization,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// Update the third party VPN peers for an organization
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The organization id</param>
-		/// <param name="peerList">Body for updating a peer list</param>
-		[Put("/organizations/{organizationId}/thirdPartyVPNPeers")]
-		Task<ThirdPartyVpnPeersUpdateRequest> UpdateThirdPartyVpnPeersAsync(
-			[AliasAs("organizationId")] string organizationId,
-			[Body] ThirdPartyVpnPeersUpdateRequest peerList,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>

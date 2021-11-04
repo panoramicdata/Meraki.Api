@@ -1,3 +1,5 @@
+using Meraki.Api.Attributes;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -12,48 +14,56 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The public IP of the VPN peer
 		/// </summary>
-		/// <value>The public IP of the VPN peer</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "publicIp")]
 		public string PublicIp { get; set; } = null!;
 
 		/// <summary>
 		/// [optional] The remote ID is used to identify the connecting VPN peer. This can either be a valid IPv4 Address, FQDN or User FQDN.
 		/// </summary>
-		/// <value>[optional] The remote ID is used to identify the connecting VPN peer. This can either be a valid IPv4 Address, FQDN or User FQDN.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "remoteId")]
-		public string RemoteId { get; set; } = null!;
+		public string? RemoteId { get; set; }
+
+		/// <summary>
+		/// [optional] The IKE version to be used for the IPsec VPN peer configuration. Defaults to '1' when omitted.
+		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[DataMember(Name = "ikeVersion")]
+		public string? IkeVersion { get; set; }
 
 		/// <summary>
 		/// The list of the private subnets of the VPN peer
 		/// </summary>
-		/// <value>The list of the private subnets of the VPN peer</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "privateSubnets")]
 		public List<string> PrivateSubnets { get; set; } = new List<string>();
 
 		/// <summary>
 		/// Gets or Sets IpsecPolicies
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "ipsecPolicies")]
-		public IpsecPolicies IpsecPolicies { get; set; } = null!;
+		public IpsecPolicies IpsecPolicies { get; set; } = new();
 
 		/// <summary>
-		/// One of the following available presets: &#39;default&#39;, &#39;aws&#39;, &#39;azure&#39;. If this is provided, the &#39;ipsecPolicies&#39; parameter is ignored.
+		/// One of the following available presets: 'default', 'aws', 'azure'. If this is provided, the 'ipsecPolicies' parameter is ignored.
 		/// </summary>
-		/// <value>One of the following available presets: &#39;default&#39;, &#39;aws&#39;, &#39;azure&#39;. If this is provided, the &#39;ipsecPolicies&#39; parameter is ignored.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "ipsecPoliciesPreset")]
-		public string IpsecPoliciesPreset { get; set; } = null!;
+		public string IpsecPoliciesPreset { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The shared secret with the VPN peer
 		/// </summary>
-		/// <value>The shared secret with the VPN peer</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "secret")]
-		public string Secret { get; set; } = null!;
+		public string Secret { get; set; } = string.Empty;
 
 		/// <summary>
-		/// A list of network tags that will connect with this peer. Use [&#39;all&#39;] for all networks. Use [&#39;none&#39;] for no networks. If not included, the default is [&#39;all&#39;].
+		/// A list of network tags that will connect with this peer. Use ['all'] for all networks. Use ['none'] for no networks. If not included, the default is [&#39;all&#39;].
 		/// </summary>
-		/// <value>A list of network tags that will connect with this peer. Use [&#39;all&#39;] for all networks. Use [&#39;none&#39;] for no networks. If not included, the default is [&#39;all&#39;].</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "networkTags")]
 		public List<string> NetworkTags { get; set; } = new List<string>();
 	}
