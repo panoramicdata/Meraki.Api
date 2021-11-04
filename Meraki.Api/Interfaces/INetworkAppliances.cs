@@ -260,7 +260,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/appliance/vpn/bgp")]
-		Task<VpnBgp> GetVpnBgp(
+		Task<VpnBgp> GetVpnBgpAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -272,7 +272,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="updateVpnBgp"></param>
 		[Put("/networks/{networkId}/appliance/vpn/bgp")]
-		Task<VpnBgp> UpdateVpnBgp(
+		Task<VpnBgp> UpdateVpnBgpAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] VpnBgp updateVpnBgp,
 			CancellationToken cancellationToken = default
