@@ -51,29 +51,5 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("networkIds")] List<string>? networkIds = null,
 			CancellationToken cancellationToken = default
 			);
-
-		/// <summary>
-		/// Return a Hub BGP Configuration
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/appliance/vpn/bgp")]
-		Task<VpnBgp> GetNetworkApplianceVpnBgp(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Return a Hub BGP Configuration
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkApplianceVpnBgp"></param>
-		[Put("/networks/{networkId}/appliance/vpn/bgp")]
-		Task<VpnBgp> UpdateNetworkApplianceVpnBgp(
-			[AliasAs("networkId")] string networkId,
-			[Body] VpnBgp updateNetworkApplianceVpnBgp,
-			CancellationToken cancellationToken = default
-			);
 	}
 }
