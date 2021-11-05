@@ -440,7 +440,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="organizationId">The organization id</param>
 		[ApiOperationId("getOrganizationApplianceVpnVpnFirewallRules")]
 		[Get("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
-		Task<VpnFirewallRulesUpdateRequest> GetVpnFirewallRulesAsync(
+		Task<VpnFirewallRules> GetVpnFirewallRulesAsync(
 			[AliasAs("organizationId")] string organizationId,
 			CancellationToken cancellationToken = default
 			);
@@ -453,9 +453,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="vpnFirewallRules">Body for updating firewall rules</param>
 		[ApiOperationId("updateOrganizationApplianceVpnVpnFirewallRules")]
 		[Put("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
-		Task<VpnFirewallRulesUpdateRequest> UpdateVpnFirewallRulesAsync(
+		Task<VpnFirewallRules> UpdateVpnFirewallRulesAsync(
 			[AliasAs("organizationId")] string organizationId,
-			[Body] VpnFirewallRulesUpdateRequest vpnFirewallRules,
+			[Body] VpnFirewallRules vpnFirewallRules,
 			CancellationToken cancellationToken = default
 			);
 	}
