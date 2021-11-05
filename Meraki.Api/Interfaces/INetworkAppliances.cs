@@ -283,6 +283,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkApplianceVpnSiteToSiteVpn")]
 		[Get("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 		Task<SiteToSiteVpn> GetSiteToSiteVpnAsync(
 			[AliasAs("networkId")] string networkId,
@@ -295,10 +296,52 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="siteToSiteVpn">Body for updating VPN settings</param>
+		[ApiOperationId("updateNetworkApplianceVpnSiteToSiteVpn")]
 		[Put("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 		Task<SiteToSiteVpn> UpdateSiteToSiteVpnAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] SiteToSiteVpn siteToSiteVpn,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Return MX warm spare settings
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkApplianceWarmSpare")]
+		[Get("/networks/{networkId}/appliance/warmSpare")]
+		Task<WarmSpare> GetNetworkWarmSpareSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update MX warm spare settings
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="updateWarmSpare">Body for updating warm spare settings</param>
+		[ApiOperationId("updateNetworkApplianceWarmSpare")]
+		[Put("/networks/{networkId}/appliance/warmSpare")]
+		Task<WarmSpare> UpdateNetworkWarmSpareSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] WarmSpareUpdateRequest updateWarmSpare,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Swap MX primary and warm spare appliances
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="warmSpare"></param>
+		/// <param name="cancellationToken"></param>
+		[ApiOperationId("swapNetworkApplianceWarmSpare")]
+		[Post("/networks/{networkId}/appliance/warmSpare/swap")]
+		Task <WarmSpare> SwapNetworkWarmSpareAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] WarmSpare warmSpare,
 			CancellationToken cancellationToken = default
 			);
 	}
