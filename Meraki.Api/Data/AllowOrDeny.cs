@@ -15,7 +15,7 @@ namespace Meraki.Api.Data
 		/// Enum Allow for "allow"
 		/// </summary>
 		[EnumMember(Value = "allow")]
-		Allow,
+		Allow = 1,
 
 		/// <summary>
 		/// Enum Deny for "deny"

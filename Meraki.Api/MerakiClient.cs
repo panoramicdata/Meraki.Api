@@ -78,7 +78,6 @@ namespace Meraki.Api
 			MrLayer3FirewallRules = RefitFor(MrLayer3FirewallRules)!;
 			MvSense = RefitFor(MvSense)!;
 			NetworkAppliances = RefitFor(NetworkAppliances)!;
-			MxVpnFirewalls = RefitFor(MxVpnFirewalls)!;
 			MxWarmSpareSettings = RefitFor(MxWarmSpareSettings)!;
 			NamedTagScopes = RefitFor(NamedTagScopes)!;
 			Networks = RefitFor(Networks)!;
@@ -273,11 +272,6 @@ namespace Meraki.Api
 		/// MX static routes
 		/// </summary>
 		public INetworkAppliances NetworkAppliances { get; }
-
-		/// <summary>
-		/// MX VPN firewall rules
-		/// </summary>
-		public IMxVpnFirewallRules MxVpnFirewalls { get; }
 
 		/// <summary>
 		/// MX warm spare settings

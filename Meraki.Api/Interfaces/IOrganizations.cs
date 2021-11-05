@@ -432,5 +432,31 @@ namespace Meraki.Api.Interfaces
 			[Body] OrganizationSecurityIntrusion securityIntrusion,
 			CancellationToken cancellationToken = default
 			);
+
+		/// <summary>
+		/// Return the firewall rules for an organization's site-to-site VPN
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		[ApiOperationId("getOrganizationApplianceVpnVpnFirewallRules")]
+		[Get("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
+		Task<VpnFirewallRulesUpdateRequest> GetVpnFirewallRulesAsync(
+			[AliasAs("organizationId")] string organizationId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update the firewall rules of an organization's site-to-site VPN
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="organizationId">The organization id</param>
+		/// <param name="vpnFirewallRules">Body for updating firewall rules</param>
+		[ApiOperationId("updateOrganizationApplianceVpnVpnFirewallRules")]
+		[Put("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
+		Task<VpnFirewallRulesUpdateRequest> UpdateVpnFirewallRulesAsync(
+			[AliasAs("organizationId")] string organizationId,
+			[Body] VpnFirewallRulesUpdateRequest vpnFirewallRules,
+			CancellationToken cancellationToken = default
+			);
 	}
 }

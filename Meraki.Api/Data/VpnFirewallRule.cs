@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,52 +12,56 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Description of the rule (optional)
 		/// </summary>
-		/// <value>Description of the rule (optional)</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "comment")]
-		public string Comment { get; set; } = null!;
+		public string? Comment { get; set; }
 
 		/// <summary>
-		/// Gets or Sets Policy
+		/// 'allow' or 'deny' traffic specified by this rule
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "policy")]
 		public AllowOrDeny Policy { get; set; }
 
 		/// <summary>
-		/// Gets or Sets Protocol
+		/// The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "protocol")]
 		public FirewallProtocol Protocol { get; set; }
 
 		/// <summary>
-		/// Comma-separated list of source port(s) (integer in the range 1-65535), or &#39;any&#39;
+		/// Comma-separated list of source port(s) (integer in the range 1-65535), or 'any'
 		/// </summary>
-		/// <value>Comma-separated list of source port(s) (integer in the range 1-65535), or &#39;any&#39;</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "srcPort")]
-		public string SourcePort { get; set; } = null!;
+		public string SourcePort { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Comma-separated list of source IP address(es) (in IP or CIDR notation), or &#39;any&#39; (FQDN not supported)
+		/// Comma-separated list of source IP address(es) (in IP or CIDR notation), or 'any' (FQDN not supported)
 		/// </summary>
-		/// <value>Comma-separated list of source IP address(es) (in IP or CIDR notation), or &#39;any&#39; (FQDN not supported)</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "srcCidr")]
-		public string SourceCidr { get; set; } = null!;
+		public string SourceCidr { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Comma-separated list of destination port(s) (integer in the range 1-65535), or &#39;any&#39;
+		/// Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'
 		/// </summary>
-		/// <value>Comma-separated list of destination port(s) (integer in the range 1-65535), or &#39;any&#39;</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "destPort")]
-		public string DestinationPort { get; set; } = null!;
+		public string DestinationPort { get; set; } = string.Empty;
+
 		/// <summary>
-		/// Comma-separated list of destination IP address(es) (in IP or CIDR notation) or &#39;any&#39; (FQDN not supported)
+		/// Comma-separated list of destination IP address(es) (in IP or CIDR notation) or 'any' (FQDN not supported)
 		/// </summary>
-		/// <value>Comma-separated list of destination IP address(es) (in IP or CIDR notation) or &#39;any&#39; (FQDN not supported)</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "destCidr")]
-		public string DestinationCidr { get; set; } = null!;
+		public string DestinationCidr { get; set; } = string.Empty;
+
 		/// <summary>
 		/// Log this rule to syslog (true or false, boolean value) - only applicable if a syslog has been configured (optional)
 		/// </summary>
-		/// <value>Log this rule to syslog (true or false, boolean value) - only applicable if a syslog has been configured (optional)</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "syslogEnabled")]
 		public bool? SyslogEnabled { get; set; }
 	}
