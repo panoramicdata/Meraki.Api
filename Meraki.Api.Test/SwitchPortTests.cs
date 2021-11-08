@@ -16,7 +16,7 @@ namespace Meraki.Api.Test
 		{
 			var switchPorts = await TestMerakiClient
 				.SwitchPorts
-				.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial)
+				.GetAllAsync(Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
 
 			switchPorts.Should().NotBeNullOrEmpty();
@@ -28,7 +28,7 @@ namespace Meraki.Api.Test
 			// ARRANGE
 			var switchPorts = await TestMerakiClient
 				.SwitchPorts
-				.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial)
+				.GetAllAsync(Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
 
 			var switchPort = switchPorts[0];
