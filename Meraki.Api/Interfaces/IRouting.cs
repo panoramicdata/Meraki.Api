@@ -87,7 +87,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId">The interface id</param>
 		[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
-		Task<DHCPRoutingInterface> GetDeviceSwitchRoutingInterfaceDhcpAsync(
+		Task<DhcpRoutingInterface> GetDeviceSwitchRoutingInterfaceDhcpAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
 			CancellationToken cancellationToken = default
@@ -101,10 +101,10 @@ namespace Meraki.Api.Interfaces
 		/// <param name="interfaceId">The interface id</param>
 		/// <param name="updateDeviceSwitchRoutingInterfaceDhcp">Body for updating an interface</param>
 		[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
-		Task<DHCPRoutingInterface> UpdateDeviceSwitchRoutingInterfaceDhcpAsync(
+		Task<DhcpRoutingInterface> UpdateDeviceSwitchRoutingInterfaceDhcpAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
-			[Body] DHCPRoutingInterface updateDeviceSwitchRoutingInterfaceDhcp,
+			[Body] DhcpRoutingInterface updateDeviceSwitchRoutingInterfaceDhcp,
 			CancellationToken cancellationToken = default
 			);
 
