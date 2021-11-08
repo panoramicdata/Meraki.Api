@@ -88,6 +88,7 @@ namespace Meraki.Api
 			OpenApiSpec = RefitFor(OpenApiSpec)!;
 			Organizations = RefitFor(Organizations)!;
 			RadioSettings = RefitFor(RadioSettings)!;
+			Routing = RefitFor(Routing)!;
 			SamlRoles = RefitFor(SamlRoles)!;
 			SecurityEvents = RefitFor(SecurityEvents)!;
 			Sms = RefitFor(Sms)!;
@@ -306,6 +307,11 @@ namespace Meraki.Api
 		/// Radio settings
 		/// </summary>
 		public IRadioSettings RadioSettings { get; }
+
+		/// <summary>
+		/// Routing
+		/// </summary>
+		public IRouting Routing { get; }
 
 		/// <summary>
 		/// SAML roles
