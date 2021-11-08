@@ -36,5 +36,12 @@ namespace Meraki.Api.Data
 		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "fips")]
 		public SecureConnect Fips { get; set; } = new();
+
+		/// <summary>
+		/// Local Status PAge
+		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
+		[DataMember(Name = "localStatusPage")]
+		public LocalStatusPage? LocalStatusPage { get; set; }
 	}
 }
