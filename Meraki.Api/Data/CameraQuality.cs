@@ -7,9 +7,8 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// Quality of the camera. Can be one of 'Standard', 'Enhanced' or 'High'.
 	/// </summary>
-	/// <value>Quality of the camera. Can be one of 'Standard', 'Enhanced' or 'High'.</value>
 	[JsonConverter(typeof(StringEnumConverter))]
-	public enum StandardEnhancedHighQuality
+	public enum CameraQuality
 	{
 		/// <summary>
 		/// Enum Standard for "Standard"

@@ -7,7 +7,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// The version of the motion detector that will be used by the camera. Only applies to Gen 2 cameras. Defaults to v2.
 	/// </summary>
-	/// <value>The version of the motion detector that will be used by the camera. Only applies to Gen 2 cameras. Defaults to v2.</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum MotionDetectorVersion
 	{

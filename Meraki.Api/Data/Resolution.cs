@@ -7,7 +7,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// Resolution of the camera. Can be one of '1280x720', '1920x1080', '1080x1080' or '2058x2058'. Not all resolutions are supported by every camera model.
 	/// </summary>
-	/// <value>Resolution of the camera. Can be one of '1280x720', '1920x1080', '1080x1080' or '2058x2058'. Not all resolutions are supported by every camera model.</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum Resolution
 	{

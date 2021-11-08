@@ -12,7 +12,7 @@ namespace Meraki.Api.Data
 		/// Gets or Sets Quality
 		/// </summary>
 		[DataMember(Name = "quality")]
-		public StandardEnhancedHighQuality Quality { get; set; }
+		public CameraQuality Quality { get; set; }
 
 		/// <summary>
 		/// Resolution of the camera. Can be one of &#39;1280x720&#39;.

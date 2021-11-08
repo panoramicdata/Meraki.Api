@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
@@ -28,9 +29,23 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
+		[ApiOperationId("getDeviceCameraQualityAndRetention")]
 		[Get("/devices/{serial}/camera/qualityAndRetention")]
-		Task<CameraQualityAndRetentionSettings> GetQualityAndRetentionSettingsAsync(
+		Task<CameraQualityAndRetention> GetQualityAndRetentionSettingsAsync(
 			[AliasAs("serial")] string serial,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Update quality and retention settings for the given camera
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="serial">The serial number</param>
+		/// <param name="cameraQualityAndRetention">Body for updating camera quality and retention settings</param>
+		[ApiOperationId("updateDeviceCameraQualityAndRetention")]
+		[Put("/devices/{serial}/camera/qualityAndRetention")]
+		Task<CameraQualityAndRetention> UpdateQualityAndRetentionSettingsAsync(
+			[AliasAs("serial")] string serial,
+			[Body] CameraQualityAndRetention cameraQualityAndRetention,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -53,18 +68,6 @@ namespace Meraki.Api.Interfaces
 		Task<VideoLink> GetVideoLinkAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("timestamp")] string timestamp = null!,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// Update quality and retention settings for the given camera
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial">The serial number</param>
-		/// <param name="cameraQualityAndRetentionSettingsUpdateRequest">Body for updating camera quality and retention settings</param>
-		[Put("/devices/{serial}/camera/qualityAndRetention")]
-		Task<CameraQualityAndRetentionSettings> UpdateQualityAndRetentionSettingsAsync(
-			[AliasAs("serial")] string serial,
-			[Body] CameraQualityAndRetentionSettingsUpdateRequest cameraQualityAndRetentionSettingsUpdateRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
