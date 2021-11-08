@@ -38,7 +38,7 @@ namespace Meraki.Api.Test
 			switchPort.PortScheduleId = null;
 			var switchPortAfterUpdate = await TestMerakiClient
 				.SwitchPorts
-				.UpdateDeviceSwitchPortAsync(Configuration.TestDeviceSerial, switchPort.PortId, switchPort)
+				.UpdateAsync(Configuration.TestDeviceSerial, switchPort.PortId, switchPort)
 				.ConfigureAwait(false);
 
 			// ASSERT
