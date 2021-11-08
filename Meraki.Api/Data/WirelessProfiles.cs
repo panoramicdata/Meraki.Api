@@ -4,10 +4,10 @@ using System.Runtime.Serialization;
 namespace Meraki.Api.Data
 {
 	/// <summary>
-	/// Quality retention profile
+	/// Network wireless profiles
 	/// </summary>
 	[DataContract]
-	public class CameraQualityRetentionProfile : CameraQualityRetentionProfileCreateUpdateRequest
+	public class WirelessProfiles : WirelessProfilesCreateUpdateRequest
 	{
 		/// <summary>
 		/// Id
@@ -17,10 +17,10 @@ namespace Meraki.Api.Data
 		public string Id { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Network id
+		/// Applied device count
 		/// </summary>
 		[ApiAccess(ApiAccess.Read)]
-		[DataMember(Name = "networkId")]
-		public string NetworkId { get; set; } = string.Empty;
+		[DataMember(Name = "appliedDeviceCount")]
+		public int AppliedDeviceCount { get; set; }
 	}
 }

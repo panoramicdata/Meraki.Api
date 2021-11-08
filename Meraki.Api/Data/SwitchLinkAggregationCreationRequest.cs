@@ -20,7 +20,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>Array of switch or stack ports for creating aggregation group. Minimum 2 and maximum 8 ports are supported.</value>
 		[DataMember(Name = "switchPorts")]
-		public List<SwitchPort> SwitchPorts { get; set; } = null!;
+		public List<LinkAggregationSwitchPort> SwitchPorts { get; set; } = null!;
 
 		/// <summary>
 		/// Array of switch profile ports for creating aggregation group. Minimum 2 and maximum 8 ports are supported.

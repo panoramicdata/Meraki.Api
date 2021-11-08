@@ -512,7 +512,7 @@ namespace Meraki.Api.Test
 
 			var switchPorts = await TestMerakiClient
 				.SwitchPorts
-				.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, default)
+				.GetAllAsync(Configuration.TestSwitchSerial, default)
 				.ConfigureAwait(false);
 
 			switchPorts.Should().NotBeNullOrEmpty();

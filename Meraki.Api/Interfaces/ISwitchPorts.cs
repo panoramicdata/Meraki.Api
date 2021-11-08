@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
@@ -12,15 +13,44 @@ namespace Meraki.Api.Interfaces
 	public interface ISwitchPorts
 	{
 		/// <summary>
+		/// List the switch ports for a switch
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="serial">The serial number</param>
+		[ApiOperationId("getDeviceSwitchPorts")]
+		[Get("/devices/{serial}/switch/ports")]
+		Task<List<SwitchPort>> GetAllAsync(
+			[AliasAs("serial")] string serial,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
 		/// Return a switch port
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="portId">The port id</param>
+		[ApiOperationId("getDeviceSwitchPort")]
 		[Get("/devices/{serial}/switch/ports/{portId}")]
-		Task<DeviceSwitchPort> GetDeviceSwitchPortAsync(
+		Task<SwitchPort> GetAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("portId")] string portId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update a switch port
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="serial">The serial number</param>
+		/// <param name="portId">The port id</param>
+		/// <param name="deviceSwitchPort">The new configuration</param>
+		[ApiOperationId("updateDeviceSwitchPort")]
+		[Put("/devices/{serial}/switch/ports/{portId}")]
+		Task<SwitchPort> UpdateAsync(
+			[AliasAs("serial")] string serial,
+			[AliasAs("portId")] string portId,
+			[Body] SwitchPort deviceSwitchPort,
 			CancellationToken cancellationToken = default
 			);
 
@@ -51,32 +81,6 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("serial")] string serial,
 			[AliasAs("t0")] string t0 = null!,
 			[AliasAs("timespan")] double? timespan = null,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// List the switch ports for a switch
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial">The serial number</param>
-		[Get("/devices/{serial}/switch/ports")]
-		Task<List<DeviceSwitchPort>> GetDeviceSwitchPortsAsync(
-			[AliasAs("serial")] string serial,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update a switch port
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial">The serial number</param>
-		/// <param name="portId">The port id</param>
-		/// <param name="deviceSwitchPort">The new configuration</param>
-		[Put("/devices/{serial}/switch/ports/{portId}")]
-		Task<DeviceSwitchPort> UpdateDeviceSwitchPortAsync(
-			[AliasAs("serial")] string serial,
-			[AliasAs("portId")] string portId,
-			[Body] DeviceSwitchPort deviceSwitchPort,
 			CancellationToken cancellationToken = default
 			);
 	}
