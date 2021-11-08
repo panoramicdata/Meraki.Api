@@ -1,4 +1,5 @@
-﻿using Meraki.Api.Data;
+﻿using Meraki.Api.Attributes;
+using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
 using System.Threading;
@@ -9,10 +10,11 @@ namespace Meraki.Api.Interfaces
 	public interface IRouting
 	{
 		/// <summary>
-		/// List layer 3 interfaces for a switch
+		/// List layer 3 interfaces for a switch. Those for a stack may be found under switch stack routing.
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
+		[ApiOperationId("getDeviceSwitchRoutingInterfaces")]
 		[Get("/devices/{serial}/switch/routing/interfaces")]
 		Task<List<RoutingInterface>> GetDeviceSwitchRoutingInterfacesAsync(
 			[AliasAs("serial")] string serial,
@@ -24,10 +26,13 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
+		/// <param name="routingInterface"></param>
+		/// <param name="cancellationToken"></param>
+		[ApiOperationId("createDeviceSwitchRoutingInterface")]
 		[Post("/devices/{serial}/switch/routing/interfaces")]
 		Task<RoutingInterface> CreateDeviceSwitchRoutingInterfaceAsync(
 			[AliasAs("serial")] string serial,
-			[Body] RoutingInterface createDeviceSwitchRoutingInterface,
+			[Body] RoutingInterfaceCreateRequest routingInterface,
 			CancellationToken cancellationToken = default
 			);
 
@@ -37,6 +42,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId">The interface id</param>
+		[ApiOperationId("getDeviceSwitchRoutingInterface")]
 		[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 		Task<RoutingInterface> GetDeviceSwitchRoutingInterfaceAsync(
 			[AliasAs("serial")] string serial,
@@ -50,12 +56,13 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId">The interface id</param>
-		/// <param name="updateDeviceSwitchRoutingInterface">Body for returning an interface</param>
+		/// <param name="updateRoutingInterface">Body for returning an interface</param>
+		[ApiOperationId("updateDeviceSwitchRoutingInterface")]
 		[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 		Task<RoutingInterface> UpdateDeviceSwitchRoutingInterfaceAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
-			[Body] RoutingInterfaceUpdateRequest updateDeviceSwitchRoutingInterface,
+			[Body] RoutingInterfaceUpdateRequest updateRoutingInterface,
 			CancellationToken cancellationToken = default
 			);
 
@@ -65,6 +72,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId">The interface id</param>
+		[ApiOperationId("deleteDeviceSwitchRoutingInterface")]
 		[Delete("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 		Task DeleteAsync(
 			[AliasAs("serial")] string serial,
