@@ -123,6 +123,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
+		[ApiOperationId("getDeviceCameraWirelessProfiles")]
 		[Get("/devices/{serial}/camera/wirelessProfiles")]
 		Task<CameraWirelessProfiles> GetDeviceCameraWirelessProfilesAsync(
 			[AliasAs("serial")] string serial,
@@ -135,6 +136,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="updateDeviceCameraWirelessProfiles">Body for updating camera wireless profiles</param>
+		[ApiOperationId("updateDeviceCameraWirelessProfiles")]
 		[Put("/devices/{serial}/camera/wirelessProfiles")]
 		Task<CameraWirelessProfiles> UpdateDeviceCameraWirelessProfilesAsync(
 			[AliasAs("serial")] string serial,
