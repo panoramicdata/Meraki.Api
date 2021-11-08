@@ -11,6 +11,13 @@ namespace Meraki.Api.Data
 	public class CameraSense
 	{
 		/// <summary>
+		/// The ID of the object detection model
+		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
+		[DataMember(Name = "detectionModelId")]
+		public string DetectionModelId { get; set; } = string.Empty;
+
+		/// <summary>
 		/// Boolean indicating if sense(license) is enabled(true) or disabled(false) on the camera
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]

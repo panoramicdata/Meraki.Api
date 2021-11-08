@@ -64,12 +64,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial id</param>
-		/// <param name="updateDeviceCameraSense">Body for updating device camera sense</param>
+		/// <param name="cameraSense">Body for updating device camera sense</param>
 		[ApiOperationId("updateDeviceCameraSense")]
 		[Put("/devices/{serial}/camera/sense")]
 		Task<CameraSense> UpdateSenseAsync(
 			[AliasAs("serial")] string serial,
-			[Body] CameraSenseUpdateRequest updateDeviceCameraSense,
+			[Body] CameraSense cameraSense,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -90,10 +90,20 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial id</param>
 		/// <param name="cameraVideoSetting">Body for updating device camera video setting</param>
 		[ApiOperationId("updateDeviceCameraVideoSettings")]
-		[Put("/devices/{serial}/camera/sense")]
+		[Put("/devices/{serial}/camera/settings")]
 		Task<CameraVideo> UpdateVideoAsync(
 			[AliasAs("serial")] string serial,
 			[Body] CameraVideo cameraVideoSetting,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Returns sense settings for a given camera
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="serial">The serial id</param>
+		[Get("/devices/{serial}/camera/sense/objectDetectionModels")]
+		Task<CameraObjectDetectionModel> GetDeviceCameraSenseObjectDetectionModelsAsync(
+			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
