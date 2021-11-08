@@ -49,6 +49,30 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
+		/// Returns sense settings for a given camera
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="serial">The serial id</param>
+		[ApiOperationId("getDeviceCameraSense")]
+		[Get("/devices/{serial}/camera/sense")]
+		Task<CameraSense> GetSenseAsync(
+			[AliasAs("serial")] string serial,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
+		/// Returns sense settings for a given camera
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="serial">The serial id</param>
+		/// <param name="updateDeviceCameraSense">Body for updating device camera sense</param>
+		[ApiOperationId("updateDeviceCameraSense")]
+		[Put("/devices/{serial}/camera/sense")]
+		Task<CameraSense> UpdateSenseAsync(
+			[AliasAs("serial")] string serial,
+			[Body] CameraSenseUpdateRequest updateDeviceCameraSense,
+			CancellationToken cancellationToken = default);
+
+		/// <summary>
 		/// Returns a list of all camera recording schedules.
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
