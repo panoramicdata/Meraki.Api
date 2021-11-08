@@ -86,6 +86,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId">The interface id</param>
+		[ApiOperationId("getDeviceSwitchRoutingInterfaceDhcp")]
 		[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
 		Task<DhcpRoutingInterface> GetDeviceSwitchRoutingInterfaceDhcpAsync(
 			[AliasAs("serial")] string serial,
@@ -100,6 +101,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		/// <param name="interfaceId">The interface id</param>
 		/// <param name="updateDeviceSwitchRoutingInterfaceDhcp">Body for updating an interface</param>
+		[ApiOperationId("updateDeviceSwitchRoutingInterfaceDhcp")]
 		[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
 		Task<DhcpRoutingInterface> UpdateDeviceSwitchRoutingInterfaceDhcpAsync(
 			[AliasAs("serial")] string serial,
