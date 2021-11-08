@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -11,12 +12,14 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// The password of the identity.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "password")]
 		public string Password { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The username of the identity.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "username")]
 		public string Username { get; set; } = string.Empty;
 	}
