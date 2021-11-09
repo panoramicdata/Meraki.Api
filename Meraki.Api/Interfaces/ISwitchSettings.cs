@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using Meraki.Api.Data;
 using Refit;
 using System.Collections.Generic;
@@ -86,9 +87,24 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkSwitchRoutingMulticast")]
 		[Get("/networks/{networkId}/switch/routing/multicast")]
-		Task<SwitchSettingsMulticastUpdateRequest> GetNetworkSwitchRoutingMulticastAsync(
+		Task<Multicast> GetNetworkSwitchRoutingMulticastAsync(
 			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update multicast settings for a network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="multicast"></param>
+		[ApiOperationId("updateNetworkSwitchRoutingMulticast")]
+		[Put("/networks/{networkId}/switch/routing/multicast")]
+		Task<Multicast> UpdateNetworkSwitchRoutingMulticastAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] Multicast multicast,
 			CancellationToken cancellationToken = default
 			);
 
@@ -198,19 +214,6 @@ namespace Meraki.Api.Interfaces
 		Task<SwitchSettingsMtuUpdateRequest> UpdateNetworkSwitchMtuAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] SwitchSettingsMtuUpdateRequest UpdateNetworkSwitchSettingsMtu,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update multicast settings for a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettingsMulticast"></param>
-		[Put("/networks/{networkId}/switch/routing/multicast")]
-		Task<SwitchSettingsMulticastUpdateRequest> UpdateNetworkSwitchRoutingMulticastAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsMulticastUpdateRequest UpdateNetworkSwitchSettingsMulticast,
 			CancellationToken cancellationToken = default
 			);
 

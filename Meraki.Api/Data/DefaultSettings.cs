@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,14 +12,15 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// IGMP snooping setting for entire network
 		/// </summary>
-		/// <value>IGMP snooping setting for entire network</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "igmpSnoopingEnabled")]
-		public bool? IgmpSnoopingEnabled { get; set; }
+		public bool IgmpSnoopingEnabled { get; set; }
+
 		/// <summary>
 		/// Flood unknown multicast traffic setting for entire network
 		/// </summary>
-		/// <value>Flood unknown multicast traffic setting for entire network</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "floodUnknownMulticastTrafficEnabled")]
-		public bool? FloodUnknownMulticastTrafficEnabled { get; set; }
+		public bool FloodUnknownMulticastTrafficEnabled { get; set; }
 	}
 }

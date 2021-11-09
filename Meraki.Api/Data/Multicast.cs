@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,18 +8,20 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsMulticast
 	/// </summary>
 	[DataContract]
-	public class SwitchSettingsMulticastUpdateRequest
+	public class Multicast
 	{
 		/// <summary>
-		/// Gets or Sets DefaultSettings
+		/// Default multicast setting for entire network. IGMP snooping and Flood unknown multicast traffic settings are enabled by default.
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "defaultSettings")]
 		public DefaultSettings DefaultSettings { get; set; } = new();
+
 		/// <summary>
 		/// Array of paired switches/stacks/profiles and corresponding multicast settings. An empty array will clear the multicast settings.
 		/// </summary>
-		/// <value>Array of paired switches/stacks/profiles and corresponding multicast settings. An empty array will clear the multicast settings.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "overrides")]
-		public List<Override1> Overrides { get; set; } = new();
+		public List<Override> Overrides { get; set; } = new();
 	}
 }
