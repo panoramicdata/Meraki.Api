@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,25 +8,26 @@ namespace Meraki.Api.Data
 	/// CreateNetworkSwitchLinkAggregation
 	/// </summary>
 	[DataContract]
-	public class SwitchLinkAggregationCreationRequest
+	public class SwitchLinkAggregation
 	{
 		/// <summary>
 		/// Id
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "id")]
-		public string? Id { get; set; }
+		public string Id { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Array of switch or stack ports for creating aggregation group. Minimum 2 and maximum 8 ports are supported.
 		/// </summary>
-		/// <value>Array of switch or stack ports for creating aggregation group. Minimum 2 and maximum 8 ports are supported.</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "switchPorts")]
 		public List<LinkAggregationSwitchPort> SwitchPorts { get; set; } = null!;
 
 		/// <summary>
 		/// Array of switch profile ports for creating aggregation group. Minimum 2 and maximum 8 ports are supported.
 		/// </summary>
-		/// <value>Array of switch profile ports for creating aggregation group. Minimum 2 and maximum 8 ports are supported.</value>
+		[ApiAccess(ApiAccess.ReadWrite)]
 		[DataMember(Name = "switchProfilePorts")]
 		public List<SwitchProfilePort> SwitchProfilePorts { get; set; } = null!;
 	}

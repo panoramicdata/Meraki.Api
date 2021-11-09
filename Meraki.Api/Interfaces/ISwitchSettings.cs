@@ -80,7 +80,7 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		[ApiOperationId("getNetworkSwitchDhcpServerPolicy")]
+		[ApiOperationId("getNetworkSwitchDscpToCosMappings")]
 		[Get("/networks/{networkId}/switch/dscpToCosMappings")]
 		Task<DscpToCosMappings> GetDscpToCosMappingsAsync(
 			[AliasAs("networkId")] string networkId,
@@ -93,7 +93,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="settingsDscpToCosMappings"></param>
-		[ApiOperationId("updateNetworkSwitchDhcpServerPolicy")]
+		[ApiOperationId("updateNetworkSwitchDscpToCosMappings")]
 		[Put("/networks/{networkId}/switch/dscpToCosMappings")]
 		Task<DscpToCosMappings> UpdateDscpToCosMappingsAsync(
 			[AliasAs("networkId")] string networkId,
