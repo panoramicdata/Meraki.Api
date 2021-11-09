@@ -64,7 +64,7 @@ namespace Meraki.ApiChecker
 			{
 				implementedTable.Title(
 					tagRestriction is not null
-						? $"'{tagRestriction}' implemented endpoints"
+						? $"'{tagRestriction}' implemented endpoints ({implementedTable.Rows.Count})"
 						: "Remaining implemented endpoints",
 					new Style(Color.Green));
 				AnsiConsole.Write(implementedTable);
@@ -74,7 +74,7 @@ namespace Meraki.ApiChecker
 			{
 				missingTable.Title(
 					tagRestriction is not null
-						? $"'{tagRestriction}' missing endpoints"
+						? $"'{tagRestriction}' missing endpoints ({missingTable.Rows.Count})"
 						: "Remaining missing endpoints",
 					new Style(Color.Red));
 				AnsiConsole.Write(missingTable);
