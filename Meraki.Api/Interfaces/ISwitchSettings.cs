@@ -115,7 +115,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[ApiOperationId("getNetworkSwitchRoutingMulticastRendezvousPoints")]
 		[Get("/networks/{networkId}/switch/routing/multicast/rendezvousPoints")]
-		Task<List<RendezvousPoint>> GetNetworkSwitchRoutingMulticastRendezvousPoints(
+		Task<List<RendezvousPoint>> GetNetworkSwitchRoutingMulticastRendezvousPointsAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -129,7 +129,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cancellationToken"></param>
 		[ApiOperationId("createNetworkSwitchRoutingMulticastRendezvousPoint")]
 		[Post("/networks/{networkId}/switch/routing/multicast/rendezvousPoints")]
-		Task<RendezvousPoint> CreateNetworkSwitchRoutingMulticastRendezvousPoint(
+		Task<RendezvousPoint> CreateNetworkSwitchRoutingMulticastRendezvousPointAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] RendezvousPointCreateUpdateRequest rendezvousPoint,
 			CancellationToken cancellationToken = default
@@ -142,7 +142,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[ApiOperationId("getNetworkSwitchRoutingMulticastRendezvousPoint")]
 		[Get("/networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}")]
-		Task<RendezvousPoint> GetNetworkSwitchRoutingMulticastRendezvousPoint(
+		Task<RendezvousPoint> GetNetworkSwitchRoutingMulticastRendezvousPointAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("rendezvousPointId")] string rendezvousPointId,
 			CancellationToken cancellationToken = default
@@ -157,7 +157,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cancellationToken"></param>
 		[ApiOperationId("updateNetworkSwitchRoutingMulticastRendezvousPoint")]
 		[Put("/networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}")]
-		Task<RendezvousPoint> UpdateNetworkSwitchRoutingMulticastRendezvousPoint(
+		Task<RendezvousPoint> UpdateNetworkSwitchRoutingMulticastRendezvousPointAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] RendezvousPointCreateUpdateRequest rendezvousPoint,
 			CancellationToken cancellationToken = default
@@ -170,9 +170,37 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		[ApiOperationId("deleteNetworkSwitchRoutingMulticastRendezvousPoint")]
 		[Delete("/networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}")]
-		Task<RendezvousPoint> DeleteNetworkSwitchRoutingMulticastRendezvousPoint(
+		Task<RendezvousPoint> DeleteNetworkSwitchRoutingMulticastRendezvousPointAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("rendezvousPointId")] string rendezvousPointId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Get layer 3 OSPF routing configuration
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="cancellationToken"></param>
+		[ApiOperationId("getNetworkSwitchRoutingOspf")]
+		[Put("/networks/{networkId}/switch/routing/ospf")]
+		Task<RoutingOspf> GetNetworkSwitchRoutingOspfAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update layer 3 OSPF routing configuration
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="routingOspf">The OSPF routing configuration to update</param>
+		/// <param name="cancellationToken"></param>
+		[ApiOperationId("updateNetworkSwitchRoutingOspf")]
+		[Put("/networks/{networkId}/switch/routing/ospf")]
+		Task<RoutingOspf> UpdateNetworkSwitchRoutingOspfAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] RoutingOspf routingOspf,
 			CancellationToken cancellationToken = default
 			);
 
