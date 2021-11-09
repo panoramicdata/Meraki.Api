@@ -230,6 +230,32 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
+		/// Return the switch alternate management interface for the network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkSwitchAlternateManagementInterface")]
+		[Get("/networks/{networkId}/switch/alternateManagementInterface")]
+		Task<AlternateManagementInterface> GetAlternateManagementInterfaceAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update the switch alternate management interface for the network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="alternateManagementInterface">Body for updating network switch alternate management interface</param>
+		[ApiOperationId("updateNetworkSwitchAlternateManagementInterface")]
+		[Put("/networks/{networkId}/switch/alternateManagementInterface")]
+		Task<AlternateManagementInterface> UpdateAlternateManagementInterfaceAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] AlternateManagementInterface alternateManagementInterface,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
 		/// Return a quality of service rule
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
