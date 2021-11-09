@@ -162,6 +162,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
 		Task<SwitchStaticRoute> UpdateStaticRouteAsync(
 			[AliasAs("serial")] string serial,
+			[AliasAs("staticRouteId")] string staticRouteId,
 			[Body] SwitchStaticRoute switchStaticRoute,
 			CancellationToken cancellationToken = default
 			);
