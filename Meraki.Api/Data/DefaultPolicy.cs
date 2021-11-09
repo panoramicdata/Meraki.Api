@@ -7,7 +7,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// 'allow' or 'block' new DHCP servers. Default value is 'allow'.
 	/// </summary>
-	/// <value>'allow' or 'block' new DHCP servers. Default value is 'allow'.</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum DefaultPolicy
 	{
@@ -15,7 +14,7 @@ namespace Meraki.Api.Data
 		/// Enum Allow for "allow"
 		/// </summary>
 		[EnumMember(Value = "allow")]
-		Allow,
+		Allow = 1,
 
 		/// <summary>
 		/// Enum Block for "block"
