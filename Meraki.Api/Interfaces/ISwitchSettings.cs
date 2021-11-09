@@ -159,6 +159,7 @@ namespace Meraki.Api.Interfaces
 		[Put("/networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}")]
 		Task<RendezvousPoint> UpdateNetworkSwitchRoutingMulticastRendezvousPointAsync(
 			[AliasAs("networkId")] string networkId,
+			[AliasAs("rendezvousPointId")] string rendezvousPointId,
 			[Body] RendezvousPointCreateUpdateRequest rendezvousPoint,
 			CancellationToken cancellationToken = default
 			);
