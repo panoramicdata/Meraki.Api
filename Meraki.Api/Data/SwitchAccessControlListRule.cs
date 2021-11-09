@@ -12,7 +12,6 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Description of the rule (optional).
 		/// </summary>
-		/// <value>Description of the rule (optional).</value>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "comment")]
 		public string Comment { get; set; } = null!;
@@ -39,43 +38,38 @@ namespace Meraki.Api.Data
 		public TcpUdpAnyProtocol Protocol { get; set; }
 
 		/// <summary>
-		/// Source IP address (in IP or CIDR notation) or &#39;any&#39;.
+		/// Source IP address (in IP or CIDR notation) or 'any'.
 		/// </summary>
-		/// <value>Source IP address (in IP or CIDR notation) or &#39;any&#39;.</value>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "srcCidr")]
-		public string SourceCidr { get; set; } = null!;
+		public string SourceCidr { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Source port. Must be in the range  of 1-65535 or &#39;any&#39;. Default is &#39;any&#39;.
+		/// Source port. Must be in the range  of 1-65535 or 'any'. Default is 'any'
 		/// </summary>
-		/// <value>Source port. Must be in the range  of 1-65535 or &#39;any&#39;. Default is &#39;any&#39;.</value>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "srcPort")]
-		public string SourcePort { get; set; } = null!;
+		public string SourcePort { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Destination IP address (in IP or CIDR notation) or &#39;any&#39;.
+		/// Destination IP address (in IP or CIDR notation) or 'any'.
 		/// </summary>
-		/// <value>Destination IP address (in IP or CIDR notation) or &#39;any&#39;.</value>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dstCidr")]
-		public string DestinationCidr { get; set; } = null!;
+		public string DestinationCidr { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Destination port. Must be in the range of 1-65535 or &#39;any&#39;. Default is &#39;any&#39;.
+		/// Destination port. Must be in the range of 1-65535 or 'any'. Default is 'any'.
 		/// </summary>
-		/// <value>Destination port. Must be in the range of 1-65535 or &#39;any&#39;. Default is &#39;any&#39;.</value>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "dstPort")]
-		public string DestinationPort { get; set; } = null!;
+		public string DestinationPort { get; set; } = string.Empty;
 
 		/// <summary>
-		/// Incoming traffic VLAN. Must be in the range of 1-4095 or &#39;any&#39;. Default is &#39;any&#39;.
+		/// Incoming traffic VLAN. Must be in the range of 1-4095 or 'any'. Default is 'any'.
 		/// </summary>
-		/// <value>Incoming traffic VLAN. Must be in the range of 1-4095 or &#39;any&#39;. Default is &#39;any&#39;.</value>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "vlan")]
-		public string Vlan { get; set; } = null!;
+		public string Vlan { get; set; } = string.Empty;
 	}
 }
