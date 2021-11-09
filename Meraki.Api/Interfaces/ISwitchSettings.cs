@@ -80,9 +80,24 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkSwitchDhcpServerPolicy")]
 		[Get("/networks/{networkId}/switch/dscpToCosMappings")]
-		Task<SwitchSettingsDscpToCosMappingsUpdateRequest> GetNetworkSwitchDscpToCosMappingsAsync(
+		Task<DscpToCosMappings> GetDscpToCosMappingsAsync(
 			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update the DSCP to CoS mappings
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="settingsDscpToCosMappings"></param>
+		[ApiOperationId("updateNetworkSwitchDhcpServerPolicy")]
+		[Put("/networks/{networkId}/switch/dscpToCosMappings")]
+		Task<DscpToCosMappings> UpdateDscpToCosMappingsAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] DscpToCosMappings settingsDscpToCosMappings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -338,19 +353,6 @@ namespace Meraki.Api.Interfaces
 		Task<SwitchSettingsUpdateRequest> UpdateNetworkSwitchSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] SwitchSettingsUpdateRequest UpdateNetworkSwitchSettings,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update the DSCP to CoS mappings
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettingsDscpToCosMappings"></param>
-		[Put("/networks/{networkId}/switch/dscpToCosMappings")]
-		Task<SwitchSettingsDscpToCosMappingsUpdateRequest> UpdateNetworkSwitchDscpToCosMappingsAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsDscpToCosMappingsUpdateRequest UpdateNetworkSwitchSettingsDscpToCosMappings,
 			CancellationToken cancellationToken = default
 			);
 

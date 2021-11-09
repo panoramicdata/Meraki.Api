@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,13 +8,13 @@ namespace Meraki.Api.Data
 	/// UpdateNetworkSwitchSettingsDscpToCosMappings
 	/// </summary>
 	[DataContract]
-	public class SwitchSettingsDscpToCosMappingsUpdateRequest
+	public class DscpToCosMappings
 	{
 		/// <summary>
 		/// An array of DSCP to CoS mappings. An empty array will reset the mappings to default.
 		/// </summary>
-		/// <value>An array of DSCP to CoS mappings. An empty array will reset the mappings to default.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "mappings")]
-		public List<Mapping> Mappings { get; set; } = new();
+		public List<DscpToCosMapping> Mappings { get; set; } = new();
 	}
 }
