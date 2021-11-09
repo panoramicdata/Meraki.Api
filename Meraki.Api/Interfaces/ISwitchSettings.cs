@@ -184,7 +184,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="cancellationToken"></param>
 		[ApiOperationId("getNetworkSwitchRoutingOspf")]
-		[Put("/networks/{networkId}/switch/routing/ospf")]
+		[Get("/networks/{networkId}/switch/routing/ospf")]
 		Task<RoutingOspf> GetNetworkSwitchRoutingOspfAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
