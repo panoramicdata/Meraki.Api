@@ -16,7 +16,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[ApiOperationId("getDeviceSwitchRoutingInterfaces")]
 		[Get("/devices/{serial}/switch/routing/interfaces")]
-		Task<List<RoutingInterface>> GetDeviceSwitchRoutingInterfacesAsync(
+		Task<List<RoutingInterface>> GetInterfacesAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
@@ -30,7 +30,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cancellationToken"></param>
 		[ApiOperationId("createDeviceSwitchRoutingInterface")]
 		[Post("/devices/{serial}/switch/routing/interfaces")]
-		Task<RoutingInterface> CreateDeviceSwitchRoutingInterfaceAsync(
+		Task<RoutingInterface> CreateInterfaceAsync(
 			[AliasAs("serial")] string serial,
 			[Body] RoutingInterfaceCreateRequest routingInterface,
 			CancellationToken cancellationToken = default
@@ -44,7 +44,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="interfaceId">The interface id</param>
 		[ApiOperationId("getDeviceSwitchRoutingInterface")]
 		[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
-		Task<RoutingInterface> GetDeviceSwitchRoutingInterfaceAsync(
+		Task<RoutingInterface> GetInterfaceAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
 			CancellationToken cancellationToken = default
@@ -59,7 +59,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateRoutingInterface">Body for returning an interface</param>
 		[ApiOperationId("updateDeviceSwitchRoutingInterface")]
 		[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
-		Task<RoutingInterface> UpdateDeviceSwitchRoutingInterfaceAsync(
+		Task<RoutingInterface> UpdateInterfaceAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
 			[Body] RoutingInterfaceUpdateRequest updateRoutingInterface,
@@ -74,7 +74,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="interfaceId">The interface id</param>
 		[ApiOperationId("deleteDeviceSwitchRoutingInterface")]
 		[Delete("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
-		Task DeleteAsync(
+		Task DeleteInterfaceAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
 			CancellationToken cancellationToken = default
@@ -88,7 +88,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="interfaceId">The interface id</param>
 		[ApiOperationId("getDeviceSwitchRoutingInterfaceDhcp")]
 		[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
-		Task<DhcpRoutingInterface> GetDeviceSwitchRoutingInterfaceDhcpAsync(
+		Task<DhcpRoutingInterface> GetInterfaceDhcpAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
 			CancellationToken cancellationToken = default
@@ -103,7 +103,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateDeviceSwitchRoutingInterfaceDhcp">Body for updating an interface</param>
 		[ApiOperationId("updateDeviceSwitchRoutingInterfaceDhcp")]
 		[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
-		Task<DhcpRoutingInterface> UpdateDeviceSwitchRoutingInterfaceDhcpAsync(
+		Task<DhcpRoutingInterface> UpdateInterfaceDhcpAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("interfaceId")] string interfaceId,
 			[Body] DhcpRoutingInterface updateDeviceSwitchRoutingInterfaceDhcp,
@@ -117,7 +117,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[ApiOperationId("getDeviceSwitchRoutingStaticRoutes")]
 		[Get("/devices/{serial}/switch/routing/staticRoutes")]
-		Task<List<SwitchStaticRoute>> GetDeviceSwitchRoutingStaticRoutesAsync(
+		Task<List<SwitchStaticRoute>> GetStaticRoutesAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default
 			);
@@ -130,7 +130,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="staticRouteId">The static route id</param>
 		[ApiOperationId("getDeviceSwitchRoutingStaticRoute")]
 		[Get("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
-		Task<SwitchStaticRoute> GetDeviceSwitchRoutingStaticRouteAsync(
+		Task<SwitchStaticRoute> GetStaticRouteAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("staticRouteId")] string staticRouteId,
 			CancellationToken cancellationToken = default
@@ -145,7 +145,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cancellationToken"></param>
 		[ApiOperationId("createDeviceSwitchRoutingStaticRoute")]
 		[Post("/devices/{serial}/switch/routing/staticRoutes")]
-		Task<SwitchStaticRoute> CreateDeviceSwitchRoutingStaticRouteAsync(
+		Task<SwitchStaticRoute> CreateStaticRouteAsync(
 			[AliasAs("serial")] string serial,
 			[Body] SwitchStaticRoute switchStaticRoute,
 			CancellationToken cancellationToken = default
@@ -160,7 +160,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cancellationToken"></param>
 		[ApiOperationId("updateDeviceSwitchRoutingStaticRoute")]
 		[Put("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
-		Task<SwitchStaticRoute> UpdateDeviceSwitchRoutingStaticRouteAsync(
+		Task<SwitchStaticRoute> UpdateStaticRouteAsync(
 			[AliasAs("serial")] string serial,
 			[Body] SwitchStaticRoute switchStaticRoute,
 			CancellationToken cancellationToken = default
@@ -174,7 +174,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="staticRouteId">The static route id</param>
 		[ApiOperationId("deleteDeviceSwitchRoutingStaticRoute")]
 		[Delete("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
-		Task<SwitchStaticRoute> DeleteDeviceSwitchRoutingStaticRouteAsync(
+		Task DeleteStaticRouteAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("staticRouteId")] string staticRouteId,
 			CancellationToken cancellationToken = default
