@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Meraki.Api.Attributes;
+using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
 {
@@ -6,24 +7,13 @@ namespace Meraki.Api.Data
 	/// Warm spare config
 	/// </summary>
 	[DataContract]
-	public class SwitchWarmSpare
+	public class SwitchWarmSpare : SwitchWarmSpareUpdateRequest
 	{
-		/// <summary>
-		/// Enabled
-		/// </summary>
-		[DataMember(Name = "enabled")]
-		public bool Enabled { get; set; }
-
 		/// <summary>
 		/// Primary serial
 		/// </summary>
+		[ApiAccess(ApiAccess.Read)]
 		[DataMember(Name = "primarySerial")]
 		public string PrimarySerial { get; set; } = string.Empty;
-
-		/// <summary>
-		/// Spare serial
-		/// </summary>
-		[DataMember(Name = "spareSerial")]
-		public string SpareSerial { get; set; } = string.Empty;
 	}
 }
