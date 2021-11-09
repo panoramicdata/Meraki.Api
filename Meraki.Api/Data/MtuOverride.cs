@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -7,27 +8,27 @@ namespace Meraki.Api.Data
 	/// ModelOverride
 	/// </summary>
 	[DataContract]
-	public class ModelOverride
+	public class MtuOverride
 	{
 		/// <summary>
 		/// List of switch serials. Applicable only for switch network.
 		/// </summary>
-		/// <value>List of switch serials. Applicable only for switch network.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "switches")]
-		public List<string> Switches { get; set; } = null!;
+		public List<string> Switches { get; set; } = new();
 
 		/// <summary>
 		/// List of switch profile IDs. Applicable only for template network.
 		/// </summary>
-		/// <value>List of switch profile IDs. Applicable only for template network.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "switchProfiles")]
-		public List<string> SwitchProfiles { get; set; } = null!;
+		public List<string> SwitchProfiles { get; set; } = new();
 
 		/// <summary>
 		/// MTU size for the switches or switch profiles.
 		/// </summary>
-		/// <value>MTU size for the switches or switch profiles.</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "mtuSize")]
-		public int? MtuSize { get; set; }
+		public int MtuSize { get; set; }
 	}
 }
