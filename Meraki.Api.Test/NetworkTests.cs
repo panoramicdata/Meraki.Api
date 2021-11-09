@@ -464,22 +464,29 @@ namespace Meraki.Api.Test
 		[Fact]
 		public async void GetCameraSnapshotAsync_Succeeds()
 		{
-			// Get a snapshot from the camera
-			var newResult = await TestMerakiClient
-				.Cameras
-				.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
-				.ConfigureAwait(false);
-			newResult.Should().NotBeNull();
+			if (OperatingSystem.IsWindows())
+			{
+				// Get a snapshot from the camera
+				var newResult = await TestMerakiClient
+					.Cameras
+					.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
+					.ConfigureAwait(false);
+				newResult.Should().NotBeNull();
 
-			//Download the image
-			using var client = new WebClient();
-			using var stream = client.OpenRead(newResult.Url);
-			using var bitmap = new Bitmap(stream);
+				//Download the image
+				using var client = new WebClient();
+				using var stream = client.OpenRead(newResult.Url);
+				using var bitmap = new Bitmap(stream);
 
-			bitmap.Save("temp.png", ImageFormat.Png);
+				bitmap.Save("temp.png", ImageFormat.Png);
 
-			stream.Flush();
-			stream.Close();
+				stream.Flush();
+				stream.Close();
+			}
+			else
+			{
+				Skip.If(true);
+			}
 		}
 
 		[Fact]
