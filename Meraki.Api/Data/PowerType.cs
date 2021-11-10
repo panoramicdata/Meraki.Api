@@ -7,7 +7,6 @@ namespace Meraki.Api.Data
 	/// <summary>
 	/// Per switch exception (combined, redundant, useNetworkSetting)
 	/// </summary>
-	/// <value>Per switch exception (combined, redundant, useNetworkSetting)</value>
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum PowerType
 	{
@@ -15,7 +14,7 @@ namespace Meraki.Api.Data
 		/// Enum Combined for "combined"
 		/// </summary>
 		[EnumMember(Value = "combined")]
-		Combined,
+		Combined = 1,
 
 		/// <summary>
 		/// Enum Redundant for "redundant"

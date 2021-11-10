@@ -17,9 +17,24 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkSwitchSettings")]
 		[Get("/networks/{networkId}/switch/settings")]
-		Task<SwitchSettingsUpdateRequest> GetNetworkSwitchSettingsAsync(
+		Task<SwitchSettings> GetNetworkSwitchSettingsAsync(
 			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update switch network settings
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="UpdateNetworkSwitchSettings"></param>
+		[ApiOperationId("updateNetworkSwitchSettings")]
+		[Put("/networks/{networkId}/switch/settings")]
+		Task<SwitchSettings> UpdateNetworkSwitchSettingsAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettings UpdateNetworkSwitchSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -390,19 +405,6 @@ namespace Meraki.Api.Interfaces
 		[Get("/networks/{networkId}/switch/stp")]
 		Task<SwitchSettingsStpUpdateRequest> GetNetworkSwitchStpAsync(
 			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update switch network settings
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettings"></param>
-		[Put("/networks/{networkId}/switch/settings")]
-		Task<SwitchSettingsUpdateRequest> UpdateNetworkSwitchSettingsAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsUpdateRequest UpdateNetworkSwitchSettings,
 			CancellationToken cancellationToken = default
 			);
 

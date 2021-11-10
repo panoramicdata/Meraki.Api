@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
 namespace Meraki.Api.Data
@@ -11,12 +12,14 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// Serial number of the switch
 		/// </summary>
-		/// <value>Serial number of the switch</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "serial")]
 		public string Serial { get; set; } = string.Empty;
+
 		/// <summary>
 		/// Gets or Sets PowerType
 		/// </summary>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "powerType")]
 		public PowerType PowerType { get; set; }
 	}
