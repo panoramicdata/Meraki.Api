@@ -176,8 +176,9 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkSwitchQosRulesOrder")]
 		[Get("/networks/{networkId}/switch/qosRules/order")]
-		Task<SwitchSettingsQosRulesOrderUpdateRequest> GetNetworkSwitchQosRulesOrderAsync(
+		Task<QosRulesOrder> GetNetworkSwitchQosRulesOrderAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
@@ -187,11 +188,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettingsQosRulesOrder"></param>
+		/// <param name="qosRulesOrder"></param>
+		[ApiOperationId("updateNetworkSwitchQosRulesOrder")]
 		[Put("/networks/{networkId}/switch/qosRules/order")]
-		Task<SwitchSettingsQosRulesOrderUpdateRequest> UpdateNetworkSwitchQosRulesOrderAsync(
+		Task<QosRulesOrder> UpdateNetworkSwitchQosRulesOrderAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsQosRulesOrderUpdateRequest UpdateNetworkSwitchSettingsQosRulesOrder,
+			[Body] QosRulesOrder qosRulesOrder,
 			CancellationToken cancellationToken = default
 			);
 
