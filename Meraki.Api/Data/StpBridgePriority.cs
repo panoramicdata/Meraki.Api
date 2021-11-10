@@ -1,3 +1,4 @@
+using Meraki.Api.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -12,28 +13,28 @@ namespace Meraki.Api.Data
 		/// <summary>
 		/// List of switch profile IDs
 		/// </summary>
-		/// <value>List of switch profile IDs</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "switchProfiles")]
 		public List<string>? SwitchProfiles { get; set; }
 
 		/// <summary>
 		/// List of switch serial numbers
 		/// </summary>
-		/// <value>List of switch serial numbers</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "switches")]
 		public List<string>? Switches { get; set; }
 
 		/// <summary>
 		/// List of stack IDs
 		/// </summary>
-		/// <value>List of stack IDs</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "stacks")]
 		public List<string>? Stacks { get; set; }
 
 		/// <summary>
 		/// STP priority for switch, stacks, or switch profiles
 		/// </summary>
-		/// <value>STP priority for switch, stacks, or switch profiles</value>
+		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "stpPriority")]
 		public int? StpPriority { get; set; }
 	}

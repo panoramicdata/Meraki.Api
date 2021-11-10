@@ -417,11 +417,9 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="updateNetworkSwitchSettingsStormControl"></param>
-		[Put("/networks/{networkId}/switch/stormControl")]
-		Task<SwitchSettingsStormControlUpdateRequest> UpdateNetworkSwitchStormControl(
+		[Get("/networks/{networkId}/switch/stp")]
+		Task<SwitchSettingsStp> GetNetworkSwitchStormControl(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsStormControlUpdateRequest updateNetworkSwitchSettingsStormControl,
 			CancellationToken cancellationToken = default
 			);
 
@@ -432,9 +430,9 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="updateNetworkSwitchSettingsStp"></param>
 		[Put("/networks/{networkId}/switch/stp")]
-		Task<SwitchSettingsStpUpdateRequest> UpdateNetworkSwitchStpAsync(
+		Task<SwitchSettingsStp> UpdateNetworkSwitchStpAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsStpUpdateRequest updateNetworkSwitchSettingsStp,
+			[Body] SwitchSettingsStp updateNetworkSwitchSettingsStp,
 			CancellationToken cancellationToken = default
 			);
 	}
