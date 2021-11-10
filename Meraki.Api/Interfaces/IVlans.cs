@@ -15,11 +15,11 @@ namespace Meraki.Api.Interfaces
 		/// Add a VLAN
 		/// </summary>
 		/// <param name="networkId">The network id</param>
-		/// <param name="VlanCreationRequest"></param>
+		/// <param name="vlanCreationRequest"></param>
 		[Post("/networks/{networkId}/appliance/vlans")]
 		Task<Vlan> CreateNetworkVlanAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] VlanCreationRequest VlanCreationRequest,
+			[Body] VlanCreationRequest vlanCreationRequest,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -68,23 +68,23 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <param name="networkId">The network id</param>
 		/// <param name="vlanId">The VLAN id</param>
-		/// <param name="VlanSpec"></param>
+		/// <param name="vlanSpec"></param>
 		[Put("/networks/{networkId}/appliance/vlans/{vlanId}")]
 		Task<Vlan> UpdateNetworkVlanAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("vlanId")] string vlanId,
-			[Body] VlanSpec VlanSpec,
+			[Body] VlanSpec vlanSpec,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// Enable/Disable VLANs for the given network
 		/// </summary>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkVlansEnabledState"></param>
+		/// <param name="updateNetworkVlansEnabledState"></param>
 		[Put("/networks/{networkId}/appliance/vlans/settings")]
 		Task<VlansEnabledState> UpdateNetworkVlanEnabledStatesAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] VlansEnabledState UpdateNetworkVlansEnabledState,
+			[Body] VlansEnabledState updateNetworkVlansEnabledState,
 			CancellationToken cancellationToken = default
 			);
 	}
