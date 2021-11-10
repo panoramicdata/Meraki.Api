@@ -10,7 +10,6 @@ namespace Meraki.Api.Data
 	[DataContract]
 	public class StaticRouteUpdateRequest : StaticRouteCreationRequest
 	{
-
 		/// <summary>
 		/// The enabled state of the static route
 		/// </summary>

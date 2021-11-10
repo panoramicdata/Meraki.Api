@@ -5,7 +5,7 @@ namespace Meraki.Api.Data
 {
 	/// <summary>
 	/// Create or Update Network Switch Routing Multicast Rendezvous Point
-	/// </summary>	
+	/// </summary>
 	[DataContract]
 	public class RendezvousPointCreateUpdateRequest
 	{

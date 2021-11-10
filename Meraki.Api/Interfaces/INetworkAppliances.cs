@@ -177,7 +177,6 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
 			CancellationToken cancellationToken = default);
 
-
 		/// <summary>
 		/// Display the traffic shaping settings rules for an MX network
 		/// </summary>
@@ -227,7 +226,6 @@ namespace Meraki.Api.Interfaces
 			[Body] UplinkBandwidth updateTrafficShapingUplinkBandwidth,
 			CancellationToken cancellationToken = default
 			);
-
 
 		/// <summary>
 		/// Show uplink selection settings for an MX network

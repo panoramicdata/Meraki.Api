@@ -12,7 +12,6 @@ namespace Meraki.Api.Interfaces
 	/// </summary>
 	public interface ILinkAggregations
 	{
-
 		/// <summary>
 		/// List link aggregation groups
 		/// </summary>

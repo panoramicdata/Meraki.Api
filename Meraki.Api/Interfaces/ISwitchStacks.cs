@@ -241,8 +241,8 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="staticRouteId">The static route id</param>
 		/// <param name="switchStackId">The switch stack id</param>
+		/// <param name="staticRouteId">The static route id</param>
 		/// <param name="updateNetworkSwitchStackRoutingStaticRoute"></param>
 		[ApiOperationId("updateNetworkSwitchStackRoutingStaticRoute")]
 		[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]

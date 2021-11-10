@@ -29,12 +29,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkSwitchPortSchedule"></param>
+		/// <param name="createNetworkSwitchPortSchedule"></param>
 		[ApiOperationId("createNetworkSwitchPortSchedules")]
 		[Post("/networks/{networkId}/switch/portSchedules")]
 		Task<SwitchPortSchedule> CreateNetworkSwitchPortScheduleAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchPortScheduleCreationRequest CreateNetworkSwitchPortSchedule,
+			[Body] SwitchPortScheduleCreationRequest createNetworkSwitchPortSchedule,
 			CancellationToken cancellationToken = default
 			);
 
@@ -44,13 +44,13 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="portScheduleId">The port schedule id</param>
-		/// <param name="UpdateNetworkSwitchPortSchedule"></param>
+		/// <param name="updateNetworkSwitchPortSchedule"></param>
 		[ApiOperationId("updateNetworkSwitchPortSchedules")]
 		[Put("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
 		Task<SwitchPortSchedule> UpdateNetworkSwitchPortScheduleAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("portScheduleId")] string portScheduleId,
-			[Body] SwitchPortScheduleCreationRequest UpdateNetworkSwitchPortSchedule,
+			[Body] SwitchPortScheduleCreationRequest updateNetworkSwitchPortSchedule,
 			CancellationToken cancellationToken = default
 			);
 
