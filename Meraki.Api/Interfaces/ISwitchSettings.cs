@@ -13,32 +13,6 @@ namespace Meraki.Api.Interfaces
 	public interface ISwitchSettings
 	{
 		/// <summary>
-		/// Add a quality of service rule
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkSwitchSettingsQosRule"></param>
-		[Post("/networks/{networkId}/switch/qosRules")]
-		Task<SwitchSettingsQosRule> CreateNetworkSwitchQosRuleAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsQosRuleCreationRequest CreateNetworkSwitchSettingsQosRule,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Delete a quality of service rule
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="qosRuleId">The quality of service rule id</param>
-		[Delete("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
-		Task DeleteNetworkSwitchQosRuleAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("qosRuleId")] string qosRuleId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
 		/// Returns the switch network settings
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -124,6 +98,100 @@ namespace Meraki.Api.Interfaces
 		Task<SwitchMtu> UpdateNetworkSwitchMtuAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] SwitchMtu updateSwitchMtu,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// List quality of service rules
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkSwitchQosRules")]
+		[Get("/networks/{networkId}/switch/qosRules")]
+		Task<List<QosRule>> GetNetworkSwitchQosRulesAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Return a quality of service rule
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="qosRuleId">The quality of service rule id</param>
+		[ApiOperationId("getNetworkSwitchQosRule")]
+		[Get("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
+		Task<QosRule> GetNetworkSwitchQosRuleAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("qosRuleId")] string qosRuleId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Add a quality of service rule
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="CreateNetworkSwitchSettingsQosRule"></param>
+		[ApiOperationId("createNetworkSwitchQosRule")]
+		[Post("/networks/{networkId}/switch/qosRules")]
+		Task<QosRule> CreateNetworkSwitchQosRuleAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsQosRuleCreationRequest CreateNetworkSwitchSettingsQosRule,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update a quality of service rule
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="qosRuleId"></param>
+		/// <param name="UpdateNetworkSwitchSettingsQosRule"></param>
+		[ApiOperationId("updateNetworkSwitchQosRule")]
+		[Put("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
+		Task<SwitchSettingsQosRuleUpdateRequest> UpdateNetworkSwitchQosRuleAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("qosRuleId")] string qosRuleId,
+			[Body] SwitchSettingsQosRuleUpdateRequest UpdateNetworkSwitchSettingsQosRule,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Delete a quality of service rule
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="qosRuleId">The quality of service rule id</param>
+		[ApiOperationId("deleteNetworkSwitchQosRule")]
+		[Delete("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
+		Task DeleteNetworkSwitchQosRuleAsync(
+			[AliasAs("networkId")] string networkId,
+			[AliasAs("qosRuleId")] string qosRuleId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Return the quality of service rule IDs by order in which they will be processed by the switch
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		[Get("/networks/{networkId}/switch/qosRules/order")]
+		Task<SwitchSettingsQosRulesOrderUpdateRequest> GetNetworkSwitchQosRulesOrderAsync(
+			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update the order in which the rules should be processed by the switch
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="UpdateNetworkSwitchSettingsQosRulesOrder"></param>
+		[Put("/networks/{networkId}/switch/qosRules/order")]
+		Task<SwitchSettingsQosRulesOrderUpdateRequest> UpdateNetworkSwitchQosRulesOrderAsync(
+			[AliasAs("networkId")] string networkId,
+			[Body] SwitchSettingsQosRulesOrderUpdateRequest UpdateNetworkSwitchSettingsQosRulesOrder,
 			CancellationToken cancellationToken = default
 			);
 
@@ -302,41 +370,6 @@ namespace Meraki.Api.Interfaces
 			);
 
 		/// <summary>
-		/// Return a quality of service rule
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="qosRuleId">The quality of service rule id</param>
-		[Get("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
-		Task<SwitchSettingsQosRule> GetNetworkSwitchQosRuleAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("qosRuleId")] string qosRuleId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// List quality of service rules
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/switch/qosRules")]
-		Task<List<SwitchSettingsQosRule>> GetNetworkSwitchQosRulesAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Return the quality of service rule IDs by order in which they will be processed by the switch
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/switch/qosRules/order")]
-		Task<SwitchSettingsQosRulesOrderUpdateRequest> GetNetworkSwitchQosRulesOrderAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
 		/// Return the storm control configuration for a switch network
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -368,34 +401,6 @@ namespace Meraki.Api.Interfaces
 		Task<SwitchSettingsUpdateRequest> UpdateNetworkSwitchSettingsAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] SwitchSettingsUpdateRequest UpdateNetworkSwitchSettings,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update a quality of service rule
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="qosRuleId"></param>
-		/// <param name="UpdateNetworkSwitchSettingsQosRule"></param>
-		[Put("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
-		Task<SwitchSettingsQosRuleUpdateRequest> UpdateNetworkSwitchQosRuleAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("qosRuleId")] string qosRuleId,
-			[Body] SwitchSettingsQosRuleUpdateRequest UpdateNetworkSwitchSettingsQosRule,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update the order in which the rules should be processed by the switch
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettingsQosRulesOrder"></param>
-		[Put("/networks/{networkId}/switch/qosRules/order")]
-		Task<SwitchSettingsQosRulesOrderUpdateRequest> UpdateNetworkSwitchQosRulesOrderAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsQosRulesOrderUpdateRequest UpdateNetworkSwitchSettingsQosRulesOrder,
 			CancellationToken cancellationToken = default
 			);
 
