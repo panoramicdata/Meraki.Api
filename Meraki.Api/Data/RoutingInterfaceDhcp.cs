@@ -8,7 +8,7 @@ namespace Meraki.Api.Data
 	/// Routing interface DHCP
 	/// </summary>
 	[DataContract]
-	public class DhcpRoutingInterface
+	public class RoutingInterfaceDhcp
 	{
 		/// <summary>
 		/// The DHCP mode options for the switch interface ('dhcpDisabled', 'dhcpRelay' or 'dhcpServer')
