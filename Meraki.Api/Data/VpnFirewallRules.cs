@@ -17,7 +17,6 @@ namespace Meraki.Api.Data
 		[DataMember(Name = "rules")]
 		public List<VpnFirewallRule> Rules { get; set; } = new();
 
-
 		/// <summary>
 		/// Log the special default rule (boolean value - enable only if you&#39;ve configured a syslog server) (optional)
 		/// </summary>

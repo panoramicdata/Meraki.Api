@@ -12,7 +12,6 @@ namespace Meraki.Api.Interfaces
 	/// </summary>
 	public interface ICameraQualityRetentionProfiles
 	{
-
 		/// <summary>
 		/// Retrieve a single quality retention profile
 		/// </summary>

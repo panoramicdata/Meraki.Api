@@ -29,12 +29,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettings"></param>
+		/// <param name="updateNetworkSwitchSettings"></param>
 		[ApiOperationId("updateNetworkSwitchSettings")]
 		[Put("/networks/{networkId}/switch/settings")]
 		Task<SwitchSettings> UpdateNetworkSwitchSettingsAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettings UpdateNetworkSwitchSettings,
+			[Body] SwitchSettings updateNetworkSwitchSettings,
 			CancellationToken cancellationToken = default
 			);
 
@@ -55,12 +55,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettingsDhcpServerPolicy"></param>
+		/// <param name="updateNetworkSwitchSettingsDhcpServerPolicy"></param>
 		[ApiOperationId("updateNetworkSwitchDhcpServerPolicy")]
 		[Put("/networks/{networkId}/switch/dhcpServerPolicy")]
 		Task<DhcpServerPolicy> UpdateDhcpServerPolicyAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] DhcpServerPolicy UpdateNetworkSwitchSettingsDhcpServerPolicy,
+			[Body] DhcpServerPolicy updateNetworkSwitchSettingsDhcpServerPolicy,
 			CancellationToken cancellationToken = default
 			);
 
@@ -147,12 +147,12 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="CreateNetworkSwitchSettingsQosRule"></param>
+		/// <param name="createNetworkSwitchSettingsQosRule"></param>
 		[ApiOperationId("createNetworkSwitchQosRule")]
 		[Post("/networks/{networkId}/switch/qosRules")]
 		Task<QosRule> CreateNetworkSwitchQosRuleAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsQosRuleCreationRequest CreateNetworkSwitchSettingsQosRule,
+			[Body] SwitchSettingsQosRuleCreationRequest createNetworkSwitchSettingsQosRule,
 			CancellationToken cancellationToken = default
 			);
 
@@ -162,13 +162,13 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		/// <param name="qosRuleId"></param>
-		/// <param name="UpdateNetworkSwitchSettingsQosRule"></param>
+		/// <param name="updateNetworkSwitchSettingsQosRule"></param>
 		[ApiOperationId("updateNetworkSwitchQosRule")]
 		[Put("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 		Task<SwitchSettingsQosRuleUpdateRequest> UpdateNetworkSwitchQosRuleAsync(
 			[AliasAs("networkId")] string networkId,
 			[AliasAs("qosRuleId")] string qosRuleId,
-			[Body] SwitchSettingsQosRuleUpdateRequest UpdateNetworkSwitchSettingsQosRule,
+			[Body] SwitchSettingsQosRuleUpdateRequest updateNetworkSwitchSettingsQosRule,
 			CancellationToken cancellationToken = default
 			);
 
@@ -413,11 +413,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettingsStormControl"></param>
+		/// <param name="updateNetworkSwitchSettingsStormControl"></param>
 		[Put("/networks/{networkId}/switch/stormControl")]
 		Task<SwitchSettingsStormControlUpdateRequest> UpdateNetworkSwitchStormControl(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsStormControlUpdateRequest UpdateNetworkSwitchSettingsStormControl,
+			[Body] SwitchSettingsStormControlUpdateRequest updateNetworkSwitchSettingsStormControl,
 			CancellationToken cancellationToken = default
 			);
 
@@ -426,11 +426,11 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettingsStp"></param>
+		/// <param name="updateNetworkSwitchSettingsStp"></param>
 		[Put("/networks/{networkId}/switch/stp")]
 		Task<SwitchSettingsStpUpdateRequest> UpdateNetworkSwitchStpAsync(
 			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsStpUpdateRequest UpdateNetworkSwitchSettingsStp,
+			[Body] SwitchSettingsStpUpdateRequest updateNetworkSwitchSettingsStp,
 			CancellationToken cancellationToken = default
 			);
 	}
