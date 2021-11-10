@@ -391,9 +391,24 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		[ApiOperationId("getNetworkSwitchStormControl")]
 		[Get("/networks/{networkId}/switch/stormControl")]
-		Task<SwitchSettingsStormControlUpdateRequest> GetNetworkSwitchStormControlAsync(
+		Task<StormControl> GetStormControlAsync(
 			[AliasAs("networkId")] string networkId,
+			CancellationToken cancellationToken = default
+			);
+
+		/// <summary>
+		/// Update the storm control configuration for a switch network
+		/// </summary>
+		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+		/// <param name="networkId">The network id</param>
+		/// <param name="updateNetworkSwitchSettingsStormControl"></param>
+		[ApiOperationId("updateNetworkSwitchStormControl")]
+		[Put("/networks/{networkId}/switch/stormControl")]
+		Task<StormControl> UpdateStormControl(
+			[AliasAs("networkId")] string networkId,
+			[Body] StormControl updateNetworkSwitchSettingsStormControl,
 			CancellationToken cancellationToken = default
 			);
 
@@ -405,19 +420,6 @@ namespace Meraki.Api.Interfaces
 		[Get("/networks/{networkId}/switch/stp")]
 		Task<SwitchSettingsStpUpdateRequest> GetNetworkSwitchStpAsync(
 			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update the storm control configuration for a switch network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="UpdateNetworkSwitchSettingsStormControl"></param>
-		[Put("/networks/{networkId}/switch/stormControl")]
-		Task<SwitchSettingsStormControlUpdateRequest> UpdateNetworkSwitchStormControl(
-			[AliasAs("networkId")] string networkId,
-			[Body] SwitchSettingsStormControlUpdateRequest UpdateNetworkSwitchSettingsStormControl,
 			CancellationToken cancellationToken = default
 			);
 
