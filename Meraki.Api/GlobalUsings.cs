@@ -1,6 +1,7 @@
 ﻿global using Meraki.Api.Attributes;
 global using Meraki.Api.Data;
 global using Meraki.Api.Interfaces;
+global using Meraki.Api.Interfaces.Switch;
 global using Meraki.Api.Products;
 global using Refit;
 global using System.Collections.Generic;

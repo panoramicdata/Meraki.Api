@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces;
+namespace Meraki.Api.Interfaces.Switch;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints

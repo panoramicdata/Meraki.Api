@@ -1,5 +1,4 @@
-namespace Meraki.Api.Interfaces;
-
+namespace Meraki.Api.Interfaces.Switch;
 public interface ISwitchRoutingStaticRoutes
 {
 	/// <summary>
@@ -72,5 +71,4 @@ public interface ISwitchRoutingStaticRoutes
 		[AliasAs("staticRouteId")] string staticRouteId,
 		CancellationToken cancellationToken = default
 		);
-
 }

@@ -1,11 +1,4 @@
-using Meraki.Api.Attributes;
-using Meraki.Api.Data;
-using Refit;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Meraki.Api.Interfaces;
+namespace Meraki.Api.Interfaces.Switch;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints

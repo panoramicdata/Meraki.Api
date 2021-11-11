@@ -1,5 +1,4 @@
-namespace Meraki.Api.Interfaces;
-
+namespace Meraki.Api.Interfaces.Switch;
 public interface ISwitchRoutingInterfaces
 {
 	/// <summary>

@@ -1,11 +1,4 @@
-using Meraki.Api.Attributes;
-using Meraki.Api.Data;
-using Refit;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Meraki.Api.Interfaces;
-
+namespace Meraki.Api.Interfaces.Switch;
 public interface ISwitchRoutingOspf
 {
 	/// <summary>
