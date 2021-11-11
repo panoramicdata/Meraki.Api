@@ -35,7 +35,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		[ApiAccess(ApiAccess.ReadUpdate)]
 		[DataMember(Name = "caCertificate")]
-		public string CaCertificate { get; set; }
+		public string CaCertificate { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Use RADSEC (TLS over TCP) to connect to this RADIUS server. Requires radiusProxyEnabled.

@@ -125,12 +125,14 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		/// <param name="switchStackId"></param>
 		/// <param name="interfaceId"></param>
 		/// <param name="cancellationToken"></param>
 		[ApiOperationId("getNetworkSwitchStackRoutingInterface")]
 		[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}")]
 		Task<RoutingInterface> GetInterfaceAsync(
 			[AliasAs("networkId")] string networkId,
+			[AliasAs("switchStackId")] string switchStackId,
 			[AliasAs("interfaceId")] string interfaceId,
 			CancellationToken cancellationToken = default);
 
@@ -139,10 +141,15 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		/// <param name="switchStackId"></param>
+		/// <param name="interfaceId"></param>
+		/// <param name="routingInterface"></param>
+		/// <param name="cancellationToken"></param>
 		[ApiOperationId("updateNetworkSwitchStackRoutingInterface")]
 		[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}")]
 		Task<RoutingInterface> UpdateInterfaceAsync(
 			[AliasAs("networkId")] string networkId,
+			[AliasAs("switchStackId")] string switchStackId,
 			[AliasAs("interfaceId")] string interfaceId,
 			[Body] RoutingInterfaceUpdateRequest routingInterface,
 			CancellationToken cancellationToken = default);
@@ -152,10 +159,14 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		/// <param name="switchStackId"></param>
+		/// <param name="interfaceId"></param>
+		/// <param name="cancellationToken"></param>
 		[ApiOperationId("deleteNetworkSwitchStackRoutingInterface")]
 		[Delete("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}")]
 		Task DeleteInterfaceAsync(
 			[AliasAs("networkId")] string networkId,
+			[AliasAs("switchStackId")] string switchStackId,
 			[AliasAs("interfaceId")] string interfaceId,
 			CancellationToken cancellationToken = default);
 
@@ -181,7 +192,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="networkId">The network id</param>
 		/// <param name="switchStackId">The switch stack id</param>
 		/// <param name="interfaceId">The interface id</param>
-		/// <param name="UpdateNetworkSwitchStackRoutingInterfaceDhcp"></param>
+		/// <param name="routingInterfaceDhcp"></param>
 		[ApiOperationId("updateNetworkSwitchStackRoutingInterfaceDhcp")]
 		[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}/dhcp")]
 		Task<RoutingInterfaceDhcp> UpdateNetworkSwitchStackRoutingInterfaceDhcp(
