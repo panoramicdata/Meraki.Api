@@ -3,31 +3,29 @@ namespace Meraki.Api.Interfaces;
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface ISwitchSettings
+public interface ISwitchStp
 {
 	/// <summary>
-	/// Returns the switch network settings
+	/// Returns STP settings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	[ApiOperationId("getNetworkSwitchSettings")]
-	[Get("/networks/{networkId}/switch/settings")]
-	Task<SwitchSettings> GetNetworkSwitchSettingsAsync(
+	[Get("/networks/{networkId}/switch/stp")]
+	Task<SwitchSettingsStp> GetNetworkSwitchStpAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
 
 	/// <summary>
-	/// Update switch network settings
+	/// Updates STP settings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="updateNetworkSwitchSettings"></param>
-	[ApiOperationId("updateNetworkSwitchSettings")]
-	[Put("/networks/{networkId}/switch/settings")]
-	Task<SwitchSettings> UpdateNetworkSwitchSettingsAsync(
+	/// <param name="updateNetworkSwitchSettingsStp"></param>
+	[Put("/networks/{networkId}/switch/stp")]
+	Task<SwitchSettingsStp> UpdateNetworkSwitchStpAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] SwitchSettings updateNetworkSwitchSettings,
+		[Body] SwitchSettingsStp updateNetworkSwitchSettingsStp,
 		CancellationToken cancellationToken = default
 		);
 }

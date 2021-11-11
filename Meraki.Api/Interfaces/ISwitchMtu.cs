@@ -1,33 +1,39 @@
+using Meraki.Api.Attributes;
+using Meraki.Api.Data;
+using Refit;
+using System.Threading;
+using System.Threading.Tasks;
+
 namespace Meraki.Api.Interfaces;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface ISwitchSettings
+public interface ISwitchMtu
 {
 	/// <summary>
-	/// Returns the switch network settings
+	/// Return the MTU configuration
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	[ApiOperationId("getNetworkSwitchSettings")]
-	[Get("/networks/{networkId}/switch/settings")]
-	Task<SwitchSettings> GetNetworkSwitchSettingsAsync(
+	[ApiOperationId("getNetworkSwitchMtu")]
+	[Get("/networks/{networkId}/switch/mtu")]
+	Task<SwitchMtu> GetNetworkSwitchMtuAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
 
 	/// <summary>
-	/// Update switch network settings
+	/// Update the MTU configuration
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="updateNetworkSwitchSettings"></param>
-	[ApiOperationId("updateNetworkSwitchSettings")]
-	[Put("/networks/{networkId}/switch/settings")]
-	Task<SwitchSettings> UpdateNetworkSwitchSettingsAsync(
+	/// <param name="updateSwitchMtu"></param>
+	[ApiOperationId("updateNetworkSwitchMtu")]
+	[Put("/networks/{networkId}/switch/mtu")]
+	Task<SwitchMtu> UpdateNetworkSwitchMtuAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] SwitchSettings updateNetworkSwitchSettings,
+		[Body] SwitchMtu updateSwitchMtu,
 		CancellationToken cancellationToken = default
 		);
 }

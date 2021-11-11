@@ -1,0 +1,38 @@
+using Meraki.Api.Attributes;
+using Meraki.Api.Data;
+using Refit;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Meraki.Api.Interfaces;
+
+public interface ISwitchRoutingOspf
+{
+	/// <summary>
+	/// Get layer 3 OSPF routing configuration
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
+	[ApiOperationId("getNetworkSwitchRoutingOspf")]
+	[Get("/networks/{networkId}/switch/routing/ospf")]
+	Task<RoutingOspf> GetNetworkSwitchRoutingOspfAsync(
+		[AliasAs("networkId")] string networkId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Update layer 3 OSPF routing configuration
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="routingOspf">The OSPF routing configuration to update</param>
+	/// <param name="cancellationToken"></param>
+	[ApiOperationId("updateNetworkSwitchRoutingOspf")]
+	[Put("/networks/{networkId}/switch/routing/ospf")]
+	Task<RoutingOspf> UpdateNetworkSwitchRoutingOspfAsync(
+		[AliasAs("networkId")] string networkId,
+		[Body] RoutingOspf routingOspf,
+		CancellationToken cancellationToken = default
+		);
+}
