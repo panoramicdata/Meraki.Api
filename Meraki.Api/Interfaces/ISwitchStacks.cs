@@ -102,10 +102,13 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		/// <param name="switchStackId"></param>
+		/// <param name="cancellationToken"></param>
 		[ApiOperationId("getNetworkSwitchStackRoutingInterfaces")]
 		[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces")]
 		Task<List<RoutingInterface>> GetAllInterfacesAsync(
 			[AliasAs("networkId")] string networkId,
+			[AliasAs("switchStackId")] string switchStackId,
 			CancellationToken cancellationToken = default);
 
 		/// <summary>
@@ -113,10 +116,14 @@ namespace Meraki.Api.Interfaces
 		/// </summary>
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
+		/// <param name="switchStackId"></param>
+		/// <param name="routingInterface"></param>
+		/// <param name="cancellationToken"></param>
 		[ApiOperationId("createNetworkSwitchStackRoutingInterface")]
 		[Post("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces")]
 		Task<RoutingInterface> CreateInterfaceAsync(
 			[AliasAs("networkId")] string networkId,
+			[AliasAs("switchStackId")] string switchStackId,
 			[Body] RoutingInterfaceCreateRequest routingInterface,
 			CancellationToken cancellationToken = default);
 
