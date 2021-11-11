@@ -406,7 +406,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="updateNetworkSwitchSettingsStormControl"></param>
 		[ApiOperationId("updateNetworkSwitchStormControl")]
 		[Put("/networks/{networkId}/switch/stormControl")]
-		Task<StormControl> UpdateStormControl(
+		Task<StormControl> UpdateStormControlAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] StormControl updateNetworkSwitchSettingsStormControl,
 			CancellationToken cancellationToken = default
@@ -418,7 +418,7 @@ namespace Meraki.Api.Interfaces
 		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 		/// <param name="networkId">The network id</param>
 		[Get("/networks/{networkId}/switch/stp")]
-		Task<SwitchSettingsStp> GetNetworkSwitchStormControl(
+		Task<SwitchSettingsStp> GetNetworkSwitchStpAsync(
 			[AliasAs("networkId")] string networkId,
 			CancellationToken cancellationToken = default
 			);
