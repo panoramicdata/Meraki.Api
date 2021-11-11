@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Switch = Meraki.Api.Products.Switch;
@@ -88,7 +87,6 @@ public partial class MerakiClient : IDisposable
 		OpenApiSpec = RefitFor(OpenApiSpec)!;
 		Organizations = RefitFor(Organizations)!;
 		RadioSettings = RefitFor(RadioSettings)!;
-		Routing = RefitFor(Routing)!;
 		SamlRoles = RefitFor(SamlRoles)!;
 		SecurityEvents = RefitFor(SecurityEvents)!;
 		Sms = RefitFor(Sms)!;
@@ -335,11 +333,6 @@ public partial class MerakiClient : IDisposable
 	/// Radio settings
 	/// </summary>
 	public IRadioSettings RadioSettings { get; }
-
-	/// <summary>
-	/// Routing
-	/// </summary>
-	public IRouting Routing { get; }
 
 	/// <summary>
 	/// SAML roles
