@@ -49,6 +49,7 @@ namespace Meraki.Api
 				})
 			};
 
+			AccessPolicies = RefitFor(AccessPolicies)!;
 			ActionBatches = RefitFor(ActionBatches)!;
 			Admins = RefitFor(Admins)!;
 			AlertSettings = RefitFor(AlertSettings)!;
@@ -112,6 +113,11 @@ namespace Meraki.Api
 			=> RestService.For<T>(_httpClient, _refitSettings);
 
 		private readonly RefitSettings _refitSettings;
+
+		/// <summary>
+		/// Access Policies
+		/// </summary>
+		public IAccessPolicies AccessPolicies { get; }
 
 		/// <summary>
 		/// Action batches
