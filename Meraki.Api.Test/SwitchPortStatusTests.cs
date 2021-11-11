@@ -14,7 +14,7 @@ namespace Meraki.Api.Test
 		public async void GetSwitchPortStatuses_Succeeds()
 		{
 			var switchPortStatuses = await TestMerakiClient
-				.SwitchPorts
+				.Switch.Ports
 				.GetDeviceSwitchPortStatusesAsync(Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
 

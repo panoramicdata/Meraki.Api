@@ -14,7 +14,7 @@ namespace Meraki.Api.Test
 		public async void GetSwitchPortStatuses_Succeeds()
 		{
 			var switchPortSchedules = await TestMerakiClient
-				.SwitchPortSchedules
+				.Switch.PortSchedules
 				.GetNetworkSwitchPortSchedulesAsync(Configuration.TestNetworkId)
 				.ConfigureAwait(false);
 

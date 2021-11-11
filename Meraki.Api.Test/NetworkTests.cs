@@ -518,7 +518,7 @@ namespace Meraki.Api.Test
 			Configuration.TestSwitchSerial.Should().NotBeNull();
 
 			var switchPorts = await TestMerakiClient
-				.SwitchPorts
+				.Switch.Ports
 				.GetAllAsync(Configuration.TestSwitchSerial, default)
 				.ConfigureAwait(false);
 
@@ -531,7 +531,7 @@ namespace Meraki.Api.Test
 			Configuration.TestCameraNetworkId.Should().NotBeNull();
 
 			var switchStacks = await TestMerakiClient
-				.SwitchStacks
+				.Switch.Stacks
 				.GetAllAsync(Configuration.TestCameraNetworkId, default)
 				.ConfigureAwait(false);
 

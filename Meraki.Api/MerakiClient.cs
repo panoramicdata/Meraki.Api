@@ -1,4 +1,4 @@
-﻿using Meraki.Api.Interfaces;
+﻿using Meraki.Api.Products;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Switch = Meraki.Api.Products.Switch;
 
 namespace Meraki.Api
 {
@@ -95,18 +96,26 @@ namespace Meraki.Api
 			Sms = RefitFor(Sms)!;
 			SplashLoginAttempts = RefitFor(SplashLoginAttempts)!;
 			Ssids = RefitFor(Ssids)!;
-			SwitchAcls = RefitFor(SwitchAcls)!;
-			SwitchPorts = RefitFor(SwitchPorts)!;
-			SwitchPortSchedules = RefitFor(SwitchPortSchedules)!;
-			SwitchProfiles = RefitFor(SwitchProfiles)!;
-			SwitchSettings = RefitFor(SwitchSettings)!;
-			SwitchStacks = RefitFor(SwitchStacks)!;
 			TrafficShaping = RefitFor(TrafficShaping)!;
 			UplinkSettings = RefitFor(UplinkSettings)!;
 			Vlans = RefitFor(Vlans)!;
 			WebhookLogs = RefitFor(WebhookLogs)!;
 			WirelessHealth = RefitFor(WirelessHealth)!;
 			WirelessSettings = RefitFor(WirelessSettings)!;
+
+			// Product level interfaces
+			Switch = new Switch
+			{
+				AccessControlLists = RefitFor(Switch.AccessControlLists)!,
+				ConfigTemplates = new SwitchConfigTemplates
+				{
+					Profiles = RefitFor(Switch.ConfigTemplates.Profiles)!
+				},
+				Ports = RefitFor(Switch.Ports)!,
+				PortSchedules = RefitFor(Switch.PortSchedules)!,
+				Settings = RefitFor(Switch.Settings)!,
+				Stacks = RefitFor(Switch.Stacks)!
+			};
 		}
 
 		private T RefitFor<T>(T _)
@@ -345,34 +354,9 @@ namespace Meraki.Api
 		public ISsids Ssids { get; }
 
 		/// <summary>
-		/// Switch ACLs
+		/// Switch
 		/// </summary>
-		public ISwitchAcls SwitchAcls { get; }
-
-		/// <summary>
-		/// Switch ports
-		/// </summary>
-		public ISwitchPorts SwitchPorts { get; }
-
-		/// <summary>
-		/// Switch port schedules
-		/// </summary>
-		public ISwitchPortSchedules SwitchPortSchedules { get; }
-
-		/// <summary>
-		/// Switch profiles
-		/// </summary>
-		public ISwitchProfiles SwitchProfiles { get; }
-
-		/// <summary>
-		/// Switch settings
-		/// </summary>
-		public ISwitchSettings SwitchSettings { get; }
-
-		/// <summary>
-		/// Switch stacks
-		/// </summary>
-		public ISwitchStacks SwitchStacks { get; }
+		public Switch Switch { get; } = new();
 
 		/// <summary>
 		/// Traffic shaping

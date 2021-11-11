@@ -13,11 +13,24 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
+		public async Task GetNetworkSwitchAccessControlListsNestedInterface()
+		{
+			var testNetwork = await GetFirstNetworkAsync().ConfigureAwait(false);
+			var acls = await TestMerakiClient
+				.Switch
+				.AccessControlLists
+				.GetAsync(testNetwork.Id)
+				.ConfigureAwait(false);
+			acls.Should().NotBeNull();
+			acls.Rules.Should().NotBeNullOrEmpty();
+		}
+
+		[Fact]
 		public async Task GetNetworkSwitchAccessControlLists()
 		{
 			var testNetwork = await GetFirstNetworkAsync().ConfigureAwait(false);
 			var acls = await TestMerakiClient
-				.SwitchAcls
+				.Switch.AccessControlLists
 				.GetAsync(testNetwork.Id)
 				.ConfigureAwait(false);
 			acls.Should().NotBeNull();
@@ -33,7 +46,7 @@ namespace Meraki.Api.Test
 			{
 				// Get the rules and check just the default is there
 				var acls = await TestMerakiClient
-					.SwitchAcls
+					.Switch.AccessControlLists
 					.GetAsync(testNetwork.Id)
 					.ConfigureAwait(false);
 				acls.Should().NotBeNull();
@@ -70,7 +83,7 @@ namespace Meraki.Api.Test
 
 				// Update the rules
 				await TestMerakiClient
-					.SwitchAcls
+					.Switch.AccessControlLists
 					.UpdateAsync(
 						testNetwork.Id,
 						new()
@@ -86,7 +99,7 @@ namespace Meraki.Api.Test
 
 				// Get the rules and check they're both there
 				acls = await TestMerakiClient
-					.SwitchAcls
+					.Switch.AccessControlLists
 					.GetAsync(testNetwork.Id)
 					.ConfigureAwait(false);
 

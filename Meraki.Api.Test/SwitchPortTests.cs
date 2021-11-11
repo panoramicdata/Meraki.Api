@@ -15,7 +15,7 @@ namespace Meraki.Api.Test
 		public async void GetSwitchPortStatuses_Succeeds()
 		{
 			var switchPorts = await TestMerakiClient
-				.SwitchPorts
+				.Switch.Ports
 				.GetAllAsync(Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
 
@@ -27,7 +27,7 @@ namespace Meraki.Api.Test
 		{
 			// ARRANGE
 			var switchPorts = await TestMerakiClient
-				.SwitchPorts
+				.Switch.Ports
 				.GetAllAsync(Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
 
@@ -37,7 +37,7 @@ namespace Meraki.Api.Test
 			// ACT
 			switchPort.PortScheduleId = null;
 			var switchPortAfterUpdate = await TestMerakiClient
-				.SwitchPorts
+				.Switch.Ports
 				.UpdateAsync(Configuration.TestDeviceSerial, switchPort.PortId, switchPort)
 				.ConfigureAwait(false);
 

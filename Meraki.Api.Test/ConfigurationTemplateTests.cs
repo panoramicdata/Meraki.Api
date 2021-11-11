@@ -41,7 +41,7 @@ namespace Meraki.Api.Test
 			foreach (var configurationTemplate in configurationTemplates.Take(3))
 			{
 				var switchProfiles = await TestMerakiClient
-					.SwitchProfiles
+					.Switch.ConfigTemplates.Profiles
 					.GetAllAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 					.ConfigureAwait(false);
 				switchProfiles.Should().BeOfType<List<SwitchProfile>>();
