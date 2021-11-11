@@ -65,7 +65,7 @@ namespace Meraki.Api.Data
 		/// </summary>
 		/// <value>The RADIUS 802.1X servers to be used for authentication. This param is only valid if the authMode is &#39;open-with-radius&#39;, &#39;8021x-radius&#39; or &#39;ipsk-with-radius&#39;</value>
 		[DataMember(Name = "radiusServers")]
-		public List<RadiusServer> RadiusServers { get; set; } = new();
+		public List<SsidRadiusServer> RadiusServers { get; set; } = new();
 
 		/// <summary>
 		/// If true, Meraki devices will act as a RADIUS Dynamic Authorization Server and will respond to RADIUS Change-of-Authorization and Disconnect messages sent by the RADIUS server.

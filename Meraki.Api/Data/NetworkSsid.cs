@@ -61,7 +61,7 @@ namespace Meraki.Api.Data
 		/// radiusServers
 		/// </summary>
 		[DataMember(Name = "radiusServers")]
-		public List<RadiusServer> RadiusServers { get; set; } = new List<RadiusServer>();
+		public List<SsidRadiusServer> RadiusServers { get; set; } = new List<SsidRadiusServer>();
 
 		/// <summary>
 		/// radiusAccountingEnabled
