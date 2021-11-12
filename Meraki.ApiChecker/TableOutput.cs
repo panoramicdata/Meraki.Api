@@ -21,6 +21,9 @@ namespace Meraki.ApiChecker
 			var implementedTable = new Table()
 				.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation")
 				.BorderStyle("green");
+			var duplicateTable = new Table()
+				.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation")
+				.BorderStyle("orange1");
 			var missingTable = new Table()
 				.AddColumns("Method", "Endpoint", "OperationId", "Tags")
 				.BorderStyle("red");
@@ -36,17 +39,36 @@ namespace Meraki.ApiChecker
 					var refitMethod = pathOperation.Key.ToHttpMethod();
 					List<MethodDetails>? implementation = null;
 					implementedEndpoints?.TryGetValue(pathKpv.Key, out implementation);
-					var existingImplementation = implementation?.SingleOrDefault(e => e.RefitAttribute.Method == refitMethod);
+					var existingImplementations = implementation?.Where(e => e.RefitAttribute.Method == refitMethod).ToList();
 
-					if (existingImplementation != null)
+					if (existingImplementations != null)
 					{
-						implementedTable.AddRow(
-							pathOperation.Key.ToString(),
-							pathKpv.Key,
-							pathOperation.Value.OperationId,
-							string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
-							existingImplementation?.Method.Name ?? string.Empty);
-						implementedEndpoints?[pathKpv.Key].Remove(existingImplementation!);
+						switch (existingImplementations.Count)
+						{
+							case 0:
+								throw new InvalidDataException("Didn't expect to get 0 as a count of existing implementations when not null");
+							case 1:
+								implementedTable.AddRow(
+									pathOperation.Key.ToString(),
+									pathKpv.Key,
+									pathOperation.Value.OperationId,
+									string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
+									existingImplementations[0].Method.Name ?? string.Empty);
+								implementedEndpoints?[pathKpv.Key].Remove(existingImplementations[0]);
+								break;
+							default:
+								foreach (var existingImplementation in existingImplementations)
+								{
+									duplicateTable.AddRow(
+										pathOperation.Key.ToString(),
+										pathKpv.Key,
+										pathOperation.Value.OperationId,
+										string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
+										existingImplementation.Method.Name ?? string.Empty);
+									implementedEndpoints?[pathKpv.Key].Remove(existingImplementation);
+								}
+								break;
+						}
 					}
 					else
 					{
@@ -68,6 +90,16 @@ namespace Meraki.ApiChecker
 						: "Remaining implemented endpoints",
 					new Style(Color.Green));
 				AnsiConsole.Write(implementedTable);
+			}
+
+			if (duplicateTable.Rows.Count > 0)
+			{
+				duplicateTable.Title(
+					tagRestriction is not null
+						? $"'{tagRestriction}' duplicate endpoints ({duplicateTable.Rows.Count})"
+						: "Remaining implemented endpoints",
+					new Style(Color.Orange1));
+				AnsiConsole.Write(duplicateTable);
 			}
 
 			if (missingTable.Rows.Count > 0)
