@@ -1,11 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using Switch = Meraki.Api.Products.Switch;
+﻿using Switch = Meraki.Api.Products.Switch;
 
 namespace Meraki.Api;
 
