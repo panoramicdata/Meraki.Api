@@ -69,6 +69,7 @@ namespace Meraki.Api.Test
 		{
 			var networks = await TestMerakiClient
 				.Organizations
+				.Networks
 				.GetNetworksPagedAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			networks.Should().NotBeNull();
@@ -79,6 +80,7 @@ namespace Meraki.Api.Test
 		protected async Task<Network> CreateTestNetworkAsync()
 		{
 			var network = await TestMerakiClient
+				.Organizations
 				.Networks
 				.CreateAsync(
 					Configuration.TestOrganizationId,

@@ -1,4 +1,5 @@
-﻿using Switch = Meraki.Api.Products.Switch;
+﻿using Meraki.Api.Sections.General.Organizations;
+using SwitchSection = Meraki.Api.Sections.Products.Switch.SwitchSection;
 
 namespace Meraki.Api;
 
@@ -57,7 +58,6 @@ public partial class MerakiClient : IDisposable
 		Events = RefitFor(Events)!;
 		Firewalls = RefitFor(Firewalls)!;
 		Floorplans = RefitFor(Floorplans)!;
-		Licenses = RefitFor(Licenses)!;
 		LinkAggregations = RefitFor(LinkAggregations)!;
 		MgConnectivityMonitoringDestinations = RefitFor(MgConnectivityMonitoringDestinations)!;
 		MgDhcpSettings = RefitFor(MgDhcpSettings)!;
@@ -77,7 +77,6 @@ public partial class MerakiClient : IDisposable
 		NetworkMqttBrokers = RefitFor(NetworkMqttBrokers)!;
 		NetworkPiiRequests = RefitFor(NetworkPiiRequests)!;
 		OpenApiSpec = RefitFor(OpenApiSpec)!;
-		Organizations = RefitFor(Organizations)!;
 		RadioSettings = RefitFor(RadioSettings)!;
 		SamlRoles = RefitFor(SamlRoles)!;
 		SecurityEvents = RefitFor(SecurityEvents)!;
@@ -91,34 +90,73 @@ public partial class MerakiClient : IDisposable
 		WirelessHealth = RefitFor(WirelessHealth)!;
 		WirelessSettings = RefitFor(WirelessSettings)!;
 
-		// Product level interfaces
-		Switch = new Switch
+		// General level sections
+		Organizations = new OrganizationsSection
 		{
-			AccessControlLists = RefitFor(Switch.AccessControlLists)!,
-			AccessPolicies = RefitFor(Switch.AccessPolicies)!,
-			AlternateManagementInterface = RefitFor(Switch.AlternateManagementInterface)!,
-			DscpToCosMappings = RefitFor(Switch.DscpToCosMappings)!,
-			DhcpServerPolicy = RefitFor(Switch.DhcpServerPolicy)!,
-			ConfigTemplates = new SwitchConfigTemplates
+			Organizations = RefitFor(Organizations.Organizations),
+
+			ActionBatches = RefitFor(Organizations.ActionBatches),
+			AdaptivePolicy = new OrganizationsAdaptivePolicySection
 			{
-				Profiles = RefitFor(Switch.ConfigTemplates.Profiles)!
+				Acls = RefitFor(Organizations.AdaptivePolicy.Acls),
+				Settings = RefitFor(Organizations.AdaptivePolicy.Settings)
 			},
-			Mtu = RefitFor(Switch.Mtu)!,
-			Ports = RefitFor(Switch.Ports)!,
-			PortSchedules = RefitFor(Switch.PortSchedules)!,
-			QosRules = RefitFor(Switch.QosRules)!,
-			Routing = new SwitchRouting
+			Devices = RefitFor(Organizations.Devices),
+			InventoryDevices = RefitFor(Organizations.InventoryDevices),
+			Licenses = RefitFor(Organizations.Licenses),
+			LoginSecurity = RefitFor(Organizations.LoginSecurity),
+			Networks = RefitFor(Organizations.Networks),
+			Saml = new OrganizationsSamlSection
 			{
-				Interfaces = RefitFor(Switch.Routing.Interfaces)!,
-				Multicast = RefitFor(Switch.Routing.Multicast)!,
-				Ospf = RefitFor(Switch.Routing.Ospf)!,
-				StaticRoutes = RefitFor(Switch.Routing.StaticRoutes)!
+				Saml = RefitFor(Organizations.Saml.Saml),
+				Idp = RefitFor(Organizations.Saml.Idp),
 			},
-			Settings = RefitFor(Switch.Settings)!,
-			Stacks = RefitFor(Switch.Stacks)!,
-			StormControl = RefitFor(Switch.StormControl)!,
-			Stp = RefitFor(Switch.Stp)!,
-			WarmSpare = RefitFor(Switch.WarmSpare)!,
+			Snmp = RefitFor(Organizations.Snmp)
+		};
+
+		// Product level sections
+		Appliance = new()
+		{
+			Security = new()
+			{
+				Intrusion = RefitFor(Appliance.Security.Intrusion)
+			},
+			Vpn = new()
+			{
+				Bgp = RefitFor(Appliance.Vpn.Bgp),
+				SiteToSiteVpn = RefitFor(Appliance.Vpn.SiteToSiteVpn),
+				ThirdPartyVpnPeers = RefitFor(Appliance.Vpn.ThirdPartyVpnPeers),
+				VpnFirewallRules = RefitFor(Appliance.Vpn.VpnFirewallRules),
+			}
+		};
+
+		Switch = new()
+		{
+			AccessControlLists = RefitFor(Switch.AccessControlLists),
+			AccessPolicies = RefitFor(Switch.AccessPolicies),
+			AlternateManagementInterface = RefitFor(Switch.AlternateManagementInterface),
+			DscpToCosMappings = RefitFor(Switch.DscpToCosMappings),
+			DhcpServerPolicy = RefitFor(Switch.DhcpServerPolicy),
+			ConfigTemplates = new()
+			{
+				Profiles = RefitFor(Switch.ConfigTemplates.Profiles)
+			},
+			Mtu = RefitFor(Switch.Mtu),
+			Ports = RefitFor(Switch.Ports),
+			PortSchedules = RefitFor(Switch.PortSchedules),
+			QosRules = RefitFor(Switch.QosRules),
+			Routing = new()
+			{
+				Interfaces = RefitFor(Switch.Routing.Interfaces),
+				Multicast = RefitFor(Switch.Routing.Multicast),
+				Ospf = RefitFor(Switch.Routing.Ospf),
+				StaticRoutes = RefitFor(Switch.Routing.StaticRoutes)
+			},
+			Settings = RefitFor(Switch.Settings),
+			Stacks = RefitFor(Switch.Stacks),
+			StormControl = RefitFor(Switch.StormControl),
+			Stp = RefitFor(Switch.Stp),
+			WarmSpare = RefitFor(Switch.WarmSpare),
 		};
 	}
 
@@ -126,6 +164,8 @@ public partial class MerakiClient : IDisposable
 		=> RestService.For<T>(_httpClient, _refitSettings);
 
 	private readonly RefitSettings _refitSettings;
+
+	public ApplianceSection Appliance { get; } = new();
 
 	/// <summary>
 	/// Action batches
@@ -218,11 +258,6 @@ public partial class MerakiClient : IDisposable
 	public INetworkHttpServers NetworkHttpServers { get; }
 
 	/// <summary>
-	/// Licenses
-	/// </summary>
-	public ILicenses Licenses { get; }
-
-	/// <summary>
 	/// Link aggregations
 	/// </summary>
 	public ILinkAggregations LinkAggregations { get; }
@@ -310,7 +345,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Organizations
 	/// </summary>
-	public IOrganizations Organizations { get; }
+	public OrganizationsSection Organizations { get; } = new();
 
 	/// <summary>
 	/// PIIs
@@ -350,7 +385,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Switch
 	/// </summary>
-	public Switch Switch { get; } = new();
+	public SwitchSection Switch { get; } = new();
 
 	/// <summary>
 	/// Traffic shaping

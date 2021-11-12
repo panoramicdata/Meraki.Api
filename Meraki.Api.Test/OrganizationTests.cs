@@ -21,6 +21,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
+				.Organizations
 				.GetAllAsync()
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<Organization>>();
@@ -35,6 +36,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
+				.Organizations
 				.GetAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			ValidateOrganisation(result);
@@ -44,7 +46,9 @@ namespace Meraki.Api.Test
 		public async void GetAllThirdPartyVpnPeersAsync_Succeeds()
 		{
 			var result = await TestMerakiClient
-				.Organizations
+				.Appliance
+				.Vpn
+				.ThirdPartyVpnPeers
 				.GetThirdPartyVpnPeersAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<ThirdPartyVpnPeer>();
@@ -56,6 +60,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
+				.InventoryDevices
 				.GetInventoryDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
@@ -67,6 +72,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
+				.Licenses
 				.GetLicenseStateAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 
@@ -83,6 +89,7 @@ namespace Meraki.Api.Test
 			}
 
 			var licenses = await TestMerakiClient
+				.Organizations
 				.Licenses
 				.GetPagedAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 				.ConfigureAwait(false);
@@ -95,6 +102,7 @@ namespace Meraki.Api.Test
 		{
 			var organizationDevices = await TestMerakiClient
 				.Organizations
+				.Devices
 				.GetDevicesPagedAsync(Configuration.TestOrganizationId, default)
 				.ConfigureAwait(false);
 
@@ -106,6 +114,7 @@ namespace Meraki.Api.Test
 		{
 			var organizationDeviceStatus = await TestMerakiClient
 				.Organizations
+				.Devices
 				.GetDeviceStatusesAsync(Configuration.TestOrganizationId, default)
 				.ConfigureAwait(false);
 
@@ -125,6 +134,7 @@ namespace Meraki.Api.Test
 			}
 
 			var organizationDeviceLicenses = await TestMerakiClient
+				.Organizations
 				.Licenses
 				.GetPagedAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 				.ConfigureAwait(false);
@@ -133,6 +143,7 @@ namespace Meraki.Api.Test
 			var license = organizationDeviceLicenses[0];
 
 			var organizationDeviceLicense = await TestMerakiClient
+				.Organizations
 				.Licenses
 				.GetAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing, license.Id)
 				.ConfigureAwait(false);
@@ -147,6 +158,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
+				.Organizations
 				.ClaimAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
@@ -160,6 +172,7 @@ namespace Meraki.Api.Test
 			const string initialOrganizationName = "TestOrganization";
 			var createdOrganization = await TestMerakiClient
 				.Organizations
+				.Organizations
 				.CreateAsync(new OrganizationCreateRequest { Name = initialOrganizationName })
 				.ConfigureAwait(false);
 			CheckOrganization(createdOrganization, initialOrganizationName);
@@ -169,6 +182,7 @@ namespace Meraki.Api.Test
 
 			// Read
 			var refetchedOrganization = await TestMerakiClient
+				.Organizations
 				.Organizations
 				.GetAsync(createdOrganization.Id)
 				.ConfigureAwait(false);
@@ -181,6 +195,7 @@ namespace Meraki.Api.Test
 			const string newOrganizationName = "TestOrganizationNewName";
 			var updatedOrganization = await TestMerakiClient
 				.Organizations
+				.Organizations
 				.UpdateAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName })
 				.ConfigureAwait(false);
 			CheckOrganization(updatedOrganization, newOrganizationName, createdOrganization.Id);
@@ -190,6 +205,7 @@ namespace Meraki.Api.Test
 
 			// Delete
 			await TestMerakiClient
+				.Organizations
 				.Organizations
 				.DeleteAsync(createdOrganization.Id)
 				.ConfigureAwait(false);
@@ -201,6 +217,7 @@ namespace Meraki.Api.Test
 			Func<Task> act = async () =>
 			{
 				await TestMerakiClient
+					.Organizations
 					.Organizations
 					.GetAsync(createdOrganization.Id)
 					.ConfigureAwait(false);
@@ -216,6 +233,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
+				.Networks
 				.GetNetworksPagedAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 
@@ -258,6 +276,7 @@ namespace Meraki.Api.Test
 					(perPage, startingAfter, cancellationToken)
 					=> TestMerakiClient
 						.Organizations
+						.Networks
 						.GetNetworksPagedAsync(
 							Configuration.TestOrganizationId,
 							perPage: perPage,
@@ -284,6 +303,7 @@ namespace Meraki.Api.Test
 					(startingAfter, cancellationToken)
 					=> TestMerakiClient
 						.Organizations
+						.Networks
 						.GetNetworksPagedAsync(
 							Configuration.TestOrganizationId,
 							startingAfter: startingAfter,
@@ -305,6 +325,7 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
+				.Networks
 				.GetAllNetworksAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 

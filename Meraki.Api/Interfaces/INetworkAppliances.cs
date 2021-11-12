@@ -1,10 +1,3 @@
-using Meraki.Api.Attributes;
-using Meraki.Api.Data;
-using Refit;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Meraki.Api.Interfaces
 {
 	/// <summary>
@@ -252,55 +245,8 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default
 			);
 
-		/// <summary>
-		/// Return a Hub BGP Configuration
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/appliance/vpn/bgp")]
-		Task<VpnBgp> GetVpnBgpAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
 
-		/// <summary>
-		/// Return a Hub BGP Configuration
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="updateVpnBgp"></param>
-		[Put("/networks/{networkId}/appliance/vpn/bgp")]
-		Task<VpnBgp> UpdateVpnBgpAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] VpnBgp updateVpnBgp,
-			CancellationToken cancellationToken = default
-			);
 
-		/// <summary>
-		/// Return the site-to-site VPN settings of a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[ApiOperationId("getNetworkApplianceVpnSiteToSiteVpn")]
-		[Get("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
-		Task<SiteToSiteVpn> GetSiteToSiteVpnAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update the site-to-site VPN settings of a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="siteToSiteVpn">Body for updating VPN settings</param>
-		[ApiOperationId("updateNetworkApplianceVpnSiteToSiteVpn")]
-		[Put("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
-		Task<SiteToSiteVpn> UpdateSiteToSiteVpnAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] SiteToSiteVpn siteToSiteVpn,
-			CancellationToken cancellationToken = default
-			);
 
 		/// <summary>
 		/// Return MX warm spare settings
@@ -337,7 +283,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cancellationToken"></param>
 		[ApiOperationId("swapNetworkApplianceWarmSpare")]
 		[Post("/networks/{networkId}/appliance/warmSpare/swap")]
-		Task <WarmSpare> SwapWarmSpareAsync(
+		Task<WarmSpare> SwapWarmSpareAsync(
 			[AliasAs("networkId")] string networkId,
 			[Body] WarmSpare warmSpare,
 			CancellationToken cancellationToken = default

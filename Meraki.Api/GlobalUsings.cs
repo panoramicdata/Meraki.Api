@@ -2,8 +2,10 @@
 global using Meraki.Api.Data;
 global using Meraki.Api.Exceptions;
 global using Meraki.Api.Interfaces;
+global using Meraki.Api.Interfaces.General.Organizations;
+global using Meraki.Api.Interfaces.Products.Appliance;
 global using Meraki.Api.Interfaces.Products.Switch;
-global using Meraki.Api.Products;
+global using Meraki.Api.Sections.Products.Appliance;
 global using Microsoft.Extensions.Logging;
 global using Microsoft.Extensions.Logging.Abstractions;
 global using Newtonsoft.Json;

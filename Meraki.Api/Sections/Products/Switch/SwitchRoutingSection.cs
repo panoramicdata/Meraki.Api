@@ -1,6 +1,6 @@
-﻿namespace Meraki.Api.Products;
+﻿namespace Meraki.Api.Sections.Products.Switch;
 
-public class SwitchRouting
+public class SwitchRoutingSection
 {
 	public ISwitchRoutingInterfaces Interfaces { get; internal set; } = null!;
 	public ISwitchRoutingMulticast Multicast { get; internal set; } = null!;

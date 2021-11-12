@@ -1,10 +1,3 @@
-using Meraki.Api.Attributes;
-using Meraki.Api.Data;
-using Refit;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Meraki.Api.Interfaces
 {
 	/// <summary>
@@ -24,29 +17,7 @@ namespace Meraki.Api.Interfaces
 			[Body] ConfigurationTemplateBindRequest bindNetwork,
 			CancellationToken cancellationToken = default);
 
-		/// <summary>
-		/// Combine multiple networks into a single network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API cg</exception>
-		/// <param name="organizationId">The organization id</param>
-		/// <param name="combineOrganizationNetworks">Body for combining networks</param>
-		[Post("/organizations/{organizationId}/networks/combine")]
-		Task<CombineNetworkResponse> CombineOrganizationNetworksAsync(
-			[AliasAs("organizationId")] string organizationId,
-			[Body] CombineOrganizationNetworksRequest combineOrganizationNetworks,
-			CancellationToken cancellationToken = default);
 
-		/// <summary>
-		/// Create a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="organizationId">The organization id</param>
-		/// <param name="createOrganizationNetwork">Body for creating a network</param>
-		[Post("/organizations/{organizationId}/networks")]
-		Task<Network> CreateAsync(
-			[AliasAs("organizationId")] string organizationId,
-			[Body] NetworkCreationRequest createOrganizationNetwork,
-			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// Delete a network
