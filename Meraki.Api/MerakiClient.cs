@@ -168,6 +168,15 @@ public partial class MerakiClient : IDisposable
 			Stp = RefitFor(Switch.Stp),
 			WarmSpare = RefitFor(Switch.WarmSpare),
 		};
+
+		Insight = new()
+		{
+			Applications = new()
+			{
+				Applications = RefitFor(Insight.Applications.Applications),
+				HealthByTime = RefitFor(Insight.Applications.HealthByTime)
+			}
+		};
 	}
 
 	private T RefitFor<T>(T _)
@@ -262,6 +271,8 @@ public partial class MerakiClient : IDisposable
 	/// </summary>
 	public IFloorplans Floorplans { get; }
 
+	public InsightSection Insight { get; } = new();
+
 	/// <summary>
 	/// HTTP servers
 	/// </summary>
@@ -315,7 +326,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Monitored media servers
 	/// </summary>
-	public IMonitoredMediaServers MonitoredMediaServers { get; }
+	public IInsightMonitoredMediaServers MonitoredMediaServers { get; }
 
 	/// <summary>
 	/// MR layer 3 firewall rules
