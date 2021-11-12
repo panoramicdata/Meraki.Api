@@ -5,6 +5,7 @@ public class OrganizationsSection
 	public IOrganizations Organizations { get; internal set; } = null!;
 	public IActionBatches ActionBatches { get; internal set; } = null!;
 	public OrganizationsAdaptivePolicySection AdaptivePolicy { get; internal set; } = new();
+	public IOrganizationApiRequests ApiRequests { get; internal set; } = null!;
 	public IOrganizationsDevices Devices { get; internal set; } = null!;
 	public IOrganizationsInventoryDevices InventoryDevices { get; internal set; } = null!;
 	public IOrganizationsLoginSecurity LoginSecurity { get; internal set; } = null!;

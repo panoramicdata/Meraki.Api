@@ -97,6 +97,7 @@ public partial class MerakiClient : IDisposable
 				Acls = RefitFor(Organizations.AdaptivePolicy.Acls),
 				Settings = RefitFor(Organizations.AdaptivePolicy.Settings)
 			},
+			ApiRequests = RefitFor(Organizations.ApiRequests),
 			Devices = RefitFor(Organizations.Devices),
 			InventoryDevices = RefitFor(Organizations.InventoryDevices),
 			Licenses = RefitFor(Organizations.Licenses),
@@ -194,7 +195,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// API Usages
 	/// </summary>
-	public IApiRequests ApiRequests { get; }
+	public IOrganizationApiRequests ApiRequests { get; }
 
 	/// <summary>
 	/// Bluetooth clients
