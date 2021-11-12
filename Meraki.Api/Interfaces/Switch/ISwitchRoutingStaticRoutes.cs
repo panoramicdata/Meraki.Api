@@ -71,18 +71,4 @@ public interface ISwitchRoutingStaticRoutes
 		[AliasAs("staticRouteId")] string staticRouteId,
 		CancellationToken cancellationToken = default
 		);
-
-	/// <summary>
-	/// Delete a layer 3 static route for a switch
-	/// </summary>
-	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="serial">The serial number</param>
-	/// <param name="staticRouteId">The static route id</param>
-	[ApiOperationId("deleteDeviceSwitchRoutingStaticRoute")]
-	[Delete("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
-	Task DeleteStaticRouteAsync2(
-		[AliasAs("serial")] string serial,
-		[AliasAs("staticRouteId")] string staticRouteId,
-		CancellationToken cancellationToken = default
-		);
 }
