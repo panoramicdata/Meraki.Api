@@ -1,9 +1,9 @@
-namespace Meraki.Api.Interfaces;
+namespace Meraki.Api.Interfaces.Switch;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface IAccessPolicies
+public interface ISwitchAccessPolicies
 {
 	/// <summary>
 	/// List the access policies for a switch network.

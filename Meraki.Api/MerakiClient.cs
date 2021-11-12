@@ -40,7 +40,6 @@ public partial class MerakiClient : IDisposable
 			})
 		};
 
-		AccessPolicies = RefitFor(AccessPolicies)!;
 		ActionBatches = RefitFor(ActionBatches)!;
 		Admins = RefitFor(Admins)!;
 		AlertSettings = RefitFor(AlertSettings)!;
@@ -96,6 +95,7 @@ public partial class MerakiClient : IDisposable
 		Switch = new Switch
 		{
 			AccessControlLists = RefitFor(Switch.AccessControlLists)!,
+			AccessPolicies = RefitFor(Switch.AccessPolicies)!,
 			AlternateManagementInterface = RefitFor(Switch.AlternateManagementInterface)!,
 			DscpToCosMappings = RefitFor(Switch.DscpToCosMappings)!,
 			DhcpServerPolicy = RefitFor(Switch.DhcpServerPolicy)!,
@@ -126,11 +126,6 @@ public partial class MerakiClient : IDisposable
 		=> RestService.For<T>(_httpClient, _refitSettings);
 
 	private readonly RefitSettings _refitSettings;
-
-	/// <summary>
-	/// Access Policies
-	/// </summary>
-	public IAccessPolicies AccessPolicies { get; }
 
 	/// <summary>
 	/// Action batches
