@@ -1,33 +1,31 @@
-namespace Meraki.Api.Interfaces.Switch;
+namespace Meraki.Api.Interfaces.Products.Switch;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface ISwitchMtu
+public interface ISwitchStp
 {
 	/// <summary>
-	/// Return the MTU configuration
+	/// Returns STP settings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	[ApiOperationId("getNetworkSwitchMtu")]
-	[Get("/networks/{networkId}/switch/mtu")]
-	Task<SwitchMtu> GetNetworkSwitchMtuAsync(
+	[Get("/networks/{networkId}/switch/stp")]
+	Task<SwitchSettingsStp> GetNetworkSwitchStpAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
 
 	/// <summary>
-	/// Update the MTU configuration
+	/// Updates STP settings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="updateSwitchMtu"></param>
-	[ApiOperationId("updateNetworkSwitchMtu")]
-	[Put("/networks/{networkId}/switch/mtu")]
-	Task<SwitchMtu> UpdateNetworkSwitchMtuAsync(
+	/// <param name="updateNetworkSwitchSettingsStp"></param>
+	[Put("/networks/{networkId}/switch/stp")]
+	Task<SwitchSettingsStp> UpdateNetworkSwitchStpAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] SwitchMtu updateSwitchMtu,
+		[Body] SwitchSettingsStp updateNetworkSwitchSettingsStp,
 		CancellationToken cancellationToken = default
 		);
 }

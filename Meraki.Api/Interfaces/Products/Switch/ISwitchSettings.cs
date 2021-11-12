@@ -1,33 +1,33 @@
-namespace Meraki.Api.Interfaces.Switch;
+namespace Meraki.Api.Interfaces.Products.Switch;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface ISwitchStormControl
+public interface ISwitchSettings
 {
 	/// <summary>
-	/// Return the storm control configuration for a switch network
+	/// Returns the switch network settings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	[ApiOperationId("getNetworkSwitchStormControl")]
-	[Get("/networks/{networkId}/switch/stormControl")]
-	Task<StormControl> GetStormControlAsync(
+	[ApiOperationId("getNetworkSwitchSettings")]
+	[Get("/networks/{networkId}/switch/settings")]
+	Task<SwitchSettings> GetNetworkSwitchSettingsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
 
 	/// <summary>
-	/// Update the storm control configuration for a switch network
+	/// Update switch network settings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="updateNetworkSwitchSettingsStormControl"></param>
-	[ApiOperationId("updateNetworkSwitchStormControl")]
-	[Put("/networks/{networkId}/switch/stormControl")]
-	Task<StormControl> UpdateStormControlAsync(
+	/// <param name="updateNetworkSwitchSettings"></param>
+	[ApiOperationId("updateNetworkSwitchSettings")]
+	[Put("/networks/{networkId}/switch/settings")]
+	Task<SwitchSettings> UpdateNetworkSwitchSettingsAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] StormControl updateNetworkSwitchSettingsStormControl,
+		[Body] SwitchSettings updateNetworkSwitchSettings,
 		CancellationToken cancellationToken = default
 		);
 }

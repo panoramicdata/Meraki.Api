@@ -1,33 +1,33 @@
-namespace Meraki.Api.Interfaces.Switch;
+namespace Meraki.Api.Interfaces.Products.Switch;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface ISwitchSettings
+public interface ISwitchDhcpServerPolicy
 {
 	/// <summary>
-	/// Returns the switch network settings
+	/// Return the DHCP server policy
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	[ApiOperationId("getNetworkSwitchSettings")]
-	[Get("/networks/{networkId}/switch/settings")]
-	Task<SwitchSettings> GetNetworkSwitchSettingsAsync(
+	[ApiOperationId("getNetworkSwitchDhcpServerPolicy")]
+	[Get("/networks/{networkId}/switch/dhcpServerPolicy")]
+	Task<DhcpServerPolicy> GetDhcpServerPolicyAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
 
 	/// <summary>
-	/// Update switch network settings
+	/// Update the DHCP server policy
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="updateNetworkSwitchSettings"></param>
-	[ApiOperationId("updateNetworkSwitchSettings")]
-	[Put("/networks/{networkId}/switch/settings")]
-	Task<SwitchSettings> UpdateNetworkSwitchSettingsAsync(
+	/// <param name="updateNetworkSwitchSettingsDhcpServerPolicy"></param>
+	[ApiOperationId("updateNetworkSwitchDhcpServerPolicy")]
+	[Put("/networks/{networkId}/switch/dhcpServerPolicy")]
+	Task<DhcpServerPolicy> UpdateDhcpServerPolicyAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] SwitchSettings updateNetworkSwitchSettings,
+		[Body] DhcpServerPolicy updateNetworkSwitchSettingsDhcpServerPolicy,
 		CancellationToken cancellationToken = default
 		);
 }

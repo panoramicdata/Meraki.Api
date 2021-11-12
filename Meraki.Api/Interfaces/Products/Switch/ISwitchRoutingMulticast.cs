@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Switch;
+namespace Meraki.Api.Interfaces.Products.Switch;
 public interface ISwitchRoutingMulticast
 {
 	/// <summary>

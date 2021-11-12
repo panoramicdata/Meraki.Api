@@ -1,33 +1,33 @@
-namespace Meraki.Api.Interfaces.Switch;
+namespace Meraki.Api.Interfaces.Products.Switch;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface ISwitchDscpToCosMappings
+public interface ISwitchMtu
 {
 	/// <summary>
-	/// Return the DSCP to CoS mappings
+	/// Return the MTU configuration
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	[ApiOperationId("getNetworkSwitchDscpToCosMappings")]
-	[Get("/networks/{networkId}/switch/dscpToCosMappings")]
-	Task<DscpToCosMappings> GetDscpToCosMappingsAsync(
+	[ApiOperationId("getNetworkSwitchMtu")]
+	[Get("/networks/{networkId}/switch/mtu")]
+	Task<SwitchMtu> GetNetworkSwitchMtuAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
 
 	/// <summary>
-	/// Update the DSCP to CoS mappings
+	/// Update the MTU configuration
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="settingsDscpToCosMappings"></param>
-	[ApiOperationId("updateNetworkSwitchDscpToCosMappings")]
-	[Put("/networks/{networkId}/switch/dscpToCosMappings")]
-	Task<DscpToCosMappings> UpdateDscpToCosMappingsAsync(
+	/// <param name="updateSwitchMtu"></param>
+	[ApiOperationId("updateNetworkSwitchMtu")]
+	[Put("/networks/{networkId}/switch/mtu")]
+	Task<SwitchMtu> UpdateNetworkSwitchMtuAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] DscpToCosMappings settingsDscpToCosMappings,
+		[Body] SwitchMtu updateSwitchMtu,
 		CancellationToken cancellationToken = default
 		);
 }

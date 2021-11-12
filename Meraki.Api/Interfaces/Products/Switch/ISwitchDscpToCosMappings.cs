@@ -1,31 +1,33 @@
-namespace Meraki.Api.Interfaces.Switch;
+namespace Meraki.Api.Interfaces.Products.Switch;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface ISwitchStp
+public interface ISwitchDscpToCosMappings
 {
 	/// <summary>
-	/// Returns STP settings
+	/// Return the DSCP to CoS mappings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	[Get("/networks/{networkId}/switch/stp")]
-	Task<SwitchSettingsStp> GetNetworkSwitchStpAsync(
+	[ApiOperationId("getNetworkSwitchDscpToCosMappings")]
+	[Get("/networks/{networkId}/switch/dscpToCosMappings")]
+	Task<DscpToCosMappings> GetDscpToCosMappingsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
 
 	/// <summary>
-	/// Updates STP settings
+	/// Update the DSCP to CoS mappings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="updateNetworkSwitchSettingsStp"></param>
-	[Put("/networks/{networkId}/switch/stp")]
-	Task<SwitchSettingsStp> UpdateNetworkSwitchStpAsync(
+	/// <param name="settingsDscpToCosMappings"></param>
+	[ApiOperationId("updateNetworkSwitchDscpToCosMappings")]
+	[Put("/networks/{networkId}/switch/dscpToCosMappings")]
+	Task<DscpToCosMappings> UpdateDscpToCosMappingsAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] SwitchSettingsStp updateNetworkSwitchSettingsStp,
+		[Body] DscpToCosMappings settingsDscpToCosMappings,
 		CancellationToken cancellationToken = default
 		);
 }
