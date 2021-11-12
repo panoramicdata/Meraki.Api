@@ -5,40 +5,9 @@ namespace Meraki.Api.Interfaces
 	/// </summary>
 	public interface INetworks
 	{
-		/// <summary>
-		/// Bind a network to a template.
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="bindNetwork">Body for binding a network</param>
-		[Post("/networks/{networkId}/bind")]
-		Task BindConfigurationTemplateAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] ConfigurationTemplateBindRequest bindNetwork,
-			CancellationToken cancellationToken = default);
 
 
 
-		/// <summary>
-		/// Delete a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Delete("/networks/{networkId}")]
-		Task DeleteAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// Return a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <returns>Task of Object</returns>
-		[Get("/networks/{networkId}")]
-		Task<Network> GetAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// List Air Marshal scan results from a network
@@ -72,39 +41,7 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default
 			);
 
-		/// <summary>
-		/// Split a combined network into individual networks for each type of device
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Post("/networks/{networkId}/split")]
-		Task<CombineNetworkResponse> SplitAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default);
 
-		/// <summary>
-		/// Unbind a network from a template.
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Post("/networks/{networkId}/unbind")]
-		Task UnbindConfigurationTemplateAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Update a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="networkUpdateRequest">Body for updating a network</param>
-		[Put("/networks/{networkId}")]
-		Task<Network> UpdateNetworkAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] NetworkUpdateRequest networkUpdateRequest,
-			CancellationToken cancellationToken = default
-			);
 
 		/// <summary>
 		/// Return the appliance settings for a network

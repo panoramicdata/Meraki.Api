@@ -68,4 +68,8 @@
 		</EmbeddedResource>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Interfaces\General\Devices\" />
+	</ItemGroup>
+
 </Project>

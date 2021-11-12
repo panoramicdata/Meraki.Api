@@ -12,4 +12,5 @@ public class OrganizationsSection
 	public IOrganizationsLicenses Licenses { get; internal set; } = null!;
 	public OrganizationsSamlSection Saml { get; internal set; } = new();
 	public IOrganizationsSnmp Snmp { get; internal set; } = null!;
+	public OrganizationsWebhooksSection Webhooks { get; internal set; } = new();
 }

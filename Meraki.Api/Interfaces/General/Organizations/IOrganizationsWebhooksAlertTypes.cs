@@ -1,15 +1,9 @@
-using Meraki.Api.Data;
-using Refit;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Meraki.Api.Interfaces
 {
 	/// <summary>
 	/// Represents a collection of functions to interact with the API endpoints
 	/// </summary>
-	public interface IAlertTypes
+	public interface IOrganizationsWebhooksAlertTypes
 	{
 		/// <summary>
 		/// Return a list of alert types to be used with managing webhook alerts

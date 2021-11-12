@@ -1,7 +1,4 @@
-﻿using Meraki.Api.Sections.General.Organizations;
-using SwitchSection = Meraki.Api.Sections.Products.Switch.SwitchSection;
-
-namespace Meraki.Api;
+﻿namespace Meraki.Api;
 
 /// <summary>
 /// A Meraki Dashboard API client!
@@ -70,7 +67,6 @@ public partial class MerakiClient : IDisposable
 		MvSense = RefitFor(MvSense)!;
 		NetworkAppliances = RefitFor(NetworkAppliances)!;
 		NamedTagScopes = RefitFor(NamedTagScopes)!;
-		Networks = RefitFor(Networks)!;
 		NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
 		NetworkHttpServers = RefitFor(NetworkHttpServers)!;
 		NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
@@ -90,7 +86,7 @@ public partial class MerakiClient : IDisposable
 		WirelessHealth = RefitFor(WirelessHealth)!;
 		WirelessSettings = RefitFor(WirelessSettings)!;
 
-		// General level sections
+		// General level sections //
 		Organizations = new OrganizationsSection
 		{
 			Organizations = RefitFor(Organizations.Organizations),
@@ -111,10 +107,23 @@ public partial class MerakiClient : IDisposable
 				Saml = RefitFor(Organizations.Saml.Saml),
 				Idp = RefitFor(Organizations.Saml.Idp),
 			},
-			Snmp = RefitFor(Organizations.Snmp)
+			Snmp = RefitFor(Organizations.Snmp),
+			Webhooks = new()
+			{
+				AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes)
+			}
 		};
 
-		// Product level sections
+		Networks = new()
+		{
+			Alerts = new()
+			{
+				Settings = RefitFor(Networks.Alerts.Settings)
+			},
+			Networks = RefitFor(Networks.Networks),
+		};
+
+		// Product level sections //
 		Appliance = new()
 		{
 			Security = new()
@@ -180,7 +189,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Alert settings
 	/// </summary>
-	public IAlertSettings AlertSettings { get; }
+	public INetworkAlertSettings AlertSettings { get; }
 
 	/// <summary>
 	/// API Usages
@@ -330,7 +339,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Networks
 	/// </summary>
-	public INetworks Networks { get; }
+	public NetworksSection Networks { get; } = new();
 
 	/// <summary>
 	/// Group policies
