@@ -17,7 +17,8 @@ namespace Meraki.Api.Test
 		{
 			var devices = await TestMerakiClient
 				.Networks
-				.GetAllDevicesAsync(Configuration.TestCameraNetworkId)
+				.Devices
+				.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId)
 				.ConfigureAwait(false);
 
 			devices
@@ -43,7 +44,8 @@ namespace Meraki.Api.Test
 		{
 			var devices = await TestMerakiClient
 				.Networks
-				.GetAllDevicesAsync(Configuration.TestCameraNetworkId)
+				.Devices
+				.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId)
 				.ConfigureAwait(false);
 
 			devices
@@ -60,7 +62,8 @@ namespace Meraki.Api.Test
 		{
 			var devices = await TestMerakiClient
 				.Networks
-				.GetAllDevicesAsync(Configuration.TestNetworkId)
+				.Devices
+				.GetNetworkDevicesAsync(Configuration.TestNetworkId)
 				.ConfigureAwait(false);
 
 			devices
@@ -142,7 +145,8 @@ namespace Meraki.Api.Test
 		{
 			var devices = await TestMerakiClient
 				.Networks
-				.GetAllDevicesAsync(Configuration.TestNetworkId)
+				.Devices
+				.GetNetworkDevicesAsync(Configuration.TestNetworkId)
 				.ConfigureAwait(false);
 
 			devices

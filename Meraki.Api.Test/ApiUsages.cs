@@ -16,8 +16,9 @@ namespace Meraki.Api.Test
 		public async void GetPageAsync_Succeeds()
 		{
 			var result = await TestMerakiClient
+				.Organizations
 				.ApiRequests
-				.GetPageAsync(Configuration.TestOrganizationId)
+				.GetOrganizationApiRequestsPagedAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<ApiUsage>>();
 			result.Should().NotBeNullOrEmpty();

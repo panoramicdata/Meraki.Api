@@ -10,7 +10,7 @@ namespace Meraki.Api.Interfaces
 	/// <summary>
 	/// Represents a collection of functions to interact with the API endpoints
 	/// </summary>
-	public interface ICameraQualityRetentionProfiles
+	public interface ICameraQualityAndRetention
 	{
 		/// <summary>
 		/// Retrieve a single quality retention profile

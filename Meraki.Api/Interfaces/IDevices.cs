@@ -1,9 +1,3 @@
-using Meraki.Api.Data;
-using Refit;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Meraki.Api.Interfaces
 {
 	/// <summary>
@@ -23,17 +17,6 @@ namespace Meraki.Api.Interfaces
 			[Body] BlinkLeds blinkLeds,
 			CancellationToken cancellationToken = default);
 
-		/// <summary>
-		/// Claim devices into a network.
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="claimNetworkDevices">Body for claiming a network device</param>
-		[Post("/networks/{networkId}/devices/claim")]
-		Task ClaimAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] DeviceClaimRequest claimNetworkDevices,
-			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// Cycle a set of switch ports
@@ -111,15 +94,7 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
-		/// <summary>
-		/// Remove a single device
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Post("/networks/{networkId}/devices/remove")]
-		Task RemoveAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default);
+
 
 		/// <summary>
 		/// Update the attributes of a device

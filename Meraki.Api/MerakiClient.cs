@@ -43,7 +43,6 @@ public partial class MerakiClient : IDisposable
 		AlertSettings = RefitFor(AlertSettings)!;
 		ApiRequests = RefitFor(ApiRequests)!;
 		BluetoothClients = RefitFor(BluetoothClients)!;
-		Wireless = RefitFor(Wireless)!;
 		CameraQualityRetentionProfiles = RefitFor(CameraQualityRetentionProfiles)!;
 		Cameras = RefitFor(Cameras)!;
 		ChangeLogs = RefitFor(ChangeLogs)!;
@@ -84,7 +83,7 @@ public partial class MerakiClient : IDisposable
 		Vlans = RefitFor(Vlans)!;
 		WebhookLogs = RefitFor(WebhookLogs)!;
 		WirelessHealth = RefitFor(WirelessHealth)!;
-		WirelessSettings = RefitFor(WirelessSettings)!;
+		WirelessSettings = RefitFor(WirelessSettings);
 
 		// General level sections //
 		Organizations = new OrganizationsSection
@@ -121,6 +120,7 @@ public partial class MerakiClient : IDisposable
 			{
 				Settings = RefitFor(Networks.Alerts.Settings)
 			},
+			Devices = RefitFor(Networks.Devices),
 			Networks = RefitFor(Networks.Networks),
 		};
 
@@ -138,6 +138,11 @@ public partial class MerakiClient : IDisposable
 				ThirdPartyVpnPeers = RefitFor(Appliance.Vpn.ThirdPartyVpnPeers),
 				VpnFirewallRules = RefitFor(Appliance.Vpn.VpnFirewallRules),
 			}
+		};
+
+		Camera = new()
+		{
+			QualityAndRetention = RefitFor(Camera.QualityAndRetention)
 		};
 
 		Switch = new()
@@ -167,6 +172,11 @@ public partial class MerakiClient : IDisposable
 			StormControl = RefitFor(Switch.StormControl),
 			Stp = RefitFor(Switch.Stp),
 			WarmSpare = RefitFor(Switch.WarmSpare),
+		};
+
+		Wireless = new()
+		{
+			Billing = RefitFor(Wireless.Billing)
 		};
 
 		Insight = new()
@@ -209,17 +219,14 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Bluetooth clients
 	/// </summary>
-	public IBluetoothClients BluetoothClients { get; }
+	public INetworksBluetoothClients BluetoothClients { get; }
 
-	/// <summary>
-	/// Wireless devices/networks
-	/// </summary>
-	public IWireless Wireless { get; }
+	public CameraSection Camera { get; } = new();
 
 	/// <summary>
 	/// Camera quality retention policies
 	/// </summary>
-	public ICameraQualityRetentionProfiles CameraQualityRetentionProfiles { get; }
+	public ICameraQualityAndRetention CameraQualityRetentionProfiles { get; }
 
 	/// <summary>
 	/// Cameras
@@ -428,6 +435,8 @@ public partial class MerakiClient : IDisposable
 	/// </summary>
 	public IWebhookLogs WebhookLogs { get; }
 
+	public WirelessSection Wireless { get; } = new();
+
 	/// <summary>
 	/// Wireless health
 	/// </summary>
@@ -436,7 +445,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Wireless settings
 	/// </summary>
-	public IWirelessSettings WirelessSettings { get; }
+	public IWirelessSettings WirelessSettings { get; } = null!;
 
 	/// <summary>
 	/// Used to find out whether the client has the ReadOnly option set

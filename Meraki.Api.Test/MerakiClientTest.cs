@@ -104,7 +104,8 @@ namespace Meraki.Api.Test
 		protected async Task RemoveNetworkAsync(string networkId)
 			=> await TestMerakiClient
 				.Networks
-				.DeleteAsync(networkId)
+				.Networks
+				.DeleteNetworkAsync(networkId)
 				.ConfigureAwait(false);
 	}
 }

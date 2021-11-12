@@ -65,7 +65,8 @@ namespace Meraki.Api.Test
 
 			var result = await TestMerakiClient
 				.Networks
-				.GetAllDevicesAsync(network.Id)
+				.Devices
+				.GetNetworkDevicesAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<Device>>();
 			result.Should().NotBeNull();
@@ -98,7 +99,8 @@ namespace Meraki.Api.Test
 			// And delete it again
 			await TestMerakiClient
 				.Networks
-				.DeleteAsync(newNetwork.Id)
+				.Networks
+				.DeleteNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 		}
 
@@ -143,19 +145,22 @@ namespace Meraki.Api.Test
 				// Get all network devices and remove them
 				var oldNetworkDevices = await TestMerakiClient
 					.Networks
-					.GetAllDevicesAsync(oldNetwork.Id)
+					.Devices
+					.GetNetworkDevicesAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
 				foreach (var oldNetworkDevice in oldNetworkDevices)
 				{
 					await TestMerakiClient
+						.Networks
 						.Devices
-						.RemoveAsync(oldNetwork.Id)
+						.RemoveNetworkDevicesAsync(oldNetwork.Id, oldNetworkDevice.Serial)
 						.ConfigureAwait(false);
 				}
 
 				await TestMerakiClient
 					.Networks
-					.DeleteAsync(oldNetwork.Id)
+					.Networks
+					.DeleteNetworkAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
 			}
 		}
@@ -172,14 +177,6 @@ namespace Meraki.Api.Test
 				.GetInventoryDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
-			if (device?.NetworkId != null)
-			{
-				// Unclaim the device
-				await TestMerakiClient
-					 .Devices
-					 .RemoveAsync(device.NetworkId)
-					 .ConfigureAwait(false);
-			}
 
 			// Perform any clean-up
 			await EnsureNetworkRemovedAsync(networkName)
@@ -204,7 +201,8 @@ namespace Meraki.Api.Test
 			// Re-fetch the network
 			var refetchedNetwork = await TestMerakiClient
 				.Networks
-				.GetAsync(newNetwork.Id)
+				.Networks
+				.GetNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			newNetwork.Name.Should().Be(refetchedNetwork.Name);
@@ -219,7 +217,8 @@ namespace Meraki.Api.Test
 			var configurationTemplate = configurationTemplates[0];
 			await TestMerakiClient
 				.Networks
-				.BindConfigurationTemplateAsync(
+				.Networks
+				.BindNetworkAsync(
 					newNetwork.Id,
 					new ConfigurationTemplateBindRequest
 					{
@@ -261,8 +260,9 @@ namespace Meraki.Api.Test
 
 			//--- Claim/Remove device
 			await TestMerakiClient
+				.Networks
 				.Devices
-				.ClaimAsync(newNetwork.Id, new DeviceClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
+				.ClaimNetworkDevicesAsync(newNetwork.Id, new DeviceClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
 				.ConfigureAwait(false);
 
 			// Make sure it's there.
@@ -373,13 +373,9 @@ namespace Meraki.Api.Test
 			// ----------
 
 			await TestMerakiClient
-				.Devices
-				.RemoveAsync(newNetwork.Id)
-				.ConfigureAwait(false);
-
-			await TestMerakiClient
 				.Networks
-				.UnbindConfigurationTemplateAsync(newNetwork.Id)
+				.Networks
+				.UnbindNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			//--- Delete the network
@@ -387,14 +383,16 @@ namespace Meraki.Api.Test
 			// Delete the network
 			await TestMerakiClient
 				.Networks
-				.DeleteAsync(newNetwork.Id)
+				.Networks
+				.DeleteNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			action = async () =>
 			{
 				var _ = await TestMerakiClient
 					.Networks
-					.GetAsync(newNetwork.Id)
+					.Networks
+					.GetNetworkAsync(newNetwork.Id)
 					.ConfigureAwait(false);
 			};
 
@@ -425,8 +423,9 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			var result = await TestMerakiClient
+				.Networks
 				.BluetoothClients
-				.GetAllAsync(network.Id)
+				.GetNetworkBluetoothClientsPagedAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<BluetoothClient>>();
 			result.Should().NotBeNull();

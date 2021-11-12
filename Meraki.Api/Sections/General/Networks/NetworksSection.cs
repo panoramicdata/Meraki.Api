@@ -3,5 +3,7 @@
 public class NetworksSection
 {
 	public NetworksAlertsSection Alerts { get; internal set; } = new();
-	public IOrganizationsNetworks Networks { get; internal set; } = null!;
+	public INetworksDevices Devices { get; internal set; } = null!;
+	public INetworks Networks { get; internal set; } = null!;
+	public INetworksBluetoothClients BluetoothClients { get; internal set; } = null!;
 }

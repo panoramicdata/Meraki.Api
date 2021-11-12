@@ -3,7 +3,7 @@ namespace Meraki.Api.Interfaces
 	/// <summary>
 	/// Represents a collection of functions to interact with the API endpoints
 	/// </summary>
-	public interface INetworks
+	public interface INetworksNotfinished
 	{
 
 
@@ -77,15 +77,6 @@ namespace Meraki.Api.Interfaces
 			CancellationToken cancellationToken = default
 			);
 
-		/// <summary>
-		/// List the devices in a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/devices")]
-		Task<List<Device>> GetAllDevicesAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// Return the NetFlow traffic reporting settings for a network
