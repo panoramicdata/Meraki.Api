@@ -1,10 +1,3 @@
-using Meraki.Api.Attributes;
-using Meraki.Api.Data;
-using Refit;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Meraki.Api.Interfaces
 {
 	/// <summary>
@@ -31,7 +24,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		[ApiOperationId("getDeviceCameraQualityAndRetention")]
 		[Get("/devices/{serial}/camera/qualityAndRetention")]
-		Task<CameraQualityAndRetention> GetQualityAndRetentionSettingsAsync(
+		Task<CameraQualityAndRetention> GetDeviceCameraQualityAndRetentionAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -43,7 +36,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cameraQualityAndRetention">Body for updating camera quality and retention settings</param>
 		[ApiOperationId("updateDeviceCameraQualityAndRetention")]
 		[Put("/devices/{serial}/camera/qualityAndRetention")]
-		Task<CameraQualityAndRetention> UpdateQualityAndRetentionSettingsAsync(
+		Task<CameraQualityAndRetention> UpdateDeviceCameraQualityAndRetentionAsync(
 			[AliasAs("serial")] string serial,
 			[Body] CameraQualityAndRetention cameraQualityAndRetention,
 			CancellationToken cancellationToken = default);
@@ -55,7 +48,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial id</param>
 		[ApiOperationId("getDeviceCameraSense")]
 		[Get("/devices/{serial}/camera/sense")]
-		Task<CameraSense> GetSenseAsync(
+		Task<CameraSense> GetDeviceCameraSenseAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -67,7 +60,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cameraSense">Body for updating device camera sense</param>
 		[ApiOperationId("updateDeviceCameraSense")]
 		[Put("/devices/{serial}/camera/sense")]
-		Task<CameraSense> UpdateSenseAsync(
+		Task<CameraSense> UpdateDeviceCameraSenseAsync(
 			[AliasAs("serial")] string serial,
 			[Body] CameraSense cameraSense,
 			CancellationToken cancellationToken = default);
@@ -79,7 +72,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial id</param>
 		[ApiOperationId("getDeviceCameraVideoSettings")]
 		[Get("/devices/{serial}/camera/video/settings")]
-		Task<CameraVideo> GetVideoAsync(
+		Task<CameraVideo> GetDeviceCameraVideoSettingsAsync(
 			[AliasAs("serial")] string serial,
 			CancellationToken cancellationToken = default);
 
@@ -91,7 +84,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="cameraVideoSetting">Body for updating device camera video setting</param>
 		[ApiOperationId("updateDeviceCameraVideoSettings")]
 		[Put("/devices/{serial}/camera/video/settings")]
-		Task<CameraVideo> UpdateVideoAsync(
+		Task<CameraVideo> UpdateDeviceCameraVideoSettingsAsync(
 			[AliasAs("serial")] string serial,
 			[Body] CameraVideo cameraVideoSetting,
 			CancellationToken cancellationToken = default);
@@ -123,7 +116,7 @@ namespace Meraki.Api.Interfaces
 		/// <param name="serial">The serial number</param>
 		/// <param name="timestamp">[optional] The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds). If no timestamp is specified, we will assume current time. (optional)</param>
 		[Get("/devices/{serial}/camera/videoLink")]
-		Task<VideoLink> GetVideoLinkAsync(
+		Task<VideoLink> GetDeviceCameraVideoLinkAsync(
 			[AliasAs("serial")] string serial,
 			[AliasAs("timestamp")] string timestamp = null!,
 			CancellationToken cancellationToken = default);

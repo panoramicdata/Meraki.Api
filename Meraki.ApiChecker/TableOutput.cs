@@ -19,7 +19,7 @@ namespace Meraki.ApiChecker
 			string? tagRestriction)
 		{
 			var implementedTable = new Table()
-				.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation")
+				.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation", "NewMethodName")
 				.BorderStyle("green");
 			var duplicateTable = new Table()
 				.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation")
@@ -48,12 +48,16 @@ namespace Meraki.ApiChecker
 							case 0:
 								throw new InvalidDataException("Didn't expect to get 0 as a count of existing implementations when not null");
 							case 1:
+								var methodName = existingImplementations[0].Method.Name ?? string.Empty;
+								var expectedMethodName = pathOperation.Value.OperationId.FirstCharToUpper() + "Async";
 								implementedTable.AddRow(
 									pathOperation.Key.ToString(),
 									pathKpv.Key,
 									pathOperation.Value.OperationId,
 									string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
-									existingImplementations[0].Method.Name ?? string.Empty);
+									methodName,
+									expectedMethodName != methodName ? expectedMethodName : String.Empty
+									);
 								implementedEndpoints?[pathKpv.Key].Remove(existingImplementations[0]);
 								break;
 							default:
