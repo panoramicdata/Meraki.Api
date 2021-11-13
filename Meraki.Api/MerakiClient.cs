@@ -38,23 +38,7 @@ public partial class MerakiClient : IDisposable
 			})
 		};
 
-		ActionBatches = RefitFor(ActionBatches)!;
-		Admins = RefitFor(Admins)!;
-		AlertSettings = RefitFor(AlertSettings)!;
-		ApiRequests = RefitFor(ApiRequests)!;
-		BluetoothClients = RefitFor(BluetoothClients)!;
-		CameraQualityRetentionProfiles = RefitFor(CameraQualityRetentionProfiles)!;
-		Cameras = RefitFor(Cameras)!;
-		ChangeLogs = RefitFor(ChangeLogs)!;
-		ConnectivityMonitoringDestinations = RefitFor(ConnectivityMonitoringDestinations)!;
-		Floorplans = RefitFor(Floorplans)!;
 		LinkAggregations = RefitFor(LinkAggregations)!;
-		MgDhcpSettings = RefitFor(MgDhcpSettings)!;
-		MgLanSettings = RefitFor(MgLanSettings)!;
-		MgPortForwardingRules = RefitFor(MgPortForwardingRules)!;
-		MgSubnetPoolSettings = RefitFor(MgSubnetPoolSettings)!;
-		MgUplinkSettings = RefitFor(MgUplinkSettings)!;
-		MonitoredMediaServers = RefitFor(MonitoredMediaServers)!;
 		MrLayer3FirewallRules = RefitFor(MrLayer3FirewallRules)!;
 		MvSense = RefitFor(MvSense)!;
 		NetworkAppliances = RefitFor(NetworkAppliances)!;
@@ -263,64 +247,11 @@ public partial class MerakiClient : IDisposable
 
 	public ApplianceSection Appliance { get; } = new();
 
-	/// <summary>
-	/// Action batches
-	/// </summary>
-	public IOrganizationsActionBatches ActionBatches { get; }
-
-	/// <summary>
-	/// Admins
-	/// </summary>
-	public IOrganizationsAdmins Admins { get; }
-
-	/// <summary>
-	/// Alert settings
-	/// </summary>
-	public INetworksAlertSettings AlertSettings { get; }
-
-	/// <summary>
-	/// API Usages
-	/// </summary>
-	public IOrganizationsApiRequests ApiRequests { get; }
-
-	/// <summary>
-	/// Bluetooth clients
-	/// </summary>
-	public INetworksBluetoothClients BluetoothClients { get; }
-
 	public CameraSection Camera { get; } = new();
 
 	public CellularGatewaySection CellularGateway { get; } = new();
 
-	/// <summary>
-	/// Camera quality retention policies
-	/// </summary>
-	public ICameraQualityAndRetention CameraQualityRetentionProfiles { get; }
-
-	/// <summary>
-	/// Cameras
-	/// </summary>
-	public ICameras Cameras { get; }
-
-	/// <summary>
-	/// Change logs
-	/// </summary>
-	public IOrganizationsConfigurationChanges ChangeLogs { get; }
-
-	/// <summary>
-	/// Connectivity monitoring destinations
-	/// </summary>
-	public IApplianceConnectivityMonitoringDestinations ConnectivityMonitoringDestinations { get; }
-
-	/// <summary>
-	/// Devices
-	/// </summary>
 	public DevicesSection Devices { get; } = new();
-
-	/// <summary>
-	/// Floor plans
-	/// </summary>
-	public INetworksFloorplans Floorplans { get; }
 
 	public InsightSection Insight { get; } = new();
 
@@ -343,36 +274,6 @@ public partial class MerakiClient : IDisposable
 	/// MQTT brokers
 	/// </summary>
 	public INetworkMqttBrokers NetworkMqttBrokers { get; }
-
-	/// <summary>
-	/// MG DHCP settings
-	/// </summary>
-	public ICellularGatewayDhcp MgDhcpSettings { get; }
-
-	/// <summary>
-	/// MG LAN settings
-	/// </summary>
-	public ICellularGatewayLan MgLanSettings { get; }
-
-	/// <summary>
-	/// MG port forwarding rules
-	/// </summary>
-	public ICellularGatewayPortForwardingRules MgPortForwardingRules { get; }
-
-	/// <summary>
-	/// MG subnet pool settings
-	/// </summary>
-	public ICellularGatewaySubnetPool MgSubnetPoolSettings { get; }
-
-	/// <summary>
-	/// MG uplink settings
-	/// </summary>
-	public ICellularGatewayUplink MgUplinkSettings { get; }
-
-	/// <summary>
-	/// Monitored media servers
-	/// </summary>
-	public IInsightMonitoredMediaServers MonitoredMediaServers { get; }
 
 	/// <summary>
 	/// MR layer 3 firewall rules
