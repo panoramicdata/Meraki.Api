@@ -158,6 +158,17 @@ public partial class MerakiClient : IDisposable
 			{
 				Subnets = RefitFor(Appliance.Dhpc.Subnets)
 			},
+			Firewall = new()
+			{
+				CellularFirewallRules = RefitFor(Appliance.Firewall.CellularFirewallRules),
+				FirewalledServices = RefitFor(Appliance.Firewall.FirewalledServices),
+				InboundFirewallRules = RefitFor(Appliance.Firewall.InboundFirewallRules),
+				L3FirewallRules = RefitFor(Appliance.Firewall.L3FirewallRules),
+				L7FirewallRules = RefitFor(Appliance.Firewall.L7FirewallRules),
+				OneToManyNatRules = RefitFor(Appliance.Firewall.OneToManyNatRules),
+				OneToOneNatRules = RefitFor(Appliance.Firewall.OneToOneNatRules),
+				PortForwardingRules = RefitFor(Appliance.Firewall.PortForwardingRules)
+			},
 			Vpn = new()
 			{
 				Bgp = RefitFor(Appliance.Vpn.Bgp),
@@ -212,7 +223,11 @@ public partial class MerakiClient : IDisposable
 				LatencyHistory = RefitFor(Wireless.Clients.LatencyHistory),
 				LatencyStats = RefitFor(Wireless.Clients.LatencyStats)
 			},
-			ClientCountHistory = RefitFor(Wireless.ClientCountHistory)
+			ClientCountHistory = RefitFor(Wireless.ClientCountHistory),
+			Ssids = new()
+			{
+				Firewall = RefitFor(Wireless.Ssids.Firewall)
+			}
 		};
 
 		Insight = new()
