@@ -12,7 +12,7 @@ public interface ISwitchPorts
 	/// <param name="serial">The serial number</param>
 	[ApiOperationId("getDeviceSwitchPorts")]
 	[Get("/devices/{serial}/switch/ports")]
-	Task<List<SwitchPort>> GetAllAsync(
+	Task<List<SwitchPort>> GetDeviceSwitchPortsAsync(
 		[AliasAs("serial")] string serial,
 		CancellationToken cancellationToken = default
 		);
@@ -25,7 +25,7 @@ public interface ISwitchPorts
 	/// <param name="portId">The port id</param>
 	[ApiOperationId("getDeviceSwitchPort")]
 	[Get("/devices/{serial}/switch/ports/{portId}")]
-	Task<SwitchPort> GetAsync(
+	Task<SwitchPort> GetDeviceSwitchPortAsync(
 		[AliasAs("serial")] string serial,
 		[AliasAs("portId")] string portId,
 		CancellationToken cancellationToken = default
@@ -40,7 +40,7 @@ public interface ISwitchPorts
 	/// <param name="deviceSwitchPort">The new configuration</param>
 	[ApiOperationId("updateDeviceSwitchPort")]
 	[Put("/devices/{serial}/switch/ports/{portId}")]
-	Task<SwitchPort> UpdateAsync(
+	Task<SwitchPort> UpdateDeviceSwitchPortAsync(
 		[AliasAs("serial")] string serial,
 		[AliasAs("portId")] string portId,
 		[Body] SwitchPort deviceSwitchPort,
@@ -76,4 +76,16 @@ public interface ISwitchPorts
 		[AliasAs("timespan")] double? timespan = null,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Cycle a set of switch ports
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="serial">The serial number</param>
+	/// <param name="deviceSwitchPortsCycleRequest">Body for cycling switch ports</param>
+	[Post("/devices/{serial}/switch/ports/cycle")]
+	Task<DeviceSwitchPortsCycleRequest> CycleDeviceSwitchPortsAsync(
+		[AliasAs("serial")] string serial,
+		[Body] DeviceSwitchPortsCycleRequest deviceSwitchPortsCycleRequest,
+		CancellationToken cancellationToken = default);
 }

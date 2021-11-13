@@ -31,7 +31,7 @@ namespace Meraki.Api.Test
 
 			var device = await TestMerakiClient
 				.Devices
-				.GetAsync(deviceSerial)
+				.GetDeviceAsync(deviceSerial)
 				.ConfigureAwait(false);
 			device.Should().NotBeNull();
 
@@ -74,7 +74,7 @@ namespace Meraki.Api.Test
 
 			var device = await TestMerakiClient
 				.Devices
-				.GetAsync(deviceSerial)
+				.GetDeviceAsync(deviceSerial)
 				.ConfigureAwait(false);
 
 			device.Should().NotBeNull();
@@ -86,7 +86,7 @@ namespace Meraki.Api.Test
 				device.Address = string.Empty;
 				await TestMerakiClient
 					.Devices
-					.UpdateAsync(
+					.UpdateDeviceAsync(
 						device.Serial,
 						device
 					)
@@ -98,7 +98,7 @@ namespace Meraki.Api.Test
 			device.MoveMapMarker = true;
 			var updatedDevice = await TestMerakiClient
 				.Devices
-				.UpdateAsync(
+				.UpdateDeviceAsync(
 					device.Serial,
 					device
 				)
@@ -125,7 +125,7 @@ namespace Meraki.Api.Test
 
 			var outcome = await TestMerakiClient
 				.Devices
-				.BlinkLedsAsync(
+				.BlinkDeviceLedsAsync(
 					onlineDevice!.Serial,
 					new BlinkLeds
 					{

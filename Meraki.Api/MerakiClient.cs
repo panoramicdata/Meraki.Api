@@ -127,6 +127,7 @@ public partial class MerakiClient : IDisposable
 		// Product level sections //
 		Appliance = new()
 		{
+			Performance = RefitFor(Appliance.Performance),
 			Security = new()
 			{
 				Intrusion = RefitFor(Appliance.Security.Intrusion)
@@ -150,6 +151,7 @@ public partial class MerakiClient : IDisposable
 			AccessControlLists = RefitFor(Switch.AccessControlLists),
 			AccessPolicies = RefitFor(Switch.AccessPolicies),
 			AlternateManagementInterface = RefitFor(Switch.AlternateManagementInterface),
+			Devices = RefitFor(Switch.Devices),
 			DscpToCosMappings = RefitFor(Switch.DscpToCosMappings),
 			DhcpServerPolicy = RefitFor(Switch.DhcpServerPolicy),
 			ConfigTemplates = new()

@@ -268,7 +268,7 @@ namespace Meraki.Api.Test
 			// Make sure it's there.
 			var fetchedDevice = await TestMerakiClient
 				.Devices
-				.GetAsync(newNetwork.Id)
+				.GetDeviceAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			fetchedDevice.Should().BeOfType<Device>();
 			fetchedDevice.Should().NotBeNull();
@@ -279,7 +279,7 @@ namespace Meraki.Api.Test
 				fetchedDevice.Address = new string('x', Device.MaxAddressLength + 1);
 				await TestMerakiClient
 					.Devices
-					.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
+					.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 					.ConfigureAwait(false);
 			};
 
@@ -292,14 +292,14 @@ namespace Meraki.Api.Test
 			fetchedDevice.Address = new string('x', Device.MaxAddressLength);
 			await TestMerakiClient
 				.Devices
-				.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
+				.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Setting the address should succeed
 			fetchedDevice.Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA";
 			await TestMerakiClient
 				.Devices
-				.UpdateAsync(fetchedDevice.Serial, fetchedDevice)
+				.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Get the management interface settings
@@ -524,7 +524,7 @@ namespace Meraki.Api.Test
 
 			var switchPorts = await TestMerakiClient
 				.Switch.Ports
-				.GetAllAsync(Configuration.TestSwitchSerial, default)
+				.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, default)
 				.ConfigureAwait(false);
 
 			switchPorts.Should().NotBeNullOrEmpty();

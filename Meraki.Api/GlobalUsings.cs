@@ -2,6 +2,7 @@
 global using Meraki.Api.Data;
 global using Meraki.Api.Exceptions;
 global using Meraki.Api.Interfaces;
+global using Meraki.Api.Interfaces.General.Devices;
 global using Meraki.Api.Interfaces.General.Networks;
 global using Meraki.Api.Interfaces.General.Organizations;
 global using Meraki.Api.Interfaces.Products.Appliance;
