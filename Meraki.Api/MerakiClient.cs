@@ -137,6 +137,11 @@ public partial class MerakiClient : IDisposable
 				UsageHistory = RefitFor(Networks.Clients.UsageHistory)
 			},
 			Devices = RefitFor(Networks.Devices),
+			Events = new()
+			{
+				Events = RefitFor(Networks.Events.Events),
+				EventsTypes = RefitFor(Networks.Events.EventsTypes)
+			},
 			Networks = RefitFor(Networks.Networks),
 		};
 
@@ -148,6 +153,10 @@ public partial class MerakiClient : IDisposable
 			Security = new()
 			{
 				Intrusion = RefitFor(Appliance.Security.Intrusion)
+			},
+			Dhpc = new()
+			{
+				Subnets = RefitFor(Appliance.Dhpc.Subnets)
 			},
 			Vpn = new()
 			{
