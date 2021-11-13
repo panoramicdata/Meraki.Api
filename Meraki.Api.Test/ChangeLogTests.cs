@@ -14,11 +14,12 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void GetChangeLogEntriesAsync_Succeeds()
+		public async void GetChangeLogEntriesPagedAsync_Succeeds()
 		{
 			var result = await TestMerakiClient
-				.ChangeLogs
-				.GetPagedAsync(Configuration.TestOrganizationId)
+				.Organizations
+				.ConfigurationChanges
+				.GetOrganizationConfigurationChangesPagedAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<ChangeLogEntry>>();
 			result.Should().NotBeNull();
@@ -29,8 +30,9 @@ namespace Meraki.Api.Test
 		public async void GetAllAsync_Succeeds()
 		{
 			var result = await TestMerakiClient
-				.ChangeLogs
-				.GetAllAsync(organizationId: Configuration.TestOrganizationId, cancellationToken: CancellationToken.None)
+				.Organizations
+				.ConfigurationChanges
+				.GetOrganizationConfigurationChangesAllAsync(organizationId: Configuration.TestOrganizationId, cancellationToken: CancellationToken.None)
 				.ConfigureAwait(false);
 
 			result.Should().BeOfType<List<ChangeLogEntry>>();

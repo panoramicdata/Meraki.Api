@@ -57,8 +57,9 @@ namespace Meraki.Api.Test
 		private async Task<List<ConfigurationTemplate>> GetAllAsync()
 		{
 			var configurationTemplates = await TestMerakiClient
-				.ConfigurationTemplates
-				.GetAllAsync(Configuration.TestOrganizationId)
+				.Organizations
+				.ConfigTemplates
+				.GetOrganizationConfigTemplatesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			configurationTemplates.Should().BeOfType<List<ConfigurationTemplate>>();
 			configurationTemplates.Should().NotBeNull();

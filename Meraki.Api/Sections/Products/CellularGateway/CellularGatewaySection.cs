@@ -8,3 +8,4 @@ public class CellularGatewaySection
 	public ICellularGatewayPortForwardingRules PortForwardingRules { get; internal set; } = null!;
 	public ICellularGatewaySubnetPool SubnetPool { get; internal set; } = null!;
 	public ICellularGatewayUplink Uplink { get; internal set; } = null!;
+}

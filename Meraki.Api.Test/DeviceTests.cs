@@ -31,6 +31,7 @@ namespace Meraki.Api.Test
 
 			var device = await TestMerakiClient
 				.Devices
+				.Devices
 				.GetDeviceAsync(deviceSerial)
 				.ConfigureAwait(false);
 			device.Should().NotBeNull();
@@ -74,6 +75,7 @@ namespace Meraki.Api.Test
 
 			var device = await TestMerakiClient
 				.Devices
+				.Devices
 				.GetDeviceAsync(deviceSerial)
 				.ConfigureAwait(false);
 
@@ -86,6 +88,7 @@ namespace Meraki.Api.Test
 				device.Address = string.Empty;
 				await TestMerakiClient
 					.Devices
+					.Devices
 					.UpdateDeviceAsync(
 						device.Serial,
 						device
@@ -97,6 +100,7 @@ namespace Meraki.Api.Test
 			device.Address = "Picadilly Circus, London";
 			device.MoveMapMarker = true;
 			var updatedDevice = await TestMerakiClient
+				.Devices
 				.Devices
 				.UpdateDeviceAsync(
 					device.Serial,
@@ -124,6 +128,7 @@ namespace Meraki.Api.Test
 			onlineDevice.Should().NotBeNull("Could not find an online device");
 
 			var outcome = await TestMerakiClient
+				.Devices
 				.Devices
 				.BlinkDeviceLedsAsync(
 					onlineDevice!.Serial,
@@ -159,6 +164,7 @@ namespace Meraki.Api.Test
 
 			var deviceManagementInterfaceSettings = await TestMerakiClient
 				.Devices
+				.ManagementInterface
 				.GetManagementInterfaceAsync(deviceSerial)
 				.ConfigureAwait(false);
 

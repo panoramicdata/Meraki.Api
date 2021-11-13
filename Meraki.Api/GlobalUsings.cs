@@ -10,6 +10,7 @@ global using Meraki.Api.Interfaces.Products.CellularGateway;
 global using Meraki.Api.Interfaces.Products.Insight;
 global using Meraki.Api.Interfaces.Products.Switch;
 global using Meraki.Api.Interfaces.Products.Wireless;
+global using Meraki.Api.Sections.General.Devices;
 global using Meraki.Api.Sections.General.Networks;
 global using Meraki.Api.Sections.General.Organizations;
 global using Meraki.Api.Sections.Products.Appliance;

@@ -209,8 +209,9 @@ namespace Meraki.Api.Test
 
 			// Bind and unbind a configuration template
 			var configurationTemplates = await TestMerakiClient
-				.ConfigurationTemplates
-				.GetAllAsync(Configuration.TestOrganizationId)
+				.Organizations
+				.ConfigTemplates
+				.GetOrganizationConfigTemplatesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			configurationTemplates.Should().NotBeNull();
 			configurationTemplates.Should().NotBeEmpty();
@@ -268,6 +269,7 @@ namespace Meraki.Api.Test
 			// Make sure it's there.
 			var fetchedDevice = await TestMerakiClient
 				.Devices
+				.Devices
 				.GetDeviceAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			fetchedDevice.Should().BeOfType<Device>();
@@ -278,6 +280,7 @@ namespace Meraki.Api.Test
 			{
 				fetchedDevice.Address = new string('x', Device.MaxAddressLength + 1);
 				await TestMerakiClient
+					.Devices
 					.Devices
 					.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 					.ConfigureAwait(false);
@@ -292,6 +295,7 @@ namespace Meraki.Api.Test
 			fetchedDevice.Address = new string('x', Device.MaxAddressLength);
 			await TestMerakiClient
 				.Devices
+				.Devices
 				.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
@@ -299,12 +303,14 @@ namespace Meraki.Api.Test
 			fetchedDevice.Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA";
 			await TestMerakiClient
 				.Devices
+				.Devices
 				.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Get the management interface settings
 			var wanSpecs = await TestMerakiClient
 				.Devices
+				.ManagementInterface
 				.GetManagementInterfaceAsync(fetchedDevice.Serial)
 				.ConfigureAwait(false);
 			wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
@@ -330,6 +336,7 @@ namespace Meraki.Api.Test
 			};
 			var updatedWanSpecs = await TestMerakiClient
 				.Devices
+				.ManagementInterface
 				.UpdateManagementInterfaceAsync(fetchedDevice.Serial, new DeviceManagementInterfaceSettings
 				{
 					Wan1 = new Wan
@@ -350,6 +357,7 @@ namespace Meraki.Api.Test
 			//// Get the management interface settings
 			var wanSpecsRefetch = await TestMerakiClient
 				.Devices
+				.ManagementInterface
 				.GetManagementInterfaceAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			wanSpecsRefetch.Should().NotBeNull();
@@ -409,6 +417,8 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			var result = await TestMerakiClient
+				.Networks
+				.Clients
 				.Clients
 				.GetByNetworkAsync(network.Id)
 				.ConfigureAwait(false);

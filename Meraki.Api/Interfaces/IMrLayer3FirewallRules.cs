@@ -1,8 +1,3 @@
-using Meraki.Api.Data;
-using Refit;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Meraki.Api.Interfaces
 {
 	/// <summary>

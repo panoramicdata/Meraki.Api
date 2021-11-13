@@ -46,16 +46,9 @@ public partial class MerakiClient : IDisposable
 		CameraQualityRetentionProfiles = RefitFor(CameraQualityRetentionProfiles)!;
 		Cameras = RefitFor(Cameras)!;
 		ChangeLogs = RefitFor(ChangeLogs)!;
-		Clients = RefitFor(Clients)!;
-		ConfigurationTemplates = RefitFor(ConfigurationTemplates)!;
 		ConnectivityMonitoringDestinations = RefitFor(ConnectivityMonitoringDestinations)!;
-		DashboardBrandingPolicies = RefitFor(DashboardBrandingPolicies)!;
-		Devices = RefitFor(Devices)!;
-		Events = RefitFor(Events)!;
-		Firewalls = RefitFor(Firewalls)!;
 		Floorplans = RefitFor(Floorplans)!;
 		LinkAggregations = RefitFor(LinkAggregations)!;
-		MgConnectivityMonitoringDestinations = RefitFor(MgConnectivityMonitoringDestinations)!;
 		MgDhcpSettings = RefitFor(MgDhcpSettings)!;
 		MgLanSettings = RefitFor(MgLanSettings)!;
 		MgPortForwardingRules = RefitFor(MgPortForwardingRules)!;
@@ -86,6 +79,15 @@ public partial class MerakiClient : IDisposable
 		WirelessSettings = RefitFor(WirelessSettings);
 
 		// General level sections //
+		Devices = new()
+		{
+			Clients = RefitFor(Devices.Clients),
+			Devices = RefitFor(Devices.Devices),
+			LldpCdp = RefitFor(Devices.LldpCdp),
+			LossAndLatencyHistory = RefitFor(Devices.LossAndLatencyHistory),
+			ManagementInterface = RefitFor(Devices.ManagementInterface)
+		};
+
 		Organizations = new OrganizationsSection
 		{
 			Organizations = RefitFor(Organizations.Organizations),
@@ -306,39 +308,14 @@ public partial class MerakiClient : IDisposable
 	public IOrganizationsConfigurationChanges ChangeLogs { get; }
 
 	/// <summary>
-	/// Clients
-	/// </summary>
-	public IClients Clients { get; }
-
-	/// <summary>
-	/// Configuration templates
-	/// </summary>
-	public IConfigurationTemplates ConfigurationTemplates { get; }
-
-	/// <summary>
 	/// Connectivity monitoring destinations
 	/// </summary>
 	public IApplianceConnectivityMonitoringDestinations ConnectivityMonitoringDestinations { get; }
 
 	/// <summary>
-	/// Dashboard branding policies
-	/// </summary>
-	public IDashboardBrandingPolicies DashboardBrandingPolicies { get; }
-
-	/// <summary>
 	/// Devices
 	/// </summary>
-	public IDevices Devices { get; }
-
-	/// <summary>
-	/// Events
-	/// </summary>
-	public IEvents Events { get; }
-
-	/// <summary>
-	/// Firewalled services
-	/// </summary>
-	public IFirewalls Firewalls { get; }
+	public DevicesSection Devices { get; } = new();
 
 	/// <summary>
 	/// Floor plans
@@ -366,11 +343,6 @@ public partial class MerakiClient : IDisposable
 	/// MQTT brokers
 	/// </summary>
 	public INetworkMqttBrokers NetworkMqttBrokers { get; }
-
-	/// <summary>
-	/// MG connectivity monitoring destinations
-	/// </summary>
-	public IMgConnectivityMonitoringDestinations MgConnectivityMonitoringDestinations { get; }
 
 	/// <summary>
 	/// MG DHCP settings

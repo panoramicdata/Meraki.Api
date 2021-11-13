@@ -62,7 +62,7 @@ public interface IOrganizationsConfigurationChanges
 		CancellationToken cancellationToken = default)
 			=> MerakiClient.GetAllAsync(
 				(startingAfter, cancellationToken)
-				=> GetPagedApiResponseAsync(
+				=> GetOrganizationConfigurationChangesApiResponseAsync(
 					organizationId,
 					t0,
 					t1,
