@@ -144,7 +144,8 @@ public partial class MerakiClient : IDisposable
 				Events = RefitFor(Networks.Events.Events),
 				EventsTypes = RefitFor(Networks.Events.EventsTypes)
 			},
-			FirmwareUpgrades = RefitFor(Networks.FirmwareUpgrades)
+			FirmwareUpgrades = RefitFor(Networks.FirmwareUpgrades),
+			Floorplans = RefitFor(Networks.Floorplans)
 		};
 
 		// Product level sections //
@@ -198,6 +199,7 @@ public partial class MerakiClient : IDisposable
 				Profiles = RefitFor(Switch.ConfigTemplates.Profiles)
 			},
 			Mtu = RefitFor(Switch.Mtu),
+			LinkAggregations = RefitFor(Switch.LinkAggregations),
 			Ports = RefitFor(Switch.Ports),
 			PortSchedules = RefitFor(Switch.PortSchedules),
 			QosRules = RefitFor(Switch.QosRules),
@@ -329,7 +331,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Floor plans
 	/// </summary>
-	public IFloorplans Floorplans { get; }
+	public INetworksFloorplans Floorplans { get; }
 
 	public InsightSection Insight { get; } = new();
 
@@ -341,7 +343,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Link aggregations
 	/// </summary>
-	public ILinkAggregations LinkAggregations { get; }
+	public ISwitchLinkAggregations LinkAggregations { get; }
 
 	/// <summary>
 	/// Meraki auth users

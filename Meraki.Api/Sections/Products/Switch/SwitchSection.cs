@@ -10,6 +10,7 @@ public class SwitchSection
 	public ISwitchDhcpServerPolicy DhcpServerPolicy { get; internal set; } = null!;
 	public ISwitchDscpToCosMappings DscpToCosMappings { get; internal set; } = null!;
 	public ISwitchMtu Mtu { get; internal set; } = null!;
+	public ISwitchLinkAggregations LinkAggregations { get; internal set; } = null!;
 	public ISwitchPorts Ports { get; internal set; } = null!;
 	public ISwitchPortSchedules PortSchedules { get; internal set; } = null!;
 	public ISwitchQosRules QosRules { get; internal set; } = null!;
