@@ -186,6 +186,14 @@ public partial class MerakiClient : IDisposable
 			QualityAndRetention = RefitFor(Camera.QualityAndRetention)
 		};
 
+		CellularGateway = new()
+		{
+			ConnectivityMonitoringDestinations = RefitFor(CellularGateway.ConnectivityMonitoringDestinations),
+			Dhcp = RefitFor(CellularGateway.Dhcp),
+			Lan = RefitFor(CellularGateway.Lan),
+			PortForwardingRules = RefitFor(CellularGateway.PortForwardingRules),
+		};
+
 		Switch = new()
 		{
 			AccessControlLists = RefitFor(Switch.AccessControlLists),
@@ -278,6 +286,8 @@ public partial class MerakiClient : IDisposable
 
 	public CameraSection Camera { get; } = new();
 
+	public CellularGatewaySection CellularGateway { get; } = new();
+
 	/// <summary>
 	/// Camera quality retention policies
 	/// </summary>
@@ -363,17 +373,17 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// MG DHCP settings
 	/// </summary>
-	public IMgDhcpSettings MgDhcpSettings { get; }
+	public ICellularGatewayDhcp MgDhcpSettings { get; }
 
 	/// <summary>
 	/// MG LAN settings
 	/// </summary>
-	public IMgLanSettings MgLanSettings { get; }
+	public ICellularGatewayLan MgLanSettings { get; }
 
 	/// <summary>
 	/// MG port forwarding rules
 	/// </summary>
-	public IMgPortForwardingRules MgPortForwardingRules { get; }
+	public ICellularGatewayPortForwardingRules MgPortForwardingRules { get; }
 
 	/// <summary>
 	/// MG subnet pool settings
