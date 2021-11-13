@@ -2,5 +2,5 @@
 
 public class NetworksAlertsSection
 {
-	public INetworkAlertSettings Settings { get; internal set; } = null!;
+	public INetworksAlertSettings Settings { get; internal set; } = null!;
 }

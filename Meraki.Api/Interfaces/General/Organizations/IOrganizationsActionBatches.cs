@@ -3,7 +3,7 @@ namespace Meraki.Api.Interfaces.General.Organizations;
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface IActionBatches
+public interface IOrganizationsActionBatches
 {
 	/// <summary>
 	/// Create an action batch

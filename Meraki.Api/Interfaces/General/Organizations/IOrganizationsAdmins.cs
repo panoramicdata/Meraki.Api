@@ -3,7 +3,7 @@
 /// <summary>
 /// Admins interface
 /// </summary>
-public interface IAdmins
+public interface IOrganizationsAdmins
 {
     /// <summary>
     /// Create a new dashboard administrator

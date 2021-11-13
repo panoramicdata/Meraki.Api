@@ -97,6 +97,12 @@ public partial class MerakiClient : IDisposable
 				Settings = RefitFor(Organizations.AdaptivePolicy.Settings)
 			},
 			ApiRequests = RefitFor(Organizations.ApiRequests),
+			BrandingPolicies = new()
+			{
+				BrandingPolicies = RefitFor(Organizations.BrandingPolicies.BrandingPolicies),
+				Priorities = RefitFor(Organizations.BrandingPolicies.Priorities)
+			},
+			ConfigurationChanges = RefitFor(Organizations.ConfigurationChanges),
 			Devices = RefitFor(Organizations.Devices),
 			InventoryDevices = RefitFor(Organizations.InventoryDevices),
 			Licenses = RefitFor(Organizations.Licenses),
@@ -120,6 +126,16 @@ public partial class MerakiClient : IDisposable
 			{
 				Settings = RefitFor(Networks.Alerts.Settings)
 			},
+			Clients = new()
+			{
+				Clients = RefitFor(Networks.Clients.Clients),
+				ApplicationUsage = RefitFor(Networks.Clients.ApplicationUsage),
+				Policy = RefitFor(Networks.Clients.Policy),
+				SplashAuthorizationStatus = RefitFor(Networks.Clients.SplashAuthorizationStatus),
+				TrafficHistory = RefitFor(Networks.Clients.TrafficHistory),
+				UsageHistories = RefitFor(Networks.Clients.UsageHistories),
+				UsageHistory = RefitFor(Networks.Clients.UsageHistory)
+			},
 			Devices = RefitFor(Networks.Devices),
 			Networks = RefitFor(Networks.Networks),
 		};
@@ -127,6 +143,7 @@ public partial class MerakiClient : IDisposable
 		// Product level sections //
 		Appliance = new()
 		{
+			ConnectivityMonitoringDestinations = RefitFor(Appliance.ConnectivityMonitoringDestinations),
 			Performance = RefitFor(Appliance.Performance),
 			Security = new()
 			{
@@ -178,7 +195,15 @@ public partial class MerakiClient : IDisposable
 
 		Wireless = new()
 		{
-			Billing = RefitFor(Wireless.Billing)
+			Billing = RefitFor(Wireless.Billing),
+			Clients = new()
+			{
+				ConnectionStats = RefitFor(Wireless.Clients.ConnectionStats),
+				ConnectivityEvents = RefitFor(Wireless.Clients.ConnectivityEvents),
+				LatencyHistory = RefitFor(Wireless.Clients.LatencyHistory),
+				LatencyStats = RefitFor(Wireless.Clients.LatencyStats)
+			},
+			ClientCountHistory = RefitFor(Wireless.ClientCountHistory)
 		};
 
 		Insight = new()
@@ -201,22 +226,22 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Action batches
 	/// </summary>
-	public IActionBatches ActionBatches { get; }
+	public IOrganizationsActionBatches ActionBatches { get; }
 
 	/// <summary>
 	/// Admins
 	/// </summary>
-	public IAdmins Admins { get; }
+	public IOrganizationsAdmins Admins { get; }
 
 	/// <summary>
 	/// Alert settings
 	/// </summary>
-	public INetworkAlertSettings AlertSettings { get; }
+	public INetworksAlertSettings AlertSettings { get; }
 
 	/// <summary>
 	/// API Usages
 	/// </summary>
-	public IOrganizationApiRequests ApiRequests { get; }
+	public IOrganizationsApiRequests ApiRequests { get; }
 
 	/// <summary>
 	/// Bluetooth clients
@@ -238,7 +263,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Change logs
 	/// </summary>
-	public IChangeLogs ChangeLogs { get; }
+	public IOrganizationsConfigurationChanges ChangeLogs { get; }
 
 	/// <summary>
 	/// Clients
@@ -253,7 +278,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Connectivity monitoring destinations
 	/// </summary>
-	public IConnectivityMonitoringDestinations ConnectivityMonitoringDestinations { get; }
+	public IApplianceConnectivityMonitoringDestinations ConnectivityMonitoringDestinations { get; }
 
 	/// <summary>
 	/// Dashboard branding policies

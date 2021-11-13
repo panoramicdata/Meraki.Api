@@ -67,4 +67,5 @@ public interface ISwitchProfiles
 		[Body] ConfigTemplateSwitchProfilePorts updateOrganizationConfigTemplateSwitchProfilePort,
 		CancellationToken cancellationToken = default
 		);
+
 }

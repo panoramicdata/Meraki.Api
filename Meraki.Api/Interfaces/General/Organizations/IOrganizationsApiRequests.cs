@@ -3,7 +3,7 @@ namespace Meraki.Api.Interfaces;
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface IOrganizationApiRequests
+public interface IOrganizationsApiRequests
 {
 	/// <summary>
 	/// List the API requests made by an organization
