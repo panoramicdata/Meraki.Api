@@ -6,4 +6,5 @@ public class CellularGatewaySection
 	public ICellularGatewayDhcp Dhcp { get; internal set; } = null!;
 	public ICellularGatewayLan Lan { get; internal set; } = null!;
 	public ICellularGatewayPortForwardingRules PortForwardingRules { get; internal set; } = null!;
-}
+	public ICellularGatewaySubnetPool SubnetPool { get; internal set; } = null!;
+	public ICellularGatewayUplink Uplink { get; internal set; } = null!;

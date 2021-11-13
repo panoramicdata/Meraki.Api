@@ -192,6 +192,8 @@ public partial class MerakiClient : IDisposable
 			Dhcp = RefitFor(CellularGateway.Dhcp),
 			Lan = RefitFor(CellularGateway.Lan),
 			PortForwardingRules = RefitFor(CellularGateway.PortForwardingRules),
+			SubnetPool = RefitFor(CellularGateway.SubnetPool),
+			Uplink = RefitFor(CellularGateway.Uplink)
 		};
 
 		Switch = new()
@@ -388,12 +390,12 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// MG subnet pool settings
 	/// </summary>
-	public IMgSubnetPoolSettings MgSubnetPoolSettings { get; }
+	public ICellularGatewaySubnetPool MgSubnetPoolSettings { get; }
 
 	/// <summary>
 	/// MG uplink settings
 	/// </summary>
-	public IMgUplinkSettings MgUplinkSettings { get; }
+	public ICellularGatewayUplink MgUplinkSettings { get; }
 
 	/// <summary>
 	/// Monitored media servers
