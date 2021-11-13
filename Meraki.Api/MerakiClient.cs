@@ -122,10 +122,12 @@ public partial class MerakiClient : IDisposable
 
 		Networks = new()
 		{
+			Networks = RefitFor(Networks.Networks),
 			Alerts = new()
 			{
 				Settings = RefitFor(Networks.Alerts.Settings)
 			},
+			BluetoothClients = RefitFor(Networks.BluetoothClients),
 			Clients = new()
 			{
 				Clients = RefitFor(Networks.Clients.Clients),
@@ -142,7 +144,7 @@ public partial class MerakiClient : IDisposable
 				Events = RefitFor(Networks.Events.Events),
 				EventsTypes = RefitFor(Networks.Events.EventsTypes)
 			},
-			Networks = RefitFor(Networks.Networks),
+			FirmwareUpgrades = RefitFor(Networks.FirmwareUpgrades)
 		};
 
 		// Product level sections //
