@@ -276,7 +276,10 @@ public partial class MerakiClient : IDisposable
 				LatencyStats = RefitFor(Wireless.Devices.LatencyStats)
 			},
 			ConnectionStats = RefitFor(Wireless.ConnectionStats),
+			FailedConnections = RefitFor(Wireless.FailedConnections),
 			LatencyHistory = RefitFor(Wireless.LatencyHistory),
+			LatencyStats = RefitFor(Wireless.LatencyStats),
+			MeshStatuses = RefitFor(Wireless.MeshStatuses),
 			Radio = new()
 			{
 				Settings = RefitFor(Wireless.Radio.Settings)
@@ -318,7 +321,6 @@ public partial class MerakiClient : IDisposable
 	public DevicesSection Devices { get; } = new();
 
 	public InsightSection Insight { get; } = new();
-
 
 	/// <summary>
 	/// Link aggregations

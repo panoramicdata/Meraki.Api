@@ -10,7 +10,10 @@ public class WirelessSection
 	public IWirelessClientCountHistory ClientCountHistory { get; internal set; } = null!;
 	public IWirelessConnectionStats ConnectionStats { get; internal set; } = null!;
 	public WirelessDevicesSection Devices { get; internal set; } = new();
+	public IWirelessFailedConnections FailedConnections { get; internal set; } = null!;
 	public IWirelessLatencyHistory LatencyHistory { get; internal set; } = null!;
+	public IWirelessLatencyStats LatencyStats { get; internal set; } = null!;
+	public IWirelessMeshStatuses MeshStatuses { get; internal set; } = null!;
 	public IWirelessRfProfiles RfProfiles { get; internal set; } = null!;
 	public WirelessRadioSection Radio { get; internal set; } = new();
 	public WirelessSsidsSection Ssids { get; internal set; } = new();
