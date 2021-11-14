@@ -315,8 +315,19 @@ public partial class MerakiClient : IDisposable
 				DesktopLogs = RefitFor(Sm.Devices.DesktopLogs),
 				DeviceCommandLogs = RefitFor(Sm.Devices.DeviceCommandLogs),
 				DeviceProfiles = RefitFor(Sm.Devices.DeviceProfiles),
+				NetworkAdapters = RefitFor(Sm.Devices.NetworkAdapters),
+				PerformanceHistory = RefitFor(Sm.Devices.PerformanceHistory),
+				Restrictions = RefitFor(Sm.Devices.Restrictions),
+				SecurityCenters = RefitFor(Sm.Devices.SecurityCenters),
+				Softwares = RefitFor(Sm.Devices.Softwares),
 			},
-			TargetGroups = RefitFor(Sm.TargetGroups)
+			Profiles = RefitFor(Sm.Profiles),
+			TargetGroups = RefitFor(Sm.TargetGroups),
+			Users = new()
+			{
+				DeviceProfiles = RefitFor(Sm.Users.DeviceProfiles),
+				Softwares = RefitFor(Sm.Users.Softwares)
+			}
 		};
 	}
 
