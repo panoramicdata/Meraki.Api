@@ -3,7 +3,7 @@ namespace Meraki.Api.Interfaces
 	/// <summary>
 	/// Represents a collection of functions to interact with the API endpoints
 	/// </summary>
-	public interface ICameras
+	public interface ICamera
 	{
 		/// <summary>
 		/// Generate a snapshot of what the camera sees at the specified time and return a link to that image.

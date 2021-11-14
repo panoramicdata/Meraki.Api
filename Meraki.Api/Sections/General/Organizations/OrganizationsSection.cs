@@ -3,6 +3,7 @@
 public class OrganizationsSection
 {
 	public IOrganizations Organizations { get; internal set; } = null!;
+	public IOrganizationsAdmins Admins { get; internal set; } = null!;
 	public IOrganizationsActionBatches ActionBatches { get; internal set; } = null!;
 	public OrganizationsAdaptivePolicySection AdaptivePolicy { get; internal set; } = new();
 	public IOrganizationsApiRequests ApiRequests { get; internal set; } = null!;

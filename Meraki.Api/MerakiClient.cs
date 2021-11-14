@@ -70,7 +70,7 @@ public partial class MerakiClient : IDisposable
 		Organizations = new OrganizationsSection
 		{
 			Organizations = RefitFor(Organizations.Organizations),
-
+			Admins = RefitFor(Organizations.Admins),
 			ActionBatches = RefitFor(Organizations.ActionBatches),
 			AdaptivePolicy = new OrganizationsAdaptivePolicySection
 			{
@@ -163,10 +163,14 @@ public partial class MerakiClient : IDisposable
 				Categories = RefitFor(Appliance.ContentFiltering.Categories),
 			},
 			Performance = RefitFor(Appliance.Performance),
+			Ports = RefitFor(Appliance.Ports),
 			Security = new()
 			{
-				Intrusion = RefitFor(Appliance.Security.Intrusion)
+				Intrusion = RefitFor(Appliance.Security.Intrusion),
+				Malware = RefitFor(Appliance.Security.Malware)
 			},
+			Settings = RefitFor(Appliance.Settings),
+			SingleLan = RefitFor(Appliance.SingleLan),
 			Dhpc = new()
 			{
 				Subnets = RefitFor(Appliance.Dhpc.Subnets)
@@ -197,11 +201,13 @@ public partial class MerakiClient : IDisposable
 				SiteToSiteVpn = RefitFor(Appliance.Vpn.SiteToSiteVpn),
 				ThirdPartyVpnPeers = RefitFor(Appliance.Vpn.ThirdPartyVpnPeers),
 				VpnFirewallRules = RefitFor(Appliance.Vpn.VpnFirewallRules),
-			}
+			},
+			WarmSpare = RefitFor(Appliance.WarmSpare)
 		};
 
 		Camera = new()
 		{
+			Camera = RefitFor(Camera.Camera),
 			Analytics = new()
 			{
 				Live = RefitFor(Camera.Analytics.Live),

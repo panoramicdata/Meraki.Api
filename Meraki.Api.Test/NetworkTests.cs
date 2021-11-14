@@ -483,7 +483,8 @@ namespace Meraki.Api.Test
 			{
 				// Get a snapshot from the camera
 				var newResult = await TestMerakiClient
-					.Cameras
+					.Camera
+					.Camera
 					.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
 					.ConfigureAwait(false);
 				newResult.Should().NotBeNull();
@@ -511,7 +512,8 @@ namespace Meraki.Api.Test
 
 			// Get a snapshot from the camera
 			var newResult = await TestMerakiClient
-				.Cameras
+				.Camera
+				.Camera
 				.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
 				.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
