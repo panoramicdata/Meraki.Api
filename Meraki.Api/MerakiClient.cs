@@ -95,6 +95,7 @@ public partial class MerakiClient : IDisposable
 				Saml = RefitFor(Organizations.Saml.Saml),
 				Idp = RefitFor(Organizations.Saml.Idp),
 			},
+			SamlRoles = RefitFor(Organizations.SamlRoles),
 			Snmp = RefitFor(Organizations.Snmp),
 			Webhooks = new()
 			{
@@ -273,6 +274,11 @@ public partial class MerakiClient : IDisposable
 				LatencyStats = RefitFor(Wireless.Clients.LatencyStats)
 			},
 			ClientCountHistory = RefitFor(Wireless.ClientCountHistory),
+			Radio = new()
+			{
+				Settings = RefitFor(Wireless.Radio.Settings)
+			},
+			RfProfiles = RefitFor(Wireless.RfProfiles),
 			Ssids = new()
 			{
 				Firewall = RefitFor(Wireless.Ssids.Firewall)
@@ -353,12 +359,12 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Radio settings
 	/// </summary>
-	public IRadioSettings RadioSettings { get; }
+	public IWirelessRadioSettings RadioSettings { get; }
 
 	/// <summary>
 	/// SAML roles
 	/// </summary>
-	public ISamlRoles SamlRoles { get; }
+	public IOrganizationsSamlRoles SamlRoles { get; }
 
 	/// <summary>
 	/// Security events

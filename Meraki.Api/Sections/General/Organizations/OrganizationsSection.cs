@@ -16,6 +16,7 @@ public class OrganizationsSection
 	public IOrganizationsLicenses Licenses { get; internal set; } = null!;
 	public IOrganizationsOpenapiSpec OpenapiSpec { get; internal set; } = null!;
 	public OrganizationsSamlSection Saml { get; internal set; } = new();
+	public IOrganizationsSamlRoles SamlRoles { get; internal set; } = null!;
 	public IOrganizationsSnmp Snmp { get; internal set; } = null!;
 	public OrganizationsWebhooksSection Webhooks { get; internal set; } = new();
 	public OrganizationBrandingPoliciesSection BrandingPolicies { get; internal set; } = new();
