@@ -18,7 +18,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meraki.Api.Test", "Meraki.Api.Test\Meraki.Api.Test.csproj", "{97565AC6-236D-42E9-8F17-CA459B52CE8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meraki.ApiChecker", "Meraki.ApiChecker\Meraki.ApiChecker.csproj", "{C5483390-0EA1-446F-929E-9E59905F09C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meraki.ApiChecker", "Meraki.ApiChecker\Meraki.ApiChecker.csproj", "{C5483390-0EA1-446F-929E-9E59905F09C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitClassSourceGenerator", "RefitClassSourceGenerator\RefitClassSourceGenerator.csproj", "{262F4864-47EF-4B3B-BFBB-D9C374A542DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{C5483390-0EA1-446F-929E-9E59905F09C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5483390-0EA1-446F-929E-9E59905F09C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5483390-0EA1-446F-929E-9E59905F09C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{262F4864-47EF-4B3B-BFBB-D9C374A542DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{262F4864-47EF-4B3B-BFBB-D9C374A542DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{262F4864-47EF-4B3B-BFBB-D9C374A542DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{262F4864-47EF-4B3B-BFBB-D9C374A542DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

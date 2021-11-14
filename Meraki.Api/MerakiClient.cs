@@ -81,6 +81,7 @@ public partial class MerakiClient : IDisposable
 				Acls = RefitFor(Organizations.AdaptivePolicy.Acls),
 				Settings = RefitFor(Organizations.AdaptivePolicy.Settings)
 			},
+			Admins = RefitFor(Organizations.Admins),
 			ApiRequests = RefitFor(Organizations.ApiRequests),
 			BrandingPolicies = new()
 			{

@@ -54,6 +54,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\RefitClassSourceGenerator\RefitClassSourceGenerator.csproj"
+						OutputItemType="Analyzer"
+						ReferenceOutputAssembly="false"/>
+	</ItemGroup>
+
+	<ItemGroup>
 		<Compile Update="Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>

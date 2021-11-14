@@ -3,10 +3,7 @@ using Meraki.Api.Data;
 using Refit;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -476,46 +473,46 @@ namespace Meraki.Api.Test
 			newResult.LocationAnalyticsEnabled.Should().Be(originalResult.LocationAnalyticsEnabled);
 		}
 
-		[Fact]
-		public async void GetCameraSnapshotAsync_Succeeds()
-		{
-			if (OperatingSystem.IsWindows())
-			{
-				// Get a snapshot from the camera
-				var newResult = await TestMerakiClient
-					.Cameras
-					.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
-					.ConfigureAwait(false);
-				newResult.Should().NotBeNull();
+		//[Fact]
+		//public async void GetCameraSnapshotAsync_Succeeds()
+		//{
+		//	if (OperatingSystem.IsWindows())
+		//	{
+		//		// Get a snapshot from the camera
+		//		var newResult = await TestMerakiClient
+		//			.Cameras
+		//			.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
+		//			.ConfigureAwait(false);
+		//		newResult.Should().NotBeNull();
 
-				//Download the image
-				using var client = new WebClient();
-				using var stream = client.OpenRead(newResult.Url);
-				using var bitmap = new Bitmap(stream);
+		//		//Download the image
+		//		using var client = new WebClient();
+		//		using var stream = client.OpenRead(newResult.Url);
+		//		using var bitmap = new Bitmap(stream);
 
-				bitmap.Save("temp.png", ImageFormat.Png);
+		//		bitmap.Save("temp.png", ImageFormat.Png);
 
-				stream.Flush();
-				stream.Close();
-			}
-			else
-			{
-				Skip.If(true);
-			}
-		}
+		//		stream.Flush();
+		//		stream.Close();
+		//	}
+		//	else
+		//	{
+		//		Skip.If(true);
+		//	}
+		//}
 
-		[Fact]
-		public async void GetCameraVideoLinkAsync_Succeeds()
-		{
-			Configuration.TestCameraNetworkId.Should().NotBeNull();
+		//[Fact]
+		//public async void GetCameraVideoLinkAsync_Succeeds()
+		//{
+		//	Configuration.TestCameraNetworkId.Should().NotBeNull();
 
-			// Get a snapshot from the camera
-			var newResult = await TestMerakiClient
-				.Cameras
-				.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
-				.ConfigureAwait(false);
-			newResult.Should().NotBeNull();
-		}
+		//	// Get a snapshot from the camera
+		//	var newResult = await TestMerakiClient
+		//		.Cameras
+		//		.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
+		//		.ConfigureAwait(false);
+		//	newResult.Should().NotBeNull();
+		//}
 
 		[Fact]
 		public async void GetRepeatedlyInQuickSuccession_Succeeds()
