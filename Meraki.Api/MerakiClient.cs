@@ -315,16 +315,19 @@ public partial class MerakiClient : IDisposable
 				DesktopLogs = RefitFor(Sm.Devices.DesktopLogs),
 				DeviceCommandLogs = RefitFor(Sm.Devices.DeviceCommandLogs),
 				DeviceProfiles = RefitFor(Sm.Devices.DeviceProfiles),
+				Fields = RefitFor(Sm.Devices.Fields),
 				NetworkAdapters = RefitFor(Sm.Devices.NetworkAdapters),
 				PerformanceHistory = RefitFor(Sm.Devices.PerformanceHistory),
 				Restrictions = RefitFor(Sm.Devices.Restrictions),
 				SecurityCenters = RefitFor(Sm.Devices.SecurityCenters),
 				Softwares = RefitFor(Sm.Devices.Softwares),
+				WlanLists = RefitFor(Sm.Devices.WlanLists)
 			},
 			Profiles = RefitFor(Sm.Profiles),
 			TargetGroups = RefitFor(Sm.TargetGroups),
 			Users = new()
 			{
+				Users = RefitFor(Sm.Users.Users),
 				DeviceProfiles = RefitFor(Sm.Users.DeviceProfiles),
 				Softwares = RefitFor(Sm.Users.Softwares)
 			}
@@ -369,7 +372,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// SMs
 	/// </summary>
-	public ISms Sms { get; }
+	public ISmDevicesFields Sms { get; }
 
 	/// <summary>
 	/// Splash login attempts
