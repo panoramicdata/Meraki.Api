@@ -39,7 +39,6 @@ public partial class MerakiClient : IDisposable
 		};
 
 		LinkAggregations = RefitFor(LinkAggregations)!;
-		MrLayer3FirewallRules = RefitFor(MrLayer3FirewallRules)!;
 		MvSense = RefitFor(MvSense)!;
 		NetworkAppliances = RefitFor(NetworkAppliances)!;
 		NamedTagScopes = RefitFor(NamedTagScopes)!;
@@ -274,11 +273,6 @@ public partial class MerakiClient : IDisposable
 	/// MQTT brokers
 	/// </summary>
 	public INetworkMqttBrokers NetworkMqttBrokers { get; }
-
-	/// <summary>
-	/// MR layer 3 firewall rules
-	/// </summary>
-	public IMrLayer3FirewallRules MrLayer3FirewallRules { get; }
 
 	/// <summary>
 	/// MV sense
