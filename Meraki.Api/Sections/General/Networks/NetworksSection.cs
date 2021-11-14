@@ -20,6 +20,7 @@ public class NetworksSection
 	public INetworksTrafficAnalysis TrafficAnalysis { get; internal set; } = null!;
 	public INetworksSettings Settings { get; internal set; } = null!;
 	public INetworksSnmp Snmp { get; internal set; } = null!;
+	public INetworksSplashLoginAttempts SplashLoginAttempts { get; internal set; } = null!;
 	public INetworksSyslogServers SyslogServers { get; internal set; } = null!;
 	public NetworksWebhooksSection WebHooks { get; internal set; } = new();
 }

@@ -138,7 +138,9 @@ public partial class MerakiClient : IDisposable
 			Traffic = RefitFor(Networks.Traffic),
 			Settings = RefitFor(Networks.Settings),
 			Snmp = RefitFor(Networks.Snmp),
+			SplashLoginAttempts = RefitFor(Networks.SplashLoginAttempts),
 			SyslogServers = RefitFor(Networks.SyslogServers),
+			TrafficAnalysis = RefitFor(Networks.TrafficAnalysis),
 			WebHooks = new()
 			{
 				HttpServers = RefitFor(Networks.WebHooks.HttpServers),
@@ -377,7 +379,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Splash login attempts
 	/// </summary>
-	public ISplashLoginAttempts SplashLoginAttempts { get; }
+	public INetworksSplashLoginAttempts SplashLoginAttempts { get; }
 
 	public SmSection Sm { get; } = new();
 
