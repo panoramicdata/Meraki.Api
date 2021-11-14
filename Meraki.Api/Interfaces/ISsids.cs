@@ -1,9 +1,3 @@
-using Meraki.Api.Data;
-using Refit;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Meraki.Api.Interfaces
 {
 	/// <summary>
@@ -11,52 +5,6 @@ namespace Meraki.Api.Interfaces
 	/// </summary>
 	public interface ISsids
 	{
-		/// <summary>
-		/// Return the SSID statuses of an access point
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="serial">The serial number</param>
-		[Get("/devices/{serial}/wireless/status")]
-		Task<WirelessStatus> GetNetworkDeviceWirelessStatusAsync(
-			[AliasAs("serial")] string serial,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Return a single MR SSID
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="number">The SSID number</param>
-		[Get("/networks/{networkId}/wireless/ssids/{number}")]
-		Task<NetworkSsid> GetAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// List the MR SSIDs in a network
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Get("/networks/{networkId}/wireless/ssids")]
-		Task<List<NetworkSsid>> GetAllAsync(
-			[AliasAs("networkId")] string networkId,
-			CancellationToken cancellationToken = default);
-
-		/// <summary>
-		/// Update the attributes of an MR SSID
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="number">The SSID number</param>
-		/// <param name="updateNetworkSsid"></param>
-		[Put("/networks/{networkId}/wireless/ssids/{number}")]
-		Task<NetworkSsid> UpdateAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("number")] string number,
-			[Body] SsidUpdateRequest updateNetworkSsid,
-			CancellationToken cancellationToken = default);
 
 		/// <summary>
 		/// List all Identity PSKs in a wireless network

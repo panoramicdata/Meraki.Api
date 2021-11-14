@@ -19,4 +19,5 @@ public class WirelessSection
 	public IWirelessSignalQualityHistory SignalQualityHistory { get; internal set; } = null!;
 	public WirelessSsidsSection Ssids { get; internal set; } = new();
 	public IWirelessSettings Settings { get; internal set; } = null!;
+	public IWirelessStatus Status { get; internal set; } = null!;
 }

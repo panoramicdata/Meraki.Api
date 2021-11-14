@@ -289,8 +289,10 @@ public partial class MerakiClient : IDisposable
 			RfProfiles = RefitFor(Wireless.RfProfiles),
 			Settings = RefitFor(Wireless.Settings),
 			SignalQualityHistory = RefitFor(Wireless.SignalQualityHistory),
+			Status = RefitFor(Wireless.Status),
 			Ssids = new()
 			{
+				Ssids = RefitFor(Wireless.Ssids.Ssids),
 				Firewall = RefitFor(Wireless.Ssids.Firewall)
 			}
 		};
