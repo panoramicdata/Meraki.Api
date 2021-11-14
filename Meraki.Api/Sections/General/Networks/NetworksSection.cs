@@ -14,6 +14,12 @@ public class NetworksSection
 	public NetworksHealthSection Health { get; internal set; } = new();
 	public INetworksMerakiAuthUsers MerakiAuthUsers { get; internal set; } = null!;
 	public INetworksMqttBrokers MqttBrokers { get; internal set; } = null!;
+	public INetworksNetflow Netflow { get; internal set; } = null!;
 	public NetworksPiiSection Pii { get; internal set; } = new();
+	public INetworksTraffic Traffic { get; internal set; } = null!;
+	public INetworksTrafficAnalysis TrafficAnalysis { get; internal set; } = null!;
+	public INetworksSettings Settings { get; internal set; } = null!;
+	public INetworksSnmp Snmp { get; internal set; } = null!;
+	public INetworksSyslogServers SyslogServers { get; internal set; } = null!;
 	public NetworksWebhooksSection WebHooks { get; internal set; } = new();
 }

@@ -134,6 +134,7 @@ public partial class MerakiClient : IDisposable
 			},
 			MerakiAuthUsers = RefitFor(Networks.MerakiAuthUsers),
 			MqttBrokers = RefitFor(Networks.MqttBrokers),
+			Netflow = RefitFor(Networks.Netflow),
 			Pii = new()
 			{
 				PiiKeys = RefitFor(Networks.Pii.PiiKeys),
@@ -141,6 +142,10 @@ public partial class MerakiClient : IDisposable
 				SmDevicesForKey = RefitFor(Networks.Pii.SmDevicesForKey),
 				SmOwnersForKey = RefitFor(Networks.Pii.SmOwnersForKey)
 			},
+			Traffic = RefitFor(Networks.Traffic),
+			Settings = RefitFor(Networks.Settings),
+			Snmp = RefitFor(Networks.Snmp),
+			SyslogServers = RefitFor(Networks.SyslogServers),
 			WebHooks = new()
 			{
 				HttpServers = RefitFor(Networks.WebHooks.HttpServers),
@@ -245,6 +250,7 @@ public partial class MerakiClient : IDisposable
 
 		Wireless = new()
 		{
+			AirMarshal = RefitFor(Wireless.AirMarshal),
 			Billing = RefitFor(Wireless.Billing),
 			ChannelUtilizationHistory = RefitFor(Wireless.ChannelUtilizationHistory),
 			Clients = new()
