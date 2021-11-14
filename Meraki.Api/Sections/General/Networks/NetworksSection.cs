@@ -11,4 +11,5 @@ public class NetworksSection
 	public INetworksFirmwareUpgrades FirmwareUpgrades { get; internal set; } = null!;
 	public INetworksFloorplans Floorplans { get; internal set; } = null!;
 	public INetworksGroupPolicies GroupPolicies { get; internal set; } = null!;
+	public NetworksHealthSection Health { get; internal set; } = new();
 }

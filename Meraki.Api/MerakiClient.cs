@@ -131,6 +131,10 @@ public partial class MerakiClient : IDisposable
 			FirmwareUpgrades = RefitFor(Networks.FirmwareUpgrades),
 			Floorplans = RefitFor(Networks.Floorplans),
 			GroupPolicies = RefitFor(Networks.GroupPolicies),
+			Health = new()
+			{
+				ChannelUtilization = RefitFor(Networks.Health.ChannelUtilization)
+			}
 		};
 
 		// Product level sections //
@@ -231,6 +235,7 @@ public partial class MerakiClient : IDisposable
 		Wireless = new()
 		{
 			Billing = RefitFor(Wireless.Billing),
+			ChannelUtilizationHistory = RefitFor(Wireless.ChannelUtilizationHistory),
 			Clients = new()
 			{
 				ConnectionStats = RefitFor(Wireless.Clients.ConnectionStats),
