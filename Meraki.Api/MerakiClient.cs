@@ -262,6 +262,7 @@ public partial class MerakiClient : IDisposable
 		Wireless = new()
 		{
 			AirMarshal = RefitFor(Wireless.AirMarshal),
+			AlternateManagementInterface = RefitFor(Wireless.AlternateManagementInterface),
 			Billing = RefitFor(Wireless.Billing),
 			ChannelUtilizationHistory = RefitFor(Wireless.ChannelUtilizationHistory),
 			Clients = new()
@@ -294,7 +295,8 @@ public partial class MerakiClient : IDisposable
 			{
 				Ssids = RefitFor(Wireless.Ssids.Ssids),
 				Firewall = RefitFor(Wireless.Ssids.Firewall)
-			}
+			},
+			UsageHistory = RefitFor(Wireless.UsageHistory)
 		};
 
 		Insight = new()

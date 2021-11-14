@@ -1,10 +1,4 @@
-﻿using Meraki.Api.Data;
-using Refit;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Meraki.Api.Interfaces
+﻿namespace Meraki.Api.Interfaces
 {
 	public interface IUplink
 	{
