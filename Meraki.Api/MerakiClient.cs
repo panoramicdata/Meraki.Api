@@ -129,7 +129,8 @@ public partial class MerakiClient : IDisposable
 				EventsTypes = RefitFor(Networks.Events.EventsTypes)
 			},
 			FirmwareUpgrades = RefitFor(Networks.FirmwareUpgrades),
-			Floorplans = RefitFor(Networks.Floorplans)
+			Floorplans = RefitFor(Networks.Floorplans),
+			GroupPolicies = RefitFor(Networks.GroupPolicies),
 		};
 
 		// Product level sections //

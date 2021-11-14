@@ -10,4 +10,5 @@ public class NetworksSection
 	public NetworksEventsSection Events { get; internal set; } = new();
 	public INetworksFirmwareUpgrades FirmwareUpgrades { get; internal set; } = null!;
 	public INetworksFloorplans Floorplans { get; internal set; } = null!;
+	public INetworksGroupPolicies GroupPolicies { get; internal set; } = null!;
 }
