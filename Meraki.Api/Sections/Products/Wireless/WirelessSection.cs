@@ -16,6 +16,7 @@ public class WirelessSection
 	public IWirelessMeshStatuses MeshStatuses { get; internal set; } = null!;
 	public IWirelessRfProfiles RfProfiles { get; internal set; } = null!;
 	public WirelessRadioSection Radio { get; internal set; } = new();
+	public ISignalQualityHistory SignalQualityHistory { get; internal set; } = null!;
 	public WirelessSsidsSection Ssids { get; internal set; } = new();
 	public IWirelessSettings Settings { get; internal set; } = null!;
 }
