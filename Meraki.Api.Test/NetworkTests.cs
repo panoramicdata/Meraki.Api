@@ -50,6 +50,8 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			var result = await TestMerakiClient
+				.Wireless
+				.Ssids
 				.Ssids
 				.GetAllAsync(network.Id)
 				.ConfigureAwait(false);

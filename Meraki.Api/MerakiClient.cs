@@ -42,7 +42,6 @@ public partial class MerakiClient : IDisposable
 		NamedTagScopes = RefitFor(NamedTagScopes)!;
 		Sms = RefitFor(Sms)!;
 		SplashLoginAttempts = RefitFor(SplashLoginAttempts)!;
-		Ssids = RefitFor(Ssids)!;
 		TrafficShaping = RefitFor(TrafficShaping)!;
 		UplinkSettings = RefitFor(UplinkSettings)!;
 		Vlans = RefitFor(Vlans)!;
@@ -90,7 +89,8 @@ public partial class MerakiClient : IDisposable
 			Snmp = RefitFor(Organizations.Snmp),
 			Webhooks = new()
 			{
-				AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes)
+				AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes),
+				Logs = RefitFor(Organizations.Webhooks.Logs)
 			}
 		};
 
@@ -388,11 +388,6 @@ public partial class MerakiClient : IDisposable
 	public SmSection Sm { get; } = new();
 
 	/// <summary>
-	/// SSIDs
-	/// </summary>
-	public ISsids Ssids { get; }
-
-	/// <summary>
 	/// Switch
 	/// </summary>
 	public SwitchSection Switch { get; } = new();
@@ -415,7 +410,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Webhook logs
 	/// </summary>
-	public IWebhookLogs WebhookLogs { get; }
+	public IOrganizationsWebhooksLogs WebhookLogs { get; }
 
 	public WirelessSection Wireless { get; } = new();
 
