@@ -89,6 +89,7 @@ public partial class MerakiClient : IDisposable
 			Licenses = RefitFor(Organizations.Licenses),
 			LoginSecurity = RefitFor(Organizations.LoginSecurity),
 			Networks = RefitFor(Organizations.Networks),
+			OpenapiSpec = RefitFor(Organizations.OpenapiSpec),
 			Saml = new OrganizationsSamlSection
 			{
 				Saml = RefitFor(Organizations.Saml.Saml),
@@ -337,7 +338,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Open API spec
 	/// </summary>
-	public IOpenApiSpec OpenApiSpec { get; }
+	public IOrganizationsOpenapiSpec OpenApiSpec { get; }
 
 	/// <summary>
 	/// Organizations
