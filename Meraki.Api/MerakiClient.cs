@@ -157,6 +157,11 @@ public partial class MerakiClient : IDisposable
 		Appliance = new()
 		{
 			ConnectivityMonitoringDestinations = RefitFor(Appliance.ConnectivityMonitoringDestinations),
+			ContentFiltering = new()
+			{
+				ContentFiltering = RefitFor(Appliance.ContentFiltering.ContentFiltering),
+				Categories = RefitFor(Appliance.ContentFiltering.Categories),
+			},
 			Performance = RefitFor(Appliance.Performance),
 			Security = new()
 			{

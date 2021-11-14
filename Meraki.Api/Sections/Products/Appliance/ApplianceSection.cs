@@ -3,6 +3,7 @@
 public class ApplianceSection
 {
 	public IApplianceConnectivityMonitoringDestinations ConnectivityMonitoringDestinations { get; internal set; } = null!;
+	public ApplianceContentFilteringSection ContentFiltering { get; internal set; } = new();
 	public ApplianceDhcpSection Dhpc { get; internal set; } = new();
 	public ApplianceFirewallSection Firewall { get; internal set; } = new();
 	public IAppliancePerformance Performance { get; internal set; } = null!;
