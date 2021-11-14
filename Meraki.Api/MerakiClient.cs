@@ -39,7 +39,6 @@ public partial class MerakiClient : IDisposable
 		};
 
 		LinkAggregations = RefitFor(LinkAggregations)!;
-		MvSense = RefitFor(MvSense)!;
 		NetworkAppliances = RefitFor(NetworkAppliances)!;
 		NamedTagScopes = RefitFor(NamedTagScopes)!;
 		NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
@@ -168,6 +167,13 @@ public partial class MerakiClient : IDisposable
 
 		Camera = new()
 		{
+			Analytics = new()
+			{
+				Live = RefitFor(Camera.Analytics.Live),
+				Overview = RefitFor(Camera.Analytics.Overview),
+				Recent = RefitFor(Camera.Analytics.Recent),
+				Zones = RefitFor(Camera.Analytics.Zones)
+			},
 			QualityAndRetention = RefitFor(Camera.QualityAndRetention)
 		};
 
@@ -273,11 +279,6 @@ public partial class MerakiClient : IDisposable
 	/// MQTT brokers
 	/// </summary>
 	public INetworkMqttBrokers NetworkMqttBrokers { get; }
-
-	/// <summary>
-	/// MV sense
-	/// </summary>
-	public IMvSense MvSense { get; }
 
 	/// <summary>
 	/// MX static routes

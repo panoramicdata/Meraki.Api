@@ -6,6 +6,7 @@ global using Meraki.Api.Interfaces.General.Devices;
 global using Meraki.Api.Interfaces.General.Networks;
 global using Meraki.Api.Interfaces.General.Organizations;
 global using Meraki.Api.Interfaces.Products.Appliance;
+global using Meraki.Api.Interfaces.Products.Camera;
 global using Meraki.Api.Interfaces.Products.CellularGateway;
 global using Meraki.Api.Interfaces.Products.Insight;
 global using Meraki.Api.Interfaces.Products.Switch;
