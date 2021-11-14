@@ -1,9 +1,3 @@
-using Meraki.Api.Data;
-using Refit;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Meraki.Api.Interfaces
 {
 	/// <summary>
@@ -11,95 +5,6 @@ namespace Meraki.Api.Interfaces
 	/// </summary>
 	public interface ISms
 	{
-		/// <summary>
-		/// Force check-in a set of devices
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="checkinNetworkSmDevices">Body for check-in of device</param>
-		[Post("/networks/{networkId}/sm/devices/checkin")]
-		Task<CheckinNetworkSmDevices> CheckinNetworkSmDevicesAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] CheckinNetworkSmDevices checkinNetworkSmDevices,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Add, delete, or update the tags of a set of devices
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		[Post("/networks/{networkId}/sm/devices/modifyTags")]
-		Task<CheckinNetworkSmDevices> ModifyNetworkSmDevicesTagsAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] ModifyNetworkDeviceTags modifyNetworkSmDevicesTags,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Lock a set of devices
-		/// </summary>
-		/// <exception cref="Refit.ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId"></param>
-		/// <param name="lockNetworkSmDevices">Body for locking a set of devices</param>
-		[Post("/networks/{networkId}/sm/devices/lock")]
-		Task<CheckinNetworkSmDevices> LockNetworkSmDevicesAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] CheckinNetworkSmDevices lockNetworkSmDevices,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Bypass activation lock attempt
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="createNetworkSmBypassActivationLockAttempt">Body for bypassing a lock attempt</param>
-		[Post("/networks/{networkId}/sm/bypassActivationLockAttempts")]
-		Task<object> CreateNetworkSmBypassActivationLockAttemptAsync(
-			[AliasAs("networkId")] string networkId,
-			[Body] SmBypassActivationLockAttemptCreationRequest createNetworkSmBypassActivationLockAttempt,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Delete a Cisco Polaris app
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="appId">The app id</param>
-		[Delete("/networks/{networkId}/sm/app/polaris/{appId}")]
-		Task<object> DeleteNetworkSmAppPolarisAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("appId")] string appId,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Get details for a Cisco Polaris app if it exists
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="bundleId">The bundle ID of the app to be found, defaults to com.cisco.ciscosecurity.app (optional)</param>
-		[Get("/networks/{networkId}/sm/app/polaris")]
-		Task<object> GetNetworkSmAppPolarisAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("bundleId")] string bundleId = null!,
-			CancellationToken cancellationToken = default
-			);
-
-		/// <summary>
-		/// Bypass activation lock attempt status
-		/// </summary>
-		/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-		/// <param name="networkId">The network id</param>
-		/// <param name="attemptId">The attempt id</param>
-		[Get("/networks/{networkId}/sm/bypassActivationLockAttempts/{attemptId}")]
-		Task<BypassLockResponse> GetNetworkSmBypassActivationLockAttemptAsync(
-			[AliasAs("networkId")] string networkId,
-			[AliasAs("attemptId")] string attemptId,
-			CancellationToken cancellationToken = default
-			);
 
 		/// <summary>
 		/// Return the client's daily cellular data usage history

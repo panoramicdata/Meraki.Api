@@ -304,6 +304,12 @@ public partial class MerakiClient : IDisposable
 
 		Sm = new()
 		{
+			ApnsCert = RefitFor(Sm.ApnsCert),
+			Devices = new()
+			{
+				Devices = RefitFor(Sm.Devices.Devices),
+				BypassActivationLockAttempts = RefitFor(Sm.Devices.BypassActivationLockAttempts)
+			},
 			TargetGroups = RefitFor(Sm.TargetGroups)
 		};
 	}

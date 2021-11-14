@@ -2,6 +2,8 @@
 {
 	public class SmSection
 	{
+		public ISmApnsCert ApnsCert { get; internal set; } = null!;
+		public SmDevicesSection Devices { get; internal set; } = new();
 		public ISmTargetGroups TargetGroups { get; internal set; } = null!;
 	}
 }
