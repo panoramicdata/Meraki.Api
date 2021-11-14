@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface ISignalQualityHistory
+public interface IWirelessSignalQualityHistory
 {
 	/// <summary>
 	/// Return signal quality (SNR/RSSI) over time for a device or network client
