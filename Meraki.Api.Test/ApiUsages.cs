@@ -28,6 +28,7 @@ namespace Meraki.Api.Test
 		public async void GetOverviewAsync_Succeeds()
 		{
 			var result = await TestMerakiClient
+				.Organizations
 				.ApiRequests
 				.GetOverviewAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);

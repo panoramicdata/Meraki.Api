@@ -16,6 +16,7 @@ namespace Meraki.Api.Test
 		public async void GetAll_Succeeds()
 		{
 			var result = await TestMerakiClient
+				.Organizations
 				.Admins
 				.GetAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);

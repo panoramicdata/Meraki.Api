@@ -21,8 +21,10 @@ namespace Meraki.Api.Test
 			Configuration.TestMac.Should().NotBeNullOrEmpty();
 
 			var stats = await TestMerakiClient
-				.WirelessHealth
-				.GetNetworkClientLatencyStatsAsync(
+				.Wireless
+				.Clients
+				.LatencyStats
+				.GetNetworkWirelessClientLatencyStatsAsync(
 					Configuration.TestNetworkId,
 					Configuration.TestMac,
 					timespan: _timespan,
@@ -39,8 +41,10 @@ namespace Meraki.Api.Test
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
 			var stats = await TestMerakiClient
-				.WirelessHealth
-				.GetNetworkClientsLatencyStatsAsync(
+				.Wireless
+				.Clients
+				.LatencyStats
+				.GetNetworkWirelessClientsLatencyStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
 					cancellationToken: default)
@@ -127,7 +131,9 @@ namespace Meraki.Api.Test
 			Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
 			var stats = await TestMerakiClient
-				.WirelessHealth
+				.Wireless
+				.Clients
+				.ConnectionStats
 				.GetNetworkClientsConnectionStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
