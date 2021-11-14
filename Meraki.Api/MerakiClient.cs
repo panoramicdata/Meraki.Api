@@ -39,10 +39,7 @@ public partial class MerakiClient : IDisposable
 		};
 
 		LinkAggregations = RefitFor(LinkAggregations)!;
-		NetworkAppliances = RefitFor(NetworkAppliances)!;
 		NamedTagScopes = RefitFor(NamedTagScopes)!;
-		NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
-		NetworkHttpServers = RefitFor(NetworkHttpServers)!;
 		NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
 		NetworkMqttBrokers = RefitFor(NetworkMqttBrokers)!;
 		NetworkPiiRequests = RefitFor(NetworkPiiRequests)!;
@@ -134,6 +131,15 @@ public partial class MerakiClient : IDisposable
 			Health = new()
 			{
 				ChannelUtilization = RefitFor(Networks.Health.ChannelUtilization)
+			},
+			MerakiAuthUsers = RefitFor(Networks.MerakiAuthUsers),
+			MqttBrokers = RefitFor(Networks.MqttBrokers),
+			Pii = new()
+			{
+				PiiKeys = RefitFor(Networks.Pii.PiiKeys),
+				Requests = RefitFor(Networks.Pii.Requests),
+				SmDevicesForKey = RefitFor(Networks.Pii.SmDevicesForKey),
+				SmOwnersForKey = RefitFor(Networks.Pii.SmOwnersForKey)
 			},
 			WebHooks = new()
 			{
@@ -285,10 +291,6 @@ public partial class MerakiClient : IDisposable
 
 	public InsightSection Insight { get; } = new();
 
-	/// <summary>
-	/// HTTP servers
-	/// </summary>
-	public INetworkHttpServers NetworkHttpServers { get; }
 
 	/// <summary>
 	/// Link aggregations
@@ -298,17 +300,12 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Meraki auth users
 	/// </summary>
-	public INetworkMerakiAuthUsers NetworkMerakiAuthUsers { get; }
+	public INetworksMerakiAuthUsers NetworkMerakiAuthUsers { get; }
 
 	/// <summary>
 	/// MQTT brokers
 	/// </summary>
-	public INetworkMqttBrokers NetworkMqttBrokers { get; }
-
-	/// <summary>
-	/// MX static routes
-	/// </summary>
-	public INetworkAppliances NetworkAppliances { get; }
+	public INetworksMqttBrokers NetworkMqttBrokers { get; }
 
 	/// <summary>
 	/// Named tag scopes
@@ -319,11 +316,6 @@ public partial class MerakiClient : IDisposable
 	/// Networks
 	/// </summary>
 	public NetworksSection Networks { get; } = new();
-
-	/// <summary>
-	/// Group policies
-	/// </summary>
-	public INetworkGroupPolicies NetworkGroupPolicies { get; }
 
 	/// <summary>
 	/// Open API spec
@@ -338,7 +330,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// PIIs
 	/// </summary>
-	public INetworkPiiRequests NetworkPiiRequests { get; }
+	public INetworksPiiRequests NetworkPiiRequests { get; }
 
 	/// <summary>
 	/// Radio settings

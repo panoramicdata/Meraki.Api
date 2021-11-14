@@ -12,5 +12,8 @@ public class NetworksSection
 	public INetworksFloorplans Floorplans { get; internal set; } = null!;
 	public INetworksGroupPolicies GroupPolicies { get; internal set; } = null!;
 	public NetworksHealthSection Health { get; internal set; } = new();
+	public INetworksMerakiAuthUsers MerakiAuthUsers { get; internal set; } = null!;
+	public INetworksMqttBrokers MqttBrokers { get; internal set; } = null!;
+	public NetworksPiiSection Pii { get; internal set; } = new();
 	public NetworksWebhooksSection WebHooks { get; internal set; } = new();
 }
