@@ -8,7 +8,11 @@ public class WirelessSection
 	public IWirelessChannelUtilizationHistory ChannelUtilizationHistory { get; internal set; } = null!;
 	public WirelessClientsSection Clients { get; internal set; } = null!;
 	public IWirelessClientCountHistory ClientCountHistory { get; internal set; } = null!;
+	public IWirelessConnectionStats ConnectionStats { get; internal set; } = null!;
+	public WirelessDevicesSection Devices { get; internal set; } = new();
+	public IWirelessLatencyHistory LatencyHistory { get; internal set; } = null!;
 	public IWirelessRfProfiles RfProfiles { get; internal set; } = null!;
 	public WirelessRadioSection Radio { get; internal set; } = new();
 	public WirelessSsidsSection Ssids { get; internal set; } = new();
+	public IWirelessSettings Settings { get; internal set; } = null!;
 }

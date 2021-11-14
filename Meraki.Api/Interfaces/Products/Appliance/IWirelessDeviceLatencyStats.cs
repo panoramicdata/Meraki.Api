@@ -1,9 +1,9 @@
-﻿namespace Meraki.Api.Interfaces.Products.Wireless;
+﻿namespace Meraki.Api.Interfaces.Products.Appliance;
 
-public interface IWirelessConnectionStats
+public interface IWirelessDeviceLatencyStats
 {
 	/// <summary>
-	/// Aggregated connectivity info for this network
+	/// Aggregated latency info for this network, grouped by node
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network ID</param>
@@ -14,8 +14,9 @@ public interface IWirelessConnectionStats
 	/// <param name="ssid">Filter results by SSID (optional)</param>
 	/// <param name="vlan">Filter results by VLAN (optional)</param>
 	/// <param name="apTag">Filter results by AP Tag (optional)</param>
-	[Get("/networks/{networkId}/wireless/connectionStats")]
-	Task<ConnectionStats> GetNetworkConnectionStatsAsync(
+	/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
+	[Get("/networks/{networkId}/wireless/devices/latencyStats")]
+	Task<List<NetworkDeviceLatencyStats>> GetNetworkDevicesLatencyStatsAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("t1")] string t1 = null!,
@@ -24,13 +25,15 @@ public interface IWirelessConnectionStats
 		[AliasAs("ssid")] int? ssid = null,
 		[AliasAs("vlan")] int? vlan = null,
 		[AliasAs("apTag")] string apTag = null!,
+		[AliasAs("fields")] string fields = null!,
 		CancellationToken cancellationToken = default);
 
+
 	/// <summary>
-	/// Aggregated connectivity info for a given AP on this network
+	/// Aggregated latency info for this network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="serial">The serial number</param>
+	/// <param name="networkId">The network ID</param>
 	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 7 days after t0. (optional)</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 7 days. (optional)</param>
@@ -38,9 +41,10 @@ public interface IWirelessConnectionStats
 	/// <param name="ssid">Filter results by SSID (optional)</param>
 	/// <param name="vlan">Filter results by VLAN (optional)</param>
 	/// <param name="apTag">Filter results by AP Tag (optional)</param>
-	[Get("/devices/{serial}/wireless/connectionStats")]
-	Task<NetworkDeviceConnectionStats> GetNetworkDeviceConnectionStatsAsync(
-		[AliasAs("serial")] string serial,
+	/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
+	[Get("/networks/{networkId}/wireless/latencyStats")]
+	Task<LatencyStats> GetNetworkLatencyStatsAsync(
+		[AliasAs("networkId")] string networkId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("t1")] string t1 = null!,
 		[AliasAs("timespan")] double? timespan = null,
@@ -48,5 +52,6 @@ public interface IWirelessConnectionStats
 		[AliasAs("ssid")] int? ssid = null,
 		[AliasAs("vlan")] int? vlan = null,
 		[AliasAs("apTag")] string apTag = null!,
+		[AliasAs("fields")] string fields = null!,
 		CancellationToken cancellationToken = default);
 }

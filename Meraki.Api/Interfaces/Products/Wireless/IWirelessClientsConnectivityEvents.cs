@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api.Interfaces.Products.Wireless;
 
-public interface IWirelessConnectivityEvents
+public interface IWirelessClientsConnectivityEvents
 {
 	/// <summary>
 	/// List the wireless connectivity events for a client within a network in the timespan.

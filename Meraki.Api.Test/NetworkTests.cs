@@ -449,7 +449,8 @@ namespace Meraki.Api.Test
 
 			// Get the wireless settings
 			var originalResult = await TestMerakiClient
-				.WirelessSettings
+				.Wireless
+				.Settings
 				.GetAsync(network.Id)
 				.ConfigureAwait(false);
 			originalResult.Should().BeOfType<WirelessSettings>();
@@ -458,7 +459,8 @@ namespace Meraki.Api.Test
 
 			// Re-set the wireless settings (to the same values)
 			var newResult = await TestMerakiClient
-				.WirelessSettings
+				.Wireless
+				.Settings
 				.UpdateAsync(network.Id, new WirelessSettingsUpdateDto
 				{
 					Ipv6BridgeEnabled = originalResult.Ipv6BridgeEnabled,

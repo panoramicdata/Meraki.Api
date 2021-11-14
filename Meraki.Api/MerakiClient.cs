@@ -40,13 +40,6 @@ public partial class MerakiClient : IDisposable
 
 		LinkAggregations = RefitFor(LinkAggregations)!;
 		NamedTagScopes = RefitFor(NamedTagScopes)!;
-		NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
-		NetworkMqttBrokers = RefitFor(NetworkMqttBrokers)!;
-		NetworkPiiRequests = RefitFor(NetworkPiiRequests)!;
-		OpenApiSpec = RefitFor(OpenApiSpec)!;
-		RadioSettings = RefitFor(RadioSettings)!;
-		SamlRoles = RefitFor(SamlRoles)!;
-		SecurityEvents = RefitFor(SecurityEvents)!;
 		Sms = RefitFor(Sms)!;
 		SplashLoginAttempts = RefitFor(SplashLoginAttempts)!;
 		Ssids = RefitFor(Ssids)!;
@@ -54,8 +47,6 @@ public partial class MerakiClient : IDisposable
 		UplinkSettings = RefitFor(UplinkSettings)!;
 		Vlans = RefitFor(Vlans)!;
 		WebhookLogs = RefitFor(WebhookLogs)!;
-		WirelessHealth = RefitFor(WirelessHealth)!;
-		WirelessSettings = RefitFor(WirelessSettings);
 
 		// General level sections //
 		Devices = new()
@@ -279,11 +270,19 @@ public partial class MerakiClient : IDisposable
 				LatencyStats = RefitFor(Wireless.Clients.LatencyStats)
 			},
 			ClientCountHistory = RefitFor(Wireless.ClientCountHistory),
+			Devices = new()
+			{
+				ConnectionStats = RefitFor(Wireless.Devices.ConnectionStats),
+				LatencyStats = RefitFor(Wireless.Devices.LatencyStats)
+			},
+			ConnectionStats = RefitFor(Wireless.ConnectionStats),
+			LatencyHistory = RefitFor(Wireless.LatencyHistory),
 			Radio = new()
 			{
 				Settings = RefitFor(Wireless.Radio.Settings)
 			},
 			RfProfiles = RefitFor(Wireless.RfProfiles),
+			Settings = RefitFor(Wireless.Settings),
 			Ssids = new()
 			{
 				Firewall = RefitFor(Wireless.Ssids.Firewall)
@@ -327,16 +326,6 @@ public partial class MerakiClient : IDisposable
 	public ISwitchLinkAggregations LinkAggregations { get; }
 
 	/// <summary>
-	/// Meraki auth users
-	/// </summary>
-	public INetworksMerakiAuthUsers NetworkMerakiAuthUsers { get; }
-
-	/// <summary>
-	/// MQTT brokers
-	/// </summary>
-	public INetworksMqttBrokers NetworkMqttBrokers { get; }
-
-	/// <summary>
 	/// Named tag scopes
 	/// </summary>
 	public ISmTargetGroups NamedTagScopes { get; }
@@ -347,34 +336,9 @@ public partial class MerakiClient : IDisposable
 	public NetworksSection Networks { get; } = new();
 
 	/// <summary>
-	/// Open API spec
-	/// </summary>
-	public IOrganizationsOpenapiSpec OpenApiSpec { get; }
-
-	/// <summary>
 	/// Organizations
 	/// </summary>
 	public OrganizationsSection Organizations { get; } = new();
-
-	/// <summary>
-	/// PIIs
-	/// </summary>
-	public INetworksPiiRequests NetworkPiiRequests { get; }
-
-	/// <summary>
-	/// Radio settings
-	/// </summary>
-	public IWirelessRadioSettings RadioSettings { get; }
-
-	/// <summary>
-	/// SAML roles
-	/// </summary>
-	public IOrganizationsSamlRoles SamlRoles { get; }
-
-	/// <summary>
-	/// Security events
-	/// </summary>
-	public ISecurityEvents SecurityEvents { get; }
 
 	/// <summary>
 	/// SMs
@@ -419,16 +383,6 @@ public partial class MerakiClient : IDisposable
 	public IWebhookLogs WebhookLogs { get; }
 
 	public WirelessSection Wireless { get; } = new();
-
-	/// <summary>
-	/// Wireless health
-	/// </summary>
-	public IWirelessHealth WirelessHealth { get; }
-
-	/// <summary>
-	/// Wireless settings
-	/// </summary>
-	public IWirelessSettings WirelessSettings { get; } = null!;
 
 	/// <summary>
 	/// Used to find out whether the client has the ReadOnly option set
