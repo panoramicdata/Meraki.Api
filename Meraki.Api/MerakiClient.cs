@@ -156,6 +156,15 @@ public partial class MerakiClient : IDisposable
 				OneToOneNatRules = RefitFor(Appliance.Firewall.OneToOneNatRules),
 				PortForwardingRules = RefitFor(Appliance.Firewall.PortForwardingRules)
 			},
+			StaticRoutes = RefitFor(Appliance.StaticRoutes),
+			TrafficShaping = new()
+			{
+				TrafficShaping = RefitFor(Appliance.TrafficShaping.TrafficShaping),
+				CustomPerformanceClasses = RefitFor(Appliance.TrafficShaping.CustomPerformanceClasses),
+				Rules = RefitFor(Appliance.TrafficShaping.Rules),
+				UplinkBandwidth = RefitFor(Appliance.TrafficShaping.UplinkBandwidth),
+				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection),
+			},
 			Vpn = new()
 			{
 				Bgp = RefitFor(Appliance.Vpn.Bgp),
@@ -243,6 +252,11 @@ public partial class MerakiClient : IDisposable
 				HealthByTime = RefitFor(Insight.Applications.HealthByTime)
 			}
 		};
+
+		Sm = new()
+		{
+			TargetGroups = RefitFor(Sm.TargetGroups)
+		};
 	}
 
 	private T RefitFor<T>(T _)
@@ -288,7 +302,7 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Named tag scopes
 	/// </summary>
-	public INamedTagScopes NamedTagScopes { get; }
+	public ISmTargetGroups NamedTagScopes { get; }
 
 	/// <summary>
 	/// Networks
@@ -339,6 +353,8 @@ public partial class MerakiClient : IDisposable
 	/// Splash login attempts
 	/// </summary>
 	public ISplashLoginAttempts SplashLoginAttempts { get; }
+
+	public SmSection Sm { get; } = new();
 
 	/// <summary>
 	/// SSIDs

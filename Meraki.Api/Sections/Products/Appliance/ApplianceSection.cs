@@ -7,5 +7,8 @@ public class ApplianceSection
 	public ApplianceFirewallSection Firewall { get; internal set; } = new();
 	public IAppliancePerformance Performance { get; internal set; } = null!;
 	public ApplianceSecuritySection Security { get; internal set; } = new();
+	public IApplianceStaticRoutes StaticRoutes { get; internal set; } = null!;
+	public ApplianceTrafficShapingSection TrafficShaping { get; internal set; } = new();
 	public ApplianceVpnSection Vpn { get; internal set; } = new();
+	public IApplianceWarmSpare WarmSpare { get; internal set; } = null!;
 }
