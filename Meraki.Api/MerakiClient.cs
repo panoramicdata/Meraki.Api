@@ -158,6 +158,10 @@ public partial class MerakiClient : IDisposable
 		// Product level sections //
 		Appliance = new()
 		{
+			Clients = new()
+			{
+				Security = RefitFor(Appliance.Clients.Security)
+			},
 			ConnectivityMonitoringDestinations = RefitFor(Appliance.ConnectivityMonitoringDestinations),
 			ContentFiltering = new()
 			{
@@ -169,7 +173,8 @@ public partial class MerakiClient : IDisposable
 			Security = new()
 			{
 				Intrusion = RefitFor(Appliance.Security.Intrusion),
-				Malware = RefitFor(Appliance.Security.Malware)
+				Malware = RefitFor(Appliance.Security.Malware),
+				Events = RefitFor(Appliance.Security.Events)
 			},
 			Settings = RefitFor(Appliance.Settings),
 			SingleLan = RefitFor(Appliance.SingleLan),
