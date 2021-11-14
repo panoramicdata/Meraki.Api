@@ -134,6 +134,11 @@ public partial class MerakiClient : IDisposable
 			Health = new()
 			{
 				ChannelUtilization = RefitFor(Networks.Health.ChannelUtilization)
+			},
+			WebHooks = new()
+			{
+				HttpServers = RefitFor(Networks.WebHooks.HttpServers),
+				WebhookTests = RefitFor(Networks.WebHooks.WebhookTests)
 			}
 		};
 
