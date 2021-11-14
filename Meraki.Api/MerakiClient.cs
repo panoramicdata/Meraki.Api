@@ -308,7 +308,13 @@ public partial class MerakiClient : IDisposable
 			Devices = new()
 			{
 				Devices = RefitFor(Sm.Devices.Devices),
-				BypassActivationLockAttempts = RefitFor(Sm.Devices.BypassActivationLockAttempts)
+				BypassActivationLockAttempts = RefitFor(Sm.Devices.BypassActivationLockAttempts),
+				CellularUsageHistory = RefitFor(Sm.Devices.CellularUsageHistory),
+				Certs = RefitFor(Sm.Devices.Certs),
+				Connectivity = RefitFor(Sm.Devices.Connectivity),
+				DesktopLogs = RefitFor(Sm.Devices.DesktopLogs),
+				DeviceCommandLogs = RefitFor(Sm.Devices.DeviceCommandLogs),
+				DeviceProfiles = RefitFor(Sm.Devices.DeviceProfiles),
 			},
 			TargetGroups = RefitFor(Sm.TargetGroups)
 		};
