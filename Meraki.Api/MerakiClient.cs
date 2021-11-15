@@ -352,6 +352,7 @@ public partial class MerakiClient : IDisposable
 				WlanLists = RefitFor(Sm.Devices.WlanLists)
 			},
 			Profiles = RefitFor(Sm.Profiles),
+			UserAccessDevices = RefitFor(Sm.UserAccessDevices),
 			TargetGroups = RefitFor(Sm.TargetGroups),
 			Users = new()
 			{

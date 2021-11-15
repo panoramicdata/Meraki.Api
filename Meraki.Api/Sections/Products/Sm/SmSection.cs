@@ -6,6 +6,7 @@
 		public SmDevicesSection Devices { get; internal set; } = new();
 		public ISmTargetGroups TargetGroups { get; internal set; } = null!;
 		public ISmProfiles Profiles { get; internal set; } = null!;
+		public ISmUserAccessDevices UserAccessDevices { get; internal set; } = null!;
 		public SmUsersSection Users { get; internal set; } = new();
 	}
 }
