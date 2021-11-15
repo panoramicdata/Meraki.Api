@@ -2,31 +2,30 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// The signature type for the custom pie chart item. Can be one of 'host', 'port' or 'ipRange'.
+/// </summary>
+/// <value>The signature type for the custom pie chart item. Can be one of 'host', 'port' or 'ipRange'.</value>
+[JsonConverter(typeof(StringEnumConverter))]
+public enum PieChartItemType
 {
 	/// <summary>
-	/// The signature type for the custom pie chart item. Can be one of 'host', 'port' or 'ipRange'.
+	/// Enum Host for "host"
 	/// </summary>
-	/// <value>The signature type for the custom pie chart item. Can be one of 'host', 'port' or 'ipRange'.</value>
-	[JsonConverter(typeof(StringEnumConverter))]
-	public enum PieChartItemType
-	{
-		/// <summary>
-		/// Enum Host for "host"
-		/// </summary>
-		[EnumMember(Value = "host")]
-		Host,
+	[EnumMember(Value = "host")]
+	Host,
 
-		/// <summary>
-		/// Enum Port for "port"
-		/// </summary>
-		[EnumMember(Value = "port")]
-		Port,
+	/// <summary>
+	/// Enum Port for "port"
+	/// </summary>
+	[EnumMember(Value = "port")]
+	Port,
 
-		/// <summary>
-		/// Enum IpRange for "ipRange"
-		/// </summary>
-		[EnumMember(Value = "ipRange")]
-		IpRange
-	}
+	/// <summary>
+	/// Enum IpRange for "ipRange"
+	/// </summary>
+	[EnumMember(Value = "ipRange")]
+	IpRange
 }

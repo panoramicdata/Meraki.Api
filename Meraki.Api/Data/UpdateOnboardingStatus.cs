@@ -1,23 +1,22 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Update onboarding status
+/// </summary>
+[DataContract]
+public class UpdateOnboardingStatus
 {
 	/// <summary>
-	/// Update onboarding status
+	/// Serial of camera
 	/// </summary>
-	[DataContract]
-	public class UpdateOnboardingStatus
-	{
-		/// <summary>
-		/// Serial of camera
-		/// </summary>
-		[DataMember(Name = "serial")]
-		public string Serial { get; set; } = string.Empty;
+	[DataMember(Name = "serial")]
+	public string Serial { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Note whether credentials were sent successfully
-		/// </summary>
-		[DataMember(Name = "wirelessCredentialsSent")]
-		public bool WirelessCredentialsSent { get; set; }
-	}
+	/// <summary>
+	/// Note whether credentials were sent successfully
+	/// </summary>
+	[DataMember(Name = "wirelessCredentialsSent")]
+	public bool WirelessCredentialsSent { get; set; }
 }

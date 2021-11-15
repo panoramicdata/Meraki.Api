@@ -1,19 +1,18 @@
 ﻿using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Routing interface
+/// </summary>
+[DataContract]
+public class RoutingInterface : RoutingInterfaceCreateRequest
 {
 	/// <summary>
-	/// Routing interface
+	/// Interface Id
 	/// </summary>
-	[DataContract]
-	public class RoutingInterface : RoutingInterfaceCreateRequest
-	{
-		/// <summary>
-		/// Interface Id
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "interfaceId")]
-		public string InterfaceId { get; set; } = string.Empty;
-	}
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "interfaceId")]
+	public string InterfaceId { get; set; } = string.Empty;
 }

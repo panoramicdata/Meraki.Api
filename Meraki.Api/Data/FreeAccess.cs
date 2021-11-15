@@ -1,23 +1,22 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Free access
+/// </summary>
+[DataContract]
+public class FreeAccess
 {
 	/// <summary>
-	/// Free access
+	/// Duration in minutes
 	/// </summary>
-	[DataContract]
-	public class FreeAccess
-	{
-		/// <summary>
-		/// Duration in minutes
-		/// </summary>
-		[DataMember(Name = "durationInMinutes")]
-		public int DurationInMinutes { get; set; }
+	[DataMember(Name = "durationInMinutes")]
+	public int DurationInMinutes { get; set; }
 
-		/// <summary>
-		/// Enabled
-		/// </summary>
-		[DataMember(Name = "enabled")]
-		public bool Enabled { get; set; }
-	}
+	/// <summary>
+	/// Enabled
+	/// </summary>
+	[DataMember(Name = "enabled")]
+	public bool Enabled { get; set; }
 }

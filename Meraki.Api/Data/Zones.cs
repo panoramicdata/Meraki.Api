@@ -1,17 +1,16 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Zones
+/// </summary>
+[DataContract]
+public class Zones
 {
 	/// <summary>
-	/// Zones
+	/// 0
 	/// </summary>
-	[DataContract]
-	public class Zones
-	{
-		/// <summary>
-		/// 0
-		/// </summary>
-		[DataMember(Name = "0")]
-		public ZoneData Zone0 { get; set; } = new();
-	}
+	[DataMember(Name = "0")]
+	public ZoneData Zone0 { get; set; } = new();
 }

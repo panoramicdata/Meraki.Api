@@ -2,25 +2,24 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// The psk encryption mode for the SSID ('wep' or 'wpa'). This param is only valid if the authMode is 'psk'
+/// </summary>
+/// <value>The psk encryption mode for the SSID ('wep' or 'wpa'). This param is only valid if the authMode is 'psk'</value>
+[JsonConverter(typeof(StringEnumConverter))]
+public enum EncryptionMode
 {
 	/// <summary>
-	/// The psk encryption mode for the SSID ('wep' or 'wpa'). This param is only valid if the authMode is 'psk'
+	/// Enum Wep for "wep"
 	/// </summary>
-	/// <value>The psk encryption mode for the SSID ('wep' or 'wpa'). This param is only valid if the authMode is 'psk'</value>
-	[JsonConverter(typeof(StringEnumConverter))]
-	public enum EncryptionMode
-	{
-		/// <summary>
-		/// Enum Wep for "wep"
-		/// </summary>
-		[EnumMember(Value = "wep")]
-		Wep,
+	[EnumMember(Value = "wep")]
+	Wep,
 
-		/// <summary>
-		/// Enum Wpa for "wpa"
-		/// </summary>
-		[EnumMember(Value = "wpa")]
-		Wpa
-	}
+	/// <summary>
+	/// Enum Wpa for "wpa"
+	/// </summary>
+	[EnumMember(Value = "wpa")]
+	Wpa
 }

@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// A configuration template
+/// </summary>
+[DataContract]
+public class ConfigurationTemplate : NetworkOrConfigurationTemplate
 {
 	/// <summary>
-	/// A configuration template
+	/// Product types
 	/// </summary>
-	[DataContract]
-	public class ConfigurationTemplate : NetworkOrConfigurationTemplate
-	{
-		/// <summary>
-		/// Product types
-		/// </summary>
-		[DataMember(Name = "productTypes")]
-		[ApiAccess(ApiAccess.Read)]
-		public override List<ProductType> ProductTypes { get; set; } = new();
-	}
+	[DataMember(Name = "productTypes")]
+	[ApiAccess(ApiAccess.Read)]
+	public override List<ProductType> ProductTypes { get; set; } = new();
 }

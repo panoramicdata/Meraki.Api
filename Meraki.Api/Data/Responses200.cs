@@ -1,23 +1,22 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// 200
+/// </summary>
+[DataContract]
+public class Responses200
 {
 	/// <summary>
-	/// 200
+	/// Description
 	/// </summary>
-	[DataContract]
-	public class Responses200
-	{
-		/// <summary>
-		/// Description
-		/// </summary>
-		[DataMember(Name = "description")]
-		public string Description { get; set; } = string.Empty;
+	[DataMember(Name = "description")]
+	public string Description { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Examples
-		/// </summary>
-		[DataMember(Name = "examples")]
-		public Examples Examples { get; set; } = new();
-	}
+	/// <summary>
+	/// Examples
+	/// </summary>
+	[DataMember(Name = "examples")]
+	public Examples Examples { get; set; } = new();
 }

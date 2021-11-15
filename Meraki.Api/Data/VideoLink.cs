@@ -1,17 +1,16 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Video link
+/// </summary>
+[DataContract]
+public class VideoLink
 {
 	/// <summary>
-	/// Video link
+	/// Url
 	/// </summary>
-	[DataContract]
-	public class VideoLink
-	{
-		/// <summary>
-		/// Url
-		/// </summary>
-		[DataMember(Name = "url")]
-		public string Url { get; set; } = string.Empty;
-	}
+	[DataMember(Name = "url")]
+	public string Url { get; set; } = string.Empty;
 }

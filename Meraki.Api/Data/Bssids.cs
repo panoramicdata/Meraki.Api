@@ -1,30 +1,29 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Bssid
+/// </summary>
+[DataContract]
+public class Bssids
 {
 	/// <summary>
-	/// Bssid
+	/// BSSID
 	/// </summary>
-	[DataContract]
-	public class Bssids
-	{
-		/// <summary>
-		/// BSSID
-		/// </summary>
-		[DataMember(Name = "bssid")]
-		public string Bssid { get; set; } = string.Empty;
+	[DataMember(Name = "bssid")]
+	public string Bssid { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Contained
-		/// </summary>
-		[DataMember(Name = "contained")]
-		public bool Contained { get; set; }
+	/// <summary>
+	/// Contained
+	/// </summary>
+	[DataMember(Name = "contained")]
+	public bool Contained { get; set; }
 
-		/// <summary>
-		/// Detected by
-		/// </summary>
-		[DataMember(Name = "detectedBy")]
-		public List<DetectedBy> DetectedBy { get; set; } = new();
-	}
+	/// <summary>
+	/// Detected by
+	/// </summary>
+	[DataMember(Name = "detectedBy")]
+	public List<DetectedBy> DetectedBy { get; set; } = new();
 }

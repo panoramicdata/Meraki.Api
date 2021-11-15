@@ -1,17 +1,16 @@
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// UpdateNetworkCellularGatewaySettingsUplink
+/// </summary>
+[DataContract]
+public class NetworkCellularGatewaySettingsUplinkUpdateRequest
 {
 	/// <summary>
-	/// UpdateNetworkCellularGatewaySettingsUplink
+	/// Gets or Sets BandwidthLimits
 	/// </summary>
-	[DataContract]
-	public class NetworkCellularGatewaySettingsUplinkUpdateRequest
-	{
-		/// <summary>
-		/// Gets or Sets BandwidthLimits
-		/// </summary>
-		[DataMember(Name = "bandwidthLimits")]
-		public BandwidthLimit BandwidthLimits { get; set; } = new();
-	}
+	[DataMember(Name = "bandwidthLimits")]
+	public BandwidthLimit BandwidthLimits { get; set; } = new();
 }

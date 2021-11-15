@@ -1,19 +1,18 @@
 ﻿using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Saml
+/// </summary>
+[DataContract]
+public class Saml
 {
 	/// <summary>
-	/// Saml
+	/// Enabled?
 	/// </summary>
-	[DataContract]
-	public class Saml
-	{
-		/// <summary>
-		/// Enabled?
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "enabled")]
-		public bool Enabled { get; set; }
-	}
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "enabled")]
+	public bool Enabled { get; set; }
 }

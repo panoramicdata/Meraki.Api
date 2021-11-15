@@ -1,29 +1,28 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Latency history
+/// </summary>
+[DataContract]
+public class ClientLatencyHistory
 {
 	/// <summary>
-	/// Latency history
+	/// T0
 	/// </summary>
-	[DataContract]
-	public class ClientLatencyHistory
-	{
-		/// <summary>
-		/// T0
-		/// </summary>
-		[DataMember(Name = "t0")]
-		public int T0 { get; set; }
+	[DataMember(Name = "t0")]
+	public int T0 { get; set; }
 
-		/// <summary>
-		/// T1
-		/// </summary>
-		[DataMember(Name = "t1")]
-		public int T1 { get; set; }
+	/// <summary>
+	/// T1
+	/// </summary>
+	[DataMember(Name = "t1")]
+	public int T1 { get; set; }
 
-		/// <summary>
-		/// Latency bins by category
-		/// </summary>
-		[DataMember(Name = "latencyBinsByCategory")]
-		public LatencyStats LatencyBinsByCategory { get; set; } = new();
-	}
+	/// <summary>
+	/// Latency bins by category
+	/// </summary>
+	[DataMember(Name = "latencyBinsByCategory")]
+	public LatencyStats LatencyBinsByCategory { get; set; } = new();
 }

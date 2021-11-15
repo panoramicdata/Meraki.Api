@@ -1,17 +1,16 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Network device to be updated
+/// </summary>
+[DataContract]
+public class Appliance
 {
 	/// <summary>
-	/// Network device to be updated
+	/// Next upgrade
 	/// </summary>
-	[DataContract]
-	public class Appliance
-	{
-		/// <summary>
-		/// Next upgrade
-		/// </summary>
-		[DataMember(Name = "nextUpgrade")]
-		public NextUpgradeUpdate NextUpgrade { get; set; } = new();
-	}
+	[DataMember(Name = "nextUpgrade")]
+	public NextUpgradeUpdate NextUpgrade { get; set; } = new();
 }

@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Content filtering catergories
+/// </summary>
+[DataContract]
+public class ContentFilteringCategories
 {
 	/// <summary>
-	/// Content filtering catergories
+	/// Categories
 	/// </summary>
-	[DataContract]
-	public class ContentFilteringCategories
-	{
-		/// <summary>
-		/// Categories
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadUpdate)]
-		[DataMember(Name = "categories")]
-		public List<ContentFilteringCategory> Categories { get; set; } = new();
-	}
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "categories")]
+	public List<ContentFilteringCategory> Categories { get; set; } = new();
 }

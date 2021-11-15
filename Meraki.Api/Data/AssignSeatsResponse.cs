@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Response
+/// </summary>
+[DataContract]
+public class AssignSeatsResponse
 {
 	/// <summary>
-	/// Response
+	/// Resulting licenses
 	/// </summary>
-	[DataContract]
-	public class AssignSeatsResponse
-	{
-		/// <summary>
-		/// Resulting licenses
-		/// </summary>
-		[DataMember(Name = "resultingLicenses")]
-		public List<OrganizationLicense> ResultingLicenses { get; set; } = new();
-	}
+	[DataMember(Name = "resultingLicenses")]
+	public List<OrganizationLicense> ResultingLicenses { get; set; } = new();
 }

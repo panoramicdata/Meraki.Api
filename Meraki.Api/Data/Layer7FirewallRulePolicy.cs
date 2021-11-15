@@ -2,19 +2,18 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// The policy applied to matching traffic. Must be 'deny'.
+/// </summary>
+/// <value>The policy applied to matching traffic. Must be 'deny'.</value>
+[JsonConverter(typeof(StringEnumConverter))]
+public enum Layer7FirewallRulePolicy
 {
 	/// <summary>
-	/// The policy applied to matching traffic. Must be 'deny'.
+	/// Enum Deny for "deny"
 	/// </summary>
-	/// <value>The policy applied to matching traffic. Must be 'deny'.</value>
-	[JsonConverter(typeof(StringEnumConverter))]
-	public enum Layer7FirewallRulePolicy
-	{
-		/// <summary>
-		/// Enum Deny for "deny"
-		/// </summary>
-		[EnumMember(Value = "deny")]
-		Deny
-	}
+	[EnumMember(Value = "deny")]
+	Deny
 }

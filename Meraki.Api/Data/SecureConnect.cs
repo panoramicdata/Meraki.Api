@@ -1,40 +1,39 @@
 ﻿using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Secure connect settings
+/// </summary>
+[DataContract]
+public class SecureConnect
 {
 	/// <summary>
-	/// Secure connect settings
+	/// Enabled?
 	/// </summary>
-	[DataContract]
-	public class SecureConnect
-	{
-		/// <summary>
-		/// Enabled?
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "enabled")]
-		public bool Enabled { get; set; }
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "enabled")]
+	public bool Enabled { get; set; }
 
-		/// <summary>
-		/// Active
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "active")]
-		public bool Active { get; set; }
+	/// <summary>
+	/// Active
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "active")]
+	public bool Active { get; set; }
 
-		/// <summary>
-		/// Authentication status
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "authenticationStatus")]
-		public string AuthenticationStatus { get; set; } = string.Empty;
+	/// <summary>
+	/// Authentication status
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "authenticationStatus")]
+	public string AuthenticationStatus { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Config overrides
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "configOverrides")]
-		public ConfigOverrides ConfigOverrides { get; set; } = new();
-	}
+	/// <summary>
+	/// Config overrides
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "configOverrides")]
+	public ConfigOverrides ConfigOverrides { get; set; } = new();
 }

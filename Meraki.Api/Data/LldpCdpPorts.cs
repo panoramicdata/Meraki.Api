@@ -1,23 +1,22 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Ports
+/// </summary>
+[DataContract]
+public class LldpCdpPorts
 {
 	/// <summary>
-	/// Ports
+	/// 8
 	/// </summary>
-	[DataContract]
-	public class LldpCdpPorts
-	{
-		/// <summary>
-		/// 8
-		/// </summary>
-		[DataMember(Name = "8")]
-		public Port Port8 { get; set; } = new();
+	[DataMember(Name = "8")]
+	public Port Port8 { get; set; } = new();
 
-		/// <summary>
-		/// 12
-		/// </summary>
-		[DataMember(Name = "12")]
-		public Port Port12 { get; set; } = new();
-	}
+	/// <summary>
+	/// 12
+	/// </summary>
+	[DataMember(Name = "12")]
+	public Port Port12 { get; set; } = new();
 }

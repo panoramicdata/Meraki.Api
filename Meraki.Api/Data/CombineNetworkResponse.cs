@@ -1,17 +1,16 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Response
+/// </summary>
+[DataContract]
+public class CombineNetworkResponse
 {
 	/// <summary>
-	/// Response
+	/// Resulting network
 	/// </summary>
-	[DataContract]
-	public class CombineNetworkResponse
-	{
-		/// <summary>
-		/// Resulting network
-		/// </summary>
-		[DataMember(Name = "resultingNetwork")]
-		public Network ResultingNetwork { get; set; } = new();
-	}
+	[DataMember(Name = "resultingNetwork")]
+	public Network ResultingNetwork { get; set; } = new();
 }

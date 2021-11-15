@@ -1,23 +1,22 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// LLDP CDP
+/// </summary>
+[DataContract]
+public class LldpCdp
 {
 	/// <summary>
-	/// LLDP CDP
+	/// Source mac
 	/// </summary>
-	[DataContract]
-	public class LldpCdp
-	{
-		/// <summary>
-		/// Source mac
-		/// </summary>
-		[DataMember(Name = "sourceMac")]
-		public string SourceMac { get; set; } = string.Empty;
+	[DataMember(Name = "sourceMac")]
+	public string SourceMac { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Ports
-		/// </summary>
-		[DataMember(Name = "ports")]
-		public LldpCdpPorts Ports { get; set; } = new();
-	}
+	/// <summary>
+	/// Ports
+	/// </summary>
+	[DataMember(Name = "ports")]
+	public LldpCdpPorts Ports { get; set; } = new();
 }

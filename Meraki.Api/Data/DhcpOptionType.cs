@@ -2,37 +2,36 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// The type for the DHCP option. One of: 'text', 'ip', 'hex' or 'integer'
+/// </summary>
+/// <value>The type for the DHCP option. One of: 'text', 'ip', 'hex' or 'integer'</value>
+[JsonConverter(typeof(StringEnumConverter))]
+public enum DhcpOptionType
 {
 	/// <summary>
-	/// The type for the DHCP option. One of: 'text', 'ip', 'hex' or 'integer'
+	/// Enum Text for "text"
 	/// </summary>
-	/// <value>The type for the DHCP option. One of: 'text', 'ip', 'hex' or 'integer'</value>
-	[JsonConverter(typeof(StringEnumConverter))]
-	public enum DhcpOptionType
-	{
-		/// <summary>
-		/// Enum Text for "text"
-		/// </summary>
-		[EnumMember(Value = "text")]
-		Text,
+	[EnumMember(Value = "text")]
+	Text,
 
-		/// <summary>
-		/// Enum Ip for "ip"
-		/// </summary>
-		[EnumMember(Value = "ip")]
-		Ip,
+	/// <summary>
+	/// Enum Ip for "ip"
+	/// </summary>
+	[EnumMember(Value = "ip")]
+	Ip,
 
-		/// <summary>
-		/// Enum Hex for "hex"
-		/// </summary>
-		[EnumMember(Value = "hex")]
-		Hex,
+	/// <summary>
+	/// Enum Hex for "hex"
+	/// </summary>
+	[EnumMember(Value = "hex")]
+	Hex,
 
-		/// <summary>
-		/// Enum Integer for "integer"
-		/// </summary>
-		[EnumMember(Value = "integer")]
-		Integer
-	}
+	/// <summary>
+	/// Enum Integer for "integer"
+	/// </summary>
+	[EnumMember(Value = "integer")]
+	Integer
 }

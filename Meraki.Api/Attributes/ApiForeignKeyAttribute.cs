@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace Meraki.Api.Attributes
-{
-	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
-	public class ApiForeignKeyAttribute : Attribute
-	{
-		public ApiForeignKeyAttribute(Type foreignType)
-		{
-			ForeignType = foreignType;
-		}
+namespace Meraki.Api.Attributes;
 
-		public Type ForeignType { get; }
+[AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+public class ApiForeignKeyAttribute : Attribute
+{
+	public ApiForeignKeyAttribute(Type foreignType)
+	{
+		ForeignType = foreignType;
 	}
+
+	public Type ForeignType { get; }
 }

@@ -1,27 +1,26 @@
 ﻿using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// An switch profile
+/// </summary>
+[DataContract]
+public class SwitchProfile : NamedItem
 {
 	/// <summary>
-	/// An switch profile
+	/// The switch profile Id
 	/// </summary>
-	[DataContract]
-	public class SwitchProfile : NamedItem
-	{
-		/// <summary>
-		/// The switch profile Id
-		/// </summary>
-		[ApiAccess(ApiAccess.Read)]
-		[ApiKey]
-		[DataMember(Name = "switchProfileId")]
-		public string Id { get; set; } = string.Empty;
+	[ApiAccess(ApiAccess.Read)]
+	[ApiKey]
+	[DataMember(Name = "switchProfileId")]
+	public string Id { get; set; } = string.Empty;
 
-		/// <summary>
-		/// The Model
-		/// </summary>
-		[ApiAccess(ApiAccess.Read)]
-		[DataMember(Name = "model")]
-		public string Model { get; set; } = string.Empty;
-	}
+	/// <summary>
+	/// The Model
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "model")]
+	public string Model { get; set; } = string.Empty;
 }

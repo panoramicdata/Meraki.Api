@@ -1,19 +1,18 @@
 ﻿using Meraki.Api.Attributes;
 using System.Runtime.Serialization;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// Wireless profiles
+/// </summary>
+[DataContract]
+public class CameraWirelessProfiles
 {
 	/// <summary>
-	/// Wireless profiles
+	/// The ids of the wireless profile to assign to the given camera
 	/// </summary>
-	[DataContract]
-	public class CameraWirelessProfiles
-	{
-		/// <summary>
-		/// The ids of the wireless profile to assign to the given camera
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadUpdate)]
-		[DataMember(Name = "ids")]
-		public WirelessProfilesIds Ids { get; set; } = new();
-	}
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "ids")]
+	public WirelessProfilesIds Ids { get; set; } = new();
 }
