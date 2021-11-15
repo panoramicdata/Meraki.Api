@@ -65,6 +65,7 @@ public partial class MerakiClient : IDisposable
 				Priorities = RefitFor(Organizations.BrandingPolicies.Priorities)
 			},
 			ConfigurationChanges = RefitFor(Organizations.ConfigurationChanges),
+			ConfigTemplates = RefitFor(Organizations.ConfigTemplates),
 			Devices = RefitFor(Organizations.Devices),
 			InventoryDevices = RefitFor(Organizations.InventoryDevices),
 			Licenses = RefitFor(Organizations.Licenses),
@@ -74,7 +75,7 @@ public partial class MerakiClient : IDisposable
 			Saml = new OrganizationsSamlSection
 			{
 				Saml = RefitFor(Organizations.Saml.Saml),
-				Idp = RefitFor(Organizations.Saml.Idp),
+				Idp = RefitFor(Organizations.Saml.Idp)
 			},
 			SamlRoles = RefitFor(Organizations.SamlRoles),
 			Snmp = RefitFor(Organizations.Snmp),
@@ -155,7 +156,7 @@ public partial class MerakiClient : IDisposable
 			ContentFiltering = new()
 			{
 				ContentFiltering = RefitFor(Appliance.ContentFiltering.ContentFiltering),
-				Categories = RefitFor(Appliance.ContentFiltering.Categories),
+				Categories = RefitFor(Appliance.ContentFiltering.Categories)
 			},
 			Performance = RefitFor(Appliance.Performance),
 			Ports = RefitFor(Appliance.Ports),
@@ -189,7 +190,7 @@ public partial class MerakiClient : IDisposable
 				CustomPerformanceClasses = RefitFor(Appliance.TrafficShaping.CustomPerformanceClasses),
 				Rules = RefitFor(Appliance.TrafficShaping.Rules),
 				UplinkBandwidth = RefitFor(Appliance.TrafficShaping.UplinkBandwidth),
-				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection),
+				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection)
 			},
 			Uplink = new()
 			{
@@ -271,7 +272,7 @@ public partial class MerakiClient : IDisposable
 			Stacks = RefitFor(Switch.Stacks),
 			StormControl = RefitFor(Switch.StormControl),
 			Stp = RefitFor(Switch.Stp),
-			WarmSpare = RefitFor(Switch.WarmSpare),
+			WarmSpare = RefitFor(Switch.WarmSpare)
 		};
 
 		Wireless = new()
@@ -319,7 +320,7 @@ public partial class MerakiClient : IDisposable
 				Schedules = RefitFor(Wireless.Ssids.Schedules),
 				Splash = RefitFor(Wireless.Ssids.Splash),
 				TrafficShaping = RefitFor(Wireless.Ssids.TrafficShaping),
-				Vpn = RefitFor(Wireless.Ssids.Vpn),
+				Vpn = RefitFor(Wireless.Ssids.Vpn)
 			},
 			UsageHistory = RefitFor(Wireless.UsageHistory)
 		};
