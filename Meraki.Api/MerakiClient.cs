@@ -140,6 +140,11 @@ public partial class MerakiClient : IDisposable
 			SplashLoginAttempts = RefitFor(Networks.SplashLoginAttempts),
 			SyslogServers = RefitFor(Networks.SyslogServers),
 			TrafficAnalysis = RefitFor(Networks.TrafficAnalysis),
+			TrafficShaping = new()
+			{
+				ApplicationCategories = RefitFor(Networks.TrafficShaping.ApplicationCategories),
+				DscpTaggingOptions = RefitFor(Networks.TrafficShaping.DscpTaggingOptions)
+			},
 			WebHooks = new()
 			{
 				HttpServers = RefitFor(Networks.WebHooks.HttpServers),
@@ -301,6 +306,7 @@ public partial class MerakiClient : IDisposable
 				IdentityPsks = RefitFor(Wireless.Ssids.IdentityPsks),
 				Schedules = RefitFor(Wireless.Ssids.Schedules),
 				Splash = RefitFor(Wireless.Ssids.Splash),
+				TrafficShaping = RefitFor(Wireless.Ssids.TrafficShaping),
 				Vpn = RefitFor(Wireless.Ssids.Vpn),
 			},
 			UsageHistory = RefitFor(Wireless.UsageHistory)
