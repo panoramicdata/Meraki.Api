@@ -1,5 +1,3 @@
-using System.Runtime.Serialization;
-
 namespace Meraki.Api.Data;
 
 /// <summary>

@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// Insight monitored media servers

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// The current setting for Active Directory. Only valid if splashPage is 'Password-protected with Active Directory'

@@ -1,8 +1,4 @@
-﻿using Meraki.Api.Attributes;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// Custom IPSec policies for the VPN peer. If not included and a preset has not been chosen, the default preset for IPSec policies will be used.

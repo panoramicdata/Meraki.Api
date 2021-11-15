@@ -1,9 +1,4 @@
-﻿using Meraki.Api.Data;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Runtime.Serialization;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// Area types in OSPF. Must be one of: ["normal", "stub", "nssa"]

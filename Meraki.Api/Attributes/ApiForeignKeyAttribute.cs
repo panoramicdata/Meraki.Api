@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Meraki.Api.Attributes;
+﻿namespace Meraki.Api.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 public class ApiForeignKeyAttribute : Attribute

@@ -1,7 +1,4 @@
-﻿using Meraki.Api.Attributes;
-using System.Runtime.Serialization;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// The video settings for a camera

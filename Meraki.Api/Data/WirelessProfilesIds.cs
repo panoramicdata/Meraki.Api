@@ -1,7 +1,4 @@
-﻿using Meraki.Api.Attributes;
-using System.Runtime.Serialization;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// The ids of the wireless profile to assign to the given camera

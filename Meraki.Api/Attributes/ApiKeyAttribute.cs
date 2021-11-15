@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Meraki.Api.Attributes;
+﻿namespace Meraki.Api.Attributes;
 
 /// <summary>
 /// Denotes the property that uniquely identifies the entity

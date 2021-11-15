@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// The OAuth settings of this SSID. Only valid if splashPage is 'Google OAuth'.

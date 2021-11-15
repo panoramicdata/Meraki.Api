@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Meraki.Api.Exceptions;
+﻿namespace Meraki.Api.Exceptions;
 
 public class ConfigurationException : Exception
 {

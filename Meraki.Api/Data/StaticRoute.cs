@@ -1,11 +1,4 @@
-﻿using Meraki.Api.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Xml.Linq;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 public class StaticRoute : StaticRouteUpdateRequest
 {

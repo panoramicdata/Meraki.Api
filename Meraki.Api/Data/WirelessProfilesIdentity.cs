@@ -1,7 +1,4 @@
-﻿using Meraki.Api.Attributes;
-using System.Runtime.Serialization;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// The identity of the wireless profile. Required for creating wireless profiles in 8021x-radius auth mode.

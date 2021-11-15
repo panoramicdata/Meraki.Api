@@ -1,6 +1,4 @@
-﻿using Meraki.Api.Data;
-
-namespace Meraki.Api.Extensions;
+﻿namespace Meraki.Api.Extensions;
 
 public static class DeviceExtensions
 {

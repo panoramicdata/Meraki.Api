@@ -1,10 +1,4 @@
-﻿using Meraki.Api.Attributes;
-using Meraki.Api.Interfaces;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Security.Cryptography;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// Access policy

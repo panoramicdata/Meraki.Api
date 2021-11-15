@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Meraki.Api.Attributes;
+﻿namespace Meraki.Api.Attributes;
 
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
 internal class ApiOperationIdAttribute : Attribute
