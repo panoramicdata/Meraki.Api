@@ -3,7 +3,7 @@ namespace Meraki.Api.Interfaces.General.Networks;
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
 /// </summary>
-public interface INetworksAlertSettings
+public interface INetworksAlertsSettings
 {
 	/// <summary>
 	/// Return the alert configuration for this network

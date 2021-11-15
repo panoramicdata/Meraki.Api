@@ -41,8 +41,8 @@ public partial class MerakiClient : IDisposable
 		// General level sections //
 		Devices = new()
 		{
-			Clients = RefitFor(Devices.Clients),
 			Devices = RefitFor(Devices.Devices),
+			Clients = RefitFor(Devices.Clients),
 			LldpCdp = RefitFor(Devices.LldpCdp),
 			LossAndLatencyHistory = RefitFor(Devices.LossAndLatencyHistory),
 			ManagementInterface = RefitFor(Devices.ManagementInterface)
