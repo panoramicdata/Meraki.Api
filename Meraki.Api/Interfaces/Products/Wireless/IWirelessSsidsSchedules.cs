@@ -1,0 +1,31 @@
+﻿namespace Meraki.Api.Interfaces.Products.Wireless;
+
+public interface IWirelessSsidsSchedules
+{
+	/// <summary>
+	/// List the outage schedule for the SSID
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="number">The SSID number</param>
+	[Get("/networks/{networkId}/wireless/ssids/{number}/schedules")]
+	Task<Schedules> GetNetworkWirelessSsidSchedulesAsync(
+		[AliasAs("networkId")] string networkId,
+		[AliasAs("number")] string number,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Update the outage schedule for the SSID
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="number">The SSID number</param>
+	[Put("/networks/{networkId}/wireless/ssids/{number}/schedules")]
+	Task<Schedules> UpdateNetworkWirelessSsidSchedulesAsync(
+		[AliasAs("networkId")] string networkId,
+		[AliasAs("number")] string number,
+		[Body] Schedules updateNetworkWirelessSsidSchedules,
+		CancellationToken cancellationToken = default
+		);
+}

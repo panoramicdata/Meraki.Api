@@ -293,7 +293,15 @@ public partial class MerakiClient : IDisposable
 			Ssids = new()
 			{
 				Ssids = RefitFor(Wireless.Ssids.Ssids),
-				Firewall = RefitFor(Wireless.Ssids.Firewall)
+				BonjourForwarding = RefitFor(Wireless.Ssids.BonjourForwarding),
+				DeviceTypeGroupPolicies = RefitFor(Wireless.Ssids.DeviceTypeGroupPolicies),
+				EapOverride = RefitFor(Wireless.Ssids.EapOverride),
+				Firewall = RefitFor(Wireless.Ssids.Firewall),
+				HotSpot20 = RefitFor(Wireless.Ssids.HotSpot20),
+				IdentityPsks = RefitFor(Wireless.Ssids.IdentityPsks),
+				Schedules = RefitFor(Wireless.Ssids.Schedules),
+				Splash = RefitFor(Wireless.Ssids.Splash),
+				Vpn = RefitFor(Wireless.Ssids.Vpn),
 			},
 			UsageHistory = RefitFor(Wireless.UsageHistory)
 		};
