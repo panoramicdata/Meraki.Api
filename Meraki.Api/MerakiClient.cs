@@ -45,7 +45,6 @@ public partial class MerakiClient : IDisposable
 		TrafficShaping = RefitFor(TrafficShaping)!;
 		UplinkSettings = RefitFor(UplinkSettings)!;
 		Vlans = RefitFor(Vlans)!;
-		WebhookLogs = RefitFor(WebhookLogs)!;
 
 		// General level sections //
 		Devices = new()
@@ -406,11 +405,6 @@ public partial class MerakiClient : IDisposable
 	/// VLANs
 	/// </summary>
 	public IVlans Vlans { get; }
-
-	/// <summary>
-	/// Webhook logs
-	/// </summary>
-	public IOrganizationsWebhooksLogs WebhookLogs { get; }
 
 	public WirelessSection Wireless { get; } = new();
 
