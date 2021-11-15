@@ -2,7 +2,6 @@
 
 public interface INetworksTrafficShapingDscpTaggingOptions
 {
-
 	/// <summary>
 	/// Returns the available DSCP tagging options for your traffic shaping rules.
 	/// </summary>

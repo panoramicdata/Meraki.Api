@@ -5,8 +5,6 @@ namespace Meraki.Api.Interfaces.Products.Wireless;
 /// </summary>
 public interface IWirelessRadioSettings
 {
-
-
 	/// <summary>
 	/// Return the radio settings of a device
 	/// </summary>
@@ -17,8 +15,6 @@ public interface IWirelessRadioSettings
 		[AliasAs("serial")] string serial,
 		CancellationToken cancellationToken = default
 		);
-
-
 
 	/// <summary>
 	/// Update the radio settings of a device
@@ -32,6 +28,4 @@ public interface IWirelessRadioSettings
 		[Body] WirelessRadioSettingsUpdateRequest updateNetworkDeviceWirelessRadioSettings,
 		CancellationToken cancellationToken = default
 		);
-
-
 }

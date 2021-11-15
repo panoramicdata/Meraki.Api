@@ -20,5 +20,4 @@ public interface ISmDevicesPerformanceHistory
 		[AliasAs("endingBefore")] string endingBefore = null!,
 		CancellationToken cancellationToken = default
 		);
-
 }

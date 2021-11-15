@@ -29,5 +29,4 @@ public interface IWirelessSsidsVpn
 		[Body] VpnSettings updateNetworkWirelessSsidVpn,
 		CancellationToken cancellationToken = default
 		);
-
 }

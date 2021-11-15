@@ -25,5 +25,4 @@ public interface INetworksTrafficAnalysis
 		[Body] TrafficAnalysis trafficAnalysis,
 		CancellationToken cancellationToken = default
 		);
-
 }

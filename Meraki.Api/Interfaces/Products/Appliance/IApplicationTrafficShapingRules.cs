@@ -27,5 +27,4 @@ public interface IApplicationTrafficShapingRules
 		[Body] NetworkApplianceTrafficShapingRule trafficShapingRule,
 		CancellationToken cancellationToken = default
 		);
-
 }

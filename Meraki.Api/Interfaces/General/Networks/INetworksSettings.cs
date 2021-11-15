@@ -24,5 +24,4 @@ public interface INetworksSettings
 		[Body] NetworkSettings updateNetworkSettings,
 		CancellationToken cancellationToken = default
 		);
-
 }

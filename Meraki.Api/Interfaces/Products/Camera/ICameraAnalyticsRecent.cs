@@ -14,5 +14,4 @@ public interface ICameraAnalyticsRecent
 		[AliasAs("objectType")] string objectType = null!,
 		CancellationToken cancellationToken = default
 		);
-
 }

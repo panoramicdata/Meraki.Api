@@ -43,7 +43,6 @@ public interface ISmDevices
 		CancellationToken cancellationToken = default
 		);
 
-
 	/// <summary>
 	/// Lock a set of devices
 	/// </summary>

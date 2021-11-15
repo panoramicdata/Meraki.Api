@@ -71,5 +71,4 @@ public interface IApplicationTrafficShapingCustomPerformanceClasses
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
 		CancellationToken cancellationToken = default);
-
 }

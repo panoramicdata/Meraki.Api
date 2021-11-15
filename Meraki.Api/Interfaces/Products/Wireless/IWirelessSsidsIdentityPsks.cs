@@ -75,5 +75,4 @@ public interface IWirelessSsidsIdentityPsks
 		[AliasAs("number")] string number,
 		[AliasAs("identityPskId")] string identityPskId,
 		CancellationToken cancellationToken = default);
-
 }
