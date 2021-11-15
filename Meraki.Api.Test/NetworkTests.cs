@@ -494,33 +494,34 @@ namespace Meraki.Api.Test
 					.ConfigureAwait(false);
 				newResult.Should().NotBeNull();
 
-		//		//Download the image
-		//		using var client = new WebClient();
-		//		using var stream = client.OpenRead(newResult.Url);
-		//		using var bitmap = new Bitmap(stream);
+				//		//Download the image
+				//		using var client = new WebClient();
+				//		using var stream = client.OpenRead(newResult.Url);
+				//		using var bitmap = new Bitmap(stream);
 
-		//		bitmap.Save("temp.png", ImageFormat.Png);
+				//		bitmap.Save("temp.png", ImageFormat.Png);
 
-		//		stream.Flush();
-		//		stream.Close();
-		//	}
-		//	else
-		//	{
-		//		Skip.If(true);
-		//	}
-		//}
+				//		stream.Flush();
+				//		stream.Close();
+				//	}
+				//	else
+				//	{
+				//		Skip.If(true);
+				//	}
+			}
+		}
 
-		//[Fact]
-		//public async void GetCameraVideoLinkAsync_Succeeds()
-		//{
-		//	Configuration.TestCameraNetworkId.Should().NotBeNull();
+		[Fact]
+		public async void GetCameraVideoLinkAsync_Succeeds()
+		{
+			Configuration.TestCameraNetworkId.Should().NotBeNull();
 
 			// Get a snapshot from the camera
 			var newResult = await TestMerakiClient
-				.Camera
-				.Camera
-				.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
-				.ConfigureAwait(false);
+			.Camera
+			.Camera
+			.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
+			.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 		}
 
