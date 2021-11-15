@@ -6,6 +6,7 @@ public class WirelessSection
 	public IWirelessAirMarshal AirMarshal { get; internal set; } = null!;
 	public IWirelessAlternateManagementInterface AlternateManagementInterface { get; internal set; } = null!;
 	public IWirelessBilling Billing { get; internal set; } = null!;
+	public WirelessBluetoothSection Bluetooth { get; internal set; } = new();
 	public IWirelessChannelUtilizationHistory ChannelUtilizationHistory { get; internal set; } = null!;
 	public WirelessClientsSection Clients { get; internal set; } = null!;
 	public IWirelessClientCountHistory ClientCountHistory { get; internal set; } = null!;

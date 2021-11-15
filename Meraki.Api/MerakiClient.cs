@@ -38,11 +38,6 @@ public partial class MerakiClient : IDisposable
 			})
 		};
 
-		LinkAggregations = RefitFor(LinkAggregations)!;
-		NamedTagScopes = RefitFor(NamedTagScopes)!;
-		Sms = RefitFor(Sms)!;
-		SplashLoginAttempts = RefitFor(SplashLoginAttempts)!;
-
 		// General level sections //
 		Devices = new()
 		{
@@ -204,12 +199,19 @@ public partial class MerakiClient : IDisposable
 			{
 				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory)
 			},
+			Vlans = new()
+			{
+				Vlans = RefitFor(Appliance.Vlans.Vlans),
+				Settings = RefitFor(Appliance.Vlans.Settings)
+			},
 			Vpn = new()
 			{
 				Bgp = RefitFor(Appliance.Vpn.Bgp),
 				SiteToSiteVpn = RefitFor(Appliance.Vpn.SiteToSiteVpn),
 				ThirdPartyVpnPeers = RefitFor(Appliance.Vpn.ThirdPartyVpnPeers),
 				VpnFirewallRules = RefitFor(Appliance.Vpn.VpnFirewallRules),
+				Stats = RefitFor(Appliance.Vpn.Stats),
+				Statuses = RefitFor(Appliance.Vpn.Statuses)
 			},
 			WarmSpare = RefitFor(Appliance.WarmSpare)
 		};
@@ -277,6 +279,7 @@ public partial class MerakiClient : IDisposable
 			AirMarshal = RefitFor(Wireless.AirMarshal),
 			AlternateManagementInterface = RefitFor(Wireless.AlternateManagementInterface),
 			Billing = RefitFor(Wireless.Billing),
+			Bluetooth = RefitFor(Wireless.Bluetooth),
 			ChannelUtilizationHistory = RefitFor(Wireless.ChannelUtilizationHistory),
 			Clients = new()
 			{
@@ -359,7 +362,8 @@ public partial class MerakiClient : IDisposable
 				Users = RefitFor(Sm.Users.Users),
 				DeviceProfiles = RefitFor(Sm.Users.DeviceProfiles),
 				Softwares = RefitFor(Sm.Users.Softwares)
-			}
+			},
+			VppAccounts = RefitFor(Sm.VppAccounts)
 		};
 	}
 
@@ -378,41 +382,12 @@ public partial class MerakiClient : IDisposable
 
 	public InsightSection Insight { get; } = new();
 
-	/// <summary>
-	/// Link aggregations
-	/// </summary>
-	public ISwitchLinkAggregations LinkAggregations { get; }
-
-	/// <summary>
-	/// Named tag scopes
-	/// </summary>
-	public ISmTargetGroups NamedTagScopes { get; }
-
-	/// <summary>
-	/// Networks
-	/// </summary>
 	public NetworksSection Networks { get; } = new();
 
-	/// <summary>
-	/// Organizations
-	/// </summary>
 	public OrganizationsSection Organizations { get; } = new();
-
-	/// <summary>
-	/// SMs
-	/// </summary>
-	public ISmDevicesFields Sms { get; }
-
-	/// <summary>
-	/// Splash login attempts
-	/// </summary>
-	public INetworksSplashLoginAttempts SplashLoginAttempts { get; }
 
 	public SmSection Sm { get; } = new();
 
-	/// <summary>
-	/// Switch
-	/// </summary>
 	public SwitchSection Switch { get; } = new();
 
 	public WirelessSection Wireless { get; } = new();
