@@ -38,34 +38,11 @@ public partial class MerakiClient : IDisposable
 			})
 		};
 
-		LinkAggregations = RefitFor(LinkAggregations)!;
-		MvSense = RefitFor(MvSense)!;
-		NetworkAppliances = RefitFor(NetworkAppliances)!;
-		NamedTagScopes = RefitFor(NamedTagScopes)!;
-		NetworkGroupPolicies = RefitFor(NetworkGroupPolicies)!;
-		NetworkHttpServers = RefitFor(NetworkHttpServers)!;
-		NetworkMerakiAuthUsers = RefitFor(NetworkMerakiAuthUsers)!;
-		NetworkMqttBrokers = RefitFor(NetworkMqttBrokers)!;
-		NetworkPiiRequests = RefitFor(NetworkPiiRequests)!;
-		OpenApiSpec = RefitFor(OpenApiSpec)!;
-		RadioSettings = RefitFor(RadioSettings)!;
-		SamlRoles = RefitFor(SamlRoles)!;
-		SecurityEvents = RefitFor(SecurityEvents)!;
-		Sms = RefitFor(Sms)!;
-		SplashLoginAttempts = RefitFor(SplashLoginAttempts)!;
-		Ssids = RefitFor(Ssids)!;
-		TrafficShaping = RefitFor(TrafficShaping)!;
-		UplinkSettings = RefitFor(UplinkSettings)!;
-		Vlans = RefitFor(Vlans)!;
-		WebhookLogs = RefitFor(WebhookLogs)!;
-		WirelessHealth = RefitFor(WirelessHealth)!;
-		WirelessSettings = RefitFor(WirelessSettings);
-
 		// General level sections //
 		Devices = new()
 		{
-			Clients = RefitFor(Devices.Clients),
 			Devices = RefitFor(Devices.Devices),
+			Clients = RefitFor(Devices.Clients),
 			LldpCdp = RefitFor(Devices.LldpCdp),
 			LossAndLatencyHistory = RefitFor(Devices.LossAndLatencyHistory),
 			ManagementInterface = RefitFor(Devices.ManagementInterface)
@@ -74,7 +51,7 @@ public partial class MerakiClient : IDisposable
 		Organizations = new OrganizationsSection
 		{
 			Organizations = RefitFor(Organizations.Organizations),
-
+			Admins = RefitFor(Organizations.Admins),
 			ActionBatches = RefitFor(Organizations.ActionBatches),
 			AdaptivePolicy = new OrganizationsAdaptivePolicySection
 			{
@@ -89,20 +66,24 @@ public partial class MerakiClient : IDisposable
 				Priorities = RefitFor(Organizations.BrandingPolicies.Priorities)
 			},
 			ConfigurationChanges = RefitFor(Organizations.ConfigurationChanges),
+			ConfigTemplates = RefitFor(Organizations.ConfigTemplates),
 			Devices = RefitFor(Organizations.Devices),
 			InventoryDevices = RefitFor(Organizations.InventoryDevices),
 			Licenses = RefitFor(Organizations.Licenses),
 			LoginSecurity = RefitFor(Organizations.LoginSecurity),
 			Networks = RefitFor(Organizations.Networks),
+			OpenapiSpec = RefitFor(Organizations.OpenapiSpec),
 			Saml = new OrganizationsSamlSection
 			{
 				Saml = RefitFor(Organizations.Saml.Saml),
-				Idp = RefitFor(Organizations.Saml.Idp),
+				Idp = RefitFor(Organizations.Saml.Idp)
 			},
+			SamlRoles = RefitFor(Organizations.SamlRoles),
 			Snmp = RefitFor(Organizations.Snmp),
 			Webhooks = new()
 			{
-				AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes)
+				AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes),
+				Logs = RefitFor(Organizations.Webhooks.Logs)
 			}
 		};
 
@@ -131,18 +112,63 @@ public partial class MerakiClient : IDisposable
 				EventsTypes = RefitFor(Networks.Events.EventsTypes)
 			},
 			FirmwareUpgrades = RefitFor(Networks.FirmwareUpgrades),
-			Floorplans = RefitFor(Networks.Floorplans)
+			Floorplans = RefitFor(Networks.Floorplans),
+			GroupPolicies = RefitFor(Networks.GroupPolicies),
+			Health = new()
+			{
+				ChannelUtilization = RefitFor(Networks.Health.ChannelUtilization)
+			},
+			MerakiAuthUsers = RefitFor(Networks.MerakiAuthUsers),
+			MqttBrokers = RefitFor(Networks.MqttBrokers),
+			Netflow = RefitFor(Networks.Netflow),
+			Pii = new()
+			{
+				PiiKeys = RefitFor(Networks.Pii.PiiKeys),
+				Requests = RefitFor(Networks.Pii.Requests),
+				SmDevicesForKey = RefitFor(Networks.Pii.SmDevicesForKey),
+				SmOwnersForKey = RefitFor(Networks.Pii.SmOwnersForKey)
+			},
+			Traffic = RefitFor(Networks.Traffic),
+			Settings = RefitFor(Networks.Settings),
+			Snmp = RefitFor(Networks.Snmp),
+			SplashLoginAttempts = RefitFor(Networks.SplashLoginAttempts),
+			SyslogServers = RefitFor(Networks.SyslogServers),
+			TrafficAnalysis = RefitFor(Networks.TrafficAnalysis),
+			TrafficShaping = new()
+			{
+				ApplicationCategories = RefitFor(Networks.TrafficShaping.ApplicationCategories),
+				DscpTaggingOptions = RefitFor(Networks.TrafficShaping.DscpTaggingOptions)
+			},
+			WebHooks = new()
+			{
+				HttpServers = RefitFor(Networks.WebHooks.HttpServers),
+				WebhookTests = RefitFor(Networks.WebHooks.WebhookTests)
+			}
 		};
 
 		// Product level sections //
 		Appliance = new()
 		{
+			Clients = new()
+			{
+				Security = RefitFor(Appliance.Clients.Security)
+			},
 			ConnectivityMonitoringDestinations = RefitFor(Appliance.ConnectivityMonitoringDestinations),
+			ContentFiltering = new()
+			{
+				ContentFiltering = RefitFor(Appliance.ContentFiltering.ContentFiltering),
+				Categories = RefitFor(Appliance.ContentFiltering.Categories)
+			},
 			Performance = RefitFor(Appliance.Performance),
+			Ports = RefitFor(Appliance.Ports),
 			Security = new()
 			{
-				Intrusion = RefitFor(Appliance.Security.Intrusion)
+				Intrusion = RefitFor(Appliance.Security.Intrusion),
+				Malware = RefitFor(Appliance.Security.Malware),
+				Events = RefitFor(Appliance.Security.Events)
 			},
+			Settings = RefitFor(Appliance.Settings),
+			SingleLan = RefitFor(Appliance.SingleLan),
 			Dhpc = new()
 			{
 				Subnets = RefitFor(Appliance.Dhpc.Subnets)
@@ -158,17 +184,50 @@ public partial class MerakiClient : IDisposable
 				OneToOneNatRules = RefitFor(Appliance.Firewall.OneToOneNatRules),
 				PortForwardingRules = RefitFor(Appliance.Firewall.PortForwardingRules)
 			},
+			StaticRoutes = RefitFor(Appliance.StaticRoutes),
+			TrafficShaping = new()
+			{
+				TrafficShaping = RefitFor(Appliance.TrafficShaping.TrafficShaping),
+				CustomPerformanceClasses = RefitFor(Appliance.TrafficShaping.CustomPerformanceClasses),
+				Rules = RefitFor(Appliance.TrafficShaping.Rules),
+				UplinkBandwidth = RefitFor(Appliance.TrafficShaping.UplinkBandwidth),
+				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection)
+			},
+			Uplink = new()
+			{
+				Statuses = RefitFor(Appliance.Uplink.Statuses)
+			},
+			Uplinks = new()
+			{
+				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory)
+			},
+			Vlans = new()
+			{
+				Vlans = RefitFor(Appliance.Vlans.Vlans),
+				Settings = RefitFor(Appliance.Vlans.Settings)
+			},
 			Vpn = new()
 			{
 				Bgp = RefitFor(Appliance.Vpn.Bgp),
 				SiteToSiteVpn = RefitFor(Appliance.Vpn.SiteToSiteVpn),
 				ThirdPartyVpnPeers = RefitFor(Appliance.Vpn.ThirdPartyVpnPeers),
 				VpnFirewallRules = RefitFor(Appliance.Vpn.VpnFirewallRules),
-			}
+				Stats = RefitFor(Appliance.Vpn.Stats),
+				Statuses = RefitFor(Appliance.Vpn.Statuses)
+			},
+			WarmSpare = RefitFor(Appliance.WarmSpare)
 		};
 
 		Camera = new()
 		{
+			Camera = RefitFor(Camera.Camera),
+			Analytics = new()
+			{
+				Live = RefitFor(Camera.Analytics.Live),
+				Overview = RefitFor(Camera.Analytics.Overview),
+				Recent = RefitFor(Camera.Analytics.Recent),
+				Zones = RefitFor(Camera.Analytics.Zones)
+			},
 			QualityAndRetention = RefitFor(Camera.QualityAndRetention)
 		};
 
@@ -179,7 +238,11 @@ public partial class MerakiClient : IDisposable
 			Lan = RefitFor(CellularGateway.Lan),
 			PortForwardingRules = RefitFor(CellularGateway.PortForwardingRules),
 			SubnetPool = RefitFor(CellularGateway.SubnetPool),
-			Uplink = RefitFor(CellularGateway.Uplink)
+			Uplink = new()
+			{
+				Uplink = RefitFor(CellularGateway.Uplink.Uplink),
+				Statuses = RefitFor(CellularGateway.Uplink.Statuses)
+			}
 		};
 
 		Switch = new()
@@ -210,12 +273,16 @@ public partial class MerakiClient : IDisposable
 			Stacks = RefitFor(Switch.Stacks),
 			StormControl = RefitFor(Switch.StormControl),
 			Stp = RefitFor(Switch.Stp),
-			WarmSpare = RefitFor(Switch.WarmSpare),
+			WarmSpare = RefitFor(Switch.WarmSpare)
 		};
 
 		Wireless = new()
 		{
+			AirMarshal = RefitFor(Wireless.AirMarshal),
+			AlternateManagementInterface = RefitFor(Wireless.AlternateManagementInterface),
 			Billing = RefitFor(Wireless.Billing),
+			Bluetooth = RefitFor(Wireless.Bluetooth),
+			ChannelUtilizationHistory = RefitFor(Wireless.ChannelUtilizationHistory),
 			Clients = new()
 			{
 				ConnectionStats = RefitFor(Wireless.Clients.ConnectionStats),
@@ -224,10 +291,39 @@ public partial class MerakiClient : IDisposable
 				LatencyStats = RefitFor(Wireless.Clients.LatencyStats)
 			},
 			ClientCountHistory = RefitFor(Wireless.ClientCountHistory),
+			Devices = new()
+			{
+				ConnectionStats = RefitFor(Wireless.Devices.ConnectionStats),
+				LatencyStats = RefitFor(Wireless.Devices.LatencyStats)
+			},
+			ConnectionStats = RefitFor(Wireless.ConnectionStats),
+			FailedConnections = RefitFor(Wireless.FailedConnections),
+			LatencyHistory = RefitFor(Wireless.LatencyHistory),
+			LatencyStats = RefitFor(Wireless.LatencyStats),
+			MeshStatuses = RefitFor(Wireless.MeshStatuses),
+			Radio = new()
+			{
+				Settings = RefitFor(Wireless.Radio.Settings)
+			},
+			RfProfiles = RefitFor(Wireless.RfProfiles),
+			Settings = RefitFor(Wireless.Settings),
+			SignalQualityHistory = RefitFor(Wireless.SignalQualityHistory),
+			Status = RefitFor(Wireless.Status),
 			Ssids = new()
 			{
-				Firewall = RefitFor(Wireless.Ssids.Firewall)
-			}
+				Ssids = RefitFor(Wireless.Ssids.Ssids),
+				BonjourForwarding = RefitFor(Wireless.Ssids.BonjourForwarding),
+				DeviceTypeGroupPolicies = RefitFor(Wireless.Ssids.DeviceTypeGroupPolicies),
+				EapOverride = RefitFor(Wireless.Ssids.EapOverride),
+				Firewall = RefitFor(Wireless.Ssids.Firewall),
+				HotSpot20 = RefitFor(Wireless.Ssids.HotSpot20),
+				IdentityPsks = RefitFor(Wireless.Ssids.IdentityPsks),
+				Schedules = RefitFor(Wireless.Ssids.Schedules),
+				Splash = RefitFor(Wireless.Ssids.Splash),
+				TrafficShaping = RefitFor(Wireless.Ssids.TrafficShaping),
+				Vpn = RefitFor(Wireless.Ssids.Vpn)
+			},
+			UsageHistory = RefitFor(Wireless.UsageHistory)
 		};
 
 		Insight = new()
@@ -237,6 +333,39 @@ public partial class MerakiClient : IDisposable
 				Applications = RefitFor(Insight.Applications.Applications),
 				HealthByTime = RefitFor(Insight.Applications.HealthByTime)
 			}
+		};
+
+		Sm = new()
+		{
+			ApnsCert = RefitFor(Sm.ApnsCert),
+			Devices = new()
+			{
+				Devices = RefitFor(Sm.Devices.Devices),
+				BypassActivationLockAttempts = RefitFor(Sm.Devices.BypassActivationLockAttempts),
+				CellularUsageHistory = RefitFor(Sm.Devices.CellularUsageHistory),
+				Certs = RefitFor(Sm.Devices.Certs),
+				Connectivity = RefitFor(Sm.Devices.Connectivity),
+				DesktopLogs = RefitFor(Sm.Devices.DesktopLogs),
+				DeviceCommandLogs = RefitFor(Sm.Devices.DeviceCommandLogs),
+				DeviceProfiles = RefitFor(Sm.Devices.DeviceProfiles),
+				Fields = RefitFor(Sm.Devices.Fields),
+				NetworkAdapters = RefitFor(Sm.Devices.NetworkAdapters),
+				PerformanceHistory = RefitFor(Sm.Devices.PerformanceHistory),
+				Restrictions = RefitFor(Sm.Devices.Restrictions),
+				SecurityCenters = RefitFor(Sm.Devices.SecurityCenters),
+				Softwares = RefitFor(Sm.Devices.Softwares),
+				WlanLists = RefitFor(Sm.Devices.WlanLists)
+			},
+			Profiles = RefitFor(Sm.Profiles),
+			UserAccessDevices = RefitFor(Sm.UserAccessDevices),
+			TargetGroups = RefitFor(Sm.TargetGroups),
+			Users = new()
+			{
+				Users = RefitFor(Sm.Users.Users),
+				DeviceProfiles = RefitFor(Sm.Users.DeviceProfiles),
+				Softwares = RefitFor(Sm.Users.Softwares)
+			},
+			VppAccounts = RefitFor(Sm.VppAccounts)
 		};
 	}
 
@@ -255,132 +384,15 @@ public partial class MerakiClient : IDisposable
 
 	public InsightSection Insight { get; } = new();
 
-	/// <summary>
-	/// HTTP servers
-	/// </summary>
-	public INetworkHttpServers NetworkHttpServers { get; }
-
-	/// <summary>
-	/// Link aggregations
-	/// </summary>
-	public ISwitchLinkAggregations LinkAggregations { get; }
-
-	/// <summary>
-	/// Meraki auth users
-	/// </summary>
-	public INetworkMerakiAuthUsers NetworkMerakiAuthUsers { get; }
-
-	/// <summary>
-	/// MQTT brokers
-	/// </summary>
-	public INetworkMqttBrokers NetworkMqttBrokers { get; }
-
-	/// <summary>
-	/// MV sense
-	/// </summary>
-	public IMvSense MvSense { get; }
-
-	/// <summary>
-	/// MX static routes
-	/// </summary>
-	public INetworkAppliances NetworkAppliances { get; }
-
-	/// <summary>
-	/// Named tag scopes
-	/// </summary>
-	public INamedTagScopes NamedTagScopes { get; }
-
-	/// <summary>
-	/// Networks
-	/// </summary>
 	public NetworksSection Networks { get; } = new();
 
-	/// <summary>
-	/// Group policies
-	/// </summary>
-	public INetworkGroupPolicies NetworkGroupPolicies { get; }
-
-	/// <summary>
-	/// Open API spec
-	/// </summary>
-	public IOpenApiSpec OpenApiSpec { get; }
-
-	/// <summary>
-	/// Organizations
-	/// </summary>
 	public OrganizationsSection Organizations { get; } = new();
 
-	/// <summary>
-	/// PIIs
-	/// </summary>
-	public INetworkPiiRequests NetworkPiiRequests { get; }
+	public SmSection Sm { get; } = new();
 
-	/// <summary>
-	/// Radio settings
-	/// </summary>
-	public IRadioSettings RadioSettings { get; }
-
-	/// <summary>
-	/// SAML roles
-	/// </summary>
-	public ISamlRoles SamlRoles { get; }
-
-	/// <summary>
-	/// Security events
-	/// </summary>
-	public ISecurityEvents SecurityEvents { get; }
-
-	/// <summary>
-	/// SMs
-	/// </summary>
-	public ISms Sms { get; }
-
-	/// <summary>
-	/// Splash login attempts
-	/// </summary>
-	public ISplashLoginAttempts SplashLoginAttempts { get; }
-
-	/// <summary>
-	/// SSIDs
-	/// </summary>
-	public ISsids Ssids { get; }
-
-	/// <summary>
-	/// Switch
-	/// </summary>
 	public SwitchSection Switch { get; } = new();
 
-	/// <summary>
-	/// Traffic shaping
-	/// </summary>
-	public ITrafficShaping TrafficShaping { get; }
-
-	/// <summary>
-	/// Uplink settings
-	/// </summary>
-	public IUplink UplinkSettings { get; }
-
-	/// <summary>
-	/// VLANs
-	/// </summary>
-	public IVlans Vlans { get; }
-
-	/// <summary>
-	/// Webhook logs
-	/// </summary>
-	public IWebhookLogs WebhookLogs { get; }
-
 	public WirelessSection Wireless { get; } = new();
-
-	/// <summary>
-	/// Wireless health
-	/// </summary>
-	public IWirelessHealth WirelessHealth { get; }
-
-	/// <summary>
-	/// Wireless settings
-	/// </summary>
-	public IWirelessSettings WirelessSettings { get; } = null!;
 
 	/// <summary>
 	/// Used to find out whether the client has the ReadOnly option set

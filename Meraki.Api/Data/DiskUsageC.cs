@@ -1,22 +1,19 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// C
+/// </summary>
+public class DiskUsageC
 {
 	/// <summary>
-	/// C
+	/// Used
 	/// </summary>
-	public class DiskUsageC
-	{
-		/// <summary>
-		/// Used
-		/// </summary>
-		[DataMember(Name = "used")]
-		public int Used { get; set; }
+	[DataMember(Name = "used")]
+	public int Used { get; set; }
 
-		/// <summary>
-		/// Space
-		/// </summary>
-		[DataMember(Name = "space")]
-		public int Space { get; set; }
-	}
+	/// <summary>
+	/// Space
+	/// </summary>
+	[DataMember(Name = "space")]
+	public int Space { get; set; }
 }

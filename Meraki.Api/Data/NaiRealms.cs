@@ -1,29 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Nai realms
+/// </summary>
+public class NaiRealms
 {
 	/// <summary>
-	/// Nai realms
+	/// Format
 	/// </summary>
-	public class NaiRealms
-	{
-		/// <summary>
-		/// Format
-		/// </summary>
-		[DataMember(Name = "format")]
-		public int Format { get; set; }
+	[DataMember(Name = "format")]
+	public int Format { get; set; }
 
-		/// <summary>
-		/// Name
-		/// </summary>
-		[DataMember(Name = "name")]
-		public string Name { get; set; } = string.Empty;
+	/// <summary>
+	/// Name
+	/// </summary>
+	[DataMember(Name = "name")]
+	public string Name { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Methods
-		/// </summary>
-		[DataMember(Name = "methods")]
-		public List<Methods> Methods { get; set; } = new();
-	}
+	/// <summary>
+	/// Methods
+	/// </summary>
+	[DataMember(Name = "methods")]
+	public List<Methods> Methods { get; set; } = new();
 }

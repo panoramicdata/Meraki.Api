@@ -1,29 +1,26 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Rate per second
+/// </summary>
+[DataContract]
+public class RatePerSec
 {
 	/// <summary>
-	/// Rate per second
+	/// Total
 	/// </summary>
-	[DataContract]
-	public class RatePerSec
-	{
-		/// <summary>
-		/// Total
-		/// </summary>
-		[DataMember(Name = "total")]
-		public int Total { get; set; }
+	[DataMember(Name = "total")]
+	public int Total { get; set; }
 
-		/// <summary>
-		/// Sent
-		/// </summary>
-		[DataMember(Name = "sent")]
-		public int Sent { get; set; }
+	/// <summary>
+	/// Sent
+	/// </summary>
+	[DataMember(Name = "sent")]
+	public int Sent { get; set; }
 
-		/// <summary>
-		/// Received
-		/// </summary>
-		[DataMember(Name = "recv")]
-		public int Recv { get; set; }
-	}
+	/// <summary>
+	/// Received
+	/// </summary>
+	[DataMember(Name = "recv")]
+	public int Recv { get; set; }
 }

@@ -1,17 +1,14 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Appliance settings
+/// </summary>
+[DataContract]
+public class ApplianceSettings
 {
 	/// <summary>
-	/// Appliance settings
+	/// Client tracking method
 	/// </summary>
-	[DataContract]
-	public class ApplianceSettings
-	{
-		/// <summary>
-		/// Client tracking method
-		/// </summary>
-		[DataMember(Name = "clientTrackingMethod")]
-		public string ClientTrackingMethod { get; set; } = string.Empty;
-	}
+	[DataMember(Name = "clientTrackingMethod")]
+	public string ClientTrackingMethod { get; set; } = string.Empty;
 }

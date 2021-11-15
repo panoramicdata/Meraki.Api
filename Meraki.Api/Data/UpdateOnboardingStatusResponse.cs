@@ -1,17 +1,14 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Response
+/// </summary>
+[DataContract]
+public class UpdateOnboardingStatusResponse
 {
 	/// <summary>
-	/// Response
+	/// Success
 	/// </summary>
-	[DataContract]
-	public class UpdateOnboardingStatusResponse
-	{
-		/// <summary>
-		/// Success
-		/// </summary>
-		[DataMember(Name = "success")]
-		public bool Success { get; set; }
-	}
+	[DataMember(Name = "success")]
+	public bool Success { get; set; }
 }

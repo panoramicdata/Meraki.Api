@@ -1,19 +1,15 @@
-﻿using Meraki.Api.Attributes;
-using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Traffic shaping
+/// </summary>
+[DataContract]
+public class TrafficShaping
 {
 	/// <summary>
-	/// Traffic shaping
+	/// Global per-client bandwidth limit
 	/// </summary>
-	[DataContract]
-	public class TrafficShaping
-	{
-		/// <summary>
-		/// Global per-client bandwidth limit
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadUpdate)]
-		[DataMember(Name = "globalBandwidthLimits")]
-		public GlobalBandwidthLimit GlobalBandwidthLimits { get; set; } = new();
-	}
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "globalBandwidthLimits")]
+	public GlobalBandwidthLimit GlobalBandwidthLimits { get; set; } = new();
 }

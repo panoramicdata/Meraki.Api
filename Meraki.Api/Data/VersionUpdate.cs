@@ -1,17 +1,14 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Version to be updated to
+/// </summary>
+[DataContract]
+public class VersionUpdate
 {
 	/// <summary>
-	/// Version to be updated to
+	/// Id
 	/// </summary>
-	[DataContract]
-	public class VersionUpdate
-	{
-		/// <summary>
-		/// Id
-		/// </summary>
-		[DataMember(Name = "id")]
-		public string Id { get; set; } = string.Empty;
-	}
+	[DataMember(Name = "id")]
+	public string Id { get; set; } = string.Empty;
 }

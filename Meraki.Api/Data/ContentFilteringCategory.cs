@@ -1,6 +1,5 @@
-﻿namespace Meraki.Api.Data
+﻿namespace Meraki.Api.Data;
+
+public class ContentFilteringCategory : NamedIdentifiedItem
 {
-	public class ContentFilteringCategory : NamedIdentifiedItem
-	{
-	}
 }

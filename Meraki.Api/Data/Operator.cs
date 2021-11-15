@@ -1,17 +1,14 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Operator
+/// </summary>
+[DataContract]
+public class Operator
 {
 	/// <summary>
-	/// Operator
+	/// Name
 	/// </summary>
-	[DataContract]
-	public class Operator
-	{
-		/// <summary>
-		/// Name
-		/// </summary>
-		[DataMember(Name = "name")]
-		public string Name { get; set; } = string.Empty;
-	}
+	[DataMember(Name = "name")]
+	public string Name { get; set; } = string.Empty;
 }

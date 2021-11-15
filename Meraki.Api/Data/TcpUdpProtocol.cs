@@ -1,26 +1,21 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Runtime.Serialization;
+namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// 'tcp' or 'udp'
+/// </summary>
+/// <value>'tcp' or 'udp'</value>
+[JsonConverter(typeof(StringEnumConverter))]
+public enum TcpUdpProtocol
 {
 	/// <summary>
-	/// 'tcp' or 'udp'
+	/// Enum Tcp for "tcp"
 	/// </summary>
-	/// <value>'tcp' or 'udp'</value>
-	[JsonConverter(typeof(StringEnumConverter))]
-	public enum TcpUdpProtocol
-	{
-		/// <summary>
-		/// Enum Tcp for "tcp"
-		/// </summary>
-		[EnumMember(Value = "tcp")]
-		Tcp = 1,
+	[EnumMember(Value = "tcp")]
+	Tcp = 1,
 
-		/// <summary>
-		/// Enum Udp for "udp"
-		/// </summary>
-		[EnumMember(Value = "udp")]
-		Udp
-	}
+	/// <summary>
+	/// Enum Udp for "udp"
+	/// </summary>
+	[EnumMember(Value = "udp")]
+	Udp
 }

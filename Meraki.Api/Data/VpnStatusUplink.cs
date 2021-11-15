@@ -1,23 +1,20 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Uplink
+/// </summary>
+[DataContract]
+public class VpnStatusUplink
 {
 	/// <summary>
-	/// Uplink
+	/// Interface
 	/// </summary>
-	[DataContract]
-	public class VpnStatusUplink
-	{
-		/// <summary>
-		/// Interface
-		/// </summary>
-		[DataMember(Name = "interface")]
-		public string Interface { get; set; } = string.Empty;
+	[DataMember(Name = "interface")]
+	public string Interface { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Public ip
-		/// </summary>
-		[DataMember(Name = "publicIp")]
-		public string PublicIp { get; set; } = string.Empty;
-	}
+	/// <summary>
+	/// Public ip
+	/// </summary>
+	[DataMember(Name = "publicIp")]
+	public string PublicIp { get; set; } = string.Empty;
 }

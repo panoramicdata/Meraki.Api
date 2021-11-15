@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// The OAuth settings of this SSID. Only valid if splashPage is 'Google OAuth'.
+/// </summary>
+public class Oauth
 {
 	/// <summary>
-	/// The OAuth settings of this SSID. Only valid if splashPage is 'Google OAuth'.
+	/// (Optional) The list of domains allowed access to the network.
 	/// </summary>
-	public class Oauth
-	{
-		/// <summary>
-		/// (Optional) The list of domains allowed access to the network.
-		/// </summary>
-		[DataMember(Name = "allowedDomains")]
-		public List<string>? AllowedDomains { get; set; }
-	}
+	[DataMember(Name = "allowedDomains")]
+	public List<string>? AllowedDomains { get; set; }
 }

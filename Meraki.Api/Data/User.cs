@@ -1,24 +1,21 @@
-using System.Runtime.Serialization;
+namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// User
+/// </summary>
+[DataContract]
+public class User
 {
 	/// <summary>
-	/// User
+	/// The username for the SNMP user. Required.
 	/// </summary>
-	[DataContract]
-	public class User
-	{
-		/// <summary>
-		/// The username for the SNMP user. Required.
-		/// </summary>
-		/// <value>The username for the SNMP user. Required.</value>
-		[DataMember(Name = "username")]
-		public string Username { get; set; } = null!;
-		/// <summary>
-		/// The passphrase for the SNMP user. Required.
-		/// </summary>
-		/// <value>The passphrase for the SNMP user. Required.</value>
-		[DataMember(Name = "passphrase")]
-		public string Passphrase { get; set; } = null!;
-	}
+	/// <value>The username for the SNMP user. Required.</value>
+	[DataMember(Name = "username")]
+	public string Username { get; set; } = null!;
+	/// <summary>
+	/// The passphrase for the SNMP user. Required.
+	/// </summary>
+	/// <value>The passphrase for the SNMP user. Required.</value>
+	[DataMember(Name = "passphrase")]
+	public string Passphrase { get; set; } = null!;
 }

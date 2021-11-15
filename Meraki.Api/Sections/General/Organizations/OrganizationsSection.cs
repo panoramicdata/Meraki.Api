@@ -3,6 +3,7 @@
 public class OrganizationsSection
 {
 	public IOrganizations Organizations { get; internal set; } = null!;
+	public IOrganizationsAdmins Admins { get; internal set; } = null!;
 	public IOrganizationsActionBatches ActionBatches { get; internal set; } = null!;
 	public OrganizationsAdaptivePolicySection AdaptivePolicy { get; internal set; } = new();
 	public IOrganizationsAdmins Admins { get; internal set; } = null!;
@@ -14,7 +15,9 @@ public class OrganizationsSection
 	public IOrganizationsLoginSecurity LoginSecurity { get; internal set; } = null!;
 	public IOrganizationsNetworks Networks { get; internal set; } = null!;
 	public IOrganizationsLicenses Licenses { get; internal set; } = null!;
+	public IOrganizationsOpenapiSpec OpenapiSpec { get; internal set; } = null!;
 	public OrganizationsSamlSection Saml { get; internal set; } = new();
+	public IOrganizationsSamlRoles SamlRoles { get; internal set; } = null!;
 	public IOrganizationsSnmp Snmp { get; internal set; } = null!;
 	public OrganizationsWebhooksSection Webhooks { get; internal set; } = new();
 	public OrganizationBrandingPoliciesSection BrandingPolicies { get; internal set; } = new();

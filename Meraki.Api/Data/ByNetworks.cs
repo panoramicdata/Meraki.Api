@@ -1,29 +1,26 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// By networks
+/// </summary>
+[DataContract]
+public class ByNetworks
 {
 	/// <summary>
-	/// By networks
+	/// Network id
 	/// </summary>
-	[DataContract]
-	public class ByNetworks
-	{
-		/// <summary>
-		/// Network id
-		/// </summary>
-		[DataMember(Name = "networkId")]
-		public string NetworkId { get; set; } = string.Empty;
+	[DataMember(Name = "networkId")]
+	public string NetworkId { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Goodput
-		/// </summary>
-		[DataMember(Name = "goodput")]
-		public int Goodput { get; set; }
+	/// <summary>
+	/// Goodput
+	/// </summary>
+	[DataMember(Name = "goodput")]
+	public int Goodput { get; set; }
 
-		/// <summary>
-		/// Response duration
-		/// </summary>
-		[DataMember(Name = "responseDuration")]
-		public int ResponseDuration { get; set; }
-	}
+	/// <summary>
+	/// Response duration
+	/// </summary>
+	[DataMember(Name = "responseDuration")]
+	public int ResponseDuration { get; set; }
 }

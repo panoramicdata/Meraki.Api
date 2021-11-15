@@ -1,21 +1,18 @@
-﻿using Meraki.Api.Attributes;
-using System.Diagnostics;
-using System.Runtime.Serialization;
+﻿using System.Diagnostics;
 
-namespace Meraki.Api.Data
+namespace Meraki.Api.Data;
+
+/// <summary>
+/// A named, identified item
+/// </summary>
+[DebuggerDisplay("{" + nameof(Name) + "} ({" + nameof(Id) + "})")]
+[DataContract]
+public abstract class NamedIdentifiedItem : IdentifiedItem
 {
 	/// <summary>
-	/// A named, identified item
+	/// The name
 	/// </summary>
-	[DebuggerDisplay("{" + nameof(Name) + "} ({" + nameof(Id) + "})")]
-	[DataContract]
-	public abstract class NamedIdentifiedItem : IdentifiedItem
-	{
-		/// <summary>
-		/// The name
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "name")]
-		public string Name { get; set; } = default!;
-	}
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "name")]
+	public string Name { get; set; } = default!;
 }

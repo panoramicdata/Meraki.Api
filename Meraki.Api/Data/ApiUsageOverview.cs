@@ -1,18 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// An API usage overview
+/// </summary>
+[DataContract]
+public class ApiUsageOverview
 {
 	/// <summary>
-	/// An API usage overview
+	/// The stats
 	/// </summary>
-	[DataContract]
-	public class ApiUsageOverview
-	{
-		/// <summary>
-		/// The stats
-		/// </summary>
-		[DataMember(Name = "responseCodeCounts")]
-		public Dictionary<string, int> ResponseCodeCounts { get; set; } = new Dictionary<string, int>();
-	}
+	[DataMember(Name = "responseCodeCounts")]
+	public Dictionary<string, int> ResponseCodeCounts { get; set; } = new Dictionary<string, int>();
 }

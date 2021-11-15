@@ -47,6 +47,8 @@ namespace Meraki.Api.Test
 				.ConfigureAwait(false);
 
 			var result = await TestMerakiClient
+				.Wireless
+				.Ssids
 				.Ssids
 				.GetAllAsync(network.Id)
 				.ConfigureAwait(false);
@@ -227,6 +229,8 @@ namespace Meraki.Api.Test
 
 			// Get all VLANs - should be the default one
 			var initialVlans = await TestMerakiClient
+				.Appliance
+				.Vlans
 				.Vlans
 				.GetNetworkVlansAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -238,6 +242,8 @@ namespace Meraki.Api.Test
 
 			// Update a VLAN
 			var updatedVlan = await TestMerakiClient
+				.Appliance
+				.Vlans
 				.Vlans
 				.UpdateNetworkVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
 				{
@@ -446,7 +452,8 @@ namespace Meraki.Api.Test
 
 			// Get the wireless settings
 			var originalResult = await TestMerakiClient
-				.WirelessSettings
+				.Wireless
+				.Settings
 				.GetAsync(network.Id)
 				.ConfigureAwait(false);
 			originalResult.Should().BeOfType<WirelessSettings>();
@@ -455,7 +462,8 @@ namespace Meraki.Api.Test
 
 			// Re-set the wireless settings (to the same values)
 			var newResult = await TestMerakiClient
-				.WirelessSettings
+				.Wireless
+				.Settings
 				.UpdateAsync(network.Id, new WirelessSettingsUpdateDto
 				{
 					Ipv6BridgeEnabled = originalResult.Ipv6BridgeEnabled,
@@ -473,17 +481,18 @@ namespace Meraki.Api.Test
 			newResult.LocationAnalyticsEnabled.Should().Be(originalResult.LocationAnalyticsEnabled);
 		}
 
-		//[Fact]
-		//public async void GetCameraSnapshotAsync_Succeeds()
-		//{
-		//	if (OperatingSystem.IsWindows())
-		//	{
-		//		// Get a snapshot from the camera
-		//		var newResult = await TestMerakiClient
-		//			.Cameras
-		//			.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
-		//			.ConfigureAwait(false);
-		//		newResult.Should().NotBeNull();
+		[Fact]
+		public async void GetCameraSnapshotAsync_Succeeds()
+		{
+			if (OperatingSystem.IsWindows())
+			{
+				// Get a snapshot from the camera
+				var newResult = await TestMerakiClient
+					.Camera
+					.Camera
+					.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
+					.ConfigureAwait(false);
+				newResult.Should().NotBeNull();
 
 		//		//Download the image
 		//		using var client = new WebClient();
@@ -506,13 +515,14 @@ namespace Meraki.Api.Test
 		//{
 		//	Configuration.TestCameraNetworkId.Should().NotBeNull();
 
-		//	// Get a snapshot from the camera
-		//	var newResult = await TestMerakiClient
-		//		.Cameras
-		//		.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
-		//		.ConfigureAwait(false);
-		//	newResult.Should().NotBeNull();
-		//}
+			// Get a snapshot from the camera
+			var newResult = await TestMerakiClient
+				.Camera
+				.Camera
+				.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
+				.ConfigureAwait(false);
+			newResult.Should().NotBeNull();
+		}
 
 		[Fact]
 		public async void GetRepeatedlyInQuickSuccession_Succeeds()

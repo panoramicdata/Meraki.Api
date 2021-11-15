@@ -1,33 +1,29 @@
-using Meraki.Api.Attributes;
-using System.Runtime.Serialization;
+namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// UpdateNetworkSecurityIntrusionSettings
+/// </summary>
+[DataContract]
+public class NetworkSecurityIntrusion
 {
 	/// <summary>
-	/// UpdateNetworkSecurityIntrusionSettings
+	/// Gets or Sets Mode
 	/// </summary>
-	[DataContract]
-	public class NetworkSecurityIntrusion
-	{
-		/// <summary>
-		/// Gets or Sets Mode
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadUpdate)]
-		[DataMember(Name = "mode")]
-		public SecurityIntrusionMode? Mode { get; set; }
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "mode")]
+	public SecurityIntrusionMode? Mode { get; set; }
 
-		/// <summary>
-		/// Gets or Sets IdsRulesets
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadUpdate)]
-		[DataMember(Name = "idsRulesets")]
-		public SecurityIntrusionDetectionRuleSet? IdsRuleset { get; set; }
+	/// <summary>
+	/// Gets or Sets IdsRulesets
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "idsRulesets")]
+	public SecurityIntrusionDetectionRuleSet? IdsRuleset { get; set; }
 
-		/// <summary>
-		/// Gets or Sets ProtectedNetworks
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadUpdate)]
-		[DataMember(Name = "protectedNetworks")]
-		public ProtectedNetworks ProtectedNetworks { get; set; } = new();
-	}
+	/// <summary>
+	/// Gets or Sets ProtectedNetworks
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "protectedNetworks")]
+	public ProtectedNetworks ProtectedNetworks { get; set; } = new();
 }

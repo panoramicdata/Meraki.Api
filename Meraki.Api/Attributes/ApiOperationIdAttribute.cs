@@ -1,14 +1,11 @@
-﻿using System;
+﻿namespace Meraki.Api.Attributes;
 
-namespace Meraki.Api.Attributes
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+internal class ApiOperationIdAttribute : Attribute
 {
-	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
-	internal class ApiOperationIdAttribute : Attribute
+	public string OperationId { get; }
+	public ApiOperationIdAttribute(string operationId)
 	{
-		public string OperationId { get; }
-		public ApiOperationIdAttribute(string operationId)
-		{
-			OperationId = operationId;
-		}
+		OperationId = operationId;
 	}
 }

@@ -1,19 +1,15 @@
-﻿using Meraki.Api.Attributes;
-using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Uplink bandwidth
+/// </summary>
+[DataContract]
+public class UplinkBandwidth
 {
 	/// <summary>
-	/// Uplink bandwidth
+	/// Bandwidth limits
 	/// </summary>
-	[DataContract]
-	public class UplinkBandwidth
-	{
-		/// <summary>
-		/// Bandwidth limits
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadUpdate)]
-		[DataMember(Name = "bandwidthLimits")]
-		public UplinkBandwidthLimits BandwidthLimits { get; set; } = new();
-	}
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "bandwidthLimits")]
+	public UplinkBandwidthLimits BandwidthLimits { get; set; } = new();
 }

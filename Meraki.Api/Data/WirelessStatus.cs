@@ -1,17 +1,14 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Status
+/// </summary>
+[DataContract]
+public class WirelessStatus
 {
 	/// <summary>
-	/// Status
+	/// Basic service sets
 	/// </summary>
-	[DataContract]
-	public class WirelessStatus
-	{
-		/// <summary>
-		/// Basic service sets
-		/// </summary>
-		[DataMember(Name = "basicServiceSets")]
-		public BasicServiceSets BasicServiceSets { get; set; } = new();
-	}
+	[DataMember(Name = "basicServiceSets")]
+	public BasicServiceSets BasicServiceSets { get; set; } = new();
 }

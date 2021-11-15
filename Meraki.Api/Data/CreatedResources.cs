@@ -1,23 +1,20 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Created resources
+/// </summary>
+[DataContract]
+public class CreatedResources
 {
 	/// <summary>
-	/// Created resources
+	/// Id
 	/// </summary>
-	[DataContract]
-	public class CreatedResources
-	{
-		/// <summary>
-		/// Id
-		/// </summary>
-		[DataMember(Name = "id")]
-		public int Id { get; set; }
+	[DataMember(Name = "id")]
+	public int Id { get; set; }
 
-		/// <summary>
-		/// Uri
-		/// </summary>
-		[DataMember(Name = "uri")]
-		public string Uri { get; set; } = string.Empty;
-	}
+	/// <summary>
+	/// Uri
+	/// </summary>
+	[DataMember(Name = "uri")]
+	public string Uri { get; set; } = string.Empty;
 }

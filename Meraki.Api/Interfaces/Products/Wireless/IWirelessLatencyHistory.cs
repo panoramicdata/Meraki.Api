@@ -3,22 +3,34 @@
 public interface IWirelessLatencyHistory
 {
 	/// <summary>
-	/// Return the latency history for a client
+	/// Aggregated latency info for this network, grouped by clients
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="clientId">The client id</param>
-	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 791 days from today. (optional)</param>
-	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 791 days after t0. (optional)</param>
-	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 791 days. The default is 1 day. (optional)</param>
-	/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 86400. The default is 86400. (optional)</param>
-	[Get("/networks/{networkId}/wireless/clients/{clientId}/latencyHistory")]
-	Task<List<ClientLatencyHistory>> GetLatencyHistoryAsync(
+	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 180 days from today. (optional)</param>
+	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 7 days after t0. (optional)</param>
+	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 7 days. (optional)</param>
+	/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 300, 600, 1200, 3600, 14400, 86400. The default is 86400.</param>
+	/// <param name="autoResolution">Automatically select a data resolution based on the given timespan; this overrides the value specified by the 'resolution' parameter. The default setting is false.</param>
+	/// <param name="clientId">Filter results by network client.</param>
+	/// <param name="deviceSerial">Filter results by device.</param>
+	/// <param name="apTag">Filter results by AP tag.</param>
+	/// <param name="band">Filter results by band (either '2.4' or '5').</param>
+	/// <param name="ssid">Filter results by SSID number.</param>
+	/// <param name="accessCategory">Filter by access category.</param>
+	[Get("/networks/{networkId}/wireless/latencyHistory")]
+	Task<List<LatencyHistory>> GetNetworkWirelessLatencyHistoryAsync(
 		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("t1")] string t1 = null!,
 		[AliasAs("timespan")] double? timespan = null,
 		[AliasAs("resolution")] int? resolution = null,
+		[AliasAs("autoResolution")] bool? autoResolution = null,
+		[AliasAs("clientId")] string? clientId = null,
+		[AliasAs("deviceSerial")] string? deviceSerial = null,
+		[AliasAs("apTag")] string? apTag = null,
+		[AliasAs("band")] string? band = null,
+		[AliasAs("ssid")] string? ssid = null,
+		[AliasAs("accessCategory")] string? accessCategory = null,
 		CancellationToken cancellationToken = default);
 }

@@ -1,24 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Billing
+/// </summary>
+[DataContract]
+public class NetworkWirelessBilling
 {
 	/// <summary>
-	/// Billing
+	/// Currency
 	/// </summary>
-	[DataContract]
-	public class NetworkWirelessBilling
-	{
-		/// <summary>
-		/// Currency
-		/// </summary>
-		[DataMember(Name = "currency")]
-		public string Currency { get; set; } = string.Empty;
+	[DataMember(Name = "currency")]
+	public string Currency { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Plans
-		/// </summary>
-		[DataMember(Name = "plans")]
-		public List<Plans> Plans { get; set; } = new();
-	}
+	/// <summary>
+	/// Plans
+	/// </summary>
+	[DataMember(Name = "plans")]
+	public List<Plans> Plans { get; set; } = new();
 }

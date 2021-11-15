@@ -1,30 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// VPN Stats
+/// </summary>
+[DataContract]
+public class VpnStats
 {
 	/// <summary>
-	/// VPN Stats
+	/// NetworkId
 	/// </summary>
-	[DataContract]
-	public class VpnStats
-	{
-		/// <summary>
-		/// NetworkId
-		/// </summary>
-		[DataMember(Name = "networkId")]
-		public string networkId { get; set; } = string.Empty;
+	[DataMember(Name = "networkId")]
+	public string networkId { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Network name
-		/// </summary>
-		[DataMember(Name = "networkName")]
-		public string NetworkName { get; set; } = string.Empty;
+	/// <summary>
+	/// Network name
+	/// </summary>
+	[DataMember(Name = "networkName")]
+	public string NetworkName { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Usage summary
-		/// </summary>
-		[DataMember(Name = "merakiVpnPeers")]
-		public List<MerakiVpnPeers> MerakiVpnPeers { get; set; } = new();
-	}
+	/// <summary>
+	/// Usage summary
+	/// </summary>
+	[DataMember(Name = "merakiVpnPeers")]
+	public List<MerakiVpnPeers> MerakiVpnPeers { get; set; } = new();
 }

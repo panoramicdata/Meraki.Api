@@ -1,18 +1,15 @@
-using System.Runtime.Serialization;
+namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// CreateOrganization
+/// </summary>
+[DataContract]
+public class OrganizationCreateRequest
 {
 	/// <summary>
-	/// CreateOrganization
+	/// The name of the organization
 	/// </summary>
-	[DataContract]
-	public class OrganizationCreateRequest
-	{
-		/// <summary>
-		/// The name of the organization
-		/// </summary>
-		/// <value>The name of the organization</value>
-		[DataMember(Name = "name")]
-		public string Name { get; set; } = null!;
-	}
+	/// <value>The name of the organization</value>
+	[DataMember(Name = "name")]
+	public string Name { get; set; } = null!;
 }

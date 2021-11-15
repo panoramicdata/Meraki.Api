@@ -3,4 +3,6 @@
 public class ApplianceSecuritySection
 {
 	public IApplianceSecurityIntrusion Intrusion { get; internal set; } = null!;
+	public IApplianceSecurityMalware Malware { get; internal set; } = null!;
+	public IApplianceSecurityEvents Events { get; internal set; } = null!;
 }

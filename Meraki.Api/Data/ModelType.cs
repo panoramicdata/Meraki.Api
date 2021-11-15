@@ -1,14 +1,13 @@
-﻿namespace Meraki.Api.Data
+﻿namespace Meraki.Api.Data;
+
+public enum ModelType
 {
-	public enum ModelType
-	{
-		Unknown = 1,
-		Camera,
-		Switch,
-		Cellular,
-		WirelessLan,
-		MobileDeviceManagement,
-		Sensor,
-		Appliance
-	}
+	Unknown = 1,
+	Camera,
+	Switch,
+	Cellular,
+	WirelessLan,
+	MobileDeviceManagement,
+	Sensor,
+	Appliance
 }

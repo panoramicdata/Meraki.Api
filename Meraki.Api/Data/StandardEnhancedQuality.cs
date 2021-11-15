@@ -1,26 +1,21 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Runtime.Serialization;
+namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Quality of the camera. Can be one of 'Standard' or 'Enhanced'.
+/// </summary>
+/// <value>Quality of the camera. Can be one of 'Standard' or 'Enhanced'.</value>
+[JsonConverter(typeof(StringEnumConverter))]
+public enum StandardEnhancedQuality
 {
 	/// <summary>
-	/// Quality of the camera. Can be one of 'Standard' or 'Enhanced'.
+	/// Enum Standard for "Standard"
 	/// </summary>
-	/// <value>Quality of the camera. Can be one of 'Standard' or 'Enhanced'.</value>
-	[JsonConverter(typeof(StringEnumConverter))]
-	public enum StandardEnhancedQuality
-	{
-		/// <summary>
-		/// Enum Standard for "Standard"
-		/// </summary>
-		[EnumMember(Value = "Standard")]
-		Standard,
+	[EnumMember(Value = "Standard")]
+	Standard,
 
-		/// <summary>
-		/// Enum Enhanced for "Enhanced"
-		/// </summary>
-		[EnumMember(Value = "Enhanced")]
-		Enhanced
-	}
+	/// <summary>
+	/// Enum Enhanced for "Enhanced"
+	/// </summary>
+	[EnumMember(Value = "Enhanced")]
+	Enhanced
 }

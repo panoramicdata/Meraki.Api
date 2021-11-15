@@ -1,26 +1,22 @@
-﻿using Meraki.Api.Attributes;
-using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Security settings of the MQTT broker.
+/// </summary>
+[DataContract]
+public class MqttSecurity
 {
 	/// <summary>
-	/// Security settings of the MQTT broker.
+	/// Security protocol of the MQTT broker.
 	/// </summary>
-	[DataContract]
-	public class MqttSecurity
-	{
-		/// <summary>
-		/// Security protocol of the MQTT broker.
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "mode")]
-		public string Mode { get; set; } = string.Empty;
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "mode")]
+	public string Mode { get; set; } = string.Empty;
 
-		/// <summary>
-		/// TLS settings of the MQTT broker.
-		/// </summary>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "tls")]
-		public MqttTlsSetting TlsSetting { get; set; } = new();
-	}
+	/// <summary>
+	/// TLS settings of the MQTT broker.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "tls")]
+	public MqttTlsSetting TlsSetting { get; set; } = new();
 }

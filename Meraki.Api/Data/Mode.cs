@@ -1,22 +1,17 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Runtime.Serialization;
+namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+[JsonConverter(typeof(StringEnumConverter))]
+public enum Mode
 {
-	[JsonConverter(typeof(StringEnumConverter))]
-	public enum Mode
-	{
-		/// <summary>
-		/// Enum Enabled for "enabled"
-		/// </summary>
-		[EnumMember(Value = "enabled")]
-		Enabled = 1,
+	/// <summary>
+	/// Enum Enabled for "enabled"
+	/// </summary>
+	[EnumMember(Value = "enabled")]
+	Enabled = 1,
 
-		/// <summary>
-		/// Enum Disabled for "disabled"
-		/// </summary>
-		[EnumMember(Value = "disabled")]
-		Disabled
-	}
+	/// <summary>
+	/// Enum Disabled for "disabled"
+	/// </summary>
+	[EnumMember(Value = "disabled")]
+	Disabled
 }

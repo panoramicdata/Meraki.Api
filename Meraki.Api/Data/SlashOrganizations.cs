@@ -1,17 +1,14 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// /organizations
+/// </summary>
+[DataContract]
+public class SlashOrganizations
 {
 	/// <summary>
-	/// /organizations
+	/// Get
 	/// </summary>
-	[DataContract]
-	public class SlashOrganizations
-	{
-		/// <summary>
-		/// Get
-		/// </summary>
-		[DataMember(Name = "get")]
-		public SlashOrganizationGet Get { get; set; } = new();
-	}
+	[DataMember(Name = "get")]
+	public SlashOrganizationGet Get { get; set; } = new();
 }

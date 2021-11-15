@@ -1,19 +1,15 @@
-using System.Collections.Generic;
-using System.Runtime.Serialization;
+namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// UpdateNetworkSyslogServers
+/// </summary>
+[DataContract]
+public class SyslogServers
 {
 	/// <summary>
-	/// UpdateNetworkSyslogServers
+	/// A list of the syslog servers for this network
 	/// </summary>
-	[DataContract]
-	public class SyslogServers
-	{
-		/// <summary>
-		/// A list of the syslog servers for this network
-		/// </summary>
-		/// <value>A list of the syslog servers for this network</value>
-		[DataMember(Name = "servers")]
-		public List<SyslogServer> Servers { get; set; } = new();
-	}
+	/// <value>A list of the syslog servers for this network</value>
+	[DataMember(Name = "servers")]
+	public List<SyslogServer> Servers { get; set; } = new();
 }

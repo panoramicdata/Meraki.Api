@@ -1,23 +1,20 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Application/JSON
+/// </summary>
+[DataContract]
+public class ApplicationJson
 {
 	/// <summary>
-	/// Application/JSON
+	/// Id
 	/// </summary>
-	[DataContract]
-	public class ApplicationJson
-	{
-		/// <summary>
-		/// Id
-		/// </summary>
-		[DataMember(Name = "id")]
-		public string Id { get; set; } = string.Empty;
+	[DataMember(Name = "id")]
+	public string Id { get; set; } = string.Empty;
 
-		/// <summary>
-		/// Name
-		/// </summary>
-		[DataMember(Name = "name")]
-		public string Name { get; set; } = string.Empty;
-	}
+	/// <summary>
+	/// Name
+	/// </summary>
+	[DataMember(Name = "name")]
+	public string Name { get; set; } = string.Empty;
 }

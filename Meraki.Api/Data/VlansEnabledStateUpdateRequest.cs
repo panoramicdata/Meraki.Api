@@ -1,20 +1,16 @@
-using Meraki.Api.Attributes;
-using System.Runtime.Serialization;
+namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data
+/// <summary>
+/// Vlans Enabled State
+/// </summary>
+[DataContract]
+public class VlansEnabledState
 {
 	/// <summary>
-	/// Vlans Enabled State
+	/// Boolean indicating whether to enable (true) or disable (false) VLANs for the network
 	/// </summary>
-	[DataContract]
-	public class VlansEnabledState
-	{
-		/// <summary>
-		/// Boolean indicating whether to enable (true) or disable (false) VLANs for the network
-		/// </summary>
-		/// <value>Boolean indicating whether to enable (true) or disable (false) VLANs for the network</value>
-		[ApiAccess(ApiAccess.ReadWrite)]
-		[DataMember(Name = "vlansEnabled")]
-		public bool? Enabled { get; set; }
-	}
+	/// <value>Boolean indicating whether to enable (true) or disable (false) VLANs for the network</value>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "vlansEnabled")]
+	public bool? Enabled { get; set; }
 }
