@@ -232,6 +232,7 @@ namespace Meraki.Api.Test
 
 			// Get all VLANs - should be the default one
 			var initialVlans = await TestMerakiClient
+				.Appliance
 				.Vlans
 				.GetNetworkVlansAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -243,6 +244,7 @@ namespace Meraki.Api.Test
 
 			// Update a VLAN
 			var updatedVlan = await TestMerakiClient
+				.Appliance
 				.Vlans
 				.UpdateNetworkVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
 				{

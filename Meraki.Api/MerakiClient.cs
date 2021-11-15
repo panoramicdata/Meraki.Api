@@ -42,9 +42,6 @@ public partial class MerakiClient : IDisposable
 		NamedTagScopes = RefitFor(NamedTagScopes)!;
 		Sms = RefitFor(Sms)!;
 		SplashLoginAttempts = RefitFor(SplashLoginAttempts)!;
-		TrafficShaping = RefitFor(TrafficShaping)!;
-		UplinkSettings = RefitFor(UplinkSettings)!;
-		Vlans = RefitFor(Vlans)!;
 
 		// General level sections //
 		Devices = new()
@@ -199,6 +196,14 @@ public partial class MerakiClient : IDisposable
 				UplinkBandwidth = RefitFor(Appliance.TrafficShaping.UplinkBandwidth),
 				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection),
 			},
+			Uplink = new()
+			{
+				Statuses = RefitFor(Appliance.Uplink.Statuses)
+			},
+			Uplinks = new()
+			{
+				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory)
+			},
 			Vpn = new()
 			{
 				Bgp = RefitFor(Appliance.Vpn.Bgp),
@@ -229,7 +234,11 @@ public partial class MerakiClient : IDisposable
 			Lan = RefitFor(CellularGateway.Lan),
 			PortForwardingRules = RefitFor(CellularGateway.PortForwardingRules),
 			SubnetPool = RefitFor(CellularGateway.SubnetPool),
-			Uplink = RefitFor(CellularGateway.Uplink)
+			Uplink = new()
+			{
+				Uplink = RefitFor(CellularGateway.Uplink.Uplink),
+				Statuses = RefitFor(CellularGateway.Uplink.Statuses)
+			}
 		};
 
 		Switch = new()
@@ -404,21 +413,6 @@ public partial class MerakiClient : IDisposable
 	/// Switch
 	/// </summary>
 	public SwitchSection Switch { get; } = new();
-
-	/// <summary>
-	/// Traffic shaping
-	/// </summary>
-	public ITrafficShaping TrafficShaping { get; }
-
-	/// <summary>
-	/// Uplink settings
-	/// </summary>
-	public IUplink UplinkSettings { get; }
-
-	/// <summary>
-	/// VLANs
-	/// </summary>
-	public IVlans Vlans { get; }
 
 	public WirelessSection Wireless { get; } = new();
 

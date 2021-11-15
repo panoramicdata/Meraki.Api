@@ -14,6 +14,8 @@ public class ApplianceSection
 	public IApplianceSingleLan SingleLan { get; internal set; } = null!;
 	public IApplianceStaticRoutes StaticRoutes { get; internal set; } = null!;
 	public ApplianceTrafficShapingSection TrafficShaping { get; internal set; } = new();
+	public ApplianceUplinkSection Uplink { get; internal set; } = new();
+	public ApplianceUplinksSection Uplinks { get; internal set; } = new();
 	public ApplianceVpnSection Vpn { get; internal set; } = new();
 	public IApplianceWarmSpare WarmSpare { get; internal set; } = null!;
 }
