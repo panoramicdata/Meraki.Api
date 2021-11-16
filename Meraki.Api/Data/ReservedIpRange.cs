@@ -7,21 +7,21 @@
 public class ReservedIpRange
 {
 	/// <summary>
-	/// Start IP
+	/// Starting IP included in the reserved range of IPs
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "start")]
 	public string Start { get; set; } = string.Empty;
 
 	/// <summary>
-	/// End IP
+	/// Ending IP included in the reserved range of IPs
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "end")]
 	public string End { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Comment
+	/// Comment explaining the reserved IP range
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "comment")]
