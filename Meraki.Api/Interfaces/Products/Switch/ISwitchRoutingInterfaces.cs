@@ -51,7 +51,7 @@ public interface ISwitchRoutingInterfaces
 	/// <param name="updateRoutingInterface">Body for returning an interface</param>
 	[ApiOperationId("updateDeviceSwitchRoutingInterface")]
 	[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
-	Task<RoutingInterface> UpdatDeviceSwitchRoutingInterfaceAsync(
+	Task<RoutingInterface> UpdateDeviceSwitchRoutingInterfaceAsync(
 		[AliasAs("serial")] string serial,
 		[AliasAs("interfaceId")] string interfaceId,
 		[Body] RoutingInterfaceUpdateRequest updateRoutingInterface,
