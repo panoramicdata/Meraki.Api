@@ -3,10 +3,7 @@ using Meraki.Api.Data;
 using Refit;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -51,7 +48,6 @@ namespace Meraki.Api.Test
 
 			var result = await TestMerakiClient
 				.Wireless
-				.Ssids
 				.Ssids
 				.GetNetworkWirelessSsidsAsync(network.Id)
 				.ConfigureAwait(false);
@@ -100,7 +96,6 @@ namespace Meraki.Api.Test
 
 			// And delete it again
 			await TestMerakiClient
-				.Networks
 				.Networks
 				.DeleteNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
@@ -161,7 +156,6 @@ namespace Meraki.Api.Test
 
 				await TestMerakiClient
 					.Networks
-					.Networks
 					.DeleteNetworkAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
 			}
@@ -203,7 +197,6 @@ namespace Meraki.Api.Test
 			// Re-fetch the network
 			var refetchedNetwork = await TestMerakiClient
 				.Networks
-				.Networks
 				.GetNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
@@ -219,7 +212,6 @@ namespace Meraki.Api.Test
 			configurationTemplates.Should().NotBeEmpty();
 			var configurationTemplate = configurationTemplates[0];
 			await TestMerakiClient
-				.Networks
 				.Networks
 				.BindNetworkAsync(
 					newNetwork.Id,
@@ -388,7 +380,6 @@ namespace Meraki.Api.Test
 
 			await TestMerakiClient
 				.Networks
-				.Networks
 				.UnbindNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
@@ -397,14 +388,12 @@ namespace Meraki.Api.Test
 			// Delete the network
 			await TestMerakiClient
 				.Networks
-				.Networks
 				.DeleteNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			action = async () =>
 			{
 				var _ = await TestMerakiClient
-					.Networks
 					.Networks
 					.GetNetworkAsync(newNetwork.Id)
 					.ConfigureAwait(false);
@@ -497,19 +486,20 @@ namespace Meraki.Api.Test
 					.ConfigureAwait(false);
 				newResult.Should().NotBeNull();
 
-				//Download the image
-				using var client = new WebClient();
-				using var stream = client.OpenRead(newResult.Url);
-				using var bitmap = new Bitmap(stream);
+				//		//Download the image
+				//		using var client = new WebClient();
+				//		using var stream = client.OpenRead(newResult.Url);
+				//		using var bitmap = new Bitmap(stream);
 
-				bitmap.Save("temp.png", ImageFormat.Png);
+				//		bitmap.Save("temp.png", ImageFormat.Png);
 
-				stream.Flush();
-				stream.Close();
-			}
-			else
-			{
-				Skip.If(true);
+				//		stream.Flush();
+				//		stream.Close();
+				//	}
+				//	else
+				//	{
+				//		Skip.If(true);
+				//	}
 			}
 		}
 
@@ -520,10 +510,10 @@ namespace Meraki.Api.Test
 
 			// Get a snapshot from the camera
 			var newResult = await TestMerakiClient
-				.Camera
-				.Camera
-				.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
-				.ConfigureAwait(false);
+			.Camera
+			.Camera
+			.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
+			.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
 		}
 
