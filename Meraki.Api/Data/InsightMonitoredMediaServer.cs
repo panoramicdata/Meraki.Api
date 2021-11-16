@@ -4,29 +4,19 @@
 /// Insight monitored media servers
 /// </summary>
 [DataContract]
-public class InsightMonitoredMediaServers
+public class InsightMonitoredMediaServer : NamedIdentifiedItem
 {
 	/// <summary>
-	///	Id
+	///	The IP address (IPv4 only) or hostname of the media server to monitor
 	/// </summary>
-	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
-
-	/// <summary>
-	///	Name
-	/// </summary>
-	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
-
-	/// <summary>
-	///	Address
-	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "address")]
 	public string Address { get; set; } = string.Empty;
 
 	/// <summary>
-	///	bestEffortMonitoringEnabled
+	///	Indicates that if the media server doesn't respond to ICMP pings, the nearest hop will be used in its stead
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bestEffortMonitoringEnabled")]
 	public bool BestEffortMonitoringEnabled { get; set; }
 }
