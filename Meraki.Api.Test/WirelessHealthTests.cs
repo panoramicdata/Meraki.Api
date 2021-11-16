@@ -80,7 +80,7 @@ namespace Meraki.Api.Test
 			var stats = await TestMerakiClient
 				.Wireless
 				.LatencyStats
-				.GetNetworkLatencyStatsAsync(
+				.GetNetworkWirelessLatencyStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
 					cancellationToken: default)
@@ -98,7 +98,7 @@ namespace Meraki.Api.Test
 			var stats = await TestMerakiClient
 				.Wireless
 				.LatencyStats
-				.GetNetworkLatencyStatsAsync(
+				.GetNetworkWirelessLatencyStatsAsync(
 					Configuration.TestNetworkId,
 					timespan: _timespan,
 					cancellationToken: default)

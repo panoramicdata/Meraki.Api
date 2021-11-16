@@ -15,7 +15,7 @@ public interface IWirelessDeviceConnectionStats
 	/// <param name="vlan">Filter results by VLAN (optional)</param>
 	/// <param name="apTag">Filter results by AP Tag (optional)</param>
 	[Get("/networks/{networkId}/wireless/devices/connectionStats")]
-	Task<List<NetworkDeviceConnectionStats>> GetNetworkDevicesConnectionStatsAsync(
+	Task<List<NetworkDeviceConnectionStats>> GetNetworkWirelessDevicesConnectionStatsAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("t1")] string t1 = null!,

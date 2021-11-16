@@ -8,7 +8,7 @@ public interface IWirelessStatus
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/wireless/status")]
-	Task<WirelessStatus> GetNetworkDeviceWirelessStatusAsync(
+	Task<WirelessStatus> GetDeviceWirelessStatusAsync(
 		[AliasAs("serial")] string serial,
 		CancellationToken cancellationToken = default
 		);
