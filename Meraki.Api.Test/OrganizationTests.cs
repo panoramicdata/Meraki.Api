@@ -49,7 +49,7 @@ namespace Meraki.Api.Test
 				.Appliance
 				.Vpn
 				.ThirdPartyVpnPeers
-				.GetThirdPartyVpnPeersAsync(Configuration.TestOrganizationId)
+				.GetOrganizationApplianceVpnThirdPartyVPNPeersAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<ThirdPartyVpnPeer>();
 			result.Should().NotBeNull();

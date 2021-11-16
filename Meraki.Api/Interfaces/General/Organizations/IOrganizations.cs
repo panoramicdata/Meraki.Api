@@ -75,7 +75,7 @@ public interface IOrganizations
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="cloneOrganization">Body for cloning an organization</param>
 	[Post("/organizations/{organizationId}/clone")]
-	Task<Organization> cloneOrganizationAsync(
+	Task<Organization> CloneOrganizationAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] CloneOrganization cloneOrganization,
 		CancellationToken cancellationToken = default);

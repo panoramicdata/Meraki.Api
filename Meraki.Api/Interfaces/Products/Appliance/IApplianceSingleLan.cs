@@ -9,7 +9,7 @@ public interface IApplianceSingleLan
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkApplianceSingleLan")]
 	[Get("/networks/{networkId}/appliance/singleLan")]
-	Task<LanConfiguration> GetApplianceSingleLanAsync(
+	Task<LanConfiguration> GetNetworkApplianceSingleLanAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -22,7 +22,7 @@ public interface IApplianceSingleLan
 	/// <param name="updateNetworkApplianceSingleLan">Body for updating a single LAN config</param>
 	[ApiOperationId("updateNetworkApplianceSingleLan")]
 	[Put("/networks/{networkId}/appliance/singleLan")]
-	Task<LanConfiguration> UpdateApplianceSingleLanAsync(
+	Task<LanConfiguration> UpdateNetworkApplianceSingleLanAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] LanConfigurationUpdateRequest updateNetworkApplianceSingleLan,
 		CancellationToken cancellationToken = default

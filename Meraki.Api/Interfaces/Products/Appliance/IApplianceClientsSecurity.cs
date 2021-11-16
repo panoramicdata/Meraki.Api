@@ -15,7 +15,7 @@ public interface IApplianceClientsSecurity
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	[Get("/networks/{networkId}/appliance/clients/{clientId}/security/events")]
-	Task<List<SecurityEvent>> GetNetworkClientSecurityEventsAsync(
+	Task<List<SecurityEvent>> GetNetworkApplianceClientSecurityEventsAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("clientId")] string clientId,
 		[AliasAs("t0")] string t0 = null!,

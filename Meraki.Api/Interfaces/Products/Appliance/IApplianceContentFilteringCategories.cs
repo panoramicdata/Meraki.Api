@@ -9,7 +9,7 @@ public interface IApplianceContentFilteringCategories
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkApplianceContentFilteringCategories")]
 	[Get("/networks/{networkId}/appliance/contentFiltering/categories")]
-	Task<ContentFilteringCategories> GetContentFilteringCategoriesAsync(
+	Task<ContentFilteringCategories> GetNetworkApplianceContentFilteringCategoriesAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);

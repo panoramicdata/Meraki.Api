@@ -8,7 +8,7 @@ public interface IAppliancePerformance
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/appliance/performance")]
-	Task<Performance> GetPerformanceAsync(
+	Task<Performance> GetDeviceAppliancePerformanceAsync(
 		[AliasAs("serial")] string serial,
 		CancellationToken cancellationToken = default);
 }

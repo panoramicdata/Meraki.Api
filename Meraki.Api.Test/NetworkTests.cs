@@ -235,7 +235,7 @@ namespace Meraki.Api.Test
 				.Appliance
 				.Vlans
 				.Vlans
-				.GetNetworkVlansAsync(newNetwork.Id)
+				.GetNetworkApplianceVlansAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			initialVlans.Should().NotBeNull();
 
@@ -248,7 +248,7 @@ namespace Meraki.Api.Test
 				.Appliance
 				.Vlans
 				.Vlans
-				.UpdateNetworkVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
+				.UpdateNetworkApplianceVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
 				{
 					Subnet = "10.250.82.128/28",
 					ApplianceIp = "10.250.82.129",

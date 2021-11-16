@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api.Interfaces.Products.Appliance;
 
-public interface IApplicationTrafficShaping
+public interface IApplianceTrafficShaping
 {
 	/// <summary>
 	/// Display the traffic shaping settings for an MX network
@@ -9,7 +9,7 @@ public interface IApplicationTrafficShaping
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkApplianceTrafficShaping")]
 	[Get("/networks/{networkId}/appliance/trafficShaping")]
-	Task<TrafficShaping> GetTrafficShapingAsync(
+	Task<TrafficShaping> GetNetworkApplianceTrafficShapingAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -22,7 +22,7 @@ public interface IApplicationTrafficShaping
 	/// <param name="trafficShaping"></param>
 	[ApiOperationId("updateNetworkApplianceTrafficShaping")]
 	[Put("/networks/{networkId}/appliance/trafficShaping")]
-	Task<TrafficShaping> UpdateTrafficShapingAsync(
+	Task<TrafficShaping> UpdateNetworkApplianceTrafficShapingAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] TrafficShaping trafficShaping,
 		CancellationToken cancellationToken = default

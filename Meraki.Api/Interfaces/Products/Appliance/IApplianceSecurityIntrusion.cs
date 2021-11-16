@@ -8,7 +8,7 @@ public interface IApplianceSecurityIntrusion
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/appliance/security/intrusion")]
-	Task<OrganizationSecurityIntrusion> GetorganizationSecurityIntrusionAsync(
+	Task<OrganizationSecurityIntrusion> GetorganizationApplianceSecurityIntrusionAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default
 		);
@@ -20,7 +20,7 @@ public interface IApplianceSecurityIntrusion
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="securityIntrusion">Body for updating security intrusion settings</param>
 	[Put("/organizations/{organizationId}/appliance/security/intrusion")]
-	Task<OrganizationSecurityIntrusion> UpdateOrganizationSecurityIntrusionAsync(
+	Task<OrganizationSecurityIntrusion> UpdateOrganizationApplianceSecurityIntrusionAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] OrganizationSecurityIntrusion securityIntrusion,
 		CancellationToken cancellationToken = default
@@ -33,7 +33,7 @@ public interface IApplianceSecurityIntrusion
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkApplianceSecurityIntrusion")]
 	[Get("/networks/{networkId}/appliance/security/intrusion")]
-	Task<NetworkSecurityIntrusion> GetNetworkSecurityIntrusionAsync(
+	Task<NetworkSecurityIntrusion> GetNetworkApplianceSecurityIntrusionAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -46,7 +46,7 @@ public interface IApplianceSecurityIntrusion
 	/// <param name="networkSecurityIntrusion">Body for updating security intrusion settings</param>
 	[ApiOperationId("updateNetworkApplianceSecurityIntrusion")]
 	[Put("/networks/{networkId}/appliance/security/intrusion")]
-	Task<NetworkSecurityIntrusion> UpdateNetworkSecurityIntrusionAsync(
+	Task<NetworkSecurityIntrusion> UpdateNetworkApplianceSecurityIntrusionAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] NetworkSecurityIntrusion networkSecurityIntrusion,
 		CancellationToken cancellationToken = default
