@@ -1,8 +1,9 @@
 ﻿namespace Meraki.Api.Sections.Products.Sm;
 
-public class SmDevicesSection
+public partial class SmDevicesSection
 {
-	public ISmDevices Devices { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal ISmDevices Devices { get; set; } = null!;
 	public ISmDevicesBypassActivationLockAttempts BypassActivationLockAttempts { get; internal set; } = null!;
 	public ISmDevicesCellularUsageHistory CellularUsageHistory { get; internal set; } = null!;
 	public ISmDevicesCerts Certs { get; internal set; } = null!;

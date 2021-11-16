@@ -1,8 +1,9 @@
 ﻿namespace Meraki.Api.Sections.Products.Appliance;
 
-public class ApplianceTrafficShapingSection
+public partial class ApplianceTrafficShapingSection
 {
-	public IApplianceTrafficShaping TrafficShaping { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal IApplianceTrafficShaping TrafficShaping { get; set; } = null!;
 	public IApplianceTrafficShapingCustomPerformanceClasses CustomPerformanceClasses { get; internal set; } = null!;
 	public IApplianceTrafficShapingRules Rules { get; internal set; } = null!;
 	public IApplianceTrafficShapingUplinkBandwidth UplinkBandwidth { get; internal set; } = null!;

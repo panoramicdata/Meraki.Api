@@ -1,7 +1,8 @@
 ﻿namespace Meraki.Api.Sections.General.Networks;
 
-public class NetworksEventsSection
+public partial class NetworksEventsSection
 {
-	public INetworksEvents Events { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal INetworksEvents Events { get; set; } = null!;
 	public INetworksEventsEventTypes EventsTypes { get; internal set; } = null!;
 }

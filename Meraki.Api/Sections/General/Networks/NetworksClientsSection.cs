@@ -1,8 +1,9 @@
 ﻿namespace Meraki.Api.Sections.General.Networks;
 
-public class NetworksClientsSection
+public partial class NetworksClientsSection
 {
-	public INetworksClients Clients { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal INetworksClients Clients { get; set; } = null!;
 	public INetworksClientsApplicationUsage ApplicationUsage { get; internal set; } = null!;
 	public INetworksClientsPolicy Policy { get; internal set; } = null!;
 	public INetworksClientsSplashAuthorizationStatus SplashAuthorizationStatus { get; internal set; } = null!;

@@ -1,7 +1,8 @@
 ﻿namespace Meraki.Api.Sections.Products.Appliance;
 
-public class ApplianceVlansSection
+public partial class ApplianceVlansSection
 {
-	public IApplianceVlans Vlans { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal IApplianceVlans Vlans { get; set; } = null!;
 	public IApplianceVlansSettings Settings { get; internal set; } = null!;
 }

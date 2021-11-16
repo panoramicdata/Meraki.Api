@@ -1,7 +1,8 @@
 ﻿namespace Meraki.Api.Sections.Products.CellularGateway;
 
-public class CellularGatewayUplinkSection
+public partial class CellularGatewayUplinkSection
 {
-	public ICellularGatewayUplink Uplink { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal ICellularGatewayUplink Uplink { get; set; } = null!;
 	public ICellularGatewayUplinkStatuses Statuses { get; internal set; } = null!;
 }

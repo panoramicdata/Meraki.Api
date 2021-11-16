@@ -1,7 +1,8 @@
 ﻿namespace Meraki.Api.Sections.General.Organizations;
 
-public class OrganizationBrandingPoliciesSection
+public partial class OrganizationBrandingPoliciesSection
 {
-	public IOrganizationsBrandingPolicies BrandingPolicies { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal IOrganizationsBrandingPolicies BrandingPolicies { get; set; } = null!;
 	public IOrganizationsBrandingPoliciesPriorities Priorities { get; internal set; } = null!;
 }

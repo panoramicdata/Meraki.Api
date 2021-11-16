@@ -1,7 +1,8 @@
 ﻿namespace Meraki.Api.Sections.Products.Appliance;
 
-public class ApplianceContentFilteringSection
+public partial class ApplianceContentFilteringSection
 {
-	public IApplianceContentFiltering ContentFiltering { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal IApplianceContentFiltering ContentFiltering { get; set; } = null!;
 	public IApplianceContentFilteringCategories Categories { get; internal set; } = null!;
 }
