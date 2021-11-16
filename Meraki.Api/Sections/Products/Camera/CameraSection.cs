@@ -1,8 +1,9 @@
 ﻿namespace Meraki.Api.Sections.Products.Camera;
 
-public class CameraSection
+public partial class CameraSection
 {
-	public ICamera Camera { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal ICamera Camera { get; set; } = null!;
 	public ICameraQualityAndRetentionProfiles QualityAndRetentionProfiles { get; internal set; } = null!;
 	public CameraAnalyticsSection Analytics { get; internal set; } = new();
 }

@@ -267,7 +267,6 @@ namespace Meraki.Api.Test
 			// Make sure it's there.
 			var fetchedDevice = await TestMerakiClient
 				.Devices
-				.Devices
 				.GetDeviceAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			fetchedDevice.Should().BeOfType<Device>();
@@ -278,7 +277,6 @@ namespace Meraki.Api.Test
 			{
 				fetchedDevice.Address = new string('x', Device.MaxAddressLength + 1);
 				await TestMerakiClient
-					.Devices
 					.Devices
 					.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 					.ConfigureAwait(false);
@@ -293,14 +291,12 @@ namespace Meraki.Api.Test
 			fetchedDevice.Address = new string('x', Device.MaxAddressLength);
 			await TestMerakiClient
 				.Devices
-				.Devices
 				.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 
 			//// Setting the address should succeed
 			fetchedDevice.Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA";
 			await TestMerakiClient
-				.Devices
 				.Devices
 				.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
@@ -481,7 +477,6 @@ namespace Meraki.Api.Test
 				// Get a snapshot from the camera
 				var newResult = await TestMerakiClient
 					.Camera
-					.Camera
 					.GenerateDeviceCameraSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
 					.ConfigureAwait(false);
 				newResult.Should().NotBeNull();
@@ -510,7 +505,6 @@ namespace Meraki.Api.Test
 
 			// Get a snapshot from the camera
 			var newResult = await TestMerakiClient
-			.Camera
 			.Camera
 			.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
 			.ConfigureAwait(false);

@@ -1,8 +1,10 @@
 ﻿namespace Meraki.Api.Sections.General.Devices;
 
-public class DevicesSection
+public partial class DevicesSection
 {
-	public IDevices Devices { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal IDevices Devices { get; set; } = null!;
+
 	public IDeviceClients Clients { get; internal set; } = null!;
 	public IDeviceLldpCdp LldpCdp { get; internal set; } = null!;
 	public IDeviceLossAndLatencyHistory LossAndLatencyHistory { get; internal set; } = null!;
