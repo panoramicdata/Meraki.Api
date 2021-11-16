@@ -32,7 +32,6 @@ namespace Meraki.Api.Test
 					stopwatch.Restart();
 					var result = await TestMerakiClient
 					.Organizations
-					.Organizations
 					.GetOrganizationAsync(Configuration.TestOrganizationId)
 					.ConfigureAwait(false);
 					result.Should().BeOfType<Organization>();

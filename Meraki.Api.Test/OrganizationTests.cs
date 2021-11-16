@@ -21,7 +21,6 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
-				.Organizations
 				.GetOrganizationsAsync()
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<Organization>>();
@@ -35,7 +34,6 @@ namespace Meraki.Api.Test
 		public async void GetAsync_Succeeds()
 		{
 			var result = await TestMerakiClient
-				.Organizations
 				.Organizations
 				.GetOrganizationAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
@@ -158,7 +156,6 @@ namespace Meraki.Api.Test
 		{
 			var result = await TestMerakiClient
 				.Organizations
-				.Organizations
 				.ClaimIntoOrganizationAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
@@ -172,7 +169,6 @@ namespace Meraki.Api.Test
 			const string initialOrganizationName = "TestOrganization";
 			var createdOrganization = await TestMerakiClient
 				.Organizations
-				.Organizations
 				.CreateOrganizationAsync(new OrganizationCreateRequest { Name = initialOrganizationName })
 				.ConfigureAwait(false);
 			CheckOrganization(createdOrganization, initialOrganizationName);
@@ -182,7 +178,6 @@ namespace Meraki.Api.Test
 
 			// Read
 			var refetchedOrganization = await TestMerakiClient
-				.Organizations
 				.Organizations
 				.GetOrganizationAsync(createdOrganization.Id)
 				.ConfigureAwait(false);
@@ -195,7 +190,6 @@ namespace Meraki.Api.Test
 			const string newOrganizationName = "TestOrganizationNewName";
 			var updatedOrganization = await TestMerakiClient
 				.Organizations
-				.Organizations
 				.UpdateOrganizationAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName })
 				.ConfigureAwait(false);
 			CheckOrganization(updatedOrganization, newOrganizationName, createdOrganization.Id);
@@ -205,7 +199,6 @@ namespace Meraki.Api.Test
 
 			// Delete
 			await TestMerakiClient
-				.Organizations
 				.Organizations
 				.DeleteOrganizationAsync(createdOrganization.Id)
 				.ConfigureAwait(false);
@@ -217,7 +210,6 @@ namespace Meraki.Api.Test
 			Func<Task> act = async () =>
 			{
 				await TestMerakiClient
-					.Organizations
 					.Organizations
 					.GetOrganizationAsync(createdOrganization.Id)
 					.ConfigureAwait(false);

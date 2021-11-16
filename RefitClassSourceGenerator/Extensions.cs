@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
+using System;
 using System.Linq;
 
 namespace RefitClassSourceGenerator;
@@ -40,7 +41,7 @@ public static class Extensions
 		}
 		else
 		{
-			result += " " + (methodSymbol.ReturnType as INamedTypeSymbol).GetFullTypeString();
+			result += " " + (methodSymbol.ReturnType as INamedTypeSymbol)?.GetFullTypeString() ?? throw new Exception("No return type found");
 		}
 
 		result += " " + methodSymbol.Name + "(";
@@ -67,7 +68,7 @@ public static class Extensions
 			}
 
 			string parameterTypeString =
-				(parameter.Type as INamedTypeSymbol).GetFullTypeString();
+				(parameter.Type as INamedTypeSymbol)?.GetFullTypeString() ?? throw new Exception("Missing parameter type");
 
 			result += parameterTypeString;
 
