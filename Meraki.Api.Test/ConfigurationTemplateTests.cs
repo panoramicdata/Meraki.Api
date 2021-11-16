@@ -28,7 +28,7 @@ namespace Meraki.Api.Test
 			var result = await TestMerakiClient
 				.Organizations
 				.Networks
-				.GetNetworksPagedAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
+				.GetOrganizationNetworksAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 		}
@@ -43,7 +43,7 @@ namespace Meraki.Api.Test
 			{
 				var switchProfiles = await TestMerakiClient
 					.Switch.ConfigTemplates.Profiles
-					.GetAllAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
+					.GetOrganizationConfigTemplateSwitchProfilesAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 					.ConfigureAwait(false);
 				switchProfiles.Should().BeOfType<List<SwitchProfile>>();
 				switchProfiles.Should().NotBeNull();

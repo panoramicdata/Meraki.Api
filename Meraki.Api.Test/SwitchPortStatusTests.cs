@@ -15,7 +15,7 @@ namespace Meraki.Api.Test
 		{
 			var switchPortStatuses = await TestMerakiClient
 				.Switch.Ports
-				.GetDeviceSwitchPortStatusesAsync(Configuration.TestDeviceSerial)
+				.GetDeviceSwitchPortsStatusesAsync(Configuration.TestDeviceSerial)
 				.ConfigureAwait(false);
 
 			switchPortStatuses.Should().NotBeNullOrEmpty();

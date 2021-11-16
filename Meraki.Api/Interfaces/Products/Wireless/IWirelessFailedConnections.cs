@@ -17,7 +17,7 @@ public interface IWirelessFailedConnections
 	/// <param name="serial">Filter by AP (optional)</param>
 	/// <param name="clientId">Filter by client MAC (optional)</param>
 	[Get("/networks/{networkId}/wireless/failedConnections")]
-	Task<List<FailedConnection>> GetNetworkFailedConnectionsAsync(
+	Task<List<FailedConnection>> GetNetworkWirelessFailedConnectionsAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("t1")] string t1 = null!,

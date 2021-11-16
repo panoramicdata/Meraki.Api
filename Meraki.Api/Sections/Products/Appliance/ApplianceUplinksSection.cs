@@ -2,5 +2,5 @@
 
 public class ApplianceUplinksSection
 {
-	public IApplianceUplinksUsageHistoryStatuses UsageHistory { get; internal set; } = null!;
+	public IApplianceUplinksUsageHistory UsageHistory { get; internal set; } = null!;
 }

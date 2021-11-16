@@ -10,8 +10,9 @@ public interface INetworksMqttBrokers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	[ApiOperationId("getNetworkMqttBrokers")]
 	[Get("/networks/{networkId}/mqttBrokers")]
-	Task<List<MqttBroker>> GetAllAsync(
+	Task<List<MqttBroker>> GetNetworkMqttBrokersAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 
@@ -21,8 +22,9 @@ public interface INetworksMqttBrokers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkMqttBroker">Body for adding an MQTT broker</param>
+	[ApiOperationId("createNetworkMqttBroker")]
 	[Post("/networks/{networkId}/mqttBrokers")]
-	Task<MqttBroker> CreateAsync(
+	Task<MqttBroker> CreateNetworkMqttBrokerAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] MqttBrokerCreateUpdateRequest createNetworkMqttBroker,
 		CancellationToken cancellationToken = default);
@@ -33,8 +35,9 @@ public interface INetworksMqttBrokers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="mqttBrokerId">The MQTT broker id</param>
+	[ApiOperationId("getNetworkMqttBroker")]
 	[Get("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
-	Task<MqttBroker> GetAsync(
+	Task<MqttBroker> GetNetworkMqttBrokerAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("mqttBrokerId")] string mqttBrokerId,
 		CancellationToken cancellationToken = default);
@@ -46,8 +49,9 @@ public interface INetworksMqttBrokers
 	/// <param name="networkId">The network id</param>
 	/// <param name="mqttBrokerId">The MQTT broker id</param>
 	/// <param name="updateNetworkMqttBroker">Body for updating an MQTT broker</param>
+	[ApiOperationId("updateNetworkMqttBroker")]
 	[Put("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
-	Task<MqttBroker> UpdateAsync(
+	Task<MqttBroker> UpdateNetworkMqttBrokerAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("mqttBrokerId")] string mqttBrokerId,
 		[Body] MqttBrokerCreateUpdateRequest updateNetworkMqttBroker,
@@ -59,8 +63,9 @@ public interface INetworksMqttBrokers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="mqttBrokerId">The MQTT broker id</param>
+	[ApiOperationId("deleteNetworkMqttBroker")]
 	[Delete("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
-	Task DeleteAsync(
+	Task DeleteNetworkMqttBrokerAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("mqttBrokerId")] string mqttBrokerId,
 		CancellationToken cancellationToken = default);

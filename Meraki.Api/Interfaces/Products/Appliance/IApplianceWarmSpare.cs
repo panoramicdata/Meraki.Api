@@ -9,7 +9,7 @@ public interface IApplianceWarmSpare
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkApplianceWarmSpare")]
 	[Get("/networks/{networkId}/appliance/warmSpare")]
-	Task<WarmSpare> GetWarmSpareAsync(
+	Task<WarmSpare> GetNetworkApplianceWarmSpareAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -22,7 +22,7 @@ public interface IApplianceWarmSpare
 	/// <param name="updateWarmSpare">Body for updating warm spare settings</param>
 	[ApiOperationId("updateNetworkApplianceWarmSpare")]
 	[Put("/networks/{networkId}/appliance/warmSpare")]
-	Task<WarmSpare> UpdateWarmSpareAsync(
+	Task<WarmSpare> UpdateNetworkApplianceWarmSpareAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] WarmSpareUpdateRequest updateWarmSpare,
 		CancellationToken cancellationToken = default
@@ -37,7 +37,7 @@ public interface IApplianceWarmSpare
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("swapNetworkApplianceWarmSpare")]
 	[Post("/networks/{networkId}/appliance/warmSpare/swap")]
-	Task<WarmSpare> SwapWarmSpareAsync(
+	Task<WarmSpare> SwapNetworkApplianceWarmSpareAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] WarmSpare warmSpare,
 		CancellationToken cancellationToken = default

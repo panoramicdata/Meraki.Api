@@ -22,7 +22,7 @@ public interface IOrganizationsApiRequests
 	/// <param name="responseCode">Filter the results by the response code of the API requests (optional)</param>
 	/// <param name="sourceIp">Filter the results by the IP address of the originating API request (optional)</param>
 	[Get("/organizations/{organizationId}/apiRequests")]
-	Task<List<ApiUsage>> GetOrganizationApiRequestsPagedAsync(
+	Task<List<ApiUsage>> GetOrganizationApiRequestsAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("t1")] string t1 = null!,
@@ -46,7 +46,7 @@ public interface IOrganizationsApiRequests
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0. (optional)</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 31 days. (optional)</param>
 	[Get("/organizations/{organizationId}/apiRequests/overview")]
-	Task<ApiUsageOverview> GetOverviewAsync(
+	Task<ApiUsageOverview> GetOrganizationApiRequestsOverviewAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("t1")] string t1 = null!,

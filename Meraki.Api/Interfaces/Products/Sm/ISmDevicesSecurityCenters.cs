@@ -9,7 +9,7 @@ public interface ISmDevicesSecurityCenters
 	/// <param name="networkId">The network id</param>
 	/// <param name="deviceId">The device id</param>
 	[Get("/networks/{networkId}/sm/devices/{deviceId}/securityCenters")]
-	Task<List<SecurityCenter>> GetNetworkSmSecurityCentersAsync(
+	Task<List<SecurityCenter>> GetNetworkSmDeviceSecurityCentersAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("deviceId")] string deviceId,
 		CancellationToken cancellationToken = default

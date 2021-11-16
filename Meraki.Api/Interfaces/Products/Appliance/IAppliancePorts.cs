@@ -10,7 +10,7 @@ public interface IAppliancePorts
 	/// <param name="appliancePortId">The appliance port id</param>
 	[ApiOperationId("getNetworkAppliancePort")]
 	[Get("/networks/{networkId}/appliance/ports/{portId}")]
-	Task<AppliancePort> GetAppliancePortAsync(
+	Task<AppliancePort> GetNetworkAppliancePortAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("portId")] string appliancePortId,
 		CancellationToken cancellationToken = default
@@ -23,7 +23,7 @@ public interface IAppliancePorts
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkAppliancePorts")]
 	[Get("/networks/{networkId}/appliance/ports")]
-	Task<List<AppliancePort>> GetAppliancePortsAsync(
+	Task<List<AppliancePort>> GetNetworkAppliancePortsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -37,7 +37,7 @@ public interface IAppliancePorts
 	/// <param name="appliancePort">Body for updating the per-port VLAN settings</param>
 	[ApiOperationId("updateNetworkAppliancePorts")]
 	[Put("/networks/{networkId}/appliance/ports/{portId}")]
-	Task<AppliancePort> UpdateAppliancePortAsync(
+	Task<AppliancePort> UpdateNetworkAppliancePortAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("portId")] string portId,
 		[Body] AppliancePort appliancePort,

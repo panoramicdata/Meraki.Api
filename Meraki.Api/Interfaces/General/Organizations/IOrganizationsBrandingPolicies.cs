@@ -3,6 +3,17 @@
 public interface IOrganizationsBrandingPolicies
 {
 	/// <summary>
+	/// List the branding policies of an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	[Get("/organizations/{organizationId}/brandingPolicies")]
+	Task<List<BrandingPolicy>> GetOrganizationBrandingPoliciesAsync(
+		[AliasAs("organizationId")] string organizationId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// Return a branding policy
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -12,17 +23,6 @@ public interface IOrganizationsBrandingPolicies
 	Task<BrandingPolicy> GetOrganizationBrandingPolicyAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("brandingPolicyId")] string brandingPolicyId,
-		CancellationToken cancellationToken = default
-		);
-
-	/// <summary>
-	/// List the branding policies of an organization
-	/// </summary>
-	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId">The organization id</param>
-	[Get("/organizations/{organizationId}/brandingPolicies")]
-	Task<List<BrandingPolicy>> GetOrganizationBrandingPoliciesAsync(
-		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default
 		);
 

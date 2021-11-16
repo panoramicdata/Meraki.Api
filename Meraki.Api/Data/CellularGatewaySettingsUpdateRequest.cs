@@ -4,18 +4,19 @@ namespace Meraki.Api.Data;
 /// UpdateDeviceCellularGatewaySettings
 /// </summary>
 [DataContract]
-public class CellularGatewaySettings
+public class CellularGatewayLanUpdateRequest
 {
 	/// <summary>
 	/// list of all reserved IP ranges for a single MG
 	/// </summary>
-	/// <value>list of all reserved IP ranges for a single MG</value>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "reservedIpRanges")]
 	public List<ReservedIpRange> ReservedIpRanges { get; set; } = new();
+	
 	/// <summary>
 	/// list of all fixed IP assignments for a single MG
 	/// </summary>
-	/// <value>list of all fixed IP assignments for a single MG</value>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "fixedIpAssignments")]
 	public List<FixedIpAssignment> FixedIpAssignments { get; set; } = new();
 }

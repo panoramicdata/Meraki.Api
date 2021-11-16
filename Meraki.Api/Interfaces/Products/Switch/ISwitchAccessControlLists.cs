@@ -12,7 +12,7 @@ public interface ISwitchAccessControlLists
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkSwitchAccessControlLists")]
 	[Get("/networks/{networkId}/switch/accessControlLists")]
-	Task<SwitchAccessControlListRules> GetAsync(
+	Task<SwitchAccessControlListRules> GetNetworkSwitchAccessControlListsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -25,7 +25,7 @@ public interface ISwitchAccessControlLists
 	/// <param name="updateNetworkSwitchAccessControlLists"></param>
 	[ApiOperationId("updateNetworkSwitchAccessControlLists")]
 	[Put("/networks/{networkId}/switch/accessControlLists")]
-	Task<SwitchAccessControlListRules> UpdateAsync(
+	Task<SwitchAccessControlListRules> UpdateNetworkSwitchAccessControlListsAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] SwitchAccessControlListRules updateNetworkSwitchAccessControlLists,
 		CancellationToken cancellationToken = default

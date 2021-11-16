@@ -8,7 +8,7 @@ public interface IOrganizationsDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/devices/statuses")]
-	Task<List<OrganizationDeviceStatus>> GetDeviceStatusesAsync(
+	Task<List<OrganizationDeviceStatus>> GetOrganizationDevicesStatusesAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default);
 
@@ -23,7 +23,7 @@ public interface IOrganizationsDevices
 	/// <param name="uplink">Optional filter for a specific WAN uplink. Valid uplinks are wan1, wan2, cellular. Default will return all uplinks. (optional)</param>
 	/// <param name="ip">Optional filter for a specific destination IP. Default will return all destination IPs. (optional)</param>
 	[Get("/organizations/{organizationId}/devices/uplinksLossAndLatency")]
-	Task<List<UplinksLossAndLatencyResponse>> GetUplinksLossAndLatencyAsync(
+	Task<List<UplinksLossAndLatencyResponse>> GetOrganizationDevicesUplinksLossAndLatencyAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("t1")] string t1 = null!,
@@ -42,7 +42,7 @@ public interface IOrganizationsDevices
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="configurationUpdatedAfter">Filter results by whether or not the device&#39;s configuration has been updated after the given timestamp (optional)</param>
 	[Get("/organizations/{organizationId}/devices")]
-	Task<List<OrganizationDevice>> GetDevicesPagedAsync(
+	Task<List<OrganizationDevice>> GetOrganizationDevicesAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("perPage")] int? perPage = 1000,
 		[AliasAs("startingAfter")] string startingAfter = null!,

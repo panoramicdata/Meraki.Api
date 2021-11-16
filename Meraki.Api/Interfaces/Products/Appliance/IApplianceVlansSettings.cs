@@ -7,7 +7,7 @@ public interface IApplianceVlansSettings
 	/// </summary>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/appliance/vlans/settings")]
-	Task<VlansEnabledState> GetNetworkVlanEnabledStatesAsync(
+	Task<VlansEnabledState> GetNetworkApplianceVlansSettingsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -18,7 +18,7 @@ public interface IApplianceVlansSettings
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkVlansEnabledState"></param>
 	[Put("/networks/{networkId}/appliance/vlans/settings")]
-	Task<VlansEnabledState> UpdateNetworkVlanEnabledStatesAsync(
+	Task<VlansEnabledState> UpdateNetworkApplianceVlansSettingsAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] VlansEnabledState updateNetworkVlansEnabledState,
 		CancellationToken cancellationToken = default

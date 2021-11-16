@@ -8,7 +8,7 @@ public interface IApplianceVlans
 	/// <param name="networkId">The network id</param>
 	/// <param name="vlanCreationRequest"></param>
 	[Post("/networks/{networkId}/appliance/vlans")]
-	Task<Vlan> CreateNetworkVlanAsync(
+	Task<Vlan> CreateNetworkApplianceVlanAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] VlanCreationRequest vlanCreationRequest,
 		CancellationToken cancellationToken = default);
@@ -19,7 +19,7 @@ public interface IApplianceVlans
 	/// <param name="networkId">The network id</param>
 	/// <param name="vlanId">The VLAN id</param>
 	[Delete("/networks/{networkId}/appliance/vlans/{vlanId}")]
-	Task DeleteNetworkVlanAsync(
+	Task DeleteNetworkApplianceVlanAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("vlanId")] string vlanId,
 		CancellationToken cancellationToken = default);
@@ -30,7 +30,7 @@ public interface IApplianceVlans
 	/// <param name="networkId">The network id</param>
 	/// <param name="vlanId">The VLAN id</param>
 	[Get("/networks/{networkId}/appliance/vlans/{vlanId}")]
-	Task<Vlan> GetNetworkVlanAsync(
+	Task<Vlan> GetNetworkApplianceVlanAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("vlanId")] string vlanId,
 		CancellationToken cancellationToken = default);
@@ -40,7 +40,7 @@ public interface IApplianceVlans
 	/// </summary>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/appliance/vlans")]
-	Task<List<Vlan>> GetNetworkVlansAsync(
+	Task<List<Vlan>> GetNetworkApplianceVlansAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 
@@ -51,7 +51,7 @@ public interface IApplianceVlans
 	/// <param name="vlanId">The VLAN id</param>
 	/// <param name="vlanSpec"></param>
 	[Put("/networks/{networkId}/appliance/vlans/{vlanId}")]
-	Task<Vlan> UpdateNetworkVlanAsync(
+	Task<Vlan> UpdateNetworkApplianceVlanAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("vlanId")] string vlanId,
 		[Body] VlanSpec vlanSpec,

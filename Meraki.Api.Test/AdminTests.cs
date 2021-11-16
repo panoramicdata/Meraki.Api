@@ -18,7 +18,7 @@ namespace Meraki.Api.Test
 			var result = await TestMerakiClient
 				.Organizations
 				.Admins
-				.GetAllAsync(Configuration.TestOrganizationId)
+				.GetOrganizationAdminsAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<Admin>>();
 			result.Should().NotBeNull();

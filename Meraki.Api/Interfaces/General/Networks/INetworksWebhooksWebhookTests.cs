@@ -9,7 +9,7 @@ public interface INetworksWebhooksWebhookTests
 	/// <param name="networkId">The network id</param>
 	/// <param name="webhookTestId">The id of a webhook test</param>
 	[Get("/networks/{networkId}/webhooks/webhookTests/{webhookTestId}")]
-	Task<WebhookTest> GetWebhookTestAsync(
+	Task<WebhookTest> GetNetworkWebhooksWebhookTestAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("webhookTestId")] string webhookTestId,
 		CancellationToken cancellationToken = default
@@ -22,7 +22,7 @@ public interface INetworksWebhooksWebhookTests
 	/// <param name="networkId">The network id</param>
 	/// <param name="webhookTest">Body for creating a network HTTP server webhook test</param>
 	[Post("/networks/{networkId}/webhooks/webhookTests")]
-	Task<WebhookTest> CreateWebhookTestAsync(
+	Task<WebhookTest> CreateNetworkWebhooksWebhookTestAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] WebhookTest webhookTest,
 		CancellationToken cancellationToken = default

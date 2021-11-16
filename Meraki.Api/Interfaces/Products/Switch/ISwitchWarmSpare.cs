@@ -25,7 +25,7 @@ public interface ISwitchWarmSpare
 	/// <param name="updateDeviceSwitchWarmSpare"></param>
 	[ApiOperationId("updateDeviceSwitchWarmSpare")]
 	[Put("/devices/{serial}/switch/warmSpare")]
-	Task<SwitchWarmSpare> UpdateAsync(
+	Task<SwitchWarmSpare> UpdateDeviceSwitchWarmSpareAsync(
 		[AliasAs("serial")] string serial,
 		[Body] SwitchWarmSpareUpdateRequest updateDeviceSwitchWarmSpare,
 		CancellationToken cancellationToken = default);

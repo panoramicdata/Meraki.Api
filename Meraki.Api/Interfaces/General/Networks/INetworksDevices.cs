@@ -7,6 +7,7 @@ public interface INetworksDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	[ApiOperationId("getNetworkDevices")]
 	[Get("/networks/{networkId}/devices")]
 	Task<List<Device>> GetNetworkDevicesAsync(
 		[AliasAs("networkId")] string networkId,
@@ -18,6 +19,7 @@ public interface INetworksDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="claimNetworkDevices">Body for claiming a network device</param>
+	[ApiOperationId("claimNetworkDevices")]
 	[Post("/networks/{networkId}/devices/claim")]
 	Task ClaimNetworkDevicesAsync(
 		[AliasAs("networkId")] string networkId,
@@ -29,6 +31,7 @@ public interface INetworksDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	[ApiOperationId("removeNetworkDevices")]
 	[Post("/networks/{networkId}/devices/remove")]
 	Task RemoveNetworkDevicesAsync(
 		[AliasAs("networkId")] string networkId,

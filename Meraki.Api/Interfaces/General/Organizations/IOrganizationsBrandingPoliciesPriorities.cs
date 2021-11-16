@@ -8,7 +8,7 @@ public interface IOrganizationsBrandingPoliciesPriorities
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/brandingPolicies/priorities")]
-	Task<BrandingPoliciesPriorities> GetPrioritiesAsync(
+	Task<BrandingPoliciesPriorities> GetOrganizationBrandingPoliciesPrioritiesAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default
 		);
@@ -20,7 +20,7 @@ public interface IOrganizationsBrandingPoliciesPriorities
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="brandingPoliciesPriorities">Body for updating an organization branding policies priorities</param>
 	[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
-	Task<BrandingPoliciesPriorities> UpdatePrioritiesAsync(
+	Task<BrandingPoliciesPriorities> UpdateOrganizationBrandingPoliciesPrioritiesAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] BrandingPoliciesPriorities brandingPoliciesPriorities,
 		CancellationToken cancellationToken = default

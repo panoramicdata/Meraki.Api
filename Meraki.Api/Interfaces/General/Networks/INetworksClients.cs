@@ -20,8 +20,9 @@ public interface INetworksClients
 	/// <param name="os">Filters clients based on a partial or full match for the os (operating system) field.</param>
 	/// <param name="description">Filters clients based on a partial or full match for the description field.</param>
 	/// <param name="recentDeviceConnections">Filters clients based on recent connection type. Can be one of 'Wired' or 'Wireless'.</param>
+	[ApiOperationId("getNetworkClients")]
 	[Get("/networks/{networkId}/clients")]
-	Task<List<Client>> GetByNetworkAsync(
+	Task<List<Client>> GetNetworkClientsAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("timespan")] double? timespan = null,
@@ -39,13 +40,14 @@ public interface INetworksClients
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// Return the client associated with the given identifier
+	/// Return the client associated with the given identifier. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="clientId">The client id</param>
+	[ApiOperationId("getNetworkClient")]
 	[Get("/networks/{networkId}/clients/{clientId}")]
-	Task<Client> GetAsync(
+	Task<Client> GetNetworkClientAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("clientId")] string clientId,
 		CancellationToken cancellationToken = default);
@@ -56,6 +58,7 @@ public interface INetworksClients
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="clientProvisionRequest">Body for provisioning a client</param>
+	[ApiOperationId("provisionNetworkClients")]
 	[Post("/networks/{networkId}/clients/provision")]
 	Task<ClientProvisionRequest> ProvisionNetworkClientsAsync(
 		[AliasAs("networkId")] string networkId,

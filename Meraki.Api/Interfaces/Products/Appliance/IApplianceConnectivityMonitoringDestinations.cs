@@ -11,7 +11,7 @@ public interface IApplianceConnectivityMonitoringDestinations
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/appliance/connectivityMonitoringDestinations")]
-	Task<NetworkConnectivityMonitoringDestinations> GetNetworkConnectivityMonitoringDestinationsAsync(
+	Task<NetworkConnectivityMonitoringDestinations> GetNetworkApplianceConnectivityMonitoringDestinationsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -23,7 +23,7 @@ public interface IApplianceConnectivityMonitoringDestinations
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkConnectivityMonitoringDestinations">Body for updating monitoring destinations</param>
 	[Put("/networks/{networkId}/appliance/connectivityMonitoringDestinations")]
-	Task<NetworkConnectivityMonitoringDestinations> UpdateNetworkConnectivityMonitoringDestinationsAsync(
+	Task<NetworkConnectivityMonitoringDestinations> UpdateNetworkApplianceConnectivityMonitoringDestinationsAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] NetworkConnectivityMonitoringDestinations updateNetworkConnectivityMonitoringDestinations,
 		CancellationToken cancellationToken = default

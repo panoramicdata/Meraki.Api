@@ -19,7 +19,7 @@ public interface IOrganizationsConfigurationChanges
 	/// <param name="networkId">Filters on the given network (optional)</param>
 	/// <param name="adminId">Filters on the given Admin (optional)</param>
 	[Get("/organizations/{organizationId}/configurationChanges")]
-	Task<List<ChangeLogEntry>> GetOrganizationConfigurationChangesPagedAsync(
+	Task<List<ChangeLogEntry>> GetOrganizationConfigurationChangesAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string? t0 = null,
 		[AliasAs("t1")] string? t1 = null,

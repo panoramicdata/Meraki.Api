@@ -9,7 +9,7 @@ public interface IApplianceVpnVpnFirewallRules
 	/// <param name="organizationId">The organization id</param>
 	[ApiOperationId("getOrganizationApplianceVpnVpnFirewallRules")]
 	[Get("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
-	Task<VpnFirewallRules> GetVpnFirewallRulesAsync(
+	Task<VpnFirewallRules> GetOrganizationApplianceVpnVpnFirewallRulesAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default
 		);
@@ -22,7 +22,7 @@ public interface IApplianceVpnVpnFirewallRules
 	/// <param name="vpnFirewallRules">Body for updating firewall rules</param>
 	[ApiOperationId("updateOrganizationApplianceVpnVpnFirewallRules")]
 	[Put("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
-	Task<VpnFirewallRules> UpdateVpnFirewallRulesAsync(
+	Task<VpnFirewallRules> UpdateOrganizationApplianceVpnVpnFirewallRulesAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] VpnFirewallRules vpnFirewallRules,
 		CancellationToken cancellationToken = default

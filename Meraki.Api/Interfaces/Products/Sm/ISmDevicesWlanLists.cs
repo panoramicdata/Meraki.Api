@@ -9,7 +9,7 @@ public interface ISmDevicesWlanLists
 	/// <param name="networkId">The network id</param>
 	/// <param name="deviceId">The device id</param>
 	[Get("/networks/{networkId}/sm/devices/{deviceId}/wlanLists")]
-	Task<List<WlanList>> GetNetworkSmWlanListsAsync(
+	Task<List<WlanList>> GetNetworkSmDeviceWlanListsAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("deviceId")] string deviceId,
 		CancellationToken cancellationToken = default

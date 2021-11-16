@@ -18,7 +18,7 @@ namespace Meraki.Api.Test
 			var result = await TestMerakiClient
 				.Organizations
 				.ApiRequests
-				.GetOrganizationApiRequestsPagedAsync(Configuration.TestOrganizationId)
+				.GetOrganizationApiRequestsAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<ApiUsage>>();
 			result.Should().NotBeNullOrEmpty();
@@ -30,7 +30,7 @@ namespace Meraki.Api.Test
 			var result = await TestMerakiClient
 				.Organizations
 				.ApiRequests
-				.GetOverviewAsync(Configuration.TestOrganizationId)
+				.GetOrganizationApiRequestsOverviewAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<ApiUsageOverview>();
 			result.Should().NotBeNull();

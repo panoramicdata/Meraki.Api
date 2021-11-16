@@ -18,7 +18,7 @@ public interface IOrganizationsWebhooksLogs
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="url">The URL the webhook was sent to (optional)</param>
 	[Get("/organizations/{organizationId}/webhooks/logs")]
-	Task<List<WebhookLog>> GetOrganizationWebhookLogsAsync(
+	Task<List<WebhookLog>> GetOrganizationWebhooksLogsAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("t1")] string t1 = null!,

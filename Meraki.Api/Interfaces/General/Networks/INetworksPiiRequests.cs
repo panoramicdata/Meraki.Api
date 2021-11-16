@@ -6,25 +6,13 @@ namespace Meraki.Api.Interfaces.General.Networks;
 public interface INetworksPiiRequests
 {
 	/// <summary>
-	/// Return a PII request
-	/// </summary>
-	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="networkId">The network id</param>
-	/// <param name="requestId">The request id</param>
-	[Get("/networks/{networkId}/pii/requests/{requestId}")]
-	Task<PiiRequest> GetAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("requestId")] string requestId,
-		CancellationToken cancellationToken = default
-		);
-
-	/// <summary>
 	/// List the PII requests for this network or organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	[ApiOperationId("getNetworkPiiRequests")]
 	[Get("/networks/{networkId}/pii/requests")]
-	Task<List<PiiRequest>> GetAllAsync(
+	Task<List<PiiRequest>> GetNetworkPiiRequestsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -35,10 +23,25 @@ public interface INetworksPiiRequests
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="piiRequest">Body for creating a PII request</param>
+	[ApiOperationId("createNetworkPiiRequest")]
 	[Post("/networks/{networkId}/pii/requests")]
-	Task<PiiRequest> CreateAsync(
+	Task<PiiRequest> CreateNetworkPiiRequestAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] PiiRequestCreateRequest piiRequest,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Return a PII request
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="requestId">The request id</param>
+	[ApiOperationId("getNetworkPiiRequest")]
+	[Get("/networks/{networkId}/pii/requests/{requestId}")]
+	Task<PiiRequest> GetNetworkPiiRequestAsync(
+		[AliasAs("networkId")] string networkId,
+		[AliasAs("requestId")] string requestId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -48,8 +51,9 @@ public interface INetworksPiiRequests
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="requestId">The request id</param>
+	[ApiOperationId("deleteNetworkPiiRequest")]
 	[Delete("/networks/{networkId}/pii/requests/{requestId}")]
-	Task DeleteAsync(
+	Task DeleteNetworkPiiRequestAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("requestId")] string requestId,
 		CancellationToken cancellationToken = default

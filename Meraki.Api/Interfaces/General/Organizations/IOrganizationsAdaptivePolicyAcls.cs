@@ -8,7 +8,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/adaptivePolicy/acls")]
-	Task<List<AdaptivePolicyAcl>> GetAdaptivePolicyAclsAsync(
+	Task<List<AdaptivePolicyAcl>> GetOrganizationAdaptivePolicyAclsAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default);
 
@@ -19,7 +19,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="acls">Body for creating an ACL</param>
 	[Post("/organizations/{organizationId}/adaptivePolicy/acls")]
-	Task<List<AdaptivePolicyAcl>> CreateAdaptivePolicyAclAsync(
+	Task<List<AdaptivePolicyAcl>> CreateOrganizationAdaptivePolicyAclAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] AdaptivePolicyAcl acls,
 		CancellationToken cancellationToken = default);
@@ -31,7 +31,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">The ACL id</param>
 	[Get("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
-	Task<AdaptivePolicyAcl> GetAdaptivePolicyAclAsync(
+	Task<AdaptivePolicyAcl> GetOrganizationAdaptivePolicyAclAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("id")] string id,
 		CancellationToken cancellationToken = default);
@@ -44,7 +44,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <param name="id">The ACL id</param>
 	/// <param name="acls">Body for returning ACL information</param>
 	[Put("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
-	Task<AdaptivePolicyAcl> UpdateAdaptivePolicyAclAsync(
+	Task<AdaptivePolicyAcl> UpdateOrganizationAdaptivePolicyAclAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("id")] string id,
 		[Body] AdaptivePolicyAcl acls,
@@ -57,7 +57,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">The ACL id</param>
 	[Delete("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
-	Task DeleteAdaptivePolicyAclAsync(
+	Task DeleteOrganizationAdaptivePolicyAclAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("id")] string id,
 		CancellationToken cancellationToken = default);

@@ -6,7 +6,7 @@ namespace Meraki.Api.Interfaces.General.Organizations;
 public interface IOrganizationsOpenapiSpec
 {
 	/// <summary>
-	/// Return the OpenAPI 2.0 Specification of the organization&#39;s API documentation in JSON
+	/// Return the OpenAPI 2.0 Specification of the organization's API documentation in JSON
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>

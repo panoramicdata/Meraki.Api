@@ -8,7 +8,7 @@ public interface IOrganizationsLoginSecurity
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/loginSecurity")]
-	Task<LoginSecurity> GetLoginSecurityAsync(
+	Task<LoginSecurity> GetOrganizationLoginSecurityAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default);
 
@@ -19,7 +19,7 @@ public interface IOrganizationsLoginSecurity
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="updateOrganizationLoginSecurity">Body for updating login settings</param>
 	[Put("/organizations/{organizationId}/loginSecurity")]
-	Task<LoginSecurity> UpdateLoginSecurityAsync(
+	Task<LoginSecurity> UpdateOrganizationLoginSecurityAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] LoginSecurity updateOrganizationLoginSecurity,
 		CancellationToken cancellationToken = default);

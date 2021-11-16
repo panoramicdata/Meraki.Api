@@ -8,7 +8,7 @@ public interface INetworksSnmp
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/snmp")]
-	Task<NetworkSnmpSetting> GetSnmpAsync(
+	Task<NetworkSnmpSetting> GetNetworkSnmpAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -20,7 +20,7 @@ public interface INetworksSnmp
 	/// <param name="networkId">The network id</param>
 	/// <param name="networkSnmpSetting"></param>
 	[Put("/networks/{networkId}/snmp")]
-	Task<NetworkSnmpSetting> UpdateSnmpAsync(
+	Task<NetworkSnmpSetting> UpdateNetworkSnmpAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] NetworkSnmpSetting networkSnmpSetting,
 		CancellationToken cancellationToken = default

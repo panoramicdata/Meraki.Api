@@ -9,7 +9,7 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	[Get("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
-	Task<WebhookHttpServer> GetAsync(
+	Task<WebhookHttpServer> GetNetworkWebhooksHttpServerAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("httpServerId")] string httpServerId,
 		CancellationToken cancellationToken = default
@@ -21,7 +21,7 @@ public interface INetworksWebhooksHttpServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/webhooks/httpServers")]
-	Task<List<WebhookHttpServer>> GetAllAsync(
+	Task<List<WebhookHttpServer>> GetNetworkWebhooksHttpServersAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -33,7 +33,7 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServer">Body for creating a network HTTP server</param>
 	[Post("/networks/{networkId}/webhooks/httpServers")]
-	Task<WebhookHttpServer> CreateAsync(
+	Task<WebhookHttpServer> CreateNetworkWebhooksHttpServerAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] WebhookHttpServer httpServer,
 		CancellationToken cancellationToken = default
@@ -47,7 +47,7 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	/// <param name="httpServer">Body for updating a network HTTP server</param>
 	[Put("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
-	Task<WebhookHttpServer> UpdateAsync(
+	Task<WebhookHttpServer> UpdateNetworkWebhooksHttpServerAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("httpServerId")] string httpServerId,
 		[Body] WebhookHttpServer httpServer,
@@ -61,7 +61,7 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	[Delete("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
-	Task DeleteAsync(
+	Task DeleteNetworkWebhooksHttpServerAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("httpServerId")] string httpServerId,
 		CancellationToken cancellationToken = default

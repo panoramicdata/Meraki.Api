@@ -227,7 +227,7 @@ public partial class MerakiClient : IDisposable
 				Recent = RefitFor(Camera.Analytics.Recent),
 				Zones = RefitFor(Camera.Analytics.Zones)
 			},
-			QualityAndRetention = RefitFor(Camera.QualityAndRetention)
+			QualityAndRetentionProfiles = RefitFor(Camera.QualityAndRetentionProfiles)
 		};
 
 		CellularGateway = new()

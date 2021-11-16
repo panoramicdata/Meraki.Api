@@ -12,7 +12,7 @@ public interface IOrganizationsActionBatches
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationActionBatch">Body for creating organization action batch</param>
 	[Post("/organizations/{organizationId}/actionBatches")]
-	Task<ActionBatch> CreateAsync(
+	Task<ActionBatch> CreateOrganizationActionBatchAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] ActionBatchCreationRequest createOrganizationActionBatch,
 		CancellationToken cancellationToken = default);
@@ -24,7 +24,7 @@ public interface IOrganizationsActionBatches
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="actionBatchId"></param>
 	[Delete("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
-	Task DeleteAsync(
+	Task DeleteOrganizationActionBatchAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("actionBatchId")] string actionBatchId,
 		CancellationToken cancellationToken = default
@@ -37,7 +37,7 @@ public interface IOrganizationsActionBatches
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="actionBatchId">The action batch id</param>
 	[Get("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
-	Task<ActionBatch> GetAsync(
+	Task<ActionBatch> GetOrganizationActionBatchAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("actionBatchId")] string actionBatchId,
 		CancellationToken cancellationToken = default
@@ -50,7 +50,7 @@ public interface IOrganizationsActionBatches
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="status">Filter batches by status. Valid types are pending, completed, and failed.</param>
 	[Get("/organizations/{organizationId}/actionBatches")]
-	Task<List<ActionBatch>> GetAllAsync(
+	Task<List<ActionBatch>> GetOrganizationActionBatchesAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("status")] string? status = null,
 		CancellationToken cancellationToken = default);
@@ -63,7 +63,7 @@ public interface IOrganizationsActionBatches
 	/// <param name="actionBatchId">The action batch id</param>
 	/// <param name="updateOrganizationActionBatch">Body for updating organization action batch</param>
 	[Put("/organizations/{organizationId}/actionBatches/{actionBatchId}")]
-	Task<ActionBatch> UpdateAsync(
+	Task<ActionBatch> UpdateOrganizationActionBatchAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("actionBatchId")] string actionBatchId,
 		[Body] ActionBatchUpdateRequest updateOrganizationActionBatch = null!,

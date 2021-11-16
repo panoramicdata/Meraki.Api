@@ -9,7 +9,7 @@ public interface ISmDevicesCellularUsageHistory
 	/// <param name="networkId">The network id</param>
 	/// <param name="deviceId">The device id</param>
 	[Get("/networks/{networkId}/sm/devices/{deviceId}/cellularUsageHistory")]
-	Task<List<ClientUsageHistory>> GetNetworkSmCellularUsageHistoryAsync(
+	Task<List<ClientUsageHistory>> GetNetworkSmDeviceCellularUsageHistoryAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("deviceId")] string deviceId,
 		CancellationToken cancellationToken = default

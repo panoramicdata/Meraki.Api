@@ -8,7 +8,7 @@ public interface INetworksSettings
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/settings")]
-	Task<NetworkSettings> GetSettingsAsync(
+	Task<NetworkSettings> GetNetworkSettingsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 
@@ -19,7 +19,7 @@ public interface INetworksSettings
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkSettings">Body for updating network settings</param>
 	[Put("/networks/{networkId}/settings")]
-	Task<NetworkSettings> UpdateSettingsAsync(
+	Task<NetworkSettings> UpdateNetworkSettingsAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] NetworkSettings updateNetworkSettings,
 		CancellationToken cancellationToken = default

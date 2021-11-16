@@ -50,7 +50,7 @@ namespace Meraki.Api.Test
 				.Wireless
 				.Ssids
 				.Ssids
-				.GetAllAsync(network.Id)
+				.GetNetworkWirelessSsidsAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
@@ -84,7 +84,7 @@ namespace Meraki.Api.Test
 			var newNetwork = await TestMerakiClient
 				.Organizations
 				.Networks
-				.CreateAsync(
+				.CreateOrganizationNetworkAsync(
 					Configuration.TestOrganizationId,
 					new NetworkCreationRequest
 					{
@@ -112,7 +112,7 @@ namespace Meraki.Api.Test
 				var newNetwork = await TestMerakiClient
 					.Organizations
 					.Networks
-					.CreateAsync(
+					.CreateOrganizationNetworkAsync(
 						Configuration.TestOrganizationId,
 						new NetworkCreationRequest
 						{
@@ -135,7 +135,7 @@ namespace Meraki.Api.Test
 			var networks = await TestMerakiClient
 							.Organizations
 							.Networks
-							.GetNetworksPagedAsync(Configuration.TestOrganizationId)
+							.GetOrganizationNetworksAsync(Configuration.TestOrganizationId)
 							.ConfigureAwait(false);
 			var oldNetwork = networks.SingleOrDefault(n => n.Name == networkName);
 			if (oldNetwork != default)
@@ -171,7 +171,7 @@ namespace Meraki.Api.Test
 			var devices = await TestMerakiClient
 				.Organizations
 				.InventoryDevices
-				.GetInventoryDevicesAsync(Configuration.TestOrganizationId)
+				.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
 
@@ -183,7 +183,7 @@ namespace Meraki.Api.Test
 			var newNetwork = await TestMerakiClient
 				.Organizations
 				.Networks
-				.CreateAsync(
+				.CreateOrganizationNetworkAsync(
 					Configuration.TestOrganizationId,
 				new NetworkCreationRequest
 				{
@@ -228,7 +228,7 @@ namespace Meraki.Api.Test
 				.Appliance
 				.Vlans
 				.Vlans
-				.GetNetworkVlansAsync(newNetwork.Id)
+				.GetNetworkApplianceVlansAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			initialVlans.Should().NotBeNull();
 
@@ -241,7 +241,7 @@ namespace Meraki.Api.Test
 				.Appliance
 				.Vlans
 				.Vlans
-				.UpdateNetworkVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
+				.UpdateNetworkApplianceVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
 				{
 					Subnet = "10.250.82.128/28",
 					ApplianceIp = "10.250.82.129",
@@ -310,7 +310,7 @@ namespace Meraki.Api.Test
 			var wanSpecs = await TestMerakiClient
 				.Devices
 				.ManagementInterface
-				.GetManagementInterfaceAsync(fetchedDevice.Serial)
+				.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial)
 				.ConfigureAwait(false);
 			wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 			wanSpecs.Should().NotBeNull();
@@ -336,7 +336,7 @@ namespace Meraki.Api.Test
 			var updatedWanSpecs = await TestMerakiClient
 				.Devices
 				.ManagementInterface
-				.UpdateManagementInterfaceAsync(fetchedDevice.Serial, new DeviceManagementInterfaceSettings
+				.UpdateDeviceManagementInterfaceAsync(fetchedDevice.Serial, new DeviceManagementInterfaceSettings
 				{
 					Wan1 = new Wan
 					{
@@ -357,7 +357,7 @@ namespace Meraki.Api.Test
 			var wanSpecsRefetch = await TestMerakiClient
 				.Devices
 				.ManagementInterface
-				.GetManagementInterfaceAsync(newNetwork.Id)
+				.GetDeviceManagementInterfaceAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			wanSpecsRefetch.Should().NotBeNull();
 			wanSpecsRefetch.Wan1.Should().NotBeNull();
@@ -370,7 +370,7 @@ namespace Meraki.Api.Test
 			var allOrganizationDevices = await TestMerakiClient
 				.Organizations
 				.Devices
-				.GetDevicesPagedAsync(Configuration.TestOrganizationId)
+				.GetOrganizationDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			allOrganizationDevices.Should().NotBeNull();
 			allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();
@@ -416,7 +416,7 @@ namespace Meraki.Api.Test
 				.Networks
 				.Clients
 				.Clients
-				.GetByNetworkAsync(network.Id)
+				.GetNetworkClientsAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
@@ -431,7 +431,7 @@ namespace Meraki.Api.Test
 			var result = await TestMerakiClient
 				.Networks
 				.BluetoothClients
-				.GetNetworkBluetoothClientsPagedAsync(network.Id)
+				.GetNetworkBluetoothClientsAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<BluetoothClient>>();
 			result.Should().NotBeNull();
@@ -447,7 +447,7 @@ namespace Meraki.Api.Test
 			var originalResult = await TestMerakiClient
 				.Wireless
 				.Settings
-				.GetAsync(network.Id)
+				.GetNetworkWirelessSettingsAsync(network.Id)
 				.ConfigureAwait(false);
 			originalResult.Should().BeOfType<WirelessSettings>();
 			originalResult.Should().NotBeNull();
@@ -457,7 +457,7 @@ namespace Meraki.Api.Test
 			var newResult = await TestMerakiClient
 				.Wireless
 				.Settings
-				.UpdateAsync(network.Id, new WirelessSettingsUpdateDto
+				.UpdateNetworkWirelessSettingsAsync(network.Id, new WirelessSettingsUpdateDto
 				{
 					Ipv6BridgeEnabled = originalResult.Ipv6BridgeEnabled,
 					LedLightsOn = originalResult.LedLightsOn,
@@ -483,7 +483,7 @@ namespace Meraki.Api.Test
 				var newResult = await TestMerakiClient
 					.Camera
 					.Camera
-					.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
+					.GenerateDeviceCameraSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
 					.ConfigureAwait(false);
 				newResult.Should().NotBeNull();
 
@@ -548,7 +548,7 @@ namespace Meraki.Api.Test
 
 			var switchStacks = await TestMerakiClient
 				.Switch.Stacks
-				.GetAllAsync(Configuration.TestCameraNetworkId, default)
+				.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, default)
 				.ConfigureAwait(false);
 
 			switchStacks.Should().NotBeNull();
@@ -566,7 +566,7 @@ namespace Meraki.Api.Test
 					() => TestMerakiClient
 						.Organizations
 						.Networks
-						.CreateAsync(
+						.CreateOrganizationNetworkAsync(
 							Configuration.TestOrganizationId,
 							new NetworkCreationRequest
 							{

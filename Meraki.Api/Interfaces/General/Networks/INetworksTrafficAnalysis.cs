@@ -8,7 +8,7 @@ public interface INetworksTrafficAnalysis
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/trafficAnalysis")]
-	Task<TrafficAnalysis> GetTrafficAnalysisAsync(
+	Task<TrafficAnalysis> GetNetworkTrafficAnalysisAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -20,7 +20,7 @@ public interface INetworksTrafficAnalysis
 	/// <param name="networkId">The network id</param>
 	/// <param name="trafficAnalysis"></param>
 	[Put("/networks/{networkId}/trafficAnalysis")]
-	Task<TrafficAnalysis> UpdateTrafficAnalysisAsync(
+	Task<TrafficAnalysis> UpdateNetworkTrafficAnalysisAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] TrafficAnalysis trafficAnalysis,
 		CancellationToken cancellationToken = default

@@ -8,7 +8,7 @@ public interface IOrganizationsSnmp
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/snmp")]
-	Task<OrganizationSnmp> GetSnmpAsync(
+	Task<OrganizationSnmp> GetOrganizationSnmpAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default
 		);
@@ -20,7 +20,7 @@ public interface IOrganizationsSnmp
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="updateOrganizationSnmp"></param>
 	[Put("/organizations/{organizationId}/snmp")]
-	Task<OrganizationSnmpUpdateRequest> UpdateSnmpAsync(
+	Task<OrganizationSnmpUpdateRequest> UpdateOrganizationSnmpAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] OrganizationSnmpUpdateRequest updateOrganizationSnmp,
 		CancellationToken cancellationToken = default
