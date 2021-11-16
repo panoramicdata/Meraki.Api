@@ -8,7 +8,7 @@ public interface IApplianceSecurityIntrusion
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/appliance/security/intrusion")]
-	Task<OrganizationSecurityIntrusion> GetorganizationApplianceSecurityIntrusionAsync(
+	Task<OrganizationSecurityIntrusion> GetOrganizationApplianceSecurityIntrusionAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default
 		);

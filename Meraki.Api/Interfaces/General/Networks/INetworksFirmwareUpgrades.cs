@@ -9,7 +9,7 @@ public interface INetworksFirmwareUpgrades
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkFirmwareUpgrades")]
 	[Get("/networks/{networkId}/firmwareUpgrades")]
-	Task<NetworkFirmwareUpgrade> GetNetworkFirmwareUpgradeAsync(
+	Task<NetworkFirmwareUpgrade> GetNetworkFirmwareUpgradesAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 

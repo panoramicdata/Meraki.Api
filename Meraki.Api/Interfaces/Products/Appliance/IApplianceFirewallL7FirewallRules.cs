@@ -9,7 +9,7 @@ public interface IApplianceFirewallL7FirewallRules
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkApplianceFirewallL7FirewallRules")]
 	[Get("/networks/{networkId}/appliance/firewall/l7FirewallRules")]
-	Task<Layer7FirewallRules> GetNetworkApplianceFirewallL3FirewallRulesAsync(
+	Task<Layer7FirewallRules> GetNetworkApplianceFirewallL7FirewallRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -22,7 +22,7 @@ public interface IApplianceFirewallL7FirewallRules
 	/// <param name="layer7FirewallRules">Body for updating firewall rules</param>
 	[ApiOperationId("updateNetworkApplianceFirewallL7FirewallRules")]
 	[Put("/networks/{networkId}/appliance/firewall/l7FirewallRules")]
-	Task<Layer7FirewallRules> UpdateNetworkApplianceFirewallL3FirewallRulesAsync(
+	Task<Layer7FirewallRules> UpdateNetworkApplianceFirewallL7FirewallRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] Layer7FirewallRules layer7FirewallRules,
 		CancellationToken cancellationToken = default

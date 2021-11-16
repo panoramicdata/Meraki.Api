@@ -24,7 +24,7 @@ public interface INetworksAlertsSettings
 	/// <param name="updateNetworkAlertSettings">Body for updating network alert settings</param>
 	[ApiOperationId("updateNetworkAlertsSettings")]
 	[Put("/networks/{networkId}/alerts/settings")]
-	Task<NetworkAlertSettings> UpdateNetworkAlertSettingsAsync(
+	Task<NetworkAlertSettings> UpdateNetworkAlertsSettingsAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] NetworkAlertSettings updateNetworkAlertSettings = null!,
 		CancellationToken cancellationToken = default);
