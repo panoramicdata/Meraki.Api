@@ -13,6 +13,7 @@ public interface INetworksBluetoothClients
 	/// <param name="bluetoothClientId">The bluetooth client id</param>
 	/// <param name="includeConnectivityHistory">Include the connectivity history for this client (optional)</param>
 	/// <param name="connectivityHistoryTimespan">The timespan, in seconds, for the connectivityHistory data. By default 1 day, 86400, will be used. (optional)</param>
+	[ApiOperationId("getNetworkBluetoothClient")]
 	[Get("/networks/{networkId}/bluetoothClients/{bluetoothClientId}")]
 	Task<BluetoothClient> GetNetworkBluetoothClientAsync(
 		[AliasAs("networkId")] string networkId,
@@ -32,8 +33,9 @@ public interface INetworksBluetoothClients
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="includeConnectivityHistory">Include the connectivity history for this client (optional)</param>
+	[ApiOperationId("getNetworkBluetoothClients")]
 	[Get("/networks/{networkId}/bluetoothClients")]
-	Task<List<BluetoothClient>> GetNetworkBluetoothClientsPagedAsync(
+	Task<List<BluetoothClient>> GetNetworkBluetoothClientsAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("t0")] string t0 = null!,
 		[AliasAs("timespan")] double? timespan = null,

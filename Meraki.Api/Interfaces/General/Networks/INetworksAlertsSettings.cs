@@ -10,6 +10,7 @@ public interface INetworksAlertsSettings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	[ApiOperationId("getNetworkAlertsSettings")]
 	[Get("/networks/{networkId}/alerts/settings")]
 	Task<NetworkAlertSettings> GetNetworkAlertsSettingsAsync(
 		[AliasAs("networkId")] string networkId,
@@ -21,6 +22,7 @@ public interface INetworksAlertsSettings
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkAlertSettings">Body for updating network alert settings</param>
+	[ApiOperationId("updateNetworkAlertsSettings")]
 	[Put("/networks/{networkId}/alerts/settings")]
 	Task<NetworkAlertSettings> UpdateNetworkAlertSettingsAsync(
 		[AliasAs("networkId")] string networkId,

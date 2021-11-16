@@ -13,8 +13,9 @@ public interface INetworksPiiPiiKeys
 	/// <param name="serial">The serial of a Systems Manager device (optional)</param>
 	/// <param name="imei">The IMEI of a Systems Manager device (optional)</param>
 	/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
+	[ApiOperationId("getNetworkPiiPiiKeys")]
 	[Get("/networks/{networkId}/pii/piiKeys")]
-	Task<PiiKeys> GetPiiKeysAsync(
+	Task<PiiKeys> GetNetworkPiiPiiKeysAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("username")] string username = null!,
 		[AliasAs("email")] string email = null!,

@@ -317,7 +317,7 @@ namespace Meraki.Api.Test
 			var wanSpecs = await TestMerakiClient
 				.Devices
 				.ManagementInterface
-				.GetManagementInterfaceAsync(fetchedDevice.Serial)
+				.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial)
 				.ConfigureAwait(false);
 			wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 			wanSpecs.Should().NotBeNull();
@@ -343,7 +343,7 @@ namespace Meraki.Api.Test
 			var updatedWanSpecs = await TestMerakiClient
 				.Devices
 				.ManagementInterface
-				.UpdateManagementInterfaceAsync(fetchedDevice.Serial, new DeviceManagementInterfaceSettings
+				.UpdateDeviceManagementInterfaceAsync(fetchedDevice.Serial, new DeviceManagementInterfaceSettings
 				{
 					Wan1 = new Wan
 					{
@@ -364,7 +364,7 @@ namespace Meraki.Api.Test
 			var wanSpecsRefetch = await TestMerakiClient
 				.Devices
 				.ManagementInterface
-				.GetManagementInterfaceAsync(newNetwork.Id)
+				.GetDeviceManagementInterfaceAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 			wanSpecsRefetch.Should().NotBeNull();
 			wanSpecsRefetch.Wan1.Should().NotBeNull();
@@ -426,7 +426,7 @@ namespace Meraki.Api.Test
 				.Networks
 				.Clients
 				.Clients
-				.GetByNetworkAsync(network.Id)
+				.GetNetworkClientsAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
@@ -441,7 +441,7 @@ namespace Meraki.Api.Test
 			var result = await TestMerakiClient
 				.Networks
 				.BluetoothClients
-				.GetNetworkBluetoothClientsPagedAsync(network.Id)
+				.GetNetworkBluetoothClientsAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<BluetoothClient>>();
 			result.Should().NotBeNull();

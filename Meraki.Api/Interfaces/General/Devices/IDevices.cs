@@ -10,6 +10,7 @@ public interface IDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	[ApiOperationId("getDevice")]
 	[Get("/devices/{serial}")]
 	Task<Device> GetDeviceAsync(
 		[AliasAs("serial")] string serial,
@@ -21,6 +22,7 @@ public interface IDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="device">Body for updating a device</param>
+	[ApiOperationId("updateDevice")]
 	[Put("/devices/{serial}")]
 	Task<Device> UpdateDeviceAsync(
 		[AliasAs("serial")] string serial,
@@ -33,6 +35,7 @@ public interface IDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="blinkLeds">Body for blinking device leds</param>
+	[ApiOperationId("blinkDeviceLeds")]
 	[Post("/devices/{serial}/blinkLeds")]
 	Task<BlinkLeds> BlinkDeviceLedsAsync(
 		[AliasAs("serial")] string serial,
@@ -44,6 +47,7 @@ public interface IDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	[ApiOperationId("rebootDevice")]
 	[Post("/devices/{serial}/reboot")]
 	Task<UpdateOnboardingStatusResponse> RebootDeviceAsync(
 		[AliasAs("serial")] string serial,

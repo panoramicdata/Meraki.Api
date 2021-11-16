@@ -165,7 +165,7 @@ namespace Meraki.Api.Test
 			var deviceManagementInterfaceSettings = await TestMerakiClient
 				.Devices
 				.ManagementInterface
-				.GetManagementInterfaceAsync(deviceSerial)
+				.GetDeviceManagementInterfaceAsync(deviceSerial)
 				.ConfigureAwait(false);
 
 			deviceManagementInterfaceSettings

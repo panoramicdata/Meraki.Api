@@ -7,6 +7,7 @@ public interface INetworksFirmwareUpgrades
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	[ApiOperationId("getNetworkFirmwareUpgrades")]
 	[Get("/networks/{networkId}/firmwareUpgrades")]
 	Task<NetworkFirmwareUpgrade> GetNetworkFirmwareUpgradeAsync(
 		[AliasAs("networkId")] string networkId,
@@ -18,6 +19,7 @@ public interface INetworksFirmwareUpgrades
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkFirmwareUpgrades">Body for updating network firmware upgrades</param>
+	[ApiOperationId("updateNetworkFirmwareUpgrades")]
 	[Put("/networks/{networkId}/firmwareUpgrades")]
 	Task<NetworkFirmwareUpgrade> UpdateNetworkFirmwareUpgradesAsync(
 		[AliasAs("networkId")] string networkId,
@@ -25,11 +27,12 @@ public interface INetworksFirmwareUpgrades
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// createNetworkFirmwareUpgradesRollback
+	/// Rollback a Firmware Upgrade For A Network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkFirmwareUpgradesRollback">Body for creating network firmware upgrade rollbacks</param>
+	[ApiOperationId("createNetworkFirmwareUpgradesRollback")]
 	[Post("/networks/{networkId}/firmwareUpgrades/rollbacks")]
 	Task<NetworkFirmwareUpgrade> CreateNetworkFirmwareUpgradesRollbackAsync(
 		[AliasAs("networkId")] string networkId,
