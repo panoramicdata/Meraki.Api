@@ -53,7 +53,7 @@ namespace Meraki.Api.Test
 				.Wireless
 				.Ssids
 				.Ssids
-				.GetAllAsync(network.Id)
+				.GetNetworkWirelessSsidsAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
@@ -457,7 +457,7 @@ namespace Meraki.Api.Test
 			var originalResult = await TestMerakiClient
 				.Wireless
 				.Settings
-				.GetAsync(network.Id)
+				.GetNetworkWirelessSettingsAsync(network.Id)
 				.ConfigureAwait(false);
 			originalResult.Should().BeOfType<WirelessSettings>();
 			originalResult.Should().NotBeNull();
@@ -467,7 +467,7 @@ namespace Meraki.Api.Test
 			var newResult = await TestMerakiClient
 				.Wireless
 				.Settings
-				.UpdateAsync(network.Id, new WirelessSettingsUpdateDto
+				.UpdateNetworkWirelessSettingsAsync(network.Id, new WirelessSettingsUpdateDto
 				{
 					Ipv6BridgeEnabled = originalResult.Ipv6BridgeEnabled,
 					LedLightsOn = originalResult.LedLightsOn,
