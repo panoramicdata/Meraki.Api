@@ -1,9 +1,9 @@
 ﻿namespace Meraki.Api.Sections.General.Networks;
 
-[RefitClass("Networks")]
 public partial class NetworksSection
 {
-	public INetworks Networks { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal INetworks Networks { get; set; } = null!;
 	public NetworksAlertsSection Alerts { get; internal set; } = new();
 	public INetworksBluetoothClients BluetoothClients { get; internal set; } = null!;
 	public NetworksClientsSection Clients { get; internal set; } = new();
@@ -27,13 +27,18 @@ public partial class NetworksSection
 	public NetworksWebhooksSection WebHooks { get; internal set; } = new();
 }
 
-[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-internal class RefitClassAttribute : Attribute
+[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+internal class RefitPromoteCallsAttribute : Attribute
 {
-    public RefitClassAttribute(string propertyName)
-    {
-        PropertyName = propertyName;
-    }
-
-    public string PropertyName { get; }
 }
+
+//[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+//internal class RefitClassAttribute : Attribute
+//{
+//	public RefitClassAttribute(string propertyName)
+//	{
+//		PropertyName = propertyName;
+//	}
+
+//	public string PropertyName { get; }
+//}

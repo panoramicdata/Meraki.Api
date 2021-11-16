@@ -98,7 +98,6 @@ namespace Meraki.Api.Test
 			// And delete it again
 			await TestMerakiClient
 				.Networks
-				.Networks
 				.DeleteNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 		}
@@ -158,7 +157,6 @@ namespace Meraki.Api.Test
 
 				await TestMerakiClient
 					.Networks
-					.Networks
 					.DeleteNetworkAsync(oldNetwork.Id)
 					.ConfigureAwait(false);
 			}
@@ -200,7 +198,6 @@ namespace Meraki.Api.Test
 			// Re-fetch the network
 			var refetchedNetwork = await TestMerakiClient
 				.Networks
-				.Networks
 				.GetNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
@@ -216,7 +213,6 @@ namespace Meraki.Api.Test
 			configurationTemplates.Should().NotBeEmpty();
 			var configurationTemplate = configurationTemplates[0];
 			await TestMerakiClient
-				.Networks
 				.Networks
 				.BindNetworkAsync(
 					newNetwork.Id,
@@ -385,7 +381,6 @@ namespace Meraki.Api.Test
 
 			await TestMerakiClient
 				.Networks
-				.Networks
 				.UnbindNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
@@ -394,14 +389,12 @@ namespace Meraki.Api.Test
 			// Delete the network
 			await TestMerakiClient
 				.Networks
-				.Networks
 				.DeleteNetworkAsync(newNetwork.Id)
 				.ConfigureAwait(false);
 
 			action = async () =>
 			{
 				var _ = await TestMerakiClient
-					.Networks
 					.Networks
 					.GetNetworkAsync(newNetwork.Id)
 					.ConfigureAwait(false);
