@@ -12,7 +12,7 @@ public interface ICamera
 	/// <param name="serial">The serial number</param>
 	/// <param name="generateNetworkCameraSnapshot">Body for generating network camera snapshot</param>
 	[Post("/devices/{serial}/camera/generateSnapshot")]
-	Task<CameraSnapshot> GetSnapshotAsync(
+	Task<CameraSnapshot> GenerateDeviceCameraSnapshotAsync(
 		[AliasAs("serial")] string serial,
 		[Body] CameraSnapshotRequest generateNetworkCameraSnapshot,
 		CancellationToken cancellationToken = default);
@@ -105,7 +105,7 @@ public interface ICamera
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/camera/schedules")]
-	Task<List<CameraSchedule>> GetSchedulesAsync(
+	Task<List<CameraSchedule>> GetNetworkCameraSchedulesAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 

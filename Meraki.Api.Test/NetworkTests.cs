@@ -493,7 +493,7 @@ namespace Meraki.Api.Test
 				var newResult = await TestMerakiClient
 					.Camera
 					.Camera
-					.GetSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
+					.GenerateDeviceCameraSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
 					.ConfigureAwait(false);
 				newResult.Should().NotBeNull();
 
@@ -557,7 +557,7 @@ namespace Meraki.Api.Test
 
 			var switchStacks = await TestMerakiClient
 				.Switch.Stacks
-				.GetAllAsync(Configuration.TestCameraNetworkId, default)
+				.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, default)
 				.ConfigureAwait(false);
 
 			switchStacks.Should().NotBeNull();

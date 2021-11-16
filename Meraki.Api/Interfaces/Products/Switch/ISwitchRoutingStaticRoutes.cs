@@ -8,7 +8,7 @@ public interface ISwitchRoutingStaticRoutes
 	/// <param name="serial">The serial number</param>
 	[ApiOperationId("getDeviceSwitchRoutingStaticRoutes")]
 	[Get("/devices/{serial}/switch/routing/staticRoutes")]
-	Task<List<SwitchStaticRoute>> GetStaticRoutesAsync(
+	Task<List<SwitchStaticRoute>> GetDeviceSwitchRoutingStaticRoutesAsync(
 		[AliasAs("serial")] string serial,
 		CancellationToken cancellationToken = default
 		);
@@ -21,7 +21,7 @@ public interface ISwitchRoutingStaticRoutes
 	/// <param name="staticRouteId">The static route id</param>
 	[ApiOperationId("getDeviceSwitchRoutingStaticRoute")]
 	[Get("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
-	Task<SwitchStaticRoute> GetStaticRouteAsync(
+	Task<SwitchStaticRoute> GetDeviceSwitchRoutingStaticRouteAsync(
 		[AliasAs("serial")] string serial,
 		[AliasAs("staticRouteId")] string staticRouteId,
 		CancellationToken cancellationToken = default
@@ -36,7 +36,7 @@ public interface ISwitchRoutingStaticRoutes
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createDeviceSwitchRoutingStaticRoute")]
 	[Post("/devices/{serial}/switch/routing/staticRoutes")]
-	Task<SwitchStaticRoute> CreateStaticRouteAsync(
+	Task<SwitchStaticRoute> CreateDeviceSwitchRoutingStaticRouteAsync(
 		[AliasAs("serial")] string serial,
 		[Body] SwitchStaticRoute switchStaticRoute,
 		CancellationToken cancellationToken = default
@@ -51,7 +51,7 @@ public interface ISwitchRoutingStaticRoutes
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceSwitchRoutingStaticRoute")]
 	[Put("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
-	Task<SwitchStaticRoute> UpdateStaticRouteAsync(
+	Task<SwitchStaticRoute> UpdateDeviceSwitchRoutingStaticRouteAsync(
 		[AliasAs("serial")] string serial,
 		[AliasAs("staticRouteId")] string staticRouteId,
 		[Body] SwitchStaticRoute switchStaticRoute,
@@ -66,7 +66,7 @@ public interface ISwitchRoutingStaticRoutes
 	/// <param name="staticRouteId">The static route id</param>
 	[ApiOperationId("deleteDeviceSwitchRoutingStaticRoute")]
 	[Delete("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
-	Task DeleteStaticRouteAsync(
+	Task DeleteDeviceSwitchRoutingStaticRouteAsync(
 		[AliasAs("serial")] string serial,
 		[AliasAs("staticRouteId")] string staticRouteId,
 		CancellationToken cancellationToken = default

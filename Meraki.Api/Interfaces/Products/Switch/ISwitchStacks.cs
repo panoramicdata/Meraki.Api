@@ -12,7 +12,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkSwitchStacks")]
 	[Get("/networks/{networkId}/switch/stacks")]
-	Task<List<SwitchStack>> GetAllAsync(
+	Task<List<SwitchStack>> GetNetworkSwitchStacksAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 
@@ -24,7 +24,7 @@ public interface ISwitchStacks
 	/// <param name="createNetworkSwitchStack"></param>
 	[ApiOperationId("createNetworkSwitchStack")]
 	[Post("/networks/{networkId}/switch/stacks")]
-	Task<SwitchStack> CreateAsync(
+	Task<SwitchStack> CreateNetworkSwitchStackAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] SwitchStackCreationRequest createNetworkSwitchStack,
 		CancellationToken cancellationToken = default
@@ -38,7 +38,7 @@ public interface ISwitchStacks
 	/// <param name="switchStackId">The switch stack id</param>
 	[ApiOperationId("getNetworkSwitchStack")]
 	[Get("/networks/{networkId}/switch/stacks/{switchStackId}")]
-	Task<SwitchStack> GetAsync(
+	Task<SwitchStack> GetNetworkSwitchStackAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		CancellationToken cancellationToken = default
@@ -52,7 +52,7 @@ public interface ISwitchStacks
 	/// <param name="switchStackId">The switch stack id</param>
 	[ApiOperationId("deleteNetworkSwitchStack")]
 	[Delete("/networks/{networkId}/switch/stacks/{switchStackId}")]
-	Task DeleteAsync(
+	Task DeleteNetworkSwitchStackAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		CancellationToken cancellationToken = default
@@ -67,7 +67,7 @@ public interface ISwitchStacks
 	/// <param name="addNetworkSwitchStack"></param>
 	[ApiOperationId("addNetworkSwitchStack")]
 	[Post("/networks/{networkId}/switch/stacks/{switchStackId}/add")]
-	Task<SwitchStack> AddAsync(
+	Task<SwitchStack> AddNetworkSwitchStackAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		[Body] NetworkSwitchStackCreationRequest addNetworkSwitchStack,
@@ -83,7 +83,7 @@ public interface ISwitchStacks
 	/// <param name="removeNetworkSwitchStack"></param>
 	[ApiOperationId("removeNetworkSwitchStack")]
 	[Post("/networks/{networkId}/switch/stacks/{switchStackId}/remove")]
-	Task<SwitchStack> RemoveAsync(
+	Task<SwitchStack> RemoveNetworkSwitchStackAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		[Body] RemoveNetworkSwitchStack removeNetworkSwitchStack,
@@ -99,7 +99,7 @@ public interface ISwitchStacks
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchStackRoutingInterfaces")]
 	[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces")]
-	Task<List<RoutingInterface>> GetAllInterfacesAsync(
+	Task<List<RoutingInterface>> GetNetworkSwitchStackRoutingInterfacesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		CancellationToken cancellationToken = default);
@@ -114,7 +114,7 @@ public interface ISwitchStacks
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkSwitchStackRoutingInterface")]
 	[Post("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces")]
-	Task<RoutingInterface> CreateInterfaceAsync(
+	Task<RoutingInterface> CreateNetworkSwitchStackRoutingInterfaceAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		[Body] RoutingInterfaceCreateRequest routingInterface,
@@ -130,7 +130,7 @@ public interface ISwitchStacks
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchStackRoutingInterface")]
 	[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}")]
-	Task<RoutingInterface> GetInterfaceAsync(
+	Task<RoutingInterface> GetNetworkSwitchStackRoutingInterfaceAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		[AliasAs("interfaceId")] string interfaceId,
@@ -147,7 +147,7 @@ public interface ISwitchStacks
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchStackRoutingInterface")]
 	[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}")]
-	Task<RoutingInterface> UpdateInterfaceAsync(
+	Task<RoutingInterface> UpdateNetworkSwitchStackRoutingInterfaceAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		[AliasAs("interfaceId")] string interfaceId,
@@ -164,7 +164,7 @@ public interface ISwitchStacks
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkSwitchStackRoutingInterface")]
 	[Delete("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}")]
-	Task DeleteInterfaceAsync(
+	Task DeleteNetworkSwitchStackRoutingInterfaceAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		[AliasAs("interfaceId")] string interfaceId,
@@ -195,7 +195,7 @@ public interface ISwitchStacks
 	/// <param name="routingInterfaceDhcp"></param>
 	[ApiOperationId("updateNetworkSwitchStackRoutingInterfaceDhcp")]
 	[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}/dhcp")]
-	Task<RoutingInterfaceDhcp> UpdateNetworkSwitchStackRoutingInterfaceDhcp(
+	Task<RoutingInterfaceDhcp> UpdateNetworkSwitchStackRoutingInterfaceDhcpAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("switchStackId")] string switchStackId,
 		[AliasAs("interfaceId")] string interfaceId,

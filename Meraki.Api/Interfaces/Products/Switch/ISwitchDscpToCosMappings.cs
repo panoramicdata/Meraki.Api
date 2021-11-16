@@ -12,7 +12,7 @@ public interface ISwitchDscpToCosMappings
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkSwitchDscpToCosMappings")]
 	[Get("/networks/{networkId}/switch/dscpToCosMappings")]
-	Task<DscpToCosMappings> GetDscpToCosMappingsAsync(
+	Task<DscpToCosMappings> GetNetworkSwitchDscpToCosMappingsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -25,7 +25,7 @@ public interface ISwitchDscpToCosMappings
 	/// <param name="settingsDscpToCosMappings"></param>
 	[ApiOperationId("updateNetworkSwitchDscpToCosMappings")]
 	[Put("/networks/{networkId}/switch/dscpToCosMappings")]
-	Task<DscpToCosMappings> UpdateDscpToCosMappingsAsync(
+	Task<DscpToCosMappings> UpdateNetworkSwitchDscpToCosMappingsAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] DscpToCosMappings settingsDscpToCosMappings,
 		CancellationToken cancellationToken = default
