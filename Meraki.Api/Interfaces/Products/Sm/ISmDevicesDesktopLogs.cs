@@ -12,7 +12,7 @@ public interface ISmDevicesDesktopLogs
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	[Get("/networks/{networkId}/sm/devices/{deviceId}/desktopLogs")]
-	Task<List<DesktopLogs>> GetNetworkSmDesktopLogsAsync(
+	Task<List<DesktopLogs>> GetNetworkSmDeviceDesktopLogsAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("deviceId")] string deviceId,
 		[AliasAs("perPage")] int? perPage = 1000,

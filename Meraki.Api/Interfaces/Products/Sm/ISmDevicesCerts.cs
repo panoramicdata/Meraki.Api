@@ -9,7 +9,7 @@ public interface ISmDevicesCerts
 	/// <param name="networkId">The network id</param>
 	/// <param name="deviceId">The device id</param>
 	[Get("/networks/{networkId}/sm/devices/{deviceId}/certs")]
-	Task<List<DeviceCert>> GetNetworkSmCertsAsync(
+	Task<List<DeviceCert>> GetNetworkSmDeviceCertsAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("deviceId")] string deviceId,
 		CancellationToken cancellationToken = default
