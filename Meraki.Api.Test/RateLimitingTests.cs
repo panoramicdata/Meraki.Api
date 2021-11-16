@@ -33,7 +33,7 @@ namespace Meraki.Api.Test
 					var result = await TestMerakiClient
 					.Organizations
 					.Organizations
-					.GetAsync(Configuration.TestOrganizationId)
+					.GetOrganizationAsync(Configuration.TestOrganizationId)
 					.ConfigureAwait(false);
 					result.Should().BeOfType<Organization>();
 				}

@@ -14,7 +14,7 @@ public interface IOrganizationsNetworks
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	[Get("/organizations/{organizationId}/networks")]
-	Task<List<Network>> GetNetworksPagedAsync(
+	Task<List<Network>> GetOrganizationNetworksAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("configTemplateId")] string? configTemplateId = null,
 		[AliasAs("tags")] List<string>? tags = null,
@@ -41,7 +41,7 @@ public interface IOrganizationsNetworks
 	/// <param name="configTemplateId">An optional parameter that is the ID of a config template. Will return all networks bound to that template. (optional)</param>
 	/// <param name="tags">An optional parameter to filter networks by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return networks which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
-	Task<List<Network>> GetAllNetworksAsync(
+	Task<List<Network>> GetOrganizationNetworksAllAsync(
 		string organizationId,
 		string? configTemplateId = null,
 		List<string>? tags = null,
@@ -79,7 +79,7 @@ public interface IOrganizationsNetworks
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationNetwork">Body for creating a network</param>
 	[Post("/organizations/{organizationId}/networks")]
-	Task<Network> CreateAsync(
+	Task<Network> CreateOrganizationNetworkAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] NetworkCreationRequest createOrganizationNetwork,
 		CancellationToken cancellationToken = default);

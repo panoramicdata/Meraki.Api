@@ -87,7 +87,7 @@ namespace Meraki.Api.Test
 			var newNetwork = await TestMerakiClient
 				.Organizations
 				.Networks
-				.CreateAsync(
+				.CreateOrganizationNetworkAsync(
 					Configuration.TestOrganizationId,
 					new NetworkCreationRequest
 					{
@@ -116,7 +116,7 @@ namespace Meraki.Api.Test
 				var newNetwork = await TestMerakiClient
 					.Organizations
 					.Networks
-					.CreateAsync(
+					.CreateOrganizationNetworkAsync(
 						Configuration.TestOrganizationId,
 						new NetworkCreationRequest
 						{
@@ -139,7 +139,7 @@ namespace Meraki.Api.Test
 			var networks = await TestMerakiClient
 							.Organizations
 							.Networks
-							.GetNetworksPagedAsync(Configuration.TestOrganizationId)
+							.GetOrganizationNetworksAsync(Configuration.TestOrganizationId)
 							.ConfigureAwait(false);
 			var oldNetwork = networks.SingleOrDefault(n => n.Name == networkName);
 			if (oldNetwork != default)
@@ -176,7 +176,7 @@ namespace Meraki.Api.Test
 			var devices = await TestMerakiClient
 				.Organizations
 				.InventoryDevices
-				.GetInventoryDevicesAsync(Configuration.TestOrganizationId)
+				.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
 
@@ -188,7 +188,7 @@ namespace Meraki.Api.Test
 			var newNetwork = await TestMerakiClient
 				.Organizations
 				.Networks
-				.CreateAsync(
+				.CreateOrganizationNetworkAsync(
 					Configuration.TestOrganizationId,
 				new NetworkCreationRequest
 				{
@@ -377,7 +377,7 @@ namespace Meraki.Api.Test
 			var allOrganizationDevices = await TestMerakiClient
 				.Organizations
 				.Devices
-				.GetDevicesPagedAsync(Configuration.TestOrganizationId)
+				.GetOrganizationDevicesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			allOrganizationDevices.Should().NotBeNull();
 			allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();
@@ -575,7 +575,7 @@ namespace Meraki.Api.Test
 					() => TestMerakiClient
 						.Organizations
 						.Networks
-						.CreateAsync(
+						.CreateOrganizationNetworkAsync(
 							Configuration.TestOrganizationId,
 							new NetworkCreationRequest
 							{

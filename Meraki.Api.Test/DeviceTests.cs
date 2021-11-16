@@ -117,7 +117,7 @@ namespace Meraki.Api.Test
 			var deviceStatuses = await TestMerakiClient
 				.Organizations
 				.Devices
-				.GetDeviceStatusesAsync(Configuration.TestOrganizationId)
+				.GetOrganizationDevicesStatusesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 
 			deviceStatuses

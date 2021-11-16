@@ -10,7 +10,7 @@ public interface IOrganizations
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	[Get("/organizations")]
-	Task<List<Organization>> GetAllAsync(
+	Task<List<Organization>> GetOrganizationsAsync(
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -19,7 +19,7 @@ public interface IOrganizations
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="createOrganization">Body for creating an organization</param>
 	[Post("/organizations")]
-	Task<Organization> CreateAsync(
+	Task<Organization> CreateOrganizationAsync(
 		[Body] OrganizationCreateRequest createOrganization,
 		CancellationToken cancellationToken = default);
 
@@ -29,7 +29,7 @@ public interface IOrganizations
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}")]
-	Task<Organization> GetAsync(
+	Task<Organization> GetOrganizationAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default);
 
@@ -40,7 +40,7 @@ public interface IOrganizations
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="updateOrganization">Body for updating an organization</param>
 	[Put("/organizations/{organizationId}")]
-	Task<Organization> UpdateAsync(
+	Task<Organization> UpdateOrganizationAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] OrganizationUpdateRequest updateOrganization,
 		CancellationToken cancellationToken = default);
@@ -51,7 +51,7 @@ public interface IOrganizations
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Delete("/organizations/{organizationId}")]
-	Task DeleteAsync(
+	Task DeleteOrganizationAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default
 		);
@@ -63,7 +63,7 @@ public interface IOrganizations
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="organizationClaimRequest">Body for making a claim request</param>
 	[Post("/organizations/{organizationId}/claim")]
-	Task<OrganizationClaimResponse> ClaimAsync(
+	Task<OrganizationClaimResponse> ClaimIntoOrganizationAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] OrganizationClaimRequest organizationClaimRequest,
 		CancellationToken cancellationToken = default);
@@ -75,7 +75,7 @@ public interface IOrganizations
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="cloneOrganization">Body for cloning an organization</param>
 	[Post("/organizations/{organizationId}/clone")]
-	Task<Organization> CloneAsync(
+	Task<Organization> cloneOrganizationAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] CloneOrganization cloneOrganization,
 		CancellationToken cancellationToken = default);

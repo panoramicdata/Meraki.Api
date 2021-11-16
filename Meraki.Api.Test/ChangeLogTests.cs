@@ -19,7 +19,7 @@ namespace Meraki.Api.Test
 			var result = await TestMerakiClient
 				.Organizations
 				.ConfigurationChanges
-				.GetOrganizationConfigurationChangesPagedAsync(Configuration.TestOrganizationId)
+				.GetOrganizationConfigurationChangesAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().BeOfType<List<ChangeLogEntry>>();
 			result.Should().NotBeNull();
