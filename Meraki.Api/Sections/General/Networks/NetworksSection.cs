@@ -26,19 +26,3 @@ public partial class NetworksSection
 	public INetworksSyslogServers SyslogServers { get; internal set; } = null!;
 	public NetworksWebhooksSection WebHooks { get; internal set; } = new();
 }
-
-[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-internal class RefitPromoteCallsAttribute : Attribute
-{
-}
-
-//[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-//internal class RefitClassAttribute : Attribute
-//{
-//	public RefitClassAttribute(string propertyName)
-//	{
-//		PropertyName = propertyName;
-//	}
-
-//	public string PropertyName { get; }
-//}

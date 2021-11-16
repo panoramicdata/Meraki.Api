@@ -49,7 +49,6 @@ namespace Meraki.Api.Test
 			var result = await TestMerakiClient
 				.Wireless
 				.Ssids
-				.Ssids
 				.GetNetworkWirelessSsidsAsync(network.Id)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();

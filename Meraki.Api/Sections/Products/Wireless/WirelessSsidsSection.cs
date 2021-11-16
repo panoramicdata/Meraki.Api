@@ -1,8 +1,9 @@
 ﻿namespace Meraki.Api.Sections.Products.Wireless;
 
-public class WirelessSsidsSection
+public partial class WirelessSsidsSection
 {
-	public IWirelessSsids Ssids { get; internal set; } = null!;
+	[RefitPromoteCalls]
+	internal IWirelessSsids Ssids { get; set; } = null!;
 	public IWirelessSsidsBonjourForwarding BonjourForwarding { get; internal set; } = null!;
 	public IWirelessSsidsDeviceTypeGroupPolicies DeviceTypeGroupPolicies { get; internal set; } = null!;
 	public IWirelessSsidsEapOverride EapOverride { get; internal set; } = null!;
