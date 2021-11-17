@@ -280,7 +280,10 @@ public partial class MerakiClient : IDisposable
 			AirMarshal = RefitFor(Wireless.AirMarshal),
 			AlternateManagementInterface = RefitFor(Wireless.AlternateManagementInterface),
 			Billing = RefitFor(Wireless.Billing),
-			Bluetooth = RefitFor(Wireless.Bluetooth),
+			Bluetooth = new()
+			{
+				Settings = RefitFor(Wireless.Bluetooth.Settings)
+			},
 			ChannelUtilizationHistory = RefitFor(Wireless.ChannelUtilizationHistory),
 			Clients = new()
 			{

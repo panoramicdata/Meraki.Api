@@ -8,7 +8,7 @@ public class WirelessSection
 	public IWirelessBilling Billing { get; internal set; } = null!;
 	public WirelessBluetoothSection Bluetooth { get; internal set; } = new();
 	public IWirelessChannelUtilizationHistory ChannelUtilizationHistory { get; internal set; } = null!;
-	public WirelessClientsSection Clients { get; internal set; } = null!;
+	public WirelessClientsSection Clients { get; internal set; } = new();
 	public IWirelessClientCountHistory ClientCountHistory { get; internal set; } = null!;
 	public IWirelessConnectionStats ConnectionStats { get; internal set; } = null!;
 	public WirelessDevicesSection Devices { get; internal set; } = new();
