@@ -16,17 +16,17 @@ public class TrustedAccessConnections
 	/// Downloaded at
 	/// </summary>
 	[DataMember(Name = "downloadedAt")]
-	public string DownloadedAt { get; set; } = string.Empty;
+	public DateTime DownloadedAt { get; set; }
 
 	/// <summary>
 	/// Scep completed at
 	/// </summary>
 	[DataMember(Name = "scepCompletedAt")]
-	public string ScepCompletedAt { get; set; } = string.Empty;
+	public DateTime ScepCompletedAt { get; set; }
 
 	/// <summary>
 	/// Last connected at
 	/// </summary>
 	[DataMember(Name = "lastConnectedAt")]
-	public string LastConnectedAt { get; set; } = string.Empty;
+	public DateTime LastConnectedAt { get; set; }
 }

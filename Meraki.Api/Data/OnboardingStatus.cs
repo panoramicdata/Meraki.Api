@@ -28,5 +28,5 @@ public class OnboardingStatus
 	/// Updated at
 	/// </summary>
 	[DataMember(Name = "updatedAt")]
-	public string UpdatedAt { get; set; } = string.Empty;
+	public DateTime UpdatedAt { get; set; }
 }

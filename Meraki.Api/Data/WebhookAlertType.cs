@@ -34,7 +34,7 @@ public class WebhookAlertType
 	/// Sent at
 	/// </summary>
 	[DataMember(Name = "sentAt")]
-	public string SentAt { get; set; } = string.Empty;
+	public DateTime SentAt { get; set; }
 
 	/// <summary>
 	/// Alert id
@@ -52,7 +52,7 @@ public class WebhookAlertType
 	/// Occurred at
 	/// </summary>
 	[DataMember(Name = "occurredAt")]
-	public string OccurredAt { get; set; } = string.Empty;
+	public DateTime OccurredAt { get; set; }
 
 	/// <summary>
 	/// Alert data

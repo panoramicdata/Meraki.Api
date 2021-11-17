@@ -28,7 +28,7 @@ public class SplashLoginAttempts
 	/// Login at
 	/// </summary>
 	[DataMember(Name = "loginAt")]
-	public string LoginAt { get; set; } = string.Empty;
+	public DateTime LoginAt { get; set; }
 
 	/// <summary>
 	/// Gateway device mac

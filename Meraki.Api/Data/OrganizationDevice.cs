@@ -82,7 +82,7 @@ public class OrganizationDevice : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "configurationUpdatedAt")]
-	public string ConfigurationUpdatedAt { get; set; } = string.Empty;
+	public DateTime ConfigurationUpdatedAt { get; set; }
 
 	/// <summary>
 	/// firmware

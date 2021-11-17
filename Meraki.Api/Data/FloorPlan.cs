@@ -24,7 +24,7 @@ public class FloorPlan
 	/// Image URL expires at
 	/// </summary>
 	[DataMember(Name = "imageUrlExpiresAt")]
-	public string ImageUrlExpiresAt { get; set; } = string.Empty;
+	public DateTime ImageUrlExpiresAt { get; set; }
 
 	/// <summary>
 	/// Image extension

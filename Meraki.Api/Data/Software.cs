@@ -61,7 +61,7 @@ public class Software
 	public bool ToUninstall { get; set; }
 
 	[DataMember(Name = "uninstalledAt")]
-	public object UninstalledAt { get; set; } = new();
+	public DateTime UninstalledAt { get; set; } = new();
 
 	[DataMember(Name = "updatedAt")]
 	public DateTime UpdatedAt { get; set; }

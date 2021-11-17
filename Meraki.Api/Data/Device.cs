@@ -95,7 +95,7 @@ public class Device : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "configurationUpdatedAt")]
-	public string ConfigurationUpdatedAt { get; set; } = string.Empty;
+	public DateTime ConfigurationUpdatedAt { get; set; }
 
 	/// <summary>
 	/// Readonly: The firmware version of a device

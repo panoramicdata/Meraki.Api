@@ -10,7 +10,7 @@ public class Events
 	/// Occurred at
 	/// </summary>
 	[DataMember(Name = "occurredAt")]
-	public string OccurredAt { get; set; } = string.Empty;
+	public DateTime OccurredAt { get; set; }
 
 	/// <summary>
 	/// Network id

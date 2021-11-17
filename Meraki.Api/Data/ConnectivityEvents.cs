@@ -10,7 +10,7 @@ public class ConnectivityEvents
 	/// Occured at
 	/// </summary>
 	[DataMember(Name = "occuredAt")]
-	public int OccuredAt { get; set; } = 0;
+	public DateTime OccuredAt { get; set; }
 
 	/// <summary>
 	/// Device serial

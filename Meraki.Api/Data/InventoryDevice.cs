@@ -54,7 +54,7 @@ public class InventoryDevice
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "claimedAt")]
-	public string ClaimedAt { get; set; } = string.Empty;
+	public DateTime ClaimedAt { get; set; }
 
 	/// <summary>
 	/// Tags

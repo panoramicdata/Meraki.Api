@@ -25,7 +25,7 @@ public class Authorization
 	/// </summary>
 	[ApiAccess(ApiAccess.CreateUpdate)]
 	[DataMember(Name = "expiresAt")]
-	public string ExpiresAt { get; set; } = string.Empty;
+	public DateTime ExpiresAt { get; set; }
 
 	/// <summary>
 	/// Authorized by name

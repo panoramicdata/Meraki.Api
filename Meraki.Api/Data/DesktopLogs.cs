@@ -10,7 +10,7 @@ public class DesktopLogs
 	/// Measured at
 	/// </summary>
 	[DataMember(Name = "measuredAt")]
-	public string MeasuredAt { get; set; } = string.Empty;
+	public DateTime MeasuredAt { get; set; }
 
 	/// <summary>
 	/// User

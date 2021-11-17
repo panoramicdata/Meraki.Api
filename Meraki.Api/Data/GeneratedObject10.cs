@@ -17,11 +17,11 @@ public class GeneratedObject10
 	/// Authorized at
 	/// </summary>
 	[DataMember(Name = "authorizedAt")]
-	public string? AuthorizedAt { get; set; }
+	public DateTime? AuthorizedAt { get; set; }
 
 	/// <summary>
 	/// Expires at
 	/// </summary>
 	[DataMember(Name = "expiresAt")]
-	public string? ExpiresAt { get; set; }
+	public DateTime? ExpiresAt { get; set; }
 }

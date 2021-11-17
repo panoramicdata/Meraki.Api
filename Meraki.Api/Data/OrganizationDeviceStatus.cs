@@ -40,7 +40,7 @@ public class OrganizationDeviceStatus : NamedItem
 	/// lastReportedAt
 	/// </summary>
 	[DataMember(Name = "lastReportedAt")]
-	public string? LastReportedAt { get; set; }
+	public DateTime? LastReportedAt { get; set; }
 
 	/// <summary>
 	/// lanIp

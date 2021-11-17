@@ -10,11 +10,11 @@ public class DeviceConnectivity
 	/// First seen at
 	/// </summary>
 	[DataMember(Name = "firstSeenAt")]
-	public string FirstSeenAt { get; set; } = string.Empty;
+	public DateTime FirstSeenAt { get; set; }
 
 	/// <summary>
 	/// Last seen at
 	/// </summary>
 	[DataMember(Name = "lastSeenAt")]
-	public string LastSeenAt { get; set; } = string.Empty;
+	public DateTime LastSeenAt { get; set; }
 }

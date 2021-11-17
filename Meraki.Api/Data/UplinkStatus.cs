@@ -28,7 +28,7 @@ public class UplinkStatus
 	/// Last reported at
 	/// </summary>
 	[DataMember(Name = "lastReportedAt")]
-	public string LastReportedAt { get; set; } = string.Empty;
+	public DateTime LastReportedAt { get; set; }
 
 	/// <summary>
 	/// Uplinks

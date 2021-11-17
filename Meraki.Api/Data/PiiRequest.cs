@@ -54,12 +54,12 @@ public class PiiRequest : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
-	public int CreatedAt { get; set; }
+	public DateTime CreatedAt { get; set; }
 
 	/// <summary>
 	/// Completed at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "completedAt")]
-	public int CompletedAt { get; set; }
+	public DateTime CompletedAt { get; set; }
 }

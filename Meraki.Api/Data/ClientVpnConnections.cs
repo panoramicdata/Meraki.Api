@@ -16,11 +16,11 @@ public class ClientVpnConnections
 	/// Connected at
 	/// </summary>
 	[DataMember(Name = "connectedAt")]
-	public int ConnectedAt { get; set; }
+	public DateTime ConnectedAt { get; set; }
 
 	/// <summary>
 	/// Disconnected at
 	/// </summary>
 	[DataMember(Name = "disconnectedAt")]
-	public int DisconnectedAt { get; set; }
+	public DateTime DisconnectedAt { get; set; }
 }
