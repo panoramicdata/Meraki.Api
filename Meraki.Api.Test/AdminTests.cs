@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Meraki.Api.Data;
+using System;
 using System.Collections.Generic;
 using Xunit;
 using Xunit.Abstractions;
@@ -23,6 +24,8 @@ namespace Meraki.Api.Test
 			result.Should().BeOfType<List<Admin>>();
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
+			var dateTime = result[0].LastActive;
+			dateTime.Should().NotBe(DateTime.MinValue);
 		}
 	}
 }
