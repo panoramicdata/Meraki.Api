@@ -17,6 +17,9 @@
 		<Authors>Panoramic Data Limited</Authors>
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
+
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+
 		<PackageReleaseNotes>
 			Differentiated DeviceForUnSettingTheSwitchProfileId from Device due to Meraki API limitation.
 		</PackageReleaseNotes>
