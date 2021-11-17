@@ -503,6 +503,7 @@ namespace Meraki.Api.Test
 			// Get a snapshot from the camera
 			var newResult = await TestMerakiClient
 			.Camera
+			.VideoLink
 			.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
 			.ConfigureAwait(false);
 			newResult.Should().NotBeNull();
