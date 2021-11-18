@@ -155,14 +155,26 @@ public class OrganizationTests : MerakiClientTest
 	[Fact]
 	public async void Crud_Succeeds()
 	{
-		// Create
 		const string initialOrganizationName = "TestOrganization";
+
+		// Check to see if the organization already exists and bomb out if it does
+		var existingOrganizations = await TestMerakiClient
+			.Organizations
+			.GetOrganizationsAsync()
+			.ConfigureAwait(false);
+		if (existingOrganizations.Any(o => o.Name == initialOrganizationName))
+		{
+			throw new Exception($"Test Organization {initialOrganizationName} already exists");
+		}
+
+		// Create
 		var createdOrganization = await TestMerakiClient
 			.Organizations
 			.CreateOrganizationAsync(new OrganizationCreateRequest { Name = initialOrganizationName })
 			.ConfigureAwait(false);
 		CheckOrganization(createdOrganization, initialOrganizationName);
 
+		// wait to allow the organisation to be created properly
 		await Task.Delay(TimeSpan.FromSeconds(5))
 			.ConfigureAwait(false);
 
@@ -172,9 +184,6 @@ public class OrganizationTests : MerakiClientTest
 			.GetOrganizationAsync(createdOrganization.Id)
 			.ConfigureAwait(false);
 		CheckOrganization(refetchedOrganization, initialOrganizationName, createdOrganization.Id);
-
-		await Task.Delay(TimeSpan.FromSeconds(5))
-			.ConfigureAwait(false);
 
 		// Update
 		const string newOrganizationName = "TestOrganizationNewName";

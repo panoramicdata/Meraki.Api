@@ -1,10 +1,4 @@
-﻿using FluentAssertions;
-using Meraki.Api.Data;
-using Meraki.Api.Extensions;
-using Xunit;
-using Xunit.Abstractions;
-
-namespace Meraki.Api.Test
+﻿namespace Meraki.Api.Test
 {
 	public class DeviceTests : MerakiClientTest
 	{
