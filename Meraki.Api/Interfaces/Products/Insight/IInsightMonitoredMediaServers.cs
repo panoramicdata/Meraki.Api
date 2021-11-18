@@ -69,5 +69,4 @@ public interface IInsightMonitoredMediaServers
 		[AliasAs("monitoredMediaServerId")] string monitoredMediaServerId,
 		CancellationToken cancellationToken = default
 		);
-
 }

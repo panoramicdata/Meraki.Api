@@ -2,7 +2,6 @@
 
 public interface ICameraVideo
 {
-
 	/// <summary>
 	/// Returns video settings for the given camera
 	/// </summary>
@@ -26,5 +25,4 @@ public interface ICameraVideo
 		[AliasAs("serial")] string serial,
 		[Body] CameraVideo cameraVideoSetting,
 		CancellationToken cancellationToken = default);
-
 }

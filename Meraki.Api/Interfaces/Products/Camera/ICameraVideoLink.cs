@@ -13,5 +13,4 @@ public interface ICameraVideoLink
 		[AliasAs("serial")] string serial,
 		[AliasAs("timestamp")] string timestamp = null!,
 		CancellationToken cancellationToken = default);
-
 }

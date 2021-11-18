@@ -13,5 +13,4 @@ public partial class CameraSection
 	public ICameraQualityAndRetentionProfiles QualityAndRetentionProfiles { get; internal set; } = null!;
 	public ICameraSchedules Schedules { get; internal set; } = null!;
 	public CameraOnboardingSection Onbording { get; internal set; } = new();
-
 }

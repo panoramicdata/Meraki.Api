@@ -73,5 +73,4 @@ public interface INetworksMerakiAuthUsers
 		[Body] MerakiAuthUserCreateUpdateRequest merakiAuthUser,
 		CancellationToken cancellationToken = default
 		);
-
 }
