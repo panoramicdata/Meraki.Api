@@ -47,6 +47,7 @@ public interface IOrganizationsLicenses
 		[AliasAs("state")] string? state = null,
 		CancellationToken cancellationToken = default);
 
+	// Used by IOrganizationsLicensesExtensions.GetOrganizationLicensesAllAsync
 	[Get("/organizations/{organizationId}/licenses")]
 	internal Task<ApiResponse<List<OrganizationLicense>>> GetPagedApiResponseAsync(
 		[AliasAs("organizationId")] string organizationId,
@@ -55,36 +56,6 @@ public interface IOrganizationsLicenses
 		[AliasAs("networkId")] string? networkId = null,
 		[AliasAs("state")] string? state = null,
 		CancellationToken cancellationToken = default);
-
-	/// <summary>
-	/// List the licenses for an organization
-	/// </summary>
-	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId">The organization id</param>
-	/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)</param>
-	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
-	/// <param name="deviceSerial">Filter the licenses to those assigned to a particular device (optional)</param>
-	/// <param name="networkId">Filter the licenses to those assigned in a particular network (optional)</param>
-	/// <param name="state">Filter the licenses to those in a particular state. Can be one of &#39;active&#39;, &#39;expired&#39;, &#39;expiring&#39;, &#39;unused&#39;, &#39;unusedActive&#39; or &#39;recentlyQueued&#39; (optional)</param>
-	Task<List<OrganizationLicense>> GetOrganizationLicensesAllAsync(
-		string organizationId,
-		int? perPage = 1000,
-		string? startingAfter = null,
-		string? deviceSerial = null,
-		string? networkId = null,
-		string? state = null,
-		CancellationToken cancellationToken = default)
-			=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
-				=> GetPagedApiResponseAsync(
-					organizationId,
-					startingAfter,
-					deviceSerial,
-					networkId,
-					state,
-					cancellationToken)
-				, cancellationToken
-				);
 
 	/// <summary>
 	/// Move licenses to another organization

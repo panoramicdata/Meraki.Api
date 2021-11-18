@@ -5,7 +5,7 @@ public static class DeviceExtensions
 	public static ModelType GetModelType(this Device device)
 		=> device.Model.Length < 2
 			? ModelType.Unknown
-			: device.Model[0..2].ToUpperInvariant() switch
+			: device.Model.Substring(0, 2).ToUpperInvariant() switch
 			{
 				"MR" => ModelType.WirelessLan,
 				"MS" => ModelType.Switch,

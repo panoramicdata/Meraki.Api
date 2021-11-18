@@ -24,6 +24,7 @@ public interface IOrganizationsNetworks
 		[AliasAs("endingBefore")] string? endingBefore = null,
 		CancellationToken cancellationToken = default);
 
+	// Used by IOrganizationsNetworksExtensions.GetOrganizationNetworksAllAsync
 	[Get("/organizations/{organizationId}/networks")]
 	internal Task<ApiResponse<List<Network>>> GetNetworksApiResponseAsync(
 		[AliasAs("organizationId")] string organizationId,
@@ -32,33 +33,6 @@ public interface IOrganizationsNetworks
 		[AliasAs("tagsFilterType")] string? tagsFilterType = null,
 		[AliasAs("startingAfter")] string? startingAfter = null,
 		CancellationToken cancellationToken = default);
-
-	/// <summary>
-	/// Get all networks that the user has privileges on in an organization
-	/// </summary>
-	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId">The organization id</param>
-	/// <param name="configTemplateId">An optional parameter that is the ID of a config template. Will return all networks bound to that template. (optional)</param>
-	/// <param name="tags">An optional parameter to filter networks by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
-	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return networks which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
-	Task<List<Network>> GetOrganizationNetworksAllAsync(
-		string organizationId,
-		string? configTemplateId = null,
-		List<string>? tags = null,
-		string? tagsFilterType = null,
-		CancellationToken cancellationToken = default)
-		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
-				=> GetNetworksApiResponseAsync(
-						organizationId,
-						configTemplateId,
-						tags,
-						tagsFilterType,
-						startingAfter,
-						cancellationToken
-					),
-					cancellationToken
-			);
 
 	/// <summary>
 	/// Combine multiple networks into a single network
