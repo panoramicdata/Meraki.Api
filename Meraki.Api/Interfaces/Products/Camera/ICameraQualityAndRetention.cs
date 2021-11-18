@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Meraki.Api.Interfaces.Products.Camera
+﻿namespace Meraki.Api.Interfaces.Products.Camera
 {
-    public interface ICameraQualityAndRetention
-    {
+	public interface ICameraQualityAndRetention
+	{
 
 		/// <summary>
 		/// Returns quality and retention settings for the given camera

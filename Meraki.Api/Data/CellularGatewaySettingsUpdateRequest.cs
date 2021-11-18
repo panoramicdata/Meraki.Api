@@ -12,7 +12,7 @@ public class CellularGatewayLanUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "reservedIpRanges")]
 	public List<ReservedIpRange> ReservedIpRanges { get; set; } = new();
-	
+
 	/// <summary>
 	/// list of all fixed IP assignments for a single MG
 	/// </summary>

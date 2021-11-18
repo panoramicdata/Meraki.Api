@@ -1,69 +1,59 @@
-﻿using FluentAssertions;
-using Meraki.Api.Data;
-using PanoramicData.SheetMagic;
-using Refit;
-using System;
-using System.Collections.Generic;
+﻿using PanoramicData.SheetMagic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Net;
-using Xunit;
-using Xunit.Abstractions;
 
-namespace Meraki.Api.Test
+namespace Meraki.Api.Test;
+
+public class RateLimitingTests : MerakiClientTest
 {
-	public class RateLimitingTests : MerakiClientTest
+	public RateLimitingTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
-		public RateLimitingTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-		{
-		}
+	}
 
-		[Fact]
-		public async void GetAll_Succeeds()
+	[Fact]
+	public async void GetAll_Succeeds()
+	{
+		var stopwatch = new Stopwatch();
+		var timerList = new List<QueryResult>();
+		foreach (var _ in Enumerable.Range(0, 10))
 		{
-			var stopwatch = new Stopwatch();
-			var timerList = new List<QueryResult>();
-			foreach (var _ in Enumerable.Range(0, 10))
+			var queryResult = new QueryResult();
+			try
 			{
-				var queryResult = new QueryResult();
-				try
-				{
-					stopwatch.Restart();
-					var result = await TestMerakiClient
-					.Organizations
-					.GetOrganizationAsync(Configuration.TestOrganizationId)
-					.ConfigureAwait(false);
-					result.Should().BeOfType<Organization>();
-				}
-				catch (ApiException apiException)
-				{
-					queryResult.StatusCode = apiException.StatusCode;
-					queryResult.ExceptionMessage = apiException.Message;
-				}
-				catch (Exception exception)
-				{
-					queryResult.ExceptionMessage = exception.Message;
-				}
-				finally
-				{
-					queryResult.DurationMs = stopwatch.ElapsedMilliseconds;
-					timerList.Add(queryResult);
-				}
+				stopwatch.Restart();
+				var result = await TestMerakiClient
+				.Organizations
+				.GetOrganizationAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+				result.Should().BeOfType<Organization>();
 			}
-			var fileInfo = new FileInfo(Path.GetTempFileName() + ".xlsx");
-			using var magicSpreadsheet = new MagicSpreadsheet(fileInfo);
-			magicSpreadsheet.AddSheet(timerList);
-			magicSpreadsheet.Save();
+			catch (ApiException apiException)
+			{
+				queryResult.StatusCode = apiException.StatusCode;
+				queryResult.ExceptionMessage = apiException.Message;
+			}
+			catch (Exception exception)
+			{
+				queryResult.ExceptionMessage = exception.Message;
+			}
+			finally
+			{
+				queryResult.DurationMs = stopwatch.ElapsedMilliseconds;
+				timerList.Add(queryResult);
+			}
 		}
+		var fileInfo = new FileInfo(Path.GetTempFileName() + ".xlsx");
+		using var magicSpreadsheet = new MagicSpreadsheet(fileInfo);
+		magicSpreadsheet.AddSheet(timerList);
+		magicSpreadsheet.Save();
 	}
+}
 
-	public class QueryResult
-	{
-		public long DurationMs { get; set; }
+public class QueryResult
+{
+	public long DurationMs { get; set; }
 
-		public HttpStatusCode? StatusCode { get; set; }
+	public HttpStatusCode? StatusCode { get; set; }
 
-		public string? ExceptionMessage { get; set; }
-	}
+	public string? ExceptionMessage { get; set; }
 }

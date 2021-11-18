@@ -1,125 +1,118 @@
-﻿using FluentAssertions;
-using Meraki.Api.Data;
-using System.Threading.Tasks;
-using Xunit;
-using Xunit.Abstractions;
+﻿namespace Meraki.Api.Test;
 
-namespace Meraki.Api.Test
+public class SwitchAclTests : MerakiClientTest
 {
-	public class SwitchAclTests : MerakiClientTest
+	public SwitchAclTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
-		public SwitchAclTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-		{
-		}
+	}
 
-		[Fact]
-		public async Task GetNetworkSwitchAccessControlListsNestedInterface()
+	[Fact]
+	public async Task GetNetworkSwitchAccessControlListsNestedInterface()
+	{
+		var testNetwork = await GetFirstNetworkAsync().ConfigureAwait(false);
+		var acls = await TestMerakiClient
+			.Switch
+			.AccessControlLists
+			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
+			.ConfigureAwait(false);
+		acls.Should().NotBeNull();
+		acls.Rules.Should().NotBeNullOrEmpty();
+	}
+
+	[Fact]
+	public async Task GetNetworkSwitchAccessControlLists()
+	{
+		var testNetwork = await GetFirstNetworkAsync().ConfigureAwait(false);
+		var acls = await TestMerakiClient
+			.Switch
+			.AccessControlLists
+			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
+			.ConfigureAwait(false);
+		acls.Should().NotBeNull();
+		acls.Rules.Should().NotBeNullOrEmpty();
+	}
+
+	[Fact]
+	public async Task CreateNewNetworkSwitchAccessControlLists()
+	{
+		var testNetwork = await CreateTestNetworkAsync().ConfigureAwait(false);
+
+		try
 		{
-			var testNetwork = await GetFirstNetworkAsync().ConfigureAwait(false);
+			// Get the rules and check just the default is there
 			var acls = await TestMerakiClient
 				.Switch
 				.AccessControlLists
 				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
 				.ConfigureAwait(false);
 			acls.Should().NotBeNull();
-			acls.Rules.Should().NotBeNullOrEmpty();
-		}
+			acls.Rules.Should().ContainSingle();
+			acls.Rules[0].Comment.Should().Be("Default rule");
 
-		[Fact]
-		public async Task GetNetworkSwitchAccessControlLists()
-		{
-			var testNetwork = await GetFirstNetworkAsync().ConfigureAwait(false);
-			var acls = await TestMerakiClient
-				.Switch
-				.AccessControlLists
-				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
-				.ConfigureAwait(false);
-			acls.Should().NotBeNull();
-			acls.Rules.Should().NotBeNullOrEmpty();
-		}
-
-		[Fact]
-		public async Task CreateNewNetworkSwitchAccessControlLists()
-		{
-			var testNetwork = await CreateTestNetworkAsync().ConfigureAwait(false);
-
-			try
+			// Add a new rules
+			var denySsh = new SwitchAccessControlListRule
 			{
-				// Get the rules and check just the default is there
-				var acls = await TestMerakiClient
-					.Switch
-					.AccessControlLists
-					.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
-					.ConfigureAwait(false);
-				acls.Should().NotBeNull();
-				acls.Rules.Should().ContainSingle();
-				acls.Rules[0].Comment.Should().Be("Default rule");
+				Comment = "1. Deny SSH",
+				Policy = AllowOrDeny.Deny,
+				IpVersion = IpVersion.Ipv4,
+				Protocol = TcpUdpAnyProtocol.Tcp,
 
-				// Add a new rules
-				var denySsh = new SwitchAccessControlListRule
-				{
-					Comment = "1. Deny SSH",
-					Policy = AllowOrDeny.Deny,
-					IpVersion = IpVersion.Ipv4,
-					Protocol = TcpUdpAnyProtocol.Tcp,
+				SourceCidr = "10.1.10.0/24",
+				SourcePort = "any",
+				DestinationCidr = "172.16.30.0/24",
+				DestinationPort = "22",
+				Vlan = "10"
+			};
+			var allowHttp = new SwitchAccessControlListRule
+			{
+				Comment = "2. Allow HTTP",
+				Policy = AllowOrDeny.Allow,
+				IpVersion = IpVersion.Ipv4,
+				Protocol = TcpUdpAnyProtocol.Tcp,
 
-					SourceCidr = "10.1.10.0/24",
-					SourcePort = "any",
-					DestinationCidr = "172.16.30.0/24",
-					DestinationPort = "22",
-					Vlan = "10"
-				};
-				var allowHttp = new SwitchAccessControlListRule
-				{
-					Comment = "2. Allow HTTP",
-					Policy = AllowOrDeny.Allow,
-					IpVersion = IpVersion.Ipv4,
-					Protocol = TcpUdpAnyProtocol.Tcp,
+				SourceCidr = "10.1.10.0/24",
+				SourcePort = "any",
+				DestinationCidr = "172.16.30.0/24",
+				DestinationPort = "80",
+				Vlan = "10"
+			};
 
-					SourceCidr = "10.1.10.0/24",
-					SourcePort = "any",
-					DestinationCidr = "172.16.30.0/24",
-					DestinationPort = "80",
-					Vlan = "10"
-				};
-
-				// Update the rules
-				await TestMerakiClient
-					.Switch
-					.AccessControlLists
-					.UpdateNetworkSwitchAccessControlListsAsync(
-						testNetwork.Id,
-						new()
+			// Update the rules
+			await TestMerakiClient
+				.Switch
+				.AccessControlLists
+				.UpdateNetworkSwitchAccessControlListsAsync(
+					testNetwork.Id,
+					new()
+					{
+						Rules = new()
 						{
-							Rules = new()
-							{
-								denySsh,
-								allowHttp
-							}
+							denySsh,
+							allowHttp
 						}
-					)
-					.ConfigureAwait(false);
+					}
+				)
+				.ConfigureAwait(false);
 
-				// Get the rules and check they're both there
-				acls = await TestMerakiClient
-					.Switch
-					.AccessControlLists
-					.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
-					.ConfigureAwait(false);
+			// Get the rules and check they're both there
+			acls = await TestMerakiClient
+				.Switch
+				.AccessControlLists
+				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
+				.ConfigureAwait(false);
 
-				// We should have 2 rules now
-				acls.Should().NotBeNull();
-				acls.Rules.Should().HaveCount(3);
-				// Our new rules should be first
-				acls.Rules[0].Comment.Should().Be(denySsh.Comment);
-				acls.Rules[1].Comment.Should().Be(allowHttp.Comment);
-				// The default rule should be last
-				acls.Rules[^1].Comment.Should().Be("Default rule");
-			}
-			finally
-			{
-				await RemoveNetworkAsync(testNetwork.Id).ConfigureAwait(false);
-			}
+			// We should have 2 rules now
+			acls.Should().NotBeNull();
+			acls.Rules.Should().HaveCount(3);
+			// Our new rules should be first
+			acls.Rules[0].Comment.Should().Be(denySsh.Comment);
+			acls.Rules[1].Comment.Should().Be(allowHttp.Comment);
+			// The default rule should be last
+			acls.Rules[^1].Comment.Should().Be("Default rule");
+		}
+		finally
+		{
+			await RemoveNetworkAsync(testNetwork.Id).ConfigureAwait(false);
 		}
 	}
 }
