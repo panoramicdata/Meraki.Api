@@ -227,7 +227,24 @@ public partial class MerakiClient : IDisposable
 				Recent = RefitFor(Camera.Analytics.Recent),
 				Zones = RefitFor(Camera.Analytics.Zones)
 			},
-			QualityAndRetentionProfiles = RefitFor(Camera.QualityAndRetentionProfiles)
+
+			QualityAndRetention = RefitFor(Camera.QualityAndRetention),
+			Sense = new()
+			{
+				Sense = RefitFor(Camera.Sense.Sense)
+			},
+			Video = new()
+			{
+				Video = RefitFor(Camera.Video.Video)
+			},
+			VideoLink = RefitFor(Camera.VideoLink),
+			WirelessProfiles = RefitFor(Camera.WirelessProfiles),
+			QualityAndRetentionProfiles = RefitFor(Camera.QualityAndRetentionProfiles),
+			Schedules = RefitFor(Camera.Schedules),
+			Onbording = new()
+			{
+				Onbording = RefitFor(Camera.Onbording.Onbording)
+			}
 		};
 
 		CellularGateway = new()
