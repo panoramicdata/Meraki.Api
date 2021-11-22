@@ -4,7 +4,7 @@
 /// The details of the SSID config.
 /// </summary>
 [DataContract]
-public class WirelessProfilesSsid
+public class NetworkCameraWirelessProfileSsid
 {
 	/// <summary>
 	/// The auth mode of the SSID. It can be set to ('psk', '8021x-radius').

@@ -4,7 +4,7 @@
 /// Network wireless profiles
 /// </summary>
 [DataContract]
-public class WirelessProfiles : WirelessProfilesCreateUpdateRequest
+public class NetworkCameraWirelessProfile : NetworkCameraWirelessProfileCreateUpdateRequest
 {
 	/// <summary>
 	/// Id

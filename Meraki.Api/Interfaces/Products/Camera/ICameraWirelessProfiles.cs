@@ -35,7 +35,7 @@ public interface ICameraWirelessProfiles
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkCameraWirelessProfiles")]
 	[Get("/networks/{networkId}/camera/wirelessProfiles")]
-	Task<List<WirelessProfiles>> GetNetworkCameraWirelessProfilesAsync(
+	Task<List<NetworkCameraWirelessProfile>> GetNetworkCameraWirelessProfilesAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -48,7 +48,7 @@ public interface ICameraWirelessProfiles
 	/// <param name="wirelessProfileId">The wireless profile id</param>
 	[ApiOperationId("getNetworkCameraWirelessProfile")]
 	[Get("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
-	Task<WirelessProfiles> GetNetworkCameraWirelessProfileAsync(
+	Task<NetworkCameraWirelessProfile> GetNetworkCameraWirelessProfileAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("wirelessProfileId")] string wirelessProfileId,
 		CancellationToken cancellationToken = default
@@ -63,10 +63,10 @@ public interface ICameraWirelessProfiles
 	/// <param name="updateNetworkCameraWirelessProfile">Body for updating camera wireless profile</param>
 	[ApiOperationId("updateNetworkCameraWirelessProfile")]
 	[Put("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
-	Task<WirelessProfiles> UpdateNetworkCameraWirelessProfileAsync(
+	Task<NetworkCameraWirelessProfile> UpdateNetworkCameraWirelessProfileAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("wirelessProfileId")] string wirelessProfileId,
-		[Body] WirelessProfilesCreateUpdateRequest updateNetworkCameraWirelessProfile,
+		[Body] NetworkCameraWirelessProfileCreateUpdateRequest updateNetworkCameraWirelessProfile,
 		CancellationToken cancellationToken = default
 		);
 
@@ -78,9 +78,9 @@ public interface ICameraWirelessProfiles
 	/// <param name="createNetworkCameraWirelessProfile">Body for creating camera wireless profile</param>
 	[ApiOperationId("createNetworkCameraWirelessProfile")]
 	[Post("/networks/{networkId}/camera/wirelessProfiles")]
-	Task<WirelessProfiles> CreateNetworkCameraWirelessProfileAsync(
+	Task<NetworkCameraWirelessProfile> CreateNetworkCameraWirelessProfileAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] WirelessProfilesCreateUpdateRequest createNetworkCameraWirelessProfile,
+		[Body] NetworkCameraWirelessProfileCreateUpdateRequest createNetworkCameraWirelessProfile,
 		CancellationToken cancellationToken = default
 		);
 

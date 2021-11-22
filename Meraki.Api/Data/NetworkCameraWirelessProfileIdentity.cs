@@ -4,7 +4,7 @@
 /// The identity of the wireless profile. Required for creating wireless profiles in 8021x-radius auth mode.
 /// </summary>
 [DataContract]
-public class WirelessProfilesIdentity
+public class NetworkCameraWirelessProfileIdentity
 {
 	/// <summary>
 	/// The password of the identity.

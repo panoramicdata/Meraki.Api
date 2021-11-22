@@ -4,7 +4,7 @@
 /// Network wireless profiles
 /// </summary>
 [DataContract]
-public class WirelessProfilesCreateUpdateRequest
+public class NetworkCameraWirelessProfileCreateUpdateRequest
 {
 	/// <summary>
 	/// The name of the camera wireless profile.
@@ -18,12 +18,12 @@ public class WirelessProfilesCreateUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "identity")]
-	public WirelessProfilesIdentity Identity { get; set; } = new();
+	public NetworkCameraWirelessProfileIdentity Identity { get; set; } = new();
 
 	/// <summary>
 	/// The details of the SSID config.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ssid")]
-	public WirelessProfilesSsid Ssid { get; set; } = new();
+	public NetworkCameraWirelessProfileSsid Ssid { get; set; } = new();
 }
