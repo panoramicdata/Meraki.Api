@@ -21,7 +21,7 @@ public class AllowedInbound
 	public List<string> DestinationPorts { get; set; } = new();
 
 	/// <summary>
-	/// An array of ranges of WAN IP addresses that are allowed to make inbound connections on the specified ports or port ranges, or &#39;any&#39;
+	/// An array of ranges of WAN IP addresses that are allowed to make inbound connections on the specified ports or port ranges, or 'any'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedIps")]

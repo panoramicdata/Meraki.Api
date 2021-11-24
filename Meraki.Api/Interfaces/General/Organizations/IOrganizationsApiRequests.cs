@@ -18,7 +18,7 @@ public interface IOrganizationsApiRequests
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="adminId">Filter the results by the ID of the admin who made the API requests (optional)</param>
 	/// <param name="path">Filter the results by the path of the API requests (optional)</param>
-	/// <param name="method">Filter the results by the method of the API requests (must be &#39;GET&#39;, &#39;PUT&#39;, &#39;POST&#39; or &#39;DELETE&#39;) (optional)</param>
+	/// <param name="method">Filter the results by the method of the API requests (must be 'GET', 'PUT', 'POST' or 'DELETE') (optional)</param>
 	/// <param name="responseCode">Filter the results by the response code of the API requests (optional)</param>
 	/// <param name="sourceIp">Filter the results by the IP address of the originating API request (optional)</param>
 	[Get("/organizations/{organizationId}/apiRequests")]

@@ -9,7 +9,7 @@ public static class IOrganizationsLicensesExtensions
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="deviceSerial">Filter the licenses to those assigned to a particular device (optional)</param>
 	/// <param name="networkId">Filter the licenses to those assigned in a particular network (optional)</param>
-	/// <param name="state">Filter the licenses to those in a particular state. Can be one of &#39;active&#39;, &#39;expired&#39;, &#39;expiring&#39;, &#39;unused&#39;, &#39;unusedActive&#39; or &#39;recentlyQueued&#39; (optional)</param>
+	/// <param name="state">Filter the licenses to those in a particular state. Can be one of 'active', 'expired', 'expiring', 'unused', 'unusedActive' or 'recentlyQueued' (optional)</param>
 	public static Task<List<OrganizationLicense>> GetOrganizationLicensesAllAsync(
 		this IOrganizationsLicenses organizationsLicenses,
 		string organizationId,

@@ -13,15 +13,15 @@ public class ClientPolicyUpdateRequest
 	public string Mac { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The policy to assign. Can be &#39;Whitelisted&#39;, &#39;Blocked&#39;, &#39;Normal&#39; or &#39;Group policy&#39;. Required.
+	/// The policy to assign. Can be 'Whitelisted', 'Blocked', 'Normal' or 'Group policy'. Required.
 	/// </summary>
-	/// <value>The policy to assign. Can be &#39;Whitelisted&#39;, &#39;Blocked&#39;, &#39;Normal&#39; or &#39;Group policy&#39;. Required.</value>
+	/// <value>The policy to assign. Can be 'Whitelisted', 'Blocked', 'Normal' or 'Group policy'. Required.</value>
 	[DataMember(Name = "devicePolicy")]
 	public string DevicePolicy { get; set; } = string.Empty;
 	/// <summary>
-	/// [optional] If &#39;devicePolicy&#39; is set to &#39;Group policy&#39; this param is used to specify the group policy ID.
+	/// [optional] If 'devicePolicy' is set to 'Group policy' this param is used to specify the group policy ID.
 	/// </summary>
-	/// <value>[optional] If &#39;devicePolicy&#39; is set to &#39;Group policy&#39; this param is used to specify the group policy ID.</value>
+	/// <value>[optional] If 'devicePolicy' is set to 'Group policy' this param is used to specify the group policy ID.</value>
 	[DataMember(Name = "groupPolicyId")]
 	public string GroupPolicyId { get; set; } = string.Empty;
 }

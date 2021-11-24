@@ -39,9 +39,9 @@ public class SsidUpdateRequest
 	public EncryptionMode EncryptionMode { get; set; }
 
 	/// <summary>
-	/// The passkey for the SSID. This param is only valid if the authMode is &#39;psk&#39;
+	/// The passkey for the SSID. This param is only valid if the authMode is 'psk'
 	/// </summary>
-	/// <value>The passkey for the SSID. This param is only valid if the authMode is &#39;psk&#39;</value>
+	/// <value>The passkey for the SSID. This param is only valid if the authMode is 'psk'</value>
 	[DataMember(Name = "psk")]
 	public string Psk { get; set; } = string.Empty;
 
@@ -58,9 +58,9 @@ public class SsidUpdateRequest
 	public SplashPage SplashPage { get; set; }
 
 	/// <summary>
-	/// The RADIUS 802.1X servers to be used for authentication. This param is only valid if the authMode is &#39;open-with-radius&#39;, &#39;8021x-radius&#39; or &#39;ipsk-with-radius&#39;
+	/// The RADIUS 802.1X servers to be used for authentication. This param is only valid if the authMode is 'open-with-radius', '8021x-radius' or 'ipsk-with-radius'
 	/// </summary>
-	/// <value>The RADIUS 802.1X servers to be used for authentication. This param is only valid if the authMode is &#39;open-with-radius&#39;, &#39;8021x-radius&#39; or &#39;ipsk-with-radius&#39;</value>
+	/// <value>The RADIUS 802.1X servers to be used for authentication. This param is only valid if the authMode is 'open-with-radius', '8021x-radius' or 'ipsk-with-radius'</value>
 	[DataMember(Name = "radiusServers")]
 	public List<SsidRadiusServer> RadiusServers { get; set; } = new();
 
@@ -84,65 +84,65 @@ public class SsidUpdateRequest
 	public RadiusLoadBalancingPolicy RadiusLoadBalancingPolicy { get; set; }
 
 	/// <summary>
-	/// Whether or not RADIUS accounting is enabled. This param is only valid if the authMode is &#39;open-with-radius&#39;, &#39;8021x-radius&#39; or &#39;ipsk-with-radius&#39;
+	/// Whether or not RADIUS accounting is enabled. This param is only valid if the authMode is 'open-with-radius', '8021x-radius' or 'ipsk-with-radius'
 	/// </summary>
-	/// <value>Whether or not RADIUS accounting is enabled. This param is only valid if the authMode is &#39;open-with-radius&#39;, &#39;8021x-radius&#39; or &#39;ipsk-with-radius&#39;</value>
+	/// <value>Whether or not RADIUS accounting is enabled. This param is only valid if the authMode is 'open-with-radius', '8021x-radius' or 'ipsk-with-radius'</value>
 	[DataMember(Name = "radiusAccountingEnabled")]
 	public bool? RadiusAccountingEnabled { get; set; }
 
 	/// <summary>
-	/// The RADIUS accounting 802.1X servers to be used for authentication. This param is only valid if the authMode is &#39;open-with-radius&#39;, &#39;8021x-radius&#39; or &#39;ipsk-with-radius&#39; and radiusAccountingEnabled is &#39;true&#39;
+	/// The RADIUS accounting 802.1X servers to be used for authentication. This param is only valid if the authMode is 'open-with-radius', '8021x-radius' or 'ipsk-with-radius' and radiusAccountingEnabled is 'true'
 	/// </summary>
-	/// <value>The RADIUS accounting 802.1X servers to be used for authentication. This param is only valid if the authMode is &#39;open-with-radius&#39;, &#39;8021x-radius&#39; or &#39;ipsk-with-radius&#39; and radiusAccountingEnabled is &#39;true&#39;</value>
+	/// <value>The RADIUS accounting 802.1X servers to be used for authentication. This param is only valid if the authMode is 'open-with-radius', '8021x-radius' or 'ipsk-with-radius' and radiusAccountingEnabled is 'true'</value>
 	[DataMember(Name = "radiusAccountingServers")]
 	public List<RadiusAccountingServer> RadiusAccountingServers { get; set; } = new();
 
 	/// <summary>
-	/// Specify the RADIUS attribute used to look up group policies (&#39;Filter-Id&#39;, &#39;Reply-Message&#39;, &#39;Airespace-ACL-Name&#39; or &#39;Aruba-User-Role&#39;). Access points must receive this attribute in the RADIUS Access-Accept message
+	/// Specify the RADIUS attribute used to look up group policies ('Filter-Id', 'Reply-Message', 'Airespace-ACL-Name' or 'Aruba-User-Role'). Access points must receive this attribute in the RADIUS Access-Accept message
 	/// </summary>
-	/// <value>Specify the RADIUS attribute used to look up group policies (&#39;Filter-Id&#39;, &#39;Reply-Message&#39;, &#39;Airespace-ACL-Name&#39; or &#39;Aruba-User-Role&#39;). Access points must receive this attribute in the RADIUS Access-Accept message</value>
+	/// <value>Specify the RADIUS attribute used to look up group policies ('Filter-Id', 'Reply-Message', 'Airespace-ACL-Name' or 'Aruba-User-Role'). Access points must receive this attribute in the RADIUS Access-Accept message</value>
 	[DataMember(Name = "radiusAttributeForGroupPolicies")]
 	public string RadiusAttributeForGroupPolicies { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The client IP assignment mode (&#39;NAT mode&#39;, &#39;Bridge mode&#39;, &#39;Layer 3 roaming&#39;, &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;)
+	/// The client IP assignment mode ('NAT mode', 'Bridge mode', 'Layer 3 roaming', 'Layer 3 roaming with a concentrator' or 'VPN')
 	/// </summary>
-	/// <value>The client IP assignment mode (&#39;NAT mode&#39;, &#39;Bridge mode&#39;, &#39;Layer 3 roaming&#39;, &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;)</value>
+	/// <value>The client IP assignment mode ('NAT mode', 'Bridge mode', 'Layer 3 roaming', 'Layer 3 roaming with a concentrator' or 'VPN')</value>
 	[DataMember(Name = "ipAssignmentMode")]
 	public string IpAssignmentMode { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Whether or not traffic should be directed to use specific VLANs. This param is only valid if the ipAssignmentMode is &#39;Bridge mode&#39; or &#39;Layer 3 roaming&#39;
+	/// Whether or not traffic should be directed to use specific VLANs. This param is only valid if the ipAssignmentMode is 'Bridge mode' or 'Layer 3 roaming'
 	/// </summary>
-	/// <value>Whether or not traffic should be directed to use specific VLANs. This param is only valid if the ipAssignmentMode is &#39;Bridge mode&#39; or &#39;Layer 3 roaming&#39;</value>
+	/// <value>Whether or not traffic should be directed to use specific VLANs. This param is only valid if the ipAssignmentMode is 'Bridge mode' or 'Layer 3 roaming'</value>
 	[DataMember(Name = "useVlanTagging")]
 	public bool? UseVlanTagging { get; set; }
 
 	/// <summary>
-	/// The concentrator to use when the ipAssignmentMode is &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;.
+	/// The concentrator to use when the ipAssignmentMode is 'Layer 3 roaming with a concentrator' or 'VPN'.
 	/// </summary>
-	/// <value>The concentrator to use when the ipAssignmentMode is &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;.</value>
+	/// <value>The concentrator to use when the ipAssignmentMode is 'Layer 3 roaming with a concentrator' or 'VPN'.</value>
 	[DataMember(Name = "concentratorNetworkId")]
 	public string ConcentratorNetworkId { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The VLAN ID used for VLAN tagging. This param is only valid when the ipAssignmentMode is &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;
+	/// The VLAN ID used for VLAN tagging. This param is only valid when the ipAssignmentMode is 'Layer 3 roaming with a concentrator' or 'VPN'
 	/// </summary>
-	/// <value>The VLAN ID used for VLAN tagging. This param is only valid when the ipAssignmentMode is &#39;Layer 3 roaming with a concentrator&#39; or &#39;VPN&#39;</value>
+	/// <value>The VLAN ID used for VLAN tagging. This param is only valid when the ipAssignmentMode is 'Layer 3 roaming with a concentrator' or 'VPN'</value>
 	[DataMember(Name = "vlanId")]
 	public int? VlanId { get; set; }
 
 	/// <summary>
-	/// The default VLAN ID used for &#39;all other APs&#39;. This param is only valid when the ipAssignmentMode is &#39;Bridge mode&#39; or &#39;Layer 3 roaming&#39;
+	/// The default VLAN ID used for 'all other APs'. This param is only valid when the ipAssignmentMode is 'Bridge mode' or 'Layer 3 roaming'
 	/// </summary>
-	/// <value>The default VLAN ID used for &#39;all other APs&#39;. This param is only valid when the ipAssignmentMode is &#39;Bridge mode&#39; or &#39;Layer 3 roaming&#39;</value>
+	/// <value>The default VLAN ID used for 'all other APs'. This param is only valid when the ipAssignmentMode is 'Bridge mode' or 'Layer 3 roaming'</value>
 	[DataMember(Name = "defaultVlanId")]
 	public int? DefaultVlanId { get; set; }
 
 	/// <summary>
-	/// The list of tags and VLAN IDs used for VLAN tagging. This param is only valid when the ipAssignmentMode is &#39;Bridge mode&#39; or &#39;Layer 3 roaming&#39;
+	/// The list of tags and VLAN IDs used for VLAN tagging. This param is only valid when the ipAssignmentMode is 'Bridge mode' or 'Layer 3 roaming'
 	/// </summary>
-	/// <value>The list of tags and VLAN IDs used for VLAN tagging. This param is only valid when the ipAssignmentMode is &#39;Bridge mode&#39; or &#39;Layer 3 roaming&#39;</value>
+	/// <value>The list of tags and VLAN IDs used for VLAN tagging. This param is only valid when the ipAssignmentMode is 'Bridge mode' or 'Layer 3 roaming'</value>
 	[DataMember(Name = "apTagsAndVlanIds")]
 	public List<ApTagsAndVlanId> ApTagsAndVlanIds { get; set; } = new();
 
@@ -154,30 +154,30 @@ public class SsidUpdateRequest
 	public bool? WalledGardenEnabled { get; set; }
 
 	/// <summary>
-	/// Specify your walled garden by entering space-separated addresses, ranges using CIDR notation, domain names, and domain wildcards (e.g. 192.168.1.1/24 192.168.37.10/32 www.yahoo.com *.google.com). Meraki&#39;s splash page is automatically included in your walled garden.
+	/// Specify your walled garden by entering space-separated addresses, ranges using CIDR notation, domain names, and domain wildcards (e.g. 192.168.1.1/24 192.168.37.10/32 www.yahoo.com *.google.com). Meraki's splash page is automatically included in your walled garden.
 	/// </summary>
-	/// <value>Specify your walled garden by entering space-separated addresses, ranges using CIDR notation, domain names, and domain wildcards (e.g. 192.168.1.1/24 192.168.37.10/32 www.yahoo.com *.google.com). Meraki&#39;s splash page is automatically included in your walled garden.</value>
+	/// <value>Specify your walled garden by entering space-separated addresses, ranges using CIDR notation, domain names, and domain wildcards (e.g. 192.168.1.1/24 192.168.37.10/32 www.yahoo.com *.google.com). Meraki's splash page is automatically included in your walled garden.</value>
 	[DataMember(Name = "walledGardenRanges")]
 	public string WalledGardenRanges { get; set; } = string.Empty;
 
 	/// <summary>
-	/// If true, the RADIUS response can override VLAN tag. This is not valid when ipAssignmentMode is &#39;NAT mode&#39;.
+	/// If true, the RADIUS response can override VLAN tag. This is not valid when ipAssignmentMode is 'NAT mode'.
 	/// </summary>
-	/// <value>If true, the RADIUS response can override VLAN tag. This is not valid when ipAssignmentMode is &#39;NAT mode&#39;.</value>
+	/// <value>If true, the RADIUS response can override VLAN tag. This is not valid when ipAssignmentMode is 'NAT mode'.</value>
 	[DataMember(Name = "radiusOverride")]
 	public bool? RadiusOverride { get; set; }
 
 	/// <summary>
-	/// The minimum bitrate in Mbps. (&#39;1&#39;, &#39;2&#39;, &#39;5.5&#39;, &#39;6&#39;, &#39;9&#39;, &#39;11&#39;, &#39;12&#39;, &#39;18&#39;, &#39;24&#39;, &#39;36&#39;, &#39;48&#39; or &#39;54&#39;)
+	/// The minimum bitrate in Mbps. ('1', '2', '5.5', '6', '9', '11', '12', '18', '24', '36', '48' or '54')
 	/// </summary>
-	/// <value>The minimum bitrate in Mbps. (&#39;1&#39;, &#39;2&#39;, &#39;5.5&#39;, &#39;6&#39;, &#39;9&#39;, &#39;11&#39;, &#39;12&#39;, &#39;18&#39;, &#39;24&#39;, &#39;36&#39;, &#39;48&#39; or &#39;54&#39;)</value>
+	/// <value>The minimum bitrate in Mbps. ('1', '2', '5.5', '6', '9', '11', '12', '18', '24', '36', '48' or '54')</value>
 	[DataMember(Name = "minBitrate")]
 	public double? MinBitrate { get; set; }
 
 	/// <summary>
-	/// The client-serving radio frequencies. (&#39;Dual band operation&#39;, &#39;5 GHz band only&#39; or &#39;Dual band operation with Band Steering&#39;)
+	/// The client-serving radio frequencies. ('Dual band operation', '5 GHz band only' or 'Dual band operation with Band Steering')
 	/// </summary>
-	/// <value>The client-serving radio frequencies. (&#39;Dual band operation&#39;, &#39;5 GHz band only&#39; or &#39;Dual band operation with Band Steering&#39;)</value>
+	/// <value>The client-serving radio frequencies. ('Dual band operation', '5 GHz band only' or 'Dual band operation with Band Steering')</value>
 	[DataMember(Name = "bandSelection")]
 	public string BandSelection { get; set; } = string.Empty;
 
@@ -196,9 +196,9 @@ public class SsidUpdateRequest
 	public int? PerClientBandwidthLimitDown { get; set; }
 
 	/// <summary>
-	/// Boolean indicating whether Layer 2 LAN isolation should be enabled or disabled. Only configurable when ipAssignmentMode is &#39;Bridge mode&#39;.
+	/// Boolean indicating whether Layer 2 LAN isolation should be enabled or disabled. Only configurable when ipAssignmentMode is 'Bridge mode'.
 	/// </summary>
-	/// <value>Boolean indicating whether Layer 2 LAN isolation should be enabled or disabled. Only configurable when ipAssignmentMode is &#39;Bridge mode&#39;.</value>
+	/// <value>Boolean indicating whether Layer 2 LAN isolation should be enabled or disabled. Only configurable when ipAssignmentMode is 'Bridge mode'.</value>
 	[DataMember(Name = "lanIsolationEnabled")]
 	public bool? LanIsolationEnabled { get; set; }
 

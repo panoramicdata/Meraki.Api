@@ -28,21 +28,21 @@ public class MxFirewallRule
 	public FirewallProtocol Protocol { get; set; }
 
 	/// <summary>
-	/// Comma-separated list of source port(s) (integer in the range 1-65535), or &#39;any&#39;
+	/// Comma-separated list of source port(s) (integer in the range 1-65535), or 'any'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "srcPort")]
 	public string SourcePort { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Comma-separated list of source IP address(es) (in IP or CIDR notation), or &#39;any&#39; (note: FQDN not supported for source addresses)
+	/// Comma-separated list of source IP address(es) (in IP or CIDR notation), or 'any' (note: FQDN not supported for source addresses)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "srcCidr")]
 	public string SourceCidr { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Comma-separated list of destination port(s) (integer in the range 1-65535), or &#39;any&#39;
+	/// Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destPort")]

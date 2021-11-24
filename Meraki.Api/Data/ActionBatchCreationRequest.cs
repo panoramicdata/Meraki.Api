@@ -21,9 +21,9 @@ public class ActionBatchCreationRequest
 	public bool? Synchronous { get; set; }
 
 	/// <summary>
-	/// A set of changes to make as part of this action (&lt;a href&#x3D;&#39;https://developer.cisco.com/meraki/api/#/rest/guides/action-batches/&#39;&gt;more details&lt;/a&gt;)
+	/// A set of changes to make as part of this action (&lt;a href&#x3D;'https://developer.cisco.com/meraki/api/#/rest/guides/action-batches/'&gt;more details&lt;/a&gt;)
 	/// </summary>
-	/// <value>A set of changes to make as part of this action (&lt;a href&#x3D;&#39;https://developer.cisco.com/meraki/api/#/rest/guides/action-batches/&#39;&gt;more details&lt;/a&gt;)</value>
+	/// <value>A set of changes to make as part of this action (&lt;a href&#x3D;'https://developer.cisco.com/meraki/api/#/rest/guides/action-batches/'&gt;more details&lt;/a&gt;)</value>
 	[DataMember(Name = "actions")]
 	public List<Action> Actions { get; set; } = null!;
 }

@@ -46,7 +46,7 @@ public interface INetworksFloorplans
 		);
 
 	/// <summary>
-	/// Update a floor plan&#39;s geolocation and other meta data
+	/// Update a floor plan's geolocation and other meta data
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>

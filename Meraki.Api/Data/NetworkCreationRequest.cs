@@ -21,16 +21,16 @@ public class NetworkCreationRequest
 	public List<string> Tags { get; set; } = null!;
 
 	/// <summary>
-	/// The timezone of the network. For a list of allowed timezones, please see the &#39;TZ&#39; column in the table in &lt;a target&#x3D;&#39;_blank&#39; href&#x3D;&#39;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&#39;&gt;this article.&lt;/a&gt;
+	/// The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in &lt;a target&#x3D;'_blank' href&#x3D;'https://en.wikipedia.org/wiki/List_of_tz_database_time_zones'&gt;this article.&lt;/a&gt;
 	/// </summary>
-	/// <value>The timezone of the network. For a list of allowed timezones, please see the &#39;TZ&#39; column in the table in &lt;a target&#x3D;&#39;_blank&#39; href&#x3D;&#39;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&#39;&gt;this article.&lt;/a&gt;</value>
+	/// <value>The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in &lt;a target&#x3D;'_blank' href&#x3D;'https://en.wikipedia.org/wiki/List_of_tz_database_time_zones'&gt;this article.&lt;/a&gt;</value>
 	[DataMember(Name = "timeZone")]
 	public string TimeZone { get; set; } = null!;
 
 	/// <summary>
-	/// The ID of the network to copy configuration from. Other provided parameters will override the copied configuration, except type which must match this network&#39;s type exactly.
+	/// The ID of the network to copy configuration from. Other provided parameters will override the copied configuration, except type which must match this network's type exactly.
 	/// </summary>
-	/// <value>The ID of the network to copy configuration from. Other provided parameters will override the copied configuration, except type which must match this network&#39;s type exactly.</value>
+	/// <value>The ID of the network to copy configuration from. Other provided parameters will override the copied configuration, except type which must match this network's type exactly.</value>
 	[DataMember(Name = "copyFromNetworkId")]
 	public string CopyFromNetworkId { get; set; } = null!;
 

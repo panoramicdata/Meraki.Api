@@ -56,7 +56,7 @@ public class ThirdPartyVpnPeer : NamedItem
 	public string Secret { get; set; } = string.Empty;
 
 	/// <summary>
-	/// A list of network tags that will connect with this peer. Use ['all'] for all networks. Use ['none'] for no networks. If not included, the default is [&#39;all&#39;].
+	/// A list of network tags that will connect with this peer. Use ['all'] for all networks. Use ['none'] for no networks. If not included, the default is ['all'].
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "networkTags")]

@@ -14,7 +14,7 @@ public interface IOrganizationsBrandingPoliciesPriorities
 		);
 
 	/// <summary>
-	/// Update the priority ordering of an organization&#39;s branding policies.
+	/// Update the priority ordering of an organization's branding policies.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>

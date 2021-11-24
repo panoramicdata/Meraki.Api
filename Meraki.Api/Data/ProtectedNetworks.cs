@@ -1,7 +1,7 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Set the included/excluded networks from the intrusion engine (optional - omitting will leave current config unchanged). This is available only in &#39;passthrough&#39; mode
+/// Set the included/excluded networks from the intrusion engine (optional - omitting will leave current config unchanged). This is available only in 'passthrough' mode
 /// </summary>
 [DataContract]
 public class ProtectedNetworks

@@ -20,16 +20,16 @@ public class SsidTrafficShapingRule
 	public PerClientBandwidthLimits PerClientBandwidthLimits { get; set; } = null!;
 
 	/// <summary>
-	/// The DSCP tag applied by your rule. null means &#39;Do not change DSCP tag&#39;.     For a list of possible tag values, use the trafficShaping/dscpTaggingOptions endpoint.
+	/// The DSCP tag applied by your rule. null means 'Do not change DSCP tag'.     For a list of possible tag values, use the trafficShaping/dscpTaggingOptions endpoint.
 	/// </summary>
-	/// <value>The DSCP tag applied by your rule. null means &#39;Do not change DSCP tag&#39;.     For a list of possible tag values, use the trafficShaping/dscpTaggingOptions endpoint.</value>
+	/// <value>The DSCP tag applied by your rule. null means 'Do not change DSCP tag'.     For a list of possible tag values, use the trafficShaping/dscpTaggingOptions endpoint.</value>
 	[DataMember(Name = "dscpTagValue")]
 	public int? DscpTagValue { get; set; }
 
 	/// <summary>
-	/// The PCP tag applied by your rule. Can be 0 (lowest priority) through 7 (highest priority).     null means &#39;Do not set PCP tag&#39;.
+	/// The PCP tag applied by your rule. Can be 0 (lowest priority) through 7 (highest priority).     null means 'Do not set PCP tag'.
 	/// </summary>
-	/// <value>The PCP tag applied by your rule. Can be 0 (lowest priority) through 7 (highest priority).     null means &#39;Do not set PCP tag&#39;.</value>
+	/// <value>The PCP tag applied by your rule. Can be 0 (lowest priority) through 7 (highest priority).     null means 'Do not set PCP tag'.</value>
 	[DataMember(Name = "pcpTagValue")]
 	public int? PcpTagValue { get; set; }
 }

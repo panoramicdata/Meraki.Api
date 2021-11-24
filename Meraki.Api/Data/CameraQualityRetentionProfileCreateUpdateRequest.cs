@@ -49,14 +49,14 @@ public class CameraQualityRetentionProfileCreateUpdateRequest
 	public int? MotionDetectorVersion { get; set; }
 
 	/// <summary>
-	/// Schedule for which this camera will record video, or &#39;null&#39; to always record.
+	/// Schedule for which this camera will record video, or 'null' to always record.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "scheduleId")]
 	public string ScheduleId { get; set; } = null!;
 
 	/// <summary>
-	/// The maximum number of days for which the data will be stored, or &#39;null&#39; to keep data until storage space runs out. If the former, it can be one of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 30, 60, 90] days
+	/// The maximum number of days for which the data will be stored, or 'null' to keep data until storage space runs out. If the former, it can be one of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 30, 60, 90] days
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "maxRetentionDays")]

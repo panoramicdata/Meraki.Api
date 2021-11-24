@@ -26,16 +26,16 @@ public class SsidLayer3FirewallRule
 	public FirewallProtocol Protocol { get; set; }
 
 	/// <summary>
-	/// Comma-separated list of destination port(s) (integer in the range 1-65535), or &#39;any&#39;
+	/// Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'
 	/// </summary>
-	/// <value>Comma-separated list of destination port(s) (integer in the range 1-65535), or &#39;any&#39;</value>
+	/// <value>Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'</value>
 	[DataMember(Name = "destPort")]
 	public string DestinationPort { get; set; } = null!;
 
 	/// <summary>
-	/// Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or &#39;any&#39;
+	/// Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'
 	/// </summary>
-	/// <value>Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or &#39;any&#39;</value>
+	/// <value>Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'</value>
 	[DataMember(Name = "destCidr")]
 	public string DestinationCidr { get; set; } = null!;
 }

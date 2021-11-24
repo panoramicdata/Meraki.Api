@@ -13,9 +13,9 @@ public class LicenseSeatsRenewalRequest
 	[DataMember(Name = "licenseIdToRenew")]
 	public string LicenseIdToRenew { get; set; } = string.Empty;
 	/// <summary>
-	/// The SM license to use to renew the seats on &#39;licenseIdToRenew&#39;. This license must have at least as many seats available as there are seats on &#39;licenseIdToRenew&#39;
+	/// The SM license to use to renew the seats on 'licenseIdToRenew'. This license must have at least as many seats available as there are seats on 'licenseIdToRenew'
 	/// </summary>
-	/// <value>The SM license to use to renew the seats on &#39;licenseIdToRenew&#39;. This license must have at least as many seats available as there are seats on &#39;licenseIdToRenew&#39;</value>
+	/// <value>The SM license to use to renew the seats on 'licenseIdToRenew'. This license must have at least as many seats available as there are seats on 'licenseIdToRenew'</value>
 	[DataMember(Name = "unusedLicenseId")]
 	public string UnusedLicenseId { get; set; } = string.Empty;
 }

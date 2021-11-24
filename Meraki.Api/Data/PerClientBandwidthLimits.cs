@@ -7,9 +7,9 @@ namespace Meraki.Api.Data;
 public class PerClientBandwidthLimits
 {
 	/// <summary>
-	/// How bandwidth limits are applied by your rule. Can be one of &#39;network default&#39;, &#39;ignore&#39; or &#39;custom&#39;.
+	/// How bandwidth limits are applied by your rule. Can be one of 'network default', 'ignore' or 'custom'.
 	/// </summary>
-	/// <value>How bandwidth limits are applied by your rule. Can be one of &#39;network default&#39;, &#39;ignore&#39; or &#39;custom&#39;.</value>
+	/// <value>How bandwidth limits are applied by your rule. Can be one of 'network default', 'ignore' or 'custom'.</value>
 	[DataMember(Name = "settings")]
 	public string Settings { get; set; } = null!;
 

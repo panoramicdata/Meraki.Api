@@ -13,9 +13,9 @@ public class Mv21Mv71
 	public CameraQuality Quality { get; set; }
 
 	/// <summary>
-	/// Resolution of the camera. Can be one of &#39;1280x720&#39;.
+	/// Resolution of the camera. Can be one of '1280x720'.
 	/// </summary>
-	/// <value>Resolution of the camera. Can be one of &#39;1280x720&#39;.</value>
+	/// <value>Resolution of the camera. Can be one of '1280x720'.</value>
 	[DataMember(Name = "resolution")]
 	public string Resolution { get; set; } = null!;
 }

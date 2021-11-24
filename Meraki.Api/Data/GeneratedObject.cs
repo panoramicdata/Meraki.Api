@@ -12,9 +12,9 @@ public class GeneratedObject
 	[DataMember(Name = "devicePolicy")]
 	public DevicePolicy2 DevicePolicy { get; set; }
 	/// <summary>
-	/// The ID of the desired group policy to apply to the client. Required if &#39;devicePolicy&#39; is set to \&quot;Group policy\&quot;. Otherwise this is ignored.
+	/// The ID of the desired group policy to apply to the client. Required if 'devicePolicy' is set to \&quot;Group policy\&quot;. Otherwise this is ignored.
 	/// </summary>
-	/// <value>The ID of the desired group policy to apply to the client. Required if &#39;devicePolicy&#39; is set to \&quot;Group policy\&quot;. Otherwise this is ignored.</value>
+	/// <value>The ID of the desired group policy to apply to the client. Required if 'devicePolicy' is set to \&quot;Group policy\&quot;. Otherwise this is ignored.</value>
 	[DataMember(Name = "groupPolicyId")]
 	public string GroupPolicyId { get; set; } = string.Empty;
 }

@@ -42,7 +42,7 @@ public class PortRule
 	public string LocalPort { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Remote IP addresses or ranges that are permitted to access the internal resource via this port forwarding rule, or &#39;any&#39;
+	/// Remote IP addresses or ranges that are permitted to access the internal resource via this port forwarding rule, or 'any'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedIps")]

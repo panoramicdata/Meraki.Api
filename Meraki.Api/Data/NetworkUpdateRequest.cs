@@ -14,9 +14,9 @@ public class NetworkUpdateRequest
 	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The timezone of the network. For a list of allowed timezones, please see the &#39;TZ&#39; column in the table in &lt;a target&#x3D;&#39;_blank&#39; href&#x3D;&#39;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&#39;&gt;this article.&lt;/a&gt;
+	/// The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in &lt;a target&#x3D;'_blank' href&#x3D;'https://en.wikipedia.org/wiki/List_of_tz_database_time_zones'&gt;this article.&lt;/a&gt;
 	/// </summary>
-	/// <value>The timezone of the network. For a list of allowed timezones, please see the &#39;TZ&#39; column in the table in &lt;a target&#x3D;&#39;_blank&#39; href&#x3D;&#39;https://en.wikipedia.org/wiki/List_of_tz_database_time_zones&#39;&gt;this article.&lt;/a&gt;</value>
+	/// <value>The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in &lt;a target&#x3D;'_blank' href&#x3D;'https://en.wikipedia.org/wiki/List_of_tz_database_time_zones'&gt;this article.&lt;/a&gt;</value>
 	[DataMember(Name = "timeZone")]
 	public string TimeZone { get; set; } = string.Empty;
 
