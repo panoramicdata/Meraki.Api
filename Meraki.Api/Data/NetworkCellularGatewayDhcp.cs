@@ -1,10 +1,10 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// UpdateNetworkCellularGatewaySettingsDhcp
+/// Network Cellular Gateway Dhcp
 /// </summary>
 [DataContract]
-public class NetworkCellularGatewaySettingsDhcpUpdateRequest
+public class NetworkCellularGatewayDhcp
 {
 	/// <summary>
 	/// DHCP Lease time for all MG of the network. It can be '30 minutes', '1 hour', '4 hours', '12 hours', '1 day' or '1 week'.
