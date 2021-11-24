@@ -11,7 +11,7 @@ public interface ICellularGatewaySubnetPool
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/cellularGateway/settings/subnetPool")]
-	Task<NetworkCellularGatewaySettingsSubnetPool> GetNetworkCellularGatewaySettingsSubnetPoolAsync(
+	Task<NetworkCellularGatewaySubnetPool> GetNetworkCellularGatewaySettingsSubnetPoolAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -23,9 +23,9 @@ public interface ICellularGatewaySubnetPool
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkCellularGatewaySettingsSubnetPool">Body for updating subnet pool and mask config</param>
 	[Put("/networks/{networkId}/cellularGateway/settings/subnetPool")]
-	Task<NetworkCellularGatewaySettingsSubnetPool> UpdateNetworkCellularGatewaySettingsSubnetPoolAsync(
+	Task<NetworkCellularGatewaySubnetPool> UpdateNetworkCellularGatewaySettingsSubnetPoolAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] NetworkCellularGatewaySettingsSubnetPoolUpdateRequest updateNetworkCellularGatewaySettingsSubnetPool,
+		[Body] NetworkCellularGatewaySubnetPoolUpdateRequest updateNetworkCellularGatewaySettingsSubnetPool,
 		CancellationToken cancellationToken = default
 		);
 }

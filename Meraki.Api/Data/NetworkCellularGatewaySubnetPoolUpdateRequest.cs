@@ -4,7 +4,7 @@ namespace Meraki.Api.Data;
 /// UpdateNetworkCellularGatewaySettingsSubnetPool
 /// </summary>
 [DataContract]
-public class NetworkCellularGatewaySettingsSubnetPoolUpdateRequest
+public class NetworkCellularGatewaySubnetPoolUpdateRequest
 {
 	/// <summary>
 	/// CIDR of the pool of subnets. Each MG in this network will automatically pick a subnet from this pool.

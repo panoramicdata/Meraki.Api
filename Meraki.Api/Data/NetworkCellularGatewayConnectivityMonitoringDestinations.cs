@@ -4,12 +4,12 @@ namespace Meraki.Api.Data;
 /// UpdateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations
 /// </summary>
 [DataContract]
-public class NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest
+public class NetworkCellularGatewayConnectivityMonitoringDestinations
 {
 	/// <summary>
 	/// The list of connectivity monitoring destinations
 	/// </summary>
-	/// <value>The list of connectivity monitoring destinations</value>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destinations")]
 	public List<Destination> Destinations { get; set; } = new();
 }

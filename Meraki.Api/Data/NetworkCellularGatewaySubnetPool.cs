@@ -4,7 +4,7 @@ namespace Meraki.Api.Data;
 /// Network Cellular Gateway Subnet Pool
 /// </summary>
 [DataContract]
-public class NetworkCellularGatewaySettingsSubnetPool : NetworkCellularGatewaySettingsSubnetPoolUpdateRequest
+public class NetworkCellularGatewaySubnetPool : NetworkCellularGatewaySubnetPoolUpdateRequest
 {
 	/// <summary>
 	/// Subnets

@@ -8,7 +8,7 @@ public interface ICellularGatewayConnectivityMonitoringDestinations
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
-	Task<NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest> GetNetworkCellularGatewayConnectivityMonitoringDestinationsAsync(
+	Task<NetworkCellularGatewayConnectivityMonitoringDestinations> GetNetworkCellularGatewayConnectivityMonitoringDestinationsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -20,9 +20,9 @@ public interface ICellularGatewayConnectivityMonitoringDestinations
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations">Body for updating the connectivity testing destinations</param>
 	[Put("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
-	Task<NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest> UpdateNetworkCellularGatewayConnectivityMonitoringDestinationsAsync(
+	Task<NetworkCellularGatewayConnectivityMonitoringDestinations> UpdateNetworkCellularGatewayConnectivityMonitoringDestinationsAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] NetworkCellularGatewaySettingsConnectivityMonitoringDestinationsUpdateRequest updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations,
+		[Body] NetworkCellularGatewayConnectivityMonitoringDestinations updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations,
 		CancellationToken cancellationToken = default
 		);
 }
