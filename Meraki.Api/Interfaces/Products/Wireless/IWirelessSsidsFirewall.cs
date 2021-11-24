@@ -36,7 +36,7 @@ public interface IWirelessSsidsFirewall
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
-	[Get("/networks/{networkId}/ssids/{number}/l3FirewallRules")]
+	[Get("/networks/{networkId}/wireless/ssids/{number}/firewall/l3FirewallRules")]
 	Task<SsidLayer3FirewallRulesUpdateRequest> GetNetworkSsidL3FirewallRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
@@ -50,7 +50,7 @@ public interface IWirelessSsidsFirewall
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="updateNetworkSsidL3FirewallRules">Body for updating L3 firewall rules</param>
-	[Put("/networks/{networkId}/ssids/{number}/l3FirewallRules")]
+	[Put("/networks/{networkId}/wireless/ssids/{number}/firewall/l3FirewallRules")]
 	Task<SsidLayer3FirewallRulesUpdateRequest> UpdateNetworkSsidL3FirewallRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
