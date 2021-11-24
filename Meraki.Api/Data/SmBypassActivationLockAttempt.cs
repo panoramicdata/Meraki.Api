@@ -1,26 +1,22 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Response
+/// Bypass activation lock attempt status
 /// </summary>
 [DataContract]
-public class BypassLockResponse
+public class SmBypassActivationLockAttempt : IdentifiedItem
 {
-	/// <summary>
-	/// Id
-	/// </summary>
-	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
-
 	/// <summary>
 	/// Status
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "status")]
 	public string Status { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Data
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "data")]
-	public List<string> Data { get; set; } = new();
+	public object Data { get; set; } = new();
 }
