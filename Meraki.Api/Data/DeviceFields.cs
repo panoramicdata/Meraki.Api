@@ -9,13 +9,13 @@ public class DeviceFields
 	/// <summary>
 	/// New name for the device
 	/// </summary>
-	/// <value>New name for the device</value>
+	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
+	public string? Name { get; set; }
 	/// <summary>
 	/// New notes for the device
 	/// </summary>
-	/// <value>New notes for the device</value>
+	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "notes")]
-	public string Notes { get; set; } = string.Empty;
+	public string? Notes { get; set; }
 }

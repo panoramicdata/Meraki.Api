@@ -18,7 +18,7 @@ public interface ISmDevices
 	/// <param name="batchSize">Number of devices to return, 1000 is the default as well as the max. (optional)</param>
 	/// <param name="batchToken">If the network has more devices than the batch size, a batch token will be returned     as a part of the device list. To see the remainder of the devices, pass in the batchToken as a parameter in the next request.     Requests made with the batchToken do not require additional parameters as the batchToken includes the parameters passed in     with the original request. Additional parameters passed in with the batchToken will be ignored. (optional)</param>
 	[Get("/networks/{networkId}/sm/devices")]
-	Task<SmDevices> GetNetworkSmDevicesAsync(
+	Task<List<SmDevice>> GetNetworkSmDevicesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("fields")] string fields = null!,
 		[AliasAs("wifiMacs")] string wifiMacs = null!,
@@ -37,9 +37,9 @@ public interface ISmDevices
 	/// <param name="networkId">The network id</param>
 	/// <param name="checkinNetworkSmDevices">Body for check-in of device</param>
 	[Post("/networks/{networkId}/sm/devices/checkin")]
-	Task<CheckinNetworkSmDevices> CheckinNetworkSmDevicesAsync(
+	Task<SmDevicesCheckinRequest> CheckinNetworkSmDevicesAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] CheckinNetworkSmDevices checkinNetworkSmDevices,
+		[Body] SmDevicesCheckinRequest checkinNetworkSmDevices,
 		CancellationToken cancellationToken = default
 		);
 
@@ -50,9 +50,9 @@ public interface ISmDevices
 	/// <param name="networkId"></param>
 	/// <param name="lockNetworkSmDevices">Body for locking a set of devices</param>
 	[Post("/networks/{networkId}/sm/devices/lock")]
-	Task<CheckinNetworkSmDevices> LockNetworkSmDevicesAsync(
+	Task<SmDevicesCheckinRequest> LockNetworkSmDevicesAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] CheckinNetworkSmDevices lockNetworkSmDevices,
+		[Body] SmDevicesCheckinRequest lockNetworkSmDevices,
 		CancellationToken cancellationToken = default
 		);
 
@@ -62,7 +62,7 @@ public interface ISmDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Post("/networks/{networkId}/sm/devices/modifyTags")]
-	Task<CheckinNetworkSmDevices> ModifyNetworkSmDevicesTagsAsync(
+	Task<SmDevicesCheckinRequest> ModifyNetworkSmDevicesTagsAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] ModifyNetworkDeviceTags modifyNetworkSmDevicesTags,
 		CancellationToken cancellationToken = default

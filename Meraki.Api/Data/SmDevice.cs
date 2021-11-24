@@ -4,77 +4,75 @@
 /// SM Devices
 /// </summary>
 [DataContract]
-public class SmDevices
+public class SmDevice : NamedIdentifiedItem
 {
-	/// <summary>
-	/// Id
-	/// </summary>
-	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
-
-	/// <summary>
-	/// Name
-	/// </summary>
-	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
-
 	/// <summary>
 	/// Tags
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "tags")]
 	public List<string> Tags { get; set; } = new();
 
 	/// <summary>
 	/// SSID
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ssid")]
 	public string Ssid { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Wifi mac
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "wifiMac")]
 	public string WifiMac { get; set; } = string.Empty;
 
 	/// <summary>
 	/// OS Name
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "osName")]
 	public string OsName { get; set; } = string.Empty;
 
 	/// <summary>
 	/// System model
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "systemModel")]
 	public string SystemModel { get; set; } = string.Empty;
 
 	/// <summary>
 	/// UUID
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "uuid")]
 	public string Uuid { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Serial number
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "serialNumber")]
 	public string SerialNumber { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Serial
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "serial")]
 	public string Serial { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Ip
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ip")]
 	public string Ip { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Notes
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "notes")]
 	public string Notes { get; set; } = string.Empty;
 }
