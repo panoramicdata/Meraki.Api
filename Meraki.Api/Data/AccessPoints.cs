@@ -9,36 +9,42 @@ public class AccessPoints
 	/// <summary>
 	/// Serial number of access point to be configured with alternate management IP
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "serial")]
 	public string Serial { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Wireless alternate management interface device IP. Provide an empty string to remove alternate management IP assignment
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "alternateManagementIp")]
 	public string AlternateManagementIp { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Subnet mask must be in IP format
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "subnetMask")]
 	public string SubnetMask { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Gateway must be in IP format
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "gateway")]
 	public string Gateway { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Primary DNS must be in IP format
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dns1")]
 	public string Dns1 { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Optional secondary DNS must be in IP format
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dns2")]
 	public string Dns2 { get; set; } = string.Empty;
 }
