@@ -4,29 +4,19 @@
 /// SSID Identity psks
 /// </summary>
 [DataContract]
-public class IdentityPsks
+public class IdentityPsk : NamedIdentifiedItem
 {
 	/// <summary>
-	/// Id
+	/// The passphrase for client authentication. If left blank, one will be auto-generated
 	/// </summary>
-	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
-
-	/// <summary>
-	/// Name
-	/// </summary>
-	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
-
-	/// <summary>
-	/// Passphrase
-	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "passphrase")]
 	public string Passphrase { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Group policy id
+	/// The group policy to be applied to clients
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "groupPolicyId")]
 	public string GroupPolicyId { get; set; } = string.Empty;
 }

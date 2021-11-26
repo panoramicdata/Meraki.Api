@@ -9,7 +9,7 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
-	Task<List<IdentityPsks>> GetNetworkWirelessSsidIdentityPsksAsync(
+	Task<List<IdentityPsk>> GetNetworkWirelessSsidIdentityPsksAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
 		CancellationToken cancellationToken = default
@@ -23,10 +23,10 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="number">The SSID number</param>
 	/// <param name="createNetworkWirelessSsidIdentityPsk"></param>
 	[Post("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
-	Task<IdentityPsks> CreateNetworkWirelessSsidIdentityPskAsync(
+	Task<IdentityPsk> CreateNetworkWirelessSsidIdentityPskAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
-		[Body] IdentityPsks createNetworkWirelessSsidIdentityPsk,
+		[Body] IdentityPsk createNetworkWirelessSsidIdentityPsk,
 		CancellationToken cancellationToken = default
 		);
 
@@ -38,7 +38,7 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="number">The SSID number</param>
 	/// <param name="identityPskId">The identity psk id</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
-	Task<IdentityPsks> GetNetworkWirelessSsidIdentityPskAsync(
+	Task<IdentityPsk> GetNetworkWirelessSsidIdentityPskAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
 		[AliasAs("identityPskId")] string identityPskId,
@@ -54,11 +54,11 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="identityPskId">The identity psk id</param>
 	/// <param name="updateNetworkWirelessSsidIdentityPsk"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
-	Task<IdentityPsks> UpdateNetworkWirelessSsidIdentityPskAsync(
+	Task<IdentityPsk> UpdateNetworkWirelessSsidIdentityPskAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
 		[AliasAs("identityPskId")] string identityPskId,
-		[Body] IdentityPsks updateNetworkWirelessSsidIdentityPsk,
+		[Body] IdentityPsk updateNetworkWirelessSsidIdentityPsk,
 		CancellationToken cancellationToken = default
 		);
 
