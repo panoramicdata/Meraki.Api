@@ -11,7 +11,7 @@ public interface IWirelessBilling
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/wireless/billing")]
-	Task<NetworkWirelessBilling> GetNetworkWirelessBillingAsync(
+	Task<WirelessBilling> GetNetworkWirelessBillingAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -23,9 +23,9 @@ public interface IWirelessBilling
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkWirelessBilling">Body for updating network wireless billing</param>
 	[Put("/networks/{networkId}/wireless/billing")]
-	Task<NetworkWirelessBilling> UpdateNetworkWirelessBillingAsync(
+	Task<WirelessBilling> UpdateNetworkWirelessBillingAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] NetworkWirelessBilling updateNetworkWirelessBilling,
+		[Body] WirelessBilling updateNetworkWirelessBilling,
 		CancellationToken cancellationToken = default
 		);
 }
