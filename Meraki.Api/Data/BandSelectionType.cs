@@ -3,7 +3,6 @@ namespace Meraki.Api.Data;
 /// <summary>
 /// Band selection can be set to either 'ssid' or 'ap'. This param is required on creation.
 /// </summary>
-/// <value>Band selection can be set to either 'ssid' or 'ap'. This param is required on creation.</value>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum BandSelectionType
 {

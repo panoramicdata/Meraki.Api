@@ -9,9 +9,9 @@ public interface IWirelessRfProfiles
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkWirelessRfProfile">Body for creating an RF profile</param>
 	[Post("/networks/{networkId}/wireless/rfProfiles")]
-	Task<WirelessRfProfileCreationRequest> CreateNetworkWirelessRfProfileAsync(
+	Task<WirelessRfProfile> CreateNetworkWirelessRfProfileAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] WirelessRfProfileCreationRequest createNetworkWirelessRfProfile,
+		[Body] WirelessRfProfileCreateUpdateRequest createNetworkWirelessRfProfile,
 		CancellationToken cancellationToken = default
 		);
 
@@ -35,7 +35,7 @@ public interface IWirelessRfProfiles
 	/// <param name="networkId">The network id</param>
 	/// <param name="rfProfileId">The RF profile id</param>
 	[Get("/networks/{networkId}/wireless/rfProfiles/{rfProfileId}")]
-	Task<WirelessRfProfileCreationRequest> GetNetworkWirelessRfProfileAsync(
+	Task<WirelessRfProfile> GetNetworkWirelessRfProfileAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("rfProfileId")] string rfProfileId,
 		CancellationToken cancellationToken = default
@@ -48,7 +48,7 @@ public interface IWirelessRfProfiles
 	/// <param name="networkId">The network id</param>
 	/// <param name="includeTemplateProfiles">If the network is bound to a template, this parameter controls whether or not the non-basic RF profiles defined on the template     should be included in the response alongside the non-basic profiles defined on the bound network. Defaults to false.  (optional)</param>
 	[Get("/networks/{networkId}/wireless/rfProfiles")]
-	Task<List<WirelessRfProfileCreationRequest>> GetNetworkWirelessRfProfilesAsync(
+	Task<List<WirelessRfProfile>> GetNetworkWirelessRfProfilesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("includeTemplateProfiles")] bool? includeTemplateProfiles = null,
 		CancellationToken cancellationToken = default
@@ -62,10 +62,10 @@ public interface IWirelessRfProfiles
 	/// <param name="rfProfileId">The RF profile id</param>
 	/// <param name="updateNetworkWirelessRfProfile">Body for updating a specified RF profile</param>
 	[Put("/networks/{networkId}/wireless/rfProfiles/{rfProfileId}")]
-	Task<WirelessRfProfileCreationRequest> UpdateNetworkWirelessRfProfileAsync(
+	Task<WirelessRfProfile> UpdateNetworkWirelessRfProfileAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("rfProfileId")] string rfProfileId,
-		[Body] WirelessRfProfileUpdateRequest updateNetworkWirelessRfProfile,
+		[Body] WirelessRfProfileCreateUpdateRequest updateNetworkWirelessRfProfile,
 		CancellationToken cancellationToken = default
 		);
 }
