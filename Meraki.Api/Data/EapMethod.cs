@@ -4,17 +4,12 @@
 /// Methods
 /// </summary>
 [DataContract]
-public class Methods
+public class EapMethod : IdentifiedItem
 {
-	/// <summary>
-	/// Id
-	/// </summary>
-	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
-
 	/// <summary>
 	/// Authentication types
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "authenticationTypes")]
 	public AuthenticationTypes AuthenticationTypes { get; set; } = new();
 }
