@@ -1,38 +1,43 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Split tunnel rules
+/// A VPN split tunnel rule
 /// </summary>
 [DataContract]
-public class SplitTunnelRules
+public class SplitTunnelRule
 {
 	/// <summary>
 	/// Protocols
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "protocols")]
 	public string? Protocols { get; set; }
 
 	/// <summary>
-	/// Dest cidr
+	/// Destination for this split tunnel rule. IP address, fully-qualified domain names (FQDN) or 'any'.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destCidr")]
 	public string DestCidr { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Dest port
+	/// Destination port for this split tunnel rule, (integer in the range 1-65535), or 'any'.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destPort")]
 	public string DestPort { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Policy
+	/// Traffic policy specified for this split tunnel rule, 'allow' or 'deny'.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "policy")]
 	public string Policy { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Comment
+	/// Description for this split tunnel rule (optional).
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "comment")]
 	public string Comment { get; set; } = string.Empty;
 }

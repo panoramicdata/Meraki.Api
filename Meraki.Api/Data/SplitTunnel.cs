@@ -9,12 +9,14 @@ public class SplitTunnel
 	/// <summary>
 	/// Enabled
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
 
 	/// <summary>
 	/// Rules
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<SplitTunnelRules> SplitTunnelRules { get; set; } = new();
+	public List<SplitTunnelRule> Rules { get; set; } = new();
 }
