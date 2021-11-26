@@ -9,7 +9,7 @@ public interface IWirelessSsidsTrafficShaping
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules")]
-	Task<SsidTrafficShapingUpdateRequest> GetNetworkWirelessSsidTrafficShapingRulesAsync(
+	Task<SsidTrafficShapingRules> GetNetworkWirelessSsidTrafficShapingRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
 		CancellationToken cancellationToken = default
@@ -23,10 +23,10 @@ public interface IWirelessSsidsTrafficShaping
 	/// <param name="number">The SSID number</param>
 	/// <param name="updateNetworkSsidTrafficShaping"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules")]
-	Task<SsidTrafficShapingUpdateRequest> UpdateNetworkWirelessSsidTrafficShapingRulesAsync(
+	Task<SsidTrafficShapingRules> UpdateNetworkWirelessSsidTrafficShapingRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
-		[Body] SsidTrafficShapingUpdateRequest updateNetworkSsidTrafficShaping,
+		[Body] SsidTrafficShapingRules updateNetworkSsidTrafficShaping,
 		CancellationToken cancellationToken = default
 		);
 }
