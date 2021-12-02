@@ -31,7 +31,7 @@ public class SsidUpdateRequest
 	/// The total upload bandwidth limit in Kbps. (0 represents no limit.)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "perClientBandwidthLimitUp")]
+	[DataMember(Name = "perSsidBandwidthLimitUp")]
 	public int PerSsidBandwidthLimitUp { get; set; }
 
 	/// <summary>
