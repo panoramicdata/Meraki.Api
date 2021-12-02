@@ -9,18 +9,21 @@ public class LocalRadius
 	/// <summary>
 	/// The duration (in seconds) for which LDAP and OCSP lookups are cached.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "cacheTimeout")]
 	public int CacheTimeout { get; set; }
 
 	/// <summary>
 	/// The current setting for certificate verification.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "certificateAuthentication")]
 	public CertificateAuthentication CertificateAuthentication { get; set; } = new();
 
 	/// <summary>
 	/// The current setting for password-based authentication.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "passwordAuthentication")]
 	public PasswordAuthentication PasswordAuthentication { get; set; } = new();
 }

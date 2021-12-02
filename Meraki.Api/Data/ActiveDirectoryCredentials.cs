@@ -9,12 +9,14 @@ public class ActiveDirectoryCredentials
 	/// <summary>
 	/// The logon name of the Active Directory account.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "logonName")]
 	public string LogonName { get; set; } = string.Empty;
 
 	/// <summary>
 	/// The password to the Active Directory user account.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "password")]
 	public string Password { get; set; } = string.Empty;
 }

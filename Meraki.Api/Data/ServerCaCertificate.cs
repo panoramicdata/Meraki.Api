@@ -9,6 +9,7 @@ public class ServerCaCertificate
 	/// <summary>
 	/// The contents of the CA certificate. Must be in PEM or DER format.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "contents")]
 	public string Contents { get; set; } = string.Empty;
 }

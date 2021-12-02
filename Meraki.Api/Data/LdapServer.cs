@@ -9,12 +9,14 @@ public class LdapServer
 	/// <summary>
 	/// UDP port the LDAP server listens on.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "port")]
 	public int Port { get; set; }
 
 	/// <summary>
 	/// IP address of your LDAP server.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "host")]
 	public string Host { get; set; } = string.Empty;
 }
