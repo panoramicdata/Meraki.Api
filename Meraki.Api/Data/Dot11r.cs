@@ -9,12 +9,14 @@ public class Dot11r
 	/// <summary>
 	/// (Optional) Whether 802.11r is adaptive or not.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "adaptive")]
 	public bool? Adaptive { get; set; }
 
 	/// <summary>
 	/// Whether 802.11r is enabled or not.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
 }

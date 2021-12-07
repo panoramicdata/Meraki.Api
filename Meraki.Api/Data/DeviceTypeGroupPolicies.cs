@@ -7,14 +7,16 @@
 public class DeviceTypeGroupPolicies
 {
 	/// <summary>
-	/// Enabled
+	/// If true, the SSID device type group policies are enabled.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
 
 	/// <summary>
-	/// Device type policies
+	/// List of device type policies.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "deviceTypePolicies")]
-	public List<DeviceTypePolicies> DeviceTypePolicies { get; set; } = new();
+	public List<DeviceTypePolicy> DeviceTypePolicies { get; set; } = new();
 }

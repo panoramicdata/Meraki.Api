@@ -351,7 +351,8 @@ public partial class MerakiClient : IDisposable
 			{
 				Applications = RefitFor(Insight.Applications.Applications),
 				HealthByTime = RefitFor(Insight.Applications.HealthByTime)
-			}
+			},
+			MonitoredMediaServers = RefitFor(Insight.MonitoredMediaServers)
 		};
 
 		Sm = new()

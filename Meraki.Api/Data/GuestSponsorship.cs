@@ -7,14 +7,16 @@
 public class GuestSponsorship
 {
 	/// <summary>
-	/// Duration in minutes
+	/// Duration in minutes of sponsored guest authorization. Must be between 1 and 60480 (6 weeks)
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "durationInMinutes")]
 	public int DurationInMinutes { get; set; }
 
 	/// <summary>
-	/// Guest can request timeframe
+	/// Whether or not guests can specify how much time they are requesting.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "guestCanRequestTimeframe")]
 	public bool GuestCanRequestTimeframe { get; set; }
 }

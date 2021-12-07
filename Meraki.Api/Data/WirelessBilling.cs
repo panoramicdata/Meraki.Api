@@ -4,17 +4,19 @@
 /// Billing
 /// </summary>
 [DataContract]
-public class NetworkWirelessBilling
+public class WirelessBilling
 {
 	/// <summary>
 	/// Currency
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "currency")]
 	public string Currency { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Plans
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "plans")]
-	public List<Plans> Plans { get; set; } = new();
+	public List<WirelessBillingPlan> Plans { get; set; } = new();
 }

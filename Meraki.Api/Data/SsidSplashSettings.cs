@@ -7,80 +7,107 @@
 public class SsidSplashSettings
 {
 	/// <summary>
-	/// Splash timeout
+	/// Splash timeout in minutes. This will determine how often users will see the splash page.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashTimeout")]
 	public int SplashTimeout { get; set; }
 
 	/// <summary>
-	/// Controller disconnection behavior
+	/// How login attempts should be handled when the controller is unreachable. Can be either 'open', 'restricted', or 'default
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "controllerDisconnectionBehavior")]
 	public string? ControllerDisconnectBehavior { get; set; }
 
 	/// <summary>
-	/// Redirect URL
+	/// The custom redirect URL where the users will go after the splash page.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "redirectUrl")]
 	public string? RedirectUrl { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Welcome message
+	/// [optional] The custom splash URL of the click-through splash page. Note that the URL can be configured without necessarily being used. In order to enable the custom URL, see 'useSplashUrl'
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "splashUrl")]
+	public string? SplashUrl { get; set; } = string.Empty;
+
+	/// <summary>
+	/// The welcome message for the users on the splash page.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "welcomeMessage")]
 	public string WelcomeMessage { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Allow simultaneous logins
+	/// Whether or not to allow simultaneous logins from different devices.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowSimultaneousLogins")]
 	public bool? AllowSimultaneousLogins { get; set; }
 
 	/// <summary>
-	/// Block all traffic before sign on
+	/// How restricted allowing traffic should be.If true, all traffic types are blocked until the splash page is acknowledged.If false, all non-HTTP traffic is allowed before the splash page is acknowledged
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "blockAllTrafficBeforeSignOn")]
 	public bool BlockAllTrafficBeforeSignOn { get; set; }
 
 	/// <summary>
-	/// Use redirect url
+	/// The Boolean indicating whether the the user will be redirected to the custom redirect URL after the splash page. A custom redirect URL must be set if this is true.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "useRedirectUrl")]
 	public bool UseRedirectUrl { get; set; }
 
 	/// <summary>
-	/// Use splash url
+	/// [optional] Boolean indicating whether the users will be redirected to the custom splash url. A custom splash URL must be set if this is true. Note that depending on your SSID's access control settings, it may not be possible to use the custom splash URL.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "useSplashUrl")]
-	public bool UseSplashUrl { get; set; }
+	public bool? UseSplashUrl { get; set; }
 
 	/// <summary>
-	/// Billing
+	/// Details associated with billing splash.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "billing")]
 	public Billing? Billing { get; set; }
 
 	/// <summary>
-	/// Guest sponsorship
+	/// Details associated with guest sponsored splash.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "guestSponsorship")]
-	public GuestSponsorship? GuestSponsorship { get; set; }
+	public GuestSponsorship GuestSponsorship { get; set; } = new();
 
 	/// <summary>
-	/// Splash image
+	/// Systems Manager sentry enrollment splash settings.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "sentryEnrollment")]
+	public SentryEnrollment sentryEnrollment { get; set; } = new();
+
+	/// <summary>
+	/// The image used in the splash page.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashImage")]
 	public SplashImage SplashImage { get; set; } = new();
 
 	/// <summary>
-	/// Splash logo
+	/// The logo used in the splash page.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashLogo")]
 	public SplashImage SplashLogo { get; set; } = new();
 
 	/// <summary>
-	/// Splash prepaid front
+	/// The prepaid front image used in the splash page.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashPrepaidFront")]
 	public SplashImage SplashPrepaidFront { get; set; } = new();
 }

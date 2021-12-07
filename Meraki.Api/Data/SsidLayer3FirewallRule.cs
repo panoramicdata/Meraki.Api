@@ -9,33 +9,35 @@ public class SsidLayer3FirewallRule
 	/// <summary>
 	/// Description of the rule (optional)
 	/// </summary>
-	/// <value>Description of the rule (optional)</value>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "comment")]
-	public string Comment { get; set; } = null!;
+	public string? Comment { get; set; }
 
 	/// <summary>
-	/// Gets or Sets Policy
+	/// 'allow' or 'deny' traffic specified by this rule
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "policy")]
-	public AllowOrDeny Policy { get; set; }
+	public string Policy { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Gets or Sets Protocol
+	/// The type of protocol (must be 'tcp', 'udp', 'icmp' or 'any')
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "protocol")]
 	public FirewallProtocol Protocol { get; set; }
 
 	/// <summary>
-	/// Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'
+	/// Destination port (integer in the range 1-65535), a port range (e.g. 8080-9090), or 'any'
 	/// </summary>
-	/// <value>Comma-separated list of destination port(s) (integer in the range 1-65535), or 'any'</value>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destPort")]
-	public string DestinationPort { get; set; } = null!;
+	public string DestinationPort { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'
+	/// Destination IP address (in IP or CIDR notation), a fully-qualified domain name (FQDN, if your network supports it) or 'any'.
 	/// </summary>
-	/// <value>Comma-separated list of destination IP address(es) (in IP or CIDR notation), fully-qualified domain names (FQDN) or 'any'</value>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destCidr")]
-	public string DestinationCidr { get; set; } = null!;
+	public string DestinationCidr { get; set; } = string.Empty;
 }

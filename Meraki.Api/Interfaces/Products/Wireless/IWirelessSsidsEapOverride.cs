@@ -25,7 +25,7 @@ public interface IWirelessSsidsEapOverride
 	Task<EapOverride> UpdateNetworkWirelessSsidEapOverrideAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
-		[Body] EapOverride eapOverrideUpdateRequest,
+		[Body] EapOverrideUpdateRequest eapOverrideUpdateRequest,
 		CancellationToken cancellationToken = default
 		);
 }

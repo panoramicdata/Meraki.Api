@@ -1,64 +1,57 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// CreateNetworkWirelessRfProfile
+/// UpdateNetworkWirelessRfProfile
 /// </summary>
 [DataContract]
-public class WirelessRfProfileCreationRequest
+public class WirelessRfProfileCreateUpdateRequest
 {
 	/// <summary>
-	/// Id
+	/// The name of the new profile. Must be unique.
 	/// </summary>
-	[DataMember(Name = "id")]
-	public string? Id { get; set; }
-
-	/// <summary>
-	///	Network id
-	/// </summary>
-	[DataMember(Name = "networkId")]
-	public string? NetworkId { get; set; }
-
-	/// <summary>
-	/// The name of the new profile. Must be unique. This param is required on creation.
-	/// </summary>
-	/// <value>The name of the new profile. Must be unique. This param is required on creation.</value>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = null!;
+	public string Name { get; set; } = String.Empty;
 
 	/// <summary>
-	/// Steers client to best available access point. Can be either true or false. Defaults to true.
+	/// Steers client to best available access point. Can be either true or false.
 	/// </summary>
-	/// <value>Steers client to best available access point. Can be either true or false. Defaults to true.</value>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "clientBalancingEnabled")]
-	public bool? ClientBalancingEnabled { get; set; }
+	public bool ClientBalancingEnabled { get; set; }
 
 	/// <summary>
 	/// Gets or Sets MinBitrateType
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "minBitrateType")]
 	public MinBitrateType MinBitrateType { get; set; }
 
 	/// <summary>
 	/// Gets or Sets BandSelectionType
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bandSelectionType")]
 	public BandSelectionType BandSelectionType { get; set; }
 
 	/// <summary>
 	/// Gets or Sets ApBandSettings
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "apBandSettings")]
 	public ApBandSettings ApBandSettings { get; set; } = null!;
 
 	/// <summary>
 	/// Gets or Sets TwoFourGhzSettings
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "twoFourGhzSettings")]
-	public TwoPointFourGhzSettings TwoFourGhzSettings { get; set; } = null!;
+	public TwoPointFourGhzSettings TwoPointFourGhzSettings { get; set; } = null!;
 
 	/// <summary>
 	/// Gets or Sets FiveGhzSettings
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "fiveGhzSettings")]
 	public FiveGhzSettings FiveGhzSettings { get; set; } = null!;
 }
