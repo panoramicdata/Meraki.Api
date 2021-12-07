@@ -114,6 +114,15 @@ namespace Meraki.Api.Interfaces
 			[AliasAs("search")] string? search = null,
 			CancellationToken cancellationToken = default);
 
+		// Used by IOrganizations.GetOrganizationNetworksAllAsync
+		[Get("/organizations/{organizationId}/inventoryDevices")]
+		internal Task<ApiResponse<List<InventoryDevice>>> GetInventoryDevicesApiResponseAsync(
+			[AliasAs("organizationId")] string organizationId,
+			[AliasAs("startingAfter")] string? startingAfter = null,
+			[AliasAs("usedState")] string? usedState = null,
+			[AliasAs("search")] string? search = null,
+			CancellationToken cancellationToken = default);
+
 		/// <summary>
 		/// Return the device inventory for an organization
 		/// </summary>

@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Meraki.Api.Data;
+using Meraki.Api.Extensions;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -52,11 +53,22 @@ namespace Meraki.Api.Test
 		}
 
 		[Fact]
-		public async void GetAllInventoryAsync_Succeeds()
+		public async void GetInventoryAsync_Succeeds()
 		{
 			var result = await TestMerakiClient
 				.Organizations
 				.GetInventoryDevicesAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			result.Should().NotBeNull();
+			result.Should().NotBeEmpty();
+		}
+
+		[Fact]
+		public async void GetAllInventoryAsync_Succeeds()
+		{
+			var result = await TestMerakiClient
+				.Organizations
+				.GetInventoryDevicesAllAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
 			result.Should().NotBeNull();
 			result.Should().NotBeEmpty();
