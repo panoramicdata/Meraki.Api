@@ -21,7 +21,7 @@
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 
 		<PackageReleaseNotes>
-			Moved to netstandard2.0 for greater compatibility
+			Added GetOrganizationInventoryDevicesAllAsync
 		</PackageReleaseNotes>
 	</PropertyGroup>
 

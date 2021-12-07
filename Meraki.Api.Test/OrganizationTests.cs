@@ -44,12 +44,24 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllInventoryAsync_Succeeds()
+	public async void GetInventoryAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
 			.InventoryDevices
 			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId)
+			.ConfigureAwait(false);
+		result.Should().NotBeNull();
+		result.Should().NotBeEmpty();
+	}
+
+	[Fact]
+	public async void GetInventoryAllAsync_Succeeds()
+	{
+		var result = await TestMerakiClient
+			.Organizations
+			.InventoryDevices
+			.GetOrganizationInventoryDevicesAllAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
 		result.Should().NotBeNull();
 		result.Should().NotBeEmpty();
