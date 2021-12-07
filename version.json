@@ -1,6 +1,7 @@
 {
 	"version": "1.14",
 	"publicReleaseRefSpec": [
-		"^refs/heads/main$"
+		"^refs/heads/main$",
+		"^refs/heads/.+-hotfix$"
 	]
 }
