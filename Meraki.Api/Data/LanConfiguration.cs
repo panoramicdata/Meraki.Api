@@ -23,54 +23,63 @@ public class LanConfiguration
 	/// <summary>
 	/// FixedIpAssignments - No documentation
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "fixedIpAssignments")]
 	public object FixedIpAssignments { get; set; } = new();
 
 	/// <summary>
 	/// ReservedIpRanges - No documentation
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "reservedIpRanges")]
 	public List<object> ReservedIpRanges { get; set; } = new();
 
 	/// <summary>
 	/// DnsNameservers - No documentation
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "dnsNameservers")]
 	public string DnsNameservers { get; set; } = string.Empty;
 
 	/// <summary>
 	/// DnsCustomNameservers - No documentation
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "dnsCustomNameservers")]
 	public List<object> DnsCustomNameservers { get; set; } = new();
 
 	/// <summary>
 	/// DhcpHandling - No documentation
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "dhcpHandling")]
 	public string DhcpHandling { get; set; } = string.Empty;
 
 	/// <summary>
 	/// DhcpLeaseTime - No documentation
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "dhcpLeaseTime")]
 	public string DhcpLeaseTime { get; set; } = string.Empty;
 
 	/// <summary>
 	/// DhcpBootOptionsEnabled - No documentation
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "dhcpBootOptionsEnabled")]
 	public bool DhcpBootOptionsEnabled { get; set; }
 
 	/// <summary>
 	/// DhcpOptions - No documentation
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "dhcpOptions")]
 	public List<object> DhcpOptions { get; set; } = new();
 
 	/// <summary>
 	/// mandatoryDhcp - No documentation
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "mandatoryDhcp")]
 	public MandatoryDhcp MandatoryDhcp { get; set; } = new();
 }
