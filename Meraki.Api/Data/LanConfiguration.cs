@@ -67,4 +67,10 @@ public class LanConfiguration
 	/// </summary>
 	[DataMember(Name = "dhcpOptions")]
 	public List<object> DhcpOptions { get; set; } = new();
+
+	/// <summary>
+	/// mandatoryDhcp - No documentation
+	/// </summary>
+	[DataMember(Name = "mandatoryDhcp")]
+	public MandatoryDhcp MandatoryDhcp { get; set; } = new();
 }
