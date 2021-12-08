@@ -22,13 +22,6 @@ public class Vlan : NamedIdentifiedItem
 	public string ApplianceIp { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Subnet
-	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "subnet")]
-	public string Subnet { get; set; } = string.Empty;
-
-	/// <summary>
 	/// groupPolicyId
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
@@ -113,9 +106,9 @@ public class Vlan : NamedIdentifiedItem
 	public string? TemplateVlanType { get; set; }
 
 	/// <summary>
-	/// Cidr
+	/// Cidr - Set using Subnet in the creation model
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "cidr")]
 	public string? Cidr { get; set; }
 
