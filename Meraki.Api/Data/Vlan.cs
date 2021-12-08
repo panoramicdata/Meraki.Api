@@ -29,6 +29,13 @@ public class Vlan : NamedIdentifiedItem
 	public string Subnet { get; set; } = string.Empty;
 
 	/// <summary>
+	/// groupPolicyId
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "groupPolicyId")]
+	public string GroupPolicyId { get; set; } = string.Empty;
+
+	/// <summary>
 	/// Fixed IP assignments
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
