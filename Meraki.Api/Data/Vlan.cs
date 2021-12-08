@@ -29,6 +29,13 @@ public class Vlan : NamedIdentifiedItem
 	public string? Cidr { get; set; }
 
 	/// <summary>
+	/// Subnet
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "subnet")]
+	public string? Subnet { get; set; }
+
+	/// <summary>
 	/// groupPolicyId
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
