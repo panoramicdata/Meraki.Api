@@ -32,7 +32,7 @@ public class VlanCreationRequest
 	/// </summary>
 	/// <value>The local IP of the appliance on the VLAN</value>
 	[DataMember(Name = "applianceIp")]
-	public string ApplianceIp { get; set; } = null!;
+	public string? ApplianceIp { get; set; }
 
 	/// <summary>
 	/// The id of the desired group policy to apply to the VLAN
