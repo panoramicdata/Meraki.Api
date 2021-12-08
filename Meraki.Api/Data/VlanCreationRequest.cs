@@ -25,7 +25,7 @@ public class VlanCreationRequest
 	/// </summary>
 	/// <value>The subnet of the VLAN</value>
 	[DataMember(Name = "subnet")]
-	public string Subnet { get; set; } = null!;
+	public string? Subnet { get; set; }
 
 	/// <summary>
 	/// The local IP of the appliance on the VLAN
@@ -40,4 +40,11 @@ public class VlanCreationRequest
 	/// <value>The id of the desired group policy to apply to the VLAN</value>
 	[DataMember(Name = "groupPolicyId")]
 	public string GroupPolicyId { get; set; } = null!;
+
+	/// <summary>
+	/// Cidr
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "cidr")]
+	public string? Cidr { get; set; }
 }

@@ -22,7 +22,7 @@ public class Vlan : NamedIdentifiedItem
 	public string? ApplianceIp { get; set; }
 
 	/// <summary>
-	/// Cidr - Set using Subnet in the creation model
+	/// Cidr
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "cidr")]
