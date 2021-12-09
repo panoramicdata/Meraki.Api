@@ -19,4 +19,11 @@ public class NetworkCellularGatewaySubnetPoolUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "mask")]
 	public int? Mask { get; set; }
+
+	/// <summary>
+	/// DeploymentMode (not documented)
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "deploymentMode")]
+	public string? DeploymentMode { get; set; }
 }

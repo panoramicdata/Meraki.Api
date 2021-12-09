@@ -12,8 +12,4 @@ public class NetworkCellularGatewaySubnetPool : NetworkCellularGatewaySubnetPool
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "subnets")]
 	public List<CellularGatewaySubnet> Subnets { get; set; } = new();
-
-	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "deploymentMode")]
-	public string? DeploymentMode { get; set; }
 }
