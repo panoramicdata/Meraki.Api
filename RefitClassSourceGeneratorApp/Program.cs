@@ -59,6 +59,7 @@ namespace Meraki.Api.Sections.General.Networks {
 			{
 				Console.WriteLine("   " + diag.ToString());
 			}
+
 			Console.WriteLine();
 			Console.WriteLine("Output:");
 		}

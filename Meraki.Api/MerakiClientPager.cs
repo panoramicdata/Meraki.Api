@@ -48,6 +48,7 @@ public partial class MerakiClient
 			// There was no Link header so we're finished
 			finished = true;
 		}
+
 		return allEntries;
 	}
 
@@ -93,6 +94,7 @@ public partial class MerakiClient
 			// There was no Link header so we're finished
 			finished = true;
 		}
+
 		return allEntries;
 	}
 
@@ -144,6 +146,7 @@ public partial class MerakiClient
 			// There was no Link header so we're finished
 			finished = true;
 		}
+
 		return allEntries;
 	}
 }

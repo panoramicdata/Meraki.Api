@@ -59,6 +59,7 @@ public class Configuration
 		{
 			throw new ConfigurationException($"Missing {nameof(MerakiClientOptions)}");
 		}
+
 		MerakiClientOptions.Validate();
 
 		if (string.IsNullOrWhiteSpace(TestOrganizationId))

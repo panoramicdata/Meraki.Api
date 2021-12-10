@@ -265,6 +265,7 @@ public class OrganizationTests : MerakiClientTest
 			// Compare the id
 			organization.Id.Should().Be(id);
 		}
+
 		organization.Name.Should().Be(initialOrganizationName);
 		organization.Url.Should().NotBeNullOrWhiteSpace();
 	}

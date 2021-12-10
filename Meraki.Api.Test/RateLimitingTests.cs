@@ -42,6 +42,7 @@ public class RateLimitingTests : MerakiClientTest
 				timerList.Add(queryResult);
 			}
 		}
+
 		var fileInfo = new FileInfo(Path.GetTempFileName() + ".xlsx");
 		using var magicSpreadsheet = new MagicSpreadsheet(fileInfo);
 		magicSpreadsheet.AddSheet(timerList);

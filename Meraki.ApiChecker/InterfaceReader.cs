@@ -42,6 +42,7 @@ public static class InterfaceReader
                 existingList.Add(new(method, refitAttribute));
             }
         }
+
         return implementedEndpoints;
     }
 }

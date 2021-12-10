@@ -71,6 +71,7 @@ public static class TableOutput
                                     existingImplementation.Method.Name ?? string.Empty);
                                 implementedEndpoints?[pathKpv.Key].Remove(existingImplementation);
                             }
+
                             break;
                     }
                 }
@@ -86,6 +87,7 @@ public static class TableOutput
                 pathKpv.Value.Operations.Remove(pathOperation);
             }
         }
+
         if (implementedTable.Rows.Count > 0)
         {
             implementedTable.Title(
@@ -135,6 +137,7 @@ public static class TableOutput
                     );
             }
         }
+
         AnsiConsole.Write(extraTable);
     }
 }

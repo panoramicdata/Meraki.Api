@@ -46,6 +46,7 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 		{
 			request.Headers.Add("User-Agent", _options.UserAgent);
 		}
+
 		var attemptCount = 0;
 		while (true)
 		{
@@ -93,6 +94,7 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 					{
 						retryAfterSeconds = 1;
 					}
+
 					delay = TimeSpan.FromSeconds(1.1 * retryAfterSeconds);
 					_logger.LogDebug($"{logPrefix}Received {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
 					break;
@@ -105,6 +107,7 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 					{
 						_logger.LogDebug($"{logPrefix}Received {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
 					}
+
 					return httpResponseMessage;
 			}
 			// Try up to the maximum retry count.

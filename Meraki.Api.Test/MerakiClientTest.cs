@@ -51,6 +51,7 @@ public class MerakiClientTest
 			{
 				throw new ConfigurationException("Configuration did not deserialize");
 			}
+
 			_configuration.Validate();
 			return _configuration;
 		}

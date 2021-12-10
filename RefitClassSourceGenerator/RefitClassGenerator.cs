@@ -64,6 +64,7 @@ public class RefitClassGenerator : ISourceGenerator
 						);
 					continue;
 				}
+
 				var propertyTypeName = propertyDeclaredSymbol.Type.ToDisplayString();
 				var propertyInterfaceSymbols = GetMatchingInterfacesInSolution(context.Compilation, propertyTypeName);
 				if (propertyInterfaceSymbols is null)
@@ -82,6 +83,7 @@ public class RefitClassGenerator : ISourceGenerator
 						);
 					continue;
 				}
+
 				if (propertyInterfaceSymbols.Count != 1)
 				{
 					// Report an error message that we found other than 1 interface
@@ -127,8 +129,10 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 						var parameters = string.Join(", ", methodSymbol.Parameters.Select(p => $"{p.Name}"));
 						sb.AppendLine($"\t\t=> {propertyDeclaredSymbol.Name}.{methodSymbol.Name}({parameters});");
 					}
+
 					processedAnyMethods = true;
 				}
+
 				sb.AppendLine("}");
 				var newSource = sb.ToString();
 #if DEBUG
