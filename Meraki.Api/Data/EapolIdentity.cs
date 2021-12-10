@@ -13,7 +13,6 @@ public class EapolIdentity
 	[DataMember(Name = "retries")]
 	public int Retries { get; set; }
 
-
 	/// <summary>
 	/// EAP timeout in seconds.
 	/// </summary>

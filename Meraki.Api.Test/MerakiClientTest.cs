@@ -95,9 +95,9 @@ public class MerakiClientTest
 		return network;
 	}
 
-	protected async Task RemoveNetworkAsync(string networkId)
-		=> await TestMerakiClient
+	protected Task RemoveNetworkAsync(string networkId)
+		=> TestMerakiClient
 			.Networks
 			.DeleteNetworkAsync(networkId)
-			.ConfigureAwait(false);
+;
 }

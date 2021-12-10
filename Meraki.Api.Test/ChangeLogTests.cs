@@ -7,7 +7,7 @@ public class ChangeLogTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetChangeLogEntriesPagedAsync_Succeeds()
+	public async Task GetChangeLogEntriesPagedAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
@@ -20,7 +20,7 @@ public class ChangeLogTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllAsync_Succeeds()
+	public async Task GetAllAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations

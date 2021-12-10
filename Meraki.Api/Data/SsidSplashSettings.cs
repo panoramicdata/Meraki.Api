@@ -56,7 +56,7 @@ public class SsidSplashSettings
 	public bool BlockAllTrafficBeforeSignOn { get; set; }
 
 	/// <summary>
-	/// The Boolean indicating whether the the user will be redirected to the custom redirect URL after the splash page. A custom redirect URL must be set if this is true.
+	/// The Boolean indicating whether the user will be redirected to the custom redirect URL after the splash page. A custom redirect URL must be set if this is true.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "useRedirectUrl")]

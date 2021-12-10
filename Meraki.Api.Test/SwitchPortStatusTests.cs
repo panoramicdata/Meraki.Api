@@ -7,7 +7,7 @@ public class SwitchPortStatusTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetSwitchPortStatuses_Succeeds()
+	public async Task GetSwitchPortStatuses_Succeeds()
 	{
 		var switchPortStatuses = await TestMerakiClient
 			.Switch.Ports

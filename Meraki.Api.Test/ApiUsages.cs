@@ -7,7 +7,7 @@ public class ApiUsages : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetPageAsync_Succeeds()
+	public async Task GetPageAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
@@ -19,7 +19,7 @@ public class ApiUsages : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetOverviewAsync_Succeeds()
+	public async Task GetOverviewAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations

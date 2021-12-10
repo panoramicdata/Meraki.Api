@@ -7,7 +7,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	//[Fact]
-	//public async void GetNetworksAsync_Succeeds()
+	//public async Task GetNetworksAsync_Succeeds()
 	//{
 	//	var result = await MerakiClient
 	//		.Networks
@@ -31,7 +31,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllSsidsAsync_Succeeds()
+	public async Task GetAllSsidsAsync_Succeeds()
 	{
 		var network = await GetFirstNetworkAsync()
 			.ConfigureAwait(false);
@@ -46,7 +46,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllDevicesAsync_Succeeds()
+	public async Task GetAllDevicesAsync_Succeeds()
 	{
 		var network = await GetFirstNetworkAsync()
 			.ConfigureAwait(false);
@@ -62,7 +62,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void SimpleCreateDelete_Succeeds()
+	public async Task SimpleCreateDelete_Succeeds()
 	{
 		var networkName = new string('X', Network.MaxNameLength);
 
@@ -92,7 +92,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void NameTooLong_Fails()
+	public Task NameTooLong_Fails()
 	{
 		var networkName = new string('X', Network.MaxNameLength + 1);
 
@@ -112,10 +112,9 @@ public class NetworkTests : MerakiClientTest
 				 .ConfigureAwait(false);
 		};
 
-		await action
+		return action
 			.Should()
-			.ThrowAsync<ApiException>()
-			.ConfigureAwait(false);
+			.ThrowAsync<ApiException>();
 	}
 
 	private async Task EnsureNetworkRemovedAsync(string networkName)
@@ -152,7 +151,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void CreateClaimRemoveDelete_Succeeds()
+	public async Task CreateClaimRemoveDelete_Succeeds()
 	{
 		const string networkName = "Meraki.Api Unit Test";
 
@@ -391,7 +390,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetClientsAsync_Succeeds()
+	public async Task GetClientsAsync_Succeeds()
 	{
 		var network = await GetFirstNetworkAsync()
 			.ConfigureAwait(false);
@@ -406,7 +405,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetBluetoothClientsAsync_Succeeds()
+	public async Task GetBluetoothClientsAsync_Succeeds()
 	{
 		var network = await GetFirstNetworkAsync()
 			.ConfigureAwait(false);
@@ -421,7 +420,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetWirelessSettingsAsync_Succeeds()
+	public async Task GetWirelessSettingsAsync_Succeeds()
 	{
 		var network = await GetFirstNetworkAsync()
 			.ConfigureAwait(false);
@@ -458,7 +457,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetCameraSnapshotAsync_Succeeds()
+	public async Task GetCameraSnapshotAsync_Succeeds()
 	{
 		if (OperatingSystem.IsWindows())
 		{
@@ -487,7 +486,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetCameraVideoLinkAsync_Succeeds()
+	public async Task GetCameraVideoLinkAsync_Succeeds()
 	{
 		Configuration.TestCameraNetworkId.Should().NotBeNull();
 
@@ -501,7 +500,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetRepeatedlyInQuickSuccession_Succeeds()
+	public async Task GetRepeatedlyInQuickSuccession_Succeeds()
 	{
 		foreach (var _ in Enumerable.Range(0, 10))
 		{
@@ -511,7 +510,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetDeviceSwitchPortsAsync_Succeeds()
+	public async Task GetDeviceSwitchPortsAsync_Succeeds()
 	{
 		Configuration.TestSwitchSerial.Should().NotBeNull();
 
@@ -524,7 +523,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkSwitchStacksAsync_Succeeds()
+	public async Task GetNetworkSwitchStacksAsync_Succeeds()
 	{
 		Configuration.TestCameraNetworkId.Should().NotBeNull();
 
@@ -537,7 +536,7 @@ public class NetworkTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void ReadOnlyStopsCreate_Succeeds()
+	public async Task ReadOnlyStopsCreate_Succeeds()
 	{
 		var originalIsReadOnly = TestMerakiClient.IsReadOnly;
 		TestMerakiClient.SetReadOnly(true);

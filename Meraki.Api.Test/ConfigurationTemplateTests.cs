@@ -7,7 +7,7 @@ public class ConfigurationTemplateTest : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworksByConfigTemplateIdAsync_Succeeds()
+	public async Task GetNetworksByConfigTemplateIdAsync_Succeeds()
 	{
 		var configurationTemplates = await GetAllAsync().ConfigureAwait(false);
 		if (configurationTemplates.Count == 0)
@@ -26,7 +26,7 @@ public class ConfigurationTemplateTest : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllConfigurationTemplatesAsync_Succeeds()
+	public async Task GetAllConfigurationTemplatesAsync_Succeeds()
 	{
 		var configurationTemplates = await GetAllAsync().ConfigureAwait(false);
 

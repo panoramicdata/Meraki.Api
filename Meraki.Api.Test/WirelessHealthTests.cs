@@ -9,7 +9,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkClientLatencyStats_Succeeds()
+	public async Task GetNetworkClientLatencyStats_Succeeds()
 	{
 		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 		Configuration.TestMac.Should().NotBeNullOrEmpty();
@@ -30,7 +30,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkClientsLatencyStats_Succeeds()
+	public async Task GetNetworkClientsLatencyStats_Succeeds()
 	{
 		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
@@ -49,7 +49,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkDeviceLatencyStats_Succeeds()
+	public async Task GetNetworkDeviceLatencyStats_Succeeds()
 	{
 		Configuration.TestDeviceSerial.Should().NotBeNullOrEmpty();
 
@@ -67,7 +67,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkDevicesLatencyStats_Succeeds()
+	public async Task GetNetworkDevicesLatencyStats_Succeeds()
 	{
 		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
@@ -85,7 +85,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkLatencyStats_Succeeds()
+	public async Task GetNetworkLatencyStats_Succeeds()
 	{
 		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
@@ -102,7 +102,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkClientConnectionStats_Succeeds()
+	public async Task GetNetworkClientConnectionStats_Succeeds()
 	{
 		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 		Configuration.TestMac.Should().NotBeNullOrEmpty();
@@ -123,7 +123,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkClientsConnectionStats_Succeeds()
+	public async Task GetNetworkClientsConnectionStats_Succeeds()
 	{
 		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
@@ -142,7 +142,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkDeviceConnectionStats_Succeeds()
+	public async Task GetNetworkDeviceConnectionStats_Succeeds()
 	{
 		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 		Configuration.TestDeviceSerial.Should().NotBeNullOrEmpty();
@@ -161,7 +161,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkDevicesConnectionStats_Succeeds()
+	public async Task GetNetworkDevicesConnectionStats_Succeeds()
 	{
 		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
@@ -180,7 +180,7 @@ public class WirelessHealthTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworkConnectionStats_Succeeds()
+	public async Task GetNetworkConnectionStats_Succeeds()
 	{
 		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 

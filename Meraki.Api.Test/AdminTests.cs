@@ -7,7 +7,7 @@ public class AdminTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAll_Succeeds()
+	public async Task GetAll_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations

@@ -11,7 +11,7 @@ public class RateLimitingTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAll_Succeeds()
+	public async Task GetAll_Succeeds()
 	{
 		var stopwatch = new Stopwatch();
 		var timerList = new List<QueryResult>();

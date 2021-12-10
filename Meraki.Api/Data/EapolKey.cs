@@ -10,7 +10,6 @@ public class EapolKey
 	[DataMember(Name = "retries")]
 	public int Retries { get; set; }
 
-
 	/// <summary>
 	/// EAPOL Key timeout in milliseconds.
 	/// </summary>

@@ -7,7 +7,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllAsync_Succeeds()
+	public async Task GetAllAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
@@ -21,7 +21,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAsync_Succeeds()
+	public async Task GetAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
@@ -31,7 +31,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllThirdPartyVpnPeersAsync_Succeeds()
+	public async Task GetAllThirdPartyVpnPeersAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Appliance
@@ -44,7 +44,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetInventoryAsync_Succeeds()
+	public async Task GetInventoryAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
@@ -56,7 +56,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetInventoryAllAsync_Succeeds()
+	public async Task GetInventoryAllAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
@@ -68,7 +68,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetOrganizationLicenseState_Succeeds()
+	public async Task GetOrganizationLicenseState_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
@@ -80,7 +80,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetOrganizationLicenses_Succeeds()
+	public async Task GetOrganizationLicenses_Succeeds()
 	{
 		if (Configuration.TestOrganizationIdSupportingPerDeviceLicensing is null)
 		{
@@ -98,7 +98,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetOrganizationDevices_Succeeds()
+	public async Task GetOrganizationDevices_Succeeds()
 	{
 		var organizationDevices = await TestMerakiClient
 			.Organizations
@@ -110,7 +110,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetOrganizationDeviceStatus_Succeeds()
+	public async Task GetOrganizationDeviceStatus_Succeeds()
 	{
 		var organizationDeviceStatus = await TestMerakiClient
 			.Organizations
@@ -125,7 +125,7 @@ public class OrganizationTests : MerakiClientTest
 	/// Get an organization device license by ID
 	/// </summary>
 	[Fact]
-	public async void GetOrganizationDeviceLicense_Succeeds()
+	public async Task GetOrganizationDeviceLicense_Succeeds()
 	{
 		if (Configuration.TestOrganizationIdSupportingPerDeviceLicensing is null)
 		{
@@ -151,10 +151,8 @@ public class OrganizationTests : MerakiClientTest
 		organizationDeviceLicense.Should().NotBeNull();
 	}
 
-#pragma warning disable xUnit1004 // Test methods should not be skipped
-	[Fact(Skip = "Not part of general run")]
-#pragma warning restore xUnit1004 // Test methods should not be skipped
-	public async void ClaimDeviceAsync_Succeeds()
+	//[Fact(Skip = "Not part of general run")]
+	public async Task ClaimDeviceAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
@@ -165,7 +163,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void Crud_Succeeds()
+	public async Task Crud_Succeeds()
 	{
 		const string initialOrganizationName = "TestOrganization";
 
@@ -232,7 +230,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetNetworksAsync_Succeeds()
+	public async Task GetNetworksAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
@@ -272,7 +270,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllPagesForNetworksAsync_Succeeds()
+	public async Task GetAllPagesForNetworksAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.GetAllAsync(
@@ -299,7 +297,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllPagesWithDefaultPerPage_ForNetworksAsync_Succeeds()
+	public async Task GetAllPagesWithDefaultPerPage_ForNetworksAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.GetAllAsync(
@@ -324,7 +322,7 @@ public class OrganizationTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetAllNetworksAsync_Succeeds()
+	public async Task GetAllNetworksAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations

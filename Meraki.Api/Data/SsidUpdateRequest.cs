@@ -111,7 +111,6 @@ public class SsidUpdateRequest
 	[DataMember(Name = "enterpriseAdminAccess")]
 	public string EnterpriseAdminAccess { get; set; } = string.Empty;
 
-
 	/// <summary>
 	/// The client IP assignment mode('NAT mode', 'Bridge mode', 'Layer 3 roaming', 'Layer 3 roaming with a concentrator' or 'VPN')
 	/// </summary>
@@ -398,5 +397,4 @@ public class SsidUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "splashTimeout")]
 	public string? SplashTimeout { get; set; } = string.Empty;
-
 }

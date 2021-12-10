@@ -7,7 +7,7 @@ public class DeviceTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetDeviceAsync_Succeeds()
+	public async Task GetDeviceAsync_Succeeds()
 	{
 		var devices = await TestMerakiClient
 			.Networks
@@ -34,7 +34,7 @@ public class DeviceTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void GetDevice_GetModelType_Succeeds()
+	public async Task GetDevice_GetModelType_Succeeds()
 	{
 		var devices = await TestMerakiClient
 			.Networks
@@ -52,7 +52,7 @@ public class DeviceTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void PutDeviceAsync_WithMoveMapMarker_Succeeds()
+	public async Task PutDeviceAsync_WithMoveMapMarker_Succeeds()
 	{
 		var devices = await TestMerakiClient
 			.Networks
@@ -102,7 +102,7 @@ public class DeviceTests : MerakiClientTest
 	}
 
 	[Fact]
-	public async void BlinkDeviceAsync_Succeeds()
+	public async Task BlinkDeviceAsync_Succeeds()
 	{
 		var deviceStatuses = await TestMerakiClient
 			.Organizations
@@ -135,7 +135,7 @@ public class DeviceTests : MerakiClientTest
 
 	// Test disabled - could only test with temporary credentials.
 	[Fact]
-	public async void GetDeviceNetworkManagementSettingsAsync_Succeeds()
+	public async Task GetDeviceNetworkManagementSettingsAsync_Succeeds()
 	{
 		var devices = await TestMerakiClient
 			.Networks
