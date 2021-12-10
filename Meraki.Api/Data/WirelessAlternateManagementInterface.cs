@@ -18,7 +18,7 @@ public class WirelessAlternateManagementInterface
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "vlanId")]
-	public int VlanId { get; set; } = 0;
+	public int VlanId { get; set; }
 
 	/// <summary>
 	/// Can be one or more of the following values: 'radius', 'snmp', 'syslog' or 'ldap'

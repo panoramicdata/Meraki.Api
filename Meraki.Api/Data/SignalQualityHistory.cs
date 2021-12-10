@@ -22,11 +22,11 @@ public class SignalQualityHistory
 	/// Snr
 	/// </summary>
 	[DataMember(Name = "snr")]
-	public int Snr { get; set; } = 0;
+	public int Snr { get; set; }
 
 	/// <summary>
 	/// Rssi
 	/// </summary>
 	[DataMember(Name = "rssi")]
-	public int Rssi { get; set; } = 0;
+	public int Rssi { get; set; }
 }

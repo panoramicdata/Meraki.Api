@@ -22,5 +22,5 @@ public class ClientCountHistory
 	/// Client count
 	/// </summary>
 	[DataMember(Name = "clientCount")]
-	public int ClientCount { get; set; } = 0;
+	public int ClientCount { get; set; }
 }

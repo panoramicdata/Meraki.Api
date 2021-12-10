@@ -22,13 +22,13 @@ public class ConnectivityEvents
 	/// Band
 	/// </summary>
 	[DataMember(Name = "band")]
-	public int Band { get; set; } = 0;
+	public int Band { get; set; }
 
 	/// <summary>
 	/// Ssid
 	/// </summary>
 	[DataMember(Name = "ssid")]
-	public int Ssid { get; set; } = 0;
+	public int Ssid { get; set; }
 
 	/// <summary>
 	/// Type
@@ -52,19 +52,19 @@ public class ConnectivityEvents
 	/// Duration
 	/// </summary>
 	[DataMember(Name = "durationMs")]
-	public int DurationMs { get; set; } = 0;
+	public int DurationMs { get; set; }
 
 	/// <summary>
 	/// Channel
 	/// </summary>
 	[DataMember(Name = "channel")]
-	public int Channel { get; set; } = 0;
+	public int Channel { get; set; }
 
 	/// <summary>
 	/// Rssi
 	/// </summary>
 	[DataMember(Name = "rssi")]
-	public int Rssi { get; set; } = 0;
+	public int Rssi { get; set; }
 
 	/// <summary>
 	/// Event data

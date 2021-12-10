@@ -22,5 +22,5 @@ public class LatencyHistory
 	/// Average latency Ms
 	/// </summary>
 	[DataMember(Name = "avgLatencyMs")]
-	public int AvgLatencyMs { get; set; } = 0;
+	public int AvgLatencyMs { get; set; }
 }

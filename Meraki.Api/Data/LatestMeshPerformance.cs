@@ -10,13 +10,13 @@ public class LatestMeshPerformance
 	/// Mbps
 	/// </summary>
 	[DataMember(Name = "mbps")]
-	public int Mbps { get; set; } = 0;
+	public int Mbps { get; set; }
 
 	/// <summary>
 	/// Metric
 	/// </summary>
 	[DataMember(Name = "metric")]
-	public int Metric { get; set; } = 0;
+	public int Metric { get; set; }
 
 	/// <summary>
 	/// Usage percentage

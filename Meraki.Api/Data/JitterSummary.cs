@@ -22,17 +22,17 @@ public class JitterSummary
 	/// Average jitter
 	/// </summary>
 	[DataMember(Name = "avgJitter")]
-	public int AvgJitter { get; set; } = 0;
+	public int AvgJitter { get; set; }
 
 	/// <summary>
 	/// Minimum jitter
 	/// </summary>
 	[DataMember(Name = "minJitter")]
-	public int MinJitter { get; set; } = 0;
+	public int MinJitter { get; set; }
 
 	/// <summary>
 	/// Maximum jitter
 	/// </summary>
 	[DataMember(Name = "maxJitter")]
-	public int MaxJitter { get; set; } = 0;
+	public int MaxJitter { get; set; }
 }

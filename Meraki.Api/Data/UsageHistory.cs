@@ -22,17 +22,17 @@ public class UsageHistory
 	/// Total Kbps
 	/// </summary>
 	[DataMember(Name = "totalKbps")]
-	public int TotalKbps { get; set; } = 0;
+	public int TotalKbps { get; set; }
 
 	/// <summary>
 	/// Sent Kbps
 	/// </summary>
 	[DataMember(Name = "sentKbps")]
-	public int SentKbps { get; set; } = 0;
+	public int SentKbps { get; set; }
 
 	/// <summary>
 	/// Received Kbps
 	/// </summary>
 	[DataMember(Name = "receivedKbps")]
-	public int ReceivedKbps { get; set; } = 0;
+	public int ReceivedKbps { get; set; }
 }

@@ -22,17 +22,17 @@ public class DataRateHistory
 	/// Average Kbps
 	/// </summary>
 	[DataMember(Name = "averageKbps")]
-	public int AverageKbps { get; set; } = 0;
+	public int AverageKbps { get; set; }
 
 	/// <summary>
 	/// Download Kbps
 	/// </summary>
 	[DataMember(Name = "downloadKbps")]
-	public int DownloadKbps { get; set; } = 0;
+	public int DownloadKbps { get; set; }
 
 	/// <summary>
 	/// UploadKbps
 	/// </summary>
 	[DataMember(Name = "uploadKbps")]
-	public int UploadKbps { get; set; } = 0;
+	public int UploadKbps { get; set; }
 }

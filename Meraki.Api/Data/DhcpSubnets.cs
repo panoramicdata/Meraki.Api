@@ -16,17 +16,17 @@ public class DhcpSubnets
 	/// Vlan id
 	/// </summary>
 	[DataMember(Name = "vlanId")]
-	public int VlanId { get; set; } = 0;
+	public int VlanId { get; set; }
 
 	/// <summary>
 	/// Used count
 	/// </summary>
 	[DataMember(Name = "usedCount")]
-	public int UsedCount { get; set; } = 0;
+	public int UsedCount { get; set; }
 
 	/// <summary>
 	/// Free count
 	/// </summary>
 	[DataMember(Name = "freeCount")]
-	public int FreeCount { get; set; } = 0;
+	public int FreeCount { get; set; }
 }
