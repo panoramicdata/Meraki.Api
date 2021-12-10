@@ -125,4 +125,11 @@ public class Vlan : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "mask")]
 	public int? Mask { get; set; }
+
+	/// <summary>
+	/// mandatoryDhcp - No documentation
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "mandatoryDhcp")]
+	public MandatoryDhcp MandatoryDhcp { get; set; } = new();
 }
