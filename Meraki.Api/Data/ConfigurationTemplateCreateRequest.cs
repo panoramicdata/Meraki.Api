@@ -19,8 +19,9 @@ public class ConfigurationTemplateCreateRequest
 	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The timezone of the configuration template. For a list of allowed timezones,
-	/// please see the 'TZ' column in the table in https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+	/// The timezone of the configuration template, for example "Europe/London".
+	/// For a list of allowed timezones, please see the "TZ database name" column in
+	/// the table in https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	/// </summary>
 	[DataMember(Name = "timeZone")]
 	public string TimeZone { get; set; } = string.Empty;
