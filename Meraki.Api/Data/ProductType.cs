@@ -26,5 +26,8 @@ public enum ProductType
 	Sensor,
 
 	[EnumMember(Value = "environmental")]
-	Environmental
+	Environmental,
+
+	[EnumMember(Value = "phone")]
+	Phone
 }
