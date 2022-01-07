@@ -1,13 +1,13 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
-/// Application/JSON
+/// Health alert scope network
 /// </summary>
 [DataContract]
-public class ApplicationJson
+public class HealthAlertScopePeerNetwork
 {
 	/// <summary>
-	/// Id
+	/// Url
 	/// </summary>
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
@@ -17,10 +17,4 @@ public class ApplicationJson
 	/// </summary>
 	[DataMember(Name = "name")]
 	public string Name { get; set; } = string.Empty;
-
-	/// <summary>
-	/// Url
-	/// </summary>
-	[DataMember(Name = "url")]
-	public string Url { get; set; } = string.Empty;
 }
