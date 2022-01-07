@@ -37,4 +37,17 @@ public interface INetworksDevices
 		[AliasAs("networkId")] string networkId,
 		[Body] string serial,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Claim a vMX into a network
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="vmxNetworkDevicesClaim">Body of request</param>
+	[ApiOperationId("vmxNetworkDevicesClaim")]
+	[Post("/networks/{networkId}/devices/claim/vmx")]
+	Task<Device> VmxNetworkDevicesClaimAsync(
+		[AliasAs("networkId")] string networkId,
+		[Body] VmxNetworkDevicesClaim vmxNetworkDevicesClaim,
+		CancellationToken cancellationToken = default);
 }
