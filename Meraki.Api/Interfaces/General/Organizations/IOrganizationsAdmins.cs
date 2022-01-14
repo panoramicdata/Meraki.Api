@@ -32,11 +32,11 @@ public interface IOrganizationsAdmins
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="id">The admin id</param>
-	[Delete("/organizations/{organizationId}/admins/{id}")]
+	/// <param name="adminId">The admin id</param>
+	[Delete("/organizations/{organizationId}/admins/{adminId}")]
 	Task DeleteOrganizationAdminAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("id")] string id,
+		[AliasAs("adminId")] string adminId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -44,12 +44,12 @@ public interface IOrganizationsAdmins
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="id">The admin id</param>
+	/// <param name="adminId">The admin id</param>
 	/// <param name="adminUpdateRequest">Body for updating admin</param>
-	[Put("/organizations/{organizationId}/admins/{id}")]
+	[Put("/organizations/{organizationId}/admins/{adminId}")]
 	Task<Admin> UpdateOrganizationAdminAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("id")] string id,
+		[AliasAs("adminId")] string adminId,
 		[Body] AdminUpdateRequest adminUpdateRequest,
 		CancellationToken cancellationToken = default);
 }
