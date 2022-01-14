@@ -37,16 +37,14 @@ public static class TableOutput
             {
                 // Look for a matching operation
                 var refitMethod = pathOperation.Key.ToHttpMethod();
-                List<MethodDetails>? implementation = null;
-                implementedEndpoints?.TryGetValue(pathKpv.Key, out implementation);
-                var existingImplementations = implementation?.Where(e => e.RefitAttribute.Method == refitMethod).ToList();
+                List<MethodDetails>? pathImplementations = null;
+                implementedEndpoints?.TryGetValue(pathKpv.Key, out pathImplementations);
+                var existingImplementations = pathImplementations?.Where(e => e.RefitAttribute.Method == refitMethod).ToList();
 
-                if (existingImplementations != null)
+                if (existingImplementations?.Count > 0)
                 {
                     switch (existingImplementations.Count)
                     {
-                        case 0:
-                            throw new InvalidDataException("Didn't expect to get 0 as a count of existing implementations when not null");
                         case 1:
                             var methodName = existingImplementations[0].Method.Name ?? string.Empty;
                             var expectedMethodName = pathOperation.Value.OperationId.FirstCharToUpper() + "Async";
