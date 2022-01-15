@@ -53,4 +53,18 @@ public interface IOrganizationsAdaptivePolicyPolicies
 		[AliasAs("adaptivePolicyId")] string adaptivePolicyId,
 		[Body] AdaptivePolicyPolicyCreate updateOrganizationAdaptivePolicyPolicy,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Delete an Adaptive Policy
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="adaptivePolicyId">The adaptive policy id</param>
+	[ApiOperationId("deleteOrganizationAdaptivePolicyPolicy")]
+	[Delete("/organizations/{organizationId}/adaptivePolicy/policies/{adaptivePolicyId}")]
+	Task DeleteOrganizationAdaptivePolicyPolicyAsync(
+		[AliasAs("organizationId")] string organizationId,
+		[AliasAs("adaptivePolicyId")] string adaptivePolicyId,
+		CancellationToken cancellationToken = default
+		);
 }
