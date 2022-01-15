@@ -10,14 +10,14 @@ namespace Meraki.Api.Data;
 public class AdaptivePolicyGroupPolicyObjects
 {
 	/// <summary>
-	/// Id
+	/// The ID of the policy object
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Name
+	/// The name of the policy object
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "name")]

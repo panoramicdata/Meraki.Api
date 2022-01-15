@@ -18,7 +18,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 
 
 	/// <summary>
-	/// List adaptive policy groups in a organization
+	/// Creates a new adaptive policy group
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
@@ -57,4 +57,18 @@ public interface IOrganizationsAdaptivePolicyGroups
 		CancellationToken cancellationToken = default
 		);
 
+	/// <summary>
+	/// Updates an adaptive policy group. If updating "Infrastructure", only the SGT is allowed. Cannot update "Unknown".
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="groupId">The group id</param>
+	/// <param name="updateOrganizationAdaptivePolicyGroup">Body</param>
+	[ApiOperationId("updateOrganizationAdaptivePolicyGroup")]
+	[Put("/organizations/{organizationId}/adaptivePolicy/groups/{groupId}")]
+	Task<AdaptivePolicyGroup> UpdateOrganizationAdaptivePolicyGroup(
+		[AliasAs("organizationId")] string organizationId,
+		[AliasAs("groupId")] string groupId,
+		[Body] AdaptivePolicyGroupCreate updateOrganizationAdaptivePolicyGroup,
+		CancellationToken cancellationToken = default);
 }
