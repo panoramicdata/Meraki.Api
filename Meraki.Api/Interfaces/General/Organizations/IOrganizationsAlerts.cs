@@ -43,4 +43,18 @@ public interface IOrganizationsAlerts
 		[AliasAs("alertConfigId")] string alertConfigId,
 		[Body] OrganizationAlert updateOrganizationAlertsProfile,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Removes an organization-wide alert config
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="alertConfigId">The alert config id</param>
+	[ApiOperationId("deleteOrganizationAlertsProfile")]
+	[Delete("/organizations/{organizationId}/alerts/profiles/{alertConfigId}")]
+	Task DeleteOrganizationAlertsProfileAsync(
+		[AliasAs("organizationId")] string organizationId,
+		[AliasAs("alertConfigId")] string alertConfigId,
+		CancellationToken cancellationToken = default
+		);
 }
