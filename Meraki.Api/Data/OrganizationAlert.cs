@@ -23,18 +23,21 @@ public class OrganizationAlert
 	/// <summary>
 	/// Enabled
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
 
 	/// <summary>
 	/// The conditions that determine if the alert triggers
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "alertCondition")]
 	public OrganizationAlertCondition AlertCondition { get; set; } = new();
 
 	/// <summary>
-	/// Recipients
+	/// List of recipients that will recieve the alert.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "recipients")]
 	public OrganizationAlertRecipients Recipients { get; set; } = new();
 
