@@ -38,4 +38,19 @@ public interface IOrganizationsAdaptivePolicyPolicies
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("adaptivePolicyId")] string adaptivePolicyId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Update an Adaptive Policy
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="adaptivePolicyId">The adaptive policy id</param>
+	/// <param name="updateOrganizationAdaptivePolicyPolicy">Body</param>
+	[ApiOperationId("updateOrganizationAdaptivePolicyPolicy")]
+	[Put("/organizations/{organizationId}/adaptivePolicy/policies/{adaptivePolicyId}")]
+	Task<AdaptivePolicyPolicies> UpdateOrganizationAdaptivePolicyPolicyAsync(
+		[AliasAs("organizationId")] string organizationId,
+		[AliasAs("adaptivePolicyId")] string adaptivePolicyId,
+		[Body] AdaptivePolicyPolicyCreate updateOrganizationAdaptivePolicyPolicy,
+		CancellationToken cancellationToken = default);
 }
