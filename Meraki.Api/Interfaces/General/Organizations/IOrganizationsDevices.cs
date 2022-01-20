@@ -49,4 +49,19 @@ public interface IOrganizationsDevices
 		[AliasAs("endingBefore")] string endingBefore = null!,
 		[AliasAs("configurationUpdatedAfter")] string configurationUpdatedAfter = null!,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Return an overview of current device statuses
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="productTypes">An optional parameter to filter device statuses by product type. Valid types are wireless, appliance, switch, systemsManager, camera, cellularGateway, and sensor.</param>
+	/// <param name="networkIds">An optional parameter to filter device statuses by network.</param>
+	[ApiOperationId("getOrganizationDevicesStatusesOverview")]
+	[Get("/organizations/{organizationId}/devices/statuses/overview")]
+	Task<DeviceStatusOverview> GetOrganizationDevicesStatusesOverviewAsync(
+		[AliasAs("organizationId")] string organizationId,
+		[AliasAs("productTypes")] string[]? productTypes,
+		[AliasAs("networkIds")] string[]? networkIds,
+		CancellationToken cancellationToken = default);
 }
