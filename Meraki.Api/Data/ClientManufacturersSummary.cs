@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Meraki.Api.Data;
+
+[DataContract]
+public class ClientManufacturersSummary
+{
+	/// <summary>
+	/// Name
+	/// </summary>
+	[DataMember(Name = "name")]
+	public string Name { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Clients
+	/// </summary>
+	[DataMember(Name = "clients")]
+	public ClientManufacturersSummaryClients Clients { get; set; } = new();
+
+	/// <summary>
+	/// Usage
+	/// </summary>
+	[DataMember(Name = "usage")]
+	public ClientOverviewUsageOverall Usage { get; set; } = new();
+}

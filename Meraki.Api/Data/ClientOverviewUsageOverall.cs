@@ -24,4 +24,10 @@ public class ClientOverviewUsageOverall
 	/// </summary>
 	[DataMember(Name = "upstream")]
 	public int Upstream { get; set; } = 0;
+
+	/// <summary>
+	/// Percentage
+	/// </summary>
+	[DataMember(Name = "percentage")]
+	public int Percentage { get; set; } = 0;
 }
