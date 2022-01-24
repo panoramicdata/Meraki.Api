@@ -20,10 +20,10 @@ public class WirelessRadioFiveGhzSettings
 	[DataMember(Name = "channelWidth")]
 	public int? ChannelWidth { get; set; }
 
-	/// <summary>
-	/// Set a manual target power for 5 GHz. Can be between '8' or '30' or null for using auto power range.
-	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "targetPower")]
-	public int? TargetPower { get; set; }
+	///// <summary>
+	///// Set a manual target power for 5 GHz. Can be between '8' or '30' or null for using auto power range.
+	///// </summary>
+	//[ApiAccess(ApiAccess.ReadUpdate)]
+	//[DataMember(Name = "targetPower")]
+	//public float? TargetPower { get; set; }
 }
