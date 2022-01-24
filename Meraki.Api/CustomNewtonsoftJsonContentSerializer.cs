@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.IO;
+using System.Reflection;
 
 namespace Meraki.Api;
 /// <summary>
@@ -56,6 +57,11 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		catch (JsonSerializationException ex)
 		{
 			_logger.LogWarning(ex, ex.Message);
+
+			// Reset the stream
+			var stream = await content.ReadAsStreamAsync().ConfigureAwait(false);
+			stream.Seek(0, SeekOrigin.Begin);
+
 			return await _serializerIgnore.FromHttpContentAsync<T>(content, cancellationToken).ConfigureAwait(false);
 		}
 	}
