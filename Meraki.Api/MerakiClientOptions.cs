@@ -44,14 +44,9 @@ public class MerakiClientOptions
 	public bool ReadOnly { get; set; }
 
 	/// <summary>
-	/// How to handle missing members - defaults to ignore for release builds and error for debug builds of the library
+	/// How to handle missing members
 	/// </summary>
-	public MissingMemberHandling MissingMemberHandling { get; set; }
-#if DEBUG
-		= MissingMemberHandling.Error;
-#else
-		= MissingMemberHandling.Ignore;
-#endif
+	public JsonMissingMemberHandling JsonMissingMemberHandling { get; set; } = JsonMissingMemberHandling.Ignore;
 
 	public void Validate()
 	{

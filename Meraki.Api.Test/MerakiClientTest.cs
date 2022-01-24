@@ -58,7 +58,20 @@ public class MerakiClientTest
 	}
 
 	protected MerakiClient TestMerakiClient
-		=> _merakiClient ??= new MerakiClient(Configuration.MerakiClientOptions, Logger);
+	{
+		get
+		{
+			if (_merakiClient != null)
+			{
+				return _merakiClient;
+			}
+
+			// Unit tests should always error if members are missing to aid picking up issues with models early
+			Configuration.MerakiClientOptions.JsonMissingMemberHandling = JsonMissingMemberHandling.ThrowOnError;
+
+			return _merakiClient = new MerakiClient(Configuration.MerakiClientOptions, Logger);
+		}
+	}
 
 	protected async Task<Network> GetFirstNetworkAsync()
 	{
