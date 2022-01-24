@@ -7,6 +7,13 @@
 public class SsidRadiusServer
 {
 	/// <summary>
+	/// The Id
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "id")]
+	public string Id { get; set; } = string.Empty;
+
+	/// <summary>
 	/// Public IP address of the RADIUS server
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
