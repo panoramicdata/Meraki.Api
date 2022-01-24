@@ -428,6 +428,9 @@ public partial class MerakiClient : IDisposable
 	public void SetMissingMemberHandling(MissingMemberHandling missingMemberHandling)
 		=> _options.MissingMemberHandling = missingMemberHandling;
 
+	public MissingMemberHandling GetMissingMemberHandling()
+		=> _options.MissingMemberHandling;
+
 	#region IDisposable Support
 	private bool _disposedValue; // To detect redundant calls
 
