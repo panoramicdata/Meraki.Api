@@ -53,7 +53,9 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 
 	private async Task<T?> LogWarningOnErrorAndContinueFromHttpContentAsync<T>(HttpContent content, CancellationToken cancellationToken)
 	{
-		using var stream = await content.ReadAsStreamAsync().ConfigureAwait(false);
+		using var sourceStream = await content.ReadAsStreamAsync().ConfigureAwait(false);
+		using var stream = new MemoryStream();
+		await sourceStream.CopyToAsync(stream).ConfigureAwait(false);
 		using var reader = new StreamReader(stream);
 		try
 		{
