@@ -13,10 +13,10 @@ public class WirelessRadioTwoFourGhzSettings
 	[DataMember(Name = "channel")]
 	public int? Channel { get; set; }
 
-	/// <summary>
-	/// Set a manual target power for 2.4 GHz. Can be between '5' or '30' or null for using auto power range.
-	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "targetPower")]
-	public float? TargetPower { get; set; }
+	///// <summary>
+	///// Set a manual target power for 2.4 GHz. Can be between '5' or '30' or null for using auto power range.
+	///// </summary>
+	//[ApiAccess(ApiAccess.ReadUpdate)]
+	//[DataMember(Name = "targetPower")]
+	//public float? TargetPower { get; set; }
 }
