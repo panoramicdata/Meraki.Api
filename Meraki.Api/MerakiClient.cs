@@ -390,7 +390,7 @@ public partial class MerakiClient : IDisposable
 	private T RefitFor<T>(T _)
 		=> RestService.For<T>(_httpClient, _refitSettings);
 
-	private readonly RefitSettings _refitSettings;
+	private RefitSettings _refitSettings;
 
 	public ApplianceSection Appliance { get; } = new();
 
@@ -426,7 +426,22 @@ public partial class MerakiClient : IDisposable
 		=> _options.ReadOnly = readOnly;
 
 	public void SetMissingMemberHandling(MissingMemberHandling missingMemberHandling)
-		=> _options.MissingMemberHandling = missingMemberHandling;
+	{
+		_options.MissingMemberHandling = missingMemberHandling;
+		_refitSettings = new RefitSettings
+		{
+			ContentSerializer = new NewtonsoftJsonContentSerializer(
+				   new JsonSerializerSettings
+				   {
+					   // By default nulls should not be rendered out, this will allow the receiving API to apply any defaults.
+					   // Use [JsonProperty(NullValueHandling = NullValueHandling.Include)] to send
+					   // nulls for specific properties, e.g. disassociating port schedule ids from a port
+					   NullValueHandling = NullValueHandling.Ignore,
+					   MissingMemberHandling = missingMemberHandling,
+					   Converters = new List<JsonConverter> { new StringEnumConverter() }
+				   })
+		};
+	}
 
 	public MissingMemberHandling GetMissingMemberHandling()
 		=> _options.MissingMemberHandling;
