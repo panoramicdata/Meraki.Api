@@ -25,5 +25,5 @@ public class WirelessRadioFiveGhzSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "targetPower")]
-	public int? TargetPower { get; set; }
+	public decimal? TargetPower { get; set; }
 }
