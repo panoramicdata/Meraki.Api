@@ -31,9 +31,7 @@ public partial class MerakiClient : IDisposable
 				// Use [JsonProperty(NullValueHandling = NullValueHandling.Include)] to send
 				// nulls for specific properties, e.g. disassociating port schedule ids from a port
 				NullValueHandling = NullValueHandling.Ignore,
-#if DEBUG
-				MissingMemberHandling = MissingMemberHandling.Error,
-#endif
+				MissingMemberHandling = options.MissingMemberHandling,
 				Converters = new List<JsonConverter> { new StringEnumConverter() }
 			})
 		};
