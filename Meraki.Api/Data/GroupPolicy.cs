@@ -40,7 +40,7 @@ public class GroupPolicy : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "contentFiltering")]
-	public ContentFilteringResult ContentFiltering { get; set; } = new();
+	public GroupPolicyContentFiltering ContentFiltering { get; set; } = new();
 
 	/// <summary>
 	/// Gets or Sets SplashAuthSettings

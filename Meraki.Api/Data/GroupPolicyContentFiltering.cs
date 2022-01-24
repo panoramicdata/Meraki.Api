@@ -1,18 +1,11 @@
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// The content filtering settings for your group policy
 /// </summary>
 [DataContract]
-public class ContentFilteringResult
+public class GroupPolicyContentFiltering
 {
-	/// <summary>
-	/// Gets or Sets UrlCategoryListSize
-	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "urlCategoryListSize")]
-	public UrlCategoryListSize UrlCategoryListSize { get; set; }
-
 	/// <summary>
 	/// Gets or Sets AllowedUrlPatterns
 	/// </summary>

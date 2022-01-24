@@ -9,7 +9,7 @@ public interface IApplianceContentFiltering
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkApplianceContentFiltering")]
 	[Get("/networks/{networkId}/appliance/contentFiltering")]
-	Task<ContentFilteringResult> GetNetworkApplianceContentFilteringAsync(
+	Task<ApplianceContentFilteringResult> GetNetworkApplianceContentFilteringAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -22,7 +22,7 @@ public interface IApplianceContentFiltering
 	/// <param name="networkContentFilteringUpdateRequest">Body for updating content filtering settings</param>
 	[ApiOperationId("updateNetworkApplianceContentFiltering")]
 	[Put("/networks/{networkId}/appliance/contentFiltering")]
-	Task<ContentFilteringResult> UpdateNetworkApplianceContentFilteringAsync(
+	Task<ApplianceContentFilteringResult> UpdateNetworkApplianceContentFilteringAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] ContentFilteringUpdateRequest networkContentFilteringUpdateRequest,
 		CancellationToken cancellationToken = default
