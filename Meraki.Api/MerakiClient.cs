@@ -422,7 +422,11 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// Used to change the Options Readonly state after client is created
 	/// </summary>
-	public void SetReadOnly(bool readOnly) => _options.ReadOnly = readOnly;
+	public void SetReadOnly(bool readOnly)
+		=> _options.ReadOnly = readOnly;
+
+	public void SetMissingMemberHandling(MissingMemberHandling missingMemberHandling)
+		=> _options.MissingMemberHandling = missingMemberHandling;
 
 	#region IDisposable Support
 	private bool _disposedValue; // To detect redundant calls
