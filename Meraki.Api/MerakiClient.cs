@@ -428,19 +428,17 @@ public partial class MerakiClient : IDisposable
 	public void SetMissingMemberHandling(MissingMemberHandling missingMemberHandling)
 	{
 		_options.MissingMemberHandling = missingMemberHandling;
-		_refitSettings = new RefitSettings
-		{
-			ContentSerializer = new NewtonsoftJsonContentSerializer(
-				   new JsonSerializerSettings
-				   {
-					   // By default nulls should not be rendered out, this will allow the receiving API to apply any defaults.
-					   // Use [JsonProperty(NullValueHandling = NullValueHandling.Include)] to send
-					   // nulls for specific properties, e.g. disassociating port schedule ids from a port
-					   NullValueHandling = NullValueHandling.Ignore,
-					   MissingMemberHandling = missingMemberHandling,
-					   Converters = new List<JsonConverter> { new StringEnumConverter() }
-				   })
-		};
+		_refitSettings.ContentSerializer =
+			new NewtonsoftJsonContentSerializer(
+				new JsonSerializerSettings
+				{
+					// By default nulls should not be rendered out, this will allow the receiving API to apply any defaults.
+					// Use [JsonProperty(NullValueHandling = NullValueHandling.Include)] to send
+					// nulls for specific properties, e.g. disassociating port schedule ids from a port
+					NullValueHandling = NullValueHandling.Ignore,
+					MissingMemberHandling = missingMemberHandling,
+					Converters = new List<JsonConverter> { new StringEnumConverter() }
+				});
 	}
 
 	public MissingMemberHandling GetMissingMemberHandling()
