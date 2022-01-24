@@ -18,19 +18,19 @@ public class ContentFilteringResult
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedUrlPatterns")]
-	public List<string> AllowedUrlPatterns { get; set; } = new();
+	public AllowedUrlPatterns AllowedUrlPatterns { get; set; } = new();
 
 	/// <summary>
 	/// Gets or Sets BlockedUrlPatterns
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "blockedUrlPatterns")]
-	public List<string> BlockedUrlPatterns { get; set; } = new();
+	public BlockedUrlPatterns BlockedUrlPatterns { get; set; } = new();
 
 	/// <summary>
 	/// Gets or Sets BlockedUrlCategories
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "blockedUrlCategories")]
-	public List<ContentFilteringCategory> BlockedUrlCategories { get; set; } = new();
+	public BlockedUrlCategories BlockedUrlCategories { get; set; } = new();
 }
