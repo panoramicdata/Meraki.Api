@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace Meraki.Api;
 /// <summary>
@@ -51,30 +50,18 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 			_ => throw new NotSupportedException()
 		};
 
-	private async Task<T?> LogWarningOnErrorAndContinueFromHttpContentAsync<T>(HttpContent content, CancellationToken cancellationToken)
+	private async Task<T?> LogWarningOnErrorAndContinueFromHttpContentAsync<T>(HttpContent content, CancellationToken _)
 	{
-		using var sourceStream = await content.ReadAsStreamAsync().ConfigureAwait(false);
-		using var stream = new MemoryStream();
-		await sourceStream.CopyToAsync(stream).ConfigureAwait(false);
-		using var reader = new StreamReader(stream);
+		var sourceJson = await content.ReadAsStringAsync().ConfigureAwait(false);
 		try
 		{
-			var serializer = JsonSerializer.Create(_jsonSerializerSettingsWithError);
-			using var jsonTextReader = new JsonTextReader(reader);
-
-			return serializer.Deserialize<T>(jsonTextReader);
+			return JsonConvert.DeserializeObject<T>(sourceJson, _jsonSerializerSettingsWithError);
 		}
 		catch (JsonSerializationException ex)
 		{
 			_logger.LogWarning(ex, ex.Message);
 
-			// Reset the stream
-			stream.Seek(0, SeekOrigin.Begin);
-
-			var serializer = JsonSerializer.Create(_jsonSerializerSettingsWithIgnore);
-			using var jsonTextReader = new JsonTextReader(reader);
-
-			return serializer.Deserialize<T>(jsonTextReader);
+			return JsonConvert.DeserializeObject<T>(sourceJson, _jsonSerializerSettingsWithIgnore);
 		}
 	}
 
