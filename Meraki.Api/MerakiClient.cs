@@ -24,16 +24,7 @@ public partial class MerakiClient : IDisposable
 		_httpClient.Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds);
 		_refitSettings = new RefitSettings
 		{
-			ContentSerializer = new NewtonsoftJsonContentSerializer(
-			new JsonSerializerSettings
-			{
-				// By default nulls should not be rendered out, this will allow the receiving API to apply any defaults.
-				// Use [JsonProperty(NullValueHandling = NullValueHandling.Include)] to send
-				// nulls for specific properties, e.g. disassociating port schedule ids from a port
-				NullValueHandling = NullValueHandling.Ignore,
-				MissingMemberHandling = options.MissingMemberHandling,
-				Converters = new List<JsonConverter> { new StringEnumConverter() }
-			})
+			ContentSerializer = new CustomNewtonsoftJsonContentSerializer(_options, _logger)
 		};
 
 		// General level sections //
@@ -390,7 +381,7 @@ public partial class MerakiClient : IDisposable
 	private T RefitFor<T>(T _)
 		=> RestService.For<T>(_httpClient, _refitSettings);
 
-	private RefitSettings _refitSettings;
+	private readonly RefitSettings _refitSettings;
 
 	public ApplianceSection Appliance { get; } = new();
 
