@@ -20,5 +20,5 @@ public class NetworkClientBandwidthUsageHistory
 	/// Total
 	/// </summary>
 	[DataMember(Name = "total")]
-	public int Total { get; set; } = 0;
+	public int Total { get; set; }
 }

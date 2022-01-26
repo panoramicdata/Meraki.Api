@@ -11,11 +11,11 @@ public class NetworkClientOverviewUsages
 	/// Average
 	/// </summary>
 	[DataMember(Name = "average")]
-	public int Average { get; set; } = 0;
+	public int Average { get; set; }
 
 	/// <summary>
 	/// With heavy usage average
 	/// </summary>
 	[DataMember(Name = "withHeavyUsageAverage")]
-	public int WithHeavyUsageAverage { get; set; } = 0;
+	public int WithHeavyUsageAverage { get; set; }
 }

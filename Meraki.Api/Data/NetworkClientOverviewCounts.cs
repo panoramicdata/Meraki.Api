@@ -11,11 +11,11 @@ public class NetworkClientOverviewCounts
 	/// Total
 	/// </summary>
 	[DataMember(Name = "total")]
-	public int Total { get; set; } = 0;
+	public int Total { get; set; }
 
 	/// <summary>
 	/// With heavy usage
 	/// </summary>
 	[DataMember(Name = "withHeavyUsage")]
-	public int WithHeavyUsage { get; set; } = 0;
+	public int WithHeavyUsage { get; set; }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 [DataContract]
 public class ApplianceUtilizationSummaryUtilizationAverage
@@ -11,5 +7,5 @@ public class ApplianceUtilizationSummaryUtilizationAverage
 	/// Percentage
 	/// </summary>
 	[DataMember(Name = "percentage")]
-	public int Percentage { get; set; } = 0;
+	public int Percentage { get; set; }
 }

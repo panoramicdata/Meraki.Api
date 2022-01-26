@@ -17,7 +17,7 @@ public class DeviceModelUsageSummary
 	/// Count
 	/// </summary>
 	[DataMember(Name = "count")]
-	public int Count { get; set; } = 0;
+	public int Count { get; set; }
 
 	/// <summary>
 	/// Usage

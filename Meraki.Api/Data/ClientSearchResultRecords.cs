@@ -48,13 +48,13 @@ public class ClientSearchResultRecords
 	/// First seen
 	/// </summary>
 	[DataMember(Name = "firstSeen")]
-	public int FirstSeen { get; set; } = 0;
+	public int FirstSeen { get; set; }
 
 	/// <summary>
 	/// Last seen
 	/// </summary>
 	[DataMember(Name = "lastSeen")]
-	public int LastSeen { get; set; } = 0;
+	public int LastSeen { get; set; }
 
 	/// <summary>
 	/// VLAN

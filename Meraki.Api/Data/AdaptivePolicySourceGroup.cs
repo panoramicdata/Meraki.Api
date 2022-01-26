@@ -24,5 +24,5 @@ public class AdaptivePolicySourceGroup
 	/// Sgt
 	/// </summary>
 	[DataMember(Name = "sgt")]
-	public int Sgt { get; set; } = 0;
+	public int Sgt { get; set; }
 }

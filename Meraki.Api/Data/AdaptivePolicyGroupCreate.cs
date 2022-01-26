@@ -29,7 +29,7 @@ public class AdaptivePolicyGroupCreate
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "sgt")]
-	public int Sgt { get; set; } = 0;
+	public int Sgt { get; set; }
 
 	/// <summary>
 	/// Description of the group
