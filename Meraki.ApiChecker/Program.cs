@@ -14,6 +14,7 @@ Console.WriteLine("done.");
 
 TableOutput.DisplayAndPruneTag(apiSchema, implementedEndpoints, "configure");
 TableOutput.DisplayAndPruneTag(apiSchema, implementedEndpoints, "monitor");
+TableOutput.DisplayAndPruneTag(apiSchema, implementedEndpoints, "liveTools");
 
 TableOutput.DisplayRemainingTags(apiSchema);
 TableOutput.DisplayRemainingInterfaces(implementedEndpoints);
