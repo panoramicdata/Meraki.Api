@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 [DataContract]
 public class ClientOverview
-{	
+{
 	/// <summary>
 	/// Usage
 	/// </summary>

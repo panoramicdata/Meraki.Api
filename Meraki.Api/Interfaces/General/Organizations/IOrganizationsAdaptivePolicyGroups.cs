@@ -16,7 +16,6 @@ public interface IOrganizationsAdaptivePolicyGroups
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default);
 
-
 	/// <summary>
 	/// Creates a new adaptive policy group
 	/// </summary>
