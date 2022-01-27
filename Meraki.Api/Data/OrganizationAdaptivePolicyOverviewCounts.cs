@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 [DataContract]
 public class OrganizationAdaptivePolicyOverviewCounts
@@ -11,29 +7,29 @@ public class OrganizationAdaptivePolicyOverviewCounts
 	/// Groups
 	/// </summary>
 	[DataMember(Name = "groups")]
-	public int Groups { get; set; } = 0;
+	public int Groups { get; set; }
 
 	/// <summary>
 	/// Custom ACLs
 	/// </summary>
 	[DataMember(Name = "customAcls")]
-	public int CustomAcls { get; set; } = 0;
+	public int CustomAcls { get; set; }
 
 	/// <summary>
 	/// Policies
 	/// </summary>
 	[DataMember(Name = "policies")]
-	public int Policies { get; set; } = 0;
+	public int Policies { get; set; }
 
 	/// <summary>
 	/// Deny policies
 	/// </summary>
 	[DataMember(Name = "denyPolicies")]
-	public int DenyPolicies { get; set; } = 0;
+	public int DenyPolicies { get; set; }
 
 	/// <summary>
 	/// Allow policies
 	/// </summary>
 	[DataMember(Name = "allowPolicies")]
-	public int AllowPolicies { get; set; } = 0;
+	public int AllowPolicies { get; set; }
 }

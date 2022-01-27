@@ -20,5 +20,5 @@ public class LinkLayerNodeDiscoveredCdp
 	/// Native vlan
 	/// </summary>
 	[DataMember(Name = "nativeVlan")]
-	public int NativeVlan { get; set; } = 0;
+	public int NativeVlan { get; set; }
 }

@@ -14,7 +14,7 @@ public class StackDeviceUplinks
 	/// Vlan Id
 	/// </summary>
 	[DataMember(Name = "vlanId")]
-	public int VlanId { get; set; } = 0;
+	public int VlanId { get; set; }
 
 	/// <summary>
 	/// PPPOE

@@ -17,5 +17,5 @@ public class ClientOverviewUsage
 	/// Average
 	/// </summary>
 	[DataMember(Name = "average")]
-	public int Average { get; set; } = 0;
+	public int Average { get; set; }
 }

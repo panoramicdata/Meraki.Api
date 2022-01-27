@@ -2,7 +2,8 @@
 
 namespace Meraki.Api;
 /// <summary>
-/// A custom NewtonsoftJsonContentSerializer to handle retries after missing members are observed
+/// A custom IHttpContentSerializer based on NewtonsoftJsonContentSerializer
+/// to handle retries after missing members are observed
 /// </summary>
 public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 {
@@ -52,6 +53,8 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 
 	private async Task<T?> LogWarningOnErrorAndContinueFromHttpContentAsync<T>(HttpContent content, CancellationToken _)
 	{
+		// This code has to read the content all at once into a stream
+		// as we might re-use it in the second DeserializeObject call
 		var sourceJson = await content.ReadAsStringAsync().ConfigureAwait(false);
 		try
 		{

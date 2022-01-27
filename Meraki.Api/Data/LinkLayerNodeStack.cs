@@ -14,7 +14,7 @@ public class LinkLayerNodeStack
 	/// Id
 	/// </summary>
 	[DataMember(Name = "id")]
-	public int Id { get; set; } = 0;
+	public int Id { get; set; }
 
 	/// <summary>
 	/// Name
