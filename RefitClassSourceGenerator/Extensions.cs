@@ -68,7 +68,7 @@ public static class Extensions
             }
 
             string parameterTypeString =
-                (parameter.Type as INamedTypeSymbol)?.GetFullTypeString() ?? throw new Exception("Missing parameter type");
+                (parameter.Type as INamedTypeSymbol)?.GetFullTypeString() ?? throw new Exception($"Missing parameter type for {parameter.Type}");
 
             result += parameterTypeString;
 
