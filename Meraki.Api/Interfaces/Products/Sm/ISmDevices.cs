@@ -15,18 +15,20 @@ public interface ISmDevices
 	/// <param name="serials">Filter devices by serial(s). Multiple serials can be passed in as comma separated values. (optional)</param>
 	/// <param name="ids">Filter devices by id(s). Multiple ids can be passed in as comma separated values. (optional)</param>
 	/// <param name="scope">Specify a scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags as comma separated values. (optional)</param>
-	/// <param name="batchSize">Number of devices to return, 1000 is the default as well as the max. (optional)</param>
-	/// <param name="batchToken">If the network has more devices than the batch size, a batch token will be returned     as a part of the device list. To see the remainder of the devices, pass in the batchToken as a parameter in the next request.     Requests made with the batchToken do not require additional parameters as the batchToken includes the parameters passed in     with the original request. Additional parameters passed in with the batchToken will be ignored. (optional)</param>
+	/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.</param>
+	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	[Get("/networks/{networkId}/sm/devices")]
 	Task<List<SmDevice>> GetNetworkSmDevicesAsync(
 		[AliasAs("networkId")] string networkId,
-		[AliasAs("fields")] string fields = null!,
-		[AliasAs("wifiMacs")] string wifiMacs = null!,
-		[AliasAs("serials")] string serials = null!,
-		[AliasAs("ids")] string ids = null!,
-		[AliasAs("scope")] string scope = null!,
-		[AliasAs("batchSize")] int? batchSize = null,
-		[AliasAs("batchToken")] string batchToken = null!,
+		[AliasAs("fields")] string[] fields = null!,
+		[AliasAs("wifiMacs")] string[] wifiMacs = null!,
+		[AliasAs("serials")] string[] serials = null!,
+		[AliasAs("ids")] string[] ids = null!,
+		[AliasAs("scope")] string[] scope = null!,
+		[AliasAs("perPage")] int? perPage = 1000,
+		[AliasAs("startingAfter")] string? startingAfter = null,
+		[AliasAs("endingBefore")] string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 
