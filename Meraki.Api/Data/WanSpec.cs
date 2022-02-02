@@ -59,5 +59,6 @@ public class Wan
 	/// <value>The VLAN that management traffic should be tagged with. Applies whether usingStaticIp is true or false.</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "vlan")]
+	[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 	public int? Vlan { get; set; }
 }
