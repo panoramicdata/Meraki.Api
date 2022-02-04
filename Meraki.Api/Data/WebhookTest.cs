@@ -7,6 +7,13 @@
 public class WebhookTest : IdentifiedItem
 {
 	/// <summary>
+	/// The name of the test webhook
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "name")]
+	public string Name { get; set; } = string.Empty;
+
+	/// <summary>
 	/// The URL where the test webhook will be sent
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]

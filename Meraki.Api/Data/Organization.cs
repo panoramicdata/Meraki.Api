@@ -19,4 +19,11 @@ public class Organization : NamedIdentifiedItem
 	[DataMember(Name = "api")]
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	public OrganizationApi Api { get; set; } = new();
+
+	/// <summary>
+	/// Licensing
+	/// </summary>
+	[DataMember(Name = "licensing")]
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	public OrganizationLicensing Licensing { get; set; } = new();
 }

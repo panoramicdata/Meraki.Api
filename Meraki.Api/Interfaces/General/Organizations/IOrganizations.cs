@@ -9,7 +9,7 @@ public interface IOrganizations
 	/// List the organizations that the user has privileges on
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	[Get("/organizations")]
+	[Get(" /organizations")]
 	Task<List<Organization>> GetOrganizationsAsync(
 		CancellationToken cancellationToken = default);
 
