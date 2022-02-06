@@ -1,8 +1,8 @@
-﻿namespace Meraki.Api.Test;
+﻿namespace Meraki.Api.Test.Organizations.Admins;
 
-public class AdminTests : MerakiClientTest
+public class Tests : MerakiClientTest
 {
-	public AdminTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
 	}
 

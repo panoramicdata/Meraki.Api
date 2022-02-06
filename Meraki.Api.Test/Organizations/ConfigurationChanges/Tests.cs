@@ -1,8 +1,8 @@
-﻿namespace Meraki.Api.Test;
+﻿namespace Meraki.Api.Test.Organizations.ConfigurationChanges;
 
-public class ChangeLogTests : MerakiClientTest
+public class Tests : MerakiClientTest
 {
-	public ChangeLogTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
 	}
 

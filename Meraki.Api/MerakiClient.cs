@@ -130,7 +130,8 @@ public partial class MerakiClient : IDisposable
 			WebHooks = new()
 			{
 				HttpServers = RefitFor(Networks.WebHooks.HttpServers),
-				WebhookTests = RefitFor(Networks.WebHooks.WebhookTests)
+				WebhookTests = RefitFor(Networks.WebHooks.WebhookTests),
+				PayloadTemplates = RefitFor(Networks.WebHooks.PayloadTemplates)
 			}
 		};
 

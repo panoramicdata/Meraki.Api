@@ -1,8 +1,8 @@
-namespace Meraki.Api.Test;
+namespace Meraki.Api.Test.Organizations.ApiRequests;
 
-public class ApiUsages : MerakiClientTest
+public class Tests : MerakiClientTest
 {
-	public ApiUsages(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
 	}
 

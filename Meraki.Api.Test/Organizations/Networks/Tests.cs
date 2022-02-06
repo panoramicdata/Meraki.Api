@@ -1,25 +1,26 @@
-﻿namespace Meraki.Api.Test;
+﻿namespace Meraki.Api.Test.Organizations.Networks;
 
-public class NetworkTests : MerakiClientTest
+public class Tests : MerakiClientTest
 {
-	public NetworkTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
 	}
 
-	//[Fact]
-	//public async Task GetNetworksAsync_Succeeds()
-	//{
-	//	var result = await MerakiClient
-	//		.Networks
-	//		.GetAllAsync(Configuration.TestOrganizationId)
-	//		.ConfigureAwait(false);
+	[Fact]
+	public async Task GetNetworksAsync_Succeeds()
+	{
+		var result = await TestMerakiClient
+			.Organizations
+			.Networks
+			.GetOrganizationNetworksAllAsync(Configuration.TestOrganizationId)
+			.ConfigureAwait(false);
 
-	//	result.Should().BeOfType<List<Network>>();
-	//	result.Should().NotBeNull();
-	//	result.Should().NotBeEmpty();
-	//	var firstResult = result[0];
-	//	ValidateNetwork(firstResult);
-	//}
+		result.Should().BeOfType<List<Network>>();
+		result.Should().NotBeNull();
+		result.Should().NotBeEmpty();
+		var firstResult = result[0];
+		ValidateNetwork(firstResult);
+	}
 
 	internal static void ValidateNetwork(Network network)
 	{
@@ -566,5 +567,73 @@ public class NetworkTests : MerakiClientTest
 			// Restore the original ReadOnly state
 			TestMerakiClient.SetReadOnly(originalIsReadOnly);
 		}
+	}
+
+	[Fact]
+	public async Task GetAllPagesForNetworksAsync_Succeeds()
+	{
+		var result = await TestMerakiClient
+			.GetAllAsync(
+				(perPage, startingAfter, cancellationToken)
+				=> TestMerakiClient
+					.Organizations
+					.Networks
+					.GetOrganizationNetworksAsync(
+						Configuration.TestOrganizationId,
+						perPage: perPage,
+						startingAfter: startingAfter,
+						cancellationToken: cancellationToken
+					),
+				3,
+				CancellationToken.None
+			)
+			.ConfigureAwait(false);
+
+		result.Should().BeOfType<List<Network>>();
+		result.Should().NotBeNull();
+		result.Should().NotBeEmpty();
+		var firstResult = result[0];
+		Networks.Tests.ValidateNetwork(firstResult);
+	}
+
+	[Fact]
+	public async Task GetAllPagesWithDefaultPerPage_ForNetworksAsync_Succeeds()
+	{
+		var result = await TestMerakiClient
+			.GetAllAsync(
+				(startingAfter, cancellationToken)
+				=> TestMerakiClient
+					.Organizations
+					.Networks
+					.GetOrganizationNetworksAsync(
+						Configuration.TestOrganizationId,
+						startingAfter: startingAfter,
+						cancellationToken: cancellationToken
+					),
+				CancellationToken.None
+			)
+			.ConfigureAwait(false);
+
+		result.Should().BeOfType<List<Network>>();
+		result.Should().NotBeNull();
+		result.Should().NotBeEmpty();
+		var firstResult = result[0];
+		Networks.Tests.ValidateNetwork(firstResult);
+	}
+
+	[Fact]
+	public async Task GetAllNetworksAsync_Succeeds()
+	{
+		var result = await TestMerakiClient
+			.Organizations
+			.Networks
+			.GetOrganizationNetworksAllAsync(Configuration.TestOrganizationId)
+			.ConfigureAwait(false);
+
+		result.Should().BeOfType<List<Network>>();
+		result.Should().NotBeNull();
+		result.Should().NotBeEmpty();
+		var firstResult = result[0];
+		Networks.Tests.ValidateNetwork(firstResult);
 	}
 }

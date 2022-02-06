@@ -1,10 +1,10 @@
-﻿namespace Meraki.Api.Test;
+﻿namespace Meraki.Api.Test.Wireless.Client.LatencyStats;
 
-public class WirelessHealthTests : MerakiClientTest
+public class Tests : MerakiClientTest
 {
 	private readonly double _timespan = TimeSpan.FromDays(7).TotalSeconds;
 
-	public WirelessHealthTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
 	}
 
