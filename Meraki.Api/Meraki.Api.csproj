@@ -5,7 +5,7 @@
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<PackageIcon>Icon.png</PackageIcon>
-		<Copyright>Panoramic Data Limited 2021</Copyright>
+		<Copyright>Panoramic Data Limited 2021-2022</Copyright>
 		<PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/panoramicdata/Meraki.Api</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
@@ -21,7 +21,7 @@
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 
 		<PackageReleaseNotes>
-			Added GetOrganizationInventoryDevicesAllAsync
+			1.128 release
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
@@ -39,27 +39,25 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.4.244">
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.4.255">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-		<PackageReference Include="refit" Version="6.1.15" />
-		<PackageReference Include="Refit.Newtonsoft.Json" Version="6.1.15" />
-		<PackageReference Include="Roslynator.Analyzers" Version="3.2.2">
+		<PackageReference Include="refit" Version="6.2.16" />
+		<PackageReference Include="Refit.Newtonsoft.Json" Version="6.2.16" />
+		<PackageReference Include="Roslynator.Analyzers" Version="4.0.2">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.2.1">
+		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.0">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\RefitClassSourceGenerator\RefitClassSourceGenerator.csproj"
-						OutputItemType="Analyzer"
-						ReferenceOutputAssembly="false"/>
+	  <ProjectReference Include="..\RefitClassSourceGenerator\RefitClassSourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 
 	<ItemGroup>
