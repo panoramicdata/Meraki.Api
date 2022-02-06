@@ -39,7 +39,7 @@ public class OrganizationTests : MerakiClientTest
 			.ThirdPartyVpnPeers
 			.GetOrganizationApplianceVpnThirdPartyVPNPeersAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<ThirdPartyVpnPeer>();
+		result.Should().BeOfType<ThirdPartyVpnPeers>();
 		result.Should().NotBeNull();
 	}
 

@@ -49,6 +49,30 @@ public class OrganizationDeviceStatus : NamedItem
 	public string? LanIp { get; set; }
 
 	/// <summary>
+	/// Gateway
+	/// </summary>
+	[DataMember(Name = "gateway")]
+	public string? GatewayIp { get; set; }
+
+	/// <summary>
+	/// IP Type (dhcp)
+	/// </summary>
+	[DataMember(Name = "ipType")]
+	public string? IpType { get; set; }
+
+	/// <summary>
+	/// Primary DNS IP address
+	/// </summary>
+	[DataMember(Name = "primaryDns")]
+	public string? PrimaryDnsIp { get; set; }
+
+	/// <summary>
+	/// Secondary DNS IP address
+	/// </summary>
+	[DataMember(Name = "secondaryDns")]
+	public string? SecondaryDnsIp { get; set; }
+
+	/// <summary>
 	/// usingCellularFailover
 	/// </summary>
 	[DataMember(Name = "usingCellularFailover")]
