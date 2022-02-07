@@ -19,7 +19,7 @@ public static class TableOutput
 		string? tagRestriction)
 	{
 		var implementedTable = new Table()
-			.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation", "NewMethodName")
+			.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation", "NewMethodName", "DeficientDataModels")
 			.BorderStyle("green");
 		var duplicateTable = new Table()
 			.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation")
@@ -54,7 +54,8 @@ public static class TableOutput
 								pathOperation.Value.OperationId,
 								string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
 								methodName,
-								expectedMethodName != methodName ? expectedMethodName : String.Empty
+								expectedMethodName != methodName ? expectedMethodName : string.Empty,
+								string.Join(", ", existingImplementations[0].DeficientDataModels)
 								);
 							implementedEndpoints?[pathKpv.Key].Remove(existingImplementations[0]);
 							break;
@@ -66,7 +67,9 @@ public static class TableOutput
 									pathKpv.Key,
 									pathOperation.Value.OperationId,
 									string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
-									existingImplementation.Method.Name ?? string.Empty);
+									existingImplementation.Method.Name ?? string.Empty,
+									string.Join(", ", existingImplementations[0].DeficientDataModels)
+									);
 								implementedEndpoints?[pathKpv.Key].Remove(existingImplementation);
 							}
 
