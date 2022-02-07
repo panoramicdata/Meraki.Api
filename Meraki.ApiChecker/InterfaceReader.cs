@@ -7,7 +7,7 @@ namespace Meraki.ApiChecker;
 
 public static class InterfaceReader
 {
-	internal static Dictionary<string, List<MethodDetails>> GetEndPoints(List<string> deficientDataModels)
+	internal static Dictionary<string, List<MethodDetails>> GetEndPoints(List<string> deficientClasses)
 	{
 		// Load our interface implementations
 		var apiAssembly = Assembly.Load("Meraki.Api");
@@ -40,18 +40,17 @@ public static class InterfaceReader
 						= new List<MethodDetails>();
 				}
 
-				var methodDetails = new MethodDetails(method, refitAttribute)
-				{
-					UsedTypes = new List<string> { method.ReturnType.GetNonGenericType() }
-				};
+				var methodDetails = new MethodDetails(method, refitAttribute);
+				methodDetails.UsedTypes.AddRange(method.ReturnType.GetNonGenericType());
 
-				foreach (var type in methodDetails.UsedTypes)
+				// Add types from method signature
+				foreach (var parameter in method.GetParameters())
 				{
-					if (deficientDataModels.Contains(type))
-					{
-						methodDetails.DeficientDataModels.Add(type);
-					}
+					methodDetails.UsedTypes.AddRange(parameter.GetType().GetNonGenericType());
 				}
+
+				// Compare the UsedTypes with the given deficientClasses to populate DeficientDataModels used by the current method
+				methodDetails.DeficientDataModels.AddRange(methodDetails.UsedTypes.Where(type => deficientClasses.Contains(type) && !methodDetails.DeficientDataModels.Contains(type)));
 
 				// Add the entry to the list
 				existingList.Add(methodDetails);

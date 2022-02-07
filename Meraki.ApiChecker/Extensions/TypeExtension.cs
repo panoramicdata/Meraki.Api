@@ -1,12 +1,14 @@
 ﻿namespace Meraki.ApiChecker.Extensions;
 public static class TypeExtension
 {
-	public static string GetNonGenericType(this Type type)
+	public static List<string> GetNonGenericType(this Type type)
 	{
+		var types = new List<string>();
+
 		if (!type.IsGenericType)
 		{
 			// It's not a generic type, so we assume the FullName is the actual ReturnType that we are interested in
-			return type.FullName!;
+			types.AddRange(GetMerakiTypesForType(type));
 		}
 		else
 		{
@@ -18,7 +20,7 @@ public static class TypeExtension
 				var nestedType = type.GetGenericArguments()[0];
 
 				// call self with the unwrapped Type
-				return GetNonGenericType(nestedType);
+				types.AddRange(GetNonGenericType(nestedType));
 			}
 
 			// Is it a List<> of something?
@@ -29,15 +31,25 @@ public static class TypeExtension
 			}
 
 			// We believe we have reached the Meraki Type we are interested in
-			return typeDefinition.FullName!;
-
-			// Todo - loop through the properties of the found Type
-			// Get types used on the return type and further nested levels
-			//foreach (var property in typeDefinition.GetProperties())
-			//{
-			//	var propertyTypes = GetNestedNonGenericTypes(property.GetType());
-			//	types.AddRange(propertyTypes);
-			//}
+			types.AddRange(GetMerakiTypesForType(typeDefinition));
 		}
+		return types;
+	}
+
+	private static List<string> GetMerakiTypesForType(Type type)
+	{
+		var types = new List<string>();
+		if (type.Namespace?.StartsWith("Meraki.Api.Data") == true)
+		{
+			types.Add(type.FullName!);
+
+			// Get type of each Property
+			foreach (var property in type.GetProperties())
+			{
+				types.AddRange(property.PropertyType.GetNonGenericType());
+			}
+		}
+
+		return types;
 	}
 }
