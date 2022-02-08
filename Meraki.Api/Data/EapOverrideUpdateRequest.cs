@@ -7,7 +7,7 @@
 public class EapOverrideUpdateRequest
 {
 	/// <summary>
-	/// General EAP timeout in seconds.
+	/// Maximum number of general EAP retries
 	/// </summary>
 	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "maxRetries")]
