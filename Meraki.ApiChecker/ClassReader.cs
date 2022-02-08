@@ -4,7 +4,7 @@ using System.Reflection;
 namespace Meraki.ApiChecker;
 public static class ClassReader
 {
-	internal static Dictionary<string, List<string>> GetDataClasses()
+	internal static List<string> GetDataClasses()
 	{
 		// Load our data classes
 		var apiAssembly = Assembly.Load("Meraki.Api");
@@ -15,27 +15,25 @@ public static class ClassReader
 				&& t.Namespace?.StartsWith("Meraki.Api.Data") == true
 				).ToList();
 
-		var deficientClasses = new Dictionary<string, List<string>>();
+		var deficientClasses = new List<string>();
 
 		foreach (var dataClass in classes.OrderBy(c => c.FullName))
 		{
 			foreach (var property in dataClass.GetProperties())
 			{
 				var apiAccessAttribute = property.GetCustomAttributes<ApiAccessAttribute>().ToList();
+				// Does the property have ApiAccessAttribute?
 				if (apiAccessAttribute?.Count > 0)
 				{
+					// YES - move on to the next property
 					continue;
 				}
+				// NO - take a not of the deficient class
 
-				if (!deficientClasses.TryGetValue(dataClass.FullName!, out var existingList))
+				if (!deficientClasses.Contains(dataClass.FullName!))
 				{
-					// Create a new list for this class
-					deficientClasses[dataClass.FullName!]
-						= existingList
-						= new List<string>();
+					deficientClasses.Add(dataClass.FullName!);
 				}
-				// Add the entry to the list
-				existingList.Add(property.Name);
 			}
 		}
 

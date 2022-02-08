@@ -3,9 +3,8 @@ namespace Meraki.Api.Data;
 /// <summary>
 /// The policy to apply to the specified client. Can be 'Whitelisted', 'Blocked' or 'Normal'. Required.
 /// </summary>
-/// <value>The policy to apply to the specified client. Can be 'Whitelisted', 'Blocked' or 'Normal'. Required.</value>
 [JsonConverter(typeof(StringEnumConverter))]
-public enum DevicePolicy1
+public enum SecurityApplianceDevicePolicy
 {
 	/// <summary>
 	/// Enum Whitelisted for "Whitelisted"

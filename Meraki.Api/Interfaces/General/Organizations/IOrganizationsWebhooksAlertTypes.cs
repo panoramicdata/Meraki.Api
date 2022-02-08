@@ -10,9 +10,11 @@ public interface IOrganizationsWebhooksAlertTypes
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="productType">The product type (Optional)</param>
 	[Get("/organizations/{organizationId}/webhooks/alertTypes")]
 	Task<List<WebhookAlertType>> GetOrganizationWebhooksAlertTypesAsync(
 		[AliasAs("organizationId")] string organizationId,
+		[AliasAs("productType")] string? productType = null,
 		CancellationToken cancellationToken = default
 		);
 }

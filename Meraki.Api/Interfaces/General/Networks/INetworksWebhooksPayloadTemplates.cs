@@ -10,16 +10,19 @@ public interface INetworksWebhooksPayloadTemplates
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	[ApiOperationId("getNetworkWebhooksPayloadTemplates")]
 	[Get("/networks/{networkId}/webhooks/payloadTemplates")]
 	Task<List<PayloadTemplate>> GetNetworksWebhooksPayloadTemplatesAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// Return the list of network webhook payload templates
+	/// Create a webhook payload template for a network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="createWebhookPayloadTemplate">Body</param>
+	[ApiOperationId("createNetworkWebhooksPayloadTemplate")]
 	[Post("/networks/{networkId}/webhooks/payloadTemplates")]
 	Task UpdateNetworksWebhooksPayloadTemplatesAsync(
 		[AliasAs("networkId")] string networkId,
@@ -32,6 +35,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
+	[ApiOperationId("getNetworkWebhooksPayloadTemplate")]
 	[Get("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task<PayloadTemplate> GetNetworksWebhooksPayloadTemplateAsync(
 		[AliasAs("networkId")] string networkId,
@@ -39,25 +43,28 @@ public interface INetworksWebhooksPayloadTemplates
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// Delete a single network webhook payload template
+	/// Destroy a webhook payload template for a network. Does not work for included templates ('wpt_00001', 'wpt_00002', 'wpt_00003' or 'wpt_00004')
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
+	[ApiOperationId("deleteNetworkWebhooksPayloadTemplate")]
 	[Delete("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
-	Task DeleteNetworksWebhooksPayloadTemplateAsync(
+	Task DeleteNetworkWebhooksPayloadTemplateAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("payloadTemplateId")] string payloadTemplateId,
-		CancellationToken cancellationToken = default);
+		CancellationToken cancellationToken = default
+		);
 
 	/// <summary>
-	/// Update a single network webhook payload template
+	/// Update a webhook payload template for a network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
+	[ApiOperationId("updateNetworkWebhooksPayloadTemplate")]
 	[Put("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
-	Task UpdateNetworksWebhooksPayloadTemplateAsync(
+	Task<PayloadTemplate> UpdateNetworkWebhooksPayloadTemplateAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("payloadTemplateId")] string payloadTemplateId,
 		[Body] PayloadTemplate webhookPayloadTemplate,

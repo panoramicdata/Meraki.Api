@@ -4,7 +4,7 @@ namespace Meraki.Api.Data;
 /// The policy to apply to the specified client. Can be 'Group policy', 'Allowed', 'Blocked', 'Per connection' or 'Normal'. Required.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
-public enum DevicePolicy
+public enum ClientDevicePolicy
 {
 	/// <summary>
 	/// Enum Grouppolicy for "Group policy"

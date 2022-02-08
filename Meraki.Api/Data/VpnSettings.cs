@@ -7,6 +7,12 @@
 public class VpnSettings
 {
 	/// <summary>
+	///	Failover
+	/// </summary>
+	[DataMember(Name = "failover")]
+	public Failover Failover { get; set; } = new();
+
+	/// <summary>
 	/// Split tunnel
 	/// </summary>
 	[DataMember(Name = "splitTunnel")]

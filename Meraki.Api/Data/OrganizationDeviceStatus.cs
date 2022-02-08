@@ -97,12 +97,6 @@ public class OrganizationDeviceStatus : NamedItem
 	public ProductType? productType { get; set; }
 
 	/// <summary>
-	/// Components - the structure of this is unclear at this time
-	/// </summary>
-	[DataMember(Name = "components")]
-	public object? Components { get; set; }
-
-	/// <summary>
 	/// Model
 	/// </summary>
 	[DataMember(Name = "model")]

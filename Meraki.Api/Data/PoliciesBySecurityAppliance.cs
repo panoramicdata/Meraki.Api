@@ -9,6 +9,7 @@ public class PoliciesBySecurityAppliance
 	/// <summary>
 	/// Gets or Sets DevicePolicy
 	/// </summary>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "devicePolicy")]
-	public DevicePolicy1 DevicePolicy { get; set; }
+	public SecurityApplianceDevicePolicy DevicePolicy { get; set; }
 }

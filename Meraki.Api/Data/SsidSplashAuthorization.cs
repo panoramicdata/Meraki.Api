@@ -4,24 +4,26 @@ namespace Meraki.Api.Data;
 /// Splash authorization for SSID 0
 /// </summary>
 [DataContract]
-public class GeneratedObject10
+public class SsidSplashAuthorization
 {
 	/// <summary>
 	/// New authorization status for the SSID (true, false).
 	/// </summary>
-	/// <value>New authorization status for the SSID (true, false).</value>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "isAuthorized")]
-	public bool? IsAuthorized { get; set; }
+	public bool IsAuthorized { get; set; }
 
 	/// <summary>
 	/// Authorized at
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "authorizedAt")]
 	public DateTime? AuthorizedAt { get; set; }
 
 	/// <summary>
 	/// Expires at
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "expiresAt")]
 	public DateTime? ExpiresAt { get; set; }
 }
