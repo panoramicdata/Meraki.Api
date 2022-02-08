@@ -64,7 +64,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <param name="payloadTemplateId">The payload template id</param>
 	[ApiOperationId("updateNetworkWebhooksPayloadTemplate")]
 	[Put("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
-	Task<WebhookPayloadTemplates> UpdateNetworkWebhooksPayloadTemplateAsync(
+	Task<PayloadTemplate> UpdateNetworkWebhooksPayloadTemplateAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("payloadTemplateId")] string payloadTemplateId,
 		[Body] PayloadTemplate webhookPayloadTemplate,
