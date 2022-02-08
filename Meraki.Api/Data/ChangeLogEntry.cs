@@ -76,5 +76,19 @@ public class ChangeLogEntry
 	[DataMember(Name = "networkId")]
 	public string? NetworkId { get; set; }
 
+	/// <summary>
+	/// The SSID name
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ssidName")]
+	public string? SsidName { get; set; }
+
+	/// <summary>
+	/// The SSID number
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ssidNumber")]
+	public int? SsidNumber { get; set; }
+
 	public override string ToString() => Label;
 }

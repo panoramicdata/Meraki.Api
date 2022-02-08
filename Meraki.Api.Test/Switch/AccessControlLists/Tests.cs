@@ -1,8 +1,8 @@
-﻿namespace Meraki.Api.Test;
+﻿namespace Meraki.Api.Test.Switch.AccessControlLists;
 
-public class SwitchAclTests : MerakiClientTest
+public class Tests : MerakiClientTest
 {
-	public SwitchAclTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
 	}
 

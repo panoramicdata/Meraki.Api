@@ -1,8 +1,8 @@
-﻿namespace Meraki.Api.Test;
+﻿namespace Meraki.Api.Test.Switch.Ports;
 
-public class SwitchPortTests : MerakiClientTest
+public class Tests : MerakiClientTest
 {
-	public SwitchPortTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
 	}
 
@@ -10,8 +10,9 @@ public class SwitchPortTests : MerakiClientTest
 	public async Task GetSwitchPortStatuses_Succeeds()
 	{
 		var switchPorts = await TestMerakiClient
-			.Switch.Ports
-			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial)
+			.Switch
+			.Ports
+			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial, default)
 			.ConfigureAwait(false);
 
 		switchPorts.Should().NotBeNullOrEmpty();
@@ -22,7 +23,8 @@ public class SwitchPortTests : MerakiClientTest
 	{
 		// ARRANGE
 		var switchPorts = await TestMerakiClient
-			.Switch.Ports
+			.Switch
+			.Ports
 			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial)
 			.ConfigureAwait(false);
 

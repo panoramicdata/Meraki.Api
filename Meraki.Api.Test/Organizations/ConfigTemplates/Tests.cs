@@ -1,8 +1,8 @@
-﻿namespace Meraki.Api.Test;
+﻿namespace Meraki.Api.Test.Organizations.ConfigTemplates;
 
-public class ConfigurationTemplateTest : MerakiClientTest
+public class Tests : MerakiClientTest
 {
-	public ConfigurationTemplateTest(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
+	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
 	}
 

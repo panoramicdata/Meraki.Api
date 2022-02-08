@@ -104,4 +104,25 @@ public class OrganizationDevice : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "productType")]
 	public ProductType ProductType { get; set; }
+
+	/// <summary>
+	/// WAN 1 IP Address
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "wan1Ip")]
+	public string? Wan1Ip { get; set; }
+
+	/// <summary>
+	/// WAN 2 IP Address
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "wan2Ip")]
+	public string? Wan2Ip { get; set; }
+
+	/// <summary>
+	/// Sensor information
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "sensor")]
+	public SensorInformation? Sensor { get; set; }
 }
