@@ -10,6 +10,7 @@ public class BrandingPolicy : NamedItem
 	/// The Id of the Branding Policy
 	/// </summary>
 	[ApiKey]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "brandingPolicyId")]
 	public string BrandingPolicyId { get; set; } = string.Empty;
 
