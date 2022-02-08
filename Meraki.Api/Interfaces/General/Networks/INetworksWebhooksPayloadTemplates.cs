@@ -5,7 +5,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <summary>
 	/// List the webhook payload templates for a network
 	/// </summary>
-	/// <exception cref="ApiExcept	ion">Thrown when fails to make API call</exception>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkWebhooksPayloadTemplates")]
 	[Get("/networks/{networkId}/webhooks/payloadTemplates")]
@@ -17,7 +17,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <summary>
 	/// Create a webhook payload template for a network
 	/// </summary>
-	/// <exception cref="ApiExcept	ion">Thrown when fails to make API call</exception>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createWebhookPayloadTemplate">Body</param>
 	[ApiOperationId("createNetworkWebhooksPayloadTemplate")]
@@ -31,7 +31,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <summary>
 	/// Get the webhook payload template for a network
 	/// </summary>
-	/// <exception cref="ApiExcept	ion">Thrown when fails to make API call</exception>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
 	[ApiOperationId("getNetworkWebhooksPayloadTemplate")]
@@ -59,7 +59,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <summary>
 	/// Update a webhook payload template for a network
 	/// </summary>
-	/// <exception cref="ApiExcept	ion">Thrown when fails to make API call</exception>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
 	[ApiOperationId("updateNetworkWebhooksPayloadTemplate")]
