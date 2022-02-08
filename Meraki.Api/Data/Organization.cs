@@ -21,9 +21,16 @@ public class Organization : NamedIdentifiedItem
 	public OrganizationApi Api { get; set; } = new();
 
 	/// <summary>
-	/// Licensing
+	/// Licensing details
 	/// </summary>
 	[DataMember(Name = "licensing")]
-	[ApiAccess(ApiAccess.ReadUpdate)]
-	public OrganizationLicensing Licensing { get; set; } = new();
+	[ApiAccess(ApiAccess.Read)]
+	public LicensingInformation Licensing { get; set; } = new();
+
+	/// <summary>
+	/// Cloud details
+	/// </summary>
+	[DataMember(Name = "cloud")]
+	[ApiAccess(ApiAccess.Read)]
+	public CloudInformation? Cloud { get; set; }
 }
