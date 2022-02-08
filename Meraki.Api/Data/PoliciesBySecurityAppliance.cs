@@ -10,5 +10,5 @@ public class PoliciesBySecurityAppliance
 	/// Gets or Sets DevicePolicy
 	/// </summary>
 	[DataMember(Name = "devicePolicy")]
-	public DevicePolicy1 DevicePolicy { get; set; }
+	public SecurityApplianceDevicePolicy DevicePolicy { get; set; }
 }

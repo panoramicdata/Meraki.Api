@@ -1,7 +1,7 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// The policy to apply to the specified client. Can be 'Group policy', 'Whitelisted', 'Blocked', 'Per connection' or 'Normal'. Required.
+/// The policy to apply to the specified client. Can be 'Group policy', 'Allowed', 'Blocked', 'Per connection' or 'Normal'. Required.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum DevicePolicy
@@ -10,13 +10,13 @@ public enum DevicePolicy
 	/// Enum Grouppolicy for "Group policy"
 	/// </summary>
 	[EnumMember(Value = "Group policy")]
-	Grouppolicy,
+	GroupPolicy,
 
 	/// <summary>
-	/// Enum Whitelisted for "Whitelisted"
+	/// Enum Allowed for "Allowed"
 	/// </summary>
-	[EnumMember(Value = "Whitelisted")]
-	Whitelisted,
+	[EnumMember(Value = "Allowed")]
+	Allowed,
 
 	/// <summary>
 	/// Enum Blocked for "Blocked"
@@ -28,7 +28,7 @@ public enum DevicePolicy
 	/// Enum Perconnection for "Per connection"
 	/// </summary>
 	[EnumMember(Value = "Per connection")]
-	Perconnection,
+	PerConnection,
 
 	/// <summary>
 	/// Enum Normal for "Normal"

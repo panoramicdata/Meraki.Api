@@ -1,17 +1,16 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// The policy to apply to the specified client. Can be 'Whitelisted', 'Blocked', 'Normal' or 'Group policy'. Required.
+/// The policy to apply to the specified client. Can be 'Allowed', 'Blocked', 'Normal' or 'Group policy'. Required.
 /// </summary>
-/// <value>The policy to apply to the specified client. Can be 'Whitelisted', 'Blocked', 'Normal' or 'Group policy'. Required.</value>
 [JsonConverter(typeof(StringEnumConverter))]
-public enum DevicePolicy2
+public enum SsidDevicePolicy
 {
 	/// <summary>
-	/// Enum Whitelisted for "Whitelisted"
+	/// Enum Allowed for "Allowed"
 	/// </summary>
-	[EnumMember(Value = "Whitelisted")]
-	Whitelisted,
+	[EnumMember(Value = "Allowed")]
+	Allowed,
 
 	/// <summary>
 	/// Enum Blocked for "Blocked"
@@ -29,5 +28,5 @@ public enum DevicePolicy2
 	/// Enum Grouppolicy for "Group policy"
 	/// </summary>
 	[EnumMember(Value = "Group policy")]
-	Grouppolicy
+	GroupPolicy
 }
