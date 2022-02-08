@@ -7,14 +7,58 @@
 public class Products
 {
 	/// <summary>
-	/// Camera
+	/// Appliance
 	/// </summary>
-	[DataMember(Name = "camera")]
-	public Camera Camera { get; set; } = new();
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "appliance")]
+	public FirmwareUpgradeProduct Appliance { get; set; } = new();
 
 	/// <summary>
-	/// Switch
+	/// Camera
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "camera")]
+	public FirmwareUpgradeProduct Camera { get; set; } = new();
+
+	/// <summary>
+	/// CellularGateway
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "cellularGateway")]
+	public FirmwareUpgradeProduct CellularGateway { get; set; } = new();
+
+	/// <summary>
+	/// environmental
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "environmental")]
+	public FirmwareUpgradeProduct Environmental { get; set; } = new();
+
+	/// <summary>
+	/// sensor
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "sensor")]
+	public FirmwareUpgradeProduct Sensor { get; set; } = new();
+
+	/// <summary>
+	/// switch
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "switch")]
-	public Switch Switch { get; set; } = new();
+	public FirmwareUpgradeProduct Switch { get; set; } = new();
+
+	/// <summary>
+	/// vmxHost
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "vmxHost")]
+	public FirmwareUpgradeProduct VmxHost { get; set; } = new();
+
+	/// <summary>
+	/// wireless
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "wireless")]
+	public FirmwareUpgradeProduct Wireless { get; set; } = new();
 }
