@@ -10,6 +10,7 @@ public class FloorPlan
 	/// Floor plan id
 	/// </summary>
 	[ApiKey]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "floorPlanId")]
 	public string FloorPlanId { get; set; } = string.Empty;
 
@@ -23,12 +24,14 @@ public class FloorPlan
 	/// <summary>
 	/// Image URL expires at
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "imageUrlExpiresAt")]
 	public DateTime ImageUrlExpiresAt { get; set; }
 
 	/// <summary>
 	/// Image extension
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "imageExtension")]
 	public string ImageExtension { get; set; } = string.Empty;
 
@@ -49,6 +52,7 @@ public class FloorPlan
 	/// <summary>
 	/// Devices
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "devices")]
 	public List<Device> Devices { get; set; } = new();
 
