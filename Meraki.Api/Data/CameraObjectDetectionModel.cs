@@ -4,17 +4,12 @@
 /// Camera object detection model
 /// </summary>
 [DataContract]
-public class CameraObjectDetectionModel
+public class CameraObjectDetectionModel : IdentifiedItem
 {
-	/// <summary>
-	/// Id
-	/// </summary>
-	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
-
 	/// <summary>
 	/// Description
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "description")]
 	public string Description { get; set; } = string.Empty;
 }
