@@ -4,7 +4,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	  <Nullable>enable</Nullable>
+	  <EnableNETAnalyzers>true</EnableNETAnalyzers>
+	  <AnalysisMode>All</AnalysisMode>
   </PropertyGroup>
 
   <ItemGroup>

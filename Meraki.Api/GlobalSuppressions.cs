@@ -5,6 +5,14 @@
 
 using System.Diagnostics.CodeAnalysis;
 
+[assembly: CLSCompliant(true)]
+
+[assembly: SuppressMessage(
+	"Performance", "CA1848:Use the LoggerMessage delegates",
+	Justification = "TODO - remove this suppression.",
+	Scope = "namespaceanddescendants",
+	Target = "~N:Meraki.Api.Data")
+]
 [assembly: SuppressMessage(
 	 "Design",
 	 "CA1056:Uri properties should not be strings",

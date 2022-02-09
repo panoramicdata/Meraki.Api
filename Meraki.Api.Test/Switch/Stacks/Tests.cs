@@ -19,5 +19,4 @@ public class Tests : MerakiClientTest
 
 		switchStacks.Should().NotBeNull();
 	}
-
 }

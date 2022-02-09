@@ -3,7 +3,10 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisMode>All</AnalysisMode>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Copyright>Panoramic Data Limited 2021-2022</Copyright>
 		<PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
