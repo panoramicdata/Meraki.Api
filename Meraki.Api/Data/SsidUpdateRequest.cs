@@ -11,7 +11,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "defaultVlanId")]
-	public int DefaultVlanId { get; set; }
+	public int? DefaultVlanId { get; set; }
 
 	/// <summary>
 	/// The upload bandwidth limit in Kbps. (0 represents no limit.)
@@ -137,7 +137,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusAttributeForGroupPolicies")]
-	public string RadiusAttributeForGroupPolicies { get; set; } = string.Empty;
+	public string? RadiusAttributeForGroupPolicies { get; set; }
 
 	/// <summary>
 	/// The template of the NAS identifier to be used for RADIUS authentication (ex. $NODE_MAC$:$VAP_NUM$).
