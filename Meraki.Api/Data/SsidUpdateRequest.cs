@@ -46,14 +46,14 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusAccountingInterimInterval")]
-	public int RadiusAccountingInterimInterval { get; set; }
+	public int? RadiusAccountingInterimInterval { get; set; }
 
 	/// <summary>
 	/// VLAN ID of the RADIUS Guest VLAN. This param is only valid if the authMode is 'open-with-radius' and addressing mode is not set to 'isolated' or 'nat' mode
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusGuestVlanId")]
-	public int RadiusGuestVlanId { get; set; }
+	public int? RadiusGuestVlanId { get; set; }
 
 	/// <summary>
 	/// The maximum number of transmit attempts after which a RADIUS server is failed over (must be between 1-5).
@@ -74,21 +74,21 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "vlanId")]
-	public int VlanId { get; set; }
+	public int? VlanId { get; set; }
 
 	/// <summary>
 	/// The association control method for the SSID ('open', 'psk', 'open-with-radius', '8021x-meraki', '8021x-radius', '8021x-google', '8021x-localradius', 'ipsk-with-radius' or 'ipsk-without-radius')
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "authMode")]
-	public string AuthMode { get; set; } = string.Empty;
+	public AuthMode AuthMode { get; set; }
 
 	/// <summary>
 	/// The client-serving radio frequencies of this SSID in the default indoor RF profile. ('Dual band operation', '5 GHz band only' or 'Dual band operation with Band Steering')
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "bandSelection")]
-	public string BandSelection { get; set; } = string.Empty;
+	public string? BandSelection { get; set; }
 
 	/// <summary>
 	/// The concentrator to use when the ipAssignmentMode is 'Layer 3 roaming with a concentrator' or 'VPN'.
@@ -116,7 +116,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ipAssignmentMode")]
-	public string IpAssignmentMode { get; set; } = string.Empty;
+	public string? IpAssignmentMode { get; set; }
 
 	/// <summary>
 	/// The name of the SSID
@@ -144,14 +144,14 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusAuthenticationNasId")]
-	public string RadiusAuthenticationNasId { get; set; } = string.Empty;
+	public string? RadiusAuthenticationNasId { get; set; }
 
 	/// <summary>
 	/// The template of the called station identifier to be used for RADIUS (ex. $NODE_MAC$:$VAP_NUM$).
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusCalledStationId")]
-	public string RadiusCalledStationId { get; set; } = string.Empty;
+	public string? RadiusCalledStationId { get; set; }
 
 	/// <summary>
 	/// This policy determines how authentication requests should be handled in the event that all of the configured RADIUS servers are unreachable ('Deny access' or 'Allow access')
@@ -172,7 +172,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashPage")]
-	public string SplashPage { get; set; } = string.Empty;
+	public SplashPage SplashPage { get; set; }
 
 	/// <summary>
 	/// The types of WPA encryption. ('WPA1 only', 'WPA1 and WPA2', 'WPA2 only', 'WPA3 Transition Mode' or 'WPA3 only')
@@ -207,70 +207,70 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "lanIsolationEnabled")]
-	public bool LanIsolationEnabled { get; set; }
+	public bool? LanIsolationEnabled { get; set; }
 
 	/// <summary>
 	/// If true, Mandatory DHCP will enforce that clients connecting to this SSID must use the IP address assigned by the DHCP server. Clients who use a static IP address won't be able to associate.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "mandatoryDhcpEnabled")]
-	public bool MmandatoryDhcpEnabled { get; set; }
+	public bool? MandatoryDhcpEnabled { get; set; }
 
 	/// <summary>
 	/// Whether or not RADIUS accounting is enabled. This param is only valid if the authMode is 'open-with-radius', '8021x-radius' or 'ipsk-with-radius'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusAccountingEnabled")]
-	public bool RadiusAccountingEnabled { get; set; }
+	public bool? RadiusAccountingEnabled { get; set; }
 
 	/// <summary>
 	/// If true, Meraki devices will act as a RADIUS Dynamic Authorization Server and will respond to RADIUS Change-of-Authorization and Disconnect messages sent by the RADIUS server.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusCoaEnabled")]
-	public bool RadiusCoaEnabled { get; set; }
+	public bool? RadiusCoaEnabled { get; set; }
 
 	/// <summary>
 	/// Whether or not higher priority RADIUS servers should be retried after 60 seconds.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusFallbackEnabled")]
-	public bool RadiusFallbackEnabled { get; set; }
+	public bool? RadiusFallbackEnabled { get; set; }
 
 	/// <summary>
 	/// Whether or not RADIUS Guest VLAN is enabled. This param is only valid if the authMode is 'open-with-radius' and addressing mode is not set to 'isolated' or 'nat' mode
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusGuestVlanEnabled")]
-	public bool RadiusGuestVlanEnabled { get; set; }
+	public bool? RadiusGuestVlanEnabled { get; set; }
 
 	/// <summary>
 	/// If true, the RADIUS response can override VLAN tag. This is not valid when ipAssignmentMode is 'NAT mode'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusOverride")]
-	public bool RadiusOverride { get; set; }
+	public bool? RadiusOverride { get; set; }
 
 	/// <summary>
 	/// If true, Meraki devices will proxy RADIUS messages through the Meraki cloud to the configured RADIUS auth and accounting servers.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusProxyEnabled")]
-	public bool RadiusProxyEnabled { get; set; }
+	public bool? RadiusProxyEnabled { get; set; }
 
 	/// <summary>
 	/// If true, Meraki devices will periodically send Access-Request messages to configured RADIUS servers using identity 'meraki_8021x_test' to ensure that the RADIUS servers are reachable.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusTestingEnabled")]
-	public bool RadiusTestingEnabled { get; set; }
+	public bool? RadiusTestingEnabled { get; set; }
 
 	/// <summary>
 	/// Whether or not traffic should be directed to use specific VLANs. This param is only valid if the ipAssignmentMode is 'Bridge mode' or 'Layer 3 roaming'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "useVlanTagging")]
-	public bool UseVlanTagging { get; set; }
+	public bool? UseVlanTagging { get; set; }
 
 	/// <summary>
 	/// Boolean indicating whether APs should advertise or hide this SSID. APs will only broadcast this SSID if set to true
@@ -284,7 +284,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "walledGardenEnabled")]
-	public bool WalledGardenEnabled { get; set; }
+	public bool? WalledGardenEnabled { get; set; }
 
 	/// <summary>
 	/// The minimum bitrate in Mbps of this SSID in the default indoor RF profile. ('1', '2', '5.5', '6', '9', '11', '12', '18', '24', '36', '48' or '54')
@@ -312,7 +312,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "walledGardenRanges")]
-	public List<string> WalledGardenRanges { get; set; } = new();
+	public List<string>? WalledGardenRanges { get; set; }
 
 	/// <summary>
 	/// Accepts a list of tags for this SSID. If availableOnAllAps is false, then the SSID will only be broadcast by APs with tags matching any of the tags in this list.
@@ -368,28 +368,28 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "apTagsAndVlanIds")]
-	public List<ApTagsAndVlanId> ApTagsAndVlanIds { get; set; } = new();
+	public List<ApTagsAndVlanId>? ApTagsAndVlanIds { get; set; }
 
 	/// <summary>
 	/// The RADIUS accounting 802.1X servers to be used for authentication. This param is only valid if the authMode is 'open-with-radius', '8021x-radius' or 'ipsk-with-radius' and radiusAccountingEnabled is 'true'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusAccountingServers")]
-	public List<RadiusAccountingServer> RadiusAccountingServers { get; set; } = new();
+	public List<RadiusAccountingServer>? RadiusAccountingServers { get; set; }
 
 	/// <summary>
 	/// The RADIUS 802.1X servers to be used for authentication. This param is only valid if the authMode is 'open-with-radius', '8021x-radius' or 'ipsk-with-radius'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusServers")]
-	public List<SsidRadiusServer> RadiusServers { get; set; } = new List<SsidRadiusServer>();
+	public List<SsidRadiusServer>? RadiusServers { get; set; }
 
 	/// <summary>
 	/// radiusEnabled
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusEnabled")]
-	public bool RadiusEnabled { get; set; }
+	public bool? RadiusEnabled { get; set; }
 
 	/// <summary>
 	/// splashTimeout
