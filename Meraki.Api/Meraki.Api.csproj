@@ -21,7 +21,7 @@
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 
 		<PackageReleaseNotes>
-			1.128 release
+			Added ApiKey attribute to Ssid Number
 		</PackageReleaseNotes>
 	</PropertyGroup>
 

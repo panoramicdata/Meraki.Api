@@ -9,6 +9,7 @@ public class Ssid : SsidUpdateRequest
 	/// <summary>
 	/// number
 	/// </summary>
+	[ApiKey]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "number")]
 	public int Number { get; set; }
