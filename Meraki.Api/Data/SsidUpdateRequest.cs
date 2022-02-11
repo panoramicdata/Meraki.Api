@@ -158,7 +158,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusFailoverPolicy")]
-	public string RadiusFailoverPolicy { get; set; } = string.Empty;
+	public RadiusFailoverPolicy? RadiusFailoverPolicy { get; set; }
 
 	/// <summary>
 	/// This policy determines which RADIUS server will be contacted first in an authentication attempt and the ordering of any necessary retry attempts ('Strict priority order' or 'Round robin')
