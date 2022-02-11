@@ -102,7 +102,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "encryptionMode")]
-	public string EncryptionMode { get; set; } = string.Empty;
+	public EncryptionMode? EncryptionMode { get; set; }
 
 	/// <summary>
 	/// Whether or not an SSID is accessible by 'enterprise' administrators ('access disabled' or 'access enabled')
@@ -179,7 +179,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wpaEncryptionMode")]
-	public string WpaEncryptionMode { get; set; } = string.Empty;
+	public WpaEncryptionMode? WpaEncryptionMode { get; set; }
 
 	/// <summary>
 	/// Boolean indicating whether or not adult content will be blocked
