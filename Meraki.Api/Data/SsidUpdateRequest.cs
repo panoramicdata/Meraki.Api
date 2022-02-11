@@ -109,7 +109,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enterpriseAdminAccess")]
-	public string EnterpriseAdminAccess { get; set; } = string.Empty;
+	public EnterpriseAdminAccess? EnterpriseAdminAccess { get; set; }
 
 	/// <summary>
 	/// The client IP assignment mode('NAT mode', 'Bridge mode', 'Layer 3 roaming', 'Layer 3 roaming with a concentrator' or 'VPN')
