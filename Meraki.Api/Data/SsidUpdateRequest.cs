@@ -95,7 +95,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "concentratorNetworkId")]
-	public string ConcentratorNetworkId { get; set; } = string.Empty;
+	public string? ConcentratorNetworkId { get; set; }
 
 	/// <summary>
 	/// The psk encryption mode for the SSID ('wep' or 'wpa'). This param is only valid if the authMode is 'psk'
