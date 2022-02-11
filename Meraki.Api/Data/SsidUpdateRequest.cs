@@ -130,7 +130,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "psk")]
-	public string Psk { get; set; } = string.Empty;
+	public string? Psk { get; set; }
 
 	/// <summary>
 	/// Specify the RADIUS attribute used to look up group policies ('Filter-Id', 'Reply-Message', 'Airespace-ACL-Name' or 'Aruba-User-Role'). Access points must receive this attribute in the RADIUS Access-Accept message
