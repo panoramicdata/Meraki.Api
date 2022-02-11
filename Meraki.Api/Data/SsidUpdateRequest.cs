@@ -165,7 +165,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusLoadBalancingPolicy")]
-	public string RadiusLoadBalancingPolicy { get; set; } = string.Empty;
+	public RadiusLoadBalancingPolicy? RadiusLoadBalancingPolicy { get; set; }
 
 	/// <summary>
 	/// The type of splash page for the SSID ('None', 'Click-through splash page', 'Billing', 'Password-protected with Meraki RADIUS', 'Password-protected with custom RADIUS', 'Password-protected with Active Directory', 'Password-protected with LDAP', 'SMS authentication', 'Systems Manager Sentry', 'Facebook Wi-Fi', 'Google OAuth', 'Sponsored guest', 'Cisco ISE' or 'Google Apps domain'). This attribute is not supported for template children.
