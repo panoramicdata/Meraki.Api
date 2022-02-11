@@ -60,14 +60,14 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusServerAttemptsLimit")]
-	public int RadiusServerAttemptsLimit { get; set; }
+	public int? RadiusServerAttemptsLimit { get; set; }
 
 	/// <summary>
 	/// The amount of time for which a RADIUS client waits for a reply from the RADIUS server (must be between 1-10 seconds).
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusServerTimeout")]
-	public int RadiusServerTimeout { get; set; }
+	public int? RadiusServerTimeout { get; set; }
 
 	/// <summary>
 	/// The VLAN ID used for VLAN tagging. This param is only valid when the ipAssignmentMode is 'Layer 3 roaming with a concentrator' or 'VPN'
@@ -305,7 +305,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashGuestSponsorDomains")]
-	public List<string>? SplashGuestSponsorDomains { get; set; } = new();
+	public List<string>? SplashGuestSponsorDomains { get; set; }
 
 	/// <summary>
 	/// Specify your walled garden by entering an array of addresses, ranges using CIDR notation, domain names, and domain wildcards (e.g. '192.168.1.1/24', '192.168.37.10/32', 'www.yahoo.com', '*.google.com']). Meraki's splash page is automatically included in your walled garden.
@@ -319,7 +319,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "activeDirectory")]
-	public ActiveDirectory? ActiveDirectory { get; set; } = new();
+	public ActiveDirectory? ActiveDirectory { get; set; }
 
 	/// <summary>
 	/// DNS servers rewrite settings
@@ -396,5 +396,5 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "splashTimeout")]
-	public string? SplashTimeout { get; set; } = string.Empty;
+	public string? SplashTimeout { get; set; }
 }
