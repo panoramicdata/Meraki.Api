@@ -23,21 +23,22 @@ namespace My.Project
 	{
 		public static async Task Main()
 		{
-			var merakiClient = new MerakiClient(new MerakiClientOptions
+			using var merakiClient = new MerakiClient(new MerakiClientOptions
 			{
 				ApiKey = "0123456789abcdef0123456789abcdef01234567"
 			});
 
 			var organizations = await merakiClient
 				.Organizations
-				.GetAllAsync()
+				.GetOrganizationsAsync()
 				.ConfigureAwait(false);
 
 			var firstOrganization = organizations[0];
 
 			var devices = await merakiClient
 				.Organizations
-				.GetAllDevicesAsync(firstOrganization.Id)
+				.Devices
+				.GetOrganizationDevicesAsync(firstOrganization.Id)
 				.ConfigureAwait(false);
 
 			Console.WriteLine("Devices:");
