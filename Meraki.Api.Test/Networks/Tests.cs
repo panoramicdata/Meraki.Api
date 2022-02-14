@@ -6,15 +6,6 @@ public class Tests : MerakiClientTest
 	{
 	}
 
-	private static void ValidateNetwork(Network network)
-	{
-		network.Should().NotBeNull();
-		string.IsNullOrWhiteSpace(network.Id).Should().BeFalse();
-		string.IsNullOrWhiteSpace(network.Name).Should().BeFalse();
-		string.IsNullOrWhiteSpace(network.OrganizationId).Should().BeFalse();
-		string.IsNullOrWhiteSpace(network.TimeZone).Should().BeFalse();
-	}
-
 	[Fact]
 	public async Task GetAllSsidsAsync_Succeeds()
 	{
