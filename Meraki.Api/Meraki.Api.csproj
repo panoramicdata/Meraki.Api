@@ -3,7 +3,10 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AnalysisMode>Recommended</AnalysisMode>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Copyright>Panoramic Data Limited 2021-2022</Copyright>
 		<PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
@@ -19,7 +22,6 @@
 		<NeutralLanguage>en</NeutralLanguage>
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-
 		<PackageReleaseNotes>
 			Added ApiKey attribute to Ssid Number
 		</PackageReleaseNotes>
