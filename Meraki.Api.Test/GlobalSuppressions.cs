@@ -5,10 +5,12 @@
 
 using System.Diagnostics.CodeAnalysis;
 
+[assembly: CLSCompliant(true)]
+
 [assembly: SuppressMessage(
 	"Naming",
 	"CA1707:Identifiers should not contain underscores",
-	Justification = "Used for Test naming",
+	Justification = "Useful for unit tests",
 	Scope = "namespaceanddescendants",
 	Target = "~N:Meraki.Api.Test")
 ]
