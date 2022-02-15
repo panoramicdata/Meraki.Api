@@ -44,5 +44,5 @@ public class AdminCreationRequest
 	/// </summary>
 	/// <value>The list of networks that the dashboard administrator has privileges on</value>
 	[DataMember(Name = "networks")]
-	public List<Network> Networks { get; set; } = null!;
+	public List<AdminNetworkAccess> Networks { get; set; } = null!;
 }
