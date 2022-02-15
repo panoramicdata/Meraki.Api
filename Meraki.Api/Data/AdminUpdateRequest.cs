@@ -28,5 +28,5 @@ public class AdminUpdateRequest
 	/// </summary>
 	/// <value>The list of networks that the dashboard administrator has privileges on</value>
 	[DataMember(Name = "networks")]
-	public List<Network>? Networks { get; set; }
+	public List<AdminNetworkAccess>? Networks { get; set; }
 }
