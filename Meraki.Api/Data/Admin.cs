@@ -18,7 +18,7 @@ public class Admin : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "orgAccess")]
-	public string OrganizationAccess { get; set; } = string.Empty;
+	public OrgAccess OrganizationAccess { get; set; }
 
 	/// <summary>
 	/// Account status
@@ -53,7 +53,7 @@ public class Admin : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tags")]
-	public List<AdminTag> Tags { get; set; } = new List<AdminTag>();
+	public List<Tag> Tags { get; set; } = new List<Tag>();
 
 	/// <summary>
 	/// The list of networks that the dashboard administrator has privileges on
