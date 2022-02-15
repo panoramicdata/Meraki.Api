@@ -18,5 +18,5 @@ public class Tag
 	/// </summary>
 	/// <value>The privilege of the dashboard administrator on the tag</value>
 	[DataMember(Name = "access")]
-	public string Access { get; set; } = string.Empty;
+	public AccessPrivilege Access { get; set; }
 }
