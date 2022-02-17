@@ -14,11 +14,25 @@ public class OrganizationSnmp
 	public bool V2cEnabled { get; set; }
 
 	/// <summary>
+	/// The v2 community string
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "v2CommunityString")]
+	public string? V2CommunityString { get; set; }
+
+	/// <summary>
 	/// Boolean indicating whether SNMP version 3 is enabled for the organization.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "v3Enabled")]
 	public bool V3Enabled { get; set; }
+
+	/// <summary>
+	/// The v3 User
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "v3User")]
+	public string? V3User { get; set; }
 
 	/// <summary>
 	/// Gets or Sets V3AuthMode
