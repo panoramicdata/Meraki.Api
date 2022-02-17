@@ -20,7 +20,7 @@ public interface IOrganizationsSnmp
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="updateOrganizationSnmp"></param>
 	[Put("/organizations/{organizationId}/snmp")]
-	Task<OrganizationSnmpUpdateRequest> UpdateOrganizationSnmpAsync(
+	Task<OrganizationSnmp> UpdateOrganizationSnmpAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] OrganizationSnmpUpdateRequest updateOrganizationSnmp,
 		CancellationToken cancellationToken = default
