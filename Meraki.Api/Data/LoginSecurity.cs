@@ -18,7 +18,7 @@ public class LoginSecurity
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "passwordExpirationDays")]
-	public int? PasswordExpirationDays { get; set; }
+	public int PasswordExpirationDays { get; set; }
 
 	/// <summary>
 	/// Enforce different passwords
@@ -32,7 +32,7 @@ public class LoginSecurity
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "numDifferentPasswords")]
-	public int? NumDifferentPasswords { get; set; }
+	public int NumDifferentPasswords { get; set; }
 
 	/// <summary>
 	/// Enforce strong passwords
@@ -53,7 +53,7 @@ public class LoginSecurity
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "accountLockoutAttempts")]
-	public int? AccountLockoutAttempts { get; set; }
+	public int AccountLockoutAttempts { get; set; }
 
 	/// <summary>
 	/// Enforce idle timeout
@@ -67,7 +67,7 @@ public class LoginSecurity
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "idleTimeoutMinutes")]
-	public int? IdleTimeoutMinutes { get; set; }
+	public int IdleTimeoutMinutes { get; set; }
 
 	/// <summary>
 	/// Enforce two factor auth
