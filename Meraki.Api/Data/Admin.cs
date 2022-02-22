@@ -18,7 +18,7 @@ public class Admin : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "orgAccess")]
-	public string OrganizationAccess { get; set; } = string.Empty;
+	public OrgAccess OrganizationAccess { get; set; }
 
 	/// <summary>
 	/// Account status

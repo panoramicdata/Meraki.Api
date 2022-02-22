@@ -22,25 +22,25 @@ public class OrganizationSnmpUpdateRequest
 	/// Gets or Sets V3AuthMode
 	/// </summary>
 	[DataMember(Name = "v3AuthMode")]
-	public SnmpV3AuthMode V3AuthMode { get; set; }
+	public SnmpV3AuthMode? V3AuthMode { get; set; }
 
 	/// <summary>
 	/// The SNMP version 3 authentication password. Must be at least 8 characters if specified.
 	/// </summary>
 	[DataMember(Name = "v3AuthPass")]
-	public string V3AuthPass { get; set; } = string.Empty;
+	public string? V3AuthPass { get; set; }
 
 	/// <summary>
 	/// Gets or Sets V3PrivMode
 	/// </summary>
 	[DataMember(Name = "v3PrivMode")]
-	public SnmpV3PrivMode V3PrivMode { get; set; }
+	public SnmpV3PrivMode? V3PrivMode { get; set; }
 
 	/// <summary>
 	/// The SNMP version 3 privacy password. Must be at least 8 characters if specified.
 	/// </summary>
 	[DataMember(Name = "v3PrivPass")]
-	public string V3PrivPass { get; set; } = string.Empty;
+	public string? V3PrivPass { get; set; }
 
 	/// <summary>
 	/// The list of IPv4 addresses that are allowed to access the SNMP server.

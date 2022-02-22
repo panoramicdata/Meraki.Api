@@ -16,7 +16,7 @@ public class Layer3FirewallRules
 	/// <summary>
 	/// Log the special default rule (boolean value - enable only if you've configured a syslog server) (optional)
 	/// </summary>
-	[ApiAccess(ApiAccess.Update)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "syslogDefaultRule")]
 	public bool? SyslogDefaultRule { get; set; }
 }

@@ -18,5 +18,5 @@ public class InboundFirewallRules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "syslogDefaultRule")]
-	public bool SyslogDefaultRule { get; set; }
+	public bool? SyslogDefaultRule { get; set; }
 }

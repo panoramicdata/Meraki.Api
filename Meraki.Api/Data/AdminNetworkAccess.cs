@@ -11,5 +11,5 @@ public class AdminNetworkAccess : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "access")]
-	public string Access { get; set; } = string.Empty;
+	public AccessPrivilege Access { get; set; }
 }
