@@ -25,7 +25,7 @@ public class SamlRoleUpdateRequest
 	/// </summary>
 	/// <value>The list of tags that the SAML administrator has privleges on</value>
 	[DataMember(Name = "tags")]
-	public List<Tag> Tags { get; set; } = null!;
+	public List<AdminTag> Tags { get; set; } = null!;
 
 	/// <summary>
 	/// The list of networks that the SAML administrator has privileges on

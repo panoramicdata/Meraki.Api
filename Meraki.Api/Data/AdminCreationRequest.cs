@@ -9,7 +9,6 @@ public class AdminCreationRequest
 	/// <summary>
 	/// The email of the dashboard administrator. This attribute can not be updated.
 	/// </summary>
-	/// <value>The email of the dashboard administrator. This attribute can not be updated.</value>
 	[DataMember(Name = "email")]
 	public string Email { get; set; } = null!;
 
@@ -22,7 +21,6 @@ public class AdminCreationRequest
 	/// <summary>
 	/// The name of the dashboard administrator
 	/// </summary>
-	/// <value>The name of the dashboard administrator</value>
 	[DataMember(Name = "name")]
 	public string Name { get; set; } = null!;
 
@@ -35,14 +33,12 @@ public class AdminCreationRequest
 	/// <summary>
 	/// The list of tags that the dashboard administrator has privileges on
 	/// </summary>
-	/// <value>The list of tags that the dashboard administrator has privileges on</value>
 	[DataMember(Name = "tags")]
-	public List<Tag> Tags { get; set; } = null!;
+	public List<AdminTag> Tags { get; set; } = null!;
 
 	/// <summary>
 	/// The list of networks that the dashboard administrator has privileges on
 	/// </summary>
-	/// <value>The list of networks that the dashboard administrator has privileges on</value>
 	[DataMember(Name = "networks")]
 	public List<AdminNetworkAccess> Networks { get; set; } = null!;
 }
