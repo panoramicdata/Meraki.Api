@@ -53,7 +53,7 @@ public class Admin : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tags")]
-	public List<Tag> Tags { get; set; } = new List<Tag>();
+	public List<AdminTag> Tags { get; set; } = new List<AdminTag>();
 
 	/// <summary>
 	/// The list of networks that the dashboard administrator has privileges on
