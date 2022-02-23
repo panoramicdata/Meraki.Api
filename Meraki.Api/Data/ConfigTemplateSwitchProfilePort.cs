@@ -4,7 +4,7 @@
 /// Switch profile ports
 /// </summary>
 [DataContract]
-public class ConfigTemplateSwitchProfilePorts : NamedItem
+public class ConfigTemplateSwitchProfilePort : NamedItem
 {
 	/// <summary>
 	/// Port Id
