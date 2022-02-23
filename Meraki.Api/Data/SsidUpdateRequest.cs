@@ -397,4 +397,11 @@ public class SsidUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "splashTimeout")]
 	public string? SplashTimeout { get; set; }
+
+	/// <summary>
+	/// speedBurst settings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "speedBurst")]
+	public SpeedBurst? SpeedBurst { get; set; }
 }
