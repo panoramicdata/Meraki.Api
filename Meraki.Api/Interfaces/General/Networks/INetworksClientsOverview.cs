@@ -9,7 +9,7 @@ public interface INetworksClientsOverview
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkClientsOverview")]
 	[Get("/networks/{networkId}/clients/overview")]
-	Task<NetworkClientOverview> GetNetworkClientsOverview(
+	Task<NetworkClientOverview> GetNetworkClientsOverviewAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 }

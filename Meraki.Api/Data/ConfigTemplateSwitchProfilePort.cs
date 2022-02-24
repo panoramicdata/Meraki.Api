@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Switch profile ports
+/// Switch profile port
 /// </summary>
 [DataContract]
-public class ConfigTemplateSwitchProfilePorts : NamedItem
+public class ConfigTemplateSwitchProfilePort : NamedItem
 {
 	/// <summary>
 	/// Port Id

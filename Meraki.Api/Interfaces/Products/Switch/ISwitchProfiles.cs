@@ -25,7 +25,7 @@ public interface ISwitchProfiles
 	/// <param name="configTemplateId">The configuration id</param>
 	/// <param name="profileId">The profile id</param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports")]
-	Task<List<ConfigTemplateSwitchProfilePorts>> GetOrganizationConfigTemplateSwitchProfilePortsAsync(
+	Task<List<ConfigTemplateSwitchProfilePort>> GetOrganizationConfigTemplateSwitchProfilePortsAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("configTemplateId")] string configTemplateId,
 		[AliasAs("profileId")] string profileId,
@@ -41,7 +41,7 @@ public interface ISwitchProfiles
 	/// <param name="profileId">The profile id</param>
 	/// <param name="portId">The port id</param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}")]
-	Task<ConfigTemplateSwitchProfilePorts> GetOrganizationConfigTemplateSwitchProfilePortAsync(
+	Task<ConfigTemplateSwitchProfilePort> GetOrganizationConfigTemplateSwitchProfilePortAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("configTemplateId")] string configTemplateId,
 		[AliasAs("profileId")] string profileId,
@@ -59,12 +59,12 @@ public interface ISwitchProfiles
 	/// <param name="portId">The port id</param>
 	/// <param name="updateOrganizationConfigTemplateSwitchProfilePort"></param>
 	[Put("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}")]
-	Task<ConfigTemplateSwitchProfilePorts> UpdateOrganizationConfigTemplateSwitchProfilePortAsync(
+	Task<ConfigTemplateSwitchProfilePort> UpdateOrganizationConfigTemplateSwitchProfilePortAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("configTemplateId")] string configTemplateId,
 		[AliasAs("profileId")] string profileId,
 		[AliasAs("portId")] string portId,
-		[Body] ConfigTemplateSwitchProfilePorts updateOrganizationConfigTemplateSwitchProfilePort,
+		[Body] ConfigTemplateSwitchProfilePort updateOrganizationConfigTemplateSwitchProfilePort,
 		CancellationToken cancellationToken = default
 		);
 }

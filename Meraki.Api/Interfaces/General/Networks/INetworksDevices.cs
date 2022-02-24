@@ -33,7 +33,7 @@ public interface INetworksDevices
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("removeNetworkDevices")]
 	[Post("/networks/{networkId}/devices/remove")]
-	Task RemoveNetworkDevicesAsync(
+	Task RemoveNetworkDeviceAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] string serial,
 		CancellationToken cancellationToken = default);

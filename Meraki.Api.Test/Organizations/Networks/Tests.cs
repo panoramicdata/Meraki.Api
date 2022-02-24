@@ -140,7 +140,7 @@ public class Tests : MerakiClientTest
 				await TestMerakiClient
 					.Networks
 					.Devices
-					.RemoveNetworkDevicesAsync(oldNetwork.Id, oldNetworkDevice.Serial)
+					.RemoveNetworkDeviceAsync(oldNetwork.Id, oldNetworkDevice.Serial)
 					.ConfigureAwait(false);
 			}
 
