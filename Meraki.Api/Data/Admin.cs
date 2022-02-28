@@ -67,5 +67,5 @@ public class Admin : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "authenticationMethod")]
-	public string AuthenticationMethod { get; set; } = string.Empty;
+	public string? AuthenticationMethod { get; set; }
 }
