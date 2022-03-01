@@ -19,7 +19,6 @@ public enum EncryptionMode
 	[EnumMember(Value = "wpa")]
 	Wpa,
 
-
 	/// <summary>
 	/// Enum WpaEap for "wpa-eap"
 	/// </summary>

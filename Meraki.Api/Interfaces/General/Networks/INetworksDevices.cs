@@ -35,7 +35,7 @@ public interface INetworksDevices
 	[Post("/networks/{networkId}/devices/remove")]
 	Task RemoveNetworkDeviceAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] string serial,
+		[Body] DeviceRemovalRequest deviceRemovalRequest,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
