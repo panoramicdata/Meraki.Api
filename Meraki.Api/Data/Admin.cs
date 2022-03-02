@@ -46,7 +46,7 @@ public class Admin : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "lastActive")]
-	public DateTime LastActive { get; set; }
+	public DateTime? LastActive { get; set; }
 
 	/// <summary>
 	/// The list of tags that the dashboard administrator has privileges on
