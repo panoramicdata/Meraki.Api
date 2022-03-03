@@ -13,7 +13,7 @@ public class VlanSpec
 	public string? ApplianceIp { get; set; }
 
 	[DataMember(Name = "vpnNatSubnet")]
-	public string VpnNatSubnet { get; set; } = null!;
+	public string? VpnNatSubnet { get; set; }
 
 	[DataMember(Name = "dhcpHandling")]
 	public DhcpHandling DhcpHandling { get; set; }
