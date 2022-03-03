@@ -28,10 +28,10 @@ public class VlanSpec
 	public bool DhcpBootOptionsEnabled { get; set; }
 
 	[DataMember(Name = "dhcpBootNextServer")]
-	public string DhcpBootNextServer { get; set; } = null!;
+	public string? DhcpBootNextServer { get; set; }
 
 	[DataMember(Name = "dhcpBootFilename")]
-	public string DhcpBootFilename { get; set; } = null!;
+	public string? DhcpBootFilename { get; set; }
 
 	[DataMember(Name = "fixedIpAssignments")]
 	public Dictionary<string, FixedIpAssignment> FixedIpAssignments { get; set; } = null!;
