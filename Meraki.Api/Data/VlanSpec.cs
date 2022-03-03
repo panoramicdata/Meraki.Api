@@ -7,10 +7,10 @@ public class VlanSpec
 	public string Name { get; set; } = null!;
 
 	[DataMember(Name = "subnet")]
-	public string Subnet { get; set; } = null!;
+	public string? Subnet { get; set; } = null!;
 
 	[DataMember(Name = "applianceIp")]
-	public string ApplianceIp { get; set; } = null!;
+	public string? ApplianceIp { get; set; }
 
 	[DataMember(Name = "vpnNatSubnet")]
 	public string VpnNatSubnet { get; set; } = null!;
