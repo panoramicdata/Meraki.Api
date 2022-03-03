@@ -23,7 +23,7 @@
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 		<PackageReleaseNotes>
-			Defaulted LocalStatusPage Authentication Username to admin to match API behaviour.
+			Corrected VlanSpec.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 

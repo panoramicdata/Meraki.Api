@@ -16,16 +16,16 @@ public class VlanSpec
 	public string VpnNatSubnet { get; set; } = null!;
 
 	[DataMember(Name = "dhcpHandling")]
-	public string DhcpHandling { get; set; } = null!;
+	public DhcpHandling DhcpHandling { get; set; }
 
 	[DataMember(Name = "dhcpRelayServerIps")]
 	public List<string> DhcpRelayServerIps { get; set; } = null!;
 
 	[DataMember(Name = "dhcpLeaseTime")]
-	public string DhcpLeaseTime { get; set; } = null!;
+	public DhcpLeaseTime DhcpLeaseTime { get; set; }
 
 	[DataMember(Name = "dhcpBootOptionsEnabled")]
-	public string DhcpBootOptionsEnabled { get; set; } = null!;
+	public bool DhcpBootOptionsEnabled { get; set; }
 
 	[DataMember(Name = "dhcpBootNextServer")]
 	public string DhcpBootNextServer { get; set; } = null!;
@@ -43,5 +43,5 @@ public class VlanSpec
 	public string DnsNameservers { get; set; } = null!;
 
 	[DataMember(Name = "dhcpOptions")]
-	public string DhcpOptions { get; set; } = null!;
+	public List<DhcpOption> DhcpOptions { get; set; } = null!;
 }
