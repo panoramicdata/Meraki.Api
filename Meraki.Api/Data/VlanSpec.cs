@@ -7,7 +7,7 @@ public class VlanSpec
 	public string Name { get; set; } = null!;
 
 	[DataMember(Name = "subnet")]
-	public string? Subnet { get; set; } = null!;
+	public string? Subnet { get; set; }
 
 	[DataMember(Name = "applianceIp")]
 	public string? ApplianceIp { get; set; }
