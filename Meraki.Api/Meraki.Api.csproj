@@ -23,7 +23,7 @@
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 		<PackageReleaseNotes>
-			Added ApiKey attribute to Ssid Number
+			Defaulted LocalStatusPage Authentication Username to admin to match API behaviour.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 

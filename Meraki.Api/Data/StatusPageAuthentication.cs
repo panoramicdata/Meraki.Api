@@ -18,5 +18,5 @@ public class StatusPageAuthentication
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "username")]
-	public string Usernname { get; set; } = string.Empty;
+	public string Username { get; set; } = "admin";
 }
