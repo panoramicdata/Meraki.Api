@@ -89,14 +89,14 @@ public class Vlan : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dhcpBootNextServer")]
-	public string DhcpBootNextServer { get; set; } = string.Empty;
+	public string? DhcpBootNextServer { get; set; }
 
 	/// <summary>
 	/// DHCP boot filename
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dhcpBootFilename")]
-	public string DhcpBootFilename { get; set; } = string.Empty;
+	public string? DhcpBootFilename { get; set; }
 
 	/// <summary>
 	/// DHCP options
