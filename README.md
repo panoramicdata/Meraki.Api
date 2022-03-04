@@ -1,5 +1,7 @@
 # Meraki.Api
 
+[![Nuget](https://img.shields.io/nuget/v/Meraki.Api)](https://www.nuget.org/packages/Meraki.Api/)
+
 This project implements access to the v1 Meraki API
 
 To use the Meraki API nuget package:
