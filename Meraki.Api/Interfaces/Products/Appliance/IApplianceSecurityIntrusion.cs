@@ -33,7 +33,7 @@ public interface IApplianceSecurityIntrusion
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkApplianceSecurityIntrusion")]
 	[Get("/networks/{networkId}/appliance/security/intrusion")]
-	Task<NetworkSecurityIntrusion> GetNetworkApplianceSecurityIntrusionAsync(
+	Task<NetworkApplianceSecurityIntrusion> GetNetworkApplianceSecurityIntrusionAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -46,9 +46,9 @@ public interface IApplianceSecurityIntrusion
 	/// <param name="networkSecurityIntrusion">Body for updating security intrusion settings</param>
 	[ApiOperationId("updateNetworkApplianceSecurityIntrusion")]
 	[Put("/networks/{networkId}/appliance/security/intrusion")]
-	Task<NetworkSecurityIntrusion> UpdateNetworkApplianceSecurityIntrusionAsync(
+	Task<NetworkApplianceSecurityIntrusion> UpdateNetworkApplianceSecurityIntrusionAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] NetworkSecurityIntrusion networkSecurityIntrusion,
+		[Body] NetworkApplianceSecurityIntrusion networkSecurityIntrusion,
 		CancellationToken cancellationToken = default
 		);
 }

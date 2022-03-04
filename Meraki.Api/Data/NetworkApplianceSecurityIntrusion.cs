@@ -4,7 +4,7 @@ namespace Meraki.Api.Data;
 /// UpdateNetworkSecurityIntrusionSettings
 /// </summary>
 [DataContract]
-public class NetworkSecurityIntrusion
+public class NetworkApplianceSecurityIntrusion
 {
 	/// <summary>
 	/// Gets or Sets Mode
@@ -18,7 +18,7 @@ public class NetworkSecurityIntrusion
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "idsRulesets")]
-	public SecurityIntrusionDetectionRuleSet? IdsRuleset { get; set; }
+	public SecurityIntrusionDetectionRuleSet? IdsRulesets { get; set; }
 
 	/// <summary>
 	/// Gets or Sets ProtectedNetworks
