@@ -39,5 +39,5 @@ public class WirelessSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "upgradeStrategy")]
-	public string UpgradeStrategy { get; set; } = string.Empty;
+	public string UpgradeStrategy { get; set; } = "minimizeUpgradeTime";
 }
