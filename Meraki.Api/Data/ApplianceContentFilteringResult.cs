@@ -11,7 +11,7 @@ public class ApplianceContentFilteringResult
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "urlCategoryListSize")]
-	public UrlCategoryListSize UrlCategoryListSize { get; set; }
+	public UrlCategoryListSize? UrlCategoryListSize { get; set; }
 
 	/// <summary>
 	/// Gets or Sets AllowedUrlPatterns
