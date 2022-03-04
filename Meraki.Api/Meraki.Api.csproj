@@ -23,7 +23,7 @@
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 		<PackageReleaseNotes>
-			Corrected VlanSpec.
+			WirelessSettings UpgradeStrategy now defaults to minimizeUpgradeTime.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
