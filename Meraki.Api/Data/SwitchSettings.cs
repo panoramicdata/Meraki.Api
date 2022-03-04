@@ -18,12 +18,12 @@ public class SwitchSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "useCombinedPower")]
-	public bool UseCombinedPower { get; set; }
+	public bool? UseCombinedPower { get; set; }
 
 	/// <summary>
-	/// Exceptions on a per switch basis to \&quot;useCombinedPower\&quot;
+	/// Exceptions on a per switch basis to 'useCombinedPower'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "powerExceptions")]
-	public List<PowerException> PowerExceptions { get; set; } = new();
+	public List<PowerException>? PowerExceptions { get; set; }
 }
