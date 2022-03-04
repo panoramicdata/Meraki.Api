@@ -23,7 +23,7 @@
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 		<PackageReleaseNotes>
-			Corrected VlanSpec.
+			Corrected ApplianceContentFilteringResult and ContentFilteringUpdateRequest.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
