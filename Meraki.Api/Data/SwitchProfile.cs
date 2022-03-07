@@ -18,6 +18,7 @@ public class SwitchProfile : NamedItem
 	/// The Model
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
+	[ApiForeignKey(typeof(string))]
 	[DataMember(Name = "model")]
 	public string Model { get; set; } = string.Empty;
 }
