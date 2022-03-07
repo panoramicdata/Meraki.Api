@@ -59,7 +59,7 @@ public interface INetworks
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("splitNetwork")]
 	[Post("/networks/{networkId}/split")]
-	Task<CombineNetworkResponse> SplitNetworkAsync(
+	Task<SplitNetworkResponse> SplitNetworkAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 
