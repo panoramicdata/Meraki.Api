@@ -36,8 +36,9 @@ public class SsidRadiusServer
 
 	/// <summary>
 	/// RADIUS client shared secret
+	/// The API doesn't return Secret, but it can be set
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "secret")]
 	public string Secret { get; set; } = string.Empty;
 
