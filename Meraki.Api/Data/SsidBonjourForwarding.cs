@@ -4,7 +4,7 @@ namespace Meraki.Api.Data;
 /// The Bonjour settings for your group policy. Only valid if your network has a wireless configuration.
 /// </summary>
 [DataContract]
-public class BonjourForwarding
+public class SsidBonjourForwarding
 {
 	/// <summary>
 	/// If true, Bonjour forwarding is enabled on this SSID.

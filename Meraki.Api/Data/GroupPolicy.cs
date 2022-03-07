@@ -61,5 +61,5 @@ public class GroupPolicy : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bonjourForwarding")]
-	public BonjourForwarding BonjourForwarding { get; set; } = new();
+	public GroupPolicyBonjourForwarding BonjourForwarding { get; set; } = new();
 }
