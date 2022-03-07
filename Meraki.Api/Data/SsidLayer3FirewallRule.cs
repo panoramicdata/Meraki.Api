@@ -40,4 +40,11 @@ public class SsidLayer3FirewallRule
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destCidr")]
 	public string DestinationCidr { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Undocumented IP Version - Observed values so far: 'ipv4'
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ipVer")]
+	public string? IpVer { get; set; }
 }

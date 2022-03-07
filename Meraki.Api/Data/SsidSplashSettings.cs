@@ -6,6 +6,17 @@
 [DataContract]
 public class SsidSplashSettings
 {
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "splashMethod")]
+	public string? SplashMethod { get; set; }
+
+	/// <summary>
+	/// Ssid Number.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ssidNumber")]
+	public int SsidNumber { get; set; }
+
 	/// <summary>
 	/// Splash timeout in minutes. This will determine how often users will see the splash page.
 	/// </summary>
