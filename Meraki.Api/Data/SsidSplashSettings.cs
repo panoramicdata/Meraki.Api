@@ -6,6 +6,10 @@
 [DataContract]
 public class SsidSplashSettings
 {
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "splashMethod")]
+	public string? SplashMethod { get; set; }
+
 	/// <summary>
 	/// Ssid Number.
 	/// </summary>
