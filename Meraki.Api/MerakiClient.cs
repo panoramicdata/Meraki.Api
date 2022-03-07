@@ -426,10 +426,10 @@ public partial class MerakiClient : IDisposable
 		{
 			if (disposing)
 			{
-				_logger.LogDebug("{Message}", Resources.Disposing);
+				_logger.LogTrace("{Message}", Resources.Disposing);
 				_httpClient.Dispose();
 				_httpClientHandler.Dispose();
-				_logger.LogDebug("{Message}", Resources.Disposed);
+				_logger.LogTrace("{Message}", Resources.Disposed);
 			}
 
 			_disposedValue = true;
