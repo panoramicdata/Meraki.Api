@@ -22,5 +22,5 @@ public class CombineOrganizationNetworksRequest
 	/// A unique identifier which can be used for device enrollment or easy access through the Meraki SM Registration page or the Self Service Portal. Please note that changing this field may cause existing bookmarks to break. All networks that are part of this combined network will have their enrollment string appended by '-network_type'. If left empty, all exisitng enrollment strings will be deleted.
 	/// </summary>
 	[DataMember(Name = "enrollmentString")]
-	public string EnrollmentString { get; set; } = string.Empty;
+	public string? EnrollmentString { get; set; }
 }
