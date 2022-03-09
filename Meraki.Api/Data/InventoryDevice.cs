@@ -11,7 +11,7 @@ public class InventoryDevice
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "mac")]
-	public string Mac { get; set; } = string.Empty;
+	public string? Mac { get; set; }
 
 	/// <summary>
 	/// Serial
@@ -33,7 +33,7 @@ public class InventoryDevice
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "model")]
-	public string Model { get; set; } = string.Empty;
+	public string? Model { get; set; }
 
 	/// <summary>
 	/// Network ID
@@ -47,26 +47,33 @@ public class InventoryDevice
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "orderNumber")]
-	public string OrderNumber { get; set; } = string.Empty;
+	public string? OrderNumber { get; set; }
 
 	/// <summary>
 	/// Claimed at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "claimedAt")]
-	public DateTime ClaimedAt { get; set; }
+	public DateTime? ClaimedAt { get; set; }
 
 	/// <summary>
 	/// Tags
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string>? Tags { get; set; }
+
+	/// <summary>
+	/// Claimed at
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "licenseExpirationDate")]
+	public DateTime? LicenseExpirationDate { get; set; }
 
 	/// <summary>
 	/// Product Type
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "productType")]
-	public ProductType ProductType { get; set; }
+	public ProductType? ProductType { get; set; }
 }

@@ -12,9 +12,10 @@ public class License
 	/// <value>The key of the license</value>
 	[DataMember(Name = "key")]
 	public string? Key { get; set; }
+
 	/// <summary>
 	/// Gets or Sets Mode
 	/// </summary>
 	[DataMember(Name = "mode")]
-	public LicenseMode Mode { get; set; }
+	public LicenseMode? Mode { get; set; }
 }
