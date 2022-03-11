@@ -19,13 +19,13 @@ public class VlanSpec
 	public DhcpHandling DhcpHandling { get; set; }
 
 	[DataMember(Name = "dhcpRelayServerIps")]
-	public List<string> DhcpRelayServerIps { get; set; } = null!;
+	public List<string>? DhcpRelayServerIps { get; set; }
 
 	[DataMember(Name = "dhcpLeaseTime")]
-	public DhcpLeaseTime DhcpLeaseTime { get; set; }
+	public DhcpLeaseTime? DhcpLeaseTime { get; set; }
 
 	[DataMember(Name = "dhcpBootOptionsEnabled")]
-	public bool DhcpBootOptionsEnabled { get; set; }
+	public bool? DhcpBootOptionsEnabled { get; set; }
 
 	[DataMember(Name = "dhcpBootNextServer")]
 	public string? DhcpBootNextServer { get; set; }
@@ -34,14 +34,14 @@ public class VlanSpec
 	public string? DhcpBootFilename { get; set; }
 
 	[DataMember(Name = "fixedIpAssignments")]
-	public Dictionary<string, FixedIpAssignment> FixedIpAssignments { get; set; } = null!;
+	public Dictionary<string, FixedIpAssignment>? FixedIpAssignments { get; set; }
 
 	[DataMember(Name = "reservedIpRanges")]
-	public List<ReservedIpRange> ReservedIpRanges { get; set; } = null!;
+	public List<ReservedIpRange>? ReservedIpRanges { get; set; }
 
 	[DataMember(Name = "dnsNameservers")]
-	public string DnsNameservers { get; set; } = null!;
+	public string? DnsNameservers { get; set; }
 
 	[DataMember(Name = "dhcpOptions")]
-	public List<DhcpOption> DhcpOptions { get; set; } = null!;
+	public List<DhcpOption>? DhcpOptions { get; set; }
 }

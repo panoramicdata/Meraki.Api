@@ -6,6 +6,17 @@
 [DataContract]
 public class SsidSplashSettings
 {
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "splashMethod")]
+	public string? SplashMethod { get; set; }
+
+	/// <summary>
+	/// Ssid Number.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ssidNumber")]
+	public int SsidNumber { get; set; }
+
 	/// <summary>
 	/// Splash timeout in minutes. This will determine how often users will see the splash page.
 	/// </summary>
@@ -25,21 +36,21 @@ public class SsidSplashSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "redirectUrl")]
-	public string? RedirectUrl { get; set; } = string.Empty;
+	public string? RedirectUrl { get; set; }
 
 	/// <summary>
 	/// [optional] The custom splash URL of the click-through splash page. Note that the URL can be configured without necessarily being used. In order to enable the custom URL, see 'useSplashUrl'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashUrl")]
-	public string? SplashUrl { get; set; } = string.Empty;
+	public string? SplashUrl { get; set; }
 
 	/// <summary>
 	/// The welcome message for the users on the splash page.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "welcomeMessage")]
-	public string WelcomeMessage { get; set; } = string.Empty;
+	public string? WelcomeMessage { get; set; }
 
 	/// <summary>
 	/// Whether or not to allow simultaneous logins from different devices.
@@ -53,14 +64,14 @@ public class SsidSplashSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "blockAllTrafficBeforeSignOn")]
-	public bool BlockAllTrafficBeforeSignOn { get; set; }
+	public bool? BlockAllTrafficBeforeSignOn { get; set; }
 
 	/// <summary>
 	/// The Boolean indicating whether the user will be redirected to the custom redirect URL after the splash page. A custom redirect URL must be set if this is true.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "useRedirectUrl")]
-	public bool UseRedirectUrl { get; set; }
+	public bool? UseRedirectUrl { get; set; }
 
 	/// <summary>
 	/// [optional] Boolean indicating whether the users will be redirected to the custom splash url. A custom splash URL must be set if this is true. Note that depending on your SSID's access control settings, it may not be possible to use the custom splash URL.

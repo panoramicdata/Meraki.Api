@@ -25,5 +25,5 @@ public class SsidLayer7FirewallRule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "value")]
-	public string Value { get; set; } = string.Empty;
+	public object Value { get; set; } = null!;
 }

@@ -47,21 +47,21 @@ public class Vlan : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "fixedIpAssignments")]
-	public Dictionary<string, FixedIpAssignment> FixedIpAssignments { get; set; } = new Dictionary<string, FixedIpAssignment>();
+	public Dictionary<string, FixedIpAssignment>? FixedIpAssignments { get; set; }
 
 	/// <summary>
 	/// Reserved IP ranges
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "reservedIpRanges")]
-	public List<ReservedIpRange> ReservedIpRanges { get; set; } = new List<ReservedIpRange>();
+	public List<ReservedIpRange>? ReservedIpRanges { get; set; }
 
 	/// <summary>
 	/// DNS nameservers
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dnsNameservers")]
-	public string DnsNameServers { get; set; } = string.Empty;
+	public string? DnsNameServers { get; set; }
 
 	/// <summary>
 	/// DHCP handling
@@ -75,14 +75,14 @@ public class Vlan : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dhcpLeaseTime")]
-	public DhcpLeaseTime DhcpLeaseTime { get; set; }
+	public DhcpLeaseTime? DhcpLeaseTime { get; set; }
 
 	/// <summary>
 	/// DHCP Boot options enabled
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dhcpBootOptionsEnabled")]
-	public bool DhcpBootOptionsEnabled { get; set; }
+	public bool? DhcpBootOptionsEnabled { get; set; }
 
 	/// <summary>
 	/// DHCP boot next server
@@ -103,14 +103,14 @@ public class Vlan : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dhcpOptions")]
-	public List<DhcpOption> DhcpOptions { get; set; } = new List<DhcpOption>();
+	public List<DhcpOption>? DhcpOptions { get; set; }
 
 	/// <summary>
 	/// DHCP relay server IPs
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dhcpRelayServerIps")]
-	public List<string> DhcpRelayServerIps { get; set; } = new List<string>();
+	public List<string>? DhcpRelayServerIps { get; set; }
 
 	/// <summary>
 	/// Template VLAN Type

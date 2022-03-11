@@ -11,19 +11,19 @@ public class SentryEnrollment
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "strength")]
-	public string Strength { get; set; } = string.Empty;
+	public string? Strength { get; set; }
 
 	/// <summary>
 	/// The system types that the Sentry enforces. Must be included in: 'iOS, 'Android', 'macOS', and 'Windows'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enforcedSystems")]
-	public List<string> EnforcedSystems { get; set; } = new();
+	public List<string>? EnforcedSystems { get; set; }
 
 	/// <summary>
 	/// Systems Manager network targeted for sentry enrollment.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "systemsManagerNetwork")]
-	public SystemsManagerNetwork SystemsManagerNetwork { get; set; } = new();
+	public SystemsManagerNetwork? SystemsManagerNetwork { get; set; }
 }
