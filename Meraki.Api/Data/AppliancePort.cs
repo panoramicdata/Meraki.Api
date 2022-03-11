@@ -9,6 +9,7 @@ public class AppliancePort
 	/// <summary>
 	/// Number
 	/// </summary>
+	[ApiKey]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "number")]
 	public int? Number { get; set; }
@@ -53,5 +54,5 @@ public class AppliancePort
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "accessPolicy")]
-	public string AccessPolicy { get; set; } = string.Empty;
+	public string? AccessPolicy { get; set; }
 }
