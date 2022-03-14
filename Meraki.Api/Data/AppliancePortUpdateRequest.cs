@@ -4,7 +4,7 @@ namespace Meraki.Api.Data;
 /// UpdateNetworkAppliancePort
 /// </summary>
 [DataContract]
-public class AppliancePort
+public class AppliancePortUpdateRequest
 {
 	/// <summary>
 	/// Number
@@ -26,7 +26,7 @@ public class AppliancePort
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "type")]
-	public SwitchPortType Type { get; set; }
+	public SwitchPortType? Type { get; set; }
 
 	/// <summary>
 	/// Trunk port can Drop all Untagged traffic. When true, no VLAN is required. Access ports cannot have dropUntaggedTraffic set to true.

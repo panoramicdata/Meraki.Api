@@ -23,7 +23,7 @@
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 		<PackageReleaseNotes>
-			WirelessSettings UpgradeStrategy now defaults to minimizeUpgradeTime.
+			AppliancePortUpdateRequest added with nullable properties to allow sending just Number and Enabled.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
