@@ -40,7 +40,7 @@ public interface IAppliancePorts
 	Task<AppliancePort> UpdateNetworkAppliancePortAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("portId")] string portId,
-		[Body] AppliancePort appliancePort,
+		[Body] AppliancePortUpdateRequest appliancePort,
 		CancellationToken cancellationToken = default
 		);
 }
