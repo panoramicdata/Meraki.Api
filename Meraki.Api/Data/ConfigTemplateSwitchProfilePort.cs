@@ -53,6 +53,7 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	/// The VLAN of the switch profile port. A null value will clear the value set for trunk ports.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
+	[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 	[DataMember(Name = "vlan")]
 	public int? Vlan { get; set; }
 
@@ -96,6 +97,7 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "portScheduleId")]
+	[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 	public string? PortScheduleId { get; set; }
 
 	/// <summary>
