@@ -62,7 +62,7 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "voiceVlan")]
-	public int? VoiceVlan { get; set; } = 0;
+	public int? VoiceVlan { get; set; }
 
 	/// <summary>
 	/// The isolation status of the switch profile port
@@ -112,7 +112,7 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "accessPolicyType")]
-	public AccessPolicyType AccessPolicyType { get; set; }
+	public AccessPolicyType? AccessPolicyType { get; set; }
 
 	/// <summary>
 	/// The initial list of MAC addresses for sticky Mac allow list. Only applicable when 'accessPolicyType' is 'Sticky MAC allow list'
