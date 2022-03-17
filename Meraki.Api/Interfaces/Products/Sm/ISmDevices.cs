@@ -115,7 +115,7 @@ public interface ISmDevices
 	/// <param name="networkId">The network id</param>
 	/// <param name="deviceId">The device id</param>
 	[Post("/networks/{networkId}/sm/devices/{deviceId}/unenroll")]
-	Task<UpdateOnboardingStatusResponse> UnenrollNetworkSmDeviceAsync(
+	Task<ActionResponse> UnenrollNetworkSmDeviceAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("deviceId")] string deviceId,
 		CancellationToken cancellationToken = default
