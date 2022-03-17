@@ -4,33 +4,33 @@ namespace Meraki.Api.Data;
 /// WipeNetworkSmDevice
 /// </summary>
 [DataContract]
-public class WipeNetworkSmDevice
+public class WipeNetworkSmDeviceRequest
 {
 	/// <summary>
 	/// The wifiMac of the device to be wiped.
 	/// </summary>
-	/// <value>The wifiMac of the device to be wiped.</value>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "wifiMac")]
-	public string WifiMac { get; set; } = null!;
+	public string? WifiMac { get; set; }
 
 	/// <summary>
 	/// The id of the device to be wiped.
 	/// </summary>
-	/// <value>The id of the device to be wiped.</value>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "id")]
-	public string Id { get; set; } = null!;
+	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
 	/// The serial of the device to be wiped.
 	/// </summary>
-	/// <value>The serial of the device to be wiped.</value>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "serial")]
-	public string Serial { get; set; } = null!;
+	public string? Serial { get; set; }
 
 	/// <summary>
 	/// The pin number (a six digit value) for wiping a macOS device. Required only for macOS devices.
 	/// </summary>
-	/// <value>The pin number (a six digit value) for wiping a macOS device. Required only for macOS devices.</value>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "pin")]
 	public int? Pin { get; set; }
 }
