@@ -2,12 +2,8 @@
 
 Console.WriteLine($"{ThisAssembly.AssemblyName} v{ThisAssembly.AssemblyInformationalVersion}");
 
-
-Console.WriteLine("Getting deficient classes...");
-var deficientClasses = ClassReader.GetDataClasses();
-Console.WriteLine("done.");
 Console.Write("Getting implemented endpoints...");
-var implementedEndpoints = InterfaceReader.GetEndPoints(deficientClasses);
+var implementedEndpoints = InterfaceReader.GetEndPoints();
 Console.WriteLine("done.");
 Console.Write("Retrieving API schema...");
 var apiSchema = await OpenApiReader.GetSchemaAsync().ConfigureAwait(false);

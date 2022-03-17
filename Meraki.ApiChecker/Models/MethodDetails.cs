@@ -11,7 +11,7 @@ public class MethodDetails
 	/// <summary>
 	/// A List of Types used as the return type or the signature of the method
 	/// </summary>
-	public List<string> UsedTypes { get; set; } = new();
+	//public List<string> UsedTypes { get; set; } = new();
 
 	/// <summary>
 	/// A List of Types used by this method that lack at least one ApiAccess attribute

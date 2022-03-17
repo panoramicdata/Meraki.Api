@@ -7,7 +7,7 @@ namespace Meraki.ApiChecker;
 
 public static class InterfaceReader
 {
-	internal static Dictionary<string, List<MethodDetails>> GetEndPoints(List<string> deficientClasses)
+	internal static Dictionary<string, List<MethodDetails>> GetEndPoints()
 	{
 		// Load our interface implementations
 		var apiAssembly = Assembly.Load("Meraki.Api");
@@ -15,7 +15,7 @@ public static class InterfaceReader
 			.GetTypes()
 			.Where(
 				t => t.IsInterface
-				&& t.Namespace!.StartsWith("Meraki.Api.Interfaces")
+				&& t.Namespace!.StartsWith("Meraki.Api.Interfaces", StringComparison.InvariantCulture)
 				).ToList();
 
 		var implementedEndpoints = new Dictionary<string, List<MethodDetails>>();
@@ -40,13 +40,14 @@ public static class InterfaceReader
 						= new List<MethodDetails>();
 				}
 
-				var methodDetails = new MethodDetails(method, refitAttribute)
-				{
-					UsedTypes = method.ReturnType.GetNonGenericType()
-				};
+				var methodDetails = new MethodDetails(method, refitAttribute);
 
-				// Compare the UsedTypes with the given deficientClasses to populate DeficientDataModels used by the current method
-				methodDetails.DeficientDataModels.AddRange(methodDetails.UsedTypes.Where(type => deficientClasses.Contains(type) && !methodDetails.DeficientDataModels.Contains(type)));
+				// Check if Method ReturnType is decorated with the ApiAccess Attribute
+				var type = methodDetails.Method.ReturnType.GetNonGenericType();
+				if (type?.IsApiAccessAttributeSet() == false && !methodDetails.DeficientDataModels.Contains(type.Name!))
+				{
+					methodDetails.DeficientDataModels.Add(type.Name!);
+				}
 
 				// Add the entry to the list
 				existingList.Add(methodDetails);

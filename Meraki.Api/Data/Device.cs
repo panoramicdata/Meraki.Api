@@ -155,7 +155,7 @@ public class Device : NamedItem
 	/// Whether or not to set the latitude and longitude of a device based on the new address. Only applies when lat and lng are not specified.
 	/// Only used when sending updates
 	/// </summary>
-	[DataMember(Name = "moveMapMarker")]
 	[ApiAccess(ApiAccess.Update)]
+	[DataMember(Name = "moveMapMarker")]
 	public bool? MoveMapMarker { get; set; }
 }

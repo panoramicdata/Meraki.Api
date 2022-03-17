@@ -1,14 +1,18 @@
-﻿namespace Meraki.ApiChecker.Extensions;
+﻿using Meraki.Api.Attributes;
+using System.Reflection;
+
+namespace Meraki.ApiChecker.Extensions;
 public static class TypeExtension
 {
-	public static List<string> GetNonGenericType(this Type type)
+	public static Type? GetNonGenericType(this Type type)
 	{
-		var types = new List<string>();
-
 		if (!type.IsGenericType)
 		{
-			// It's not a generic type, so we assume the FullName is the actual ReturnType that we are interested in
-			types.AddRange(GetMerakiTypesForType(type));
+			if (type.Namespace?.StartsWith("Meraki.Api.Data", StringComparison.InvariantCulture) == true)
+			{
+				// It's not a generic type, so we assume the FullName is the actual ReturnType that we are interested in
+				return type;
+			}
 		}
 		else
 		{
@@ -20,36 +24,42 @@ public static class TypeExtension
 				var nestedType = type.GetGenericArguments()[0];
 
 				// call self with the unwrapped Type
-				types.AddRange(GetNonGenericType(nestedType));
+				return GetNonGenericType(nestedType);
 			}
 
 			// Is it a List<> of something?
 			if (typeDefinition == typeof(List<>) || typeDefinition == typeof(IEnumerable<>))
 			{
 				// YES - unwrap it
-				typeDefinition = type.GetGenericArguments()[0];
+				var nestedType = type.GetGenericArguments()[0];
+				return GetNonGenericType(nestedType);
 			}
-
-			// We believe we have reached the Meraki Type we are interested in
-			types.AddRange(GetMerakiTypesForType(typeDefinition));
 		}
-		return types;
+
+		return null;
 	}
 
-	private static List<string> GetMerakiTypesForType(Type type)
+	public static bool IsApiAccessAttributeSet(this Type type)
 	{
-		var types = new List<string>();
-		if (type.Namespace?.StartsWith("Meraki.Api.Data") == true)
+		// Is ApiAccessReadOnlyClassAttribute present on the class?
+		if (type.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is not null)
 		{
-			types.Add(type.FullName!);
+			// YES
+			return true;
+		}
+		// NO - look at the properties of the class
 
-			// Get type of each Property
-			foreach (var property in type.GetProperties())
+		foreach (var property in type.GetProperties())
+		{
+			// Is ApiAccessAttribute present on the property?
+			if (property.GetCustomAttribute<ApiAccessAttribute>() is null)
 			{
-				types.AddRange(property.PropertyType.GetNonGenericType());
+				// NO - ApiAccess is not fully denoted for the type
+				return false;
 			}
 		}
 
-		return types;
+		// All properties have the ApiAccessAttribute set
+		return true;
 	}
 }
