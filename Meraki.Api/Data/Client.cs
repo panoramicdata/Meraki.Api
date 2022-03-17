@@ -3,6 +3,7 @@
 /// <summary>
 /// A (Network) Client
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class Client : IdentifiedItem
 {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data;
-
+[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class ClientSearchResultRecords
@@ -90,7 +87,7 @@ public class ClientSearchResultRecords
 	/// Client vpn connections
 	/// </summary>
 	[DataMember(Name = "clientVpnConnections")]
-	public List<ClientVpnConnections> ClientVpnConnections { get; set; } =  new();
+	public List<ClientVpnConnections> ClientVpnConnections { get; set; } = new();
 
 	/// <summary>
 	/// Lldp

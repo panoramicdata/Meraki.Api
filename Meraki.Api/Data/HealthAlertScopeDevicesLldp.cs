@@ -3,6 +3,7 @@ namespace Meraki.Api.Data;
 /// <summary>
 /// Health alert scope
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class HealthAlertScopeDevicesLldp
 {

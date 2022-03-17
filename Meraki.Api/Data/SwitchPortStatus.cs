@@ -1,5 +1,6 @@
 ﻿namespace Meraki.Api.Data;
 
+[ApiAccessReadOnlyClass]
 public class SwitchPortStatus
 {
 	[DataMember(Name = "portId")]
@@ -45,12 +46,14 @@ public class SwitchPortStatus
 	public SecureConnect? SecureConnect { get; set; }
 }
 
+[ApiAccessReadOnlyClass]
 public class UsageInKb : Usage
 {
 	[DataMember(Name = "total")]
 	public double Total { get; set; }
 }
 
+[ApiAccessReadOnlyClass]
 public class Cdp
 {
 	[DataMember(Name = "systemName")]

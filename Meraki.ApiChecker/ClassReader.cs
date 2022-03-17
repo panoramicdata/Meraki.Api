@@ -12,7 +12,9 @@ public static class ClassReader
 			.GetTypes()
 			.Where(
 				t => t.IsClass
-				&& t.Namespace?.StartsWith("Meraki.Api.Data") == true
+				&& t.Namespace?.StartsWith("Meraki.Api.Data", StringComparison.InvariantCulture) == true
+				// exclude classes that have the ApiAccessReadOnlyClassAttribute
+				&& t.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is null
 				).ToList();
 
 		var deficientClasses = new List<string>();

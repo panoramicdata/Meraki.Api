@@ -3,6 +3,7 @@
 /// <summary>
 /// Client VPN connections
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class ClientVpnConnections
 {
