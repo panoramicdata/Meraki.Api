@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// Lldp
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class LinkLayerNodeDiscoveredLldp
 {

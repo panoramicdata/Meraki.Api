@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 /// <summary>
 /// Stack
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
-
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1711:Identifiers should not have incorrect suffix", Justification = "This class is literally called stacked on the Meraki API.")]
 public class LinkLayerNodeStack
 {
 	/// <summary>
@@ -26,7 +23,7 @@ public class LinkLayerNodeStack
 	/// Members
 	/// </summary>
 	[DataMember(Name = "members")]
-	public List<LinkLayerNodeStackMember> Type { get; set; } = new();
+	public List<LinkLayerNodeStackMember> Members { get; set; } = new();
 
 	/// <summary>
 	/// Clients

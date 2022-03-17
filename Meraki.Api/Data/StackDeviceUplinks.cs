@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 /// <summary>
 /// Uplinks
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class StackDeviceUplinks

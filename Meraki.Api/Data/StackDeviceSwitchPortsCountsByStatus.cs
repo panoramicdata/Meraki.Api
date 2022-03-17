@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 /// <summary>
 /// By status
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class StackDeviceSwitchPortsCountsByStatus
 {
