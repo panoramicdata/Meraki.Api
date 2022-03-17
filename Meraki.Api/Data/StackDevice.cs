@@ -2,7 +2,6 @@
 /// <summary>
 /// Device
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class StackDevice

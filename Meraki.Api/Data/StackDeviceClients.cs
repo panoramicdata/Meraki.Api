@@ -2,7 +2,6 @@
 /// <summary>
 /// Clients
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 public class StackDeviceClients
 {

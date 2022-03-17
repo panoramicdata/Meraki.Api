@@ -2,7 +2,6 @@
 /// <summary>
 /// Member
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class LinkLayerNodeStackMember

@@ -3,7 +3,6 @@
 /// <summary>
 /// Trusted access connections
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 public class TrustedAccessConnection
 {

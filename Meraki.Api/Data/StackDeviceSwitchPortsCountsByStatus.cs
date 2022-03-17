@@ -2,7 +2,6 @@
 /// <summary>
 /// By status
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 public class StackDeviceSwitchPortsCountsByStatus
 {

@@ -3,7 +3,6 @@ namespace Meraki.Api.Data;
 /// <summary>
 /// Health alert scope peer
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 public class HealthAlertScopePeer
 {

@@ -1,6 +1,5 @@
 ﻿namespace Meraki.Api.Data;
 
-[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class ClientSearchResultRecords

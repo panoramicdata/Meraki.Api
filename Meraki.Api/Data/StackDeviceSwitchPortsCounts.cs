@@ -2,7 +2,6 @@
 /// <summary>
 /// Counts
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class StackDeviceSwitchPortsCounts

@@ -3,7 +3,6 @@
 /// <summary>
 /// PPPOE
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class StackDeviceUplinksPppoe

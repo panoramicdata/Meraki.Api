@@ -2,7 +2,6 @@
 /// <summary>
 /// Links
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 public class LinkLayerLinks
 {

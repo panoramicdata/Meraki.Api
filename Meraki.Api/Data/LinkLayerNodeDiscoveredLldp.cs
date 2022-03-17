@@ -3,7 +3,6 @@
 /// <summary>
 /// Lldp
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 public class LinkLayerNodeDiscoveredLldp
 {

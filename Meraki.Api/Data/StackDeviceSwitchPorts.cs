@@ -2,7 +2,6 @@
 /// <summary>
 /// Ports
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 public class StackDeviceSwitchPorts
 {

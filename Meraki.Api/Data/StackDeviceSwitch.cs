@@ -2,7 +2,6 @@
 /// <summary>
 /// Switch
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class StackDeviceSwitch

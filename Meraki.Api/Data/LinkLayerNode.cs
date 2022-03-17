@@ -3,7 +3,6 @@
 /// <summary>
 /// Link layer node
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class LinkLayerNode

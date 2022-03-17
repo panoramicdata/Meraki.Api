@@ -2,7 +2,6 @@
 /// <summary>
 /// Uplinks
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class StackDeviceUplinks

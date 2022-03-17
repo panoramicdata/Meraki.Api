@@ -3,7 +3,6 @@
 /// <summary>
 /// Discovered
 /// </summary>
-[ApiAccessReadOnlyClass]
 [DataContract]
 public class LinkLayerNodeDiscovered
 {
