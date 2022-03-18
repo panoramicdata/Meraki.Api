@@ -3,6 +3,7 @@
 /// <summary>
 /// Insight application
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class InsightApplication
 {

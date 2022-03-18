@@ -3,6 +3,7 @@
 /// <summary>
 /// APNS certificate
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class ApnsCert
 {

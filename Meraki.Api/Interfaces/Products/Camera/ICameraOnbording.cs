@@ -23,7 +23,7 @@ public interface ICameraOnbording
 	[Put("/organizations/{organizationId}/camera/onboarding/statuses")]
 	Task<ActionResponse> UpdateOrganizationCameraOnboardingStatusesAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[Body] UpdateOnboardingStatus updateNetworkCameraWirelessProfile,
+		[Body] OnboardingStatusUpdateRequest unboardingStatusUpdateRequest,
 		CancellationToken cancellationToken = default
 		);
 }

@@ -3,6 +3,7 @@
 /// <summary>
 /// VPP account information
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class SmVppAccount
 {
