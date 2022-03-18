@@ -51,8 +51,9 @@ public static class TypeExtension
 
 		foreach (var property in type.GetProperties())
 		{
-			// Is ApiAccessAttribute present on the property?
-			if (property.GetCustomAttribute<ApiAccessAttribute>() is null)
+			// Is ApiAccessAttribute or ApiKeyAttribute present on the property?
+			if (property.GetCustomAttribute<ApiAccessAttribute>() is null
+				&& property.GetCustomAttribute<ApiKeyAttribute>() is null)
 			{
 				// NO - ApiAccess is not fully denoted for the type
 				return false;
