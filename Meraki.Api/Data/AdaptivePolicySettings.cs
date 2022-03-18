@@ -7,8 +7,9 @@
 public class AdaptivePolicySettings
 {
 	/// <summary>
-	/// Enabled networks
+	/// List of network IDs with adaptive policy enabled
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabledNetworks")]
 	public List<string> EnabledNetworks { get; set; } = new();
 }
