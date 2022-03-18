@@ -29,4 +29,16 @@ public class Tests : MerakiClientTest
 
 		organizationDeviceStatus.Should().NotBeNull();
 	}
+
+	[Fact]
+	public async Task GetOrganizationDeviceStatusAll_Succeeds()
+	{
+		var result = await TestMerakiClient
+			.Organizations
+			.Devices
+			.GetOrganizationDevicesStatusesAllAsync(Configuration.TestOrganizationId)
+			.ConfigureAwait(false);
+		result.Should().NotBeNull();
+		result.Should().NotBeEmpty();
+	}
 }
