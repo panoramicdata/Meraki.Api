@@ -23,7 +23,7 @@
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 		<PackageReleaseNotes>
-			AppliancePortUpdateRequest added with nullable properties to allow sending just Number and Enabled.
+			Added LinkNegotiationCapabilities to SwitchProfilePorts.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 

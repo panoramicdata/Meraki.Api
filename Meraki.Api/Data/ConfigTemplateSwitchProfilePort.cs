@@ -141,4 +141,8 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedVlans")]
 	public string? AllowedVlans { get; set; }
+
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "linkNegotiationCapabilities")]
+	public List<string>? LinkNegotiationCapabilities { get; set; }
 }
