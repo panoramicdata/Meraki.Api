@@ -22,7 +22,7 @@
 		<NeutralLanguage>en</NeutralLanguage>
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-		<PackageReleaseNotes>https://raw.githubusercontent.com/panoramicdata/Meraki.Api/main/CHANGELOG.md</PackageReleaseNotes>
+		<PackageReleaseNotes>Changelog can be found at https://github.com/panoramicdata/Meraki.Api/blob/main/CHANGELOG.md</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
