@@ -22,9 +22,7 @@
 		<NeutralLanguage>en</NeutralLanguage>
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-		<PackageReleaseNotes>
-			Added LinkNegotiationCapabilities to SwitchProfilePorts.
-		</PackageReleaseNotes>
+		<PackageReleaseNotes>https://raw.githubusercontent.com/panoramicdata/Meraki.Api/main/CHANGELOG.md</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
