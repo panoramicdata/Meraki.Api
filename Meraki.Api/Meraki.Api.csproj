@@ -23,7 +23,7 @@
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 		<PackageReleaseNotes>
-			Added LinkNegotiationCapabilities to SwitchProfilePorts.
+			Added LinkNegotiationCapabilities to SwitchProfilePorts and Switchport.
 		</PackageReleaseNotes>
 	</PropertyGroup>
 
