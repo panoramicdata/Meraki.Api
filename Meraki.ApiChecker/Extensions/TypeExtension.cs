@@ -10,15 +10,15 @@ public static class TypeExtension
 		{
 			if (type.Namespace?.StartsWith("Meraki.Api.Data", StringComparison.InvariantCulture) == true)
 			{
-				// It's not a generic type, so we assume the FullName is the actual ReturnType that we are interested in
+				// It's not a generic type, so we assume it's the actual ReturnType we are interested in
 				return type;
 			}
 		}
 		else
 		{
 			var typeDefinition = type.GetGenericTypeDefinition();
-			// Is it a Task<> of something?
-			if (typeDefinition == typeof(Task<>))
+			// Is it a Task<> or a List<>
+			if (typeDefinition == typeof(Task<>) || typeDefinition == typeof(List<>))
 			{
 				// YES - unwrap it
 				var nestedType = type.GetGenericArguments()[0];
@@ -26,29 +26,20 @@ public static class TypeExtension
 				// call self with the unwrapped Type
 				return GetNonGenericType(nestedType);
 			}
-
-			// Is it a List<> of something?
-			if (typeDefinition == typeof(List<>) || typeDefinition == typeof(IEnumerable<>))
-			{
-				// YES - unwrap it
-				var nestedType = type.GetGenericArguments()[0];
-				return GetNonGenericType(nestedType);
-			}
 		}
 
 		return null;
 	}
 
-	public static bool IsApiAccessAttributeSet(this Type type)
+	public static List<string> GetDeficientDataModels(this Type type)
 	{
-		// Is ApiAccessReadOnlyClassAttribute present on the class?
 		if (type.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is not null)
 		{
-			// YES
-			return true;
+			// It's a read-only class, so return here
+			return new List<string>();
 		}
-		// NO - look at the properties of the class
 
+		var deficientDataModels = new List<string>();
 		foreach (var property in type.GetProperties())
 		{
 			// Is ApiAccessAttribute or ApiKeyAttribute present on the property?
@@ -56,11 +47,21 @@ public static class TypeExtension
 				&& property.GetCustomAttribute<ApiKeyAttribute>() is null)
 			{
 				// NO - ApiAccess is not fully denoted for the type
-				return false;
+				if (!deficientDataModels.Contains(type.Name))
+				{
+					deficientDataModels.Add(type.Name);
+				}
+			}
+
+			// Check properties of the nested object if it's a Meraki class
+			var propertyType = property.PropertyType?.GetNonGenericType();
+			// Is it a class? AND ensure it's a class we didn't discover yet
+			if (propertyType?.IsClass == true && !deficientDataModels.Contains(propertyType.Name))
+			{
+				deficientDataModels.AddRange(GetDeficientDataModels(propertyType));
 			}
 		}
 
-		// All properties have the ApiAccessAttribute set
-		return true;
+		return deficientDataModels;
 	}
 }

@@ -42,11 +42,10 @@ public static class InterfaceReader
 
 				var methodDetails = new MethodDetails(method, refitAttribute);
 
-				// Check if Method ReturnType is decorated with the ApiAccess Attribute
-				var type = methodDetails.Method.ReturnType.GetNonGenericType();
-				if (type?.IsApiAccessAttributeSet() == false && !methodDetails.DeficientDataModels.Contains(type.Name!))
+				var returnType = methodDetails.Method.ReturnType.GetNonGenericType();
+				if (returnType is not null)
 				{
-					methodDetails.DeficientDataModels.Add(type.Name!);
+					methodDetails.DeficientDataModels.AddRange(returnType.GetDeficientDataModels());
 				}
 
 				// Add the entry to the list
