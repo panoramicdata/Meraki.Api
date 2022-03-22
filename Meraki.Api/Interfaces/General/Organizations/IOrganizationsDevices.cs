@@ -10,6 +10,30 @@ public interface IOrganizationsDevices
 	[Get("/organizations/{organizationId}/devices/statuses")]
 	Task<List<OrganizationDeviceStatus>> GetOrganizationDevicesStatusesAsync(
 		[AliasAs("organizationId")] string organizationId,
+		[AliasAs("perPage")] int? perPage = 1000,
+		[AliasAs("startingAfter")] string? startingAfter = null,
+		[AliasAs("endingBefore")] string? endingBefore = null,
+		[AliasAs("networkIds")] List<string>? networkIds = null,
+		[AliasAs("serials")] List<string>? serials = null,
+		[AliasAs("statuses")] List<string>? statuses = null,
+		[AliasAs("productTypes")] List<string>? productTypes = null,
+		[AliasAs("models")] List<string>? models = null,
+		[AliasAs("tags")] List<string>? tags = null,
+		[AliasAs("tagsFilterType")] string? tagsFilterType = null,
+		CancellationToken cancellationToken = default);
+
+	// Used by IOrganizationsDevicesExtensions.GetOrganizationDeviceStatusesAllAsync
+	[Get("/organizations/{organizationId}/devices/statuses")]
+	internal Task<ApiResponse<List<OrganizationDeviceStatus>>> GetDevicesStatusesApiResponseAsync(
+		[AliasAs("organizationId")] string organizationId,
+		[AliasAs("startingAfter")] string? startingAfter = null,
+		[AliasAs("networkIds")] List<string>? networkIds = null,
+		[AliasAs("serials")] List<string>? serials = null,
+		[AliasAs("statuses")] List<string>? statuses = null,
+		[AliasAs("productTypes")] List<string>? productTypes = null,
+		[AliasAs("models")] List<string>? models = null,
+		[AliasAs("tags")] List<string>? tags = null,
+		[AliasAs("tagsFilterType")] string? tagsFilterType = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

@@ -157,4 +157,8 @@ public class SwitchPort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "stormControlEnabled")]
 	public bool? StormControlEnabled { get; set; }
+
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "linkNegotiationCapabilities")]
+	public List<string>? LinkNegotiationCapabilities { get; set; }
 }

@@ -33,4 +33,18 @@ public class Organization : NamedIdentifiedItem
 	[DataMember(Name = "cloud")]
 	[ApiAccess(ApiAccess.Read)]
 	public CloudInformation? Cloud { get; set; }
+
+	/// <summary>
+	/// SamlConsumerUrl - Undocumented
+	/// </summary>
+	[DataMember(Name = "samlConsumerUrl")]
+	[ApiAccess(ApiAccess.Read)]
+	public string? SamlConsumerUrl { get; set; }
+
+	/// <summary>
+	/// samlConsumerUrls - Undocumented
+	/// </summary>
+	[DataMember(Name = "samlConsumerUrls")]
+	[ApiAccess(ApiAccess.Read)]
+	public List<string>? SamlConsumerUrls { get; set; }
 }

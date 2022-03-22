@@ -94,7 +94,7 @@ public class OrganizationDeviceStatus : NamedItem
 	/// The Device ProductType
 	/// </summary>
 	[DataMember(Name = "productType")]
-	public ProductType? productType { get; set; }
+	public ProductType? ProductType { get; set; }
 
 	/// <summary>
 	/// Model

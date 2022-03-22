@@ -22,9 +22,7 @@
 		<NeutralLanguage>en</NeutralLanguage>
 
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-		<PackageReleaseNotes>
-			AppliancePortUpdateRequest added with nullable properties to allow sending just Number and Enabled.
-		</PackageReleaseNotes>
+		<PackageReleaseNotes>Changelog can be found at https://github.com/panoramicdata/Meraki.Api/blob/main/CHANGELOG.md</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
