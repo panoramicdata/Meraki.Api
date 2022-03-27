@@ -26,9 +26,12 @@ public class NetworkTraffic
 
 	/// <summary>
 	/// Port
+	/// This be:
+	/// * an integer (e.g. for TCP ports); or
+	/// * "-" (e.g. for ICMP ports)
 	/// </summary>
 	[DataMember(Name = "port")]
-	public int Port { get; set; }
+	public object Port { get; set; } = new();
 
 	/// <summary>
 	/// Recv
