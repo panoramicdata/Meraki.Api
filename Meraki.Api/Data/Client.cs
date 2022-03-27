@@ -76,7 +76,7 @@ public class Client : IdentifiedItem
 	/// The manufacturer
 	/// </summary>
 	[DataMember(Name = "manufacturer")]
-	public string Manufacturer { get; set; } = default!;
+	public string? Manufacturer { get; set; }
 
 	/// <summary>
 	/// The Operating system
