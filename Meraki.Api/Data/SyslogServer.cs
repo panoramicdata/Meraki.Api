@@ -1,9 +1,10 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Server
+/// Syslog Server
 /// </summary>
 [DataContract]
+[DebuggerDisplay("{Host}:{Port}")]
 public class SyslogServer
 {
 	/// <summary>

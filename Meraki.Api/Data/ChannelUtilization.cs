@@ -4,6 +4,7 @@
 /// Channel utilization
 /// </summary>
 [DataContract]
+[DebuggerDisplay("{Model} {Serial}")]
 public class ChannelUtilization
 {
 	/// <summary>
@@ -22,7 +23,7 @@ public class ChannelUtilization
 	/// Tags
 	/// </summary>
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public string Tags { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Wifi0

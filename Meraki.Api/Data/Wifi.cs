@@ -4,6 +4,7 @@
 /// Wi-fi
 /// </summary>
 [DataContract]
+[DebuggerDisplay("[{StartTime} to {EndTime}]: {UtilizationTotal}$")]
 public class Wifi
 {
 	/// <summary>
@@ -22,17 +23,17 @@ public class Wifi
 	/// Utilization total
 	/// </summary>
 	[DataMember(Name = "utilizationTotal")]
-	public float utilizationTotal { get; set; } = 0;
+	public float UtilizationTotal { get; set; } = 0;
 
 	/// <summary>
 	/// Utilization 80211
 	/// </summary>
 	[DataMember(Name = "utilization80211")]
-	public float utilization80211 { get; set; } = 0;
+	public float Utilization80211 { get; set; } = 0;
 
 	/// <summary>
 	/// Utilization non-80211
 	/// </summary>
 	[DataMember(Name = "utilizationNon80211")]
-	public float utilizationNon80211 { get; set; } = 0;
+	public float UtilizationNon80211 { get; set; } = 0;
 }
