@@ -4,7 +4,7 @@
 /// Wi-fi
 /// </summary>
 [DataContract]
-[DebuggerDisplay("[{StartTime} to {EndTime}]: {UtilizationTotal}$")]
+[DebuggerDisplay("[{StartTime} to {EndTime}]: {UtilizationTotal}%")]
 public class Wifi
 {
 	/// <summary>
