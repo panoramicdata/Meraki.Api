@@ -10,30 +10,30 @@ public class Wifi
 	/// <summary>
 	/// Start time
 	/// </summary>
-	[DataMember(Name = "startTime")]
-	public string StartTime { get; set; } = string.Empty;
+	[DataMember(Name = "start_ts")]
+	public DateTime StartTime { get; set; }
 
 	/// <summary>
 	/// End time
 	/// </summary>
-	[DataMember(Name = "endTime")]
-	public string EndTime { get; set; } = string.Empty;
+	[DataMember(Name = "end_ts")]
+	public DateTime EndTime { get; set; }
 
 	/// <summary>
 	/// Utilization total
 	/// </summary>
-	[DataMember(Name = "utilizationTotal")]
+	[DataMember(Name = "utilization")]
 	public float UtilizationTotal { get; set; } = 0;
 
 	/// <summary>
-	/// Utilization 80211
+	/// Utilization wifi
 	/// </summary>
-	[DataMember(Name = "utilization80211")]
-	public float Utilization80211 { get; set; } = 0;
+	[DataMember(Name = "wifi")]
+	public float UtilizationWifi { get; set; } = 0;
 
 	/// <summary>
-	/// Utilization non-80211
+	/// Utilization non-wifi
 	/// </summary>
-	[DataMember(Name = "utilizationNon80211")]
-	public float UtilizationNon80211 { get; set; } = 0;
+	[DataMember(Name = "non_wifi")]
+	public float UtilizationNonWifi { get; set; } = 0;
 }
