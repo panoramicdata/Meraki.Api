@@ -46,7 +46,7 @@ public class Client : IdentifiedItem
 	/// The switch port
 	/// </summary>
 	[DataMember(Name = "switchport")]
-	public string Switchport { get; set; } = default!;
+	public string? Switchport { get; set; }
 
 	/// <summary>
 	/// The IPv6 address
