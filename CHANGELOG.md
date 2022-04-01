@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## v1.vnext
+## v1.19.78
 - Updated the following method names to follow naming conventions:
   - `RemoveNetworkDeviceAsync` -> `RemoveNetworkDevicesAsync`
   - `GetNetworksWebhooksPayloadTemplatesAsync` -> `GetNetworkWebhooksPayloadTemplatesAsync`
@@ -13,6 +13,8 @@
   - `GetNetworkCellularGatewaySettingsSubnetPoolAsync` -> `GetNetworkCellularGatewaySubnetPoolAsync`
   - `UpdateNetworkCellularGatewaySettingsSubnetPoolAsync` -> `UpdateNetworkCellularGatewaySubnetPoolAsync`
   - `UpdateOrganizationAdaptivePolicyGroup`-> `UpdateOrganizationAdaptivePolicyGroupAsync`
+- Changed other function names to match documentation operation ids.
+- Modified models to correct ApiAccess attributes.
 
 ## v1.19.60
 - Fixed NetworkTraffic.Port type from int to object, as the API can return either an int or a string
