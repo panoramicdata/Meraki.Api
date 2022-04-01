@@ -1,25 +1,27 @@
 ﻿namespace Meraki.Api.Data;
 
+/// <summary>
+/// The adaptive policy group (requires one unique attribute)
+/// </summary>
 [DataContract]
-
-public class AdaptivePolicySourceGroup
+public class AdaptivePolicyPoliciesGroup
 {
 	/// <summary>
-	/// Id
+	/// The ID of the source/destination adaptive policy group
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Name
+	/// The name of the source/destination adaptive policy group
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "name")]
 	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Sgt
+	/// The SGT of the source/destination adaptive policy group
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "sgt")]
