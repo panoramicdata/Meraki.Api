@@ -24,7 +24,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <param name="createWebhookPayloadTemplate">Body</param>
 	[ApiOperationId("createNetworkWebhooksPayloadTemplate")]
 	[Post("/networks/{networkId}/webhooks/payloadTemplates")]
-	Task UpdateNetworkWebhooksPayloadTemplateAsync(
+	Task CreateNetworkWebhooksPayloadTemplateAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] List<PayloadTemplate> webhookPayloadTemplates,
 		CancellationToken cancellationToken = default);

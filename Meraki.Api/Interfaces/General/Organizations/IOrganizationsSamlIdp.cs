@@ -8,7 +8,7 @@ public interface IOrganizationsSamlIdp
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/saml/idps")]
-	Task<List<SamlIdps>> GetOrganizationSamlIdpsAsync(
+	Task<List<SamlIdp>> GetOrganizationSamlIdpsAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default
 		);
@@ -20,7 +20,7 @@ public interface IOrganizationsSamlIdp
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationSamlIdp">Body for creating a SAML IdP</param>
 	[Post("/organizations/{organizationId}/saml/idps")]
-	Task<SamlIdpsCreateRequest> CreateOrganizationSamlIdpAsync(
+	Task<SamlIdp> CreateOrganizationSamlIdpAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] SamlIdpsCreateRequest createOrganizationSamlIdp,
 		CancellationToken cancellationToken = default
@@ -33,7 +33,7 @@ public interface IOrganizationsSamlIdp
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="idpId">The IdP id</param>
 	[Get("/organizations/{organizationId}/saml/idps/{idpId}")]
-	Task<SamlIdps> GetOrganizationSamlIdpAsync(
+	Task<SamlIdp> GetOrganizationSamlIdpAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("idpId")] string idpId,
 		CancellationToken cancellationToken = default
@@ -47,7 +47,7 @@ public interface IOrganizationsSamlIdp
 	/// <param name="idpId">The IdP id</param>
 	/// <param name="updateOrganizationSamlIdp">Body for updating a SAML IdP</param>
 	[Put("/organizations/{organizationId}/saml/idps/{idpId}")]
-	Task<SamlIdpsCreateRequest> UpdateOrganizationSamlIdpAsync(
+	Task<SamlIdp> UpdateOrganizationSamlIdpAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("idpId")] string idpId,
 		[Body] SamlIdpsCreateRequest updateOrganizationSamlIdp,

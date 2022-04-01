@@ -3,6 +3,7 @@
 /// <summary>
 /// Created resources
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class CreatedResources
 {

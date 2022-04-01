@@ -49,7 +49,7 @@ public interface IDevices
 	/// <param name="serial">The serial number</param>
 	[ApiOperationId("rebootDevice")]
 	[Post("/devices/{serial}/reboot")]
-	Task<UpdateOnboardingStatusResponse> RebootDeviceAsync(
+	Task<ActionResponse> RebootDeviceAsync(
 		[AliasAs("serial")] string serial,
 		CancellationToken cancellationToken = default);
 }

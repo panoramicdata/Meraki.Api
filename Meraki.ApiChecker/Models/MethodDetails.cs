@@ -9,11 +9,6 @@ public class MethodDetails
 	public HttpMethodAttribute RefitAttribute { get; set; }
 
 	/// <summary>
-	/// A List of Types used as the return type or the signature of the method
-	/// </summary>
-	public List<string> UsedTypes { get; set; } = new();
-
-	/// <summary>
 	/// A List of Types used by this method that lack at least one ApiAccess attribute
 	/// </summary>
 	public List<string> DeficientDataModels { get; set; } = new();

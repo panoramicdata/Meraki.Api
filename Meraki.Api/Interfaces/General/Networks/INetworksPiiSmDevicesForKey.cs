@@ -15,7 +15,7 @@ public interface INetworksPiiSmDevicesForKey
 	/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
 	[ApiOperationId("getNetworkPiiSmDevicesForKey")]
 	[Get("/networks/{networkId}/pii/smDevicesForKey")]
-	Task<PiiSmKey> GetNetworkPiiSmDevicesForKeyAsync(
+	Task<PiiSmKeys> GetNetworkPiiSmDevicesForKeyAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("username")] string username = null!,
 		[AliasAs("email")] string email = null!,

@@ -1,5 +1,6 @@
 ﻿namespace Meraki.Api.Data;
 
+[ApiAccessReadOnlyClass]
 public class SwitchPortStatus
 {
 	[DataMember(Name = "portId")]

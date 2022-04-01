@@ -9,13 +9,14 @@ public class SamlRoleNetwork
 	/// <summary>
 	/// The network ID
 	/// </summary>
-	/// <value>The network ID</value>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
+
 	/// <summary>
-	/// The privilege of the SAML administrator on the network
+	/// The privilege of the SAML administrator on the network. Can be one of 'full', 'read-only', 'guest-ambassador' or 'monitor-only'
 	/// </summary>
-	/// <value>The privilege of the SAML administrator on the network</value>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "access")]
-	public string Access { get; set; } = string.Empty;
+	public AccessPrivilege Access { get; set; }
 }

@@ -3,8 +3,9 @@
 /// <summary>
 /// Trusted access connections
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
-public class TrustedAccessConnections
+public class TrustedAccessConnection
 {
 	/// <summary>
 	/// Trusted access config id

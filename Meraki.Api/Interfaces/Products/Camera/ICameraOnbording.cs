@@ -21,9 +21,9 @@ public interface ICameraOnbording
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Put("/organizations/{organizationId}/camera/onboarding/statuses")]
-	Task<UpdateOnboardingStatusResponse> UpdateOrganizationCameraOnboardingStatusesAsync(
+	Task<ActionResponse> UpdateOrganizationCameraOnboardingStatusesAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[Body] UpdateOnboardingStatus updateNetworkCameraWirelessProfile,
+		[Body] OnboardingStatusUpdateRequest unboardingStatusUpdateRequest,
 		CancellationToken cancellationToken = default
 		);
 }

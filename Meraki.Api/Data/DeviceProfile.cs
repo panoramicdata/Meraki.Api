@@ -3,6 +3,7 @@
 /// <summary>
 /// Device profile
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class DeviceProfile
 {
