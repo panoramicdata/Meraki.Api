@@ -37,7 +37,7 @@ public interface IWirelessSsidsFirewall
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/firewall/l3FirewallRules")]
-	Task<SsidLayer3FirewallRules> GetNetworkSsidL3FirewallRulesAsync(
+	Task<SsidLayer3FirewallRules> GetNetworkWirelessSsidFirewallL3FirewallRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
 		CancellationToken cancellationToken = default
@@ -51,7 +51,7 @@ public interface IWirelessSsidsFirewall
 	/// <param name="number">The SSID number</param>
 	/// <param name="updateNetworkSsidL3FirewallRules">Body for updating L3 firewall rules</param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/firewall/l3FirewallRules")]
-	Task<SsidLayer3FirewallRules> UpdateNetworkSsidL3FirewallRulesAsync(
+	Task<SsidLayer3FirewallRules> UpdateNetworkWirelessSsidFirewallL3FirewallRulesAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("number")] string number,
 		[Body] SsidLayer3FirewallRules updateNetworkSsidL3FirewallRules,

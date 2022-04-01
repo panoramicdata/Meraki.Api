@@ -47,7 +47,7 @@ public class Client : IdentifiedItem
 	/// The switch port
 	/// </summary>
 	[DataMember(Name = "switchport")]
-	public string Switchport { get; set; } = default!;
+	public string? Switchport { get; set; }
 
 	/// <summary>
 	/// The IPv6 address
@@ -77,7 +77,7 @@ public class Client : IdentifiedItem
 	/// The manufacturer
 	/// </summary>
 	[DataMember(Name = "manufacturer")]
-	public string Manufacturer { get; set; } = default!;
+	public string? Manufacturer { get; set; }
 
 	/// <summary>
 	/// The Operating system
