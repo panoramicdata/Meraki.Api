@@ -54,7 +54,7 @@ public interface ISwitchQosRules
 	/// <param name="updateNetworkSwitchSettingsQosRule"></param>
 	[ApiOperationId("updateNetworkSwitchQosRule")]
 	[Put("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
-	Task<SwitchSettingsQosRuleUpdateRequest> UpdateNetworkSwitchQosRuleAsync(
+	Task<QosRule> UpdateNetworkSwitchQosRuleAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("qosRuleId")] string qosRuleId,
 		[Body] SwitchSettingsQosRuleUpdateRequest updateNetworkSwitchSettingsQosRule,

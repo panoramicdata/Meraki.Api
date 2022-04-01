@@ -4,40 +4,40 @@ namespace Meraki.Api.Data;
 /// MoveNetworkSmDevices
 /// </summary>
 [DataContract]
-public class MoveNetworkSmDevices
+public class MoveNetworkSmDevicesRequest
 {
 	/// <summary>
 	/// The wifiMacs of the devices to be moved.
 	/// </summary>
-	/// <value>The wifiMacs of the devices to be moved.</value>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "wifiMacs")]
-	public string WifiMacs { get; set; } = null!;
+	public List<string>? WifiMacs { get; set; }
 
 	/// <summary>
 	/// The ids of the devices to be moved.
 	/// </summary>
-	/// <value>The ids of the devices to be moved.</value>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "ids")]
-	public string Ids { get; set; } = null!;
+	public List<string> Ids { get; set; } = new();
 
 	/// <summary>
 	/// The serials of the devices to be moved.
 	/// </summary>
-	/// <value>The serials of the devices to be moved.</value>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "serials")]
-	public string Serials { get; set; } = null!;
+	public List<string>? Serials { get; set; }
 
 	/// <summary>
 	/// The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be moved.
 	/// </summary>
-	/// <value>The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be moved.</value>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "scope")]
-	public string Scope { get; set; } = null!;
+	public List<object>? Scope { get; set; }
 
 	/// <summary>
 	/// The new network to which the devices will be moved.
 	/// </summary>
-	/// <value>The new network to which the devices will be moved.</value>
+	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "newNetwork")]
-	public string NewNetwork { get; set; } = null!;
+	public string NewNetwork { get; set; } = string.Empty;
 }

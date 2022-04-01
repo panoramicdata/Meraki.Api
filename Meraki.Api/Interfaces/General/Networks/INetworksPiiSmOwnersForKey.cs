@@ -15,7 +15,7 @@ public interface INetworksPiiSmOwnersForKey
 	/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
 	[ApiOperationId("getNetworkPiiSmOwnersForKey")]
 	[Get("/networks/{networkId}/pii/smOwnersForKey")]
-	Task<PiiSmKey> GetNetworkPiiSmOwnersForKeyAsync(
+	Task<PiiSmKeys> GetNetworkPiiSmOwnersForKeyAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("username")] string username = null!,
 		[AliasAs("email")] string email = null!,

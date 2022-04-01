@@ -3,6 +3,7 @@
 /// <summary>
 /// Status
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class ActionBatchStatus
 {

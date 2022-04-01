@@ -3,6 +3,7 @@
 /// <summary>
 /// SM Users
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class SmNetworkUsers

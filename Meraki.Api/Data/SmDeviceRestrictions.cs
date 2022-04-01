@@ -3,6 +3,7 @@
 /// <summary>
 /// Device restrictions
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class SmDeviceRestrictions
 {
@@ -16,5 +17,5 @@ public class SmDeviceRestrictions
 	/// Restrictions
 	/// </summary>
 	[DataMember(Name = "restrictions")]
-	public Restrictions Restrictions { get; set; } = new();
+	public Dictionary<string, object> Restrictions { get; set; } = new();
 }

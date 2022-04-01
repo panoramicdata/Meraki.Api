@@ -4,41 +4,41 @@
 /// Action batch
 /// </summary>
 [DataContract]
-public class ActionBatch
+public class ActionBatch : IdentifiedItem
 {
-	/// <summary>
-	///	Id
-	/// </summary>
-	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
-
 	/// <summary>
 	///	Organization id
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[ApiForeignKey(typeof(Organization))]
 	[DataMember(Name = "organizationId")]
 	public string OrganizationId { get; set; } = string.Empty;
 
 	/// <summary>
-	///	Confirmed
+	///	Set to true for immediate execution. Set to false if the action should be previewed before executing. This property cannot be unset once it is true. Defaults to false.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "confirmed")]
 	public bool Confirmed { get; set; }
 
 	/// <summary>
-	///	Synchronous
+	///	Set to true to force the batch to run synchronous.There can be at most 20 actions in synchronous batch.Defaults to false.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "synchronous")]
 	public bool Synchronous { get; set; }
 
 	/// <summary>
 	///	Status
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "status")]
 	public ActionBatchStatus ActionBatchStatus { get; set; } = new();
 
 	/// <summary>
-	/// Actions
+	/// A set of changes to make as part of this action (<a href='https://developer.cisco.com/meraki/api/#/rest/guides/action-batches/'>more details</a>)
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "actions")]
 	public List<Action> Action { get; set; } = new();
 }

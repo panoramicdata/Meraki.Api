@@ -3,6 +3,7 @@
 /// <summary>
 /// Health alert
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class HealthAlert
 {

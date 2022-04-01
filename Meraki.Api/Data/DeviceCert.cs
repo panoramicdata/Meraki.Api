@@ -3,6 +3,7 @@
 /// <summary>
 /// Cert
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class DeviceCert
 {

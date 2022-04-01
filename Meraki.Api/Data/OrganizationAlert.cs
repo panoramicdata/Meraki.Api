@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 [DataContract]
-public class OrganizationAlert
+public class OrganizationAlert : IdentifiedItem
 {
-	/// <summary>
-	/// Id
-	/// </summary>
-	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
-
 	/// <summary>
 	/// The alert type
 	/// </summary>
