@@ -1,10 +1,10 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// User
+/// SnmpUser
 /// </summary>
 [DataContract]
-public class User
+public class SnmpUser
 {
 	/// <summary>
 	/// The username for the SNMP user. Required.

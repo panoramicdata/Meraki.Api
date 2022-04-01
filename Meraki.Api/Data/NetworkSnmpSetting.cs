@@ -24,5 +24,5 @@ public class NetworkSnmpSetting
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "users")]
-	public List<User> Users { get; set; } = new();
+	public List<SnmpUser>? Users { get; set; }
 }

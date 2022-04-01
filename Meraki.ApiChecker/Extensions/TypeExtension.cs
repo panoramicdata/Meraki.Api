@@ -6,26 +6,19 @@ public static class TypeExtension
 {
 	public static Type? GetNonGenericType(this Type type)
 	{
-		if (!type.IsGenericType)
+		if (type.IsGenericType)
 		{
-			if (type.Namespace?.StartsWith("Meraki.Api.Data", StringComparison.InvariantCulture) == true)
-			{
-				// It's not a generic type, so we assume it's the actual ReturnType we are interested in
-				return type;
-			}
-		}
-		else
-		{
-			var typeDefinition = type.GetGenericTypeDefinition();
-			// Is it a Task<> or a List<>
-			if (typeDefinition == typeof(Task<>) || typeDefinition == typeof(List<>))
-			{
-				// YES - unwrap it
-				var nestedType = type.GetGenericArguments()[0];
+			// YES - unwrap it
+			var nestedType = type.GetGenericArguments()[0];
 
-				// call self with the unwrapped Type
-				return GetNonGenericType(nestedType);
-			}
+			// call self with the unwrapped Type
+			return GetNonGenericType(nestedType);
+		}
+
+		if (type.Namespace?.StartsWith("Meraki.Api.Data", StringComparison.InvariantCulture) == true)
+		{
+			// It's not a generic type, so we assume it's the actual ReturnType we are interested in
+			return type;
 		}
 
 		return null;
