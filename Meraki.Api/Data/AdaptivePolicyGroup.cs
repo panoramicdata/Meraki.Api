@@ -10,6 +10,7 @@ public class AdaptivePolicyGroup : NamedItem
 	/// Group id
 	/// </summary>
 	[ApiKey]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "groupId")]
 	public string GroupId { get; set; } = string.Empty;
 
