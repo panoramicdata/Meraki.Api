@@ -10,5 +10,5 @@ public class WirelessStatus
 	/// Basic service sets
 	/// </summary>
 	[DataMember(Name = "basicServiceSets")]
-	public BasicServiceSets BasicServiceSets { get; set; } = new();
+	public List<BasicServiceSet> BasicServiceSets { get; set; } = new();
 }
