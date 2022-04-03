@@ -7,14 +7,16 @@
 public class VpnSettings
 {
 	/// <summary>
-	///	Failover
+	///	Secondary VPN concentrator settings. This is only used when two VPN concentrators are configured on the SSID.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "failover")]
-	public Failover Failover { get; set; } = new();
+	public Failover? Failover { get; set; }
 
 	/// <summary>
-	/// Split tunnel
+	/// The VPN split tunnel settings for this SSID.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splitTunnel")]
 	public SplitTunnel SplitTunnel { get; set; } = new();
 }

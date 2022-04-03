@@ -3,8 +3,9 @@
 /// <summary>
 /// Response
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
-public class UpdateOnboardingStatusResponse
+public class ActionResponse
 {
 	/// <summary>
 	/// Success

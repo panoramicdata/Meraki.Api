@@ -12,7 +12,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkWebhooksPayloadTemplates")]
 	[Get("/networks/{networkId}/webhooks/payloadTemplates")]
-	Task<List<PayloadTemplate>> GetNetworksWebhooksPayloadTemplatesAsync(
+	Task<List<PayloadTemplate>> GetNetworkWebhooksPayloadTemplatesAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default);
 
@@ -24,7 +24,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <param name="createWebhookPayloadTemplate">Body</param>
 	[ApiOperationId("createNetworkWebhooksPayloadTemplate")]
 	[Post("/networks/{networkId}/webhooks/payloadTemplates")]
-	Task UpdateNetworksWebhooksPayloadTemplatesAsync(
+	Task CreateNetworkWebhooksPayloadTemplateAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] List<PayloadTemplate> webhookPayloadTemplates,
 		CancellationToken cancellationToken = default);
@@ -37,7 +37,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <param name="payloadTemplateId">The payload template id</param>
 	[ApiOperationId("getNetworkWebhooksPayloadTemplate")]
 	[Get("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
-	Task<PayloadTemplate> GetNetworksWebhooksPayloadTemplateAsync(
+	Task<PayloadTemplate> GetNetworkWebhooksPayloadTemplateAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("payloadTemplateId")] string payloadTemplateId,
 		CancellationToken cancellationToken = default);

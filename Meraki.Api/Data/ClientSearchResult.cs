@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Meraki.Api.Data;
 
-namespace Meraki.Api.Data;
-
+[ApiAccessReadOnlyClass]
 [DataContract]
 
 public class ClientSearchResult

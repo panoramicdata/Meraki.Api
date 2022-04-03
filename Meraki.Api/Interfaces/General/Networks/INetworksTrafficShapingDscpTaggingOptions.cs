@@ -8,7 +8,7 @@ public interface INetworksTrafficShapingDscpTaggingOptions
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/trafficShaping/dscpTaggingOptions")]
-	Task<List<DscpTaggingValues>> GetNetworkTrafficShapingDscpTaggingOptionsAsync(
+	Task<List<DscpTaggingValue>> GetNetworkTrafficShapingDscpTaggingOptionsAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);

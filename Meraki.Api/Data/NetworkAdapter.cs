@@ -3,6 +3,7 @@
 /// <summary>
 /// Network adapter
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class NetworkAdapter
 {

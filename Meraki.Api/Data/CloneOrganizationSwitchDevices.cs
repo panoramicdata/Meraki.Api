@@ -3,6 +3,7 @@
 /// <summary>
 /// Clone organization switch device
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class CloneOrganizationSwitchDevices
 {

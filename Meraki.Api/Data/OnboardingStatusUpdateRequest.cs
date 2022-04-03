@@ -4,7 +4,7 @@
 /// Update onboarding status
 /// </summary>
 [DataContract]
-public class UpdateOnboardingStatus
+public class OnboardingStatusUpdateRequest
 {
 	/// <summary>
 	/// Serial of camera

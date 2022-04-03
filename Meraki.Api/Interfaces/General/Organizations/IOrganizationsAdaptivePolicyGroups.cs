@@ -65,7 +65,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// <param name="updateOrganizationAdaptivePolicyGroup">Body</param>
 	[ApiOperationId("updateOrganizationAdaptivePolicyGroup")]
 	[Put("/organizations/{organizationId}/adaptivePolicy/groups/{groupId}")]
-	Task<AdaptivePolicyGroup> UpdateOrganizationAdaptivePolicyGroup(
+	Task<AdaptivePolicyGroup> UpdateOrganizationAdaptivePolicyGroupAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("groupId")] string groupId,
 		[Body] AdaptivePolicyGroupCreate updateOrganizationAdaptivePolicyGroup,

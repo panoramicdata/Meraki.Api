@@ -77,9 +77,9 @@ public interface ISmDevices
 	/// <param name="networkId">The network id</param>
 	/// <param name="moveNetworkSmDevices">Body for moving devices</param>
 	[Post("/networks/{networkId}/sm/devices/move")]
-	Task<MoveNetworkSmDevices> MoveNetworkSmDevicesAsync(
+	Task<MoveNetworkSmDevicesRequest> MoveNetworkSmDevicesAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] MoveNetworkSmDevices moveNetworkSmDevices,
+		[Body] MoveNetworkSmDevicesRequest moveNetworkSmDevices,
 		CancellationToken cancellationToken = default
 		);
 
@@ -90,9 +90,9 @@ public interface ISmDevices
 	/// <param name="networkId">The network id</param>
 	/// <param name="wipeNetworkSmDevices">Body for wiping a device</param>
 	[Post("/networks/{networkId}/sm/devices/wipe")]
-	Task<WipeNetworkSmDevice> WipeNetworkSmDevicesAsync(
+	Task<WipeNetworkSmDeviceRequest> WipeNetworkSmDevicesAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] WipeNetworkSmDevice wipeNetworkSmDevices,
+		[Body] WipeNetworkSmDeviceRequest wipeNetworkSmDevices,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -115,7 +115,7 @@ public interface ISmDevices
 	/// <param name="networkId">The network id</param>
 	/// <param name="deviceId">The device id</param>
 	[Post("/networks/{networkId}/sm/devices/{deviceId}/unenroll")]
-	Task<UpdateOnboardingStatusResponse> UnenrollNetworkSmDeviceAsync(
+	Task<ActionResponse> UnenrollNetworkSmDeviceAsync(
 		[AliasAs("networkId")] string networkId,
 		[AliasAs("deviceId")] string deviceId,
 		CancellationToken cancellationToken = default

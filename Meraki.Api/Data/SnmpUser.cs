@@ -1,21 +1,22 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// User
+/// SnmpUser
 /// </summary>
 [DataContract]
-public class User
+public class SnmpUser
 {
 	/// <summary>
 	/// The username for the SNMP user. Required.
 	/// </summary>
-	/// <value>The username for the SNMP user. Required.</value>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "username")]
-	public string Username { get; set; } = null!;
+	public string Username { get; set; } = string.Empty;
+
 	/// <summary>
 	/// The passphrase for the SNMP user. Required.
 	/// </summary>
-	/// <value>The passphrase for the SNMP user. Required.</value>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "passphrase")]
-	public string Passphrase { get; set; } = null!;
+	public string Passphrase { get; set; } = string.Empty;
 }

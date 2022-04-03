@@ -3,6 +3,7 @@
 /// <summary>
 /// Link layers
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class LinkLayers
 {
