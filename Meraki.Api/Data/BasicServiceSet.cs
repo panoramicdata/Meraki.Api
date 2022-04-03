@@ -4,7 +4,7 @@
 /// Basic service sets
 /// </summary>
 [DataContract]
-public class BasicServiceSets
+public class BasicServiceSet
 {
 	/// <summary>
 	/// SSID name
