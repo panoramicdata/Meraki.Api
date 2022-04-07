@@ -28,11 +28,16 @@ public class DhcpServerPolicy
 	public List<string> BlockedServers { get; set; } = new();
 
 	/// <summary>
-	/// additional information/config options for things like alerts/arp inspection
+	/// Alerts - no documentation
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "alerts")]
 	public DhcpServerPolicyAlerts Alerts { get; set; } = new();
 
-
+	/// <summary>
+	/// ARP Inspection - no documentation
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "arpInspection")]
+	public DhcpServerPolicyArpInspection ArpInspection { get; set; } = new();
 }

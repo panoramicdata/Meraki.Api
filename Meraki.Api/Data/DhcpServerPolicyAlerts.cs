@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// additional information/config options for things like alerts/arp inspection
+/// No documentation available
 /// </summary>
 [DataContract]
 public class DhcpServerPolicyAlerts
