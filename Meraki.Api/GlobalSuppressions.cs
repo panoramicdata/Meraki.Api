@@ -33,3 +33,9 @@ using System.Diagnostics.CodeAnalysis;
 	 Justification = "Not localising.",
 	 Scope = "member",
 	 Target = "~M:Meraki.Api.MerakiClientOptions.Validate")]
+[assembly: SuppressMessage(
+	"Performance",
+	"CA1848:Use the LoggerMessage delegates",
+	Justification = "Not implementing logging delegates",
+	Scope = "namespaceanddescendants",
+	 Target = "~N:Meraki.Api")]

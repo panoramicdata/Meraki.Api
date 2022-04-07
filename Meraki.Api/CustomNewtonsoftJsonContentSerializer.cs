@@ -12,7 +12,6 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 	private readonly JsonSerializerSettings _jsonSerializerSettingsWithIgnore;
 	private readonly JsonSerializerSettings _jsonSerializerSettingsWithError;
 	private readonly NewtonsoftJsonContentSerializer _serializerIgnore;
-	private readonly NewtonsoftJsonContentSerializer _serializerError;
 
 	public CustomNewtonsoftJsonContentSerializer(MerakiClientOptions options, ILogger logger)
 	{
@@ -38,15 +37,13 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		};
 
 		_serializerIgnore = new NewtonsoftJsonContentSerializer(_jsonSerializerSettingsWithIgnore);
-
-		_serializerError = new NewtonsoftJsonContentSerializer(_jsonSerializerSettingsWithError);
 	}
 
 	public async Task<T?> FromHttpContentAsync<T>(HttpContent content, CancellationToken cancellationToken = default)
 		=> _options.JsonMissingMemberHandling switch
 		{
 			JsonMissingMemberHandling.Ignore => await _serializerIgnore.FromHttpContentAsync<T>(content, cancellationToken).ConfigureAwait(false),
-			JsonMissingMemberHandling.ThrowOnError => await _serializerError.FromHttpContentAsync<T>(content, cancellationToken).ConfigureAwait(false),
+			JsonMissingMemberHandling.ThrowOnError => await LogOnErrorAndThrowFromHttpContentAsync<T>(content, cancellationToken).ConfigureAwait(false),
 			JsonMissingMemberHandling.LogWarningOnErrorAndContinue => await LogWarningOnErrorAndContinueFromHttpContentAsync<T>(content, cancellationToken).ConfigureAwait(false),
 			_ => throw new NotSupportedException()
 		};
@@ -62,9 +59,32 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 		catch (JsonSerializationException ex)
 		{
-			_logger.LogWarning(ex, ex.Message);
+			_logger.LogWarning(ex, "{Message}", ex.Message);
+			if (_options.JsonMissingMemberResponseLogLevel != LogLevel.None)
+			{
+				_logger.Log(_options.JsonMissingMemberResponseLogLevel, "Missing Member Response JSON:\n{SourceJson}", sourceJson);
+			}
 
 			return JsonConvert.DeserializeObject<T>(sourceJson, _jsonSerializerSettingsWithIgnore);
+		}
+	}
+
+	private async Task<T?> LogOnErrorAndThrowFromHttpContentAsync<T>(HttpContent content, CancellationToken _)
+	{
+		// This code has to read the content all at once into a stream
+		// as we might re-use it in the second DeserializeObject call
+		var sourceJson = await content.ReadAsStringAsync().ConfigureAwait(false);
+		try
+		{
+			return JsonConvert.DeserializeObject<T>(sourceJson, _jsonSerializerSettingsWithError);
+		}
+		catch (JsonSerializationException)
+		{
+			if (_options.JsonMissingMemberResponseLogLevel != LogLevel.None)
+			{
+				_logger.Log(_options.JsonMissingMemberResponseLogLevel, "Missing Member Response JSON:\n{SourceJson}", sourceJson);
+			}
+			throw;
 		}
 	}
 

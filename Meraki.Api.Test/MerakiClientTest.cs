@@ -68,6 +68,8 @@ public class MerakiClientTest
 
 			// Unit tests should always error if members are missing to aid picking up issues with models early
 			Configuration.MerakiClientOptions.JsonMissingMemberHandling = JsonMissingMemberHandling.ThrowOnError;
+			// Log the response JSON so we can see what's going on
+			Configuration.MerakiClientOptions.JsonMissingMemberResponseLogLevel = Microsoft.Extensions.Logging.LogLevel.Critical;
 
 			return _merakiClient = new MerakiClient(Configuration.MerakiClientOptions, Logger);
 		}
