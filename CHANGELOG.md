@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## v.1.20.5
+## v.1.20.6
 - Updated for release against 1.20 API
 - Added JsonMissingMemberResponseLogLevel to MerakiClientOptions. When set to something other than None, this will log
 the actual JSON response from the API when a member is missing from the response.
