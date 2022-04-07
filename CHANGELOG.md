@@ -1,7 +1,7 @@
 ﻿# Changelog
 
 ## v.1.20.10
-- Added "arpInspection" to DHCP Server Policy
+- Added "arpInspection" to DHCP Server Policy.
 
 ## v.1.20.8
 - Updated for release against 1.20 API
