@@ -1,10 +1,11 @@
 ﻿# Changelog
 
-## v.1.20.3
+## v.1.20.5
 - Updated for release against 1.20 API
 - Added JsonMissingMemberResponseLogLevel to MerakiClientOptions. When set to something other than None, this will log
 the actual JSON response from the API when a member is missing from the response.
 - Added "Concentrator" to Wireless SSID VPN Settings.
+- Added "Alerts" to DHCP Server Policy.
 
 ## v1.19.78
 - Updated the following method names to follow naming conventions:
