@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## v.1.20.1
+- First release against 1.20 API
+- Added JsonMissingMemberResponseLogLevel to MerakiClientOptions. When set to something other than None, this will log
+the actual JSON response from the API when a member is missing from the response.
+
 ## v1.19.78
 - Updated the following method names to follow naming conventions:
   - `RemoveNetworkDeviceAsync` -> `RemoveNetworkDevicesAsync`
