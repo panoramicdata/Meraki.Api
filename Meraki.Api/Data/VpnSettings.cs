@@ -19,4 +19,8 @@ public class VpnSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splitTunnel")]
 	public SplitTunnel SplitTunnel { get; set; } = new();
+
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "concentrator")]
+	public WirelessSsidVpnConcentrator? Concentrator { get; set; } = new();
 }

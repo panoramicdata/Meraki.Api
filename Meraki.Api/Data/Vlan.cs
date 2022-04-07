@@ -7,6 +7,14 @@
 public class Vlan : NamedIdentifiedItem
 {
 	/// <summary>
+	/// This is the unique internal key for the VLAN.
+	/// </summary>
+	[ApiKey]
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "interfaceId")]
+	public string InterfaceId { get; set; } = string.Empty;
+
+	/// <summary>
 	/// Network Id
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
