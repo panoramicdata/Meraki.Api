@@ -10,6 +10,6 @@ public class DhcpServerPolicyAlerts
 	/// Whether Email alerts are enabled for the DhcpServerPolicy
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember]
-	public DhcpServerPolicyAlertEnabledState Email { get; set; } = new();
+	[DataMember(Name = "email")]
+	public DhcpServerPolicyAlertEnabledState? Email { get; set; }
 }
