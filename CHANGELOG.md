@@ -1,6 +1,9 @@
 ﻿# Changelog
 
 ## v.1.20.10
+- Added Health Alerts to Networks Health.
+
+## v.1.20.10
 - Added "arpInspection" to DHCP Server Policy.
 
 ## v.1.20.8
