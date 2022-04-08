@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## v.1.20.10
+## v.1.20.11
 - Added Health Alerts to Networks Health.
 
 ## v.1.20.10
