@@ -11,7 +11,7 @@ public class WirelessRfProfileCreateUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = String.Empty;
+	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Steers client to best available access point. Can be either true or false.
@@ -54,4 +54,11 @@ public class WirelessRfProfileCreateUpdateRequest
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "fiveGhzSettings")]
 	public FiveGhzSettings FiveGhzSettings { get; set; } = null!;
+
+	/// <summary>
+	/// Per-SSID radio settings by number.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "perSsidSettings")]
+	public PerSsidSettings PerSsidSettings { get; set; } = null!;
 }

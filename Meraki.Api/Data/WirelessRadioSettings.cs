@@ -18,7 +18,7 @@ public class WirelessRadioSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rfProfileId")]
-	public int? RfProfileId { get; set; }
+	public string? RfProfileId { get; set; }
 
 	/// <summary>
 	/// Manual radio settings for 5 GHz.

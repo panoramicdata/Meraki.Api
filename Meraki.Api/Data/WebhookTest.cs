@@ -33,4 +33,11 @@ public class WebhookTest : IdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "status")]
 	public string Status { get; set; } = string.Empty;
+
+	/// <summary>
+	/// The type of alert which the test webhook will send. Optional. Defaults to power_supply_down
+	/// </summary>
+	[ApiAccess(ApiAccess.Create)]
+	[DataMember(Name = "alertTypeId")]
+	public string? AlertTypeId { get; set; }
 }

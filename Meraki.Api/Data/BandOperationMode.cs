@@ -3,7 +3,6 @@ namespace Meraki.Api.Data;
 /// <summary>
 /// Choice between 'dual', '2.4ghz' or '5ghz'. Defaults to dual.
 /// </summary>
-/// <value>Choice between 'dual', '2.4ghz' or '5ghz'. Defaults to dual.</value>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum BandOperationMode
 {

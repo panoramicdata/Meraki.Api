@@ -22,17 +22,24 @@ public class LossAndLatencyHistory
 	/// Loss percentage
 	/// </summary>
 	[DataMember(Name = "lossPercent")]
-	public int LossPercentage { get; set; }
+	public double LossPercentage { get; set; }
 
 	/// <summary>
 	/// Latency ms
 	/// </summary>
 	[DataMember(Name = "latencyMs")]
-	public int LatencyMs { get; set; }
+	public double LatencyMs { get; set; }
 
 	/// <summary>
 	/// Goodput
 	/// </summary>
 	[DataMember(Name = "goodput")]
 	public int Goodput { get; set; }
+
+
+	/// <summary>
+	/// Loss percentage
+	/// </summary>
+	[DataMember(Name = "jitter")]
+	public double Jitter { get; set; }
 }

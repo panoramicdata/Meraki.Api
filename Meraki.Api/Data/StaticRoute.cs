@@ -17,11 +17,4 @@ public class StaticRoute : StaticRouteUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkId")]
 	public string NetworkId { get; set; } = string.Empty;
-
-	/// <summary>
-	/// Gateway VLan Id
-	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "gatewayVlanId")]
-	public string? GatewayVlanId { get; set; } = string.Empty;
 }
