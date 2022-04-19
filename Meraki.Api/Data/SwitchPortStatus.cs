@@ -8,6 +8,9 @@ public class SwitchPortStatus
 
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
+	
+	[DataMember(Name = "isUplink")]
+	public bool IsUplink { get; set; }
 
 	[DataMember(Name = "status")]
 	public string Status { get; set; } = string.Empty;
