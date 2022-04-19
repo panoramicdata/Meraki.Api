@@ -104,7 +104,8 @@ public partial class MerakiClient : IDisposable
 			GroupPolicies = RefitFor(Networks.GroupPolicies),
 			Health = new()
 			{
-				ChannelUtilization = RefitFor(Networks.Health.ChannelUtilization)
+				ChannelUtilization = RefitFor(Networks.Health.ChannelUtilization),
+				HealthAlerts = RefitFor(Networks.Health.HealthAlerts)
 			},
 			MerakiAuthUsers = RefitFor(Networks.MerakiAuthUsers),
 			MqttBrokers = RefitFor(Networks.MqttBrokers),

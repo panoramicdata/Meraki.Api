@@ -2,8 +2,11 @@
 
 ## v.1.20.vNext
 - v.1.15 changes
-    - Added new properties to several models.
-	 - Added new optional params to GetOrganizationDevicesAsync
+- Added new properties to several models.
+- Added new optional params to GetOrganizationDevicesAsync
+
+## v.1.20.11
+- Added Health Alerts to Networks Health.
 
 ## v.1.20.10
 - Added "arpInspection" to DHCP Server Policy.
