@@ -16,7 +16,7 @@ public class VlanSpec
 	public string? VpnNatSubnet { get; set; }
 
 	[DataMember(Name = "dhcpHandling")]
-	public DhcpHandling DhcpHandling { get; set; }
+	public DhcpHandling? DhcpHandling { get; set; }
 
 	[DataMember(Name = "dhcpRelayServerIps")]
 	public List<string>? DhcpRelayServerIps { get; set; }
