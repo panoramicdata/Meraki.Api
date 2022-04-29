@@ -31,14 +31,13 @@ public class LossAndLatencyHistory
 	public double LatencyMs { get; set; }
 
 	/// <summary>
-	/// Goodput
+	/// Goodput in kilobits per second for a wired network device
 	/// </summary>
 	[DataMember(Name = "goodput")]
 	public int Goodput { get; set; }
 
-
 	/// <summary>
-	/// Loss percentage
+	/// Jitter
 	/// </summary>
 	[DataMember(Name = "jitter")]
 	public double Jitter { get; set; }
