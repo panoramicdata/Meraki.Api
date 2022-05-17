@@ -21,14 +21,14 @@ public class Network : NetworkOrConfigurationTemplate
 	[ApiAccess(ApiAccess.Read)]
 	[ApiForeignKey(typeof(Organization))]
 	[DataMember(Name = "organizationId")]
-	public string OrganizationId { get; set; } = default!;
+	public string OrganizationId { get; set; } = string.Empty;
 
 	/// <summary>
 	/// tags
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = default!;
+	public List<string> Tags { get; set; } = new();
 
 	/// <summary>
 	/// The ID of the template to which the network should be bound.
@@ -44,7 +44,7 @@ public class Network : NetworkOrConfigurationTemplate
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "notes")]
-	public string Notes { get; set; } = string.Empty;
+	public string? Notes { get; set; }
 
 	/// <summary>
 	/// A unique identifier which can be used for device enrollment or
@@ -64,9 +64,9 @@ public class Network : NetworkOrConfigurationTemplate
 	public string Url { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Undocumented IsBoundToConfigTemplate
+	/// IsBoundToConfigTemplate
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isBoundToConfigTemplate")]
-	public bool? IsBoundToConfigTemplate { get; set; }
+	public bool IsBoundToConfigTemplate { get; set; }
 }
