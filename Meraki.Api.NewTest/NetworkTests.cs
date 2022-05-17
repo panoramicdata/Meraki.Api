@@ -1,4 +1,5 @@
 using Divergic.Logging.Xunit;
+using FluentAssertions;
 using Meraki.Api.Data;
 using Meraki.Api.Extensions;
 using Newtonsoft.Json;
@@ -34,7 +35,7 @@ public class NetworkTests
 		};
 		var merakiClient = new MerakiClient(merakiClientOptions);
 		var networks = await merakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(testConfig.OrganizationId);
-		Assert.True(networks.Any());
+		networks.Should().NotBeNullOrEmpty();
 	}
 
 	[Fact]
@@ -61,10 +62,8 @@ public class NetworkTests
 
 		// Check the network is not present
 		var networks = await merakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(testConfig.OrganizationId);
-		if (networks.Any(network => network.Name == testNetworkName))
-		{
-			throw new InvalidOperationException("Test network already exists in test organisation");
-		}
+		networks.Should().NotBeNull();
+		networks.Should().NotContain(network => network.Name == testNetworkName, "because the test network should not be present to begin the test");
 
 		// Create the new network settings
 		var createNetworkRequest = new NetworkCreationRequest
@@ -72,9 +71,13 @@ public class NetworkTests
 			Name = testNetworkName,
 			Notes = "Test notes for unit test network.",
 			TimeZone = "Europe/London",
-			ProductTypes = new() { ProductType.Appliance, ProductType.Camera, ProductType.CellularGateway, ProductType.Environmental,
-			 ProductType.Switch, ProductType.SystemsManager, ProductType.Wireless },
-			Tags = new() { "Test Tag 1", "Test Tag 2", "Test Tag 3" }
+			ProductTypes = new() {
+				ProductType.Appliance,
+				ProductType.Camera,
+				ProductType.CellularGateway,
+				ProductType.Switch,
+				ProductType.Wireless },
+			Tags = new() { "TestTag1", "TestTag2", "TestTag3" }
 		};
 
 		//Create a valid network
@@ -83,14 +86,30 @@ public class NetworkTests
 				testConfig.OrganizationId,
 				createNetworkRequest
 			);
+		network.Should().NotBeNull();
+
 		try
 		{
 			// Check the network can be retrieved and that its values are those set
 			var retrievedNetwork = await merakiClient.Networks.GetNetworkAsync(network.Id);
-			if (retrievedNetwork.Name != testNetworkName)
+			var expectedNetwork = new Network()
 			{
-				throw new InvalidDataException("Network name not retrieved correctly.");
-			}
+				OrganizationId = testConfig.OrganizationId,
+				Name = createNetworkRequest.Name,
+				Notes = createNetworkRequest.Notes,
+				TimeZone = createNetworkRequest.TimeZone,
+				ProductTypes = createNetworkRequest.ProductTypes,
+				Tags = createNetworkRequest.Tags,
+				Id = network.Id,
+				IsBoundToConfigTemplate = false
+			};
+			retrievedNetwork.Should()
+				.NotBeNull()
+				.And
+				.BeEquivalentTo(
+					expectedNetwork,
+					options => options.Excluding(n => n.Url)
+				);
 
 			// Change the network Name
 			var networkUpdated = await merakiClient.Networks.UpdateNetworkAsync
@@ -101,24 +120,26 @@ public class NetworkTests
 					Name = testAlternateNetworkName,
 				}
 				);
-			//Check that the name has changed in the returned network and 
-			Assert.Equal(testAlternateNetworkName, networkUpdated.Name);
-			Assert.Equal(retrievedNetwork.Notes, networkUpdated.Notes);
-			Assert.Equal(retrievedNetwork.TimeZone, networkUpdated.TimeZone);
-			Assert.Equal(retrievedNetwork.ProductTypes, networkUpdated.ProductTypes);
-			Assert.Equal(retrievedNetwork.Tags, networkUpdated.Tags);
+
+			//Check that the name has changed in the returned network and ...?
+			expectedNetwork.Name = testAlternateNetworkName;
+			networkUpdated.Should()
+				.NotBeNull()
+				.And
+				.BeEquivalentTo(
+					expectedNetwork,
+					options => options.Excluding(n => n.Url)
+				);
 
 			// Retrieve the network again and check the Name has changed
 			var reretrievedNetwork = await merakiClient.Networks.GetNetworkAsync(network.Id);
-
-			if (reretrievedNetwork.Name == testNetworkName)
-			{
-				throw new InvalidOperationException("Network name did not change");
-			}
-			else if (reretrievedNetwork.Name != testAlternateNetworkName)
-			{
-				throw new InvalidOperationException($"Network name update failed - Network name is {reretrievedNetwork.Name}");
-			}
+			reretrievedNetwork.Should()
+				.NotBeNull()
+				.And
+				.BeEquivalentTo(
+					networkUpdated,
+					options => options.Excluding(n => n.Url)
+				);
 		}
 		finally
 		{
@@ -127,8 +148,9 @@ public class NetworkTests
 		}
 
 		// Check the network is not present
+
 		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => merakiClient.Networks.GetNetworkAsync(network.Id));
-		Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
+		exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
 	}
 }
