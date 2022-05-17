@@ -13,39 +13,37 @@ public class NetworkTests : MerakiClientUnitTest
 	}
 
 	[Fact]
-	public async Task GetNetworks_Succeeds()
-	{
-		var networks = await TestMerakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(TestOrganizationId);
-		networks.Should().NotBeNullOrEmpty();
-	}
-
-	[Fact]
 	public async Task BasicCrud_Succeeds()
 	{
-		// Load the config
-
-
-		//Set the test network name
-		string testNetworkName = "Basic CRUD Test Network";
+		//Create, modify and delete a test network
+		//Set the alternate name we're going to use to modify the network
 		string testAlternateNetworkName = "Altered Basic CRUD Test Network";
 
-		// Check the network is not present
-		var networks = await TestMerakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(TestOrganizationId);
-		networks.Should().NotBeNull();
-		networks.Should().NotContain(network => network.Name == testNetworkName, "because the test network should not be present to begin the test");
-
-		// Create the new network settings
-
-
-		//Create a valid network
+		//Get the data that we're going to use to create the test network
 		var createNetworkRequest = GetValidNetworkCreationRequest();
+
+		// Fetch a list of current networks for the test Org 
+		var networks = await TestMerakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(TestOrganizationId);
+
+		// Make sure something has been returned even if it's empty
+		networks.Should().NotBeNull();
+
+		//Check that the test network name doesn't already exist
+		networks.Should().NotContain(network => network.Name == createNetworkRequest.Name, "because the test network should not be present to begin the test");
+
+		//Create the test network
 		var network = await CreateValidNetworkAsync();
+
+		//Make sure we've got something back
 		network.Should().NotBeNull();
 
 		try
 		{
-			// Check the network can be retrieved and that its values are those set
+			// Check the network can be retrieved and that its values are those we set earlier
+			// Get the network details using the network id
 			var retrievedNetwork = await TestMerakiClient.Networks.GetNetworkAsync(network.Id);
+
+			// Create a comparitor network object using the data we sent at create
 			var expectedNetwork = new Network()
 			{
 				OrganizationId = TestOrganizationId,
@@ -57,6 +55,7 @@ public class NetworkTests : MerakiClientUnitTest
 				Id = network.Id,
 				IsBoundToConfigTemplate = false
 			};
+			// Make sure the two networks are the same (exclude the Url field, we can't set it and it's different with each pull down)
 			retrievedNetwork.Should()
 				.NotBeNull()
 				.And
@@ -75,8 +74,10 @@ public class NetworkTests : MerakiClientUnitTest
 				}
 				);
 
-			//Check that the name has changed in the returned network and ...?
+			// Check that the name has changed in the return data and that the remaining settings stay the same
+			// Change the expected name to the alternate name
 			expectedNetwork.Name = testAlternateNetworkName;
+			// Check that the expected network data now matches what we got back from the update request
 			networkUpdated.Should()
 				.NotBeNull()
 				.And
@@ -85,7 +86,7 @@ public class NetworkTests : MerakiClientUnitTest
 					options => options.Excluding(n => n.Url)
 				);
 
-			// Retrieve the network again and check the Name has changed
+			// Then we pull the network once more to make sure the pulled data matches the response from the update
 			var reretrievedNetwork = await TestMerakiClient.Networks.GetNetworkAsync(network.Id);
 			reretrievedNetwork.Should()
 				.NotBeNull()
@@ -101,8 +102,7 @@ public class NetworkTests : MerakiClientUnitTest
 			await TestMerakiClient.Networks.DeleteNetworkAsync(network.Id);
 		}
 
-		// Check the network is not present
-
+		// Make sure that the network is gone
 		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Networks.GetNetworkAsync(network.Id));
 		exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
