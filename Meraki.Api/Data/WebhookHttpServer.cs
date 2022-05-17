@@ -11,14 +11,14 @@ public class WebhookHttpServer : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "url")]
-	public string Url { get; set; } = string.Empty;
+	public string? Url { get; set; }
 
 	/// <summary>
 	/// A shared secret that will be included in POSTs sent to the HTTP server. This secret can be used to verify that the request was sent by Meraki.
 	/// </summary>
 	[ApiAccess(ApiAccess.CreateUpdate)]
 	[DataMember(Name = "sharedSecret")]
-	public string SharedSecret { get; set; } = string.Empty;
+	public string? SharedSecret { get; set; }
 
 	/// <summary>
 	/// The Id of the Network the Webhook belongs to
