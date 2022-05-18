@@ -21,7 +21,7 @@ public class WebhookHttpServer : NamedIdentifiedItem
 	public string? SharedSecret { get; set; }
 
 	/// <summary>
-	/// The Id of the Network the Webhook belongs to
+	/// The Id of the Network the Webhook belongs to. Undocumented but returned in response bodies.
 	/// </summary>
 	[ApiForeignKey(typeof(Network))]
 	[ApiAccess(ApiAccess.Read)]
