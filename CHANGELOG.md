@@ -1,17 +1,20 @@
 ﻿# Changelog
 
-## v.1.20.vNext
-- v.1.15 changes
+## v1.20.42
+- v1.15 changes
 - Added new properties to several models.
-- Added new optional params to GetOrganizationDevicesAsync
+- Added new optional params to GetOrganizationDevicesAsync.
+- Fixed WebhookTest models and Network models.
+- Separated some request/response models.
+- Updated SplashPage enum with new entries.
 
-## v.1.20.11
+## v1.20.11
 - Added Health Alerts to Networks Health.
 
-## v.1.20.10
+## v1.20.10
 - Added "arpInspection" to DHCP Server Policy.
 
-## v.1.20.8
+## v1.20.8
 - Updated for release against 1.20 API
 - Added JsonMissingMemberResponseLogLevel to MerakiClientOptions. When set to something other than None, this will log
 the actual JSON response from the API when a member is missing from the response.
