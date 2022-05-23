@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		CHANGELOG.md = CHANGELOG.md
+		CONTRIBUTING.md = CONTRIBUTING.md
 		global.json = global.json
 		LICENSE = LICENSE
 		Meraki.Api.sln.vsspell = Meraki.Api.sln.vsspell
@@ -25,7 +26,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitClassSourceGenerator",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitClassSourceGeneratorApp", "RefitClassSourceGeneratorApp\RefitClassSourceGeneratorApp.csproj", "{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meraki.Api.NewTest", "Meraki.Api.NewTest\Meraki.Api.NewTest.csproj", "{F491879D-2939-4BB6-BFC2-F5E0A76520C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meraki.Api.NewTest", "Meraki.Api.NewTest\Meraki.Api.NewTest.csproj", "{F491879D-2939-4BB6-BFC2-F5E0A76520C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

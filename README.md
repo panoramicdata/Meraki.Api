@@ -4,6 +4,8 @@
 
 This project implements access to the v1 Meraki API
 
+See the [contribution guide](CONTRIBUTING.md) for more information regarding contributing to this project
+
 To use the Meraki API nuget package:
 
 ## Visual Studio
