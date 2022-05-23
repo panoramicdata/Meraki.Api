@@ -1,9 +1,8 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// The type of splash page for the SSID ('None', 'Click-through splash page', 'Billing', 'Password-protected with Meraki RADIUS', 'Password-protected with custom RADIUS', 'Password-protected with Active Directory', 'Password-protected with LDAP', 'SMS authentication', 'Systems Manager Sentry', 'Facebook Wi-Fi', 'Google OAuth' or 'Sponsored guest'). This attribute is not supported for template children.
-/// </summary>
-/// <value>The type of splash page for the SSID ('None', 'Click-through splash page', 'Billing', 'Password-protected with Meraki RADIUS', 'Password-protected with custom RADIUS', 'Password-protected with Active Directory', 'Password-protected with LDAP', 'SMS authentication', 'Systems Manager Sentry', 'Facebook Wi-Fi', 'Google OAuth' or 'Sponsored guest'). This attribute is not supported for template children.</value>
+/// The type of splash page for the SSID ('None', 'Click-through splash page', 'Billing', 'Password-protected with Meraki RADIUS', 'Password-protected with custom RADIUS', 'Password-protected with Active Directory', 'Password-protected with LDAP', 'SMS authentication', 'Systems Manager Sentry', 'Facebook Wi-Fi', 'Google OAuth', 'Sponsored guest', 'Cisco ISE' or 'Google Apps domain'). This attribute is not supported for template children.
+/// /// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum SplashPage
 {
@@ -74,14 +73,20 @@ public enum SplashPage
 	GoogleOAuth,
 
 	/// <summary>
+	/// Enum Sponsoredguest for "Sponsored guest"
+	/// </summary>
+	[EnumMember(Value = "Sponsored guest")]
+	SponsoredGuest,
+
+	/// <summary>
 	/// Enum CiscoISE for "Cisco ISE"
 	/// </summary>
 	[EnumMember(Value = "Cisco ISE")]
 	CiscoISE,
 
 	/// <summary>
-	/// Enum Sponsoredguest for "Sponsored guest"
+	/// Enum Sponsoredguest for "Google Apps domain"
 	/// </summary>
-	[EnumMember(Value = "Sponsored guest")]
-	Sponsoredguest
+	[EnumMember(Value = "Google Apps domain")]
+	GoogleAppsDomain
 }
