@@ -74,6 +74,12 @@ public enum SplashPage
 	GoogleOAuth,
 
 	/// <summary>
+	/// Enum CiscoISE for "Cisco ISE"
+	/// </summary>
+	[EnumMember(Value = "Cisco ISE")]
+	CiscoISE,
+
+	/// <summary>
 	/// Enum Sponsoredguest for "Sponsored guest"
 	/// </summary>
 	[EnumMember(Value = "Sponsored guest")]
