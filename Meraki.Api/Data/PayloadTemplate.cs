@@ -10,28 +10,28 @@ public class PayloadTemplate : NamedItem
 	/// The ID
 	/// </summary>
 	[ApiKey]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "payloadTemplateId")]
-	public string PayloadTemplateId { get; set; } = string.Empty;
+	public string? PayloadTemplateId { get; set; }
 
 	/// <summary>
 	/// The type
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "type")]
-	public PayloadTemplateType Type { get; set; }
+	public PayloadTemplateType? Type { get; set; }
 
 	/// <summary>
 	/// The headers
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "headers")]
-	public Dictionary<string, string> Headers { get; set; } = new();
+	public Dictionary<string, string>? Headers { get; set; }
 
 	/// <summary>
 	/// The body
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "body")]
-	public string Body { get; set; } = string.Empty;
+	public string? Body { get; set; }
 }

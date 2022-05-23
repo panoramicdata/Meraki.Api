@@ -21,12 +21,12 @@ public interface INetworksWebhooksPayloadTemplates
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="createWebhookPayloadTemplate">Body</param>
+	/// <param name="webhookPayloadTemplate">Payload Template</param>
 	[ApiOperationId("createNetworkWebhooksPayloadTemplate")]
 	[Post("/networks/{networkId}/webhooks/payloadTemplates")]
-	Task CreateNetworkWebhooksPayloadTemplateAsync(
+	Task<PayloadTemplate> CreateNetworkWebhooksPayloadTemplateAsync(
 		[AliasAs("networkId")] string networkId,
-		[Body] List<PayloadTemplate> webhookPayloadTemplates,
+		[Body] PayloadTemplate webhookPayloadTemplate,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

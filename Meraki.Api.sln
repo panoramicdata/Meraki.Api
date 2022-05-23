@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitClassSourceGenerator",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitClassSourceGeneratorApp", "RefitClassSourceGeneratorApp\RefitClassSourceGeneratorApp.csproj", "{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meraki.Api.NewTest", "Meraki.Api.NewTest\Meraki.Api.NewTest.csproj", "{F491879D-2939-4BB6-BFC2-F5E0A76520C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F491879D-2939-4BB6-BFC2-F5E0A76520C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F491879D-2939-4BB6-BFC2-F5E0A76520C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F491879D-2939-4BB6-BFC2-F5E0A76520C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F491879D-2939-4BB6-BFC2-F5E0A76520C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
