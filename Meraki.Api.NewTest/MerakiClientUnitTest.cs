@@ -29,10 +29,10 @@ public abstract class MerakiClientUnitTest
 		TestMerakiClient = new MerakiClient(merakiClientOptions, Logger);
 	}
 
-	protected static NetworkCreationRequest GetValidNetworkCreationRequest()
+	protected static NetworkCreationRequest GetValidNetworkCreationRequest(string networkName)
 		=> new()
 		{
-			Name = "Basic CRUD Test Network",
+			Name = networkName,
 			Notes = "Test notes for unit test network.",
 			TimeZone = "Europe/London",
 			ProductTypes = new() {
@@ -44,9 +44,9 @@ public abstract class MerakiClientUnitTest
 			Tags = new() { "TestTag1", "TestTag2", "TestTag3" }
 		};
 
-	protected Task<Network> CreateValidNetworkAsync()
+	protected Task<Network> CreateValidNetworkAsync(string networkName)
 		=> TestMerakiClient
 			.Organizations
 			.Networks
-			.CreateOrganizationNetworkAsync(TestOrganizationId, GetValidNetworkCreationRequest());
+			.CreateOrganizationNetworkAsync(TestOrganizationId, GetValidNetworkCreationRequest(networkName));
 }

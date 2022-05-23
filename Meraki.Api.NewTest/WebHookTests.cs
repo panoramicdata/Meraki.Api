@@ -1,11 +1,10 @@
 using FluentAssertions;
 using Meraki.Api.Data;
-using Meraki.Api.Extensions;
 using System.Net;
 using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
-
+[Collection("API Collection")]
 public class WebHookTests : MerakiClientUnitTest
 {
 	public WebHookTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
@@ -15,14 +14,7 @@ public class WebHookTests : MerakiClientUnitTest
 	[Fact]
 	public async Task WebHookHttpServersCrud_Succeeds()
 	{
-		// Create a test network object
-		var createNetworkRequest = GetValidNetworkCreationRequest();
-		// Make sure it doesn't already exist
-		var networks = await TestMerakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(TestOrganizationId);
-		networks.Should().NotBeNull();
-		networks.Should().NotContain(network => network.Name == createNetworkRequest.Name, "because the test network should not be present to begin the test");
-		//Create the test network
-		var network = await CreateValidNetworkAsync();
+		var network = await CreateValidNetworkAsync("WebhookHttpServer Test Network");
 		network.Should().NotBeNull();
 
 		try
@@ -106,14 +98,7 @@ public class WebHookTests : MerakiClientUnitTest
 	[Fact]
 	public async Task WebHookPayloadTemplatesCrud_Succeeds()
 	{
-		// Create a test network object
-		var createNetworkRequest = GetValidNetworkCreationRequest();
-		// Make sure it doesn't already exist
-		var networks = await TestMerakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(TestOrganizationId);
-		networks.Should().NotBeNull();
-		networks.Should().NotContain(network => network.Name == createNetworkRequest.Name, "because the test network should not be present to begin the test");
-		//Create the test network
-		var network = await CreateValidNetworkAsync();
+		var network = await CreateValidNetworkAsync("WebhookPayload Test Network");
 		network.Should().NotBeNull();
 
 		try
@@ -198,7 +183,7 @@ public class WebHookTests : MerakiClientUnitTest
 			.Networks
 			.WebHooks
 			.PayloadTemplates
-			.DeleteNetworkWebhooksPayloadTemplateAsync(network.Id, testCreateWebhookPayloadTemplate.PayloadTemplateId!));
+			.GetNetworkWebhooksPayloadTemplateAsync(network.Id, testCreateWebhookPayloadTemplate.PayloadTemplateId!));
 			webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 		}
 		finally
@@ -212,4 +197,57 @@ public class WebHookTests : MerakiClientUnitTest
 		exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
 	}
+	[Fact]
+	public async Task WebHookTestCr_Succeeds()
+	{
+		var network = await CreateValidNetworkAsync("WebhookTest Test Network");
+		network.Should().NotBeNull();
+
+		try
+		{
+			//Create a Webhook Test Object
+			var testCreateWebhookTestRequest = new WebhookTestRequest()
+			{
+				Url = "https://www.google.com",
+				SharedSecret = "testsharedsecret",
+				// Using a built-in template for this test
+				PayloadTemplateId = "wpt_00001",
+				AlertTypeId = "motion_alert"
+			};
+
+			// Create the webhook test
+			var testCreateWebhookTest = await TestMerakiClient
+				.Networks
+				.WebHooks
+				.WebhookTests
+				.CreateNetworkWebhooksWebhookTestAsync(network.Id, testCreateWebhookTestRequest);
+			testCreateWebhookTestRequest.Should().NotBeNull();
+
+			// Check that we have an id
+			testCreateWebhookTest.Status.Should().Be("enqueued");
+
+			// Retrieve the status of the enqueued test
+			var testGetNetworkWebhookTest = await TestMerakiClient
+				.Networks
+				.WebHooks
+				.WebhookTests
+				.GetNetworkWebhooksWebhookTestAsync(network.Id, testCreateWebhookTest.Id);
+			testGetNetworkWebhookTest.Should().NotBeNull();
+
+			// TODO Check the status is not null or empty
+			testGetNetworkWebhookTest.Status.Should().Be("enqueued");
+
+		}
+		finally
+		{
+			// Delete the network
+			await TestMerakiClient.Networks.DeleteNetworkAsync(network.Id);
+		}
+
+		// Make sure that the network is gone
+		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Networks.GetNetworkAsync(network.Id));
+		exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+
+	}
+
 }

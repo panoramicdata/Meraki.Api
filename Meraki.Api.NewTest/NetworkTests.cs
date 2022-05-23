@@ -1,11 +1,10 @@
 using FluentAssertions;
 using Meraki.Api.Data;
-using Meraki.Api.Extensions;
 using System.Net;
 using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
-
+[Collection("API Collection")]
 public class NetworkTests : MerakiClientUnitTest
 {
 	public NetworkTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
@@ -16,26 +15,18 @@ public class NetworkTests : MerakiClientUnitTest
 	public async Task BasicCrud_Succeeds()
 	{
 		//Create, modify and delete a test network
-		//Set the alternate name we're going to use to modify the network
-		string testAlternateNetworkName = "Altered Basic CRUD Test Network";
+		var testNetworkName = "Basic CRUD Test Network";
 
 		//Get the data that we're going to use to create the test network
-		var createNetworkRequest = GetValidNetworkCreationRequest();
-
-		// Fetch a list of current networks for the test Org 
-		var networks = await TestMerakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(TestOrganizationId);
-
-		// Make sure something has been returned even if it's empty
-		networks.Should().NotBeNull();
-
-		//Check that the test network name doesn't already exist
-		networks.Should().NotContain(network => network.Name == createNetworkRequest.Name, "because the test network should not be present to begin the test");
+		var createNetworkRequest = GetValidNetworkCreationRequest(testNetworkName);
 
 		//Create the test network
-		var network = await CreateValidNetworkAsync();
+		var network = await CreateValidNetworkAsync(testNetworkName);
 
 		//Make sure we've got something back
 		network.Should().NotBeNull();
+
+		// TODO Get a list of all networks to check it's there
 
 		try
 		{
@@ -63,6 +54,9 @@ public class NetworkTests : MerakiClientUnitTest
 					expectedNetwork,
 					options => options.Excluding(n => n.Url)
 				);
+
+			//Set the alternate name we're going to use to modify the network
+			string testAlternateNetworkName = "Altered Basic CRUD Test Network";
 
 			// Change the network Name
 			var networkUpdated = await TestMerakiClient.Networks.UpdateNetworkAsync
