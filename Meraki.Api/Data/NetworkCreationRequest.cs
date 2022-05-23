@@ -9,37 +9,32 @@ public class NetworkCreationRequest
 	/// <summary>
 	/// The name of the new network
 	/// </summary>
-	/// <value>The name of the new network</value>
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = null!;
+	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
-	/// A space-separated list of tags to be applied to the network
+	/// A list of tags to be applied to the network
 	/// </summary>
-	/// <value>A space-separated list of tags to be applied to the network</value>
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = null!;
+	public List<string>? Tags { get; set; }
 
 	/// <summary>
-	/// The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in &lt;a target&#x3D;'_blank' href&#x3D;'https://en.wikipedia.org/wiki/List_of_tz_database_time_zones'&gt;this article.&lt;/a&gt;
+	/// The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in this article https://en.wikipedia.org/wiki/List_of_tz_database_time_zone
 	/// </summary>
-	/// <value>The timezone of the network. For a list of allowed timezones, please see the 'TZ' column in the table in &lt;a target&#x3D;'_blank' href&#x3D;'https://en.wikipedia.org/wiki/List_of_tz_database_time_zones'&gt;this article.&lt;/a&gt;</value>
 	[DataMember(Name = "timeZone")]
-	public string TimeZone { get; set; } = null!;
+	public string? TimeZone { get; set; }
 
 	/// <summary>
 	/// The ID of the network to copy configuration from. Other provided parameters will override the copied configuration, except type which must match this network's type exactly.
 	/// </summary>
-	/// <value>The ID of the network to copy configuration from. Other provided parameters will override the copied configuration, except type which must match this network's type exactly.</value>
 	[DataMember(Name = "copyFromNetworkId")]
-	public string CopyFromNetworkId { get; set; } = null!;
+	public string? CopyFromNetworkId { get; set; }
 
 	/// <summary>
-	/// The product type(s) of the new network.
+	/// The product type(s) of the new network. Valid types are wireless, appliance, switch, systemsManager, camera, cellularGateway, sensor, environmental. If more than one type is included, the network will be a combined network.
 	/// </summary>
-	/// <value>The product type(s) of the new network.</value>
 	[DataMember(Name = "productTypes")]
-	public List<ProductType> ProductTypes { get; set; } = null!;
+	public List<ProductType> ProductTypes { get; set; } = new();
 
 	/// <summary>
 	/// Add any notes or additional information about this network here.
