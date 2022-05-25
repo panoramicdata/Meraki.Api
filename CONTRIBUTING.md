@@ -30,12 +30,12 @@ For this endpoint we would
 ```c#
 [Get("/organizations/{organizationId}/inventory/devices")]
 Task<List<InventoryDevice>> GetOrganizationInventoryDevicesAsync(
-	[AliasAs("organizationId")] string organizationId,
-	[AliasAs("perPage")] int? perPage = 1000,
-	[AliasAs("startingAfter")] string? startingAfter = null,
-	[AliasAs("endingBefore")] string? endingBefore = null,
-	[AliasAs("usedState")] string? usedState = null,
-	[AliasAs("search")] string? search = null,
+	string organizationId,
+	int? perPage = 1000,
+	string? startingAfter = null,
+	string? endingBefore = null,
+	string? usedState = null,
+	string? search = null,
 	CancellationToken cancellationToken = default);
 ```
 2. Create a second copy of the endpoint called `GetInventoryDevicesApiResponseAsync` and marked `internal`.
@@ -43,10 +43,10 @@ Exclude the paging parameters `perPage` and `endingBefore` and just leave the fi
 ```c#
 [Get("/organizations/{organizationId}/inventory/devices")]
 internal Task<ApiResponse<List<InventoryDevice>>> GetInventoryDevicesApiResponseAsync(
-	[AliasAs("organizationId")] string organizationId,
-	[AliasAs("startingAfter")] string? startingAfter = null,
-	[AliasAs("usedState")] string? usedState = null,
-	[AliasAs("search")] string? search = null,
+	string organizationId,
+	string? startingAfter = null,
+	string? usedState = null,
+	string? search = null,
 	CancellationToken cancellationToken = default);
 ```
 3. Change the second copy return type to wrap it in a Refit `ApiResponse`.
