@@ -12,7 +12,7 @@ public interface IOrganizationsAlerts
 	/// <param name="organizationId">The organization id</param>
 	[ApiOperationId("getOrganizationAlertsProfiles")]
 	[Get("/organizations/{organizationId}/alerts/profiles")]
-	Task<List<OrganizationAlert>> GetOrganizationAlertsProfilesAsync(
+	Task<List<OrganizationAlertProfile>> GetOrganizationAlertsProfilesAsync(
 		[AliasAs("organizationId")] string organizationId,
 		CancellationToken cancellationToken = default);
 
@@ -21,12 +21,12 @@ public interface IOrganizationsAlerts
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="createOrganizationAlertsProfile">Body</param>
+	/// <param name="createRequest">Body</param>
 	[ApiOperationId("createOrganizationAlertsProfile")]
 	[Post("/organizations/{organizationId}/alerts/profiles")]
-	Task<OrganizationAlert> CreateOrganizationAlertsProfileAsync(
+	Task<OrganizationAlertProfile> CreateOrganizationAlertsProfileAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[Body] OrganizationAlert createOrganizationAlertsProfile,
+		[Body] OrganizationAlertProfileCreateRequest createRequest,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -35,13 +35,13 @@ public interface IOrganizationsAlerts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="alertConfigId">The alert config id</param>
-	/// <param name="updateOrganizationAlertsProfile">Body</param>
+	/// <param name="updateRequest">Body</param>
 	[ApiOperationId("updateOrganizationAlertsProfile")]
 	[Put("/organizations/{organizationId}/alerts/profiles/{alertConfigId}")]
-	Task<OrganizationAlert> UpdateOrganizationAlertsProfileAsync(
+	Task<OrganizationAlertProfile> UpdateOrganizationAlertsProfileAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("alertConfigId")] string alertConfigId,
-		[Body] OrganizationAlert updateOrganizationAlertsProfile,
+		[Body] OrganizationAlertProfileUpdateRequest updateRequest,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
