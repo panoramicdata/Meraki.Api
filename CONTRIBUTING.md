@@ -42,7 +42,7 @@ Task<List<InventoryDevice>> GetOrganizationInventoryDevicesAsync(
 Exclude the paging parameters `perPage` and `endingBefore` and just leave the filtering parameters.
 ```c#
 [Get("/organizations/{organizationId}/inventory/devices")]
-internal Task<ApiResponse<List<InventoryDevice>>> GetInventoryDevicesApiResponseAsync(
+internal Task<ApiResponse<List<InventoryDevice>>> GetOrganizationInventoryDevicesApiResponseAsync(
 	string organizationId,
 	string? startingAfter = null,
 	string? usedState = null,
@@ -72,7 +72,7 @@ public static class IOrganizationsInventoryDevicesExtensions
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
 			(startingAfter, cancellationToken)
-			=> organizationInventoryDevices.GetInventoryDevicesApiResponseAsync(
+			=> organizationInventoryDevices.GetOrganizationInventoryDevicesApiResponseAsync(
 				organizationId,
 				startingAfter,
 				usedState,
