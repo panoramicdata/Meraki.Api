@@ -86,3 +86,21 @@ public static class IOrganizationsInventoryDevicesExtensions
 6. This will allow people to call this method from the `IOrganizationsInventoryDevices` interface and 
 7. it will appear to be on the interface directly.
 
+## ENUMS
+
+Where possible, assuming all known values are available, create enums for well defined lists of options.
+
+See `ProductType.cs` for an example
+
+To correctly serialize, use the following class attributes
+```c#
+[DataContract]
+[JsonConverter(typeof(StringEnumConverter))]
+```
+
+Each enum entry should be decorated with an `EnumMember` attribute e.g.
+
+```c#
+[EnumMember(Value = "cellularGateway")]
+CellularGateway,
+```
