@@ -12,23 +12,44 @@ public interface IOrganizationsInventoryDevices
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="usedState">Filter results by used or unused inventory. Accepted values are "used" or "unused".</param>
 	/// <param name="search">Search for devices in inventory based on serial number, mac address, or model.</param>
+	/// <param name="macs">Search for devices in inventory based on mac addresses.</param>
+	/// <param name="networkIds">Search for devices in inventory based on network ids.</param>
+	/// <param name="serials">Search for devices in inventory based on serials.</param>
+	/// <param name="models">Search for devices in inventory based on model.</param>
+	/// <param name="tags">An optional parameter to filter devices by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
+	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return devices which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
+	/// <param name="productTypes">Optional parameter to filter devices by product type. Valid types are wireless, appliance, switch, systemsManager, camera, cellularGateway, and sensor.</param>
 	[Get("/organizations/{organizationId}/inventory/devices")]
 	Task<List<InventoryDevice>> GetOrganizationInventoryDevicesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("usedState")] string? usedState = null,
-		[AliasAs("search")] string? search = null,
+		string organizationId,
+		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? usedState = null,
+		string? search = null,
+		List<string>? macs = null,
+		List<string>? networkIds = null,
+		List<string>? serials = null,
+		List<string>? models = null,
+		List<string>? tags = null,
+		TagsFilterType? tagsFilterType = null,
+		List<ProductType>? productTypes = null,
 		CancellationToken cancellationToken = default);
 
-	// Used by IOrganizationsNetworksExtensions.GetOrganizationNetworksAllAsync
+	// Used by IOrganizationsInventoryDevicesExtensions.GetOrganizationInventoryDevicesAllAsync
 	[Get("/organizations/{organizationId}/inventory/devices")]
-	internal Task<ApiResponse<List<InventoryDevice>>> GetInventoryDevicesApiResponseAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("usedState")] string? usedState = null,
-		[AliasAs("search")] string? search = null,
+	internal Task<ApiResponse<List<InventoryDevice>>> GetOrganizationInventoryDevicesApiResponseAsync(
+		string organizationId,
+		string? startingAfter = null,
+		string? usedState = null,
+		string? search = null,
+		List<string>? macs = null,
+		List<string>? networkIds = null,
+		List<string>? serials = null,
+		List<string>? models = null,
+		List<string>? tags = null,
+		TagsFilterType? tagsFilterType = null,
+		List<ProductType>? productTypes = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

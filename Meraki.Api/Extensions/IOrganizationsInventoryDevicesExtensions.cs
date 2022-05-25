@@ -14,14 +14,28 @@ public static class IOrganizationsInventoryDevicesExtensions
 		string organizationId,
 		string? usedState = null,
 		string? search = null,
+		List<string>? macs = null,
+		List<string>? networkIds = null,
+		List<string>? serials = null,
+		List<string>? models = null,
+		List<string>? tags = null,
+		TagsFilterType? tagsFilterType = null,
+		List<ProductType>? productTypes = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
 				(startingAfter, cancellationToken)
-				=> organizationInventoryDevices.GetInventoryDevicesApiResponseAsync(
+				=> organizationInventoryDevices.GetOrganizationInventoryDevicesApiResponseAsync(
 						organizationId,
 						startingAfter,
 						usedState,
 						search,
+						macs,
+						networkIds,
+						serials,
+						models,
+						tags,
+						tagsFilterType,
+						productTypes,
 						cancellationToken
 					),
 					cancellationToken

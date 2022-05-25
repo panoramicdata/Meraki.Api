@@ -25,6 +25,10 @@ public enum ProductType
 	[EnumMember(Value = "sensor")]
 	Sensor,
 
+	/// <summary>
+	/// Use sensor insead of environmental
+	/// </summary>
+	[Obsolete("Appears to have been replaced by sensor")]
 	[EnumMember(Value = "environmental")]
 	Environmental,
 
