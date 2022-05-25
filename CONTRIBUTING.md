@@ -104,3 +104,6 @@ Each enum entry should be decorated with an `EnumMember` attribute e.g.
 [EnumMember(Value = "cellularGateway")]
 CellularGateway,
 ```
+
+The first entry should be set to a value of 1 so that deserialization of unknown values 
+will result in defaulting to 0 which has no valid value in the enum.
