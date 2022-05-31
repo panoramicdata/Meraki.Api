@@ -57,6 +57,12 @@ public class SmNetworkUsers
 	public List<string> AzureAdGroups { get; set; } = new();
 
 	/// <summary>
+	/// Saml groups
+	/// </summary>
+	[DataMember(Name = "samlGroups")]
+	public List<string> SamlGroups { get; set; } = new();
+
+	/// <summary>
 	/// Asm groups
 	/// </summary>
 	[DataMember(Name = "asmGroups")]
