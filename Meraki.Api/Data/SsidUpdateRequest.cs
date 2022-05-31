@@ -168,6 +168,13 @@ public class SsidUpdateRequest
 	public RadiusLoadBalancingPolicy? RadiusLoadBalancingPolicy { get; set; }
 
 	/// <summary>
+	/// The secondary concentrator to use when the ipAssignmentMode is 'VPN'. If configured, the APs will switch to using this concentrator if the primary concentrator is unreachable. This param is optional. ('disabled' represents no secondary concentrator.)
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "secondaryConcentratorNetworkId")]
+	public string? SecondaryConcentratorNetworkId { get; set; }
+
+	/// <summary>
 	/// The type of splash page for the SSID ('None', 'Click-through splash page', 'Billing', 'Password-protected with Meraki RADIUS', 'Password-protected with custom RADIUS', 'Password-protected with Active Directory', 'Password-protected with LDAP', 'SMS authentication', 'Systems Manager Sentry', 'Facebook Wi-Fi', 'Google OAuth', 'Sponsored guest', 'Cisco ISE' or 'Google Apps domain'). This attribute is not supported for template children.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
@@ -194,6 +201,14 @@ public class SsidUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "availableOnAllAps")]
 	public bool AvailableOnAllAps { get; set; }
+
+
+	/// <summary>
+	/// Disassociate clients when 'VPN' concentrator failover occurs in order to trigger clients to re-associate and generate new DHCP requests. This param is only valid if ipAssignmentMode is 'VPN'.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "disassociateClientsOnVpnFailover")]
+	public bool DisassociateClientsOnVpnFailover { get; set; }
 
 	/// <summary>
 	/// Whether or not the SSID is enabled
