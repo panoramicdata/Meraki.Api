@@ -26,26 +26,26 @@ public class AdaptivePolicyGroup : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "description")]
-	public string Description { get; set; } = string.Empty;
+	public string? Description { get; set; }
 
 	/// <summary>
 	/// The policy objects that belong to this group; traffic from addresses specified by these policy objects will be tagged with this group's SGT value if no other tagging scheme is being used (each requires one unique attribute)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "policyObjects")]
-	public List<AdaptivePolicyGroupPolicyObjects> PolicyObjects { get; set; } = new();
+	public List<AdaptivePolicyGroupPolicyObjects>? PolicyObjects { get; set; }
 
 	/// <summary>
 	/// Created at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
-	public string CreatedAt { get; set; } = string.Empty;
+	public string? CreatedAt { get; set; }
 
 	/// <summary>
 	/// Updated at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "updatedAt")]
-	public string UpdatedAt { get; set; } = string.Empty;
+	public string? UpdatedAt { get; set; }
 }

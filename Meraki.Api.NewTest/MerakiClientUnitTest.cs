@@ -7,6 +7,7 @@ namespace Meraki.Api.NewTest;
 public abstract class MerakiClientUnitTest
 {
 	protected string TestOrganizationId { get; }
+	protected string TestSwitchSerial { get; }
 	protected ICacheLogger Logger { get; }
 	protected MerakiClient TestMerakiClient { get; }
 
@@ -25,6 +26,7 @@ public abstract class MerakiClientUnitTest
 			ApiNode = testConfig.ApiNode
 		};
 		TestOrganizationId = testConfig.OrganizationId;
+		TestSwitchSerial = testConfig.SwitchSerial;
 		Logger = testOutputHelper.BuildLogger();
 		TestMerakiClient = new MerakiClient(merakiClientOptions, Logger);
 	}

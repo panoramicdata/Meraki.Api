@@ -15,40 +15,40 @@ public class AdaptivePolicyPolicies
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "sourceGroup")]
-	public AdaptivePolicyPoliciesGroup SourceGroup { get; set; } = new();
+	public AdaptivePolicyPoliciesGroup? SourceGroup { get; set; }
 
 	/// <summary>
 	/// The destination adaptive policy group (requires one unique attribute)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "destinationGroup")]
-	public AdaptivePolicyPoliciesGroup DestinationGroup { get; set; } = new();
+	public AdaptivePolicyPoliciesGroup? DestinationGroup { get; set; }
 
 	/// <summary>
 	/// An ordered array of adaptive policy ACLs (each requires one unique attribute) that apply to this policy (default: [])
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "acls")]
-	public List<AdaptivePolicyPoliciesAcl> Acls { get; set; } = new();
+	public List<AdaptivePolicyPoliciesAcl>? Acls { get; set; }
 
 	/// <summary>
 	/// The rule to apply if there is no matching ACL (default: "default")
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "lastEntryRule")]
-	public string LastEntryRule { get; set; } = string.Empty;
+	public string? LastEntryRule { get; set; }
 
 	/// <summary>
 	/// Created at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
-	public string CreatedAt { get; set; } = string.Empty;
+	public string? CreatedAt { get; set; }
 
 	/// <summary>
 	/// Updated at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "updatedAt")]
-	public string UpdatedAt { get; set; } = string.Empty;
+	public string? UpdatedAt { get; set; }
 }
