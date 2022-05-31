@@ -48,7 +48,7 @@ public class SwitchRoutingInterfaceTests : MerakiClientUnitTest
 			// InterfaceIp = "192.168.1.2",
 			// Subnet = "192.168.1.0/24",
 			// Create some Ipv6 settings
-			Ipv6 = new Ipv6()
+			Ipv6 = new RoutingInterfaceIpv6()
 			{
 				AssignmentMode = AssignmentMode.Static,
 				Address = "1:2:3:4::1",

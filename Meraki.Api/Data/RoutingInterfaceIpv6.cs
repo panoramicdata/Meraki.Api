@@ -4,7 +4,7 @@
 /// ipv6 Settings
 /// </summary>
 [DataContract]
-public class Ipv6
+public class RoutingInterfaceIpv6
 {
 	/// <summary>
 	/// The IPv6 address of the interface. Required if assignmentMode is included and set as 'static'. Must not be included if assignmentMode is 'eui-64'.

@@ -46,7 +46,7 @@ public class RoutingInterfaceCreateRequest : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ipv6")]
-	public Ipv6? Ipv6 { get; set; }
+	public RoutingInterfaceIpv6? Ipv6 { get; set; }
 
 	/// <summary>
 	/// The OSPF routing settings of the interface.

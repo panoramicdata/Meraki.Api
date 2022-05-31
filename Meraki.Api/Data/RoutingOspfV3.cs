@@ -4,7 +4,7 @@
 /// OSPF v3 configuration
 /// </summary>
 [DataContract]
-public class V3
+public class RoutingOspfV3
 {
 	/// <summary>
 	/// Time interval to determine when the peer will be declared inactive/dead. Value must be between 1 and 65535
