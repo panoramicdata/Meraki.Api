@@ -343,6 +343,13 @@ public class SsidUpdateRequest
 	public Dot11r? Dot11r { get; set; }
 
 	/// <summary>
+	/// Ethernet over GRE settings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "gre")]
+	public Gre? Gre { get; set; }
+
+	/// <summary>
 	/// The current setting for LDAP. Only valid if splashPage is 'Password-protected with LDAP'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
