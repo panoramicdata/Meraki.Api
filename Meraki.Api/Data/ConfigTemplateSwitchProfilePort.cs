@@ -108,6 +108,20 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	public Udld Udld { get; set; }
 
 	/// <summary>
+	/// The adaptive policy group ID that will be used to tag traffic through this switch port. This ID must pre-exist during the configuration, else needs to be created using adaptivePolicy/groups API. Cannot be applied to a port on a switch bound to profile.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "adaptivePolicyGroupId")]
+	public string? AdaptivePolicyGroupId { get; set; }
+
+	/// <summary>
+	/// If true, Peer SGT is enabled for traffic through this switch port. Applicable to trunk port only, not access port. Cannot be applied to a port on a switch bound to profile.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "peerSgtCapable")]
+	public bool? PeerSgtCapable { get; set; }
+
+	/// <summary>
 	/// The type of the access policy of the switch profile port. Only applicable to access ports. Can be one of 'Open', 'Custom access policy', 'MAC allow list' or 'Sticky MAC allow list'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

@@ -131,6 +131,20 @@ public class SwitchPort : NamedItem
 	public string? Udld { get; set; }
 
 	/// <summary>
+	/// The adaptive policy group ID that will be used to tag traffic through this switch port. This ID must pre-exist during the configuration, else needs to be created using adaptivePolicy/groups API. Cannot be applied to a port on a switch bound to profile.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "adaptivePolicyGroupId")]
+	public string? AdaptivePolicyGroupId { get; set; }
+
+	/// <summary>
+	/// If true, Peer SGT is enabled for traffic through this switch port. Applicable to trunk port only, not access port. Cannot be applied to a port on a switch bound to profile.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "peerSgtCapable")]
+	public bool? PeerSgtCapable { get; set; }
+
+	/// <summary>
 	/// Only devices with MAC addresses specified in this list will have access to this port. Up to 20 MAC addresses can be defined. Only applicable when 'accessPolicyType' is 'MAC allow list'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
