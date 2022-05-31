@@ -21,6 +21,13 @@ public class VideoSettings
 	public Mv12Mv22Mv72 Mv12Mv22Mv72 { get; set; } = null!;
 
 	/// <summary>
+	/// Gets or Sets MV52
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "MV52")]
+	public Mv52 Mv52 { get; set; } = null!;
+
+	/// <summary>
 	/// Gets or Sets MV32
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
