@@ -36,6 +36,20 @@ public class AdaptivePolicyGroup : NamedItem
 	public List<AdaptivePolicyGroupPolicyObjects>? PolicyObjects { get; set; }
 
 	/// <summary>
+	/// isDefaultGroup Boolean
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "isSDefaultGroup")]
+	public bool? IsDefaultGroup { get; set; }
+
+	/// <summary>
+	/// Required IP Mappings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "requiredIpMappings")]
+	public List<string>? RequiredIpMappings { get; set; }
+
+	/// <summary>
 	/// Created at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
