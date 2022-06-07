@@ -33,4 +33,11 @@ public class Version
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "releaseType")]
 	public string ReleaseType { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Release date
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "releaseDate")]
+	public string ReleaseDate { get; set; } = string.Empty;
 }

@@ -60,11 +60,30 @@ public class Uplinks
 	[DataMember(Name = "connectionType")]
 	public string? ConnectionType { get; set; }
 
+
 	/// <summary>
 	/// Apn
 	/// </summary>
 	[DataMember(Name = "apn")]
 	public string? Apn { get; set; }
+
+	/// <summary>
+	/// DNS 1
+	/// </summary>
+	[DataMember(Name = "dns1")]
+	public string? Dns1 { get; set; }
+
+	/// <summary>
+	/// DNS 2
+	/// </summary>
+	[DataMember(Name = "dns2")]
+	public string? Dns2 { get; set; }
+
+	/// <summary>
+	/// Apn
+	/// </summary>
+	[DataMember(Name = "signalType")]
+	public string? SignalType { get; set; }
 
 	/// <summary>
 	/// Iccid
