@@ -26,7 +26,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 	[Post("/organizations/{organizationId}/adaptivePolicy/groups")]
 	Task<AdaptivePolicyGroup> CreateOrganizationAdaptivePolicyGroupAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[Body] AdaptivePolicyGroupCreate createOrganizationAdaptivePolicyGroup,
+		[Body] AdaptivePolicyGroupCreateUpdate createOrganizationAdaptivePolicyGroup,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -68,6 +68,6 @@ public interface IOrganizationsAdaptivePolicyGroups
 	Task<AdaptivePolicyGroup> UpdateOrganizationAdaptivePolicyGroupAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("groupId")] string groupId,
-		[Body] AdaptivePolicyGroupCreate updateOrganizationAdaptivePolicyGroup,
+		[Body] AdaptivePolicyGroupCreateUpdate updateOrganizationAdaptivePolicyGroup,
 		CancellationToken cancellationToken = default);
 }
