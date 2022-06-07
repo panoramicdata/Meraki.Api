@@ -15,14 +15,14 @@ public class AdaptivePolicyPolicies
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "sourceGroup")]
-	public AdaptivePolicyPoliciesGroup SourceGroup { get; set; } = new();
+	public AdaptivePolicyPoliciesGroup? SourceGroup { get; set; }
 
 	/// <summary>
 	/// The destination adaptive policy group (requires one unique attribute)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "destinationGroup")]
-	public AdaptivePolicyPoliciesGroup DestinationGroup { get; set; } = new();
+	public AdaptivePolicyPoliciesGroup? DestinationGroup { get; set; }
 
 	/// <summary>
 	/// An ordered array of adaptive policy ACLs (each requires one unique attribute) that apply to this policy (default: [])

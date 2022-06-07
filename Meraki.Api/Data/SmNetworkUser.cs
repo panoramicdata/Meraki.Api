@@ -6,7 +6,7 @@
 [ApiAccessReadOnlyClass]
 [DataContract]
 
-public class SmNetworkUsers
+public class SmNetworkUser
 {
 	/// <summary>
 	/// Id
@@ -18,13 +18,13 @@ public class SmNetworkUsers
 	/// Email
 	/// </summary>
 	[DataMember(Name = "email")]
-	public string Email { get; set; } = string.Empty;
+	public string? Email { get; set; }
 
 	/// <summary>
 	/// Full name
 	/// </summary>
 	[DataMember(Name = "fullName")]
-	public string FullName { get; set; } = string.Empty;
+	public string? FullName { get; set; }
 
 	/// <summary>
 	/// Username
@@ -57,6 +57,12 @@ public class SmNetworkUsers
 	public List<string> AzureAdGroups { get; set; } = new();
 
 	/// <summary>
+	/// Saml groups
+	/// </summary>
+	[DataMember(Name = "samlGroups")]
+	public List<string> SamlGroups { get; set; } = new();
+
+	/// <summary>
 	/// Asm groups
 	/// </summary>
 	[DataMember(Name = "asmGroups")]
@@ -84,5 +90,5 @@ public class SmNetworkUsers
 	/// User thumbnail
 	/// </summary>
 	[DataMember(Name = "userThumbnail")]
-	public string UserThumbnail { get; set; } = string.Empty;
+	public string? UserThumbnail { get; set; }
 }

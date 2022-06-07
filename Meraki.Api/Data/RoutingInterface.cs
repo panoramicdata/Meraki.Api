@@ -61,4 +61,11 @@ public class RoutingInterface : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ospfSettings")]
 	public OspfSettings? OspfSettings { get; set; }
+
+	/// <summary>
+	/// The OSPFv3 routing settings of the interface.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "ospfV3")]
+	public OspfSettings? OspfV3 { get; set; }
 }

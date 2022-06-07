@@ -3,7 +3,7 @@
 public interface ISmDevicesDeviceProfiles
 {
 	/// <summary>
-	/// Get the profiles associated with a device
+	/// Get the installed profiles associated with a device
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
