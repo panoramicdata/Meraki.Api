@@ -25,5 +25,5 @@ public class NetworkFirmwareUpgrade
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "products")]
-	public Products Products { get; set; } = new();
+	public FirmwareProducts Products { get; set; } = new();
 }

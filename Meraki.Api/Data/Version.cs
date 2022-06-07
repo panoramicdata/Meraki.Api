@@ -39,5 +39,5 @@ public class Version
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "releaseDate")]
-	public string ReleaseDate { get; set; } = string.Empty;
+	public DateTime ReleaseDate { get; set; }
 }
