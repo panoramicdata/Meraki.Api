@@ -55,12 +55,6 @@ public class DeviceClient
 	public string? NamedVlan { get; set; }
 
 	/// <summary>
-	/// Named Vlan
-	/// </summary>
-	[DataMember(Name = "namedVlan")]
-	public string NamedVlan { get; set; } = string.Empty;
-
-	/// <summary>
 	/// Mdns name
 	/// </summary>
 	[DataMember(Name = "mdnsName")]
