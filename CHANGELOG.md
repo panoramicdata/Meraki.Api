@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## v.1.20.x
+- Changed AdaptivePolicyGroup CreatedAt and UpdatedAt to be DateTime
+
 ## v1.20.42
 - v1.15 changes
 - Added new properties to several models.
