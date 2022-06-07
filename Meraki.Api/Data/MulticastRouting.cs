@@ -4,9 +4,8 @@
 [JsonConverter(typeof(StringEnumConverter))]
 public enum MulticastRouting
 {
-	// Default value is disabled so this has been left to enumerate to 0
 	[EnumMember(Value = "disabled")]
-	Disabled,
+	Disabled = 1,
 
 	[EnumMember(Value = "enabled")]
 	Enabled,

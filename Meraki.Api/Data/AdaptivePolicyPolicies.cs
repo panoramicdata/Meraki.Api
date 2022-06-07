@@ -43,12 +43,12 @@ public class AdaptivePolicyPolicies
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
-	public string? CreatedAt { get; set; }
+	public DateTime CreatedAt { get; set; }
 
 	/// <summary>
 	/// Updated at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "updatedAt")]
-	public string? UpdatedAt { get; set; }
+	public DateTime UpdatedAt { get; set; }
 }
