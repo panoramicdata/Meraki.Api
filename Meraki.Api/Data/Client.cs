@@ -42,7 +42,7 @@ public class Client : IdentifiedItem
 	/// </summary>
 	[DataMember(Name = "vlan")]
 	public int Vlan { get; set; }
-	
+
 	/// <summary>
 	/// The Named VLAN
 	/// </summary>
