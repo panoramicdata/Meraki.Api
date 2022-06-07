@@ -26,7 +26,7 @@ public class AdaptivePolicyGroup : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "description")]
-	public string Description { get; set; } = String.Empty;
+	public string Description { get; set; } = string.Empty;
 
 	/// <summary>
 	/// The policy objects that belong to this group; traffic from addresses specified by these policy objects will be tagged with this group's SGT value if no other tagging scheme is being used (each requires one unique attribute)
