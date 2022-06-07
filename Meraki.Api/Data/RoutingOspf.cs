@@ -49,6 +49,13 @@ public class RoutingOspf
 	public RoutingOspfV3? V3 { get; set; }
 
 	/// <summary>
+	/// OSPF v3 Configuration
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "v3")]
+	public RoutingOspfV3? V3 { get; set; }
+
+	/// <summary>
 	/// Boolean value to enable or disable MD5 authentication. MD5 authentication is disabled by default.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

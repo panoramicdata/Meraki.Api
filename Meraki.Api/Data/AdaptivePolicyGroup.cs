@@ -26,7 +26,7 @@ public class AdaptivePolicyGroup : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "description")]
-	public string Description { get; set; } = string.Empty;
+	public string? Description { get; set; }
 
 	/// <summary>
 	/// The policy objects that belong to this group; traffic from addresses specified by these policy objects will be tagged with this group's SGT value if no other tagging scheme is being used (each requires one unique attribute)
@@ -34,6 +34,20 @@ public class AdaptivePolicyGroup : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "policyObjects")]
 	public List<AdaptivePolicyGroupPolicyObjects>? PolicyObjects { get; set; }
+
+	/// <summary>
+	/// isDefaultGroup Boolean
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "isDefaultGroup")]
+	public bool? IsDefaultGroup { get; set; }
+
+	/// <summary>
+	/// Required IP Mappings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "requiredIpMappings")]
+	public List<string>? RequiredIpMappings { get; set; }
 
 	/// <summary>
 	/// Created at
