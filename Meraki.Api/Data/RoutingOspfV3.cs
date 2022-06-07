@@ -34,4 +34,3 @@ public class RoutingOspfV3
 	[DataMember(Name = "areas")]
 	public List<Area>? Areas { get; set; }
 }
-
