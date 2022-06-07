@@ -6,6 +6,7 @@
 - Updated RoutingOspf to add RoutingOspfV3 settings
 - Made all DeviceClient properties null
 - Updated nullability on SmNetworkUser
+- Changed Products to FirmwareProducts
 
 ## v1.20.42
 - v1.15 changes

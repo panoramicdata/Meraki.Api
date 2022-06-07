@@ -3,7 +3,6 @@ namespace Meraki.Api.Data;
 /// <summary>
 /// Quality of the camera. Can be one of 'Standard', 'Enhanced' or 'High'.
 /// </summary>
-
 [JsonConverter(typeof(StringEnumConverter))]
 public enum StandardEnhancedHighQuality
 {
@@ -24,5 +23,4 @@ public enum StandardEnhancedHighQuality
 	/// </summary>
 	[EnumMember(Value = "High")]
 	High
-}
 }

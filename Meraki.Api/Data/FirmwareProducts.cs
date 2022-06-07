@@ -4,7 +4,7 @@
 /// Products
 /// </summary>
 [DataContract]
-public class Products
+public class FirmwareProducts
 {
 	/// <summary>
 	/// Appliance

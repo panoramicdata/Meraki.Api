@@ -202,7 +202,6 @@ public class SsidUpdateRequest
 	[DataMember(Name = "availableOnAllAps")]
 	public bool AvailableOnAllAps { get; set; }
 
-
 	/// <summary>
 	/// Disassociate clients when 'VPN' concentrator failover occurs in order to trigger clients to re-associate and generate new DHCP requests. This param is only valid if ipAssignmentMode is 'VPN'.
 	/// </summary>
