@@ -51,6 +51,13 @@ public class Client : IdentifiedItem
 	public string? NamedVlan { get; set; }
 
 	/// <summary>
+	/// The Named VLAN
+	/// </summary>
+	[DataMember(Name = "namedVlan")]
+
+	public string? NamedVlan { get; set; }
+
+	/// <summary>
 	/// The switch port
 	/// </summary>
 	[DataMember(Name = "switchport")]

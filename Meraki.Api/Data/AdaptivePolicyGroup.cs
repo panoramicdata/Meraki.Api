@@ -39,7 +39,7 @@ public class AdaptivePolicyGroup : NamedItem
 	/// isDefaultGroup Boolean
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "isSDefaultGroup")]
+	[DataMember(Name = "isDefaultGroup")]
 	public bool? IsDefaultGroup { get; set; }
 
 	/// <summary>
@@ -54,12 +54,12 @@ public class AdaptivePolicyGroup : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
-	public string? CreatedAt { get; set; }
+	public DateTime CreatedAt { get; set; }
 
 	/// <summary>
 	/// Updated at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "updatedAt")]
-	public string? UpdatedAt { get; set; }
+	public DateTime UpdatedAt { get; set; }
 }

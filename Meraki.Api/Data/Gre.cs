@@ -18,5 +18,4 @@ public class Gre
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "concentrator")]
 	public GreConcentrator? Concentrator { get; set; }
-
 }
