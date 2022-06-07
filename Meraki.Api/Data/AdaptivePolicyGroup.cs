@@ -33,19 +33,19 @@ public class AdaptivePolicyGroup : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "policyObjects")]
-	public List<AdaptivePolicyGroupPolicyObjects> PolicyObjects { get; set; } = new();
+	public List<AdaptivePolicyGroupPolicyObjects>? PolicyObjects { get; set; }
 
 	/// <summary>
 	/// Created at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
-	public string CreatedAt { get; set; } = string.Empty;
+	public DateTime CreatedAt { get; set; }
 
 	/// <summary>
 	/// Updated at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "updatedAt")]
-	public string UpdatedAt { get; set; } = string.Empty;
+	public DateTime UpdatedAt { get; set; }
 }

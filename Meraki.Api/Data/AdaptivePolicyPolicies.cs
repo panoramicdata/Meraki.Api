@@ -29,26 +29,26 @@ public class AdaptivePolicyPolicies
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "acls")]
-	public List<AdaptivePolicyPoliciesAcl> Acls { get; set; } = new();
+	public List<AdaptivePolicyPoliciesAcl>? Acls { get; set; }
 
 	/// <summary>
 	/// The rule to apply if there is no matching ACL (default: "default")
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "lastEntryRule")]
-	public string LastEntryRule { get; set; } = string.Empty;
+	public string? LastEntryRule { get; set; }
 
 	/// <summary>
 	/// Created at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
-	public string CreatedAt { get; set; } = string.Empty;
+	public DateTime CreatedAt { get; set; }
 
 	/// <summary>
 	/// Updated at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "updatedAt")]
-	public string UpdatedAt { get; set; } = string.Empty;
+	public DateTime UpdatedAt { get; set; }
 }
