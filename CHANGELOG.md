@@ -2,6 +2,7 @@
 
 ## v.1.20.x
 - Changed AdaptivePolicyGroup CreatedAt and UpdatedAt to be DateTime
+- Changed AdaptivePolicyPolicies to correct nullability. Changed timestamps to DateTime
 
 ## v1.20.42
 - v1.15 changes
