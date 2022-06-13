@@ -107,3 +107,25 @@ CellularGateway,
 
 The first entry should be set to a value of 1 so that deserialization of unknown values 
 will result in defaulting to 0 which has no valid value in the enum.
+
+## API Attributes
+To assist with understanding at runtime, all models which are used as a response body should be decorated to indicate
+which returned properties can be used as part of create/update/delete requests.
+
+### Property attributes
+API attributes should be added to indicate their usage.
+
+- `[ApiKey]` - Used to identify the primary key for the API resource.
+- `[ApiForeignKey(typeof(xxx))`] - Used to identify another resource linked to by this Id, this can be useful to store for later use.
+- `[ApiAccess(ApiAccess.Read)]` - Used to indicate that the returned property value is informational only and cannot be used as part of a Create or Update request.
+- `[ApiAccess(ApiAccess.Create)]` - Used to indicate that the property can only be used as part of a Create request.
+- `[ApiAccess(ApiAccess.ReadCreate)]` - Used to indicate that the property is returned and can only be used as part of a Create request.
+- `[ApiAccess(ApiAccess.Update)]` - Used to indicate that the property can only be used as part of an Update request.
+- `[ApiAccess(ApiAccess.ReadUpdate)]` - Used to indicate that the property is returned and can only be used as part of a Update request.
+- `[ApiAccess(ApiAccess.CreateUpdate)]` - Used to indicate that the property can only be used as part of a Create or Update request.
+- `[ApiAccess(ApiAccess.ReadWrite)]` - Used to indicate that the returned property value can be used as part of a Create or Update request.
+
+
+### Class attributes
+- `[ApiAccessReadOnlyClass]` - This can be set at the class level to indicate that all properties are read only. Useful for
+Monitor endpoints.
