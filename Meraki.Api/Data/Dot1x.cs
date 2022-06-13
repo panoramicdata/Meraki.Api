@@ -11,5 +11,5 @@ public class Dot1x
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "controlDirection")]
-	public string? ControlDirection { get; set; }
+	public ControlDirection? ControlDirection { get; set; }
 }

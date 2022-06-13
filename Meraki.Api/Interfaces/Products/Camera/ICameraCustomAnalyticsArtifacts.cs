@@ -21,7 +21,7 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// <param name="serial">The serial number</param>
 	/// <param name="cameraCustomAnalyticsCreateRequest">Body for updating camera custom analytics</param>
 	[Put("/organizations/{organizationId}/camera/customAnalytics/artifacts")]
-	Task<CameraCustomAnalyticsArtifactCreate> CreateOrganizationCameraCustomAnalyticsArtifactAsync(
+	Task<CameraCustomAnalyticsArtifactCreateResponse> CreateOrganizationCameraCustomAnalyticsArtifactAsync(
 		[AliasAs("serial")] string serial,
 		[Body] CameraCustomAnalyticsArtifactCreateRequest cameraCustomAnalyticsArtifactCreateRequest,
 		CancellationToken cancellationToken = default
