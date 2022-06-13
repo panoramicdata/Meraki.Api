@@ -78,13 +78,6 @@ public class AccessPolicy
 	public string HostMode { get; set; } = string.Empty;
 
 	/// <summary>
-	/// dot1x
-	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "dot1x")]
-	public Dot1x? Dot1x { get; set; }
-
-	/// <summary>
 	/// Access Type of the policy.Automatically 'Hybrid authentication' when hostMode is 'Multi-Domain'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
@@ -125,4 +118,14 @@ public class AccessPolicy
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "urlRedirectWalledGardenRanges")]
 	public List<string> UrlRedirectWalledGardenRanges { get; set; } = new();
+
+
+	/// <summary>
+	/// 802.1x Settings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "dot1x")]
+	public Dot1x Dot1x { get; set; } = new();
+
+
 }
