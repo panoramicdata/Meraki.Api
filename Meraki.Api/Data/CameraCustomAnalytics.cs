@@ -16,6 +16,7 @@ public class CameraCustomAnalytics
 	/// <summary>
 	/// ArtifactId
 	/// </summary>
+	[ApiForeignKey(typeof(CameraCustomAnalyticsArtifact))]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "artifactId")]
 	public string ArtifactId { get; set; } = string.Empty;

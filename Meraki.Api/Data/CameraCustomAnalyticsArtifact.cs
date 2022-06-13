@@ -9,6 +9,7 @@ public class CameraCustomAnalyticsArtifact : NamedItem
 	/// <summary>
 	/// ArtifactId
 	/// </summary>
+	[ApiKey]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "artifactId")]
 	public string ArtifactId { get; set; } = string.Empty;
@@ -16,6 +17,7 @@ public class CameraCustomAnalyticsArtifact : NamedItem
 	/// <summary>
 	/// OrganizationId
 	/// </summary>
+	[ApiForeignKey(typeof(Organization))]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "organizationId")]
 	public string OrganizationId { get; set; } = string.Empty;
