@@ -30,6 +30,13 @@ public class BrandingPolicy : NamedItem
 	public AdminSettings AdminSettings { get; set; } = null!;
 
 	/// <summary>
+	/// Properties describing the customer logo attached to the branding policy
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "customLogo")]
+	public BrandingPolicyCustomLogo CustomLogo { get; set; } = null!;
+
+	/// <summary>
 	/// Gets or Sets HelpSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

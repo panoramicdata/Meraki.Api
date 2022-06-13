@@ -11,7 +11,15 @@ public class WirelessSsidVpnConcentrator
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "networkId")]
-	public string NetworkId { get; set; } = string.Empty;
+	public string? NetworkId { get; set; }
+
+	/// <summary>
+	/// The VLAN that should be tagged for the concentrator.
+	/// </summary>
+	[ApiForeignKey(typeof(Vlan))]
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "vlanId")]
+	public string? VlanId { get; set; }
 
 	/// <summary>
 	/// The concentrator name - cannot be set
