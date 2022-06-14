@@ -30,7 +30,7 @@ public class BrandingPolicyCustomLogo
 	/// <summary>
 	/// Properties for setting the image.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "image")]
 	public object? Image { get; set; }
 }
