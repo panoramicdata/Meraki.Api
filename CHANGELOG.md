@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## v.1.20.x
+## v.1.22.3
 - Changed AdaptivePolicyGroup CreatedAt and UpdatedAt to be DateTime
 - Changed AdaptivePolicyPolicies to correct nullability. Changed timestamps to DateTime
 - Updated RoutingOspf to add RoutingOspfV3 settings
