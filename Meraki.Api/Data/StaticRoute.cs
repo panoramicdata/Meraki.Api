@@ -1,5 +1,6 @@
 ﻿namespace Meraki.Api.Data;
 
+[DataContract]
 public class StaticRoute : StaticRouteUpdateRequest
 {
 	/// <summary>
@@ -17,4 +18,8 @@ public class StaticRoute : StaticRouteUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkId")]
 	public string NetworkId { get; set; } = string.Empty;
+
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "gateway")]
+	public StaticRouteGateway? Gateway { get; set; }
 }

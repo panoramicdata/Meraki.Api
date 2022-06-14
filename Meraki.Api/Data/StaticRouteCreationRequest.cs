@@ -20,7 +20,6 @@ public class StaticRouteCreationRequest : NamedItem
 	[DataMember(Name = "gatewayIp")]
 	public string GatewayIp { get; set; } = string.Empty;
 
-
 	/// <summary>
 	/// The gateway IP (next hop) VLAN ID of the static route
 	/// </summary>
