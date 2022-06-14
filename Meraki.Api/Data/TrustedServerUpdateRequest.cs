@@ -11,14 +11,14 @@ public class TrustedServerUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "mac")]
-	public string? Mac { get; set; } = null!;
+	public string? Mac { get; set; }
 
 	/// <summary>
 	/// Vlan
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlan")]
-	public int Vlan? { get; set; } = null!;
+	public int? Vlan { get; set; }
 
 	/// <summary>
 	/// Ipv4

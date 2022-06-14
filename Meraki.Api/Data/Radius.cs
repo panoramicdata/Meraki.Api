@@ -18,7 +18,7 @@ public class Radius
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "reAuthenticationInterval")]
-	public int? ReAuthnicationInterval { get; set; }
+	public int? ReAuthenicationInterval { get; set; }
 
 	/// <summary>
 	/// Critical auth settings for when authentication is rejected by the RADIUS server
