@@ -12,21 +12,21 @@ public class TrustedServer
 	[ApiKey]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "trustedServerId")]
-	public string TrustedServerId { get; set; } = null!;
+	public string TrustedServerId { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Mac
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "mac")]
-	public string Mac { get; set; } = null!;
+	public string Mac { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Vlan
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlan")]
-	public int Vlan { get; set; } = null!;
+	public int Vlan { get; set; }
 
 	/// <summary>
 	/// Ipv4
