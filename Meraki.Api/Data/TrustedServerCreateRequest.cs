@@ -18,7 +18,7 @@ public class TrustedServerCreateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlan")]
-	public int Vlan { get; set; } = null!;
+	public int Vlan { get; set; }
 
 	/// <summary>
 	/// Ipv4
