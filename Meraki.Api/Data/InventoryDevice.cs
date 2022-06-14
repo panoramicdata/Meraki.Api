@@ -38,6 +38,7 @@ public class InventoryDevice
 	/// <summary>
 	/// Network ID
 	/// </summary>
+	[ApiForeignKey(typeof(Network))]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkId")]
 	public string? NetworkId { get; set; }
