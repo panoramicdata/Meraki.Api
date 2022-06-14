@@ -19,8 +19,8 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
-	/// <param name="cameraCustomAnalyticsCreateRequest">Body for updating camera custom analytics</param>
-	[Put("/organizations/{organizationId}/camera/customAnalytics/artifacts")]
+	/// <param name="cameraCustomAnalyticsArtifactCreateRequest">Body for updating camera custom analytics</param>
+	[Post("/organizations/{organizationId}/camera/customAnalytics/artifacts")]
 	Task<CameraCustomAnalyticsArtifactCreateResponse> CreateOrganizationCameraCustomAnalyticsArtifactAsync(
 		[AliasAs("serial")] string serial,
 		[Body] CameraCustomAnalyticsArtifactCreateRequest cameraCustomAnalyticsArtifactCreateRequest,
