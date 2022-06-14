@@ -56,10 +56,11 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			// Only do diagnostic logging if we're at the level we want to enable for as this is more efficient
 			if (_logger.IsEnabled(_levelToLogAt))
 			{
-				_logger.Log(_levelToLogAt, $"{logPrefix}Request\r\n{request}");
+				_logger.Log(_levelToLogAt, "{LogPrefix}Request\r\n{Request}", logPrefix, request);
 				if (request.Content != null)
 				{
-					_logger.Log(_levelToLogAt, $"{logPrefix}RequestContent\r\n" + await request.Content.ReadAsStringAsync().ConfigureAwait(false));
+					var requestContent = await request.Content.ReadAsStringAsync().ConfigureAwait(false);
+					_logger.Log(_levelToLogAt, "{LogPrefix}RequestContent\r\n{RequestContent}", logPrefix, requestContent);
 				}
 			}
 
@@ -71,10 +72,11 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			// Only do diagnostic logging if we're at the level we want to enable for as this is more efficient
 			if (_logger.IsEnabled(_levelToLogAt))
 			{
-				_logger.Log(_levelToLogAt, $"{logPrefix}Response\r\n{httpResponseMessage}");
+				_logger.Log(_levelToLogAt, "{LogPrefix}Response\r\n{HttpResponseMessage}", logPrefix, httpResponseMessage);
 				if (httpResponseMessage.Content != null)
 				{
-					_logger.Log(_levelToLogAt, $"{logPrefix}ResponseContent\r\n" + await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false));
+					var responseContent = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+					_logger.Log(_levelToLogAt, "{LogPrefix}ResponseContent\r\n{ResponseContent}", logPrefix, responseContent);
 				}
 			}
 
@@ -96,16 +98,25 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 					}
 
 					delay = TimeSpan.FromSeconds(1.1 * retryAfterSeconds);
-					_logger.LogDebug($"{logPrefix}Received {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
+					_logger.LogDebug(
+						"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
+						logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
+						);
 					break;
 				case 502:
-					_logger.LogDebug($"{logPrefix}Received {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
+					_logger.LogDebug(
+						"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
+						logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
+						);
 					delay = TimeSpan.FromSeconds(5);
 					break;
 				default:
 					if (attemptCount > 1)
 					{
-						_logger.LogDebug($"{logPrefix}Received {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
+						_logger.LogDebug(
+							"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
+							logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
+							);
 					}
 
 					return httpResponseMessage;
@@ -113,11 +124,17 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			// Try up to the maximum retry count.
 			if (attemptCount >= _options.MaxAttemptCount)
 			{
-				_logger.LogDebug($"{logPrefix}Giving up retrying.  Returning {statusCodeInt} on attempt {attemptCount}/{_options.MaxAttemptCount}.");
+				_logger.LogDebug(
+					"{LogPrefix}Giving up retrying.  Returning {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
+					logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
+					);
 				return httpResponseMessage;
 			}
 
-			_logger.LogDebug($"{logPrefix}Waiting {delay.TotalSeconds:N2}s.");
+			_logger.LogDebug(
+				"{LogPrefix}Waiting {TotalSeconds:N2}s.",
+				logPrefix, delay.TotalSeconds
+				);
 			await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
 		}
 	}
