@@ -42,6 +42,13 @@ public class WirelessRfProfileCreateUpdateRequest
 	public ApBandSettings? ApBandSettings { get; set; }
 
 	/// <summary>
+	/// Settings related to radio transmission.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "transmission")]
+	public WirelessRfProfileTransmission? Transmission { get; set; }
+
+	/// <summary>
 	/// Gets or Sets TwoFourGhzSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
