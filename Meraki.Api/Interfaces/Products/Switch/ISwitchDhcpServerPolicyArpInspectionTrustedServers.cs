@@ -52,7 +52,7 @@ public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 	/// <param name="networkId">The network ID</param>
 	/// <param name="trustedServerId">The Trusted Server ID</param>
 	/// <param name="cancellationToken"></param>
-	[Put(" /networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers/{trustedServerId}")]
+	[Put("/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers/{trustedServerId}")]
 	Task<TrustedServer> UpdateNetworkSwitchDhcpServerPolicyArpInspectionTrustedServerAsync(
 		string networkId,
 		string trustedServerId,
@@ -67,7 +67,7 @@ public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 	/// <param name="networkId">The network id</param>
 	/// <param name="trustedServerId">The trusted server</param>
 	[Delete("/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers/{trustedServerId}")]
-	Task DeleteNetworkSwitchDhcpServerPolicyArpInspectionTrustedServer(
+	Task DeleteNetworkSwitchDhcpServerPolicyArpInspectionTrustedServerAsync(
 		string networkId,
 		string trustedServerId,
 		CancellationToken cancellationToken = default
