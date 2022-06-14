@@ -7,7 +7,7 @@
 public class TrustedServerIpv4
 {
 	/// <summary>
-	/// Ipv4 Address
+	/// The IPv4 address of the trusted server being added
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "address")]

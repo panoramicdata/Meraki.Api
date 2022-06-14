@@ -7,21 +7,21 @@
 public class TrustedServerCreateRequest
 {
 	/// <summary>
-	/// Mac
+	/// The mac address of the trusted server being added
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "mac")]
 	public string Mac { get; set; } = null!;
 
 	/// <summary>
-	/// Vlan
+	/// The VLAN of the trusted server being added. It must be between 1 and 4094
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlan")]
 	public int Vlan { get; set; }
 
 	/// <summary>
-	/// Ipv4
+	/// The IPv4 attributes of the trusted server being added
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ipv4")]
