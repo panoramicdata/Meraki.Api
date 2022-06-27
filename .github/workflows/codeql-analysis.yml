@@ -44,7 +44,7 @@ jobs:
     - name: Build
       shell: pwsh
       run: |
-        dotnet build --configuration ${{ env.CONFIGURATION }}
+        dotnet build --configuration ${{ env.CONFIGURATION }} /p:UseSharedCompilation=false
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
