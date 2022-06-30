@@ -20,8 +20,11 @@ public partial class MerakiClient : IDisposable
 		_options = options;
 		_logger = logger ?? NullLogger.Instance;
 		_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), this, _logger);
-		_httpClient = new HttpClient(_httpClientHandler) { BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v1") };
-		_httpClient.Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds);
+		_httpClient = new HttpClient(_httpClientHandler)
+		{
+			BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.meraki.com/api/v1"),
+			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
+		};
 		_refitSettings = new RefitSettings
 		{
 			ContentSerializer = new CustomNewtonsoftJsonContentSerializer(_options, _logger)
