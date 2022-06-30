@@ -1,10 +1,18 @@
 ﻿# Changelog
 
-## v1.22.
+## v1.22.19
 
 - Renamed AuthMode enum entries
   - _8021xmeraki to Auth8021xmeraki
   - _8021xradius to Auth8021xradius
+
+- Renamed DhcpLeaseTime enum entries
+  - _30minutes to Duration30Minutes
+  - _1hour to Duration1Hour
+  - _4hours to Duration4Hours
+  - _12hours to Duration12Hours
+  - _1day to Duration1Day
+  - _1week to Duration1Week
 
 ## v1.22.15
 - Added JsonMissingMemberAction which will execute when Options.JsonMissingMemberHandling is set to something other than Ignore.
