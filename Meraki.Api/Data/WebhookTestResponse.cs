@@ -19,5 +19,4 @@ public class WebhookTestResponse : IdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "status")]
 	public string Status { get; set; } = string.Empty;
-
 }

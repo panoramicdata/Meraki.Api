@@ -5,6 +5,8 @@
 
 using System.Diagnostics.CodeAnalysis;
 
+[assembly: CLSCompliant(true)]
+
 [assembly: SuppressMessage(
 	"Naming",
 	"CA1707:Identifiers should not contain underscores",

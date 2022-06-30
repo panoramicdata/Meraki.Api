@@ -60,7 +60,6 @@ public class Uplinks
 	[DataMember(Name = "connectionType")]
 	public string? ConnectionType { get; set; }
 
-
 	/// <summary>
 	/// Apn
 	/// </summary>

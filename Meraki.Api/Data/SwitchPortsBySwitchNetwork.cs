@@ -5,5 +5,4 @@
 [DataContract]
 public class SwitchPortsBySwitchNetwork : NamedIdentifiedItem
 {
-
 }

@@ -3,7 +3,6 @@ namespace Meraki.Api.Data;
 /// <summary>
 /// Resolution of the camera. Can be one of '1280x720', '1920x1080', '2688x1512' or '3840x2160'.
 /// </summary>
-
 [JsonConverter(typeof(StringEnumConverter))]
 public enum Mv52Resolution
 {

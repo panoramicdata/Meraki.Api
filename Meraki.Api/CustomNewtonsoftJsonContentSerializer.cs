@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Meraki.Api;
+﻿namespace Meraki.Api;
 /// <summary>
 /// A custom IHttpContentSerializer based on NewtonsoftJsonContentSerializer
 /// to handle retries after missing members are observed

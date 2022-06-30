@@ -20,6 +20,7 @@ public abstract class MerakiClientUnitTest
 		{
 			throw new InvalidDataException("API Config Data is empty");
 		}
+
 		var merakiClientOptions = new MerakiClientOptions
 		{
 			ApiKey = testConfig.ApiKey,

@@ -73,7 +73,6 @@ public class PerSsidSettings
 	[DataMember(Name = "9")]
 	public SsidRadioSetting Ssid9 { get; set; } = new();
 
-
 	/// <summary>
 	/// Seettings for SSID
 	/// </summary>

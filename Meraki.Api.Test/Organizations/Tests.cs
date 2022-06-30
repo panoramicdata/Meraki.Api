@@ -97,7 +97,6 @@ public class Tests : MerakiClientTest
 			.ConfigureAwait(false);
 	}
 
-
 	//[Fact(Skip = "Not part of general run")]
 	public async Task ClaimDeviceAsync_Succeeds()
 	{

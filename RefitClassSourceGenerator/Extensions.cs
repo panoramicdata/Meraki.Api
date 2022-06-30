@@ -99,7 +99,7 @@ public static class Extensions
 	{
 		string result = type.Name;
 
-		if (type.TypeArguments.Count() > 0)
+		if (type.TypeArguments.Length > 0)
 		{
 			result += "<";
 
