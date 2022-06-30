@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## v1.22.
+
+- Renamed AuthMode enum entries
+  - _8021xmeraki to Auth8021xmeraki
+  - _8021xradius to Auth8021xradius
+
 ## v1.22.15
 - Added JsonMissingMemberAction which will execute when Options.JsonMissingMemberHandling is set to something other than Ignore.
 

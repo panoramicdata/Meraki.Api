@@ -29,13 +29,13 @@ public enum AuthMode
 	/// Enum _8021xmeraki for "8021x-meraki"
 	/// </summary>
 	[EnumMember(Value = "8021x-meraki")]
-	_8021xmeraki,
+	Auth8021xmeraki,
 
 	/// <summary>
 	/// Enum _8021xradius for "8021x-radius"
 	/// </summary>
 	[EnumMember(Value = "8021x-radius")]
-	_8021xradius,
+	Auth8021xradius,
 
 	/// <summary>
 	/// Enum Ipskwithradius for "ipsk-with-radius"
