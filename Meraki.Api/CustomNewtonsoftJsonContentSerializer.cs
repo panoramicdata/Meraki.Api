@@ -60,10 +60,14 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		catch (JsonSerializationException ex)
 		{
 			_logger.LogWarning(ex, "{Message}", ex.Message);
+
 			if (_options.JsonMissingMemberResponseLogLevel != LogLevel.None)
 			{
 				_logger.Log(_options.JsonMissingMemberResponseLogLevel, "Missing Member Response JSON:\n{SourceJson}", sourceJson);
 			}
+
+			// Execute the action if one was provided
+			_options.JsonMissingMemberAction?.Invoke(typeof(T), ex, sourceJson);
 
 			return JsonConvert.DeserializeObject<T>(sourceJson, _jsonSerializerSettingsWithIgnore);
 		}
@@ -78,12 +82,16 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		{
 			return JsonConvert.DeserializeObject<T>(sourceJson, _jsonSerializerSettingsWithError);
 		}
-		catch (JsonSerializationException)
+		catch (JsonSerializationException ex)
 		{
 			if (_options.JsonMissingMemberResponseLogLevel != LogLevel.None)
 			{
 				_logger.Log(_options.JsonMissingMemberResponseLogLevel, "Missing Member Response JSON:\n{SourceJson}", sourceJson);
 			}
+
+			// Execute the action if one was provided
+			_options.JsonMissingMemberAction?.Invoke(typeof(T), ex, sourceJson);
+
 			throw;
 		}
 	}

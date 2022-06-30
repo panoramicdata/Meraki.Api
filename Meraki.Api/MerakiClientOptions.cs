@@ -53,6 +53,11 @@ public class MerakiClientOptions
 	/// </summary>
 	public LogLevel JsonMissingMemberResponseLogLevel { get; set; } = LogLevel.None;
 
+	/// <summary>
+	/// This gets called when JsonMissingMemberHandling is not Ignore and a missing member occurs
+	/// </summary>
+	public Action<Type, JsonSerializationException, string>? JsonMissingMemberAction { get; set; }
+
 	public void Validate()
 	{
 		// ApiNode

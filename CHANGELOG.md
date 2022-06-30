@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## v1.22.13
+- Added JsonMissingMemberAction which will execute when Options.JsonMissingMemberHandling is set to something other than Ignore.
+
 ## v1.22.4
 - Added Gateway to StaticRoute
 
