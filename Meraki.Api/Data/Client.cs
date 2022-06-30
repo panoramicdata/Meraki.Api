@@ -107,8 +107,26 @@ public class Client : IdentifiedItem
 	/// <summary>
 	/// The recent device mac address
 	/// </summary>
+	[DataMember(Name = "recentDeviceConnection")]
+	public ConnectionType RecentDeviceConnectionType { get; set; } = default!;
+
+	/// <summary>
+	/// The recent device mac address
+	/// </summary>
 	[DataMember(Name = "recentDeviceMac")]
 	public string RecentDeviceMac { get; set; } = default!;
+
+	/// <summary>
+	/// The recent device name
+	/// </summary>
+	[DataMember(Name = "recentDeviceName")]
+	public string RecentDeviceName { get; set; } = default!;
+
+	/// <summary>
+	/// The recent device serial
+	/// </summary>
+	[DataMember(Name = "recentDeviceSerial")]
+	public string RecentDeviceSerial { get; set; } = default!;
 
 	/// <summary>
 	/// The status
