@@ -110,4 +110,10 @@ public class MerakiClientTest
 		network.Should().NotBeNull();
 		return network;
 	}
+
+	protected Task RemoveNetworkAsync(string networkId)
+		=> TestMerakiClient
+			.Networks
+			.DeleteNetworkAsync(networkId)
+;
 }
