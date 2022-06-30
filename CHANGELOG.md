@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## v1.22.13
+## v1.22.15
 - Added JsonMissingMemberAction which will execute when Options.JsonMissingMemberHandling is set to something other than Ignore.
 
 ## v1.22.4
