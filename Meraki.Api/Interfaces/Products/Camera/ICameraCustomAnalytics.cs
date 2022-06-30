@@ -25,5 +25,4 @@ public interface ICameraCustomAnalytics
 		[Body] CameraCustomAnalyticsUpdate cameraCustomAnalyticsUpdate,
 		CancellationToken cancellationToken = default
 		);
-
 }

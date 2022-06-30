@@ -84,6 +84,7 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 			{
 				_logger.Log(_options.JsonMissingMemberResponseLogLevel, "Missing Member Response JSON:\n{SourceJson}", sourceJson);
 			}
+
 			throw;
 		}
 	}

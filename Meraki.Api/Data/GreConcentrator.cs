@@ -11,5 +11,4 @@ public class GreConcentrator
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "host")]
 	public string Host { get; set; } = string.Empty;
-
 }
