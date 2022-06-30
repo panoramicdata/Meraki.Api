@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RefitClassSourceGenerator;
+﻿namespace RefitClassSourceGenerator;
 
 public class RefitClassAttribute : Attribute
 {
