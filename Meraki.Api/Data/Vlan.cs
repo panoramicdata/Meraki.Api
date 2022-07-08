@@ -125,7 +125,7 @@ public class Vlan : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "templateVlanType")]
-	public string? TemplateVlanType { get; set; }
+	public string? pTemplateVlanType { get; set; }
 
 	/// <summary>
 	/// Mask
@@ -140,4 +140,11 @@ public class Vlan : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "mandatoryDhcp")]
 	public MandatoryDhcp MandatoryDhcp { get; set; } = new();
+
+	/// <summary>
+	/// ip6 not documented
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ip6")]
+	public object? ip6 { get; set; }
 }
