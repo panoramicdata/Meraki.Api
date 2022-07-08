@@ -36,10 +36,10 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="groupId">The group id</param>
 	[ApiOperationId("getOrganizationAdaptivePolicyGroup")]
-	[Get("/organizations/{organizationId}/adaptivePolicy/groups/{groupId}")]
+	[Get("/organizations/{organizationId}/adaptivePolicy/groups/{Id}")]
 	Task<AdaptivePolicyGroup> GetOrganizationAdaptivePolicyGroupAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("groupId")] string groupId,
+		[AliasAs("Id")] string groupId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -49,10 +49,10 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="groupId">The group id</param>
 	[ApiOperationId("deleteOrganizationAdaptivePolicyGroup")]
-	[Delete("/organizations/{organizationId}/adaptivePolicy/groups/{groupId}")]
+	[Delete("/organizations/{organizationId}/adaptivePolicy/groups/{Id}")]
 	Task DeleteOrganizationAdaptivePolicyGroupAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("groupId")] string groupId,
+		[AliasAs("Id")] string groupId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -64,10 +64,10 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// <param name="groupId">The group id</param>
 	/// <param name="updateOrganizationAdaptivePolicyGroup">Body</param>
 	[ApiOperationId("updateOrganizationAdaptivePolicyGroup")]
-	[Put("/organizations/{organizationId}/adaptivePolicy/groups/{groupId}")]
+	[Put("/organizations/{organizationId}/adaptivePolicy/groups/{Id}")]
 	Task<AdaptivePolicyGroup> UpdateOrganizationAdaptivePolicyGroupAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("groupId")] string groupId,
+		[AliasAs("Id")] string groupId,
 		[Body] AdaptivePolicyGroupCreateUpdate updateOrganizationAdaptivePolicyGroup,
 		CancellationToken cancellationToken = default);
 }
