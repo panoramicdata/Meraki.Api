@@ -7,11 +7,8 @@ namespace Meraki.ApiChecker;
 
 public static class TableOutput
 {
-	public static void DisplayRemainingTags(
-		OpenApiDocument apiSchema)
-	{
-		DisplayAndPruneTag(apiSchema, null, null);
-	}
+	public static void DisplayRemainingTags(OpenApiDocument apiSchema)
+		=> DisplayAndPruneTag(apiSchema, null, null);
 
 	public static void DisplayAndPruneTag(
 		OpenApiDocument apiSchema,
@@ -38,7 +35,7 @@ public static class TableOutput
 				// Look for a matching operation
 				var refitMethod = pathOperation.Key.ToHttpMethod();
 				List<MethodDetails>? pathImplementations = null;
-				implementedEndpoints?.TryGetValue(pathKpv.Key, out pathImplementations);
+				_ = (implementedEndpoints?.TryGetValue(pathKpv.Key, out pathImplementations));
 				var existingImplementations = pathImplementations?.Where(e => e.RefitAttribute.Method == refitMethod).ToList();
 
 				if (existingImplementations?.Count > 0)
@@ -48,7 +45,7 @@ public static class TableOutput
 						case 1:
 							var methodName = existingImplementations[0].Method.Name ?? string.Empty;
 							var expectedMethodName = pathOperation.Value.OperationId.FirstCharToUpper() + "Async";
-							implementedTable.AddRow(
+							_ = implementedTable.AddRow(
 								pathOperation.Key.ToString(),
 								pathKpv.Key,
 								pathOperation.Value.OperationId,
@@ -57,12 +54,12 @@ public static class TableOutput
 								expectedMethodName != methodName ? expectedMethodName : string.Empty,
 								string.Join(", ", existingImplementations[0].DeficientDataModels)
 								);
-							implementedEndpoints?[pathKpv.Key].Remove(existingImplementations[0]);
+							_ = (implementedEndpoints?[pathKpv.Key].Remove(existingImplementations[0]));
 							break;
 						default:
 							foreach (var existingImplementation in existingImplementations)
 							{
-								duplicateTable.AddRow(
+								_ = duplicateTable.AddRow(
 									pathOperation.Key.ToString(),
 									pathKpv.Key,
 									pathOperation.Value.OperationId,
@@ -70,7 +67,7 @@ public static class TableOutput
 									existingImplementation.Method.Name ?? string.Empty,
 									string.Join(", ", existingImplementations[0].DeficientDataModels)
 									);
-								implementedEndpoints?[pathKpv.Key].Remove(existingImplementation);
+								_ = (implementedEndpoints?[pathKpv.Key].Remove(existingImplementation));
 							}
 
 							break;
@@ -78,20 +75,20 @@ public static class TableOutput
 				}
 				else
 				{
-					missingTable.AddRow(
+					_ = missingTable.AddRow(
 						pathOperation.Key.ToString(),
 						pathKpv.Key,
 						pathOperation.Value.OperationId,
 						string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)));
 				}
 
-				pathKpv.Value.Operations.Remove(pathOperation);
+				_ = pathKpv.Value.Operations.Remove(pathOperation);
 			}
 		}
 
 		if (implementedTable.Rows.Count > 0)
 		{
-			implementedTable.Title(
+			_ = implementedTable.Title(
 				tagRestriction is not null
 					? $"'{tagRestriction}' implemented endpoints ({implementedTable.Rows.Count})"
 					: "Remaining implemented endpoints",
@@ -101,7 +98,7 @@ public static class TableOutput
 
 		if (duplicateTable.Rows.Count > 0)
 		{
-			duplicateTable.Title(
+			_ = duplicateTable.Title(
 				tagRestriction is not null
 					? $"'{tagRestriction}' duplicate endpoints ({duplicateTable.Rows.Count})"
 					: "Remaining implemented endpoints",
@@ -111,7 +108,7 @@ public static class TableOutput
 
 		if (missingTable.Rows.Count > 0)
 		{
-			missingTable.Title(
+			_ = missingTable.Title(
 				tagRestriction is not null
 					? $"'{tagRestriction}' missing endpoints ({missingTable.Rows.Count})"
 					: "Remaining missing endpoints",
@@ -136,7 +133,7 @@ public static class TableOutput
 		{
 			foreach (var method in implementation.Value)
 			{
-				extraTable.AddRow(
+				_ = extraTable.AddRow(
 					method.RefitAttribute.Method.ToString(),
 					method.RefitAttribute.Path,
 					method.Method.DeclaringType?.FullName ?? string.Empty,
