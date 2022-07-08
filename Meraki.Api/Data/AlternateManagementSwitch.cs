@@ -11,12 +11,28 @@ public class AlternateManagementSwitch
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "alternateManagementIp")]
-	public string AlternateManagementIp { get; set; } = string.Empty;
+	public string? AlternateManagementIp { get; set; }
 
 	/// <summary>
 	/// Switch serial number
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "serial")]
-	public string Serial { get; set; } = string.Empty;
+	public string? Serial { get; set; }
+
+	/// <summary>
+	/// Subnet Mask
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "subnetMask")]
+	public string? SubnetMask { get; set; }
+
+	/// <summary>
+	/// Gateway
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "gateway")]
+	public string? Gateway { get; set; }
+
+
 }
