@@ -45,7 +45,8 @@ public static class InterfaceReader
 				var returnType = methodDetails.Method.ReturnType.GetNonGenericType();
 				if (returnType is not null)
 				{
-					methodDetails.DeficientDataModels.AddRange(returnType.GetDeficientDataModels());
+					methodDetails.DeficientDataModels = returnType.GetDeficientDataModels();
+					methodDetails.ResponseProperties.AddRange(returnType.GetProperties());
 				}
 
 				// Add the entry to the list

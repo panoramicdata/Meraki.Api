@@ -2,6 +2,8 @@
 using Meraki.ApiChecker.Models;
 using Microsoft.OpenApi.Models;
 using Spectre.Console;
+using System.Reflection;
+using System.Runtime.Serialization;
 
 namespace Meraki.ApiChecker;
 
@@ -16,7 +18,7 @@ public static class TableOutput
 		string? tagRestriction)
 	{
 		var implementedTable = new Table()
-			.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation", "NewMethodName", "DeficientDataModels")
+			.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation", "NewMethodName", "DeficientDataModels", "Schema")
 			.BorderStyle("green");
 		var duplicateTable = new Table()
 			.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation")
@@ -43,7 +45,67 @@ public static class TableOutput
 					switch (existingImplementations.Count)
 					{
 						case 1:
-							var methodName = existingImplementations[0].Method.Name ?? string.Empty;
+							var singleImplementation = existingImplementations[0];
+
+							var schemaDetails = string.Empty;
+							if (pathOperation.Value.Responses.Count > 0)
+							{
+								var response = pathOperation.Value.Responses.First();
+								var responseValue = response.Value;
+								var responseSchema = responseValue.Content.First().Value.Schema;
+								if (responseSchema is not null)
+								{
+									var responseProperties = responseSchema.Properties;
+									if (responseProperties.Count == 0)
+									{
+										schemaDetails = $"{responseSchema.Type}";
+									}
+									else
+									{
+										// For anything we can write to, there should be a DataMember attribute
+										var implementedPropertiesByName = singleImplementation
+											.ResponseProperties
+											.Where(rp => rp.CanWrite)
+											.ToDictionary(
+											p =>
+											{
+												var dataMember = p.GetCustomAttribute<DataMemberAttribute>();
+												return dataMember is not null
+													? dataMember.Name!
+													: throw new InvalidDataException("Expected property to have a DataMember with a name set");
+											},
+											p => p);
+										schemaDetails = $"{responseSchema.Type} ({responseProperties.Count})";
+										// Compare the responseProperties to those on the response object defined
+										// Find the properties that match (and check their type)
+										// TODO
+
+										// Find the properties that are missing from the implementation
+										var propertiesInSchemaButNotImplemented = responseProperties.Keys.Except(implementedPropertiesByName.Keys).ToList();
+
+										if (propertiesInSchemaButNotImplemented.Count > 0)
+										{
+											schemaDetails += $" Missing attributes: {string.Join(", ", propertiesInSchemaButNotImplemented)}";
+										}
+
+										// Find the properties that are additional in the implemenation
+										var propertiesImplementedButNotInSchema = implementedPropertiesByName.Keys.Except(responseProperties.Keys).ToList();
+										if (propertiesImplementedButNotInSchema.Count > 0)
+										{
+											schemaDetails += $" Extra attributes: {string.Join(", ", propertiesImplementedButNotInSchema)}";
+										}
+									}
+								}
+								else
+								{
+									// If the response is a 204 then we're not expecting a schema
+									schemaDetails = response.Key == "204"
+										? "-"
+										: "NULL Schema";
+								}
+							}
+
+							var methodName = singleImplementation.Method.Name ?? string.Empty;
 							var expectedMethodName = pathOperation.Value.OperationId.FirstCharToUpper() + "Async";
 							_ = implementedTable.AddRow(
 								pathOperation.Key.ToString(),
@@ -52,22 +114,23 @@ public static class TableOutput
 								string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
 								methodName,
 								expectedMethodName != methodName ? expectedMethodName : string.Empty,
-								string.Join(", ", existingImplementations[0].DeficientDataModels)
+								string.Join(", ", singleImplementation.DeficientDataModels),
+								schemaDetails
 								);
-							_ = (implementedEndpoints?[pathKpv.Key].Remove(existingImplementations[0]));
+							_ = (implementedEndpoints?[pathKpv.Key].Remove(singleImplementation));
 							break;
 						default:
-							foreach (var existingImplementation in existingImplementations)
+							foreach (var duplicateImplementation in existingImplementations)
 							{
 								_ = duplicateTable.AddRow(
 									pathOperation.Key.ToString(),
 									pathKpv.Key,
 									pathOperation.Value.OperationId,
 									string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
-									existingImplementation.Method.Name ?? string.Empty,
+									duplicateImplementation.Method.Name ?? string.Empty,
 									string.Join(", ", existingImplementations[0].DeficientDataModels)
 									);
-								_ = (implementedEndpoints?[pathKpv.Key].Remove(existingImplementation));
+								_ = (implementedEndpoints?[pathKpv.Key].Remove(duplicateImplementation));
 							}
 
 							break;
