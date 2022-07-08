@@ -9,7 +9,14 @@ public class ApplianceSettings
 	/// <summary>
 	/// Client tracking method
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "clientTrackingMethod")]
-	public string ClientTrackingMethod { get; set; } = string.Empty;
+	public string? ClientTrackingMethod { get; set; }
+
+	/// <summary>
+	/// Deployment Mode
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "deploymentMode")]
+	public string? DeploymentMode { get; set; }
 }
