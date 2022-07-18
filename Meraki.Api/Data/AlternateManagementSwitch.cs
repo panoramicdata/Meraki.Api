@@ -33,6 +33,4 @@ public class AlternateManagementSwitch
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "gateway")]
 	public string? Gateway { get; set; }
-
-
 }

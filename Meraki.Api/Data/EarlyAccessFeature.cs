@@ -33,5 +33,4 @@ public class EarlyAccessFeature : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isOrgScopedOnly")]
 	public bool isOrgScopedOnly { get; }
-
 }

@@ -11,6 +11,7 @@ public partial class OrganizationsSection
 	public IOrganizationsConfigTemplates ConfigTemplates { get; internal set; } = null!;
 	public IOrganizationsConfigurationChanges ConfigurationChanges { get; internal set; } = null!;
 	public IOrganizationsDevices Devices { get; internal set; } = null!;
+	public OrganizationsEarlyAccessSection EarlyAccess { get; internal set; } = null!;
 	public IOrganizationsInventoryDevices InventoryDevices { get; internal set; } = null!;
 	public IOrganizationsLoginSecurity LoginSecurity { get; internal set; } = null!;
 	public IOrganizationsNetworks Networks { get; internal set; } = null!;

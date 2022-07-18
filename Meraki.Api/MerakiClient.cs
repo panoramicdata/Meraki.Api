@@ -59,6 +59,10 @@ public partial class MerakiClient : IDisposable
 			ConfigurationChanges = RefitFor(Organizations.ConfigurationChanges),
 			ConfigTemplates = RefitFor(Organizations.ConfigTemplates),
 			Devices = RefitFor(Organizations.Devices),
+			EarlyAccess = new OrganizationsEarlyAccessSection
+			{
+				Features = RefitFor(Organizations.EarlyAccess.Features)
+			},
 			InventoryDevices = RefitFor(Organizations.InventoryDevices),
 			Licenses = RefitFor(Organizations.Licenses),
 			LoginSecurity = RefitFor(Organizations.LoginSecurity),
