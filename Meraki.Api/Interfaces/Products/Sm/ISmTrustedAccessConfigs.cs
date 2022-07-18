@@ -33,5 +33,4 @@ public interface ISmTrustedAccessConfigs
 		[AliasAs("startingAfter")] string? startingAfter = null,
 		CancellationToken cancellationToken = default
 		);
-
 }
