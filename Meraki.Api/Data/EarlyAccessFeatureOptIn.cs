@@ -9,14 +9,14 @@ public class EarlyAccessFeatureOptIn : IdentifiedItem
 	/// <summary>
 	/// Short Name.
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "shortName")]
 	public string ShortName { get; } = string.Empty;
 
 	/// <summary>
 	/// Limit Scope To Networks
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "limitScopeToNetworks")]
 	public List<EarlyAccessFeatureOptInLimitScopeToNetwork> LimitScopeToNetworks { get; } = new();
 

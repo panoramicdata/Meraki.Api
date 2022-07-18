@@ -9,7 +9,6 @@ public class EarlyAccessFeatureOptInUpdateRequest
 	/// <summary>
 	/// A list of network IDs to apply the opt-in to
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "limitScopeToNetworks")]
 	public List<string> LimitScopeToNetworks { get; set; } = new();
 }
