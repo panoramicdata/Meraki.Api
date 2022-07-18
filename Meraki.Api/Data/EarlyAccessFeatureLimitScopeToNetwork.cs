@@ -11,12 +11,12 @@ public class EarlyAccessFeatureDescription
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "short")]
-	public string shortDescription { get; set; } = string.Empty;
+	public string ShortDescription { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Long Description
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "long")]
-	public string longDescription { get; set; } = string.Empty;
+	public string LongDescription { get; set; } = string.Empty;
 }

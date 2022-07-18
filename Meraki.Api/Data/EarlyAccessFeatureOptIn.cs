@@ -11,7 +11,7 @@ public class EarlyAccessFeatureOptIn : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "shortName")]
-	public string shortName { get; } = string.Empty;
+	public string ShortName { get; } = string.Empty;
 
 	/// <summary>
 	/// Limit Scope To Networks

@@ -32,7 +32,7 @@ public class MerakiAuthUser : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "isAdmin")]
-	public bool isAdmin { get; set; }
+	public bool IsAdmin { get; set; }
 
 	/// <summary>
 	/// Authorization zones and expiration dates for the user.

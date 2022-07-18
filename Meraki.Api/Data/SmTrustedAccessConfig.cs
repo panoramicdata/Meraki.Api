@@ -13,7 +13,7 @@ public class SmTrustedAccessConfig : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "scope")]
-	public string? scope { get; set; }
+	public string? Scope { get; set; }
 
 	/// <summary>
 	/// Tags
@@ -27,12 +27,12 @@ public class SmTrustedAccessConfig : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "accessStartAt")]
-	public DateTime? accessStartAt { get; set; }
+	public DateTime? AccessStartAt { get; set; }
 
 	/// <summary>
 	/// Access End At
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "accessEndAt")]
-	public DateTime? accessEndAt { get; set; }
+	public DateTime? AccessEndAt { get; set; }
 }

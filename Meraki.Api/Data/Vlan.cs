@@ -125,7 +125,7 @@ public class Vlan : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "templateVlanType")]
-	public string? pTemplateVlanType { get; set; }
+	public string? TemplateVlanType { get; set; }
 
 	/// <summary>
 	/// Mask
@@ -146,5 +146,5 @@ public class Vlan : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ip6")]
-	public object? ip6 { get; set; }
+	public object? Ip6 { get; set; }
 }

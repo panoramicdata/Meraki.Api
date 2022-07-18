@@ -11,7 +11,7 @@ public class EarlyAccessFeatureOptInCreateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "shortName")]
-	public string shortName { get; set; } = string.Empty;
+	public string ShortName { get; set; } = string.Empty;
 
 	/// <summary>
 	/// A list of network IDs to apply the opt-in to
