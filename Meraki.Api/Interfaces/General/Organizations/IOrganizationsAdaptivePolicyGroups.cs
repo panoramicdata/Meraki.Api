@@ -13,7 +13,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 	[ApiOperationId("getOrganizationAdaptivePolicyGroups")]
 	[Get("/organizations/{organizationId}/adaptivePolicy/groups")]
 	Task<List<AdaptivePolicyGroup>> GetOrganizationAdaptivePolicyGroupsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -25,7 +25,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 	[ApiOperationId("createOrganizationAdaptivePolicyGroup")]
 	[Post("/organizations/{organizationId}/adaptivePolicy/groups")]
 	Task<AdaptivePolicyGroup> CreateOrganizationAdaptivePolicyGroupAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] AdaptivePolicyGroupCreateUpdate createOrganizationAdaptivePolicyGroup,
 		CancellationToken cancellationToken = default);
 
@@ -34,12 +34,12 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="groupId">The group id</param>
+	/// <param name="id">The group id</param>
 	[ApiOperationId("getOrganizationAdaptivePolicyGroup")]
-	[Get("/organizations/{organizationId}/adaptivePolicy/groups/{groupId}")]
+	[Get("/organizations/{organizationId}/adaptivePolicy/groups/{id}")]
 	Task<AdaptivePolicyGroup> GetOrganizationAdaptivePolicyGroupAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("groupId")] string groupId,
+		string organizationId,
+		string id,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -47,12 +47,12 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="groupId">The group id</param>
+	/// <param name="id">The group id</param>
 	[ApiOperationId("deleteOrganizationAdaptivePolicyGroup")]
-	[Delete("/organizations/{organizationId}/adaptivePolicy/groups/{groupId}")]
+	[Delete("/organizations/{organizationId}/adaptivePolicy/groups/{id}")]
 	Task DeleteOrganizationAdaptivePolicyGroupAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("groupId")] string groupId,
+		string organizationId,
+		string id,
 		CancellationToken cancellationToken = default
 		);
 
@@ -61,13 +61,13 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="groupId">The group id</param>
+	/// <param name="id">The group id</param>
 	/// <param name="updateOrganizationAdaptivePolicyGroup">Body</param>
 	[ApiOperationId("updateOrganizationAdaptivePolicyGroup")]
-	[Put("/organizations/{organizationId}/adaptivePolicy/groups/{groupId}")]
+	[Put("/organizations/{organizationId}/adaptivePolicy/groups/{id}")]
 	Task<AdaptivePolicyGroup> UpdateOrganizationAdaptivePolicyGroupAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("groupId")] string groupId,
+		string organizationId,
+		string id,
 		[Body] AdaptivePolicyGroupCreateUpdate updateOrganizationAdaptivePolicyGroup,
 		CancellationToken cancellationToken = default);
 }

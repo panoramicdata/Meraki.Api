@@ -28,6 +28,13 @@ public class MerakiAuthUser : NamedIdentifiedItem
 	public string AccountType { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Whether or not the user is a Dashboard administrator.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "isAdmin")]
+	public bool IsAdmin { get; set; }
+
+	/// <summary>
 	/// Authorization zones and expiration dates for the user.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

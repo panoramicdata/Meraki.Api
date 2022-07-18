@@ -11,12 +11,26 @@ public class IdentityPsk : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "passphrase")]
-	public string Passphrase { get; set; } = string.Empty;
+	public string? Passphrase { get; set; }
 
 	/// <summary>
 	/// The group policy to be applied to clients
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "groupPolicyId")]
-	public string GroupPolicyId { get; set; } = string.Empty;
+	public string? GroupPolicyId { get; set; }
+
+	/// <summary>
+	/// Wifi Prsonal Network ID
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "wifiPersonalNetworkId")]
+	public string? WifiPersonalNetworkId { get; set; }
+
+	/// <summary>
+	/// Email
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "email")]
+	public string? Email { get; set; }
 }
