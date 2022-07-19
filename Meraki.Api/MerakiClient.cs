@@ -45,7 +45,7 @@ public partial class MerakiClient : IDisposable
 			Organizations = RefitFor(Organizations.Organizations),
 			Admins = RefitFor(Organizations.Admins),
 			ActionBatches = RefitFor(Organizations.ActionBatches),
-			AdaptivePolicy = new OrganizationsAdaptivePolicySection
+			AdaptivePolicy = new()
 			{
 				Acls = RefitFor(Organizations.AdaptivePolicy.Acls),
 				Settings = RefitFor(Organizations.AdaptivePolicy.Settings)
@@ -59,7 +59,7 @@ public partial class MerakiClient : IDisposable
 			ConfigurationChanges = RefitFor(Organizations.ConfigurationChanges),
 			ConfigTemplates = RefitFor(Organizations.ConfigTemplates),
 			Devices = RefitFor(Organizations.Devices),
-			EarlyAccess = new OrganizationsEarlyAccessSection
+			EarlyAccess = new()
 			{
 				Features = RefitFor(Organizations.EarlyAccess.Features)
 			},
@@ -68,7 +68,7 @@ public partial class MerakiClient : IDisposable
 			LoginSecurity = RefitFor(Organizations.LoginSecurity),
 			Networks = RefitFor(Organizations.Networks),
 			OpenapiSpec = RefitFor(Organizations.OpenapiSpec),
-			Saml = new OrganizationsSamlSection
+			Saml = new()
 			{
 				Saml = RefitFor(Organizations.Saml.Saml),
 				Idp = RefitFor(Organizations.Saml.Idp)
