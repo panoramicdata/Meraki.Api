@@ -24,7 +24,7 @@ public class NetworkTests : MerakiClientUnitTest
 		var network = await CreateValidNetworkAsync(testNetworkName);
 
 		//Make sure we've got something back
-		network.Should().NotBeNull();
+		_ = network.Should().NotBeNull();
 
 		// TODO Get a list of all networks to check it's there
 
@@ -47,7 +47,7 @@ public class NetworkTests : MerakiClientUnitTest
 				IsBoundToConfigTemplate = false
 			};
 			// Make sure the two networks are the same (exclude the Url field, we can't set it and it's different with each pull down)
-			retrievedNetwork.Should()
+			_ = retrievedNetwork.Should()
 				.NotBeNull()
 				.And
 				.BeEquivalentTo(
@@ -56,7 +56,7 @@ public class NetworkTests : MerakiClientUnitTest
 				);
 
 			//Set the alternate name we're going to use to modify the network
-			string testAlternateNetworkName = "Altered Basic CRUD Test Network";
+			var testAlternateNetworkName = "Altered Basic CRUD Test Network";
 
 			// Change the network Name
 			var networkUpdated = await TestMerakiClient.Networks.UpdateNetworkAsync
@@ -72,7 +72,7 @@ public class NetworkTests : MerakiClientUnitTest
 			// Change the expected name to the alternate name
 			expectedNetwork.Name = testAlternateNetworkName;
 			// Check that the expected network data now matches what we got back from the update request
-			networkUpdated.Should()
+			_ = networkUpdated.Should()
 				.NotBeNull()
 				.And
 				.BeEquivalentTo(
@@ -82,7 +82,7 @@ public class NetworkTests : MerakiClientUnitTest
 
 			// Then we pull the network once more to make sure the pulled data matches the response from the update
 			var reretrievedNetwork = await TestMerakiClient.Networks.GetNetworkAsync(network.Id);
-			reretrievedNetwork.Should()
+			_ = reretrievedNetwork.Should()
 				.NotBeNull()
 				.And
 				.BeEquivalentTo(
@@ -98,7 +98,7 @@ public class NetworkTests : MerakiClientUnitTest
 
 		// Make sure that the network is gone
 		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Networks.GetNetworkAsync(network.Id));
-		exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
 	}
 }
