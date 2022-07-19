@@ -39,12 +39,23 @@ public class VlanCreationRequest
 	/// </summary>
 	/// <value>The id of the desired group policy to apply to the VLAN</value>
 	[DataMember(Name = "groupPolicyId")]
-	public string GroupPolicyId { get; set; } = null!;
+	public string? GroupPolicyId { get; set; }
 
 	/// <summary>
 	/// Cidr
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "cidr")]
 	public string? Cidr { get; set; }
+
+	/// <summary>
+	/// Mask
+	/// </summary>
+	[DataMember(Name = "mask")]
+	public int? Mask { get; set; }
+
+	/// <summary>
+	/// Template VLAN Type
+	/// </summary>
+	[DataMember(Name = "templateVlanType")]
+	public string? TemplateVlanType { get; set; }
 }

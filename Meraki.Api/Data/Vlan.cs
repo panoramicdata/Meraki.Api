@@ -48,7 +48,7 @@ public class Vlan : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "groupPolicyId")]
-	public string GroupPolicyId { get; set; } = string.Empty;
+	public string? GroupPolicyId { get; set; }
 
 	/// <summary>
 	/// Fixed IP assignments

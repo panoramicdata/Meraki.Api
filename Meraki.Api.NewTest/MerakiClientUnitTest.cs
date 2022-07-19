@@ -52,4 +52,21 @@ public abstract class MerakiClientUnitTest
 			.Organizations
 			.Networks
 			.CreateOrganizationNetworkAsync(TestOrganizationId, GetValidNetworkCreationRequest(networkName));
+
+	protected static ConfigurationTemplateCreateRequest GetValidConfigurationTemplateCreationRequest(string configurationTemplateName)
+		=> new()
+		{
+			Name = configurationTemplateName,
+			TimeZone = "Europe/London"
+		};
+
+	protected Task<ConfigurationTemplate> CreateValidConfigurationTemplateAsync(string configurationTemplateName)
+		=> TestMerakiClient
+			.Organizations
+			.ConfigTemplates
+			.CreateOrganizationConfigTemplateAsync(
+				TestOrganizationId,
+				GetValidConfigurationTemplateCreationRequest(configurationTemplateName)
+			);
+
 }
