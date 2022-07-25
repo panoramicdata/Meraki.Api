@@ -21,11 +21,11 @@ public class Authorization
 	public string AuthorizedZone { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Date for authorization to expire. Default is for authorization to not expire.
+	/// Date for authorization to expire. Set to 'Never' for the authorization to not expire, which is the default.
 	/// </summary>
 	[ApiAccess(ApiAccess.CreateUpdate)]
 	[DataMember(Name = "expiresAt")]
-	public DateTime ExpiresAt { get; set; }
+	public string ExpiresAt { get; set; } = string.Empty; // This must be a string as can be 'Never'
 
 	/// <summary>
 	/// Authorized by name
