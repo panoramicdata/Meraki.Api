@@ -69,6 +69,11 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 
 			return JsonConvert.DeserializeObject<T>(sourceJson, _jsonSerializerSettingsWithIgnore);
 		}
+		catch (JsonReaderException ex)
+		{
+			_logger.LogWarning("{Message} - Invalid JSON: {Json}", ex.Message, sourceJson);
+			throw;
+		}
 	}
 
 	private async Task<T?> LogOnErrorAndThrowFromHttpContentAsync<T>(HttpContent content, CancellationToken _)
@@ -90,6 +95,11 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 			// Execute the action if one was provided
 			_options.JsonMissingMemberAction?.Invoke(typeof(T), ex, sourceJson);
 
+			throw;
+		}
+		catch (JsonReaderException ex)
+		{
+			_logger.LogWarning("{Message} - Invalid JSON: {Json}", ex.Message, sourceJson);
 			throw;
 		}
 	}
