@@ -98,13 +98,13 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 					}
 
 					delay = TimeSpan.FromSeconds(1.1 * retryAfterSeconds);
-					_logger.LogDebug(
+					_logger.LogInformation(
 						"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
 						logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
 						);
 					break;
 				case 502:
-					_logger.LogDebug(
+					_logger.LogInformation(
 						"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
 						logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
 						);
@@ -124,14 +124,14 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			// Try up to the maximum retry count.
 			if (attemptCount >= _options.MaxAttemptCount)
 			{
-				_logger.LogDebug(
+				_logger.LogInformation(
 					"{LogPrefix}Giving up retrying.  Returning {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
 					logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
 					);
 				return httpResponseMessage;
 			}
 
-			_logger.LogDebug(
+			_logger.LogInformation(
 				"{LogPrefix}Waiting {TotalSeconds:N2}s.",
 				logPrefix, delay.TotalSeconds
 				);
