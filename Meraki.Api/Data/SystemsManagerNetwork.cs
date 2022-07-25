@@ -10,4 +10,8 @@ public class SystemsManagerNetwork
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
+
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "name")]
+	public string Name { get; set; } = string.Empty;
 }
