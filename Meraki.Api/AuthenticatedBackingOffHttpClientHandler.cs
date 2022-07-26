@@ -98,7 +98,7 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 					}
 
 					delay = TimeSpan.FromSeconds(1.1 * retryAfterSeconds);
-					_logger.LogInformation(
+					_logger.LogDebug(
 						"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
 						logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
 						);
