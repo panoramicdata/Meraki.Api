@@ -68,11 +68,14 @@ public static class TableOutput
 										// Find the properties that match (and check their type)
 										// TODO
 
-										schemaDetails = CheckProperties(
+										var schemaPropertyDetails = CheckSchemaProperties(
 											responseSchema,
 											singleImplementation.ResponseType);
 
-
+										if (schemaPropertyDetails != string.Empty)
+										{
+											schemaDetails += $" {schemaPropertyDetails}";
+										}
 									}
 								}
 								else
@@ -159,60 +162,78 @@ public static class TableOutput
 		}
 	}
 
-	private static string CheckSchemaProperties(OpenApiSchema responseSchema, string responseSchemaPath, Type responseModel)
+	private static string CheckSchemaProperties(OpenApiSchema responseSchema, Type responseModel, string responseSchemaPath = "")
 	{
 		var result = string.Empty;
-		var modelProperties = responseModel.GetProperties().Where(p => p.CanWrite);
+		var modelProperties = responseModel?
+			.GetProperties()
+			.Where(p => p.CanWrite)
+			.ToDictionary(
+				p =>
+				{
+					var dataMember = p.GetCustomAttribute<DataMemberAttribute>();
+					return dataMember is not null
+						? dataMember.Name!
+						: throw new InvalidDataException("Expected property to have a DataMember with a name set");
+				},
+				p => p
+			) ?? new();
 
-		foreach (var schemaProperty in responseSchema.Properties)
+		foreach ((var schemaPropertyName, var schemaProperty) in responseSchema.Properties)
 		{
-
-		}
-
-		foreach (var property in responseModel.GetProperties().Where(p => p.CanWrite))
-		{
-			var dataMember = property.GetCustomAttribute<DataMemberAttribute>();
-			var dataMemberName = dataMember is not null
-				? dataMember.Name!
-				: throw new InvalidDataException("Expected property to have a DataMember with a name set");
-
 			// Do we have a matching property?
-			if (responseSchema.Properties.TryGetValue(dataMemberName, out var matchingSchemaProperty))
+			if (modelProperties.TryGetValue(schemaPropertyName, out var modelProperty))
 			{
 				// Yes - Do we have sub properties?
-				if (matchingSchemaProperty.Properties.Count > 0)
+				if (schemaProperty.Properties.Count > 0)
 				{
 					// Yes - check those too
-					result += CheckProperties(
-						matchingSchemaProperty,
-						responseSchemaPath + "." + dataMemberName,
-						property.GetType(),
-						);
+					result += CheckSchemaProperties(
+						schemaProperty,
+						modelProperty.PropertyType,
+						responseSchemaPath + (responseSchemaPath != string.Empty ? "." : string.Empty) + schemaPropertyName
+					);
 				}
 			}
 			else
 			{
-				// No - we have an extra model property that's not on the schema
+				// No - we have a schema property that's not on the model
+				if (result != string.Empty)
+				{
+					result += "\n";
+				}
+				result += $"Missing schema property '{responseSchemaPath}{(responseSchemaPath != string.Empty ? "." : string.Empty)}{schemaPropertyName}' ({schemaProperty.Type})";
 			}
 		}
 
-		// Get responseType property names
-		var propertyNames = responseModel
-			.GetProperties()
-			.Where(p => p.CanWrite)
-			.Select(p =>
-			{
-				var dataMember = p.GetCustomAttribute<DataMemberAttribute>();
-				return dataMember is not null
-					? dataMember.Name!
-					: throw new InvalidDataException("Expected property to have a DataMember with a name set");
-			});
-		var propertiesInSchemaButNotImplemented = responseSchema
-			.Properties
-			.Keys
-			.Except(implementedPropertiesByName.Keys).ToList();
+		//foreach (var property in responseModel.GetProperties().Where(p => p.CanWrite))
+		//{
+		//	var dataMember = property.GetCustomAttribute<DataMemberAttribute>();
+		//	var dataMemberName = dataMember is not null
+		//		? dataMember.Name!
+		//		: throw new InvalidDataException("Expected property to have a DataMember with a name set");
 
-		return string.Empty;
+		//	// Do we have a matching property?
+		//	if (responseSchema.Properties.TryGetValue(dataMemberName, out var matchingSchemaProperty))
+		//	{
+		//		// Yes - Do we have sub properties?
+		//		if (matchingSchemaProperty.Properties.Count > 0)
+		//		{
+		//			// Yes - check those too
+		//			result += CheckSchemaProperties(
+		//				matchingSchemaProperty,
+		//				property.GetType(),
+		//				responseSchemaPath + "." + dataMemberName
+		//			);
+		//		}
+		//	}
+		//	else
+		//	{
+		//		// No - we have an extra model property that's not on the schema
+		//		result += "Extra model property";
+		//	}
+		//}
+		return result;
 	}
 
 	internal static void DisplayRemainingInterfaces(Dictionary<string, List<MethodDetails>> implementedEndpoints)
