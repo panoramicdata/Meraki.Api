@@ -13,7 +13,7 @@ public class MethodDetails
 	/// </summary>
 	public List<string> DeficientDataModels { get; set; } = new();
 
-	public List<PropertyInfo> ResponseProperties { get; set; } = new();
+	public Type ResponseType { get; set; }
 
 	public MethodDetails(MethodInfo method, HttpMethodAttribute refitAttribute)
 	{

@@ -63,37 +63,16 @@ public static class TableOutput
 									else
 									{
 										// For anything we can write to, there should be a DataMember attribute
-										var implementedPropertiesByName = singleImplementation
-											.ResponseProperties
-											.Where(rp => rp.CanWrite)
-											.ToDictionary(
-											p =>
-											{
-												var dataMember = p.GetCustomAttribute<DataMemberAttribute>();
-												return dataMember is not null
-													? dataMember.Name!
-													: throw new InvalidDataException("Expected property to have a DataMember with a name set");
-											},
-											p => p);
 										schemaDetails = $"{responseSchema.Type} ({responseProperties.Count})";
 										// Compare the responseProperties to those on the response object defined
 										// Find the properties that match (and check their type)
 										// TODO
 
-										// Find the properties that are missing from the implementation
-										var propertiesInSchemaButNotImplemented = responseProperties.Keys.Except(implementedPropertiesByName.Keys).ToList();
+										schemaDetails = CheckProperties(
+											responseSchema,
+											singleImplementation.ResponseType);
 
-										if (propertiesInSchemaButNotImplemented.Count > 0)
-										{
-											schemaDetails += $" Missing attributes: {string.Join(", ", propertiesInSchemaButNotImplemented)}";
-										}
 
-										// Find the properties that are additional in the implemenation
-										var propertiesImplementedButNotInSchema = implementedPropertiesByName.Keys.Except(responseProperties.Keys).ToList();
-										if (propertiesImplementedButNotInSchema.Count > 0)
-										{
-											schemaDetails += $" Extra attributes: {string.Join(", ", propertiesImplementedButNotInSchema)}";
-										}
 									}
 								}
 								else
@@ -178,6 +157,62 @@ public static class TableOutput
 				new Style(Color.Red));
 			AnsiConsole.Write(missingTable);
 		}
+	}
+
+	private static string CheckSchemaProperties(OpenApiSchema responseSchema, string responseSchemaPath, Type responseModel)
+	{
+		var result = string.Empty;
+		var modelProperties = responseModel.GetProperties().Where(p => p.CanWrite);
+
+		foreach (var schemaProperty in responseSchema.Properties)
+		{
+
+		}
+
+		foreach (var property in responseModel.GetProperties().Where(p => p.CanWrite))
+		{
+			var dataMember = property.GetCustomAttribute<DataMemberAttribute>();
+			var dataMemberName = dataMember is not null
+				? dataMember.Name!
+				: throw new InvalidDataException("Expected property to have a DataMember with a name set");
+
+			// Do we have a matching property?
+			if (responseSchema.Properties.TryGetValue(dataMemberName, out var matchingSchemaProperty))
+			{
+				// Yes - Do we have sub properties?
+				if (matchingSchemaProperty.Properties.Count > 0)
+				{
+					// Yes - check those too
+					result += CheckProperties(
+						matchingSchemaProperty,
+						responseSchemaPath + "." + dataMemberName,
+						property.GetType(),
+						);
+				}
+			}
+			else
+			{
+				// No - we have an extra model property that's not on the schema
+			}
+		}
+
+		// Get responseType property names
+		var propertyNames = responseModel
+			.GetProperties()
+			.Where(p => p.CanWrite)
+			.Select(p =>
+			{
+				var dataMember = p.GetCustomAttribute<DataMemberAttribute>();
+				return dataMember is not null
+					? dataMember.Name!
+					: throw new InvalidDataException("Expected property to have a DataMember with a name set");
+			});
+		var propertiesInSchemaButNotImplemented = responseSchema
+			.Properties
+			.Keys
+			.Except(implementedPropertiesByName.Keys).ToList();
+
+		return string.Empty;
 	}
 
 	internal static void DisplayRemainingInterfaces(Dictionary<string, List<MethodDetails>> implementedEndpoints)
