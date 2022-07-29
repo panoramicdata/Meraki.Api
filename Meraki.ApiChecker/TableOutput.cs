@@ -162,42 +162,57 @@ public static class TableOutput
 		}
 	}
 
-	private static string CheckSchemaProperties(OpenApiSchema responseSchema, Type responseModel, string responseSchemaPath = "")
+	/// <summary>
+	/// Compare the properties of the schema to the properties of the response object.
+	/// </summary>
+	/// <param name="apiSchema">The API schema</param>
+	/// <param name="modelType">The model Type</param>
+	/// <param name="responseSchemaPath">The path within the API schema</param>
+	/// <returns>A string with any additional or missing properties</returns>
+	/// <exception cref="InvalidDataException"></exception>
+	private static string CheckSchemaProperties(OpenApiSchema apiSchema, Type? modelType, string responseSchemaPath = "")
 	{
+		// Start out assuming we have nothing to report
 		var result = string.Empty;
-		var modelProperties = responseModel?
+
+		// Get all the writable properties from the responseModel and put them in a Dictionary indexed by DataMember name
+		var modelProperties = modelType?
 			.GetProperties()
-			.Where(p => p.CanWrite)
+			.Where(modelProperty => modelProperty.CanWrite)
 			.ToDictionary(
-				p =>
+				modelProperty =>
 				{
-					var dataMember = p.GetCustomAttribute<DataMemberAttribute>();
-					return dataMember is not null
-						? dataMember.Name!
+					var dataMemberAttribute = modelProperty.GetCustomAttribute<DataMemberAttribute>();
+					return dataMemberAttribute is not null
+						? dataMemberAttribute.Name!
 						: throw new InvalidDataException("Expected property to have a DataMember with a name set");
 				},
-				p => p
+				modelProperty => modelProperty
 			) ?? new();
 
-		foreach ((var schemaPropertyName, var schemaProperty) in responseSchema.Properties)
+		// Loop through the properties in the schema and check if they exist in the responseModel
+		// Deconstruct each Dictionary entry Key and Value into two variables
+		foreach ((var schemaPropertyName, var schemaProperty) in apiSchema.Properties)
 		{
-			// Do we have a matching property?
+			// Can we find a modelProperty matching on the schema property name
 			if (modelProperties.TryGetValue(schemaPropertyName, out var modelProperty))
 			{
-				// Yes - Do we have sub properties?
+				// YES - Do we have sub properties?
 				if (schemaProperty.Properties.Count > 0)
 				{
-					// Yes - check those too
+					// YES - check those too
 					result += CheckSchemaProperties(
 						schemaProperty,
 						modelProperty.PropertyType,
 						responseSchemaPath + (responseSchemaPath != string.Empty ? "." : string.Empty) + schemaPropertyName
 					);
 				}
+
+				// TODO - See if the modelProperty has any sub properties as this might be different from the schema
 			}
 			else
 			{
-				// No - we have a schema property that's not on the model
+				// NO - we have a schema property that's not on the model
 				if (result != string.Empty)
 				{
 					result += "\n";
@@ -207,6 +222,7 @@ public static class TableOutput
 			}
 		}
 
+		// TODO - report on any extra model properties that are not on the schema
 		//foreach (var property in responseModel.GetProperties().Where(p => p.CanWrite))
 		//{
 		//	var dataMember = property.GetCustomAttribute<DataMemberAttribute>();
