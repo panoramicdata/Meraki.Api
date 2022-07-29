@@ -202,6 +202,7 @@ public static class TableOutput
 				{
 					result += "\n";
 				}
+
 				result += $"Missing schema property '{responseSchemaPath}{(responseSchemaPath != string.Empty ? "." : string.Empty)}{schemaPropertyName}' ({schemaProperty.Type})";
 			}
 		}
