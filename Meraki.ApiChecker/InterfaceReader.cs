@@ -42,7 +42,18 @@ public static class InterfaceReader
 
 				var methodDetails = new MethodDetails(method, refitAttribute);
 
-				var returnType = methodDetails.Method.ReturnType.GetNonGenericType();
+				//var returnType = methodDetails.Method.ReturnType.GetNonGenericType();
+
+				// If the ReturnType is a Task, get the type inside
+				var returnType = methodDetails.Method.ReturnType;
+
+				if (returnType.IsGenericType && returnType.GetGenericTypeDefinition() == typeof(Task<>))
+				{
+					// This is a task, get the underlying type
+					// Unwrap one level
+					returnType = returnType.GetGenericArguments()[0];
+				}
+
 				if (returnType is not null)
 				{
 					methodDetails.DeficientDataModels = returnType.GetDeficientDataModels();

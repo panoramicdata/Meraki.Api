@@ -59,6 +59,16 @@ public static class TableOutput
 									if (responseProperties.Count == 0)
 									{
 										schemaDetails = $"{responseSchema.Type}";
+
+										// No properties, is the base type roughly matching
+										// At this point just check whether one is an array and the other isn't
+										// Is the schema response an array and the model property is not IEnumerable
+										if (responseSchema.Type == "array"
+											&& !singleImplementation.ResponseType.IsGenericList())
+										{
+											// YES - The base types don't match
+											schemaDetails += $" - Response schema is '{responseSchema.Type}', model type '{singleImplementation.ResponseType?.Name}' is not IEnumerable";
+										}
 									}
 									else
 									{
@@ -175,6 +185,23 @@ public static class TableOutput
 		// Start out assuming we have nothing to report
 		var result = string.Empty;
 
+		// Check for writable properties without DataMember attribute set
+		var modelPropertiesWithoutDataMembers = modelType?
+			.GetProperties()
+			.Where(modelProperty =>
+			{
+				var dataMemberAttribute = modelProperty.GetCustomAttribute<DataMemberAttribute>();
+				return modelProperty.CanWrite && dataMemberAttribute is null;
+			})
+			.ToList();
+		if (modelPropertiesWithoutDataMembers is not null
+			&& modelPropertiesWithoutDataMembers.Count > 0)
+		{
+			result += $" Found writable properties without DataMember: {string.Join(", ", modelPropertiesWithoutDataMembers.Select(p => p.Name))}";
+			// Don't do anything else
+			return result;
+		}
+
 		// Get all the writable properties from the responseModel and put them in a Dictionary indexed by DataMember name
 		var modelProperties = modelType?
 			.GetProperties()
@@ -185,7 +212,7 @@ public static class TableOutput
 					var dataMemberAttribute = modelProperty.GetCustomAttribute<DataMemberAttribute>();
 					return dataMemberAttribute is not null
 						? dataMemberAttribute.Name!
-						: throw new InvalidDataException("Expected property to have a DataMember with a name set");
+						: throw new InvalidDataException($"Expected property {modelProperty.Name} to have DataMember attribute with a name set");
 				},
 				modelProperty => modelProperty
 			) ?? new();

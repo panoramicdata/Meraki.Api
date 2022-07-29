@@ -24,8 +24,25 @@ public static class TypeExtension
 		return null;
 	}
 
-	public static List<string> GetDeficientDataModels(this Type type)
+	public static bool IsGenericList(this Type type)
+		=> type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
+
+	public static List<string> GetDeficientDataModels(this Type type, bool isRoot = true)
 	{
+		// If we're at the root and this is a generic list then deal with the underlying generic type
+		// as attributes won't be assigned to the generic list
+		if (isRoot && type.IsGenericList())
+		{
+			var properType = type.GetNonGenericType() ?? throw new InvalidDataException("Couldn't get underlying generic type");
+			return GetDeficientDataModels(properType, false);
+		}
+
+		// A root level Task is never Deficient
+		if (isRoot && type == typeof(Task))
+		{
+			return new();
+		}
+
 		if (type.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is not null)
 		{
 			// It's a read-only class, so return here
@@ -51,7 +68,7 @@ public static class TypeExtension
 			// Is it a class? AND ensure it's a class we didn't discover yet
 			if (propertyType?.IsClass == true && !deficientDataModels.Contains(propertyType.Name))
 			{
-				deficientDataModels.AddRange(GetDeficientDataModels(propertyType));
+				deficientDataModels.AddRange(GetDeficientDataModels(propertyType, false));
 			}
 		}
 
