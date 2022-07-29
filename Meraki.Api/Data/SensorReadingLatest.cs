@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Interfaces.Products.Sensor;
+﻿namespace Meraki.Api.Data;
 /// <summary>
 /// Sensor Readings
 /// </summary>
