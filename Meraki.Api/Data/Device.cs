@@ -156,4 +156,11 @@ public class Device : NamedItem
 	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "moveMapMarker")]
 	public bool? MoveMapMarker { get; set; }
+
+	/// <summary>
+	/// bleParams - Undocumented but returned in live data
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "bleParams")]
+	public object? BleParams { get; set; }
 }

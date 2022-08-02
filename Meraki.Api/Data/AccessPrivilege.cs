@@ -28,5 +28,11 @@ public enum AccessPrivilege
 	/// Enum Deny for "deny"
 	/// </summary>
 	[EnumMember(Value = "monitor-only")]
-	MonitorOnly
+	MonitorOnly,
+
+	/// <summary>
+	/// Enum switchport - Not documented but apparently coming back in live data
+	/// </summary>
+	[EnumMember(Value = "switchport")]
+	Switchport
 }
