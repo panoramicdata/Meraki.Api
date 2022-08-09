@@ -74,5 +74,5 @@ public class Admin : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "camera")]
-	public object? Camera { get; set; }
+	public List<AdminCameraAccess>? Camera { get; set; }
 }
