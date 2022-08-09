@@ -34,25 +34,25 @@ public class HealthByTime
 	/// Wan latency ms
 	/// </summary>
 	[DataMember(Name = "wanLatencyMs")]
-	public float WanLatencyMs { get; set; }
+	public double WanLatencyMs { get; set; }
 
 	/// <summary>
 	/// Lan latency ms
 	/// </summary>
 	[DataMember(Name = "lanLatencyMs")]
-	public float LanLatencyMs { get; set; }
+	public double LanLatencyMs { get; set; }
 
 	/// <summary>
 	/// Wan loss percent
 	/// </summary>
 	[DataMember(Name = "wanLossPercent")]
-	public float WanLossPercent { get; set; }
+	public double WanLossPercent { get; set; }
 
 	/// <summary>
 	/// Lan loss percent
 	/// </summary>
 	[DataMember(Name = "lanLossPercent")]
-	public float LanLossPercent { get; set; }
+	public double LanLossPercent { get; set; }
 
 	/// <summary>
 	/// Response duration
