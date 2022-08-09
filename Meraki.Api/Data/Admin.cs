@@ -68,4 +68,11 @@ public class Admin : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "authenticationMethod")]
 	public string? AuthenticationMethod { get; set; }
+
+	/// <summary>
+	/// Undocumented member 'camera' returned in live data
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadCreate)]
+	[DataMember(Name = "camera")]
+	public List<AdminCameraAccess>? Camera { get; set; }
 }
