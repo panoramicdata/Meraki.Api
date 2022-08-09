@@ -1,6 +1,6 @@
 ﻿namespace Meraki.ApiChecker.Data;
 
-public class ImplementedEndpointWorksheetRow
+public class ImplementedEndpoint
 {
 	public string? Method { get; set; }
 	public string? Endpoint { get; set; }

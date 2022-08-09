@@ -10,14 +10,12 @@ namespace Meraki.ApiChecker;
 
 public static class SheetOutput
 {
-	public static List<ImplementedEndpointWorksheetRow> CreateWorksheet(
+	public static EndpointSet CreateWorksheet(
 		OpenApiDocument apiSchema,
 		Dictionary<string, List<MethodDetails>>? implementedEndpoints,
 		string? tagRestriction)
 	{
-		var implementedWorksheet = new List<ImplementedEndpointWorksheetRow>();
-		var duplicatedWorksheet = new List<ImplementedEndpointWorksheetRow>();
-		var missingWorksheet = new List<ImplementedEndpointWorksheetRow>();
+		var endpointSet = new EndpointSet();
 
 		var duplicateTable = new Table()
 			.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation")
@@ -99,44 +97,31 @@ public static class SheetOutput
 							var methodName = singleImplementation.Method.Name ?? string.Empty;
 							var expectedMethodName = pathOperation.Value.OperationId.FirstCharToUpper() + "Async";
 
-							var implementedWorksheetRow = new ImplementedEndpointWorksheetRow()
+							endpointSet.ImplementedEndpoints.Add(new()
 							{
 								Method = pathOperation.Key.ToString(),
 								Endpoint = pathKpv.Key,
 								OperationId = pathOperation.Value.OperationId,
-								Tags = pathOperation.Value.Tags.Select(t => t.Name).ToString(),
+								Tags = string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
 								Implementation = methodName,
 								NewMethodName = expectedMethodName != methodName ? expectedMethodName : string.Empty,
-								DeficientDataModels = singleImplementation.DeficientDataModels.ToString(),
+								DeficientDataModels = string.Join(", ", singleImplementation.DeficientDataModels),
 								Schema = schemaDetails
-							};
-							implementedWorksheet.Add(implementedWorksheetRow);
+							});
 							_ = (implementedEndpoints?[pathKpv.Key].Remove(singleImplementation));
 							break;
 						default:
 							foreach (var duplicateImplementation in existingImplementations)
 							{
-								var duplicateWorksheetRow = new ImplementedEndpointWorksheetRow()
+								endpointSet.DuplicatedEndpoints.Add(new()
 								{
 									Method = pathOperation.Key.ToString(),
 									Endpoint = pathKpv.Key,
 									OperationId = pathOperation.Value.OperationId,
-									Tags = pathOperation.Value.Tags.Select(t => t.Name).ToString(),
+									Tags = string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
 									Implementation = duplicateImplementation.Method.Name ?? string.Empty,
-									NewMethodName = expectedMethodName != methodName ? expectedMethodName : string.Empty,
-									DeficientDataModels = singleImplementation.DeficientDataModels.ToString(),
-									Schema = schemaDetails
-								}
-								_ = duplicateTable.AddRow(
-									pathOperation.Key.ToString(),
-									pathKpv.Key,
-									pathOperation.Value.OperationId,
-									string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
-									duplicateImplementation.Method.Name ?? string.Empty,
-									string.Join(", ", existingImplementations[0].DeficientDataModels)
-									);
+								});
 								_ = (implementedEndpoints?[pathKpv.Key].Remove(duplicateImplementation));
-
 							}
 
 							break;
@@ -144,18 +129,35 @@ public static class SheetOutput
 				}
 				else
 				{
-					_ = missingTable.AddRow(
-						pathOperation.Key.ToString(),
-						pathKpv.Key,
-						pathOperation.Value.OperationId,
-						string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)));
+					endpointSet.MissingEndpoints.Add(new()
+					{
+						Method = pathOperation.Key.ToString(),
+						Endpoint = pathKpv.Key,
+						OperationId = pathOperation.Value.OperationId,
+						Tags = string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
+					});
 				}
 
 				_ = pathKpv.Value.Operations.Remove(pathOperation);
 			}
 		}
 
-		return implementedWorksheet;
+		if (endpointSet.ImplementedEndpoints.Count == 0)
+		{
+			endpointSet.ImplementedEndpoints = new() { new() };
+		}
+
+		if (endpointSet.DuplicatedEndpoints.Count == 0)
+		{
+			endpointSet.DuplicatedEndpoints = new() { new() };
+		}
+
+		if (endpointSet.MissingEndpoints.Count == 0)
+		{
+			endpointSet.MissingEndpoints = new() { new() };
+		}
+
+		return endpointSet;
 
 		/*
 		if (duplicateTable.Rows.Count > 0)
