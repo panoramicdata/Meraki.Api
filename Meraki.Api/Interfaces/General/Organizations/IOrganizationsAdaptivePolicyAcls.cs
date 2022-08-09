@@ -29,11 +29,11 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="id">The ACL id</param>
-	[Get("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
+	/// <param name="aclId">The ACL id</param>
+	[Get("/organizations/{organizationId}/adaptivePolicy/acls/{aclId}")]
 	Task<AdaptivePolicyAcl> GetOrganizationAdaptivePolicyAclAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("id")] string id,
+		string organizationId,
+		string aclId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -41,12 +41,12 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="id">The ACL id</param>
+	/// <param name="aclId">The ACL id</param>
 	/// <param name="acls">Body for returning ACL information</param>
-	[Put("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
+	[Put("/organizations/{organizationId}/adaptivePolicy/acls/{aclId}")]
 	Task<AdaptivePolicyAcl> UpdateOrganizationAdaptivePolicyAclAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("id")] string id,
+		string organizationId,
+		string aclId,
 		[Body] AdaptivePolicyAcl acls,
 		CancellationToken cancellationToken = default);
 
@@ -55,10 +55,10 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="id">The ACL id</param>
-	[Delete("/organizations/{organizationId}/adaptivePolicy/acls/{id}")]
+	/// <param name="aclId">The ACL id</param>
+	[Delete("/organizations/{organizationId}/adaptivePolicy/acls/{aclId}")]
 	Task DeleteOrganizationAdaptivePolicyAclAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("id")] string id,
+		string organizationId,
+		string aclId,
 		CancellationToken cancellationToken = default);
 }

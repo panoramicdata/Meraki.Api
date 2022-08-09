@@ -109,6 +109,13 @@ public class SsidSplashSettings
 	public SplashImage SplashImage { get; set; } = new();
 
 	/// <summary>
+	/// Description of the type of splash page.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "splashPage")]
+	public string SplashPage { get; set; } = string.Empty;
+
+	/// <summary>
 	/// The logo used in the splash page.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
@@ -121,4 +128,11 @@ public class SsidSplashSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashPrepaidFront")]
 	public SplashImage SplashPrepaidFront { get; set; } = new();
+
+	/// <summary>
+	/// Self registration settings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "selfRegistration")]
+	public SelfRegistration SelfRegistration { get; set; } = new();
 }

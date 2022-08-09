@@ -179,7 +179,8 @@ public partial class MerakiClient : IDisposable
 				L7FirewallRules = RefitFor(Appliance.Firewall.L7FirewallRules),
 				OneToManyNatRules = RefitFor(Appliance.Firewall.OneToManyNatRules),
 				OneToOneNatRules = RefitFor(Appliance.Firewall.OneToOneNatRules),
-				PortForwardingRules = RefitFor(Appliance.Firewall.PortForwardingRules)
+				PortForwardingRules = RefitFor(Appliance.Firewall.PortForwardingRules),
+				ApplianceFirewallSettings = RefitFor(Appliance.Firewall.ApplianceFirewallSettings)
 			},
 			StaticRoutes = RefitFor(Appliance.StaticRoutes),
 			TrafficShaping = new()
@@ -274,6 +275,7 @@ public partial class MerakiClient : IDisposable
 			Mtu = RefitFor(Switch.Mtu),
 			LinkAggregations = RefitFor(Switch.LinkAggregations),
 			Ports = RefitFor(Switch.Ports),
+			PortsProfiles = RefitFor(Switch.PortsProfiles),
 			PortSchedules = RefitFor(Switch.PortSchedules),
 			QosRules = RefitFor(Switch.QosRules),
 			Routing = new()
@@ -353,6 +355,14 @@ public partial class MerakiClient : IDisposable
 			MonitoredMediaServers = RefitFor(Insight.MonitoredMediaServers)
 		};
 
+		Sensor = new()
+		{
+			Alerts = new()
+			{
+				Profiles = RefitFor(Sensor.Alerts.Profiles)
+			}
+		};
+
 		Sm = new()
 		{
 			ApnsCert = RefitFor(Sm.ApnsCert),
@@ -405,6 +415,8 @@ public partial class MerakiClient : IDisposable
 	public NetworksSection Networks { get; } = new();
 
 	public OrganizationsSection Organizations { get; } = new();
+
+	public SensorSection Sensor { get; } = new();
 
 	public SmSection Sm { get; } = new();
 

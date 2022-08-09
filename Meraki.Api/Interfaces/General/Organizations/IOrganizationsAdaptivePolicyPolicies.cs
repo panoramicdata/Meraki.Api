@@ -31,12 +31,12 @@ public interface IOrganizationsAdaptivePolicyPolicies
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="adaptivePolicyId">The adaptive policy id</param>
+	/// <param name="id">The adaptive policy id</param>
 	[ApiOperationId("getOrganizationAdaptivePolicyPolicy")]
-	[Get("/organizations/{organizationId}/adaptivePolicy/policies/{adaptivePolicyId}")]
+	[Get("/organizations/{organizationId}/adaptivePolicy/policies/{id}")]
 	Task<AdaptivePolicyPolicies> GetOrganizationAdaptivePolicyPolicyAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("adaptivePolicyId")] string adaptivePolicyId,
+		string organizationId,
+		string id,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -44,13 +44,13 @@ public interface IOrganizationsAdaptivePolicyPolicies
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="adaptivePolicyId">The adaptive policy id</param>
+	/// <param name="id">The adaptive policy id</param>
 	/// <param name="updateOrganizationAdaptivePolicyPolicy">Body</param>
 	[ApiOperationId("updateOrganizationAdaptivePolicyPolicy")]
-	[Put("/organizations/{organizationId}/adaptivePolicy/policies/{adaptivePolicyId}")]
+	[Put("/organizations/{organizationId}/adaptivePolicy/policies/{id}")]
 	Task<AdaptivePolicyPolicies> UpdateOrganizationAdaptivePolicyPolicyAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("adaptivePolicyId")] string adaptivePolicyId,
+		string organizationId,
+		string id,
 		[Body] AdaptivePolicyPolicyCreateUpdateRequest updateOrganizationAdaptivePolicyPolicy,
 		CancellationToken cancellationToken = default);
 
@@ -59,12 +59,12 @@ public interface IOrganizationsAdaptivePolicyPolicies
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="adaptivePolicyId">The adaptive policy id</param>
+	/// <param name="id">The adaptive policy id</param>
 	[ApiOperationId("deleteOrganizationAdaptivePolicyPolicy")]
-	[Delete("/organizations/{organizationId}/adaptivePolicy/policies/{adaptivePolicyId}")]
+	[Delete("/organizations/{organizationId}/adaptivePolicy/policies/{id}")]
 	Task DeleteOrganizationAdaptivePolicyPolicyAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("adaptivePolicyId")] string adaptivePolicyId,
+		string organizationId,
+		string id,
 		CancellationToken cancellationToken = default
 		);
 }

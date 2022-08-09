@@ -29,7 +29,7 @@ public interface IOrganizationsEarlyAccessFeatures
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[ApiOperationId("createOrganizationEarlyAccessFeaturesOptIn")]
-	[Post("/organizations/{organizationId}/earlyAccess/features/optins")]
+	[Post("/organizations/{organizationId}/earlyAccess/features/optIns")]
 	Task<EarlyAccessFeatureOptIn> CreateOrganizationEarlyAccessFeaturesOptInAsync(
 		string organizationId,
 		[Body] EarlyAccessFeatureOptInCreateRequest earlyAccessFeatureOptInCreateRequest,
@@ -54,7 +54,7 @@ public interface IOrganizationsEarlyAccessFeatures
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[ApiOperationId("updateOrganizationEarlyAccessFeaturesOptIn")]
-	[Post("/organizations/{organizationId}/earlyAccess/features/optins/{optInId}")]
+	[Put("/organizations/{organizationId}/earlyAccess/features/optIns/{optInId}")]
 	Task<EarlyAccessFeatureOptIn> UpdateOrganizationEarlyAccessFeaturesOptInAsync(
 		string organizationId,
 		string optInId,

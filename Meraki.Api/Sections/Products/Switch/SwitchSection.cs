@@ -13,6 +13,7 @@ public class SwitchSection
 	public ISwitchLinkAggregations LinkAggregations { get; internal set; } = null!;
 	public ISwitchPorts Ports { get; internal set; } = null!;
 	public ISwitchPortSchedules PortSchedules { get; internal set; } = null!;
+	public ISwitchPortsProfiles PortsProfiles { get; internal set; } = null!;
 	public ISwitchQosRules QosRules { get; internal set; } = null!;
 	public SwitchRoutingSection Routing { get; internal set; } = new();
 	public ISwitchSettings Settings { get; internal set; } = null!;

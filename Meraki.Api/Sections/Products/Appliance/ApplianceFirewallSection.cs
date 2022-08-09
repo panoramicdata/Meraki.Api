@@ -10,4 +10,5 @@ public class ApplianceFirewallSection
 	public IApplianceFirewallOneToManyNatRules OneToManyNatRules { get; internal set; } = null!;
 	public IApplianceFirewallOneToOneNatRules OneToOneNatRules { get; internal set; } = null!;
 	public IApplianceFirewallPortForwardingRules PortForwardingRules { get; internal set; } = null!;
+	public IApplianceFirewallSettings ApplianceFirewallSettings { get; internal set; } = null!;
 }
