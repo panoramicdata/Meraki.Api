@@ -11,7 +11,7 @@ public class AdminCameraAccess
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "orgWide")]
-	public bool OrgWide { get; set; }
+	public bool? OrgWide { get; set; }
 
 	/// <summary>
 	/// Access
