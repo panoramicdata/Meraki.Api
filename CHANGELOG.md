@@ -1,7 +1,17 @@
 ﻿# Changelog
 
-## v1.22.19
+## v1.24.1
+- Changed all floats to double.
+- Modified several models to be nullable where the response model is also used in requests to allow only setting certain properties.
+- Added missing endpoints.
+- Updated existing models.
+- No change made yet to Client to support new documentation "Platform" layout.
+Intention is to add "Platform" at the root level with duplicate references to sections and interfaces to allow easily finding calls matching documentation.
 
+## v1.23.9
+- Updates for Meraki API v1.23
+
+## v1.22.19
 - Renamed AuthMode enum entries
   - _8021xmeraki to Auth8021xmeraki
   - _8021xradius to Auth8021xradius

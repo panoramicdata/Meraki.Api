@@ -18,5 +18,5 @@ public class WirelessRadioTwoFourGhzSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "targetPower")]
-	public float? TargetPower { get; set; }
+	public double? TargetPower { get; set; }
 }

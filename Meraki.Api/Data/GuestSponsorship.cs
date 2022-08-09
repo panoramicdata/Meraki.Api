@@ -11,12 +11,12 @@ public class GuestSponsorship
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "durationInMinutes")]
-	public int DurationInMinutes { get; set; }
+	public int? DurationInMinutes { get; set; }
 
 	/// <summary>
 	/// Whether or not guests can specify how much time they are requesting.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "guestCanRequestTimeframe")]
-	public bool GuestCanRequestTimeframe { get; set; }
+	public bool? GuestCanRequestTimeframe { get; set; }
 }

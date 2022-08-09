@@ -40,7 +40,7 @@ public class SwitchPortStatus
 	public int ClientCount { get; set; }
 
 	[DataMember(Name = "powerUsageInWh")]
-	public float PowerUsageInWh { get; set; }
+	public double PowerUsageInWh { get; set; }
 
 	[DataMember(Name = "trafficInKbps")]
 	public TrafficInKbps TrafficInKbps { get; set; } = new();

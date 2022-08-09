@@ -14,14 +14,14 @@ public class Device : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "lat")]
-	public float Latitude { get; set; }
+	public double Latitude { get; set; }
 
 	/// <summary>
 	/// The longitude of a device
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "lng")]
-	public float Longitude { get; set; }
+	public double Longitude { get; set; }
 
 	/// <summary>
 	/// The address of a device

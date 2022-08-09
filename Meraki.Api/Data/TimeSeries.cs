@@ -16,11 +16,11 @@ public class TimeSeries
 	/// Loss percent
 	/// </summary>
 	[DataMember(Name = "lossPercent")]
-	public float LossPercent { get; set; }
+	public double LossPercent { get; set; }
 
 	/// <summary>
 	/// Latency ms
 	/// </summary>
 	[DataMember(Name = "latencyMs")]
-	public float LatencyMs { get; set; }
+	public double LatencyMs { get; set; }
 }

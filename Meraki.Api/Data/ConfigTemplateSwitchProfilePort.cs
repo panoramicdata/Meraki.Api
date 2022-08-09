@@ -7,6 +7,13 @@
 public class ConfigTemplateSwitchProfilePort : NamedItem
 {
 	/// <summary>
+	/// The number of a custom access policy to configure on the switch profile port. Only applicable when 'accessPolicyType' is 'Custom access policy'.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "accessPolicyNumber")]
+	public int? AccessPolicyNumber { get; set; }
+
+	/// <summary>
 	/// Port Id
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
@@ -134,6 +141,13 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "stickyMacAllowList")]
 	public List<string>? StickyMacAllowList { get; set; }
+
+	/// <summary>
+	/// Only devices with MAC addresses specified in this list will have access to this port. Up to 20 MAC addresses can be defined. Only applicable when 'accessPolicyType' is 'MAC allow list'.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "macAllowList")]
+	public List<string>? MacAllowList { get; set; }
 
 	/// <summary>
 	/// The maximum number of MAC addresses for sticky MAC allow list. Only applicable when 'accessPolicyType' is 'Sticky MAC allow list'

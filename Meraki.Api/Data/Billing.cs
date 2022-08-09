@@ -11,19 +11,19 @@ public class Billing
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "replyToEmailAddress")]
-	public string ReplyToEmailAddress { get; set; } = string.Empty;
+	public string? ReplyToEmailAddress { get; set; }
 
 	/// <summary>
 	/// Prepaid access fast login enabled
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "prepaidAccessFastLoginEnabled")]
-	public bool PrepaidAccessFastLoginEnabled { get; set; }
+	public bool? PrepaidAccessFastLoginEnabled { get; set; }
 
 	/// <summary>
 	/// Free access
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "freeAccess")]
-	public FreeAccess FreeAccess { get; set; } = new();
+	public FreeAccess? FreeAccess { get; set; }
 }

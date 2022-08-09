@@ -9,9 +9,9 @@ public class SystemsManagerNetwork
 	[ApiForeignKey(typeof(Network))]
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
+	public string? Id { get; set; }
 
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
+	public string? Name { get; set; }
 }

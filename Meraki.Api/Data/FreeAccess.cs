@@ -11,12 +11,12 @@ public class FreeAccess
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "durationInMinutes")]
-	public int DurationInMinutes { get; set; }
+	public int? DurationInMinutes { get; set; }
 
 	/// <summary>
 	/// Enabled
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 }
