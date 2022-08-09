@@ -1,5 +1,6 @@
 ﻿using Meraki.ApiChecker;
 using PanoramicData.SheetMagic;
+using System.Diagnostics;
 
 Console.WriteLine($"{ThisAssembly.AssemblyName} v{ThisAssembly.AssemblyInformationalVersion}");
 
@@ -34,4 +35,10 @@ workbook.AddSheet(liveToolsEndpointSet.DuplicatedEndpoints, "LiveTools-Duplicate
 workbook.AddSheet(liveToolsEndpointSet.MissingEndpoints, "LiveTools-Missing");
 workbook.Save();
 Console.WriteLine(fileInfo.FullName);
-System.Diagnostics.Process.Start(fileInfo.FullName);
+
+// Open the file using shell to start whatever application is registered with the xlsx extension
+var processStartInfo = new ProcessStartInfo(fileInfo.FullName)
+{
+	UseShellExecute = true
+};
+Process.Start(processStartInfo);
