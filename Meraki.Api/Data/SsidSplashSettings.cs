@@ -15,14 +15,14 @@ public class SsidSplashSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ssidNumber")]
-	public int SsidNumber { get; set; }
+	public int? SsidNumber { get; set; }
 
 	/// <summary>
 	/// Splash timeout in minutes. This will determine how often users will see the splash page.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashTimeout")]
-	public int SplashTimeout { get; set; }
+	public int? SplashTimeout { get; set; }
 
 	/// <summary>
 	/// How login attempts should be handled when the controller is unreachable. Can be either 'open', 'restricted', or 'default
@@ -92,47 +92,47 @@ public class SsidSplashSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "guestSponsorship")]
-	public GuestSponsorship GuestSponsorship { get; set; } = new();
+	public GuestSponsorship? GuestSponsorship { get; set; }
 
 	/// <summary>
 	/// Systems Manager sentry enrollment splash settings.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "sentryEnrollment")]
-	public SentryEnrollment sentryEnrollment { get; set; } = new();
+	public SentryEnrollment? sentryEnrollment { get; set; }
 
 	/// <summary>
 	/// The image used in the splash page.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashImage")]
-	public SplashImage SplashImage { get; set; } = new();
+	public SplashImage? SplashImage { get; set; }
 
 	/// <summary>
 	/// Description of the type of splash page.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "splashPage")]
-	public string SplashPage { get; set; } = string.Empty;
+	public string? SplashPage { get; set; }
 
 	/// <summary>
 	/// The logo used in the splash page.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashLogo")]
-	public SplashImage SplashLogo { get; set; } = new();
+	public SplashImage? SplashLogo { get; set; }
 
 	/// <summary>
 	/// The prepaid front image used in the splash page.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashPrepaidFront")]
-	public SplashImage SplashPrepaidFront { get; set; } = new();
+	public SplashImage? SplashPrepaidFront { get; set; }
 
 	/// <summary>
 	/// Self registration settings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "selfRegistration")]
-	public SelfRegistration SelfRegistration { get; set; } = new();
+	public SelfRegistration? SelfRegistration { get; set; }
 }
