@@ -7,6 +7,13 @@ namespace Meraki.Api.Data;
 public class VideoSettings
 {
 	/// <summary>
+	/// Gets or Sets MV2
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "MV2")]
+	public Mv02 MV2 { get; set; } = null!;
+
+	/// <summary>
 	/// Gets or Sets MV21MV71
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

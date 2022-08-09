@@ -4,7 +4,7 @@
 /// The Active Directory servers to be used for authentication.
 /// </summary>
 [DataContract]
-public class ActiveDirectoryServer
+public class ActiveDirectoryServer : IdentifiedItem
 {
 	/// <summary>
 	/// (Optional) UDP port the Active Directory server listens on. By default, uses port 3268.
