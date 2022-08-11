@@ -132,9 +132,11 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			}
 
 			_logger.LogInformation(
-				"{LogPrefix}HTTP Status Code {StatusCode} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
+				"{LogPrefix}Received {StatusCode} on attempt {AttemptCount}/{MaxAttemptCount} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
 				logPrefix,
 				statusCodeInt,
+				attemptCount,
+				_options.MaxAttemptCount,
 				delay.TotalSeconds,
 				request.Method.ToString(),
 				request.RequestUri
