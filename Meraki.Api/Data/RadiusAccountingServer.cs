@@ -40,4 +40,11 @@ public class RadiusAccountingServer : IdentifiedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "openRoamingCertificateId")]
 	public object? OpenRoamingCertificateId { get; set; }
+
+	/// <summary>
+	/// Undocumented caCertificate (always observed as null so far)
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "caCertificate")]
+	public object? CaCertificate { get; set; }
 }
