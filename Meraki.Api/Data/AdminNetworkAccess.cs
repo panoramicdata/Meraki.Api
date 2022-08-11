@@ -12,4 +12,11 @@ public class AdminNetworkAccess : IdentifiedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "access")]
 	public AccessPrivilege Access { get; set; }
+
+	/// <summary>
+	/// Undocumented privilegeName
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "privilegeName")]
+	public string? PrivilegeName { get; set; }
 }
