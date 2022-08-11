@@ -24,7 +24,7 @@ public class ValueSource
 	/// VLAN ID of the configured VLAN in the Meraki network. Currently only available under a template network.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "cidr")]
+	[DataMember(Name = "vlan")]
 	public int? Vlan { get; set; }
 
 	/// <summary>
