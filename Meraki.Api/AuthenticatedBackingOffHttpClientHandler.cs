@@ -132,8 +132,12 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			}
 
 			_logger.LogInformation(
-				"{LogPrefix}Waiting {TotalSeconds:N2}s.",
-				logPrefix, delay.TotalSeconds
+				"{LogPrefix}HTTP Status Code {StatusCode} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
+				logPrefix,
+				statusCodeInt,
+				delay.TotalSeconds,
+				request.Method.ToString(),
+				request.RequestUri
 				);
 			await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
 		}
