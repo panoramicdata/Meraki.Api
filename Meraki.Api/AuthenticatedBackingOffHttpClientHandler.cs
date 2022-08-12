@@ -119,6 +119,18 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 							);
 					}
 
+					if (statusCodeInt == 500)
+					{
+						_logger.LogError(
+							"{LogPrefix}Received remote error code 500 on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+							logPrefix,
+							attemptCount,
+							_options.MaxAttemptCount,
+							request.Method.ToString(),
+							request.RequestUri
+							);
+					}
+
 					return httpResponseMessage;
 			}
 			// Try up to the maximum retry count.
