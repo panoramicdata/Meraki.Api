@@ -19,4 +19,11 @@ public class InsightMonitoredMediaServer : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bestEffortMonitoringEnabled")]
 	public bool BestEffortMonitoringEnabled { get; set; }
+
+	/// <summary>
+	/// Undocumented AddressIsAp, believed to be informational only
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "addressIsIp")]
+	public bool? AddressIsIp{ get; set; }
 }

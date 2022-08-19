@@ -7,11 +7,11 @@
 public class SplitTunnelRule
 {
 	/// <summary>
-	/// Protocols
+	/// Protocol for this split tunnel rule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "protocols")]
-	public string? Protocols { get; set; }
+	[DataMember(Name = "protocol")]
+	public string? Protocol { get; set; }
 
 	/// <summary>
 	/// Destination for this split tunnel rule. IP address, fully-qualified domain names (FQDN) or 'any'.

@@ -119,6 +119,18 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 							);
 					}
 
+					if (statusCodeInt == 500)
+					{
+						_logger.LogError(
+							"{LogPrefix}Received remote error code 500 on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+							logPrefix,
+							attemptCount,
+							_options.MaxAttemptCount,
+							request.Method.ToString(),
+							request.RequestUri
+							);
+					}
+
 					return httpResponseMessage;
 			}
 			// Try up to the maximum retry count.
@@ -132,8 +144,14 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			}
 
 			_logger.LogInformation(
-				"{LogPrefix}Waiting {TotalSeconds:N2}s.",
-				logPrefix, delay.TotalSeconds
+				"{LogPrefix}Received {StatusCode} on attempt {AttemptCount}/{MaxAttemptCount} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
+				logPrefix,
+				statusCodeInt,
+				attemptCount,
+				_options.MaxAttemptCount,
+				delay.TotalSeconds,
+				request.Method.ToString(),
+				request.RequestUri
 				);
 			await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
 		}
