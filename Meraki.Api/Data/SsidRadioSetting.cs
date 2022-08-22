@@ -25,9 +25,10 @@ public class SsidRadioSetting
 	public bool BandSteeringEnabled { get; set; }
 
 	/// <summary>
-	/// Gets or Sets MinBitrate
+	/// Sets min bitrate (Mbps) of this SSID. Can be one of '1', '2', '5.5', '6', '9', '11', '12', '18', '24', '36', '48' or '54'.
 	/// </summary>
+	/// THIS SHOULD NOT BE CONVERTED TO AN ENUM AS DESERIALIZATION OF 5.5 AS A NUMBER WILL NOT WORK. THEY ARE PROVIDED AS NUMBERS, NOT STRINGS, BY THE MERAKI API.
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "minBitrate")]
-	public MinBitrate MinBitrate { get; set; }
+	public double MinBitrate { get; set; }
 }

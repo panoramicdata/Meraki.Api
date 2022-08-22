@@ -10,14 +10,7 @@ Console.WriteLine("done.");
 Console.Write("Retrieving API schema...");
 var apiSchema = await OpenApiReader.GetSchemaAsync().ConfigureAwait(false);
 Console.WriteLine("done.");
-/*
-TableOutput.DisplayAndPruneTag(apiSchema, implementedEndpoints, "configure");
-TableOutput.DisplayAndPruneTag(apiSchema, implementedEndpoints, "monitor");
-TableOutput.DisplayAndPruneTag(apiSchema, implementedEndpoints, "liveTools");
 
-TableOutput.DisplayRemainingTags(apiSchema);
-TableOutput.DisplayRemainingInterfaces(implementedEndpoints);
-*/
 Console.Write("Beginning build xlsx output...");
 var configureEndpointSet = SheetOutput.CreateWorksheet(apiSchema, implementedEndpoints, "configure");
 var monitorEndpointSet = SheetOutput.CreateWorksheet(apiSchema, implementedEndpoints, "monitor");

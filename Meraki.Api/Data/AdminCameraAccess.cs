@@ -40,4 +40,11 @@ public class AdminCameraAccess
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "serials")]
 	public List<string>? Serials { get; set; }
+
+	/// <summary>
+	/// Tags
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "tags")]
+	public List<string>? Tags { get; set; }
 }
