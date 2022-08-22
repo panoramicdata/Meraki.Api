@@ -2,7 +2,6 @@
 using Meraki.ApiChecker.Extensions;
 using Meraki.ApiChecker.Models;
 using Microsoft.OpenApi.Models;
-using Spectre.Console;
 using System.Reflection;
 using System.Runtime.Serialization;
 
@@ -17,12 +16,6 @@ public static class SheetOutput
 	{
 		var endpointSet = new EndpointSet();
 
-		var duplicateTable = new Table()
-			.AddColumns("Method", "Endpoint", "OperationId", "Tags", "Implementation")
-			.BorderStyle("orange1");
-		var missingTable = new Table()
-			.AddColumns("Method", "Endpoint", "OperationId", "Tags")
-			.BorderStyle("red");
 		foreach (var pathKpv in apiSchema.Paths)
 		{
 			var operations = tagRestriction == null
