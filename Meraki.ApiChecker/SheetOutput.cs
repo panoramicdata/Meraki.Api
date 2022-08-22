@@ -134,22 +134,6 @@ public static class SheetOutput
 				_ = pathKpv.Value.Operations.Remove(pathOperation);
 			}
 		}
-
-		if (endpointSet.ImplementedEndpoints.Count == 0)
-		{
-			endpointSet.ImplementedEndpoints = new() { new() };
-		}
-
-		if (endpointSet.DuplicatedEndpoints.Count == 0)
-		{
-			endpointSet.DuplicatedEndpoints = new() { new() };
-		}
-
-		if (endpointSet.MissingEndpoints.Count == 0)
-		{
-			endpointSet.MissingEndpoints = new() { new() };
-		}
-
 		return endpointSet;
 	}
 
@@ -277,11 +261,6 @@ public static class SheetOutput
 					Name = method.Method.Name
 				});
 			}
-		}
-		// We can't return an empty set as SheetMagic needs something to make the worksheet with
-		if (ImplementationsWithoutEndpoints.Count == 0)
-		{
-			ImplementationsWithoutEndpoints = new() { new() };
 		}
 
 		return ImplementationsWithoutEndpoints;
