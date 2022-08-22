@@ -15,6 +15,7 @@ Console.Write("Beginning build xlsx output...");
 var configureEndpointSet = SheetOutput.CreateWorksheet(apiSchema, implementedEndpoints, "configure");
 var monitorEndpointSet = SheetOutput.CreateWorksheet(apiSchema, implementedEndpoints, "monitor");
 var liveToolsEndpointSet = SheetOutput.CreateWorksheet(apiSchema, implementedEndpoints, "liveTools");
+var implementationsWithoutEndpoints = SheetOutput.GetRemainingInterfaces(implementedEndpoints);
 var fileInfo = new FileInfo($"API Check {DateTime.UtcNow:yyyyMMddTHHmmss}.xlsx");
 using var workbook = new MagicSpreadsheet(fileInfo);
 workbook.AddSheet(configureEndpointSet.ImplementedEndpoints, "Configure-Implemented");
@@ -26,6 +27,7 @@ workbook.AddSheet(monitorEndpointSet.MissingEndpoints, "Monitor-Missing");
 workbook.AddSheet(liveToolsEndpointSet.ImplementedEndpoints, "LiveTools-Implemented");
 workbook.AddSheet(liveToolsEndpointSet.DuplicatedEndpoints, "LiveTools-Duplicated");
 workbook.AddSheet(liveToolsEndpointSet.MissingEndpoints, "LiveTools-Missing");
+workbook.AddSheet(implementationsWithoutEndpoints, "Unmatched-Implementations");
 workbook.Save();
 Console.WriteLine(fileInfo.FullName);
 

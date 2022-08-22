@@ -151,28 +151,6 @@ public static class SheetOutput
 		}
 
 		return endpointSet;
-
-		/*
-		if (duplicateTable.Rows.Count > 0)
-		{
-			_ = duplicateTable.Title(
-				tagRestriction is not null
-					? $"'{tagRestriction}' duplicate endpoints ({duplicateTable.Rows.Count})"
-					: "Remaining implemented endpoints",
-				new Style(Color.Orange1));
-			AnsiConsole.Write(duplicateTable);
-		}
-
-		if (missingTable.Rows.Count > 0)
-		{
-			_ = missingTable.Title(
-				tagRestriction is not null
-					? $"'{tagRestriction}' missing endpoints ({missingTable.Rows.Count})"
-					: "Remaining missing endpoints",
-				new Style(Color.Red));
-			AnsiConsole.Write(missingTable);
-		}
-		*/
 	}
 
 	/// <summary>
@@ -283,31 +261,29 @@ public static class SheetOutput
 		return result;
 	}
 
-	internal static void DisplayRemainingInterfaces(Dictionary<string, List<MethodDetails>> implementedEndpoints)
+	internal static List<ImplementationWithoutEndpoint> GetRemainingInterfaces(Dictionary<string, List<MethodDetails>> implementedEndpoints)
 	{
-		// We don't need to print the table if there is nothing to write into it
-		if (implementedEndpoints.All(i => implementedEndpoints[i.Key].Count == 0))
-		{
-			return;
-		}
+		var ImplementationsWithoutEndpoints = new List<ImplementationWithoutEndpoint>();
 
-		var extraTable = new Table()
-			.Title("Implementations without Endpoints", new Style(Color.Red))
-			.AddColumns("Method", "Endpoint", "Namespace", "Name")
-			.BorderStyle("red");
 		foreach (var implementation in implementedEndpoints)
 		{
 			foreach (var method in implementation.Value)
 			{
-				_ = extraTable.AddRow(
-					method.RefitAttribute.Method.ToString(),
-					method.RefitAttribute.Path,
-					method.Method.DeclaringType?.FullName ?? string.Empty,
-					method.Method.Name
-					);
+				ImplementationsWithoutEndpoints.Add(new()
+				{
+					Method = method.RefitAttribute.Method.ToString(),
+					Endpoint = method.RefitAttribute.Path,
+					Namespace = method.Method.DeclaringType?.FullName ?? string.Empty,
+					Name = method.Method.Name
+				});
 			}
 		}
+		// We can't return an empty set as SheetMagic needs something to make the worksheet with
+		if (ImplementationsWithoutEndpoints.Count == 0)
+		{
+			ImplementationsWithoutEndpoints = new() { new() };
+		}
 
-		AnsiConsole.Write(extraTable);
+		return ImplementationsWithoutEndpoints;
 	}
 }
