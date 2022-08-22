@@ -66,7 +66,7 @@ public interface IOrganizationSensorAlertsProfiles
 	/// <param name="id">The sensor alerts profile id</param>
 	[ApiOperationId("deleteNetworkSensorAlertsProfile")]
 	[Delete("/networks/{networkId}/sensor/alerts/profiles/{id}")]
-	Task DeletNetworkSensorAlertsProfileAsync(
+	Task DeleteNetworkSensorAlertsProfileAsync(
 		string networkId,
 		string id,
 		CancellationToken cancellationToken = default);
