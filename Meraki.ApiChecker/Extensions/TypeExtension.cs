@@ -1,5 +1,6 @@
 ﻿using Meraki.Api.Attributes;
 using System.Reflection;
+using System.Runtime.Serialization;
 
 namespace Meraki.ApiChecker.Extensions;
 public static class TypeExtension
@@ -46,8 +47,24 @@ public static class TypeExtension
 		var isClassReadOnly = isParentClassReadOnly || type.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is not null;
 
 		var deficientDataModels = new List<string>();
+		var dataMemberNames = new Dictionary<string, string>();
+
 		foreach (var property in type.GetProperties())
 		{
+			var dataMemberAttribute = property.GetCustomAttribute<DataMemberAttribute>();
+			if (dataMemberAttribute != null)
+			{
+				var dataMemberName = dataMemberAttribute.Name ?? "Not set";
+				if (dataMemberNames.TryGetValue(dataMemberName, out var existingPropertyName))
+				{
+					deficientDataModels.Add($"Found {existingPropertyName} already has DataMemberName '{dataMemberName}' when processing {property.Name} property on {type}");
+				}
+				else
+				{
+					dataMemberNames[dataMemberName] = property.Name;
+				}
+			}
+
 			// Is ApiAccessAttribute or ApiKeyAttribute present on the property?
 			if (!isClassReadOnly
 				&& property.GetCustomAttribute<ApiAccessAttribute>() is null
@@ -56,7 +73,7 @@ public static class TypeExtension
 				// NO - ApiAccess is not fully denoted for the type
 				if (!deficientDataModels.Contains(type.Name))
 				{
-					deficientDataModels.Add(type.Name);
+					deficientDataModels.Add($"{type.Name} is missing ApiAccessAttribute");
 				}
 			}
 
