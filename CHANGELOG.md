@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## v1.24.19
+- Modified network settings local page authentication to allow setting password.
+
 ## v1.24.1
 - Changed all floats to double.
 - Modified several models to be nullable where the response model is also used in requests to allow only setting certain properties.
