@@ -8,7 +8,7 @@ public class SwitchPortStatus
 
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
-	
+
 	[DataMember(Name = "isUplink")]
 	public bool IsUplink { get; set; }
 
@@ -46,7 +46,7 @@ public class SwitchPortStatus
 	public TrafficInKbps TrafficInKbps { get; set; } = new();
 
 	[DataMember(Name = "secureConnect")]
-	public SecureConnect? SecureConnect { get; set; }
+	public SwitchPortStatusSecureConnect? SecureConnect { get; set; }
 }
 
 public class UsageInKb : Usage

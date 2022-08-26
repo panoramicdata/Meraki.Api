@@ -11,5 +11,5 @@ public class LocalStatusPage
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "authentication")]
-	public StatusPageAuthentication Authentication { get; set; } = new();
+	public StatusPageAuthentication? Authentication { get; set; }
 }
