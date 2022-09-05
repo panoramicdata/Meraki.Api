@@ -7,23 +7,26 @@ namespace Meraki.Api.Data;
 public class ContentFilteringUpdateRequest
 {
 	/// <summary>
-	/// A whitelist of URL patterns to allow
+	/// A list of URL patterns to allow
 	/// </summary>
-	/// <value>A whitelist of URL patterns to allow</value>
+	/// <value>A list of URL patterns to allow</value>
 	[DataMember(Name = "allowedUrlPatterns")]
 	public List<string> AllowedUrlPatterns { get; set; } = new();
+
 	/// <summary>
-	/// A blacklist of URL patterns to block
+	/// A list of URL patterns to block
 	/// </summary>
-	/// <value>A blacklist of URL patterns to block</value>
+	/// <value>A list of URL patterns to block</value>
 	[DataMember(Name = "blockedUrlPatterns")]
 	public List<string> BlockedUrlPatterns { get; set; } = new();
+
 	/// <summary>
 	/// A list of URL categories to block
 	/// </summary>
 	/// <value>A list of URL categories to block</value>
 	[DataMember(Name = "blockedUrlCategories")]
 	public List<string> BlockedUrlCategories { get; set; } = new();
+
 	/// <summary>
 	/// Gets or Sets UrlCategoryListSize
 	/// </summary>
