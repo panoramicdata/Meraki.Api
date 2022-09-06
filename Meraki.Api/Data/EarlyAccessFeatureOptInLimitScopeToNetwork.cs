@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Early Access Featuren Opt In Limit Scopt To Network
+/// Early Access Feature Opt In Limit Scope To Network
 /// </summary>
 [DataContract]
 public class EarlyAccessFeatureOptInLimitScopeToNetwork : NamedIdentifiedItem

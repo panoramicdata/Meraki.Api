@@ -19,7 +19,7 @@ public class SensorReading
 	public SensorMetrics SensorMetric { get; set; }
 
 	// Logically only one of the settings below will be returned, based on the SensorMetric value
-	// When we have time we could implement a custom deserialization implementation using descrimination
+	// When we have time we could implement a custom deserialization implementation using discrimination
 	// returning a "SensorMetric" which would then be one of the below types
 	// Also there is no documentation for the structure of each sensor's values so we can't get any
 	// further. The documentation only shows the response for temperature.

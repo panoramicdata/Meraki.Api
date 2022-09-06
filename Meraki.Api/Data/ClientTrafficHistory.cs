@@ -49,7 +49,7 @@ public class ClientTrafficHistory
 	public int Sent { get; set; }
 
 	/// <summary>
-	/// Num flows
+	/// Flow count
 	/// </summary>
 	[DataMember(Name = "numFlows")]
 	public int NumFlows { get; set; }

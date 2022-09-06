@@ -7,7 +7,7 @@
 public class EarlyAccessFeature : NamedItem
 {
 	/// <summary>
-	/// Short Name.
+	/// Short Name
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "shortName")]
@@ -28,7 +28,7 @@ public class EarlyAccessFeature : NamedItem
 	public string Topic { get; } = string.Empty;
 
 	/// <summary>
-	/// Is Org Scoped Only
+	/// Is Organization Scoped Only
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isOrgScopedOnly")]

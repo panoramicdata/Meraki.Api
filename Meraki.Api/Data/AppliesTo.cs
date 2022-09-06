@@ -8,49 +8,49 @@ namespace Meraki.Api.Data;
 public enum AppliesTo
 {
 	/// <summary>
-	/// Enum Allorganizationadmins for "All organization admins"
+	/// All organization admins
 	/// </summary>
 	[EnumMember(Value = "All organization admins")]
 	Allorganizationadmins,
 
 	/// <summary>
-	/// Enum Allenterpriseadmins for "All enterprise admins"
+	/// All enterprise admins
 	/// </summary>
 	[EnumMember(Value = "All enterprise admins")]
 	Allenterpriseadmins,
 
 	/// <summary>
-	/// Enum Allnetworkadmins for "All network admins"
+	/// All network admins
 	/// </summary>
 	[EnumMember(Value = "All network admins")]
 	Allnetworkadmins,
 
 	/// <summary>
-	/// Enum Alladminsofnetworks for "All admins of networks..."
+	/// All admins of networks...
 	/// </summary>
 	[EnumMember(Value = "All admins of networks...")]
 	Alladminsofnetworks,
 
 	/// <summary>
-	/// Enum Alladminsofnetworkstagged for "All admins of networks tagged..."
+	/// All admins of networks tagged...
 	/// </summary>
 	[EnumMember(Value = "All admins of networks tagged...")]
 	Alladminsofnetworkstagged,
 
 	/// <summary>
-	/// Enum Specificadmins for "Specific admins..."
+	/// Specific admins...
 	/// </summary>
 	[EnumMember(Value = "Specific admins...")]
 	Specificadmins,
 
 	/// <summary>
-	/// Enum Alladmins for "All admins"
+	/// All admins
 	/// </summary>
 	[EnumMember(Value = "All admins")]
 	Alladmins,
 
 	/// <summary>
-	/// Enum AllSAMLadmins for "All SAML admins"
+	/// All SAML admins
 	/// </summary>
 	[EnumMember(Value = "All SAML admins")]
 	AllSAMLadmins

@@ -7,13 +7,13 @@ namespace Meraki.Api.Data;
 public enum SplashPage
 {
 	/// <summary>
-	/// Enum None for "None"
+	/// None
 	/// </summary>
 	[EnumMember(Value = "None")]
 	None,
 
 	/// <summary>
-	/// Enum Clickthroughsplashpage for "Click-through splash page"
+	/// Click-through splash page
 	/// </summary>
 	[EnumMember(Value = "Click-through splash page")]
 	Clickthroughsplashpage,
@@ -25,67 +25,67 @@ public enum SplashPage
 	Billing,
 
 	/// <summary>
-	/// Enum PasswordprotectedwithMerakiRADIUS for "Password-protected with Meraki RADIUS"
+	/// Password-protected with Meraki RADIUS
 	/// </summary>
 	[EnumMember(Value = "Password-protected with Meraki RADIUS")]
 	PasswordprotectedwithMerakiRADIUS,
 
 	/// <summary>
-	/// Enum PasswordprotectedwithcustomRADIUS for "Password-protected with custom RADIUS"
+	/// Password-protected with custom RADIUS
 	/// </summary>
 	[EnumMember(Value = "Password-protected with custom RADIUS")]
 	PasswordprotectedwithcustomRADIUS,
 
 	/// <summary>
-	/// Enum PasswordprotectedwithActiveDirectory for "Password-protected with Active Directory"
+	/// Password-protected with Active Directory
 	/// </summary>
 	[EnumMember(Value = "Password-protected with Active Directory")]
 	PasswordprotectedwithActiveDirectory,
 
 	/// <summary>
-	/// Enum PasswordprotectedwithLDAP for "Password-protected with LDAP"
+	/// Password-protected with LDAP
 	/// </summary>
 	[EnumMember(Value = "Password-protected with LDAP")]
 	PasswordprotectedwithLDAP,
 
 	/// <summary>
-	/// Enum SMSauthentication for "SMS authentication"
+	/// SMS authentication
 	/// </summary>
 	[EnumMember(Value = "SMS authentication")]
 	SMSauthentication,
 
 	/// <summary>
-	/// Enum SystemsManagerSentry for "Systems Manager Sentry"
+	/// Systems Manager Sentry
 	/// </summary>
 	[EnumMember(Value = "Systems Manager Sentry")]
 	SystemsManagerSentry,
 
 	/// <summary>
-	/// Enum FacebookWiFi for "Facebook Wi-Fi"
+	/// Facebook Wi-Fi
 	/// </summary>
 	[EnumMember(Value = "Facebook Wi-Fi")]
 	FacebookWiFi,
 
 	/// <summary>
-	/// Enum GoogleOAuth for "Google OAuth"
+	/// Google OAuth
 	/// </summary>
 	[EnumMember(Value = "Google OAuth")]
 	GoogleOAuth,
 
 	/// <summary>
-	/// Enum Sponsoredguest for "Sponsored guest"
+	/// Sponsored guest
 	/// </summary>
 	[EnumMember(Value = "Sponsored guest")]
 	SponsoredGuest,
 
 	/// <summary>
-	/// Enum CiscoISE for "Cisco ISE"
+	/// Cisco ISE
 	/// </summary>
 	[EnumMember(Value = "Cisco ISE")]
 	CiscoISE,
 
 	/// <summary>
-	/// Enum Sponsoredguest for "Google Apps domain"
+	/// Google Apps domain
 	/// </summary>
 	[EnumMember(Value = "Google Apps domain")]
 	GoogleAppsDomain

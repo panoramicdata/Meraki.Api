@@ -29,7 +29,7 @@ public class SwitchPortsProfile : NamedIdentifiedItem
 	public string? NetworkId { get; set; }
 
 	/// <summary>
-	/// Space-seperated list of tags
+	/// Space-separated list of tags
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "tags")]

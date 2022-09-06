@@ -65,7 +65,7 @@ public class Vlan : NamedIdentifiedItem
 	public List<ReservedIpRange>? ReservedIpRanges { get; set; }
 
 	/// <summary>
-	/// DNS nameservers
+	/// DNS name servers
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dnsNameservers")]

@@ -8,43 +8,43 @@ namespace Meraki.Api.Data;
 public enum AuthMode
 {
 	/// <summary>
-	/// Enum Open for "open"
+	/// Open
 	/// </summary>
 	[EnumMember(Value = "open")]
 	Open,
 
 	/// <summary>
-	/// Enum Psk for "psk"
+	/// PSK
 	/// </summary>
 	[EnumMember(Value = "psk")]
 	Psk,
 
 	/// <summary>
-	/// Enum Openwithradius for "open-with-radius"
+	/// Open with RADIUS
 	/// </summary>
 	[EnumMember(Value = "open-with-radius")]
 	Openwithradius,
 
 	/// <summary>
-	/// Enum _8021xmeraki for "8021x-meraki"
+	/// 8021x Meraki
 	/// </summary>
 	[EnumMember(Value = "8021x-meraki")]
 	Auth8021xmeraki,
 
 	/// <summary>
-	/// Enum _8021xradius for "8021x-radius"
+	/// 8021x RADIUS
 	/// </summary>
 	[EnumMember(Value = "8021x-radius")]
 	Auth8021xradius,
 
 	/// <summary>
-	/// Enum Ipskwithradius for "ipsk-with-radius"
+	/// IPSK with RADIUS
 	/// </summary>
 	[EnumMember(Value = "ipsk-with-radius")]
 	Ipskwithradius,
 
 	/// <summary>
-	/// Enum Ipskwithoutradius for "ipsk-without-radius"
+	/// IPSK without RADIUS
 	/// </summary>
 	[EnumMember(Value = "ipsk-without-radius")]
 	Ipskwithoutradius

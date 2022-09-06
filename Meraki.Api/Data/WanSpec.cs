@@ -14,9 +14,9 @@ public class Wan
 	public WanEnabledStatus? WanEnabledStatus { get; set; }
 
 	/// <summary>
-	/// Configue the interface to have static IP settings or use DHCP.
+	/// Configure the interface to have static IP settings or use DHCP.
 	/// </summary>
-	/// <value>Configue the interface to have static IP settings or use DHCP.</value>
+	/// <value>Configure the interface to have static IP settings or use DHCP.</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "usingStaticIp")]
 	public bool UsingStaticIp { get; set; }

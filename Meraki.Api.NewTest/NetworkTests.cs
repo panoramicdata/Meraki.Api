@@ -34,7 +34,7 @@ public class NetworkTests : MerakiClientUnitTest
 			// Get the network details using the network id
 			var retrievedNetwork = await TestMerakiClient.Networks.GetNetworkAsync(network.Id);
 
-			// Create a comparitor network object using the data we sent at create
+			// Create a comparison network object using the data we sent at create
 			var expectedNetwork = new Network()
 			{
 				OrganizationId = TestOrganizationId,

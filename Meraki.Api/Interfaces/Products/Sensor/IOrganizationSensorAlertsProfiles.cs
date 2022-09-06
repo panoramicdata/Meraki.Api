@@ -48,7 +48,7 @@ public interface IOrganizationSensorAlertsProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="id">The sensor alert profile id</param>
-	/// <param name="sensorAlertProfileUpdateRequest">Body for updatingn a sensor alert profile/param>
+	/// <param name="sensorAlertProfileUpdateRequest">Body for updating a sensor alert profile/param>
 	[ApiOperationId("updateNetworkSensorAlertsProfile")]
 	[Put("/networks/{networkId}/sensor/alerts/profiles/{id}")]
 	Task<SensorAlertsProfile> UpdateNetworkSensorAlertsProfileAsync(

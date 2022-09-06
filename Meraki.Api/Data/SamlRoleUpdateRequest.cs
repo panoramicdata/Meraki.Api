@@ -21,9 +21,9 @@ public class SamlRoleUpdateRequest
 	public string OrgAccess { get; set; } = null!;
 
 	/// <summary>
-	/// The list of tags that the SAML administrator has privleges on
+	/// The list of tags that the SAML administrator has privileges on
 	/// </summary>
-	/// <value>The list of tags that the SAML administrator has privleges on</value>
+	/// <value>The list of tags that the SAML administrator has privileges on</value>
 	[DataMember(Name = "tags")]
 	public List<AdminTag> Tags { get; set; } = null!;
 

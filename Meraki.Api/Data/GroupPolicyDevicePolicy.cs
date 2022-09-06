@@ -4,19 +4,19 @@
 public enum GroupPolicyDevicePolicy
 {
 	/// <summary>
-	/// Enum Grouppolicy for "Group policy"
+	/// Group policy
 	/// </summary>
 	[EnumMember(Value = "Group policy")]
 	Grouppolicy,
 
 	/// <summary>
-	/// Enum Allowed for "Allowed"
+	/// Allowed
 	/// </summary>
 	[EnumMember(Value = "Allowed")]
 	Allowed,
 
 	/// <summary>
-	/// Enum Blocked for "Blocked"
+	/// Blocked
 	/// </summary>
 	[EnumMember(Value = "Blocked")]
 	Blocked,
