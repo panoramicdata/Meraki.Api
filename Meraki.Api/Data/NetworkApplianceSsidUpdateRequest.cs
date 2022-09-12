@@ -14,13 +14,6 @@ public class NetworkApplianceSsidUpdateRequest
 	public int? DefaultVlanId { get; set; }
 
 	/// <summary>
-	/// The number of the SSID
-	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "number")]
-	public int Number { get; set; }
-
-	/// <summary>
 	/// The association control method for the SSID ('open', 'psk', '8021x-meraki' or '8021x-radius').
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
@@ -60,14 +53,14 @@ public class NetworkApplianceSsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// Boolean indicating whether the MX should advertise or hide this SSID
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "visible")]
-	public bool Visible { get; set; }
+	public bool? Visible { get; set; }
 
 	/// <summary>
 	/// The RADIUS 802.1x. servers to be used for authentication

@@ -60,7 +60,7 @@ public class NetworkApplianceSsid
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "visible")]
-	public bool Visible { get; set; }
+	public bool? Visible { get; set; }
 
 	/// <summary>
 	/// The RADIUS 802.1x. servers to be used for authentication
