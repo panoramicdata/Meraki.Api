@@ -36,7 +36,7 @@ public interface IApplianceSsids
 	/// <param name="number">The number of the SSID</param>
 	/// <param name="networkApplianceSsidUpdateRequest">The body for updating an SSID</param>
 	[ApiOperationId("updateNetworkApplianceSsid")]
-	[Put("/networks/{networkId}/appliance/ssids/{nunber}")]
+	[Put("/networks/{networkId}/appliance/ssids/{number}")]
 	Task<NetworkApplianceSsid> UpdateNetworkApplianceSsidAsync(
 		string networkId,
 		string number,
