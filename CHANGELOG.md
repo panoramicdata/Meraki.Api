@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## v1.25.1
+- Added appliance SSID endpoints - https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-ssids
+
 ## v1.24.19
 - Modified network settings local page authentication to allow setting password.
 
