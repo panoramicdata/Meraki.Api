@@ -13,6 +13,7 @@ public class ApplianceSection
 	public IApplianceSettings Settings { get; internal set; } = null!;
 	public IApplianceSingleLan SingleLan { get; internal set; } = null!;
 	public IApplianceStaticRoutes StaticRoutes { get; internal set; } = null!;
+	public IApplianceSsids Ssids { get; internal set; } = null!;
 	public ApplianceTrafficShapingSection TrafficShaping { get; internal set; } = new();
 	public ApplianceUplinkSection Uplink { get; internal set; } = new();
 	public ApplianceUplinksSection Uplinks { get; internal set; } = new();
