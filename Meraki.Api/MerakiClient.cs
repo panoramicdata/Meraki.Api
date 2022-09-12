@@ -183,7 +183,7 @@ public partial class MerakiClient : IDisposable
 				ApplianceFirewallSettings = RefitFor(Appliance.Firewall.ApplianceFirewallSettings)
 			},
 			StaticRoutes = RefitFor(Appliance.StaticRoutes),
-			ApplianceSsids = RefitFor(Appliance.ApplianceSsids),
+			Ssids = RefitFor(Appliance.Ssids),
 			TrafficShaping = new()
 			{
 				TrafficShaping = RefitFor(Appliance.TrafficShaping.TrafficShaping),
