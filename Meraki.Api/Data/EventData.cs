@@ -80,6 +80,18 @@ public class EventData
 	public string? DhcpResponse { get; set; }
 
 	/// <summary>
+	/// The DHCP server
+	/// </summary>
+	[DataMember(Name = "dhcp_server")]
+	public string? DhcpServer { get; set; }
+
+	/// <summary>
+	/// The DHCP server mac
+	/// </summary>
+	[DataMember(Name = "dhcp_server_mac")]
+	public string? DhcpServerMac { get; set; }
+
+	/// <summary>
 	/// The duration
 	/// </summary>
 	[DataMember(Name = "duration")]
