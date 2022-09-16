@@ -16,11 +16,11 @@ public class WirelessDeviceEthernetStatusPower
 	/// AC power details object
 	/// </summary>
 	[DataMember(Name = "ac")]
-	public WirelessDeviceEthernetStatusPowerAc? Ac { get; set; }
+	public WirelessDeviceEthernetStatusPowerAc Ac { get; set; } = new();
 
 	/// <summary>
 	/// PoE power details object
 	/// </summary>
 	[DataMember(Name = "poe")]
-	public WirelessDeviceEthernetStatusPowerPoe? Poe { get; set; }
+	public WirelessDeviceEthernetStatusPowerPoe Poe { get; set; } = new();
 }

@@ -4,13 +4,19 @@
 /// Power status for wireless devices
 /// </summary>
 [DataContract]
-public class WirelessDeviceEthernetStatus : NamedIdentifiedItem
+public class WirelessDeviceEthernetStatus : NamedItem
 {
+	/// <summary>
+	/// The serial number of the AP
+	/// </summary>
+	[DataMember(Name = "serial")]
+	public string Serial { get; set; } = string.Empty;
+
 	/// <summary>
 	/// Aggregation details object
 	/// </summary>
 	[DataMember(Name = "aggregation")]
-	public WirelessDeviceEthernetStatusAggregation? Aggregation { get; set; }
+	public WirelessDeviceEthernetStatusAggregation Aggregation { get; set; } = new();
 
 	/// <summary>
 	/// Network details object
@@ -22,7 +28,7 @@ public class WirelessDeviceEthernetStatus : NamedIdentifiedItem
 	/// Power details object
 	/// </summary>
 	[DataMember(Name = "power")]
-	public WirelessDeviceEthernetStatusPower? Power { get; set; }
+	public WirelessDeviceEthernetStatusPower Power { get; set; } = new();
 
 	/// <summary>
 	/// List of port details

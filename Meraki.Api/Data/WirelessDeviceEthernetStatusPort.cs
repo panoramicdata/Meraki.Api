@@ -10,11 +10,11 @@ public class WirelessDeviceEthernetStatusPort : NamedItem
 	/// Link Negotiation object for the port
 	/// </summary>
 	[DataMember(Name = "linkNegotiation")]
-	public WirelessDeviceEthernetStatusPortLinkNegotiation? LinkNegotiation { get; set; }
+	public WirelessDeviceEthernetStatusPortLinkNegotiation LinkNegotiation { get; set; } = new();
 
 	/// <summary>
 	/// PoE details object for the port
 	/// </summary>
 	[DataMember(Name = "poe")]
-	public WirelessDeviceEthernetStatusPortPoe? Poe { get; set; }
+	public WirelessDeviceEthernetStatusPortPoe Poe { get; set; } = new();
 }

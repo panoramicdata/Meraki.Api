@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v1.25.6
+- Added https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses 
+as `MerakiClient.Wireless.Devices.OrganizationEthernetStatuses`
+
 ## v1.25.1
 - Added appliance SSID endpoints - https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-ssids
 

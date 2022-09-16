@@ -10,5 +10,5 @@ public class WirelessDeviceEthernetStatusPowerPoe
 	/// PoE Power Connected
 	/// </summary>
 	[DataMember(Name = "isConnected")]
-	public bool IsConnectd { get; set; }
+	public bool IsConnected { get; set; }
 }
