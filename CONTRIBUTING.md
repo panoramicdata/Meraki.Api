@@ -18,7 +18,7 @@ requests as soon as we can, resourcing allowing.
 
 Some endpoints are pageable and are identified by having `perPage`, `startingAfter`, `endingBefore`.
 
-These endpoints should be given a "GetAll" interface method to allow automatica
+These endpoints should be given a "GetAll" interface method to allow automatic
 paging through the data without having to manually page.
 
 For an example see `/organizations/{organizationId}/inventory/devices` in 
