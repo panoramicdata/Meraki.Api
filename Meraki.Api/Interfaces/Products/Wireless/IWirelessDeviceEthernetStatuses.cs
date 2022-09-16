@@ -14,8 +14,8 @@ public interface IWirelessDeviceEthernetStatuses
 	Task<List<WirelessDeviceEthernetStatus>> GetOrganizationWirelessDevicesEthernetStatusesAsync(
 		string organizationId,
 		int? perPage,
-		string startingAfter = null!,
-		string endingBefore = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default);
 
 	// Used by GetOrganizationWirelessDevicesEthernetStatusesAllAsync
