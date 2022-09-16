@@ -13,6 +13,12 @@ public class EventData
 	public string? Aid { get; set; }
 
 	/// <summary>
+	/// Alarm ID
+	/// </summary>
+	[DataMember(Name = "alarm_id")]
+	public string? AlarmId { get; set; }
+
+	/// <summary>
 	/// ARP response
 	/// </summary>
 	[DataMember(Name = "arp_resp")]
@@ -44,6 +50,12 @@ public class EventData
 	public string? Band { get; set; }
 
 	/// <summary>
+	/// BSSID
+	/// </summary>
+	[DataMember(Name = "bssid")]
+	public string? Bssid { get; set; }
+
+	/// <summary>
 	/// Channel
 	/// </summary>
 	[DataMember(Name = "channel")]
@@ -60,6 +72,12 @@ public class EventData
 	/// </summary>
 	[DataMember(Name = "client_mac")]
 	public string? ClientMac { get; set; }
+
+	/// <summary>
+	/// Client mac
+	/// </summary>
+	[DataMember(Name = "device")]
+	public string? Device { get; set; }
 
 	/// <summary>
 	/// The DHCP ip address
@@ -90,6 +108,18 @@ public class EventData
 	/// </summary>
 	[DataMember(Name = "dhcp_server_mac")]
 	public string? DhcpServerMac { get; set; }
+
+	/// <summary>
+	/// DOS Count
+	/// </summary>
+	[DataMember(Name = "dos_count")]
+	public string? DosCount { get; set; }
+
+	/// <summary>
+	/// DST
+	/// </summary>
+	[DataMember(Name = "dst")]
+	public string? Dst { get; set; }
 
 	/// <summary>
 	/// The duration
@@ -128,6 +158,12 @@ public class EventData
 	public string? Instigator { get; set; }
 
 	/// <summary>
+	/// Inter arrival
+	/// </summary>
+	[DataMember(Name = "inter_arrival")]
+	public string? InterArrival { get; set; }
+
+	/// <summary>
 	/// The IP response time
 	/// </summary>
 	[DataMember(Name = "ip_resp")]
@@ -158,6 +194,12 @@ public class EventData
 	public string? LastKnownClientIp { get; set; }
 
 	/// <summary>
+	/// Packet
+	/// </summary>
+	[DataMember(Name = "packet")]
+	public string? Packet { get; set; }
+
+	/// <summary>
 	/// Radio
 	/// </summary>
 	[DataMember(Name = "radio")]
@@ -180,6 +222,12 @@ public class EventData
 	/// </summary>
 	[DataMember(Name = "rtt")]
 	public string? RoundTripTime { get; set; }
+
+	/// <summary>
+	/// The state
+	/// </summary>
+	[DataMember(Name = "state")]
+	public string? State { get; set; }
 
 	/// <summary>
 	/// VAP
