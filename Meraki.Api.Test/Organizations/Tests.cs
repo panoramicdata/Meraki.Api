@@ -52,7 +52,7 @@ public class Tests : MerakiClientTest
 			.ConfigureAwait(false);
 		CheckOrganization(createdOrganization, initialOrganizationName);
 
-		// wait to allow the organisation to be created properly
+		// wait to allow the organization to be created properly
 		await Task.Delay(TimeSpan.FromSeconds(5))
 			.ConfigureAwait(false);
 

@@ -13,7 +13,7 @@ public class SensorAlertsProfileRecipients
 	public List<string>? Emails { get; set; }
 
 	/// <summary>
-	/// A list of webhook endpoint IDs that will receive information abou the alert
+	/// A list of webhook endpoint IDs that will receive information about the alert
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "httpServerIds")]

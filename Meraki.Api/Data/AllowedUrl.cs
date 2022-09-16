@@ -7,14 +7,14 @@ namespace Meraki.Api.Data;
 public class AllowedUrl
 {
 	/// <summary>
-	/// The url to whitelist
+	/// The url to allow
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "url")]
 	public string Url { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Comment about the whitelisted entity
+	/// Comment about the allowed URL
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "comment")]

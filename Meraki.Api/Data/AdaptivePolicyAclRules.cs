@@ -21,14 +21,14 @@ public class AdaptivePolicyAclRules
 	public string Protocol { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Src port
+	/// Source port
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "srcPort")]
 	public string SrcPort { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Dst port
+	/// Destination port
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "dstPort")]

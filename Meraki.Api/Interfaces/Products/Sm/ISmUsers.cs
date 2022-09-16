@@ -10,7 +10,7 @@ public interface ISmUsers
 	/// <param name="ids">Filter users by id(s). Multiple ids can be passed in as comma separated values. (optional)</param>
 	/// <param name="usernames">Filter users by username(s). Multiple usernames can be passed in as comma separated values. (optional)</param>
 	/// <param name="emails">Filter users by email(s). Multiple emails can be passed in as comma separated values. (optional)</param>
-	/// <param name="scope">Specifiy a scope (one of all, none, withAny, withAll, withoutAny, withoutAll) and a set of tags as comma separated values. (optional)</param>
+	/// <param name="scope">Specify a scope (one of all, none, withAny, withAll, withoutAny, withoutAll) and a set of tags as comma separated values. (optional)</param>
 	[Get("/networks/{networkId}/sm/users")]
 	Task<List<SmNetworkUser>> GetNetworkSmUsersAsync(
 		[AliasAs("networkId")] string networkId,

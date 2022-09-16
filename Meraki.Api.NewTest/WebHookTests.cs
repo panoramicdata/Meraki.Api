@@ -36,10 +36,10 @@ public class WebHookTests : MerakiClientUnitTest
 			var testWebHookHttpServers = await TestMerakiClient.Networks.WebHooks.HttpServers.GetNetworkWebhooksHttpServersAsync(network.Id);
 			testWebHookHttpServers.Should().Contain(testWebHookHttpServer => testWebHookHttpServer.Name == testWebHookHttpServerRequest.Name);
 
-			// Create a comparior WebHookHttpSever object
+			// Create a comparison WebHookHttpSever object
 			var expectedWebHookHttpServer = new WebhookHttpServer()
 			{
-				// Don't set SharedSecret in the comparitor object because it won't come back
+				// Don't set SharedSecret in the comparison object because it won't come back
 				Name = testWebHookHttpServerRequest.Name,
 				NetworkId = network.Id,
 				// The new WebHookHttpSever Id is only returned after creation so we have to get it from there
@@ -148,7 +148,7 @@ public class WebHookTests : MerakiClientUnitTest
 			// Create an alternate name for the template
 			var testPayloadAlternateName = "Test Payload Template Updated";
 
-			//Modify the the payload template
+			// Modify the payload template
 			var payloadTemplateUpdated = await TestMerakiClient.Networks.WebHooks.PayloadTemplates.UpdateNetworkWebhooksPayloadTemplateAsync
 				(
 				network.Id,

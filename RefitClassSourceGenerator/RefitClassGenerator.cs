@@ -89,7 +89,7 @@ public class RefitClassGenerator : ISourceGenerator
 						Diagnostic.Create(
 							new DiagnosticDescriptor(
 								"RCG004",
-								"Ambigious interface reference",
+								"Ambiguous interface reference",
 								$"Found {propertyInterfaceSymbols.Count} interface symbols for {propertyTypeName}",
 								"Error",
 								DiagnosticSeverity.Error,

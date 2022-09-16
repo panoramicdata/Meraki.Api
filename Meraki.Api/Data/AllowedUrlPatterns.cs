@@ -1,7 +1,7 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Settings for whitelisted URL patterns
+/// Settings for allowed URL patterns
 /// </summary>
 [DataContract]
 public class AllowedUrlPatterns
@@ -14,7 +14,7 @@ public class AllowedUrlPatterns
 	public UrlSetting Settings { get; set; }
 
 	/// <summary>
-	/// A whitelist of URL patterns to allow
+	/// URL patterns to allow
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "patterns")]

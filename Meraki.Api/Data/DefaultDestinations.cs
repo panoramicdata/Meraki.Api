@@ -7,9 +7,9 @@ namespace Meraki.Api.Data;
 public class DefaultDestinations
 {
 	/// <summary>
-	/// A list of emails that will recieve the alert(s).
+	/// A list of emails that will receive the alert(s).
 	/// </summary>
-	/// <value>A list of emails that will recieve the alert(s).</value>
+	/// <value>A list of emails that will receive the alert(s).</value>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "emails")]
 	public List<string> Emails { get; set; } = new();

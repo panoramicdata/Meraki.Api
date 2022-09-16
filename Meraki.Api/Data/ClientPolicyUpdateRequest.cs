@@ -14,7 +14,7 @@ public class ClientPolicyUpdateRequest
 	public string Mac { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The policy to assign. Can be 'Whitelisted', 'Blocked', 'Normal' or 'Group policy'. Required.
+	/// The policy to assign. Can be 'Whitelisted' (sic), 'Blocked', 'Normal' or 'Group policy'. Required.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "devicePolicy")]

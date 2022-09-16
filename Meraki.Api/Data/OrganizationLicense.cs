@@ -99,4 +99,12 @@ public class OrganizationLicense : IdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "expirationDate")]
 	public string ExpirationDate { get; set; } = string.Empty;
+
+	/// <summary>
+	/// headLicenseId - undocumented
+	/// </summary>
+
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "headLicenseId")]
+	public object? HeadLicenseId { get; set; }
 }

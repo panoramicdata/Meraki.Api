@@ -19,7 +19,7 @@ public class SamlRoleCreateRequest
 	public string OrgAccess { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The list of tags that the SAML administrator has privleges on
+	/// The list of tags that the SAML administrator has privileges on
 	/// </summary>
 	[DataMember(Name = "tags")]
 	public List<AdminTag> Tags { get; set; } = new();

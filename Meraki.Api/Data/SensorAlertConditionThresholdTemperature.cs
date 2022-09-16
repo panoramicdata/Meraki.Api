@@ -13,7 +13,7 @@ public class SensorAlertConditionThresholdTemperature
 	public SensorAlertConditionThresholdQuality? Quality { get; set; }
 
 	/// <summary>
-	/// Temperature Threshold Celsuis
+	/// Temperature Threshold Celsius
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "celsius")]

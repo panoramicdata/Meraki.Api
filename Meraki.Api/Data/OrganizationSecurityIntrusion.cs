@@ -7,7 +7,7 @@ namespace Meraki.Api.Data;
 public class OrganizationSecurityIntrusion
 {
 	/// <summary>
-	/// Sets a list of specific SNORT® signatures to whitelist
+	/// Sets a list of specific SNORT® signatures to allow
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedRules")]

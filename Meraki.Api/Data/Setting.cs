@@ -7,19 +7,19 @@ namespace Meraki.Api.Data;
 public enum Setting
 {
 	/// <summary>
-	/// Enum Networkdefault for "network default"
+	/// Network default
 	/// </summary>
 	[EnumMember(Value = "network default")]
 	Networkdefault,
 
 	/// <summary>
-	/// Enum Ignore for "ignore"
+	/// Ignore
 	/// </summary>
 	[EnumMember(Value = "ignore")]
 	Ignore,
 
 	/// <summary>
-	/// Enum Custom for "custom"
+	/// Custom
 	/// </summary>
 	[EnumMember(Value = "custom")]
 	Custom

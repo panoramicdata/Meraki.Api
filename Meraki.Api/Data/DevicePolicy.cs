@@ -7,31 +7,31 @@ namespace Meraki.Api.Data;
 public enum DevicePolicy
 {
 	/// <summary>
-	/// Enum Grouppolicy for "Group policy"
+	/// Group policy
 	/// </summary>
 	[EnumMember(Value = "Group policy")]
 	GroupPolicy,
 
 	/// <summary>
-	/// Enum Allowed for "Allowed"
+	/// Allowed
 	/// </summary>
 	[EnumMember(Value = "Allowed")]
 	Allowed,
 
 	/// <summary>
-	/// Enum Blocked for "Blocked"
+	/// Blocked
 	/// </summary>
 	[EnumMember(Value = "Blocked")]
 	Blocked,
 
 	/// <summary>
-	/// Enum Perconnection for "Per connection"
+	/// Per connection
 	/// </summary>
 	[EnumMember(Value = "Per connection")]
 	PerConnection,
 
 	/// <summary>
-	/// Enum Normal for "Normal"
+	/// Normal
 	/// </summary>
 	[EnumMember(Value = "Normal")]
 	Normal

@@ -7,7 +7,7 @@
 public class VpnBgp
 {
 	/// <summary>
-	/// Boolean value to enable or disable the BGP configuration. When BGP is enabled, the asNumber (ASN) will be autopopulated with the preconfigured ASN at other Hubs or a default value if there is no ASN configured.
+	/// Boolean value to enable or disable the BGP configuration. When BGP is enabled, the asNumber (ASN) will be auto-populated with the preconfigured ASN at other Hubs or a default value if there is no ASN configured.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
@@ -21,7 +21,7 @@ public class VpnBgp
 	public int AsNumber { get; set; }
 
 	/// <summary>
-	/// The IBGP holdtimer in seconds. The IBGP holdtimer must be an integer between 12 and 240. When absent, this field is not updated. If no value exists then it defaults to 240.
+	/// The IBGP hold timer in seconds. The IBGP hold timer must be an integer between 12 and 240. When absent, this field is not updated. If no value exists then it defaults to 240.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ibgpHoldTimer")]

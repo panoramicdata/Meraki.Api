@@ -6,7 +6,7 @@ namespace Meraki.Api.Interfaces.Products.Switch;
 public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 {
 	/// <summary>
-	/// Return the list of servers trusted by Dynamic ARP Inspection on this network. These are also known as whitelisted snoop entries
+	/// Return the list of servers trusted by Dynamic ARP Inspection on this network. These are also known as allowed snoop entries
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The Network ID</param>
