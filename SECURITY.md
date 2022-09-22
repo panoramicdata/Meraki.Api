@@ -8,6 +8,8 @@ We recommend you always use the latest version of any software to benefit from u
 
 ## Reporting a Vulnerability
 
+As detailed in the license, we offer no warranty that this software is free from security defects. However, we undertake to resolve any security issues identified as soon as resource can be made available. If you identify a defect in our software then please report it so that we can investigate.
+
 To report an issue, complete this form: https://panoramicdata.com/support
 
 We will acknowledge valid submissions, provide a ticket reference and give you updates on the issue. Fixed vulnerabilities are described in release notes and disclosed to the community once the fix is deployed.
