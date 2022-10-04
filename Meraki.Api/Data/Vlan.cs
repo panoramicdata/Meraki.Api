@@ -147,4 +147,11 @@ public class Vlan : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ip6")]
 	public object? Ip6 { get; set; }
+
+	/// <summary>
+	/// ipv6 not documented
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ipv6")]
+	public object? Ipv6 { get; set; }
 }
