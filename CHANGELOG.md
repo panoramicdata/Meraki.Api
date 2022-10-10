@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## v1.25.12
+## v1.25.13
 - Fixed https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses for:
 -- port to ports, permitting deserialization
 -- renamed Speed to SpeedMbps
