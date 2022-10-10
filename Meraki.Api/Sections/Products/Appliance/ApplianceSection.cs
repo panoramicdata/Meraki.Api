@@ -9,6 +9,7 @@ public class ApplianceSection
 	public ApplianceFirewallSection Firewall { get; internal set; } = new();
 	public IAppliancePerformance Performance { get; internal set; } = null!;
 	public IAppliancePorts Ports { get; internal set; } = null!;
+	public AppliancePrefixesSection Prefixes { get; internal set; } = new();
 	public ApplianceSecuritySection Security { get; internal set; } = new();
 	public IApplianceSettings Settings { get; internal set; } = null!;
 	public IApplianceSingleLan SingleLan { get; internal set; } = null!;
