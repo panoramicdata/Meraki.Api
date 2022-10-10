@@ -158,6 +158,7 @@ public partial class MerakiClient : IDisposable
 			},
 			Performance = RefitFor(Appliance.Performance),
 			Ports = RefitFor(Appliance.Ports),
+			Prefixes = RefitFor(Appliance.Prefixes),
 			Security = new()
 			{
 				Intrusion = RefitFor(Appliance.Security.Intrusion),
@@ -198,7 +199,8 @@ public partial class MerakiClient : IDisposable
 			},
 			Uplinks = new()
 			{
-				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory)
+				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory),
+				Settings = RefitFor(Appliance.Uplinks.Settings)
 			},
 			Vlans = new()
 			{
