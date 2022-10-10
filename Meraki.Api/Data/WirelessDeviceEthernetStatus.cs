@@ -33,6 +33,6 @@ public class WirelessDeviceEthernetStatus : NamedItem
 	/// <summary>
 	/// List of port details
 	/// </summary>
-	[DataMember(Name = "port")]
+	[DataMember(Name = "ports")]
 	public List<WirelessDeviceEthernetStatusPort> Ports { get; set; } = new();
 }
