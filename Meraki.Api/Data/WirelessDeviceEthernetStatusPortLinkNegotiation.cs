@@ -7,14 +7,14 @@
 public class WirelessDeviceEthernetStatusPortLinkNegotiation
 {
 	/// <summary>
-	/// The speed of the port
+	/// The speed of the port in Mbps
 	/// </summary>
 	[DataMember(Name = "speed")]
-	public int Speed { get; set; }
+	public int SpeedMbps { get; set; }
 
 	/// <summary>
 	/// The duplex mode of the port, can be 'full' or 'half'
 	/// </summary>
 	[DataMember(Name = "duplex")]
-	public WirelessDeviceEthernetStatusPortLinkNegotiationDuplex duplex { get; set; }
+	public WirelessDeviceEthernetStatusPortLinkNegotiationDuplex Duplex { get; set; }
 }
