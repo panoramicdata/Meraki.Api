@@ -7,23 +7,23 @@ public class ClientOverviewUsageOverall
 	/// Total
 	/// </summary>
 	[DataMember(Name = "total")]
-	public int Total { get; set; }
+	public double Total { get; set; }
 
 	/// <summary>
 	/// Downstream
 	/// </summary>
 	[DataMember(Name = "downstream")]
-	public int Downstream { get; set; }
+	public double Downstream { get; set; }
 
 	/// <summary>
 	/// Upstream
 	/// </summary>
 	[DataMember(Name = "upstream")]
-	public int Upstream { get; set; }
+	public double Upstream { get; set; }
 
 	/// <summary>
 	/// Percentage
 	/// </summary>
 	[DataMember(Name = "percentage")]
-	public int Percentage { get; set; }
+	public double Percentage { get; set; }
 }

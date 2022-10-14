@@ -7,5 +7,5 @@ public class ApplianceUtilizationSummaryUtilizationAverage
 	/// Percentage
 	/// </summary>
 	[DataMember(Name = "percentage")]
-	public int Percentage { get; set; }
+	public double Percentage { get; set; }
 }

@@ -75,6 +75,10 @@ public partial class MerakiClient : IDisposable
 			},
 			SamlRoles = RefitFor(Organizations.SamlRoles),
 			Snmp = RefitFor(Organizations.Snmp),
+			Summary = new()
+			{
+				Top = RefitFor(Organizations.Summary.Top)
+			},
 			Webhooks = new()
 			{
 				AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes),

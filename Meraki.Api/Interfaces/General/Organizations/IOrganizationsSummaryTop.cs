@@ -19,7 +19,7 @@ public interface IOrganizationsSummaryTop
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string? t0 = null,
 		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] int? timespan = null,
+		[AliasAs("timespan")] double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -36,7 +36,7 @@ public interface IOrganizationsSummaryTop
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string? t0 = null,
 		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] int? timespan = null,
+		[AliasAs("timespan")] double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -53,7 +53,7 @@ public interface IOrganizationsSummaryTop
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string? t0 = null,
 		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] int? timespan = null,
+		[AliasAs("timespan")] double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -70,7 +70,7 @@ public interface IOrganizationsSummaryTop
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string? t0 = null,
 		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] int? timespan = null,
+		[AliasAs("timespan")] double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -87,7 +87,7 @@ public interface IOrganizationsSummaryTop
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string? t0 = null,
 		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] int? timespan = null,
+		[AliasAs("timespan")] double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -104,7 +104,7 @@ public interface IOrganizationsSummaryTop
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string? t0 = null,
 		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] int? timespan = null,
+		[AliasAs("timespan")] double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -121,6 +121,6 @@ public interface IOrganizationsSummaryTop
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("t0")] string? t0 = null,
 		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] int? timespan = null,
+		[AliasAs("timespan")] double? timespan = null,
 		CancellationToken cancellationToken = default);
 }
