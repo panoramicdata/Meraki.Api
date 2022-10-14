@@ -158,6 +158,13 @@ public partial class MerakiClient : IDisposable
 			},
 			Performance = RefitFor(Appliance.Performance),
 			Ports = RefitFor(Appliance.Ports),
+			Prefixes = new()
+			{
+				Delegated = new()
+				{
+					Statics = RefitFor(Appliance.Prefixes.Delegated.Statics)
+				}
+			},
 			Security = new()
 			{
 				Intrusion = RefitFor(Appliance.Security.Intrusion),
@@ -173,6 +180,7 @@ public partial class MerakiClient : IDisposable
 			Firewall = new()
 			{
 				CellularFirewallRules = RefitFor(Appliance.Firewall.CellularFirewallRules),
+				InboundCellularFirewallRules = RefitFor(Appliance.Firewall.InboundCellularFirewallRules),
 				FirewalledServices = RefitFor(Appliance.Firewall.FirewalledServices),
 				InboundFirewallRules = RefitFor(Appliance.Firewall.InboundFirewallRules),
 				L3FirewallRules = RefitFor(Appliance.Firewall.L3FirewallRules),
@@ -198,7 +206,8 @@ public partial class MerakiClient : IDisposable
 			},
 			Uplinks = new()
 			{
-				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory)
+				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory),
+				Settings = RefitFor(Appliance.Uplinks.Settings)
 			},
 			Vlans = new()
 			{
