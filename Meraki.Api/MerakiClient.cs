@@ -174,6 +174,7 @@ public partial class MerakiClient : IDisposable
 			Firewall = new()
 			{
 				CellularFirewallRules = RefitFor(Appliance.Firewall.CellularFirewallRules),
+				InboundCellularFirewallRules = RefitFor(Appliance.Firewall.InboundCellularFirewallRules),
 				FirewalledServices = RefitFor(Appliance.Firewall.FirewalledServices),
 				InboundFirewallRules = RefitFor(Appliance.Firewall.InboundFirewallRules),
 				L3FirewallRules = RefitFor(Appliance.Firewall.L3FirewallRules),

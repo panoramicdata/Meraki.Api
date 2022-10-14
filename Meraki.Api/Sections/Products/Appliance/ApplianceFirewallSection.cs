@@ -3,6 +3,7 @@
 public class ApplianceFirewallSection
 {
 	public IApplianceFirewallCellularFirewallRules CellularFirewallRules { get; internal set; } = null!;
+	public IApplianceFirewallInboundCellularFirewallRules InboundCellularFirewallRules { get; internal set; } = null!;
 	public IApplianceFirewallFirewalledServices FirewalledServices { get; internal set; } = null!;
 	public IApplianceFirewallInboundFirewallRules InboundFirewallRules { get; internal set; } = null!;
 	public IApplianceFirewallL3FirewallRules L3FirewallRules { get; internal set; } = null!;
