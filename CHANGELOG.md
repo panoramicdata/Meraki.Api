@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## v1.26.1
+- Added organisations summary top methods
+
 ## v1.25.13
 - Fixed https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses for:
 -- port to ports, permitting deserialization
