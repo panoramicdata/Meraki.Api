@@ -9,6 +9,7 @@ public class NetworkAppliancePrefixesDelegatedStatic
 	/// <summary>
 	/// Static Delegated Prefix Id
 	/// </summary>
+	[ApiKey]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "staticDelegatedPrefixId")]
 	public string StaticDelegatedPrefixId { get; set; } = string.Empty;

@@ -18,7 +18,7 @@ public class NetworkAppliancePrefixesDelegatedStaticCreateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "origin")]
-	public NetworkAppliancePrefixesDelegatedStaticOrigin? Origin { get; set; }
+	public NetworkAppliancePrefixesDelegatedStaticOrigin Origin { get; set; } = new();
 
 	/// <summary>
 	/// Identifying description for the prefix.

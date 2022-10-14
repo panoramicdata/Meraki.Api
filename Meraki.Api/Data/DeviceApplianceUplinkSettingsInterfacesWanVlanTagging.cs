@@ -9,14 +9,14 @@ public class DeviceApplianceUplinkSettingsInterfacesWanVlanTagging
 	/// <summary>
 	/// Whether VLAN tagging is enabled.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// The ID of the VLAN to use for VLAN tagging.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "vlanId")]
 	public int? VlanId { get; set; }
 }

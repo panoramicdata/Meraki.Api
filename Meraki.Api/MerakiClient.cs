@@ -158,7 +158,13 @@ public partial class MerakiClient : IDisposable
 			},
 			Performance = RefitFor(Appliance.Performance),
 			Ports = RefitFor(Appliance.Ports),
-			Prefixes = RefitFor(Appliance.Prefixes),
+			Prefixes = new()
+			{
+				Delegated = new()
+				{
+					Statics = RefitFor(Appliance.Prefixes.Delegated.Statics)
+				}
+			},
 			Security = new()
 			{
 				Intrusion = RefitFor(Appliance.Security.Intrusion),

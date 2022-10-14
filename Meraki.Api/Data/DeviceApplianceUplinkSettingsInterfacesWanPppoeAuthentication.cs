@@ -9,9 +9,9 @@ public class DeviceApplianceUplinkSettingsInterfacesWanPppoeAuthentication
 	/// <summary>
 	/// Whether PPPoE authentication is enabled.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// Username for PPPoE authentication.
@@ -19,4 +19,11 @@ public class DeviceApplianceUplinkSettingsInterfacesWanPppoeAuthentication
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "username")]
 	public string? Username { get; set; }
+
+	/// <summary>
+	/// Password for pppoe authenticaion, this parameter is not returned
+	/// </summary>
+	[ApiAccess(ApiAccess.Update)]
+	[DataMember(Name = "password")]
+	public string? Password { get; set; }
 }
