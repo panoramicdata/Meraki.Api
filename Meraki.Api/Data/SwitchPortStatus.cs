@@ -64,7 +64,7 @@ public class Cdp
 	public string Platform { get; set; } = string.Empty;
 
 	[DataMember(Name = "deviceId")]
-	public string dDeviceId { get; set; } = string.Empty;
+	public string DeviceId { get; set; } = string.Empty;
 
 	[DataMember(Name = "portId")]
 	public string PortId { get; set; } = string.Empty;
