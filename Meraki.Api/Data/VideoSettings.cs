@@ -39,28 +39,28 @@ public class VideoSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "MV63")]
-	public Mv63 Mv63 { get; set; } = null!;
+	public Mv63? Mv63 { get; set; }
 
 	/// <summary>
 	/// Gets or Sets MV63X
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "MV63X")]
-	public Mv63X Mv63X { get; set; } = null!;
+	public Mv63X? Mv63X { get; set; }
 
 	/// <summary>
 	/// Gets or Sets MV93
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "MV93")]
-	public Mv93 Mv93 { get; set; } = null!;
+	public Mv93? Mv93 { get; set; }
 
 	/// <summary>
 	/// Gets or Sets MV93X
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "MV93X")]
-	public Mv93X Mv93X { get; set; } = null!;
+	public Mv93X? Mv93X { get; set; }
 
 	/// <summary>
 	/// Gets or Sets MV32

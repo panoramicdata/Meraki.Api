@@ -18,5 +18,5 @@ public class Mv21Mv71
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "resolution")]
-	public string Resolution { get; set; } = null!;
+	public Mv21Mv71Resolution Resolution { get; set; }
 }
