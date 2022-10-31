@@ -33,4 +33,11 @@ public class SamlRole : IdentifiedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "networks")]
 	public List<SamlRoleNetwork> Networks { get; set; } = new();
+
+	/// <summary>
+	/// Camera - Undocumented object
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "camera")]
+	public object? Camera { get; set; }
 }
