@@ -68,6 +68,7 @@ public partial class MerakiClient : IDisposable
 			LoginSecurity = RefitFor(Organizations.LoginSecurity),
 			Networks = RefitFor(Organizations.Networks),
 			OpenapiSpec = RefitFor(Organizations.OpenapiSpec),
+			PolicyObjects = RefitFor(Organizations.PolicyObjects),
 			Saml = new()
 			{
 				Saml = RefitFor(Organizations.Saml.Saml),
