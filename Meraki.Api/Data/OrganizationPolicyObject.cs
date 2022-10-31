@@ -12,7 +12,7 @@ public class OrganizationPolicyObject : NamedIdentifiedItem
 	/// </summary>
 	[DataMember(Name = "category")]
 	[ApiAccess(ApiAccess.ReadWrite)]
-	public OrganizationPolicyObjectCategory Category { get; set; } = string.Empty;
+	public OrganizationPolicyObjectCategory Category { get; set; }
 
 	/// <summary>
 	/// Type of a policy object (one of: cidr, adaptivePolicyIpv4Cidr, fqdn, ipAndMask)
