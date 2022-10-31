@@ -19,7 +19,7 @@ public class OrganizationPolicyObjectCreateRequest : NamedItem
 	/// </summary>
 	[DataMember(Name = "type")]
 	[ApiAccess(ApiAccess.ReadWrite)]
-	public OrganizationPolicyObjectType? Type { get; set; }
+	public OrganizationPolicyObjectType Type { get; set; }
 
 	/// <summary>
 	/// CIDR Value of a policy object (e.g. 10.11.12.1/24)
