@@ -11,7 +11,7 @@ public class LanConfigurationIpv6
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// Prefix Assignments
