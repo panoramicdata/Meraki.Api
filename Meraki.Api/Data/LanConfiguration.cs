@@ -21,6 +21,14 @@ public class LanConfiguration
 	public string ApplianceIp { get; set; } = string.Empty;
 
 	/// <summary>
+	/// ipV6
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "ipv6")]
+
+	public LanConfigurationIpv6? Ipv6 { get; set; }
+
+	/// <summary>
 	/// FixedIpAssignments - No documentation
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]

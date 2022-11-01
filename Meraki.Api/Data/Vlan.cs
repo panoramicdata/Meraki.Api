@@ -153,5 +153,12 @@ public class Vlan : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ipv6")]
-	public object? Ipv6 { get; set; }
+	public VlanIpv6? Ipv6 { get; set; }
+
+	/// <summary>
+	/// vpnNatSubnet not documented
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vpnNatSubnet")]
+	public string? VpnNatSubnet { get; set; }
 }

@@ -9,7 +9,7 @@ public interface IApplianceFirewallInboundCellularFirewallRules
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkApplianceFirewallInboundCellularFirewallRules")]
 	[Get("/networks/{networkId}/appliance/firewall/inboundCellularFirewallRules")]
-	Task<InboundCellularFirewallRules> GetNetworkApplianceFirewallInboundCellularFirewallRulesAsync(
+	Task<List<MxFirewallRule>> GetNetworkApplianceFirewallInboundCellularFirewallRulesAsync(
 		string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -22,7 +22,7 @@ public interface IApplianceFirewallInboundCellularFirewallRules
 	/// <param name="inboundCellularFirewallRules">Body for updating network inbound cellular firewall rules</param>
 	[ApiOperationId("updateNetworkApplianceFirewallInboundCellularFirewallRules")]
 	[Put("/networks/{networkId}/appliance/firewall/inboundCellularFirewallRules")]
-	Task<InboundCellularFirewallRules> UpdateNetworkApplianceFirewallInboundCellularFirewallRulesAsync(
+	Task<List<InboundCellularFirewallRules>> UpdateNetworkApplianceFirewallInboundCellularFirewallRulesAsync(
 		string networkId,
 		[Body] InboundCellularFirewallRules inboundCellularFirewallRules,
 		CancellationToken cancellationToken = default
