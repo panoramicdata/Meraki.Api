@@ -11,7 +11,7 @@ public class LanConfigurationIpv6PrefixAssignment
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "autonomous")]
-	public bool Autonomous { get; set; }
+	public bool? Autonomous { get; set; }
 
 	/// <summary>
 	/// Static Prefix
