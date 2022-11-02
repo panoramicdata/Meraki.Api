@@ -70,7 +70,7 @@ public interface INetworks
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("unbindNetwork")]
 	[Post("/networks/{networkId}/unbind")]
-	Task UnbindNetworkAsync(
+	Task<Network> UnbindNetworkAsync(
 		[AliasAs("networkId")] string networkId,
 		CancellationToken cancellationToken = default
 		);

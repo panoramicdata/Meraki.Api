@@ -20,7 +20,7 @@ public interface IOrganizationsSamlIdp
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationSamlIdp">Body for creating a SAML IdP</param>
 	[Post("/organizations/{organizationId}/saml/idps")]
-	Task<SamlIdp> CreateOrganizationSamlIdpAsync(
+	Task<List<SamlIdp>> CreateOrganizationSamlIdpAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[Body] SamlIdpsCreateRequest createOrganizationSamlIdp,
 		CancellationToken cancellationToken = default
@@ -47,7 +47,7 @@ public interface IOrganizationsSamlIdp
 	/// <param name="idpId">The IdP id</param>
 	/// <param name="updateOrganizationSamlIdp">Body for updating a SAML IdP</param>
 	[Put("/organizations/{organizationId}/saml/idps/{idpId}")]
-	Task<SamlIdp> UpdateOrganizationSamlIdpAsync(
+	Task<List<SamlIdp>> UpdateOrganizationSamlIdpAsync(
 		[AliasAs("organizationId")] string organizationId,
 		[AliasAs("idpId")] string idpId,
 		[Body] SamlIdpsCreateRequest updateOrganizationSamlIdp,

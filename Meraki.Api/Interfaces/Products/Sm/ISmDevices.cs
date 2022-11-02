@@ -64,7 +64,7 @@ public interface ISmDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Post("/networks/{networkId}/sm/devices/modifyTags")]
-	Task<SmDevicesCheckinRequest> ModifyNetworkSmDevicesTagsAsync(
+	Task<List<SmDevicesCheckinRequest>> ModifyNetworkSmDevicesTagsAsync(
 		[AliasAs("networkId")] string networkId,
 		[Body] ModifyNetworkDeviceTags modifyNetworkSmDevicesTags,
 		CancellationToken cancellationToken = default

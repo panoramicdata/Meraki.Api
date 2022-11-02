@@ -27,12 +27,12 @@ public interface ICameraSense
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// Returns sense settings for a given camera
+	/// Returns the MV Sense object detection model list for the given camera
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial id</param>
 	[Get("/devices/{serial}/camera/sense/objectDetectionModels")]
-	Task<CameraObjectDetectionModel> GetDeviceCameraSenseObjectDetectionModelsAsync(
+	Task<List<CameraObjectDetectionModel>> GetDeviceCameraSenseObjectDetectionModelsAsync(
 		[AliasAs("serial")] string serial,
 		CancellationToken cancellationToken = default);
 }

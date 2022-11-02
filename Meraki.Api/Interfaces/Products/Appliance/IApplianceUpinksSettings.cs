@@ -18,7 +18,7 @@ public interface IApplianceUplinksSettings
 	/// <param name="serial">The MX Device Sertial Number</param>
 	/// <param name="deviceApplianceUplinkSettingsUpdateRequest">Update request body</param>
 	[ApiOperationId("updateDeviceApplianceUplinksSettings")]
-	[Get("/devices/{serial}/appliance/uplinks/settings")]
+	[Put("/devices/{serial}/appliance/uplinks/settings")]
 	Task<DeviceApplianceUplinkSettings> UpdateDeviceApplianceUplinksSettingsAsync(
 		string serial,
 		[Body] DeviceApplianceUplinkSettingsUpdateRequest deviceApplianceUplinkSettingsUpdateRequest,
