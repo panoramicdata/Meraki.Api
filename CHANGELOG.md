@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## v1.26.17
+## v1.26.22
 - Fixed bug with policyObjects endpoint
 
 ## v1.26.1
