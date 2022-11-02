@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## v1.26.17
+- Fixed bug with policyObjects endpoint
+
 ## v1.26.1
 - Added organisations summary top methods
 
