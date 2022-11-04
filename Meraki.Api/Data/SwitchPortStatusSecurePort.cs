@@ -4,7 +4,7 @@
 /// Secure connect settings
 /// </summary>
 [DataContract]
-public class SwitchPortStatusSecureConnect
+public class SwitchPortStatusSecurePort
 {
 	/// <summary>
 	/// Enabled?
