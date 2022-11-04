@@ -1,22 +1,22 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Quality and resolution for MV21/MV71 camera models.
+/// Quality and resolution for MV63X camera models.
 /// </summary>
 [DataContract]
-public class Mv21Mv71
+public class Mv93
 {
 	/// <summary>
 	/// Gets or Sets Quality
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "quality")]
-	public CameraQuality Quality { get; set; }
+	public StandardEnhancedHighQuality Quality { get; set; }
 
 	/// <summary>
-	/// Resolution of the camera. Can be one of '1280x720'.
+	/// Gets or Sets Resolution
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "resolution")]
-	public Mv21Mv71Resolution Resolution { get; set; }
+	public Mv93Resolution Resolution { get; set; }
 }

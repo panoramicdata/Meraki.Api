@@ -47,4 +47,11 @@ public class Organization : NamedIdentifiedItem
 	[DataMember(Name = "samlConsumerUrls")]
 	[ApiAccess(ApiAccess.Read)]
 	public List<string>? SamlConsumerUrls { get; set; }
+
+	/// <summary>
+	/// management - Undocumented
+	/// </summary>
+	[DataMember(Name = "management")]
+	[ApiAccess(ApiAccess.Read)]
+	public OrganizationManagement? Management { get; set; }
 }

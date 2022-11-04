@@ -58,4 +58,10 @@ public class VlanCreationRequest
 	/// </summary>
 	[DataMember(Name = "templateVlanType")]
 	public string? TemplateVlanType { get; set; }
+
+	/// <summary>
+	/// Ipv6
+	/// </summary>
+	[DataMember(Name = "ipv6")]
+	public VlanIpv6? Ipv6 { get; set; }
 }

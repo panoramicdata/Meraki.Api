@@ -44,4 +44,7 @@ public class VlanSpec
 
 	[DataMember(Name = "dhcpOptions")]
 	public List<DhcpOption>? DhcpOptions { get; set; }
+
+	[DataMember(Name = "ipv6")]
+	public VlanIpv6? Ipv6 { get; set; }
 }
