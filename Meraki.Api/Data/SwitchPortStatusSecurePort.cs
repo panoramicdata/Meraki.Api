@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Secure connect settings
+/// Secure port settings - formerlu secure connect
 /// </summary>
 [DataContract]
 public class SwitchPortStatusSecurePort
