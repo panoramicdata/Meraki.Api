@@ -19,4 +19,8 @@ public class DnsRewrite
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dnsCustomNameservers")]
 	public List<string> DnsCustomNameservers { get; set; } = new();
+
+	/// <inheritdoc />
+	public override string ToString()
+		=> $"{string.Join(",", DnsCustomNameservers)}:{Enabled}";
 }

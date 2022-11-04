@@ -19,4 +19,8 @@ public class Dot11r
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
+
+	/// <inheritdoc />
+	public override string ToString()
+		=> $"{Adaptive}:{Enabled}";
 }

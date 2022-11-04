@@ -55,4 +55,8 @@ public class SsidRadiusServer
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radsecEnabled")]
 	public bool RadsecEnabled { get; set; }
+
+	/// <inheritdoc />
+	public override string ToString()
+		=> $"{Host}:{Port}:{Secret}";
 }

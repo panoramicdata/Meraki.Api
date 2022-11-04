@@ -12,4 +12,8 @@ public class SpeedBurst
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
+
+	/// <inheritdoc />
+	public override string ToString()
+		=> $"{Enabled}";
 }

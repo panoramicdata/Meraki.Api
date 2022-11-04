@@ -19,4 +19,8 @@ public class Dot11w
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "required")]
 	public bool Required { get; set; }
+
+	/// <inheritdoc />
+	public override string ToString()
+		=> $"{Required}:{Enabled}";
 }
