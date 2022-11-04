@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Secure connect settings
+/// Secure port settings - Formerly secure connect
 /// </summary>
 [DataContract]
-public class NetworkSettingsSecureConnect
+public class NetworkSettingsSecurePort
 {
 	/// <summary>
 	/// Enabled?

@@ -7,10 +7,10 @@ namespace Meraki.Api.Data;
 public enum Mv63Resolution
 {
 	/// <summary>
-	/// Enum 1960x1080
+	/// Enum 1920x1080
 	/// </summary>
-	[EnumMember(Value = "1960x1080")]
-	Size1960x1080,
+	[EnumMember(Value = "1920x1080")]
+	Size1920x1080,
 
 	/// <summary>
 	/// Enum 2560x1440

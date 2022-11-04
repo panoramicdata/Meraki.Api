@@ -21,11 +21,11 @@ public class NetworkSettings
 	public bool? RemoteStatusPageEnabled { get; set; }
 
 	/// <summary>
-	/// Secure connect settings
+	/// Secure port settings - formerly secure connect
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "secureConnect")]
-	public NetworkSettingsSecureConnect? SecureConnect { get; set; }
+	[DataMember(Name = "securePort")]
+	public NetworkSettingsSecurePort? SecurePort { get; set; }
 
 	/// <summary>
 	/// Fips settings - undocumented

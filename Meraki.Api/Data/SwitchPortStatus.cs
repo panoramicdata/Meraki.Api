@@ -45,8 +45,8 @@ public class SwitchPortStatus
 	[DataMember(Name = "trafficInKbps")]
 	public TrafficInKbps TrafficInKbps { get; set; } = new();
 
-	[DataMember(Name = "secureConnect")]
-	public SwitchPortStatusSecureConnect? SecureConnect { get; set; }
+	[DataMember(Name = "securePort")]
+	public SwitchPortStatusSecurePort? SecurePort { get; set; }
 }
 
 public class UsageInKb : Usage
