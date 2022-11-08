@@ -11,7 +11,7 @@ public abstract class MerakiClientUnitTest
 	protected ICacheLogger Logger { get; }
 	protected MerakiClient TestMerakiClient { get; }
 
-	public MerakiClientUnitTest(ITestOutputHelper testOutputHelper)
+	protected MerakiClientUnitTest(ITestOutputHelper testOutputHelper)
 	{
 		var testConfig = JsonConvert.DeserializeObject<TestConfig>(
 			File.ReadAllText("../../../appsettings.json")
