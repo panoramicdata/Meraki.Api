@@ -18,6 +18,7 @@ public partial class OrganizationsSection
 	public IOrganizationsNetworks Networks { get; internal set; } = null!;
 	public IOrganizationsOpenapiSpec OpenapiSpec { get; internal set; } = null!;
 	public IOrganizationsPolicyObjects PolicyObjects { get; internal set; } = null!;
+	public IOrganizationsPolicyObjectsGroups PolicyObjectGroups { get; internal set; } = null!;
 	public OrganizationsSamlSection Saml { get; internal set; } = new();
 	public IOrganizationsSamlRoles SamlRoles { get; internal set; } = null!;
 	public IOrganizationsSnmp Snmp { get; internal set; } = null!;
