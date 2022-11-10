@@ -125,4 +125,11 @@ public class AccessPolicy
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "dot1x")]
 	public Dot1x Dot1x { get; set; } = new();
+
+	/// <summary>
+	/// Authentication Method
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "authenticationMethod")]
+	public object? AuthenticationMethod { get; set; }
 }

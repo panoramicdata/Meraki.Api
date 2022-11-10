@@ -14,6 +14,13 @@ public class RoutingInterfaceDhcp
 	public string DhcpMode { get; set; } = string.Empty;
 
 	/// <summary>
+	/// The DHCP relay server IPs to which DHCP packets would get relayed for the switch interface
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "dhcpRelayServerIps")]
+	public List<string>? DhcpRelayServerIps { get; set; }
+
+	/// <summary>
 	/// The DHCP lease time config for the dhcp server running on switch interface ('30 minutes', '1 hour', '4 hours', '12 hours', '1 day' or '1 week')
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
