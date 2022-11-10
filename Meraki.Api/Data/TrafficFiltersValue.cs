@@ -4,7 +4,7 @@
 /// Value
 /// </summary>
 [DataContract]
-public class TrafficFiltersValue
+public class TrafficFiltersValue : NamedItem
 {
 	/// <summary>
 	/// Protocol of this custom type traffic filter. Must be one of: 'tcp', 'udp', 'icmp' or 'any'
