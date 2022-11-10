@@ -127,7 +127,7 @@ public class AccessPolicy
 	public Dot1x Dot1x { get; set; } = new();
 
 	/// <summary>
-	/// Authentication Method
+	/// Authentication Method - Undocumented, no responses other than null observed yet
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "authenticationMethod")]
