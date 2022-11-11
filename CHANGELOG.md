@@ -8,9 +8,9 @@
 
 ## v1.25.13
 - Fixed https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses for:
--- port to ports, permitting deserialization
--- renamed Speed to SpeedMbps
--- renamed IsConnectd to IsConnected
+- port to ports, permitting deserialization
+- renamed Speed to SpeedMbps
+- renamed IsConnectd to IsConnected
 
 ## v1.25.6
 - Added https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses 

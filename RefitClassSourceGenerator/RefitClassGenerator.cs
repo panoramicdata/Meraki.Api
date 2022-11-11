@@ -43,7 +43,6 @@ public class RefitClassGenerator : ISourceGenerator
 
 				// Find the type of the property as this is what we want to copy properties from
 				// Need to get the symbol
-				// var symbol = semanticModel.GetSymbolInfo(property);
 				var propertyDeclaredSymbol = semanticModel.GetDeclaredSymbol(property);
 
 				if (propertyDeclaredSymbol is null)
@@ -121,8 +120,6 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 
 					if (methodSymbol.DeclaredAccessibility == Accessibility.Public)
 					{
-						//var line = $"public {methodSymbol.ReturnType} {methodSymbol.Name} ({parameters})";
-
 						sb.AppendLine("\t" + methodSymbol.GetMethodSignature(true));
 						var parameters = string.Join(", ", methodSymbol.Parameters.Select(p => $"{p.Name}"));
 						sb.AppendLine($"\t\t=> {propertyDeclaredSymbol.Name}.{methodSymbol.Name}({parameters});");

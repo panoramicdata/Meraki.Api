@@ -23,17 +23,17 @@ public class Wifi
 	/// Utilization total
 	/// </summary>
 	[DataMember(Name = "utilization")]
-	public double UtilizationTotal { get; set; } = 0;
+	public double UtilizationTotal { get; set; }
 
 	/// <summary>
 	/// Utilization wifi
 	/// </summary>
 	[DataMember(Name = "wifi")]
-	public double UtilizationWifi { get; set; } = 0;
+	public double UtilizationWifi { get; set; }
 
 	/// <summary>
 	/// Utilization non-wifi
 	/// </summary>
 	[DataMember(Name = "non_wifi")]
-	public double UtilizationNonWifi { get; set; } = 0;
+	public double UtilizationNonWifi { get; set; }
 }

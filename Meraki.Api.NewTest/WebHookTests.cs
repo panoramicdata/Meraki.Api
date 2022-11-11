@@ -37,7 +37,7 @@ public class WebHookTests : MerakiClientUnitTest
 			testWebHookHttpServers.Should().Contain(testWebHookHttpServer => testWebHookHttpServer.Name == testWebHookHttpServerRequest.Name);
 
 			// Create a comparison WebHookHttpSever object
-			var expectedWebHookHttpServer = new WebhookHttpServer()
+			var expectedWebHookHttpServer = new WebhookHttpServer
 			{
 				// Don't set SharedSecret in the comparison object because it won't come back
 				Name = testWebHookHttpServerRequest.Name,

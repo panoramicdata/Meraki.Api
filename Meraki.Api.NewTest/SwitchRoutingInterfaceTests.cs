@@ -29,17 +29,17 @@ public class SwitchRoutingInterfaceTests : MerakiClientUnitTest
 		};
 
 		var createSwitchRoutingInterface = await TestMerakiClient.Switch.Routing.Interfaces.CreateDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterfaceRequest);
-		createSwitchRoutingInterface.Should().NotBeNull();
-		
+		_ = createSwitchRoutingInterface.Should().NotBeNull();
+
 		// Get all routing interfaces from the switch and see that it's there
 		var getSwitchRoutingInterfaces = await TestMerakiClient.Switch.Routing.Interfaces.GetDeviceSwitchRoutingInterfacesAsync(TestSwitchSerial);
-		getSwitchRoutingInterfaces.Should().Contain(getSwitchRoutingInterfaces => getSwitchRoutingInterfaces.Name == createSwitchRoutingInterface.Name);
+		_ = getSwitchRoutingInterfaces.Should().Contain(getSwitchRoutingInterfaces => getSwitchRoutingInterfaces.Name == createSwitchRoutingInterface.Name);
 
 		// Make a change to the interface
 		// TODO - Ipv6 settings are accepted without error on both update and create requests but not stored or retrievable, need to find out why.
 		// TODO - OSPF settings are returned when they have not been set even though they default to null. Check this is Meraki and not us doing this.
 
-		var updateSwitchRoutingInterfaceRequest = new RoutingInterfaceUpdateRequest()
+		var updateSwitchRoutingInterfaceRequest = new RoutingInterfaceUpdateRequest
 		{
 			Name = "Test Routing Interface Renamed",
 			// VlanId = 12,
@@ -55,7 +55,6 @@ public class SwitchRoutingInterfaceTests : MerakiClientUnitTest
 				Prefix = "1:2:3:4::/48",
 				Gateway = "1:2:3:4::2"
 			}
-
 		};
 		var updatedSwitchRoutingInterface = await TestMerakiClient
 			.Switch
@@ -73,14 +72,13 @@ public class SwitchRoutingInterfaceTests : MerakiClientUnitTest
 		*/
 		// Get the routing interface and compare
 		var testSwitchRoutingInterface = await TestMerakiClient.Switch.Routing.Interfaces.GetDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterface.InterfaceId);
-		testSwitchRoutingInterface.Name.Should().Be(updateSwitchRoutingInterfaceRequest.Name);
+		_ = testSwitchRoutingInterface.Name.Should().Be(updateSwitchRoutingInterfaceRequest.Name);
 
 		// Delete the routing interface
 		await TestMerakiClient.Switch.Routing.Interfaces.DeleteDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterface.InterfaceId);
 
 		// Check that the interface no longer exists
 		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Switch.Routing.Interfaces.GetDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterface.InterfaceId));
-		exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
-
+		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 	}
 }

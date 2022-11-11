@@ -2,7 +2,6 @@
 using Microsoft.CodeAnalysis.CSharp;
 using RefitClassSourceGenerator;
 using System.Collections.Immutable;
-using System.Reflection;
 
 namespace TestConsoleApp;
 
@@ -10,7 +9,7 @@ class Program
 {
 	static void Main()
 	{
-		string source =
+		var source =
 
 			@"
 using System;
@@ -72,7 +71,7 @@ namespace Meraki.Api.Sections.General.Networks {
 		var syntaxTree = CSharpSyntaxTree.ParseText(source);
 
 		var references = new List<MetadataReference>();
-		Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+		var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 		foreach (var assembly in assemblies)
 		{
 			if (!assembly.IsDynamic)
@@ -83,19 +82,10 @@ namespace Meraki.Api.Sections.General.Networks {
 
 		var compilation = CSharpCompilation.Create("foo", new SyntaxTree[] { syntaxTree }, references, new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
-		// Uncomment these lines if you want to return immediately if the injected program isn't valid _before_ running generators
-		//
-		// ImmutableArray<Diagnostic> compilationDiagnostics = compilation.GetDiagnostics();
-		//
-		// if (diagnostics.Any())
-		// {
-		//     return (diagnostics, "");
-		// }
-
 		ISourceGenerator generator = new RefitClassGenerator();
 
 		var driver = CSharpGeneratorDriver.Create(generator);
-		driver.RunGeneratorsAndUpdateCompilation(compilation, out var outputCompilation, out var generateDiagnostics);
+		_ = driver.RunGeneratorsAndUpdateCompilation(compilation, out var outputCompilation, out var generateDiagnostics);
 
 		return (generateDiagnostics, outputCompilation.SyntaxTrees.Last().ToString());
 	}

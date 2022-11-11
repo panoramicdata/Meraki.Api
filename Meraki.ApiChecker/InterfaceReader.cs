@@ -42,8 +42,6 @@ public static class InterfaceReader
 
 				var methodDetails = new MethodDetails(method, refitAttribute);
 
-				//var returnType = methodDetails.Method.ReturnType.GetNonGenericType();
-
 				// If the ReturnType is a Task, get the type inside
 				var returnType = methodDetails.Method.ReturnType;
 
