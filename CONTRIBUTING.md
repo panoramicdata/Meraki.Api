@@ -26,7 +26,7 @@ For an example see `/organizations/{organizationId}/inventory/devices` in
 
 For this endpoint we would
 
-1. Create the normal endpoint as per the API documentation called `GetOrganizationInventoryDevicesAsync`.
+1.  Create the normal endpoint as per the API documentation called `GetOrganizationInventoryDevicesAsync`.
 ```c#
 [Get("/organizations/{organizationId}/inventory/devices")]
 Task<List<InventoryDevice>> GetOrganizationInventoryDevicesAsync(
@@ -38,7 +38,7 @@ Task<List<InventoryDevice>> GetOrganizationInventoryDevicesAsync(
 	string? search = null,
 	CancellationToken cancellationToken = default);
 ```
-2. Create a second copy of the endpoint called `GetInventoryDevicesApiResponseAsync` and marked `internal`.
+2.  Create a second copy of the endpoint called `GetInventoryDevicesApiResponseAsync` and marked `internal`.
 Exclude the paging parameters `perPage` and `endingBefore` and just leave the filtering parameters.
 ```c#
 [Get("/organizations/{organizationId}/inventory/devices")]
@@ -49,9 +49,9 @@ internal Task<ApiResponse<List<InventoryDevice>>> GetOrganizationInventoryDevice
 	string? search = null,
 	CancellationToken cancellationToken = default);
 ```
-3. Change the second copy return type to wrap it in a Refit `ApiResponse`.
-4. This second copy will be used by an extension method that uses the `ApiReponse` to get the response headers and handle paging.
-5. Create an extension method, adding `All` to the method name, in an appropriately named file in `Extensions`; in this case `IOrganizationsInventoryDevicesExtensions.cs`
+3.  Change the second copy return type to wrap it in a Refit `ApiResponse`.
+4.  This second copy will be used by an extension method that uses the `ApiReponse` to get the response headers and handle paging.
+5.  Create an extension method, adding `All` to the method name, in an appropriately named file in `Extensions`; in this case `IOrganizationsInventoryDevicesExtensions.cs`
 ```c#
 namespace Meraki.Api.Extensions;
 
@@ -83,8 +83,8 @@ public static class IOrganizationsInventoryDevicesExtensions
 		);
 }
 ```
-6. This will allow people to call this method from the `IOrganizationsInventoryDevices` interface and 
-7. it will appear to be on the interface directly.
+6.  This will allow people to call this method from the `IOrganizationsInventoryDevices` interface and 
+7.  it will appear to be on the interface directly.
 
 ## ENUMS
 
