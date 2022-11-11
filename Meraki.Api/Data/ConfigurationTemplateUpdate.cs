@@ -10,7 +10,7 @@ public class ConfigurationTemplateUpdate
 	/// The new name of the configuration template
 	/// </summary>
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// The new timezone of the configuration template, for example "Europe/London".
@@ -18,5 +18,5 @@ public class ConfigurationTemplateUpdate
 	/// the table in https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	/// </summary>
 	[DataMember(Name = "timeZone")]
-	public string TimeZone { get; set; } = string.Empty;
+	public string? TimeZone { get; set; }
 }
