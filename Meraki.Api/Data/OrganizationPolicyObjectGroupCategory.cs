@@ -3,15 +3,15 @@
 [DataContract]
 public enum OrganizationPolicyObjectsGroupCategory
 {
-	[EnumMember(Value = "networkObjectGroup")]
+	[EnumMember(Value = "NetworkObjectGroup")]
 	NetworkObjectGroup = 1,
 
-	[EnumMember(Value = "geoLocationGroup")]
+	[EnumMember(Value = "GeoLocationGroup")]
 	GeoLocationGroup = 2,
 
-	[EnumMember(Value = "portObjectGroup")]
+	[EnumMember(Value = "PortObjectGroup")]
 	PortObjectGroup = 3,
 
-	[EnumMember(Value = "applicationGroup")]
+	[EnumMember(Value = "ApplicationGroup")]
 	ApplicationGroup = 4,
 }
