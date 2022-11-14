@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## v1.27.4
+- Added Mask and Cidr to vlanspec
+
 ## v1.27.3
 - Added Device Cellular Sims
 - Added Organization Policy Object Groups

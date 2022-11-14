@@ -53,4 +53,16 @@ public class VlanSpec
 	/// </summary>
 	[DataMember(Name = "templateVlanType")]
 	public string? TemplateVlanType { get; set; }
+
+	/// <summary>
+	/// Cidr
+	/// </summary>
+	[DataMember(Name = "cidr")]
+	public string? Cidr { get; set; }
+
+	/// <summary>
+	/// Mask
+	/// </summary>
+	[DataMember(Name = "mask")]
+	public int? Mask { get; set; }
 }
