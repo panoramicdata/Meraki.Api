@@ -34,6 +34,7 @@ public partial class MerakiClient : IDisposable
 		Devices = new()
 		{
 			Devices = RefitFor(Devices.Devices),
+			CellularSims = RefitFor(Devices.CellularSims),
 			Clients = RefitFor(Devices.Clients),
 			LldpCdp = RefitFor(Devices.LldpCdp),
 			LossAndLatencyHistory = RefitFor(Devices.LossAndLatencyHistory),
@@ -69,6 +70,7 @@ public partial class MerakiClient : IDisposable
 			Networks = RefitFor(Organizations.Networks),
 			OpenapiSpec = RefitFor(Organizations.OpenapiSpec),
 			PolicyObjects = RefitFor(Organizations.PolicyObjects),
+			PolicyObjectGroups = RefitFor(Organizations.PolicyObjectGroups),
 			Saml = new()
 			{
 				Saml = RefitFor(Organizations.Saml.Saml),
