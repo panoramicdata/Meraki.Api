@@ -11,7 +11,7 @@ public class OrganizationPolicyObjectsGroup : NamedIdentifiedItem
 	/// Category of a policy object group (one of: NetworkObjectGroup, GeoLocationGroup, PortObjectGroup, ApplicationGroup)
 	/// </summary>
 	[DataMember(Name = "category")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.ReadCreate)]
 	public OrganizationPolicyObjectsGroupCategory? Category { get; set; }
 
 	/// <summary>
@@ -32,7 +32,7 @@ public class OrganizationPolicyObjectsGroup : NamedIdentifiedItem
 	/// A list of Policy Object ID's that this NetworkObjectGroup should be associated to
 	/// </summary>
 	[DataMember(Name = "objectIds")]
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public List<string>? ObjectIds { get; set; }
 
 	/// <summary>
