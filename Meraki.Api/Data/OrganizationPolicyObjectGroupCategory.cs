@@ -4,7 +4,7 @@
 public enum OrganizationPolicyObjectsGroupCategory
 {
 	[EnumMember(Value = "networkObjectGroup")]
-	NetworkObjectGroupy = 1,
+	NetworkObjectGroup = 1,
 
 	[EnumMember(Value = "geoLocationGroup")]
 	GeoLocationGroup = 2,
