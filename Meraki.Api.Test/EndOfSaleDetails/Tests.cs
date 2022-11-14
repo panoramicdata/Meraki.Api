@@ -12,23 +12,23 @@ public class Tests : MerakiClientTest
 			.GetEndOfLifeDetailsAsync()
 			.ConfigureAwait(false);
 
-		details
+		_ = details
 			.Should()
 			.BeOfType<List<DeviceModelEndOfLifeDetail>>();
 
-		details
+		_ = details
 			.Should()
 			.NotBeNull();
 
 		// Regions should all have two letters
-		details
+		_ = details
 			.Select(x => x.Region)
 			.Where(x => x != null)
 			.Should()
 			.OnlyContain(x => x.Length == 2);
 
 		// Device models should all start with M
-		details
+		_ = details
 			.Select(x => x.DeviceModel)
 			.Should()
 			.OnlyContain(x => x.StartsWith("M"));

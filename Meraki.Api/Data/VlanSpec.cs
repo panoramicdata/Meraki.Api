@@ -47,4 +47,10 @@ public class VlanSpec
 
 	[DataMember(Name = "ipv6")]
 	public VlanIpv6? Ipv6 { get; set; }
+
+	/// <summary>
+	/// Only settable for templates
+	/// </summary>
+	[DataMember(Name = "templateVlanType")]
+	public string? TemplateVlanType { get; set; }
 }
