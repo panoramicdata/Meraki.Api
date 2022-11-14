@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v1.27.3
+- Added Device Cellular Sims
+- Added Organization Policy Object Groups
+
 ## v1.26.22
 - Fixed bug with policyObjects endpoint
 

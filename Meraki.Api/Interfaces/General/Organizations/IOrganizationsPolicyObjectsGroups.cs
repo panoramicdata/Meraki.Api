@@ -64,14 +64,14 @@ public interface IOrganizationsPolicyObjectsGroups
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="policyObjectsGroupId">The id of the policy objects group</param>
+	/// <param name="policyObjectGroupId">The id of the policy objects group</param>
 	/// <param name="organizationPolicyObjectsGroupUpdateRequest">The body for the update request</param>
 	/// <param name="cancellationToken">Cancellation Token</param>
 	[Put("/organizations/{organizationId}/policyObjects/groups/{policyObjectGroupId}")]
 	[ApiOperationId("updateOrganizationPolicyObjectsGroup")]
 	Task<OrganizationPolicyObjectsGroup> UpdateOrganizationPolicyObjectsGroupAsync(
 		string organizationId,
-		string policyObjectsGroupId,
+		string policyObjectGroupId,
 		[Body] OrganizationPolicyObjectsGroupUpdateRequest organizationPolicyObjectsGroupUpdateRequest,
 		CancellationToken cancellationToken = default
 		);
@@ -81,11 +81,11 @@ public interface IOrganizationsPolicyObjectsGroups
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="policyObjectsGroupId">The policy object id</param>
+	/// <param name="policyObjectGroupId">The policy object id</param>
 	[Delete("/organizations/{organizationId}/policyObjects/groups/{policyObjectGroupId}")]
 	[ApiOperationId("deleteOrganizationPolicyObjectsGroup")]
 	Task DeleteOrganizationPolicyObjectsGroupAsync(
 		string organizationId,
-		string policyObjectsGroupId,
+		string policyObjectGroupId,
 		CancellationToken cancellationToken = default);
 }
