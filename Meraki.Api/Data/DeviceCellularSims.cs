@@ -11,12 +11,12 @@ public class DeviceCellularSims
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "simFailover")]
-	public List<DeviceCellularSimsSimFailover> SimFailover { get; set; } = new();
+	public DeviceCellularSimsSimFailover? SimFailover { get; set; }
 
 	/// <summary>
 	/// A list of Sims
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "sims")]
-	public List<DeviceCellularSimsSim> Sims { get; set; } = new();
+	public List<DeviceCellularSimsSim>? Sims { get; set; }
 }
