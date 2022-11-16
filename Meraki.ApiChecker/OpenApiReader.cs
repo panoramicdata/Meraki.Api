@@ -12,7 +12,10 @@ public static class OpenApiReader
 		{
 			BaseAddress = new Uri("https://raw.githubusercontent.com/meraki/openapi/")
 		};
-		var stream = await httpClient.GetStreamAsync("master/openapi/spec2.json").ConfigureAwait(false);
+
+		//var openApiSpecPath = "master/openapi/spec2.json";
+		var betaOpenApiSpecPath = "v1-beta/openapi/spec2.json";
+		var stream = await httpClient.GetStreamAsync(betaOpenApiSpecPath).ConfigureAwait(false);
 		return new OpenApiStreamReader()
 			.Read(stream, out var _);
 	}
