@@ -15,7 +15,7 @@ public class Tests : MerakiClientTest
 			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId, default)
 			.ConfigureAwait(false);
 
-		organizationDevices.Should().NotBeNull();
+		_ = organizationDevices.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -27,7 +27,7 @@ public class Tests : MerakiClientTest
 			.GetOrganizationDevicesStatusesAsync(Configuration.TestOrganizationId, default)
 			.ConfigureAwait(false);
 
-		organizationDeviceStatus.Should().NotBeNull();
+		_ = organizationDeviceStatus.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -38,7 +38,7 @@ public class Tests : MerakiClientTest
 			.Devices
 			.GetOrganizationDevicesStatusesAllAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 	}
 }

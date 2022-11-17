@@ -15,7 +15,7 @@ public class Tests : MerakiClientTest
 			.GetNetworkDevicesAsync(Configuration.TestNetworkId)
 			.ConfigureAwait(false);
 
-		devices
+		_ = devices
 			.Should()
 			.NotBeNullOrEmpty();
 
@@ -26,14 +26,14 @@ public class Tests : MerakiClientTest
 			.GetDeviceAsync(deviceSerial)
 			.ConfigureAwait(false);
 
-		device.Should().NotBeNull();
-		device.Serial.Should().Equals(deviceSerial);
-		device.Firmware.Should().NotBeNull();
+		_ = device.Should().NotBeNull();
+		_ = device.Serial.Should().Equals(deviceSerial);
+		_ = device.Firmware.Should().NotBeNull();
 
 		if (device.Address != string.Empty)
 		{
 			device.Address = string.Empty;
-			await TestMerakiClient
+			_ = await TestMerakiClient
 				.Devices
 				.UpdateDeviceAsync(
 					device.Serial,
@@ -53,7 +53,7 @@ public class Tests : MerakiClientTest
 			)
 			.ConfigureAwait(false);
 
-		updatedDevice.Should().NotBeNull();
+		_ = updatedDevice.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -65,12 +65,12 @@ public class Tests : MerakiClientTest
 			.GetOrganizationDevicesStatusesAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
 
-		deviceStatuses
+		_ = deviceStatuses
 			.Should()
 			.NotBeNullOrEmpty();
 
 		var onlineDevice = deviceStatuses.Find(d => d.Status == "online");
-		onlineDevice.Should().NotBeNull("Could not find an online device");
+		_ = onlineDevice.Should().NotBeNull("Could not find an online device");
 
 		var outcome = await TestMerakiClient
 			.Devices
@@ -83,7 +83,7 @@ public class Tests : MerakiClientTest
 				})
 			.ConfigureAwait(false);
 
-		outcome
+		_ = outcome
 			.Should()
 			.NotBeNull();
 	}
@@ -98,7 +98,7 @@ public class Tests : MerakiClientTest
 			.GetNetworkDevicesAsync(Configuration.TestNetworkId)
 			.ConfigureAwait(false);
 
-		devices
+		_ = devices
 			.Should()
 			.NotBeNull()
 			.And
@@ -112,7 +112,7 @@ public class Tests : MerakiClientTest
 			.GetDeviceManagementInterfaceAsync(deviceSerial)
 			.ConfigureAwait(false);
 
-		deviceManagementInterfaceSettings
+		_ = deviceManagementInterfaceSettings
 			.Should()
 			.NotBeNull();
 	}

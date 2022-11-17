@@ -15,7 +15,7 @@ public class RateLimitingTests : MerakiClientTest
 	{
 		var stopwatch = new Stopwatch();
 		var timerList = new List<QueryResult>();
-		foreach (var _ in Enumerable.Range(0, 10))
+		foreach (var __ in Enumerable.Range(0, 10))
 		{
 			var queryResult = new QueryResult();
 			try
@@ -25,7 +25,7 @@ public class RateLimitingTests : MerakiClientTest
 				.Organizations
 				.GetOrganizationAsync(Configuration.TestOrganizationId)
 				.ConfigureAwait(false);
-				result.Should().BeOfType<Organization>();
+				_ = result.Should().BeOfType<Organization>();
 			}
 			catch (ApiException apiException)
 			{

@@ -82,8 +82,8 @@ public class MerakiClientTest
 			.Networks
 			.GetOrganizationNetworksAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		networks.Should().NotBeNull();
-		networks.Should().NotBeEmpty();
+		_ = networks.Should().NotBeNull();
+		_ = networks.Should().NotBeEmpty();
 		return networks[0];
 	}
 
@@ -107,7 +107,7 @@ public class MerakiClientTest
 				}
 			)
 			.ConfigureAwait(false);
-		network.Should().NotBeNull();
+		_ = network.Should().NotBeNull();
 		return network;
 	}
 

@@ -11,8 +11,8 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetNetworkClientLatencyStats_Succeeds()
 	{
-		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
-		Configuration.TestMac.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestMac.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -25,14 +25,14 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
-		stats.Mac.Should().NotBeNullOrEmpty();
+		_ = stats.Should().NotBeNull();
+		_ = stats.Mac.Should().NotBeNullOrEmpty();
 	}
 
 	[Fact]
 	public async Task GetNetworkClientsLatencyStats_Succeeds()
 	{
-		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -44,14 +44,14 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
-		stats.FirstOrDefault()?.Mac.Should().NotBeNullOrEmpty();
+		_ = stats.Should().NotBeNull();
+		_ = (stats.FirstOrDefault()?.Mac.Should().NotBeNullOrEmpty());
 	}
 
 	[Fact]
 	public async Task GetNetworkDeviceLatencyStats_Succeeds()
 	{
-		Configuration.TestDeviceSerial.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestDeviceSerial.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -62,14 +62,14 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
-		stats.Serial.Should().NotBeNullOrEmpty();
+		_ = stats.Should().NotBeNull();
+		_ = stats.Serial.Should().NotBeNullOrEmpty();
 	}
 
 	[Fact]
 	public async Task GetNetworkDevicesLatencyStats_Succeeds()
 	{
-		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -80,14 +80,14 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
-		stats.BackgroundTraffic.Should().NotBeNull();
+		_ = stats.Should().NotBeNull();
+		_ = stats.BackgroundTraffic.Should().NotBeNull();
 	}
 
 	[Fact]
 	public async Task GetNetworkLatencyStats_Succeeds()
 	{
-		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -98,14 +98,14 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
+		_ = stats.Should().NotBeNull();
 	}
 
 	[Fact]
 	public async Task GetNetworkClientConnectionStats_Succeeds()
 	{
-		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
-		Configuration.TestMac.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestMac.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -118,14 +118,14 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
-		stats.Mac.Should().NotBeNullOrEmpty();
+		_ = stats.Should().NotBeNull();
+		_ = stats.Mac.Should().NotBeNullOrEmpty();
 	}
 
 	[Fact]
 	public async Task GetNetworkClientsConnectionStats_Succeeds()
 	{
-		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -137,15 +137,15 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
-		stats.FirstOrDefault()?.Mac.Should().NotBeNullOrEmpty();
+		_ = stats.Should().NotBeNull();
+		_ = (stats.FirstOrDefault()?.Mac.Should().NotBeNullOrEmpty());
 	}
 
 	[Fact]
 	public async Task GetNetworkDeviceConnectionStats_Succeeds()
 	{
-		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
-		Configuration.TestDeviceSerial.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestDeviceSerial.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -157,13 +157,13 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
+		_ = stats.Should().NotBeNull();
 	}
 
 	[Fact]
 	public async Task GetNetworkDevicesConnectionStats_Succeeds()
 	{
-		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -175,14 +175,14 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
-		stats.FirstOrDefault()?.Serial.Should().NotBeNullOrEmpty();
+		_ = stats.Should().NotBeNull();
+		_ = (stats.FirstOrDefault()?.Serial.Should().NotBeNullOrEmpty());
 	}
 
 	[Fact]
 	public async Task GetNetworkConnectionStats_Succeeds()
 	{
-		Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
+		_ = Configuration.TestNetworkId.Should().NotBeNullOrEmpty();
 
 		var stats = await TestMerakiClient
 			.Wireless
@@ -193,6 +193,6 @@ public class Tests : MerakiClientTest
 				cancellationToken: default)
 			.ConfigureAwait(false);
 
-		stats.Should().NotBeNull();
+		_ = stats.Should().NotBeNull();
 	}
 }

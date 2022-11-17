@@ -19,6 +19,4 @@ public class VlanIpv6
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "prefixAssignments")]
 	public List<VlanIpv6PrefixAssignment>? PrefixAssignments { get; set; }
-
-
 }

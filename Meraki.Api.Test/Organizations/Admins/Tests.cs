@@ -14,10 +14,10 @@ public class Tests : MerakiClientTest
 			.Admins
 			.GetOrganizationAdminsAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<Admin>>();
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().BeOfType<List<Admin>>();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 		var dateTime = result[0].LastActive;
-		dateTime.Should().NotBe(DateTime.MinValue);
+		_ = dateTime.Should().NotBe(DateTime.MinValue);
 	}
 }

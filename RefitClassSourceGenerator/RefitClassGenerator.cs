@@ -16,9 +16,7 @@ namespace RefitClassSourceGenerator;
 public class RefitClassGenerator : ISourceGenerator
 {
 	public void Initialize(GeneratorInitializationContext context)
-	{
-		context.RegisterForSyntaxNotifications(() => new RefitPromoteReceiver());
-	}
+		=> context.RegisterForSyntaxNotifications(() => new RefitPromoteReceiver());
 
 	public void Execute(GeneratorExecutionContext context)
 	{
@@ -152,8 +150,7 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 	}
 
 	public IImmutableList<INamedTypeSymbol?> GetMatchingInterfacesInSolution(Compilation compilation, string name)
-	{
-		return compilation.SyntaxTrees.Select(syntaxTree => compilation.GetSemanticModel(syntaxTree))
+		=> compilation.SyntaxTrees.Select(syntaxTree => compilation.GetSemanticModel(syntaxTree))
 			.SelectMany(
 				semanticModel => semanticModel
 					.SyntaxTree
@@ -163,11 +160,9 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 					.Select(interfaceDeclarationSyntax => semanticModel.GetDeclaredSymbol(interfaceDeclarationSyntax)))
 			.Where(symbol => symbol != null && name == symbol.ToDisplayString())
 			.ToImmutableList();
-	}
 
 	public IImmutableList<string> GetInterfaceNamesInSolution(Compilation compilation)
-	{
-		return compilation.SyntaxTrees.Select(syntaxTree => compilation.GetSemanticModel(syntaxTree))
+		=> compilation.SyntaxTrees.Select(syntaxTree => compilation.GetSemanticModel(syntaxTree))
 			.SelectMany(
 				semanticModel => semanticModel
 					.SyntaxTree
@@ -178,7 +173,6 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 			.Where(s => s is not null)
 			.Select(s => s!.ToDisplayString())
 			.ToImmutableList();
-	}
 
 	public static string GetNamespaceFrom(SyntaxNode s)
 		=> s.Parent switch

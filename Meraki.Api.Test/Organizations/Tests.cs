@@ -13,9 +13,9 @@ public class Tests : MerakiClientTest
 			.Organizations
 			.GetOrganizationsAsync()
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<Organization>>();
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().BeOfType<List<Organization>>();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 		var firstResult = result[0];
 		ValidateOrganisation(firstResult);
 	}
@@ -86,12 +86,12 @@ public class Tests : MerakiClientTest
 		// It should be gone now
 		Func<Task> act = async () =>
 		{
-			await TestMerakiClient
+			_ = await TestMerakiClient
 				.Organizations
 				.GetOrganizationAsync(createdOrganization.Id)
 				.ConfigureAwait(false);
 		};
-		await act
+		_ = await act
 			.Should()
 			.ThrowAsync<ApiException>()
 			.ConfigureAwait(false);
@@ -104,16 +104,16 @@ public class Tests : MerakiClientTest
 			.Organizations
 			.ClaimIntoOrganizationAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
 			.ConfigureAwait(false);
-		result.Should().NotBeNull();
-		result.Serials.Should().NotBeEmpty();
+		_ = result.Should().NotBeNull();
+		_ = result.Serials.Should().NotBeEmpty();
 	}
 
 	private static void ValidateOrganisation(Organization org)
 	{
-		org.Should().NotBeNull();
-		org.Id.Should().NotBeNullOrWhiteSpace();
-		org.Name.Should().NotBeNullOrWhiteSpace();
-		org.Url.Should().NotBeNullOrWhiteSpace();
+		_ = org.Should().NotBeNull();
+		_ = org.Id.Should().NotBeNullOrWhiteSpace();
+		_ = org.Name.Should().NotBeNullOrWhiteSpace();
+		_ = org.Url.Should().NotBeNullOrWhiteSpace();
 	}
 
 	private static void CheckOrganization(
@@ -121,15 +121,15 @@ public class Tests : MerakiClientTest
 		string initialOrganizationName,
 		string? id = default)
 	{
-		organization.Should().NotBeNull();
-		organization.Id.Should().NotBeNullOrWhiteSpace();
+		_ = organization.Should().NotBeNull();
+		_ = organization.Id.Should().NotBeNullOrWhiteSpace();
 		if (id != null)
 		{
 			// Compare the id
-			organization.Id.Should().Be(id);
+			_ = organization.Id.Should().Be(id);
 		}
 
-		organization.Name.Should().Be(initialOrganizationName);
-		organization.Url.Should().NotBeNullOrWhiteSpace();
+		_ = organization.Name.Should().Be(initialOrganizationName);
+		_ = organization.Url.Should().NotBeNullOrWhiteSpace();
 	}
 }

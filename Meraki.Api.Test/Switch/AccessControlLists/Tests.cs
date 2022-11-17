@@ -15,8 +15,8 @@ public class Tests : MerakiClientTest
 			.AccessControlLists
 			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
 			.ConfigureAwait(false);
-		acls.Should().NotBeNull();
-		acls.Rules.Should().NotBeNullOrEmpty();
+		_ = acls.Should().NotBeNull();
+		_ = acls.Rules.Should().NotBeNullOrEmpty();
 	}
 
 	[Fact]
@@ -28,8 +28,8 @@ public class Tests : MerakiClientTest
 			.AccessControlLists
 			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
 			.ConfigureAwait(false);
-		acls.Should().NotBeNull();
-		acls.Rules.Should().NotBeNullOrEmpty();
+		_ = acls.Should().NotBeNull();
+		_ = acls.Rules.Should().NotBeNullOrEmpty();
 	}
 
 	[Fact]
@@ -45,9 +45,9 @@ public class Tests : MerakiClientTest
 				.AccessControlLists
 				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
 				.ConfigureAwait(false);
-			acls.Should().NotBeNull();
-			acls.Rules.Should().ContainSingle();
-			acls.Rules[0].Comment.Should().Be("Default rule");
+			_ = acls.Should().NotBeNull();
+			_ = acls.Rules.Should().ContainSingle();
+			_ = acls.Rules[0].Comment.Should().Be("Default rule");
 
 			// Add a new rules
 			var denySsh = new SwitchAccessControlListRule
@@ -78,7 +78,7 @@ public class Tests : MerakiClientTest
 			};
 
 			// Update the rules
-			await TestMerakiClient
+			_ = await TestMerakiClient
 				.Switch
 				.AccessControlLists
 				.UpdateNetworkSwitchAccessControlListsAsync(
@@ -102,13 +102,13 @@ public class Tests : MerakiClientTest
 				.ConfigureAwait(false);
 
 			// We should have 2 rules now
-			acls.Should().NotBeNull();
-			acls.Rules.Should().HaveCount(3);
+			_ = acls.Should().NotBeNull();
+			_ = acls.Rules.Should().HaveCount(3);
 			// Our new rules should be first
-			acls.Rules[0].Comment.Should().Be(denySsh.Comment);
-			acls.Rules[1].Comment.Should().Be(allowHttp.Comment);
+			_ = acls.Rules[0].Comment.Should().Be(denySsh.Comment);
+			_ = acls.Rules[1].Comment.Should().Be(allowHttp.Comment);
 			// The default rule should be last
-			acls.Rules[^1].Comment.Should().Be("Default rule");
+			_ = acls.Rules[^1].Comment.Should().Be("Default rule");
 		}
 		finally
 		{

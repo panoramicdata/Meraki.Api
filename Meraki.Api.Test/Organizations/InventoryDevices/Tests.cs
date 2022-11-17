@@ -14,8 +14,8 @@ public class Tests : MerakiClientTest
 			.InventoryDevices
 			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 	}
 
 	[Fact]
@@ -26,7 +26,7 @@ public class Tests : MerakiClientTest
 			.InventoryDevices
 			.GetOrganizationInventoryDevicesAllAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 	}
 }

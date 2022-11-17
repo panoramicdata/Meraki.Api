@@ -14,8 +14,8 @@ public class Tests : MerakiClientTest
 			.ApiRequests
 			.GetOrganizationApiRequestsAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<ApiUsage>>();
-		result.Should().NotBeNullOrEmpty();
+		_ = result.Should().BeOfType<List<ApiUsage>>();
+		_ = result.Should().NotBeNullOrEmpty();
 	}
 
 	[Fact]
@@ -26,9 +26,9 @@ public class Tests : MerakiClientTest
 			.ApiRequests
 			.GetOrganizationApiRequestsOverviewAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<ApiUsageOverview>();
-		result.Should().NotBeNull();
-		result.ResponseCodeCounts.Should().NotBeNull();
-		result.ResponseCodeCounts.Should().NotBeEmpty();
+		_ = result.Should().BeOfType<ApiUsageOverview>();
+		_ = result.Should().NotBeNull();
+		_ = result.ResponseCodeCounts.Should().NotBeNull();
+		_ = result.ResponseCodeCounts.Should().NotBeEmpty();
 	}
 }

@@ -15,20 +15,20 @@ public class Tests : MerakiClientTest
 			.GetOrganizationNetworksAllAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
 
-		result.Should().BeOfType<List<Network>>();
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().BeOfType<List<Network>>();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 		var firstResult = result[0];
 		ValidateNetwork(firstResult);
 	}
 
 	internal static void ValidateNetwork(Network network)
 	{
-		network.Should().NotBeNull();
-		string.IsNullOrWhiteSpace(network.Id).Should().BeFalse();
-		string.IsNullOrWhiteSpace(network.Name).Should().BeFalse();
-		string.IsNullOrWhiteSpace(network.OrganizationId).Should().BeFalse();
-		string.IsNullOrWhiteSpace(network.TimeZone).Should().BeFalse();
+		_ = network.Should().NotBeNull();
+		_ = string.IsNullOrWhiteSpace(network.Id).Should().BeFalse();
+		_ = string.IsNullOrWhiteSpace(network.Name).Should().BeFalse();
+		_ = string.IsNullOrWhiteSpace(network.OrganizationId).Should().BeFalse();
+		_ = string.IsNullOrWhiteSpace(network.TimeZone).Should().BeFalse();
 	}
 
 	[Fact]
@@ -42,8 +42,8 @@ public class Tests : MerakiClientTest
 			.Ssids
 			.GetNetworkWirelessSsidsAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 	}
 
 	[Fact]
@@ -57,9 +57,9 @@ public class Tests : MerakiClientTest
 			.Devices
 			.GetNetworkDevicesAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<Device>>();
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().BeOfType<List<Device>>();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 	}
 
 	[Fact]
@@ -183,7 +183,7 @@ public class Tests : MerakiClientTest
 			})
 			.ConfigureAwait(false);
 
-		newNetwork.Should().NotBeNull();
+		_ = newNetwork.Should().NotBeNull();
 
 		// Re-fetch the network
 		var refetchedNetwork = await TestMerakiClient
@@ -191,7 +191,7 @@ public class Tests : MerakiClientTest
 			.GetNetworkAsync(newNetwork.Id)
 			.ConfigureAwait(false);
 
-		newNetwork.Name.Should().Be(refetchedNetwork.Name);
+		_ = newNetwork.Name.Should().Be(refetchedNetwork.Name);
 
 		// Bind and unbind a configuration template
 		var configurationTemplates = await TestMerakiClient
@@ -199,8 +199,8 @@ public class Tests : MerakiClientTest
 			.ConfigTemplates
 			.GetOrganizationConfigTemplatesAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		configurationTemplates.Should().NotBeNull();
-		configurationTemplates.Should().NotBeEmpty();
+		_ = configurationTemplates.Should().NotBeNull();
+		_ = configurationTemplates.Should().NotBeEmpty();
 		var configurationTemplate = configurationTemplates[0];
 		await TestMerakiClient
 			.Networks
@@ -219,10 +219,10 @@ public class Tests : MerakiClientTest
 			.Vlans
 			.GetNetworkApplianceVlansAsync(newNetwork.Id)
 			.ConfigureAwait(false);
-		initialVlans.Should().NotBeNull();
+		_ = initialVlans.Should().NotBeNull();
 
 		var vlan10 = initialVlans.SingleOrDefault(v => v.Id == "10");
-		vlan10.Should().NotBeNull();
+		_ = vlan10.Should().NotBeNull();
 		vlan10 = null!;
 
 		// Update a VLAN
@@ -244,7 +244,7 @@ public class Tests : MerakiClientTest
 				}
 			})
 			.ConfigureAwait(false);
-		updatedVlan.Should().NotBeNull();
+		_ = updatedVlan.Should().NotBeNull();
 
 		//--- Claim/Remove device
 		await TestMerakiClient
@@ -258,34 +258,34 @@ public class Tests : MerakiClientTest
 			.Devices
 			.GetDeviceAsync(newNetwork.Id)
 			.ConfigureAwait(false);
-		fetchedDevice.Should().BeOfType<Device>();
-		fetchedDevice.Should().NotBeNull();
+		_ = fetchedDevice.Should().BeOfType<Device>();
+		_ = fetchedDevice.Should().NotBeNull();
 
 		// updating the device with a too-long address should fail
 		Func<Task> action = async () =>
 		{
 			fetchedDevice.Address = new string('x', Device.MaxAddressLength + 1);
-			await TestMerakiClient
+			_ = await TestMerakiClient
 				.Devices
 				.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 				.ConfigureAwait(false);
 		};
 
-		await action
+		_ = await action
 			.Should()
 			.ThrowAsync<ApiException>()
 			.ConfigureAwait(false);
 
 		//// But an OK length should succeed
 		fetchedDevice.Address = new string('x', Device.MaxAddressLength);
-		await TestMerakiClient
+		_ = await TestMerakiClient
 			.Devices
 			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 			.ConfigureAwait(false);
 
 		//// Setting the address should succeed
 		fetchedDevice.Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA";
-		await TestMerakiClient
+		_ = await TestMerakiClient
 			.Devices
 			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
 			.ConfigureAwait(false);
@@ -296,8 +296,8 @@ public class Tests : MerakiClientTest
 			.ManagementInterface
 			.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial)
 			.ConfigureAwait(false);
-		wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
-		wanSpecs.Should().NotBeNull();
+		_ = wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
+		_ = wanSpecs.Should().NotBeNull();
 
 		const string googleDns = "8.8.8.8";
 		var newDeviceManagementInterfaceSettings = new DeviceManagementInterfaceSettings
@@ -334,8 +334,8 @@ public class Tests : MerakiClientTest
 				}
 			})
 			.ConfigureAwait(false);
-		updatedWanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
-		updatedWanSpecs.Should().NotBeNull();
+		_ = updatedWanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
+		_ = updatedWanSpecs.Should().NotBeNull();
 
 		//// Get the management interface settings
 		var wanSpecsRefetch = await TestMerakiClient
@@ -343,12 +343,12 @@ public class Tests : MerakiClientTest
 			.ManagementInterface
 			.GetDeviceManagementInterfaceAsync(newNetwork.Id)
 			.ConfigureAwait(false);
-		wanSpecsRefetch.Should().NotBeNull();
-		wanSpecsRefetch.Wan1.Should().NotBeNull();
-		wanSpecsRefetch.Wan1!.StaticDns.Should().NotBeNull();
-		wanSpecsRefetch.Wan1.StaticDns.Should().HaveCount(1);
-		wanSpecsRefetch.Wan1.StaticDns.Should().NotBeNull();
-		wanSpecsRefetch.Wan1.StaticDns![0].Should().BeEquivalentTo(googleDns);
+		_ = wanSpecsRefetch.Should().NotBeNull();
+		_ = wanSpecsRefetch.Wan1.Should().NotBeNull();
+		_ = wanSpecsRefetch.Wan1!.StaticDns.Should().NotBeNull();
+		_ = wanSpecsRefetch.Wan1.StaticDns.Should().HaveCount(1);
+		_ = wanSpecsRefetch.Wan1.StaticDns.Should().NotBeNull();
+		_ = wanSpecsRefetch.Wan1.StaticDns![0].Should().BeEquivalentTo(googleDns);
 
 		// Get all organization devices and make sure ours is present
 		var allOrganizationDevices = await TestMerakiClient
@@ -356,14 +356,14 @@ public class Tests : MerakiClientTest
 			.Devices
 			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		allOrganizationDevices.Should().NotBeNull();
-		allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();
+		_ = allOrganizationDevices.Should().NotBeNull();
+		_ = allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();
 
 		// ----------
 		// Create complete - now undo everything
 		// ----------
 
-		await TestMerakiClient
+		_ = await TestMerakiClient
 			.Networks
 			.UnbindNetworkAsync(newNetwork.Id)
 			.ConfigureAwait(false);
@@ -378,13 +378,13 @@ public class Tests : MerakiClientTest
 
 		action = async () =>
 		{
-			var _ = await TestMerakiClient
-				.Networks
-				.GetNetworkAsync(newNetwork.Id)
-				.ConfigureAwait(false);
+			_ = await TestMerakiClient
+			   .Networks
+			   .GetNetworkAsync(newNetwork.Id)
+			   .ConfigureAwait(false);
 		};
 
-		await action
+		_ = await action
 			.Should()
 			.ThrowAsync<ApiException>()
 			.ConfigureAwait(false);
@@ -401,8 +401,8 @@ public class Tests : MerakiClientTest
 			.Clients
 			.GetNetworkClientsAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 	}
 
 	[Fact]
@@ -416,8 +416,8 @@ public class Tests : MerakiClientTest
 			.BluetoothClients
 			.GetNetworkBluetoothClientsAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<BluetoothClient>>();
-		result.Should().NotBeNull();
+		_ = result.Should().BeOfType<List<BluetoothClient>>();
+		_ = result.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -432,9 +432,9 @@ public class Tests : MerakiClientTest
 			.Settings
 			.GetNetworkWirelessSettingsAsync(network.Id)
 			.ConfigureAwait(false);
-		originalResult.Should().BeOfType<WirelessSettings>();
-		originalResult.Should().NotBeNull();
-		originalResult.Should().BeOfType<List<BluetoothClient>>();
+		_ = originalResult.Should().BeOfType<WirelessSettings>();
+		_ = originalResult.Should().NotBeNull();
+		_ = originalResult.Should().BeOfType<List<BluetoothClient>>();
 
 		// Re-set the wireless settings (to the same values)
 		var newResult = await TestMerakiClient
@@ -448,13 +448,13 @@ public class Tests : MerakiClientTest
 				MeshingEnabled = originalResult.MeshingEnabled,
 			})
 			.ConfigureAwait(false);
-		newResult.Should().BeOfType<WirelessSettings>();
-		newResult.Should().NotBeNull();
+		_ = newResult.Should().BeOfType<WirelessSettings>();
+		_ = newResult.Should().NotBeNull();
 
 		// The two should match
-		newResult.MeshingEnabled.Should().Be(originalResult.MeshingEnabled);
-		newResult.Ipv6BridgeEnabled.Should().Be(originalResult.Ipv6BridgeEnabled);
-		newResult.LocationAnalyticsEnabled.Should().Be(originalResult.LocationAnalyticsEnabled);
+		_ = newResult.MeshingEnabled.Should().Be(originalResult.MeshingEnabled);
+		_ = newResult.Ipv6BridgeEnabled.Should().Be(originalResult.Ipv6BridgeEnabled);
+		_ = newResult.LocationAnalyticsEnabled.Should().Be(originalResult.LocationAnalyticsEnabled);
 	}
 
 	[Fact]
@@ -467,7 +467,7 @@ public class Tests : MerakiClientTest
 				.Camera
 				.GenerateDeviceCameraSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
 				.ConfigureAwait(false);
-			newResult.Should().NotBeNull();
+			_ = newResult.Should().NotBeNull();
 
 			//		//Download the image
 			//		using var client = new WebClient();
@@ -489,7 +489,7 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetCameraVideoLinkAsync_Succeeds()
 	{
-		Configuration.TestCameraNetworkId.Should().NotBeNull();
+		_ = Configuration.TestCameraNetworkId.Should().NotBeNull();
 
 		// Get a snapshot from the camera
 		var newResult = await TestMerakiClient
@@ -497,15 +497,15 @@ public class Tests : MerakiClientTest
 		.VideoLink
 		.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
 		.ConfigureAwait(false);
-		newResult.Should().NotBeNull();
+		_ = newResult.Should().NotBeNull();
 	}
 
 	[Fact]
 	public async Task GetRepeatedlyInQuickSuccession_Succeeds()
 	{
-		foreach (var _ in Enumerable.Range(0, 10))
+		foreach (var __ in Enumerable.Range(0, 10))
 		{
-			await GetFirstNetworkAsync()
+			_ = await GetFirstNetworkAsync()
 				.ConfigureAwait(false);
 		}
 	}
@@ -513,27 +513,27 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetDeviceSwitchPortsAsync_Succeeds()
 	{
-		Configuration.TestSwitchSerial.Should().NotBeNull();
+		_ = Configuration.TestSwitchSerial.Should().NotBeNull();
 
 		var switchPorts = await TestMerakiClient
 			.Switch.Ports
 			.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, default)
 			.ConfigureAwait(false);
 
-		switchPorts.Should().NotBeNullOrEmpty();
+		_ = switchPorts.Should().NotBeNullOrEmpty();
 	}
 
 	[Fact]
 	public async Task GetNetworkSwitchStacksAsync_Succeeds()
 	{
-		Configuration.TestCameraNetworkId.Should().NotBeNull();
+		_ = Configuration.TestCameraNetworkId.Should().NotBeNull();
 
 		var switchStacks = await TestMerakiClient
 			.Switch.Stacks
 			.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, default)
 			.ConfigureAwait(false);
 
-		switchStacks.Should().NotBeNull();
+		_ = switchStacks.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -560,7 +560,7 @@ public class Tests : MerakiClientTest
 						}
 					)
 				).ConfigureAwait(false);
-			exception.Message.Should().Be("The client options have been configured to only allow read actions");
+			_ = exception.Message.Should().Be("The client options have been configured to only allow read actions");
 		}
 		finally
 		{
@@ -589,9 +589,9 @@ public class Tests : MerakiClientTest
 			)
 			.ConfigureAwait(false);
 
-		result.Should().BeOfType<List<Network>>();
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().BeOfType<List<Network>>();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 		var firstResult = result[0];
 		Networks.Tests.ValidateNetwork(firstResult);
 	}
@@ -614,9 +614,9 @@ public class Tests : MerakiClientTest
 			)
 			.ConfigureAwait(false);
 
-		result.Should().BeOfType<List<Network>>();
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().BeOfType<List<Network>>();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 		var firstResult = result[0];
 		Networks.Tests.ValidateNetwork(firstResult);
 	}
@@ -630,9 +630,9 @@ public class Tests : MerakiClientTest
 			.GetOrganizationNetworksAllAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
 
-		result.Should().BeOfType<List<Network>>();
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().BeOfType<List<Network>>();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 		var firstResult = result[0];
 		Networks.Tests.ValidateNetwork(firstResult);
 	}

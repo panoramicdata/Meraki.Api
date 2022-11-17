@@ -15,6 +15,6 @@ public class Tests : MerakiClientTest
 			.GetNetworkSwitchPortSchedulesAsync(Configuration.TestNetworkId)
 			.ConfigureAwait(false);
 
-		switchPortSchedules.Should().NotBeNull();
+		_ = switchPortSchedules.Should().NotBeNull();
 	}
 }

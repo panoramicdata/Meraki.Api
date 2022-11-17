@@ -18,7 +18,7 @@ public class Tests : MerakiClientTest
 			.PayloadTemplates
 			.GetNetworkWebhooksPayloadTemplatesAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<PayloadTemplate>>();
-		result.Should().NotBeNull();
+		_ = result.Should().BeOfType<List<PayloadTemplate>>();
+		_ = result.Should().NotBeNull();
 	}
 }

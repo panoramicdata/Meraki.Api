@@ -17,8 +17,8 @@ public class Tests : MerakiClientTest
 			.Devices
 			.GetNetworkDevicesAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<Device>>();
-		result.Should().NotBeNull();
+		_ = result.Should().BeOfType<List<Device>>();
+		_ = result.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -30,7 +30,7 @@ public class Tests : MerakiClientTest
 			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId)
 			.ConfigureAwait(false);
 
-		devices
+		_ = devices
 			.Should()
 			.NotBeNull()
 			.And
@@ -42,10 +42,10 @@ public class Tests : MerakiClientTest
 			.Devices
 			.GetDeviceAsync(deviceSerial)
 			.ConfigureAwait(false);
-		device.Should().NotBeNull();
+		_ = device.Should().NotBeNull();
 
-		device.Serial.Should().Equals(deviceSerial);
-		device.Firmware.Should().NotBeNull();
+		_ = device.Serial.Should().Equals(deviceSerial);
+		_ = device.Firmware.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -57,12 +57,12 @@ public class Tests : MerakiClientTest
 			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId)
 			.ConfigureAwait(false);
 
-		devices
+		_ = devices
 			.Should()
 			.NotBeNull()
 			.And
 			.NotBeEmpty();
 
-		devices.TrueForAll(d => d.GetModelType() == ModelType.Camera);
+		_ = devices.TrueForAll(d => d.GetModelType() == ModelType.Camera);
 	}
 }

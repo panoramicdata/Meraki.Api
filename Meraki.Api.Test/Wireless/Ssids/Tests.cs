@@ -17,7 +17,7 @@ public class Tests : MerakiClientTest
 			.Ssids
 			.GetNetworkWirelessSsidsAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 	}
 }

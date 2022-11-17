@@ -6,7 +6,7 @@ public static class Extensions
 {
 	public static string GetMethodSignature(this IMethodSymbol methodSymbol, bool concreteSignature)
 	{
-		string result = methodSymbol.DeclaredAccessibility.ConvertAccessibilityToString();
+		var result = methodSymbol.DeclaredAccessibility.ConvertAccessibilityToString();
 
 		if (methodSymbol.IsAsync)
 		{
@@ -44,8 +44,8 @@ public static class Extensions
 
 		result += " " + methodSymbol.Name + "(";
 
-		bool isFirstParameter = true;
-		foreach (IParameterSymbol parameter in methodSymbol.Parameters)
+		var isFirstParameter = true;
+		foreach (var parameter in methodSymbol.Parameters)
 		{
 			if (isFirstParameter)
 			{
@@ -65,7 +65,7 @@ public static class Extensions
 				result += "ref ";
 			}
 
-			string parameterTypeString =
+			var parameterTypeString =
 				(parameter.Type as INamedTypeSymbol)?.GetFullTypeString()
 				?? throw new Exception($"Missing parameter type for {methodSymbol.Name} {parameter.Name} {parameter.Type}");
 
@@ -97,13 +97,13 @@ public static class Extensions
 
 	public static string GetFullTypeString(this INamedTypeSymbol type)
 	{
-		string result = type.Name;
+		var result = type.Name;
 
 		if (type.TypeArguments.Length > 0)
 		{
 			result += "<";
 
-			bool isFirstIteration = true;
+			var isFirstIteration = true;
 			foreach (INamedTypeSymbol typeArg in type.TypeArguments)
 			{
 				if (isFirstIteration)

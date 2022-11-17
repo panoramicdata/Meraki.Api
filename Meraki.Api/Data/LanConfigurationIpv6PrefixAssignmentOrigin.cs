@@ -19,5 +19,4 @@ public class LanConfigurationIpv6PrefixAssignmentOrigin
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "interfaces")]
 	public List<string>? Interfaces { get; set; }
-
 }

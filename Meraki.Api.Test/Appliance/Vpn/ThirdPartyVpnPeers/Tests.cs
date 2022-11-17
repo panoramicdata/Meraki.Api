@@ -15,7 +15,7 @@ public class Tests : MerakiClientTest
 			.ThirdPartyVpnPeers
 			.GetOrganizationApplianceVpnThirdPartyVPNPeersAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<Data.ThirdPartyVpnPeers>();
-		result.Should().NotBeNull();
+		_ = result.Should().BeOfType<Data.ThirdPartyVpnPeers>();
+		_ = result.Should().NotBeNull();
 	}
 }

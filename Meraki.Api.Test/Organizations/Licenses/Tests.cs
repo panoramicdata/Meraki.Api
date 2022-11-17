@@ -15,7 +15,7 @@ public class Tests : MerakiClientTest
 			.GetOrganizationLicensesOverviewAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
 
-		result.Should().NotBeNull();
+		_ = result.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -33,7 +33,7 @@ public class Tests : MerakiClientTest
 			.GetOrganizationLicensesAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 			.ConfigureAwait(false);
 
-		licenses.Should().NotBeNull();
+		_ = licenses.Should().NotBeNull();
 	}
 
 	/// <summary>
@@ -54,7 +54,7 @@ public class Tests : MerakiClientTest
 			.GetOrganizationLicensesAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing)
 			.ConfigureAwait(false);
 
-		organizationDeviceLicenses.Should().NotBeNullOrEmpty();
+		_ = organizationDeviceLicenses.Should().NotBeNullOrEmpty();
 		var license = organizationDeviceLicenses[0];
 
 		var organizationDeviceLicense = await TestMerakiClient
@@ -63,6 +63,6 @@ public class Tests : MerakiClientTest
 			.GetOrganizationLicenseAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing, license.Id)
 			.ConfigureAwait(false);
 
-		organizationDeviceLicense.Should().NotBeNull();
+		_ = organizationDeviceLicense.Should().NotBeNull();
 	}
 }

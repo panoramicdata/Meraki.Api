@@ -19,6 +19,4 @@ public class LanConfigurationIpv6
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "prefixAssignments")]
 	public List<LanConfigurationIpv6PrefixAssignment>? PrefixAssignments { get; set; }
-
-
 }

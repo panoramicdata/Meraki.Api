@@ -17,7 +17,7 @@ public class Tests : MerakiClientTest
 			.Clients
 			.GetNetworkClientsAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<Client>>();
-		result.Should().NotBeNull();
+		_ = result.Should().BeOfType<List<Client>>();
+		_ = result.Should().NotBeNull();
 	}
 }

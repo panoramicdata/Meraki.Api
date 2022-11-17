@@ -16,9 +16,9 @@ public class Tests : MerakiClientTest
 			.GetOrganizationSummaryTopSwitchesByEnergyUsageAsync("542676", "2022-10-12", "2022-10-13")
 			.ConfigureAwait(false);
 
-		result.Should().BeOfType<List<EnergyUsageSummary>>();
-		result.Should().NotBeNull();
-		result.Should().NotBeEmpty();
+		_ = result.Should().BeOfType<List<EnergyUsageSummary>>();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
 		//var firstResult = result[0];
 		//ValidateNetwork(firstResult);
 	}

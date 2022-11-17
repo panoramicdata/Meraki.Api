@@ -16,7 +16,7 @@ public class GetNetworkVlansTests : MerakiClientTest
 			.Vlans
 			.GetNetworkApplianceVlansAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<Vlan>>();
-		result.Should().NotBeNull();
+		_ = result.Should().BeOfType<List<Vlan>>();
+		_ = result.Should().NotBeNull();
 	}
 }

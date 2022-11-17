@@ -23,7 +23,7 @@ public class Tests : MerakiClientTest
 					TimeZone = timeZone
 				})
 			.ConfigureAwait(false);
-		createResult.Should().NotBeNull();
+		_ = createResult.Should().NotBeNull();
 
 		try
 		{
@@ -36,12 +36,12 @@ public class Tests : MerakiClientTest
 					Configuration.TestOrganizationId,
 					createResult.Id)
 				.ConfigureAwait(false);
-			refetchedConfigurationTemplate.Should().NotBeNull();
-			refetchedConfigurationTemplate.Name.Should().Be(configurationTemplateName);
-			refetchedConfigurationTemplate.TimeZone.Should().Be(timeZone);
+			_ = refetchedConfigurationTemplate.Should().NotBeNull();
+			_ = refetchedConfigurationTemplate.Name.Should().Be(configurationTemplateName);
+			_ = refetchedConfigurationTemplate.TimeZone.Should().Be(timeZone);
 
 			// Update
-			await TestMerakiClient
+			_ = await TestMerakiClient
 				.Organizations
 				.ConfigTemplates
 				.UpdateOrganizationConfigTemplateAsync(
@@ -63,12 +63,12 @@ public class Tests : MerakiClientTest
 					Configuration.TestOrganizationId,
 					createResult.Id)
 				.ConfigureAwait(false);
-			refetchedConfigurationTemplate2.Should().NotBeNull();
-			refetchedConfigurationTemplate2.Name.Should().Be(configurationTemplateName + "x");
-			refetchedConfigurationTemplate2.TimeZone.Should().Be(timeZone);
+			_ = refetchedConfigurationTemplate2.Should().NotBeNull();
+			_ = refetchedConfigurationTemplate2.Name.Should().Be(configurationTemplateName + "x");
+			_ = refetchedConfigurationTemplate2.TimeZone.Should().Be(timeZone);
 
 			// Enable VLANs
-			await TestMerakiClient
+			_ = await TestMerakiClient
 				.Appliance
 				.Vlans
 				.Settings
@@ -121,7 +121,7 @@ public class Tests : MerakiClientTest
 			.Networks
 			.GetOrganizationNetworksAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 			.ConfigureAwait(false);
-		result.Should().NotBeNull();
+		_ = result.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -136,11 +136,11 @@ public class Tests : MerakiClientTest
 				.Switch.ConfigTemplates.Profiles
 				.GetOrganizationConfigTemplateSwitchProfilesAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 				.ConfigureAwait(false);
-			switchProfiles.Should().BeOfType<List<SwitchProfile>>();
-			switchProfiles.Should().NotBeNull();
+			_ = switchProfiles.Should().BeOfType<List<SwitchProfile>>();
+			_ = switchProfiles.Should().NotBeNull();
 			if (switchProfiles.Count > 0)
 			{
-				switchProfiles.All(switchProfile => string.IsNullOrWhiteSpace(switchProfile.Model)).Should().BeFalse();
+				_ = switchProfiles.All(switchProfile => string.IsNullOrWhiteSpace(switchProfile.Model)).Should().BeFalse();
 			}
 		}
 	}
@@ -152,8 +152,8 @@ public class Tests : MerakiClientTest
 			.ConfigTemplates
 			.GetOrganizationConfigTemplatesAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
-		configurationTemplates.Should().BeOfType<List<ConfigurationTemplate>>();
-		configurationTemplates.Should().NotBeNull();
+		_ = configurationTemplates.Should().BeOfType<List<ConfigurationTemplate>>();
+		_ = configurationTemplates.Should().NotBeNull();
 		return configurationTemplates;
 	}
 }

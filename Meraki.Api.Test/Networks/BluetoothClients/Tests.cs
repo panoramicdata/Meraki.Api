@@ -17,7 +17,7 @@ public class Tests : MerakiClientTest
 			.BluetoothClients
 			.GetNetworkBluetoothClientsAsync(network.Id)
 			.ConfigureAwait(false);
-		result.Should().BeOfType<List<BluetoothClient>>();
-		result.Should().NotBeNull();
+		_ = result.Should().BeOfType<List<BluetoothClient>>();
+		_ = result.Should().NotBeNull();
 	}
 }

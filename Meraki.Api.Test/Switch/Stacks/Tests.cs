@@ -9,7 +9,7 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetNetworkSwitchStacksAsync_Succeeds()
 	{
-		Configuration.TestCameraNetworkId.Should().NotBeNull();
+		_ = Configuration.TestCameraNetworkId.Should().NotBeNull();
 
 		var switchStacks = await TestMerakiClient
 			.Switch
@@ -17,6 +17,6 @@ public class Tests : MerakiClientTest
 			.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, default)
 			.ConfigureAwait(false);
 
-		switchStacks.Should().NotBeNull();
+		_ = switchStacks.Should().NotBeNull();
 	}
 }

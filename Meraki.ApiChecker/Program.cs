@@ -35,5 +35,3 @@ var processStartInfo = new ProcessStartInfo(fileInfo.FullName)
 	UseShellExecute = true
 };
 Process.Start(processStartInfo);
-
-

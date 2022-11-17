@@ -15,7 +15,7 @@ public class Tests : MerakiClientTest
 			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial, default)
 			.ConfigureAwait(false);
 
-		switchPorts.Should().NotBeNullOrEmpty();
+		_ = switchPorts.Should().NotBeNullOrEmpty();
 	}
 
 	[Fact]
@@ -29,7 +29,7 @@ public class Tests : MerakiClientTest
 			.ConfigureAwait(false);
 
 		var switchPort = switchPorts[0];
-		switchPort.PortScheduleId.Should().NotBeNullOrEmpty();
+		_ = switchPort.PortScheduleId.Should().NotBeNullOrEmpty();
 
 		// ACT
 		switchPort.PortScheduleId = null;
@@ -39,7 +39,7 @@ public class Tests : MerakiClientTest
 			.ConfigureAwait(false);
 
 		// ASSERT
-		switchPortAfterUpdate.Should().NotBeNull();
-		switchPortAfterUpdate.PortScheduleId.Should().BeNull();
+		_ = switchPortAfterUpdate.Should().NotBeNull();
+		_ = switchPortAfterUpdate.PortScheduleId.Should().BeNull();
 	}
 }
