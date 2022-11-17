@@ -22,17 +22,17 @@ public class ChannelUtilizationHistory
 	/// Utilization total
 	/// </summary>
 	[DataMember(Name = "utilizationTotal")]
-	public double UtilizationTotal { get; set; } = 0;
+	public double UtilizationTotal { get; set; }
 
 	/// <summary>
 	/// Utilization 80211
 	/// </summary>
 	[DataMember(Name = "utilization80211")]
-	public double Utilization80211 { get; set; } = 0;
+	public double Utilization80211 { get; set; }
 
 	/// <summary>
 	/// Utilization non-80211
 	/// </summary>
 	[DataMember(Name = "utilizationNon80211")]
-	public double UtilizationNon80211 { get; set; } = 0;
+	public double UtilizationNon80211 { get; set; }
 }
