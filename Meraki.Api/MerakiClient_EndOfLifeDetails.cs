@@ -96,7 +96,7 @@ public partial class MerakiClient
 		var text = WebUtility.HtmlDecode(htmlNode.InnerText);
 		if (DateTime.TryParseExact(
 			text,
-			new string[] {
+			new[] {
 				"MMM d, yyyy",
 				"MMM dd, yyyy",
 				"MMMM d, yyyy",

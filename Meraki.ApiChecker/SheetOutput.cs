@@ -32,92 +32,90 @@ public static class SheetOutput
 
 				if (existingImplementations?.Count > 0)
 				{
-					switch (existingImplementations.Count)
+					if (existingImplementations.Count == 1)
 					{
-						case 1:
-							var singleImplementation = existingImplementations[0];
+						var singleImplementation = existingImplementations[0];
 
-							var schemaDetails = string.Empty;
-							if (pathOperation.Value.Responses.Count > 0)
+						var schemaDetails = string.Empty;
+						if (pathOperation.Value.Responses.Count > 0)
+						{
+							var response = pathOperation.Value.Responses.First();
+							var responseValue = response.Value;
+							var responseSchema = responseValue.Content.First().Value.Schema;
+							if (responseSchema is not null)
 							{
-								var response = pathOperation.Value.Responses.First();
-								var responseValue = response.Value;
-								var responseSchema = responseValue.Content.First().Value.Schema;
-								if (responseSchema is not null)
+								var responseProperties = responseSchema.Properties;
+								if (responseProperties.Count == 0)
 								{
-									var responseProperties = responseSchema.Properties;
-									if (responseProperties.Count == 0)
+									schemaDetails = $"{responseSchema.Type}";
+
+									// No properties, is the base type roughly matching
+									// At this point just check whether one is an array and the other isn't
+									// Is the schema response an array and the model property is not IEnumerable
+									if (responseSchema.Type == "array"
+										&& !singleImplementation.ResponseType.IsGenericList())
 									{
-										schemaDetails = $"{responseSchema.Type}";
-
-										// No properties, is the base type roughly matching
-										// At this point just check whether one is an array and the other isn't
-										// Is the schema response an array and the model property is not IEnumerable
-										if (responseSchema.Type == "array"
-											&& !singleImplementation.ResponseType.IsGenericList())
-										{
-											// YES - The base types don't match
-											schemaDetails += $" - Response schema is '{responseSchema.Type}', model type '{singleImplementation.ResponseType?.Name}' is not IEnumerable";
-										}
-									}
-									else
-									{
-										// For anything we can write to, there should be a DataMember attribute
-										schemaDetails = $"{responseSchema.Type} ({responseProperties.Count})";
-										// Compare the responseProperties to those on the response object defined
-										// Find the properties that match (and check their type)
-										// TODO
-
-										var schemaPropertyDetails = CheckSchemaProperties(
-											responseSchema,
-											singleImplementation.ResponseType);
-
-										if (schemaPropertyDetails != string.Empty)
-										{
-											schemaDetails += $" {schemaPropertyDetails}";
-										}
+										// YES - The base types don't match
+										schemaDetails += $" - Response schema is '{responseSchema.Type}', model type '{singleImplementation.ResponseType?.Name}' is not IEnumerable";
 									}
 								}
 								else
 								{
-									// If the response is a 204 then we're not expecting a schema
-									schemaDetails = response.Key == "204"
-										? "-"
-										: "NULL Schema";
+									// For anything we can write to, there should be a DataMember attribute
+									schemaDetails = $"{responseSchema.Type} ({responseProperties.Count})";
+									// Compare the responseProperties to those on the response object defined
+									// Find the properties that match (and check their type)
+									// TODO
+
+									var schemaPropertyDetails = CheckSchemaProperties(
+										responseSchema,
+										singleImplementation.ResponseType);
+
+									if (schemaPropertyDetails != string.Empty)
+									{
+										schemaDetails += $" {schemaPropertyDetails}";
+									}
 								}
 							}
+							else
+							{
+								// If the response is a 204 then we're not expecting a schema
+								schemaDetails = response.Key == "204"
+									? "-"
+									: "NULL Schema";
+							}
+						}
 
-							var methodName = singleImplementation.Method.Name ?? string.Empty;
-							var expectedMethodName = pathOperation.Value.OperationId.FirstCharToUpper() + "Async";
+						var methodName = singleImplementation.Method.Name ?? string.Empty;
+						var expectedMethodName = pathOperation.Value.OperationId.FirstCharToUpper() + "Async";
 
-							endpointSet.ImplementedEndpoints.Add(new()
+						endpointSet.ImplementedEndpoints.Add(new()
+						{
+							Method = pathOperation.Key.ToString(),
+							Endpoint = pathKpv.Key,
+							OperationId = pathOperation.Value.OperationId,
+							Tags = string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
+							Implementation = methodName,
+							NewMethodName = expectedMethodName != methodName ? expectedMethodName : string.Empty,
+							DeficientDataModels = string.Join(", ", singleImplementation.DeficientDataModels),
+							Schema = schemaDetails
+						});
+						_ = (implementedEndpoints?[pathKpv.Key].Remove(singleImplementation));
+					}
+					else
+					{
+						foreach (var duplicateImplementation in existingImplementations)
+						{
+							endpointSet.DuplicatedEndpoints.Add(new()
 							{
 								Method = pathOperation.Key.ToString(),
 								Endpoint = pathKpv.Key,
 								OperationId = pathOperation.Value.OperationId,
 								Tags = string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
-								Implementation = methodName,
-								NewMethodName = expectedMethodName != methodName ? expectedMethodName : string.Empty,
-								DeficientDataModels = string.Join(", ", singleImplementation.DeficientDataModels),
-								Schema = schemaDetails
+								Implementation = duplicateImplementation.Method.Name ?? string.Empty,
 							});
-							_ = (implementedEndpoints?[pathKpv.Key].Remove(singleImplementation));
-							break;
-						default:
-							foreach (var duplicateImplementation in existingImplementations)
-							{
-								endpointSet.DuplicatedEndpoints.Add(new()
-								{
-									Method = pathOperation.Key.ToString(),
-									Endpoint = pathKpv.Key,
-									OperationId = pathOperation.Value.OperationId,
-									Tags = string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name)),
-									Implementation = duplicateImplementation.Method.Name ?? string.Empty,
-								});
-								_ = (implementedEndpoints?[pathKpv.Key].Remove(duplicateImplementation));
-							}
-
-							break;
+							_ = (implementedEndpoints?[pathKpv.Key].Remove(duplicateImplementation));
+						}
 					}
 				}
 				else

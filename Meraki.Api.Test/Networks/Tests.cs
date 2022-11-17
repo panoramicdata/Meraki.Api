@@ -274,12 +274,11 @@ public class Tests : MerakiClientTest
 		_ = wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 		_ = wanSpecs.Should().NotBeNull();
 
-		const string googleDns = "8.8.8.8";
 		var newDeviceManagementInterfaceSettings = new DeviceManagementInterfaceSettings
 		{
 			Wan1 = new Wan
 			{
-				StaticDns = new List<string> { googleDns },
+				StaticDns = new List<string> { DnsServer },
 				StaticGatewayIp = $"{PrivateNetworkFirst3Octets}.1",
 				StaticIp = $"{PrivateNetworkFirst3Octets}.254",
 				StaticSubnetMask = $"{SubnetMaskFirst3Octets}.0",
@@ -323,7 +322,7 @@ public class Tests : MerakiClientTest
 		_ = wanSpecsRefetch.Wan1!.StaticDns.Should().NotBeNull();
 		_ = wanSpecsRefetch.Wan1.StaticDns.Should().HaveCount(1);
 		_ = wanSpecsRefetch.Wan1.StaticDns.Should().NotBeNull();
-		_ = wanSpecsRefetch.Wan1.StaticDns![0].Should().BeEquivalentTo(googleDns);
+		_ = wanSpecsRefetch.Wan1.StaticDns![0].Should().BeEquivalentTo(DnsServer);
 
 		// Get all organization devices and make sure ours is present
 		var allOrganizationDevices = await TestMerakiClient
