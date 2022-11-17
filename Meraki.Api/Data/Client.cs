@@ -20,6 +20,13 @@ public class Client : IdentifiedItem
 	public string? Description { get; set; }
 
 	/// <summary>
+	/// Device Type prediction
+	/// Temporarily set to object? until examples can be found
+	/// </summary>
+	[DataMember(Name = "deviceTypePrediction")]
+	public object? DeviceTypePrediction { get; set; }
+
+	/// <summary>
 	/// The mac
 	/// </summary>
 	[DataMember(Name = "mac")]
