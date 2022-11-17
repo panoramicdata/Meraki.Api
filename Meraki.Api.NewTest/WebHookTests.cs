@@ -20,7 +20,7 @@ public class WebHookTests : MerakiClientUnitTest
 		try
 		{
 			// Set up Webhook Http Server create request
-			var testWebHookHttpServerRequest = new WebhookHttpServer()
+			var testWebHookHttpServerRequest = new WebhookHttpServer
 			{
 				Name = "Test Webhook HTTP Server",
 				SharedSecret = "testsharedsecret",
@@ -60,7 +60,7 @@ public class WebHookTests : MerakiClientUnitTest
 				);
 
 			// update the webhook http server
-			var updateWebHookHttpServerRequest = new WebhookHttpServer()
+			var updateWebHookHttpServerRequest = new WebhookHttpServer
 			{
 				// Only providing the item we want to change
 				Name = "Test Webhook HTTP Server - Updated",
@@ -109,10 +109,6 @@ public class WebHookTests : MerakiClientUnitTest
 				Name = "Test Payload Template",
 				Body = "{\"event_type\":\"{{alertTypeId}}\",\"client_payload\":{\"text\":\"{{alertData}}\"}}",
 				// TODO Find out headers format and how files should be used
-				//Headers = new()
-				//{
-				//	{"Content-Type","application/json" },
-				//}
 			};
 			//Crete the payload template
 			var testCreateWebhookPayloadTemplate = await TestMerakiClient
@@ -130,7 +126,7 @@ public class WebHookTests : MerakiClientUnitTest
 			_ = retrieveWebhookPayloadTemplates.Should().Contain(payloadTemplate => payloadTemplate.Name == testCreateWebhookPayloadTemplateRequest.Name);
 
 			//Create an http webhook server that uses the template
-			var testWebHookHttpServerRequest = new WebhookHttpServer()
+			var testWebHookHttpServerRequest = new WebhookHttpServer
 			{
 				Name = "Test Webhook HTTP Server",
 				SharedSecret = "testsharedsecret",
@@ -179,7 +175,7 @@ public class WebHookTests : MerakiClientUnitTest
 				.DeleteNetworkWebhooksPayloadTemplateAsync(network.Id, testCreateWebhookPayloadTemplate.PayloadTemplateId!);
 
 			//Check that the payload template is gone
-			var webhookpayloadtemplateexception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient
+			_ = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient
 			.Networks
 			.WebHooks
 			.PayloadTemplates
@@ -206,7 +202,7 @@ public class WebHookTests : MerakiClientUnitTest
 		try
 		{
 			//Create a Webhook Test Object
-			var testCreateWebhookTestRequest = new WebhookTestRequest()
+			var testCreateWebhookTestRequest = new WebhookTestRequest
 			{
 				Url = "https://www.google.com",
 				SharedSecret = "testsharedsecret",

@@ -19,7 +19,7 @@ public class SwitchRoutingInterfaceTests : MerakiClientUnitTest
 
 		// Set up the routing interface object to be created
 		// InterfaceIp is required for a create, Subnet and DefaultGateway are required for InterfaceIp to be accepted
-		var createSwitchRoutingInterfaceRequest = new RoutingInterfaceCreateRequest()
+		var createSwitchRoutingInterfaceRequest = new RoutingInterfaceCreateRequest
 		{
 			Name = "Test Routing Interface",
 			VlanId = 12,
@@ -48,7 +48,7 @@ public class SwitchRoutingInterfaceTests : MerakiClientUnitTest
 			// InterfaceIp = "192.168.1.2",
 			// Subnet = "192.168.1.0/24",
 			// Create some Ipv6 settings
-			Ipv6 = new RoutingInterfaceIpv6()
+			Ipv6 = new RoutingInterfaceIpv6
 			{
 				AssignmentMode = AssignmentMode.Static,
 				Address = "1:2:3:4::1",
@@ -61,15 +61,7 @@ public class SwitchRoutingInterfaceTests : MerakiClientUnitTest
 			.Routing
 			.Interfaces
 			.UpdateDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterface.InterfaceId, updateSwitchRoutingInterfaceRequest);
-		/*
-		updatedSwitchRoutingInterface.Should().NotBeNull();
-		updatedSwitchRoutingInterface.Name.Should().Be(updateSwitchRoutingInterfaceRequest.Name);
-		updatedSwitchRoutingInterface.Ipv6.Should().NotBeNull();
-		updatedSwitchRoutingInterface.Ipv6!.AssignmentMode.Should().Be(updateSwitchRoutingInterfaceRequest.Ipv6.AssignmentMode);
-		updatedSwitchRoutingInterface.Ipv6!.Address.Should().Be(updateSwitchRoutingInterfaceRequest.Ipv6.Address);
-		updatedSwitchRoutingInterface.Ipv6!.Prefix.Should().Be(updateSwitchRoutingInterfaceRequest.Ipv6.Prefix);
-		updatedSwitchRoutingInterface.Ipv6!.Gateway.Should().Be(updateSwitchRoutingInterfaceRequest.Ipv6.Gateway);
-		*/
+
 		// Get the routing interface and compare
 		var testSwitchRoutingInterface = await TestMerakiClient.Switch.Routing.Interfaces.GetDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterface.InterfaceId);
 		_ = testSwitchRoutingInterface.Name.Should().Be(updateSwitchRoutingInterfaceRequest.Name);

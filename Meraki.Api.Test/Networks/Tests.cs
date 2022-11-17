@@ -206,15 +206,15 @@ public class Tests : MerakiClientTest
 			.Vlans
 			.UpdateNetworkApplianceVlanAsync(newNetwork.Id, vlan10.Id, new VlanSpec
 			{
-				Subnet = "10.250.82.128/28",
-				ApplianceIp = "10.250.82.129",
+				Subnet = $"{PrivateNetworkFirst3Octets}.128/28",
+				ApplianceIp = $"{PrivateNetworkFirst3Octets}.129",
 				ReservedIpRanges = new List<ReservedIpRange>
 				{
 						new ReservedIpRange
 						{
 							Comment = "Temp",
-							Start = "10.250.82.129",
-							End = "10.250.82.131"
+							Start = $"{PrivateNetworkFirst3Octets}.129",
+							End = $"{PrivateNetworkFirst3Octets}.131"
 						}
 				}
 			})
@@ -280,9 +280,9 @@ public class Tests : MerakiClientTest
 			Wan1 = new Wan
 			{
 				StaticDns = new List<string> { googleDns },
-				StaticGatewayIp = "192.168.1.1",
-				StaticIp = "192.168.1.254",
-				StaticSubnetMask = "255.255.255.0",
+				StaticGatewayIp = $"{PrivateNetworkFirst3Octets}.1",
+				StaticIp = $"{PrivateNetworkFirst3Octets}.254",
+				StaticSubnetMask = $"{SubnetMaskFirst3Octets}.0",
 				UsingStaticIp = true,
 				Vlan = 1,
 				WanEnabledStatus = WanEnabledStatus.Enabled

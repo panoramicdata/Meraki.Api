@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
+using System.Text;
 
 namespace RefitClassSourceGenerator;
 
@@ -6,43 +7,47 @@ public static class Extensions
 {
 	public static string GetMethodSignature(this IMethodSymbol methodSymbol, bool concreteSignature)
 	{
-		var result = methodSymbol.DeclaredAccessibility.ConvertAccessibilityToString();
+		var result = new StringBuilder(methodSymbol.DeclaredAccessibility.ConvertAccessibilityToString());
 
 		if (methodSymbol.IsAsync)
 		{
-			result += " async";
+			_ = result.Append(" async");
 		}
 
 		if (!concreteSignature && methodSymbol.IsAbstract)
 		{
-			result += " abstract";
+			_ = result.Append(" abstract");
 		}
 
 		if (methodSymbol.IsVirtual)
 		{
-			result += " virtual";
+			_ = result.Append(" virtual");
 		}
 
 		if (methodSymbol.IsStatic)
 		{
-			result += " static";
+			_ = result.Append(" static");
 		}
 
 		if (methodSymbol.IsOverride)
 		{
-			result += " override";
+			_ = result.Append(" override");
 		}
 
 		if (methodSymbol.ReturnsVoid)
 		{
-			result += " void";
+			_ = result.Append(" void");
 		}
 		else
 		{
-			result += " " + (methodSymbol.ReturnType as INamedTypeSymbol)?.GetFullTypeString() ?? throw new Exception("No return type found");
+			_ = result
+				.Append(' ')
+				.Append((methodSymbol.ReturnType as INamedTypeSymbol)?.GetFullTypeString() ?? throw new Exception("No return type found"));
 		}
 
-		result += " " + methodSymbol.Name + "(";
+		_ = result.Append(' ')
+			.Append(methodSymbol.Name)
+			.Append('(');
 
 		var isFirstParameter = true;
 		foreach (var parameter in methodSymbol.Parameters)
@@ -53,35 +58,38 @@ public static class Extensions
 			}
 			else
 			{
-				result += ", ";
+				_ = result.Append(", ");
 			}
 
 			if (parameter.RefKind == RefKind.Out)
 			{
-				result += "out ";
+				_ = result.Append("out ");
 			}
 			else if (parameter.RefKind == RefKind.Ref)
 			{
-				result += "ref ";
+				_ = result.Append("ref ");
 			}
 
 			var parameterTypeString =
 				(parameter.Type as INamedTypeSymbol)?.GetFullTypeString()
 				?? throw new Exception($"Missing parameter type for {methodSymbol.Name} {parameter.Name} {parameter.Type}");
 
-			result += parameterTypeString;
-
-			result += " " + parameter.Name;
+			_ = result
+				.Append(parameterTypeString)
+				.Append(' ')
+				.Append(parameter.Name);
 
 			if (parameter.HasExplicitDefaultValue)
 			{
-				result += " = " + (parameter.ExplicitDefaultValue?.ToString() ?? "default");
+				_ = result
+					.Append(" = ")
+					.Append(parameter.ExplicitDefaultValue?.ToString() ?? "default");
 			}
 		}
 
-		result += ")";
+		_ = result.Append(')');
 
-		return result;
+		return result.ToString();
 	}
 
 	public static string ConvertAccessibilityToString(this Accessibility accessibility)
@@ -97,14 +105,14 @@ public static class Extensions
 
 	public static string GetFullTypeString(this INamedTypeSymbol type)
 	{
-		var result = type.Name;
+		var result = new StringBuilder(type.Name);
 
 		if (type.TypeArguments.Length > 0)
 		{
-			result += "<";
+			_ = result.Append('<');
 
 			var isFirstIteration = true;
-			foreach (INamedTypeSymbol typeArg in type.TypeArguments)
+			foreach (var typeArg in type.TypeArguments.Cast<INamedTypeSymbol>())
 			{
 				if (isFirstIteration)
 				{
@@ -112,15 +120,15 @@ public static class Extensions
 				}
 				else
 				{
-					result += ", ";
+					_ = result.Append(", ");
 				}
 
-				result += typeArg.GetFullTypeString();
+				_ = result.Append(typeArg.GetFullTypeString());
 			}
 
-			result += ">";
+			_ = result.Append('>');
 		}
 
-		return result;
+		return result.ToString();
 	}
 }

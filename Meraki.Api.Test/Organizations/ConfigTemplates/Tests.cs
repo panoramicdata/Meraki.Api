@@ -88,8 +88,8 @@ public class Tests : MerakiClientTest
 					{
 						Id = "2",
 						Name = "VLAN 2",
-						Subnet = "10.0.0.0/24",
-						ApplianceIp = "10.0.0.1"
+						Subnet = $"{PrivateNetworkFirst3Octets}.0/24",
+						ApplianceIp = $"{PrivateNetworkFirst3Octets}.1"
 					})
 				.ConfigureAwait(false);
 		}
