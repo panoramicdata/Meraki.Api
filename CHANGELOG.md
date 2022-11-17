@@ -15,13 +15,12 @@
 
 ## v1.25.13
   - Fixed https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses for:
-  - port to ports, permitting deserialization
-  - renamed Speed to SpeedMbps
-  - renamed IsConnectd to IsConnected
+    - port to ports, permitting deserialization
+    - renamed Speed to SpeedMbps
+    - renamed IsConnectd to IsConnected
 
 ## v1.25.6
-  - Added https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses 
-as `MerakiClient.Wireless.Devices.OrganizationEthernetStatuses`
+  - Added https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses as `MerakiClient.Wireless.Devices.OrganizationEthernetStatuses`
 
 ## v1.25.1
   - Added appliance SSID endpoints - https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-ssids
@@ -32,10 +31,9 @@ as `MerakiClient.Wireless.Devices.OrganizationEthernetStatuses`
 ## v1.24.1
   - Changed all floats to double.
   - Modified several models to be nullable where the response model is also used in requests to allow only setting certain properties.
-  - Added missing endpoints.
-  - Updated existing models.
-  - No change made yet to Client to support new documentation "Platform" layout.
-Intention is to add "Platform" at the root level with duplicate references to sections and interfaces to allow easily finding calls matching documentation.
+  - Added missing endpoints
+  - Updated existing models
+  - No change made yet to Client to support new documentation "Platform" layout.  Intention is to add "Platform" at the root level with duplicate references to sections and interfaces to allow easily finding calls matching documentation.
 
 ## v1.23.9
   - Updates for Meraki API v1.23

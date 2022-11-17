@@ -125,7 +125,6 @@ API attributes should be added to indicate their usage.
 - `[ApiAccess(ApiAccess.CreateUpdate)]` - Used to indicate that the property can only be used as part of a Create or Update request.
 - `[ApiAccess(ApiAccess.ReadWrite)]` - Used to indicate that the returned property value can be used as part of a Create or Update request.
 
-
 ### Class attributes
 - `[ApiAccessReadOnlyClass]` - This can be set at the class level to indicate that all properties are read only. Useful for
 Monitor endpoints.
