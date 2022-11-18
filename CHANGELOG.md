@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.27.15
+  - Allowed UplinkBandwidthLimits Wan1, Wan2 and Cellular to be nullable
+
 ## v1.27.4
   - Added Mask and Cidr to vlanspec
 

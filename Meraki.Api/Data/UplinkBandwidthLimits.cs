@@ -11,19 +11,19 @@ public class UplinkBandwidthLimits
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wan1")]
-	public BandwidthLimit Wan1 { get; set; } = new();
+	public BandwidthLimit? Wan1 { get; set; }
 
 	/// <summary>
 	/// The bandwidth settings for the 'wan2' uplink
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wan2")]
-	public BandwidthLimit Wan2 { get; set; } = new();
+	public BandwidthLimit? Wan2 { get; set; }
 
 	/// <summary>
 	/// The bandwidth settings for the 'cellular' uplink
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "cellular")]
-	public BandwidthLimit Cellular { get; set; } = new();
+	public BandwidthLimit? Cellular { get; set; }
 }
