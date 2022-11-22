@@ -65,4 +65,10 @@ public class VlanSpec
 	/// </summary>
 	[DataMember(Name = "mask")]
 	public int? Mask { get; set; }
+
+	/// <summary>
+	/// GroupPolicyId
+	/// </summary>
+	[DataMember(Name = "groupPolicyId")]
+	public string? GroupPolicyId { get; set; }
 }
