@@ -9,6 +9,7 @@ public class RoutingInterface : NamedItem
 	/// <summary>
 	/// Interface Id
 	/// </summary>
+	[ApiKey]
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "interfaceId")]
 	public string InterfaceId { get; set; } = string.Empty;

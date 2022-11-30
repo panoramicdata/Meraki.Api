@@ -1,7 +1,8 @@
 ﻿# Changelog
 
-## 1.27.18
+## 1.27.23
   - Changed RoutingInterface MulticastRouting property to be an enum.
+  - Updated RoutingInterface to identify InterfaceId as a key
 
 ## 1.27.15
   - Allowed UplinkBandwidthLimits Wan1, Wan2 and Cellular to be nullable
