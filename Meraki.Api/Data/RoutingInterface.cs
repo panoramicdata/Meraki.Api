@@ -39,7 +39,7 @@ public class RoutingInterface : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "multicastRouting")]
-	public string? MulticastRouting { get; set; }
+	public MulticastRouting? MulticastRouting { get; set; }
 
 	/// <summary>
 	/// The network that this routed interface is on, in CIDR notation (ex. 10.1.1.0/24).

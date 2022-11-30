@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.27.18
+  - Changed RoutingInterface MulticastRouting property to be an enum.
+
 ## 1.27.15
   - Allowed UplinkBandwidthLimits Wan1, Wan2 and Cellular to be nullable
 
@@ -45,7 +48,7 @@
   - Renamed AuthMode enum entries
     - _8021xmeraki to Auth8021xmeraki
     - _8021xradius to Auth8021xradius
-	
+    
   - Renamed DhcpLeaseTime enum entries
     - _30minutes to Duration30Minutes
     - _1hour to Duration1Hour
