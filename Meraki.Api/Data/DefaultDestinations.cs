@@ -13,6 +13,7 @@ public class DefaultDestinations
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "emails")]
 	public List<string> Emails { get; set; } = new();
+
 	/// <summary>
 	/// If true, then all network admins will receive emails.
 	/// </summary>
