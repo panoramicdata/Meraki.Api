@@ -20,15 +20,18 @@
 		<Authors>Panoramic Data Limited</Authors>
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
-
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-		<PackageReleaseNotes>Changelog can be found at https://github.com/panoramicdata/Meraki.Api/blob/main/CHANGELOG.md</PackageReleaseNotes>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+
+		<PackageReleaseNotes>Changelog can be found at https://github.com/panoramicdata/Meraki.Api/blob/main/CHANGELOG.md</PackageReleaseNotes>
+
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="Icon.png" Pack="true" PackagePath="" />
+		<None Include="../README.md" Pack="true" PackagePath=""/>
 	</ItemGroup>
 
 	<ItemGroup>
