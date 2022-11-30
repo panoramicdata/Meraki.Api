@@ -16,7 +16,7 @@ To use the Meraki API nuget package:
 1. Right-click on the project and click "Manage Nuget packages"
 1. Find the package "Meraki.Api" - install the latest version
 
-## Example code (C# 10.0)
+## Example code (C# 11)
 
 ``` C#
 using Meraki.Api;
