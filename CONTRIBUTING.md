@@ -115,7 +115,7 @@ which returned properties can be used as part of create/update/delete requests.
 ### Property attributes
 API attributes should be added to indicate their usage.
 
-- `[ApiKey]` - Used to identify the primary key for the API resource.
+- `[ApiKey]` - Used to identify the primary key for the API resource. Do not specify ApiAccess attributes if ApiKey is used.
 - `[ApiForeignKey(typeof(xxx))`] - Used to identify another resource linked to by this Id, this can be useful to store for later use.
 - `[ApiAccess(ApiAccess.Read)]` - Used to indicate that the returned property value is informational only and cannot be used as part of a Create or Update request.
 - `[ApiAccess(ApiAccess.Create)]` - Used to indicate that the property can only be used as part of a Create request.

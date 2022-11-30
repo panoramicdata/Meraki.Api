@@ -10,7 +10,6 @@ public class SwitchStaticRoute : NamedItem
 	/// Static route ip
 	/// </summary>
 	[ApiKey]
-	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "staticRouteId")]
 	public string StaticRouteId { get; set; } = string.Empty;
 
