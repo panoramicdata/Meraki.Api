@@ -10,29 +10,29 @@ public class SwitchStaticRouteCreationRequest
 	/// Name
 	/// </summary>
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// Subnet
 	/// </summary>
 	[DataMember(Name = "subnet")]
-	public string Subnet { get; set; } = string.Empty;
+	public string? Subnet { get; set; }
 
 	/// <summary>
 	/// Next hop ip
 	/// </summary>
 	[DataMember(Name = "nextHopIp")]
-	public string NextHopIp { get; set; } = string.Empty;
+	public string? NextHopIp { get; set; }
 
 	/// <summary>
 	/// Advertise via ospf enabled
 	/// </summary>
 	[DataMember(Name = "advertiseViaOspfEnabled")]
-	public bool AdvertiseViaOspfEnabled { get; set; }
+	public bool? AdvertiseViaOspfEnabled { get; set; }
 
 	/// <summary>
 	/// Prefer over ospf routes enabled
 	/// </summary>
 	[DataMember(Name = "preferOverOspfRoutesEnabled")]
-	public bool PreferOverOspfRoutesEnabled { get; set; }
+	public bool? PreferOverOspfRoutesEnabled { get; set; }
 }
