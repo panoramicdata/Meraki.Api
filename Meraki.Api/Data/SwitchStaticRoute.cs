@@ -18,26 +18,26 @@ public class SwitchStaticRoute : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "subnet")]
-	public string Subnet { get; set; } = string.Empty;
+	public string? Subnet { get; set; }
 
 	/// <summary>
 	/// IP address of the next hop device to which the device sends its traffic for the subnet
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "nextHopIp")]
-	public string NextHopIp { get; set; } = string.Empty;
+	public string? NextHopIp { get; set; }
 
 	/// <summary>
 	/// Option to advertise static route via OSPF
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "advertiseViaOspfEnabled")]
-	public bool AdvertiseViaOspfEnabled { get; set; }
+	public bool? AdvertiseViaOspfEnabled { get; set; }
 
 	/// <summary>
 	/// Option to prefer static route over OSPF routes
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "preferOverOspfRoutesEnabled")]
-	public bool PreferOverOspfRoutesEnabled { get; set; }
+	public bool? PreferOverOspfRoutesEnabled { get; set; }
 }
