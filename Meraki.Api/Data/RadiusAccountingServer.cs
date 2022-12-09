@@ -4,8 +4,15 @@ namespace Meraki.Api.Data;
 /// RadiusAccountingServer
 /// </summary>
 [DataContract]
-public class RadiusAccountingServer : IdentifiedItem
+public class RadiusAccountingServer
 {
+	/// <summary>
+	/// The Id - not used for anything
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "id")]
+	public string? Id { get; set; }
+
 	/// <summary>
 	/// IP address to which the APs will send RADIUS accounting messages
 	/// </summary>

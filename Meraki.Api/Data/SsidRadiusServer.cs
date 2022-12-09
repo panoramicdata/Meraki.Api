@@ -7,12 +7,11 @@
 public class SsidRadiusServer
 {
 	/// <summary>
-	/// The Id
+	/// The Id - not used for anything
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[ApiKey]
 	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
+	public string? Id { get; set; }
 
 	/// <summary>
 	/// The ID of the Openroaming Certificate attached to radius server.
