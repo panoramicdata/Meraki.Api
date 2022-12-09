@@ -6,7 +6,7 @@
 [DataContract]
 public class SsidSplashSettings
 {
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "splashMethod")]
 	public string? SplashMethod { get; set; }
 
