@@ -10,6 +10,7 @@ public class SsidRadiusServer
 	/// The Id
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
+	[ApiKey]
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
 
