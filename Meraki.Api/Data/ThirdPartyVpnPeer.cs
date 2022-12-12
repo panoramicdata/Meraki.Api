@@ -11,7 +11,7 @@ public class ThirdPartyVpnPeer : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "publicIp")]
-	public string PublicIp { get; set; } = null!;
+	public string? PublicIp { get; set; }
 
 	/// <summary>
 	/// [optional] The remote ID is used to identify the connecting VPN peer. This can either be a valid IPv4 Address, FQDN or User FQDN.
@@ -32,33 +32,33 @@ public class ThirdPartyVpnPeer : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "privateSubnets")]
-	public List<string> PrivateSubnets { get; set; } = new List<string>();
+	public List<string>? PrivateSubnets { get; set; }
 
 	/// <summary>
 	/// Gets or Sets IpsecPolicies
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ipsecPolicies")]
-	public IpsecPolicies IpsecPolicies { get; set; } = new();
+	public IpsecPolicies? IpsecPolicies { get; set; }
 
 	/// <summary>
 	/// One of the following available presets: 'default', 'aws', 'azure'. If this is provided, the 'ipsecPolicies' parameter is ignored.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ipsecPoliciesPreset")]
-	public string IpsecPoliciesPreset { get; set; } = string.Empty;
+	public string? IpsecPoliciesPreset { get; set; }
 
 	/// <summary>
 	/// The shared secret with the VPN peer
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "secret")]
-	public string Secret { get; set; } = string.Empty;
+	public string? Secret { get; set; }
 
 	/// <summary>
 	/// A list of network tags that will connect with this peer. Use ['all'] for all networks. Use ['none'] for no networks. If not included, the default is ['all'].
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "networkTags")]
-	public List<string> NetworkTags { get; set; } = new List<string>();
+	public List<string>? NetworkTags { get; set; }
 }
