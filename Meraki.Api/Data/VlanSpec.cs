@@ -71,4 +71,10 @@ public class VlanSpec
 	/// </summary>
 	[DataMember(Name = "groupPolicyId")]
 	public string? GroupPolicyId { get; set; }
+
+	/// <summary>
+	/// Mandatory DHCP will enforce that clients connecting to this VLAN must use the IP address assigned by the DHCP server. Clients who use a static IP address won't be able to associate. Only available on firmware versions 17.0 and above
+	/// </summary>
+	[DataMember(Name = "mandatoryDhcp")]
+	public MandatoryDhcp? MandatoryDhcp { get; set; }
 }
