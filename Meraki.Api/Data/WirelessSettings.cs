@@ -35,6 +35,13 @@ public class WirelessSettings
 	public bool LedLightsOn { get; set; }
 
 	/// <summary>
+	/// Named Vlans
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "namedVlans")]
+	public WirelessSettingsNamedVlans? NamedVlans { get; set; }
+
+	/// <summary>
 	/// The upgrade strategy to apply to the network. Must be one of 'minimizeUpgradeTime' or 'minimizeClientDowntime'. Requires firmware version MR 26.8 or higher'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
