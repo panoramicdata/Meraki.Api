@@ -28,7 +28,7 @@ public class NetworkSettings
 	public NetworkSettingsSecurePort? SecurePort { get; set; }
 
 	/// <summary>
-	/// Fips settings - undocumented
+	/// Fips settings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "fips")]
