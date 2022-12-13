@@ -1,5 +1,3 @@
-using Newtonsoft.Json.Linq;
-
 namespace Meraki.Api.Interfaces.General.Organizations;
 
 /// <summary>
@@ -13,7 +11,7 @@ public interface IOrganizationsOpenapiSpec
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/openapiSpec")]
-	Task<JObject> GetOrganizationOpenapiSpecAsync(
+	Task<object> GetOrganizationOpenapiSpecAsync(
 		[AliasAs("organizationId")] string organizationId
 		);
 }
