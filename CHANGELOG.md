@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.28.4
+  - Updated ActionBatch CreatedResource Id to be a string
+
 ## 1.27.23
   - Changed RoutingInterface MulticastRouting property to be an enum.
   - Updated RoutingInterface to identify InterfaceId as a key
