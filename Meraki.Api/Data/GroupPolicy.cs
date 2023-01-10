@@ -19,47 +19,47 @@ public class GroupPolicy : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "scheduling")]
-	public Scheduling Scheduling { get; set; } = new();
+	public Scheduling? Scheduling { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Bandwidth
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bandwidth")]
-	public Bandwidth Bandwidth { get; set; } = new();
+	public Bandwidth? Bandwidth { get; set; }
 
 	/// <summary>
 	/// Gets or Sets FirewallAndTrafficShaping
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "firewallAndTrafficShaping")]
-	public FirewallAndTrafficShaping FirewallAndTrafficShaping { get; set; } = new();
+	public FirewallAndTrafficShaping? FirewallAndTrafficShaping { get; set; }
 
 	/// <summary>
 	/// Gets or Sets ContentFiltering
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "contentFiltering")]
-	public GroupPolicyContentFiltering ContentFiltering { get; set; } = new();
+	public GroupPolicyContentFiltering? ContentFiltering { get; set; }
 
 	/// <summary>
 	/// Gets or Sets SplashAuthSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "splashAuthSettings")]
-	public SplashAuthSetting SplashAuthSettings { get; set; }
+	public SplashAuthSetting? SplashAuthSettings { get; set; }
 
 	/// <summary>
 	/// Gets or Sets VlanTagging
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlanTagging")]
-	public VlanTagging VlanTagging { get; set; } = new();
+	public VlanTagging? VlanTagging { get; set; }
 
 	/// <summary>
 	/// Gets or Sets BonjourForwarding
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bonjourForwarding")]
-	public GroupPolicyBonjourForwarding BonjourForwarding { get; set; } = new();
+	public GroupPolicyBonjourForwarding? BonjourForwarding { get; set; }
 }

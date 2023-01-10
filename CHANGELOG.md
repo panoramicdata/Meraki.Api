@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.28.6
+  - Updated GroupPolicy to allow all properties to be nullable
+
 ## 1.28.4
   - Updated ActionBatch CreatedResource Id to be a string
 
