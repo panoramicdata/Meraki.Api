@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.29.1
+  - Added daiTrusted to SwitchPort
+
 ## 1.28.6
   - Updated GroupPolicy to allow all properties to be nullable
 

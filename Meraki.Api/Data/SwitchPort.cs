@@ -173,4 +173,11 @@ public class SwitchPort : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "linkNegotiationCapabilities")]
 	public List<string>? LinkNegotiationCapabilities { get; set; }
+
+	/// <summary>
+	/// If true, ARP packets for this port will be considered trusted, and Dynamic ARP Inspection will allow the traffic.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "daiTrusted")]
+	public bool? DaiTrusted { get; set; }
 }
