@@ -11,12 +11,12 @@ public class TrafficFilters
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "type")]
-	public TrafficFilterType Type { get; set; }
+	public TrafficFilterType? Type { get; set; }
 
 	/// <summary>
 	/// Value object of this traffic filter
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "value")]
-	public TrafficFiltersValue Value { get; set; } = new();
+	public TrafficFiltersValue? Value { get; set; } = new();
 }

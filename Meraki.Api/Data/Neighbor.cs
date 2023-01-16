@@ -47,4 +47,11 @@ public class Neighbor
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ebgpMultihop")]
 	public int EbgpMultihop { get; set; }
+
+	/// <summary>
+	/// Information regarding IPv6 address of the neighbor, Required if ip is not present.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "ipv6")]
+	public NeighborIpv6? Ipv6 { get; set; }
 }

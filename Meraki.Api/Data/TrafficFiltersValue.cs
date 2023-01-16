@@ -11,7 +11,7 @@ public class TrafficFiltersValue : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "protocol")]
-	public FirewallProtocol Protocol { get; set; }
+	public FirewallProtocol? Protocol { get; set; }
 
 	/// <summary>
 	/// Source of this custom type traffic filter
