@@ -11,26 +11,26 @@ public class TrafficUplinkPreference
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "trafficFilters")]
-	public List<TrafficFilters> TrafficFilters { get; set; } = new();
+	public List<TrafficFilters>? TrafficFilters { get; set; }
 
 	/// <summary>
 	/// Preferred uplink for this uplink preference rule. Must be one of: 'wan1', 'wan2', 'bestForVoIP', 'loadBalancing' or 'defaultUplink'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "preferredUplink")]
-	public PreferredUplink PreferredUplink { get; set; }
+	public PreferredUplink? PreferredUplink { get; set; }
 
 	/// <summary>
 	/// Fail over criterion for this uplink preference rule. Must be one of: 'poorPerformance' or 'uplinkDown'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "failOverCriterion")]
-	public FailOverCriterion FailOverCriterion { get; set; }
+	public FailOverCriterion? FailOverCriterion { get; set; }
 
 	/// <summary>
 	///	Performance class setting for this uplink preference rule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "performanceClass")]
-	public PerformanceClass PerformanceClass { get; set; } = new();
+	public PerformanceClass? PerformanceClass { get; set; }
 }

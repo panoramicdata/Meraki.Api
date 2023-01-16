@@ -11,7 +11,7 @@ public class ValueSource
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "port")]
-	public string Port { get; set; } = string.Empty;
+	public string? Port { get; set; }
 
 	/// <summary>
 	/// CIDR format address, or "any". E.g.: "192.168.10.0/24", "192.168.10.1" (same as "192.168.10.1/32"), "0.0.0.0/0" (same as "any")

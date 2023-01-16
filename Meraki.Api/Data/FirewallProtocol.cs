@@ -28,5 +28,11 @@ public enum FirewallProtocol
 	/// Enum Any for "any"
 	/// </summary>
 	[EnumMember(Value = "any")]
-	Any
+	Any,
+
+	/// <summary>
+	/// Enum for "icmp6"
+	/// </summary>
+	[EnumMember(Value = "icmp6")]
+	Icmp6
 }
