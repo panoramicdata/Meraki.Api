@@ -32,5 +32,5 @@ public class VpnBgp
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "neighbors")]
-	public List<Neighbor>? Neighbors { get; set; } = new();
+	public List<Neighbor>? Neighbors { get; set; }
 }

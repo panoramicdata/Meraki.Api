@@ -18,5 +18,5 @@ public class TrafficFilters
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "value")]
-	public TrafficFiltersValue? Value { get; set; } = new();
+	public TrafficFiltersValue? Value { get; set; }
 }

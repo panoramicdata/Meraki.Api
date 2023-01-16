@@ -32,12 +32,12 @@ public class UplinkSelection
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wanTrafficUplinkPreferences")]
-	public List<TrafficUplinkPreference>? WanTrafficUplinkPreferences { get; set; } = new();
+	public List<TrafficUplinkPreference>? WanTrafficUplinkPreferences { get; set; }
 
 	/// <summary>
 	/// Array of uplink preference rules for VPN traffic
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "vpnTrafficUplinkPreferences")]
-	public List<TrafficUplinkPreference>? VpnTrafficUplinkPreferences { get; set; } = new();
+	public List<TrafficUplinkPreference>? VpnTrafficUplinkPreferences { get; set; }
 }
