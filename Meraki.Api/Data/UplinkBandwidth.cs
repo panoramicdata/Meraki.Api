@@ -11,5 +11,5 @@ public class UplinkBandwidth
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "bandwidthLimits")]
-	public UplinkBandwidthLimits BandwidthLimits { get; set; } = new();
+	public UplinkBandwidthLimits? BandwidthLimits { get; set; }
 }

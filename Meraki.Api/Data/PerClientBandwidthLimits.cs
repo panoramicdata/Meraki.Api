@@ -11,12 +11,12 @@ public class PerClientBandwidthLimits
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "settings")]
-	public string Settings { get; set; } = string.Empty;
+	public string? Settings { get; set; }
 
 	/// <summary>
 	/// The bandwidth limits object, specifying the upload ('limitUp') and download ('limitDown') speed in Kbps. These are only enforced if 'settings' is set to 'custom'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "bandwidthLimits")]
-	public BandwidthLimit BandwidthLimits { get; set; } = new();
+	public BandwidthLimit? BandwidthLimits { get; set; }
 }

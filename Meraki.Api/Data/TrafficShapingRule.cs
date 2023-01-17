@@ -11,14 +11,14 @@ public class TrafficShapingRule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "definitions")]
-	public List<Definition> Definitions { get; set; } = new();
+	public List<Definition>? Definitions { get; set; }
 
 	/// <summary>
 	/// Gets or Sets PerClientBandwidthLimits
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "perClientBandwidthLimits")]
-	public PerClientBandwidthLimits PerClientBandwidthLimits { get; set; } = new();
+	public PerClientBandwidthLimits? PerClientBandwidthLimits { get; set; }
 
 	/// <summary>
 	/// The DSCP tag applied by your rule. null means 'Do not change DSCP tag'. For a list of possible tag values, use the trafficShaping/dscpTaggingOptions endpoint.
@@ -39,5 +39,5 @@ public class TrafficShapingRule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "priority")]
-	public Priority Priority { get; set; }
+	public Priority? Priority { get; set; }
 }
