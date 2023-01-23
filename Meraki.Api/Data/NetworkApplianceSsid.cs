@@ -53,7 +53,7 @@ public class NetworkApplianceSsid
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// Boolean indicating whether the MX should advertise or hide this SSID
