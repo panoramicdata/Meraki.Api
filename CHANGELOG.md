@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.29.11
+  - Added TotalActiveHours Extension for DaySchedule and PortSchedule
+
 ## 1.29.1
   - Added daiTrusted to SwitchPort
 
