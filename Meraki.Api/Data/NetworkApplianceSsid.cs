@@ -35,6 +35,13 @@ public class NetworkApplianceSsid
 	public EncryptionMode? EncryptionMode { get; set; }
 
 	/// <summary>
+	/// The passkey for the SSID. This param is only valid if the authMode is 'psk'
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "psk")]
+	public string? Psk { get; set; }
+
+	/// <summary>
 	/// The name of the SSID
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
