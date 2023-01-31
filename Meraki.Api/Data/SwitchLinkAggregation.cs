@@ -9,6 +9,7 @@ public class SwitchLinkAggregation
 	/// <summary>
 	/// Id
 	/// </summary>
+	[ApiKey]
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
