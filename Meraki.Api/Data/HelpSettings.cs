@@ -14,7 +14,7 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "helpTab")]
-	public BrandingPolicyHelpSetting HelpTab { get; set; }
+	public BrandingPolicyHelpSetting? HelpTab { get; set; }
 
 	/// <summary>
 	/// Gets or Sets GetHelpSubtab
@@ -24,7 +24,7 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "getHelpSubtab")]
-	public BrandingPolicyHelpSetting GetHelpSubtab { get; set; }
+	public BrandingPolicyHelpSetting? GetHelpSubtab { get; set; }
 
 	/// <summary>
 	/// Gets or Sets CommunitySubtab
@@ -34,7 +34,7 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "communitySubtab")]
-	public BrandingPolicyHelpSetting CommunitySubtab { get; set; }
+	public BrandingPolicyHelpSetting? CommunitySubtab { get; set; }
 
 	/// <summary>
 	/// Gets or Sets CasesSubtab
@@ -44,7 +44,7 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "casesSubtab")]
-	public BrandingPolicyHelpSetting CasesSubtab { get; set; }
+	public BrandingPolicyHelpSetting? CasesSubtab { get; set; }
 
 	/// <summary>
 	/// Gets or Sets DataProtectionRequestsSubtab
@@ -54,14 +54,14 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "dataProtectionRequestsSubtab")]
-	public BrandingPolicyHelpSetting DataProtectionRequestsSubtab { get; set; }
+	public BrandingPolicyHelpSetting? DataProtectionRequestsSubtab { get; set; }
 
 	/// <summary>
 	/// The KB search box which appears on the Help page. Can be one of 'default or inherit', 'hide', 'show', or a replacement custom HTML string.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "getHelpSubtabKnowledgeBaseSearch")]
-	public string GetHelpSubtabKnowledgeBaseSearch { get; set; } = string.Empty;
+	public string? GetHelpSubtabKnowledgeBaseSearch { get; set; }
 
 	/// <summary>
 	/// Gets or Sets UniversalSearchKnowledgeBaseSearch
@@ -71,21 +71,21 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "universalSearchKnowledgeBaseSearch")]
-	public BrandingPolicyHelpSetting UniversalSearchKnowledgeBaseSearch { get; set; }
+	public BrandingPolicyHelpSetting? UniversalSearchKnowledgeBaseSearch
 
 	/// <summary>
 	/// The 'Product Manuals' section of the 'Help -> Get Help' subtab. Can be one of 'default or inherit', 'hide', 'show', or a replacement custom HTML string.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ciscoMerakiProductDocumentation")]
-	public string CiscoMerakiProductDocumentation { get; set; } = string.Empty;
+	public string? CiscoMerakiProductDocumentation { get; set; }
 
 	/// <summary>
 	/// The 'Contact Meraki Support' section of the 'Help -> Get Help' subtab. Can be one of 'default or inherit', 'hide', 'show', or a replacement custom HTML string.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "supportContactInfo")]
-	public string SupportContactInfo { get; set; } = string.Empty;
+	public string? SupportContactInfo { get; set; }
 
 	/// <summary>
 	/// Gets or Sets NewFeaturesSubtab
@@ -95,7 +95,7 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "newFeaturesSubtab")]
-	public BrandingPolicyHelpSetting NewFeaturesSubtab { get; set; }
+	public BrandingPolicyHelpSetting? NewFeaturesSubtab { get; set; }
 
 	/// <summary>
 	/// Gets or Sets FirewallInfoSubtab
@@ -105,7 +105,7 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "firewallInfoSubtab")]
-	public BrandingPolicyHelpSetting FirewallInfoSubtab { get; set; }
+	public BrandingPolicyHelpSetting? FirewallInfoSubtab { get; set; }
 
 	/// <summary>
 	/// Gets or Sets ApiDocsSubtab
@@ -115,7 +115,7 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "apiDocsSubtab")]
-	public BrandingPolicyHelpSetting ApiDocsSubtab { get; set; }
+	public BrandingPolicyHelpSetting? ApiDocsSubtab { get; set; }
 
 	/// <summary>
 	/// Gets or Sets HardwareReplacementsSubtab
@@ -125,7 +125,7 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "hardwareReplacementsSubtab")]
-	public BrandingPolicyHelpSetting HardwareReplacementsSubtab { get; set; }
+	public BrandingPolicyHelpSetting? HardwareReplacementsSubtab { get; set; }
 
 	/// <summary>
 	/// Gets or Sets SmForums
@@ -135,5 +135,15 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "smForums")]
-	public BrandingPolicyHelpSetting SmForums { get; set; }
+	public BrandingPolicyHelpSetting? SmForums { get; set; }
+
+	/// <summary>
+	/// Gets or Sets HelpWidget
+	/// </summary>
+	/// <remarks>
+	/// The 'Help Widget' is a support widget which provides access to live chat, documentation links, Sales contact info, and other contact avenues to reach Meraki Support.Can be one of 'default or inherit', 'hide' or 'show'.
+	/// </remarks>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "helpWidget")]
+	public BrandingPolicyHelpSetting? HelpWidget { get; set; }
 }

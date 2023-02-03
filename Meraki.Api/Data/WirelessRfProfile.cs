@@ -21,4 +21,11 @@ public class WirelessRfProfile : WirelessRfProfileCreateUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkId")]
 	public string NetworkId { get; set; } = string.Empty;
+
+	/// <summary>
+	///	afcEnabled
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "afcEnabled")]
+	public bool AfcEnabled { get; set; }
 }
