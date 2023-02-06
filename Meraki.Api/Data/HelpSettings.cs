@@ -71,7 +71,7 @@ public class HelpSettings
 	/// </remarks>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "universalSearchKnowledgeBaseSearch")]
-	public BrandingPolicyHelpSetting? UniversalSearchKnowledgeBaseSearch
+	public BrandingPolicyHelpSetting? UniversalSearchKnowledgeBaseSearch { get; set; }
 
 	/// <summary>
 	/// The 'Product Manuals' section of the 'Help -> Get Help' subtab. Can be one of 'default or inherit', 'hide', 'show', or a replacement custom HTML string.
