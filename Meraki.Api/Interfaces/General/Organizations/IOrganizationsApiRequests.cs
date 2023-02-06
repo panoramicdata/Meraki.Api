@@ -85,7 +85,7 @@ public interface IOrganizationsApiRequests
 	/// <param name="adminIds">Filter by admin ID of user that made the API request</param>
 	/// <param name="userAgent">Filter by user agent string for API request. This will filter by a complete or partial match.</param>
 	[Get("organizations/{organizationId}/apiRequests/overview/responseCodes/byInterval")]
-	Task<ApiUsageOverview> GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync(
+	Task<ApiRequestsOverview> GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync(
 		string organizationId,
 		string? t0 = null,
 		string? t1 = null,
