@@ -28,6 +28,13 @@ public class UplinkSelection
 	public bool? LoadBalancingEnabled { get; set; }
 
 	/// <summary>
+	/// WAN failover and failback
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "failoverAndFailback")]
+	public UplinkSelectionFailoverAndFailback? FailoverAndFailback { get; set; }
+
+	/// <summary>
 	/// Array of uplink preference rules for WAN traffic
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
