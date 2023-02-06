@@ -188,4 +188,3 @@ public class SwitchPort : NamedItem
 	[DataMember(Name = "profile")]
 	public SwitchPortProfile? Profile { get; set; }
 }
-}

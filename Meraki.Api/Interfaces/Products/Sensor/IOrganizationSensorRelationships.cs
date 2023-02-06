@@ -21,7 +21,7 @@ public interface IOrganizationSensorRelationships
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkSensorRelationships")]
 	[Get("/networks/{networkId}/sensor/alerts/profiles")]
-	Task<List<SensorRelationship>> GetNetworkSensorRelationshipsAsync(
+	Task<List<NetworkSensorRelationship>> GetNetworkSensorRelationshipsAsync(
 		string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -34,9 +34,9 @@ public interface IOrganizationSensorRelationships
 	/// <param name="sensorRelationshipUpdateRequest">Body for updating a sensor role/param>
 	[ApiOperationId("updateDeviceSensorRelationships")]
 	[Put("/devices/{serial}/sensor/relationships")]
-	Task<SensorAlertsProfile> UpdateNetworkSensorAlertsProfileAsync(
+	Task<SensorRelationship> UpdateDeviceSensorRelationshipsAsync(
 		string serial,
-		[Body] SensorRelationshipUpdateRequest sensorRelationshipUpdateRequest,
+		[Body] SensorRelationship sensorRelationshipUpdateRequest,
 		CancellationToken cancellationToken = default
 		);
 }
