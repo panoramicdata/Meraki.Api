@@ -18,7 +18,7 @@ public class NetworkSensorRelationshipDevice
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "productType")]
-	public string productType { get; set; } = string.Empty;
+	public string ProductType { get; set; } = string.Empty;
 
 	/// <summary>
 	/// The serial of the device
