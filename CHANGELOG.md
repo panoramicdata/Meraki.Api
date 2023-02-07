@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.30.3
+- Fix for GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync breaking client creation
+
 ## 1.30.1
 - Added 1.30 related API endpoints and updated models. Some nullability updated.
 
