@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.30.1
+- Added 1.30 related API endpoints and updated models. Some nullability updated.
+
 ## 1.29.11
 - Added TotalActiveHours Extension for DaySchedule and PortSchedule
 
