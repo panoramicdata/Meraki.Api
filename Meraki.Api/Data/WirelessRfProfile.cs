@@ -10,7 +10,6 @@ public class WirelessRfProfile : WirelessRfProfileCreateUpdateRequest
 	/// The Id
 	/// </summary>
 	[ApiKey]
-	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
 
@@ -18,14 +17,13 @@ public class WirelessRfProfile : WirelessRfProfileCreateUpdateRequest
 	///	Network id
 	/// </summary>
 	[ApiForeignKey(typeof(Network))]
-	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkId")]
 	public string NetworkId { get; set; } = string.Empty;
 
 	/// <summary>
-	///	afcEnabled
+	///	afcEnabled - appears to be informational only as API doesn't mention this on a create/update model
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "afcEnabled")]
-	public bool AfcEnabled { get; set; }
+	public bool? AfcEnabled { get; set; }
 }
