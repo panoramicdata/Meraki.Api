@@ -31,4 +31,20 @@ public class Tests : MerakiClientTest
 		_ = result.ResponseCodeCounts.Should().NotBeNull();
 		_ = result.ResponseCodeCounts.Should().NotBeEmpty();
 	}
+
+	[Fact]
+	public async Task GetOverviewResponseCodesByIntervalAsync_Succeeds()
+	{
+		var result = await TestMerakiClient
+			.Organizations
+			.ApiRequests
+			.GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync(Configuration.TestOrganizationId)
+			.ConfigureAwait(false);
+		_ = result.Should().BeOfType<List<ApiRequestsOverview>>();
+		_ = result.Should().NotBeNull();
+		_ = result.Should().NotBeEmpty();
+		_ = result[0].Counts.Should().NotBeEmpty();
+		_ = result[0].StartTs.Should().NotBe(DateTime.MinValue);
+		_ = result[0].EndTs.Should().NotBe(DateTime.MaxValue);
+	}
 }

@@ -93,17 +93,17 @@ public interface IOrganizationsApiRequests
 	/// <param name="sourceIps">Filter by source IP that made the API request</param>
 	/// <param name="adminIds">Filter by admin ID of user that made the API request</param>
 	/// <param name="userAgent">Filter by user agent string for API request. This will filter by a complete or partial match.</param>
-	[Get("organizations/{organizationId}/apiRequests/overview/responseCodes/byInterval")]
-	Task<ApiRequestsOverview> GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync(
-		string organizationId,
-		string? t0 = null,
-		string? t1 = null,
-		double? timespan = null,
-		int? interval = null,
-		int? version = null,
-		List<string>? operationIds = null,
-		List<string>? sourceIps = null,
-		List<string>? adminIds = null,
-		List<string>? userAgent = null,
+	[Get("/organizations/{organizationId}/apiRequests/overview/responseCodes/byInterval")]
+	Task<List<ApiRequestsOverview>> GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync(
+		[AliasAs("organizationId")] string organizationId,
+		[AliasAs("t0")] string? t0 = null,
+		[AliasAs("t1")] string? t1 = null,
+		[AliasAs("timespan")] double? timespan = null,
+		[AliasAs("interval")] int? interval = null,
+		[AliasAs("version")] int? version = null,
+		[AliasAs("operationIds")] List<string>? operationIds = null,
+		[AliasAs("sourceIps")] List<string>? sourceIps = null,
+		[AliasAs("adminIds")] List<string>? adminIds = null,
+		[AliasAs("userAgent")] List<string>? userAgent = null,
 		CancellationToken cancellationToken = default);
 }
