@@ -35,6 +35,9 @@ public interface IOrganizationsApiRequests
 		[AliasAs("method")] string method = null!,
 		[AliasAs("responseCode")] int? responseCode = null,
 		[AliasAs("sourceIp")] string sourceIp = null!,
+		[AliasAs("userAgent")] string userAgent = null!,
+		[AliasAs("version")] int? version = null,
+		[AliasAs("operationIds")] List<string>? operationIds = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -52,6 +55,9 @@ public interface IOrganizationsApiRequests
 	[AliasAs("method")] string? method = null,
 	[AliasAs("responseCode")] int? responseCode = null,
 	[AliasAs("sourceIp")] string? sourceIp = null,
+	[AliasAs("userAgent")] string userAgent = null!,
+	[AliasAs("version")] int? version = null,
+	[AliasAs("operationIds")] List<string>? operationIds = null,
 	CancellationToken cancellationToken = default);
 
 	/// <summary>

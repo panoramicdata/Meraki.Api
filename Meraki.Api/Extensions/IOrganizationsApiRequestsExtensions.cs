@@ -27,6 +27,9 @@ public static class IOrganizationsApiRequestsExtensions
 		string? method = null,
 		int? responseCode = null,
 		string? sourceIp = null,
+		string? userAgent = null,
+		int? version = null,
+		List<string>? operationIds = null,
 		CancellationToken cancellationToken = default)
 			=> MerakiClient.GetAllAsync(
 				(startingAfter, cancellationToken)
@@ -41,6 +44,9 @@ public static class IOrganizationsApiRequestsExtensions
 					method,
 					responseCode,
 					sourceIp,
+					userAgent,
+					version,
+					operationIds,
 					cancellationToken)
 				, cancellationToken
 				);
