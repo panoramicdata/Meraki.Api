@@ -21,21 +21,24 @@ public interface IOrganizationsApiRequests
 	/// <param name="method">Filter the results by the method of the API requests (must be 'GET', 'PUT', 'POST' or 'DELETE') (optional)</param>
 	/// <param name="responseCode">Filter the results by the response code of the API requests (optional)</param>
 	/// <param name="sourceIp">Filter the results by the IP address of the originating API request (optional)</param>
+	/// <param name="userAgent">Filter the results by the user agent string of the API request</param>
+	/// <param name="version">Filter the results by the API version of the API request</param>
+	/// <param name="operationIds">Filter the results by one or more operation IDs for the API request</param>
 	[Get("/organizations/{organizationId}/apiRequests")]
 	Task<List<ApiUsage>> GetOrganizationApiRequestsAsync(
 		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
+		[AliasAs("t0")] string? t0 = null,
+		[AliasAs("t1")] string? t1 = null,
 		[AliasAs("timespan")] double? timespan = null,
 		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
-		[AliasAs("adminId")] string adminId = null!,
-		[AliasAs("path")] string path = null!,
-		[AliasAs("method")] string method = null!,
+		[AliasAs("startingAfter")] string? startingAfter = null,
+		[AliasAs("endingBefore")] string? endingBefore = null,
+		[AliasAs("adminId")] string? adminId = null,
+		[AliasAs("path")] string? path = null,
+		[AliasAs("method")] string? method = null,
 		[AliasAs("responseCode")] int? responseCode = null,
-		[AliasAs("sourceIp")] string sourceIp = null!,
-		[AliasAs("userAgent")] string userAgent = null!,
+		[AliasAs("sourceIp")] string? sourceIp = null,
+		[AliasAs("userAgent")] string? userAgent = null,
 		[AliasAs("version")] int? version = null,
 		[AliasAs("operationIds")] List<string>? operationIds = null,
 		CancellationToken cancellationToken = default);
@@ -55,7 +58,7 @@ public interface IOrganizationsApiRequests
 	[AliasAs("method")] string? method = null,
 	[AliasAs("responseCode")] int? responseCode = null,
 	[AliasAs("sourceIp")] string? sourceIp = null,
-	[AliasAs("userAgent")] string userAgent = null!,
+	[AliasAs("userAgent")] string? userAgent = null,
 	[AliasAs("version")] int? version = null,
 	[AliasAs("operationIds")] List<string>? operationIds = null,
 	CancellationToken cancellationToken = default);

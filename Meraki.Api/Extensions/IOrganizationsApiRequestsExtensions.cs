@@ -16,6 +16,9 @@ public static class IOrganizationsApiRequestsExtensions
 	/// <param name="method">Filter the results by the method of the API requests (must be 'GET', 'PUT', 'POST' or 'DELETE') (optional)</param>
 	/// <param name="responseCode">Filter the results by the response code of the API requests (optional)</param>
 	/// <param name="sourceIp">Filter the results by the IP address of the originating API request (optional)</param>
+	/// <param name="userAgent">Filter the results by the user agent string of the API request</param>
+	/// <param name="version">Filter the results by the API version of the API request</param>
+	/// <param name="operationIds">Filter the results by one or more operation IDs for the API request</param>
 	public static Task<List<ApiUsage>> GetOrganizationApiRequestsAllAsync(
 		this IOrganizationsApiRequests organizationsApiRequests,
 		string organizationId,
