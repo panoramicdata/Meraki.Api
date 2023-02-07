@@ -378,7 +378,8 @@ public partial class MerakiClient : IDisposable
 			Alerts = new()
 			{
 				Profiles = RefitFor(Sensor.Alerts.Profiles)
-			}
+			},
+			Relationships = RefitFor(Sensor.Relationships)
 		};
 
 		Sm = new()

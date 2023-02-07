@@ -10,7 +10,6 @@ public class BrandingPolicy : NamedItem
 	/// The Id of the Branding Policy
 	/// </summary>
 	[ApiKey]
-	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "brandingPolicyId")]
 	public string BrandingPolicyId { get; set; } = string.Empty;
 
@@ -27,19 +26,19 @@ public class BrandingPolicy : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "adminSettings")]
-	public AdminSettings AdminSettings { get; set; } = null!;
+	public AdminSettings? AdminSettings { get; set; }
 
 	/// <summary>
 	/// Properties describing the customer logo attached to the branding policy
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "customLogo")]
-	public BrandingPolicyCustomLogo CustomLogo { get; set; } = null!;
+	public BrandingPolicyCustomLogo? CustomLogo { get; set; }
 
 	/// <summary>
 	/// Gets or Sets HelpSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "helpSettings")]
-	public HelpSettings HelpSettings { get; set; } = null!;
+	public HelpSettings? HelpSettings { get; set; }
 }

@@ -77,6 +77,20 @@ public class VideoSettings
 	public Mv12we? Mv12we { get; set; }
 
 	/// <summary>
+	/// Gets or Sets MV13
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "MV13")]
+	public MV13? MV13 { get; set; }
+
+	/// <summary>
+	/// Gets or Sets MV33
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "MV33")]
+	public MV33? MV33 { get; set; }
+
+	/// <summary>
 	/// Gets or Sets MV22XMV72X
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

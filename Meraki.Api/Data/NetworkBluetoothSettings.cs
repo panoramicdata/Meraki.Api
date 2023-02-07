@@ -47,4 +47,11 @@ public class NetworkBluetoothSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "minor")]
 	public int? Minor { get; set; }
+
+	/// <summary>
+	/// Whether ESL is enabled on this network.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "eslEnabled")]
+	public bool? EslEnabled { get; set; }
 }

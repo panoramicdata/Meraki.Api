@@ -11,14 +11,14 @@ public class BrandingPolicyCustomLogo
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "contents")]
-	public string Contents { get; set; } = null!;
+	public string? Contents { get; set; }
 
 	/// <summary>
 	/// The format of the encoded contents. Supported formats are 'png', 'gif', and jpg'. Note that all images are saved as PNG files, regardless of the format they are uploaded in.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "format")]
-	public string Format { get; set; } = null!;
+	public string? Format { get; set; }
 
 	/// <summary>
 	/// Whether or not there is a custom logo enabled.

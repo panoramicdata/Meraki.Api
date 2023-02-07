@@ -2,4 +2,5 @@
 public class SensorSection
 {
 	public SensorAlertsSection Alerts { get; set; } = new();
+	public IOrganizationSensorRelationships Relationships { get; set; } = null!;
 }

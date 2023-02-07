@@ -180,4 +180,11 @@ public class SwitchPort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "daiTrusted")]
 	public bool? DaiTrusted { get; set; }
+
+	/// <summary>
+	/// Profile attributes
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "profile")]
+	public SwitchPortProfile? Profile { get; set; }
 }
