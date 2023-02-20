@@ -10,7 +10,6 @@ public class FloorPlan
 	/// Floor plan id
 	/// </summary>
 	[ApiKey]
-	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "floorPlanId")]
 	public string FloorPlanId { get; set; } = string.Empty;
 
@@ -19,56 +18,57 @@ public class FloorPlan
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "imageUrl")]
-	public string ImageUrl { get; set; } = string.Empty;
+	public string? ImageUrl { get; set; }
 
 	/// <summary>
 	/// Image URL expires at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "imageUrlExpiresAt")]
-	public DateTime ImageUrlExpiresAt { get; set; }
+	public DateTime? ImageUrlExpiresAt { get; set; }
 
 	/// <summary>
 	/// Image extension
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "imageExtension")]
-	public string ImageExtension { get; set; } = string.Empty;
+	public string? ImageExtension { get; set; }
 
 	/// <summary>
 	/// Image MD5
+	/// We set this as a read update as we want to be able to store this even though we can't send it back
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "imageMd5")]
-	public string ImageMd5 { get; set; } = string.Empty;
+	public string? ImageMd5 { get; set; }
 
 	/// <summary>
 	/// Name
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// Devices
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "devices")]
-	public List<Device> Devices { get; set; } = new();
+	public List<Device>? Devices { get; set; }
 
 	/// <summary>
 	/// Width
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "width")]
-	public double Width { get; set; }
+	public double? Width { get; set; }
 
 	/// <summary>
 	/// Height
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "height")]
-	public double Height { get; set; }
+	public double? Height { get; set; }
 
 	/// <summary>
 	/// The longitude and latitude of the center of your floor plan. If you want to change the geolocation data of your floor plan,
@@ -81,33 +81,33 @@ public class FloorPlan
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "center")]
-	public GeoLocation Center { get; set; } = new();
+	public GeoLocation? Center { get; set; }
 
 	/// <summary>
 	/// The longitude and latitude of the bottom left corner of your floor plan.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bottomLeftCorner")]
-	public GeoLocation BottomLeftCorner { get; set; } = new();
+	public GeoLocation? BottomLeftCorner { get; set; }
 
 	/// <summary>
 	/// The longitude and latitude of the bottom right corner of your floor plan.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bottomRightCorner")]
-	public GeoLocation BottomRightCorner { get; set; } = new();
+	public GeoLocation? BottomRightCorner { get; set; }
 
 	/// <summary>
 	/// The longitude and latitude of the top left corner of your floor plan.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "topLeftCorner")]
-	public GeoLocation TopLeftCorner { get; set; } = new();
+	public GeoLocation? TopLeftCorner { get; set; }
 
 	/// <summary>
 	/// The longitude and latitude of the top right corner of your floor plan.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "topRightCorner")]
-	public GeoLocation TopRightCorner { get; set; } = new();
+	public GeoLocation? TopRightCorner { get; set; }
 }
