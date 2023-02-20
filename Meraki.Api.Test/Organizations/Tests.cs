@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Meraki.Api.Test.Organizations;
 
 public class Tests : MerakiClientTest
@@ -20,14 +22,29 @@ public class Tests : MerakiClientTest
 		ValidateOrganisation(firstResult);
 	}
 
+	private void HandleIt(Type type, JsonSerializationException exception, string json)
+	{
+		// Do something in there
+	}
+
 	[Fact]
 	public async Task GetAsync_Succeeds()
 	{
-		var result = await TestMerakiClient
-			.Organizations
-			.GetOrganizationAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
-		ValidateOrganisation(result);
+		// For testing the JsonMissingMemberAction
+		Configuration.MerakiClientOptions.JsonMissingMemberAction = HandleIt;
+		try
+		{
+			var result = await TestMerakiClient
+				.Organizations
+				.GetOrganizationAsync(Configuration.TestOrganizationId)
+				.ConfigureAwait(false);
+			ValidateOrganisation(result);
+		}
+		finally
+		{
+			// Unset the JsonMissingMemberAction
+			Configuration.MerakiClientOptions.JsonMissingMemberAction = null;
+		}
 	}
 
 	[Fact]
