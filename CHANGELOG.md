@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.30.9
+- Added LastRequestUri to MerakiClient
+
 ## 1.30.3
 - Fix for GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync breaking client creation
 
