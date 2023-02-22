@@ -17,6 +17,8 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 		_logger = logger;
 	}
 
+	public string LastRequestUri { get; private set; } = string.Empty;
+
 	protected override async Task<HttpResponseMessage> SendAsync(
 		HttpRequestMessage request,
 		CancellationToken cancellationToken)
@@ -63,6 +65,8 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 					_logger.Log(_levelToLogAt, "{LogPrefix}RequestContent\r\n{RequestContent}", logPrefix, requestContent);
 				}
 			}
+
+			LastRequestUri = request.RequestUri.ToString();
 
 			// Complete the action
 			var httpResponseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);

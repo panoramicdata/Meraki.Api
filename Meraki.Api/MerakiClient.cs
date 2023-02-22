@@ -10,6 +10,8 @@ public partial class MerakiClient : IDisposable
 	private readonly HttpClient _httpClient;
 	private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
 
+	public string LastRequestUri => _httpClientHandler.LastRequestUri;
+
 	/// <summary>
 	/// A Meraki portal client
 	/// </summary>
