@@ -17,31 +17,31 @@ public class FloorPlanCreationRequest
 	/// Gets or Sets Center
 	/// </summary>
 	[DataMember(Name = "center")]
-	public GeoLocation Center { get; set; } = null!;
+	public GeoLocation? Center { get; set; } = null!;
 
 	/// <summary>
 	/// Gets or Sets BottomLeftCorner
 	/// </summary>
 	[DataMember(Name = "bottomLeftCorner")]
-	public GeoLocation BottomLeftCorner { get; set; } = null!;
+	public GeoLocation? BottomLeftCorner { get; set; } = null!;
 
 	/// <summary>
 	/// Gets or Sets BottomRightCorner
 	/// </summary>
 	[DataMember(Name = "bottomRightCorner")]
-	public GeoLocation BottomRightCorner { get; set; } = null!;
+	public GeoLocation? BottomRightCorner { get; set; } = null!;
 
 	/// <summary>
 	/// Gets or Sets TopLeftCorner
 	/// </summary>
 	[DataMember(Name = "topLeftCorner")]
-	public GeoLocation TopLeftCorner { get; set; } = null!;
+	public GeoLocation? TopLeftCorner { get; set; } = null!;
 
 	/// <summary>
 	/// Gets or Sets TopRightCorner
 	/// </summary>
 	[DataMember(Name = "topRightCorner")]
-	public GeoLocation TopRightCorner { get; set; } = null!;
+	public GeoLocation? TopRightCorner { get; set; } = null!;
 
 	/// <summary>
 	/// The file contents (a base 64 encoded string) of your image. Supported formats are PNG, GIF, and JPG. Note that all images are saved as PNG files, regardless of the format they are uploaded in.
