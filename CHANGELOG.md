@@ -1,6 +1,7 @@
 ﻿# Changelog
 
-## 1.30.14
+## 1.30.15 
+- Added obsolete VmConcentrator to ProductType
 - Made all device properties nullable
 - Modified GeoLocation Lat/Long to be non nullable as they should either both be present or the GeoLocation should be null
 

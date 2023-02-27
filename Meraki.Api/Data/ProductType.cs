@@ -33,5 +33,9 @@ public enum ProductType
 	Environmental,
 
 	[EnumMember(Value = "wired")]
-	Wired
+	Wired,
+
+	[Obsolete("No longer available")]
+	[EnumMember(Value = "vm_concentrator")]
+	VmConcentrator
 }
