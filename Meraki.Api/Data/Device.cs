@@ -14,21 +14,21 @@ public class Device : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "lat")]
-	public double Latitude { get; set; }
+	public double? Latitude { get; set; }
 
 	/// <summary>
 	/// The longitude of a device
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "lng")]
-	public double Longitude { get; set; }
+	public double? Longitude { get; set; }
 
 	/// <summary>
 	/// The address of a device
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "address")]
-	public string Address { get; set; } = string.Empty;
+	public string? Address { get; set; }
 
 	/// <summary>
 	/// The notes for the device. String. Limited to 255 characters.
@@ -42,7 +42,7 @@ public class Device : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string>? Tags { get; set; }
 
 	/// <summary>
 	/// ReadOnly: The Network Id of a device
@@ -50,7 +50,7 @@ public class Device : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[ApiForeignKey(typeof(Network))]
 	[DataMember(Name = "networkId")]
-	public string NetworkId { get; set; } = string.Empty;
+	public string? NetworkId { get; set; }
 
 	/// <summary>
 	/// ReadOnly: The Serial of a device
@@ -58,49 +58,49 @@ public class Device : NamedItem
 	[ApiKey]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "serial")]
-	public string Serial { get; set; } = string.Empty;
+	public string? Serial { get; set; }
 
 	/// <summary>
 	/// ReadOnly: The model of a device
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "model")]
-	public string Model { get; set; } = string.Empty;
+	public string? Model { get; set; }
 
 	/// <summary>
 	/// ReadOnly: The MAC address of a device
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "mac")]
-	public string Mac { get; set; } = string.Empty;
+	public string? Mac { get; set; }
 
 	/// <summary>
 	/// Readonly: The LAN IP address
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "lanIp")]
-	public string LanIp { get; set; } = string.Empty;
+	public string? LanIp { get; set; }
 
 	/// <summary>
 	/// Readonly: The beacon ID parameters
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "beaconIdParams")]
-	public BeaconIdParams BeaconIdParams { get; set; } = new BeaconIdParams();
+	public BeaconIdParams? BeaconIdParams { get; set; }
 
 	/// <summary>
 	/// When the configuration was last updated
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "configurationUpdatedAt")]
-	public DateTime ConfigurationUpdatedAt { get; set; }
+	public DateTime? ConfigurationUpdatedAt { get; set; }
 
 	/// <summary>
 	/// Readonly: The firmware version of a device
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "firmware")]
-	public string Firmware { get; set; } = string.Empty;
+	public string? Firmware { get; set; }
 
 	/// <summary>
 	/// The floor plan to associate to this device. null disassociates the device from the floorplan.
@@ -126,14 +126,14 @@ public class Device : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "url")]
-	public string Url { get; set; } = string.Empty;
+	public string? Url { get; set; }
 
 	/// <summary>
 	/// Readonly: Wireless MAC address
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "wirelessMac")]
-	public string WirelessMac { get; set; } = string.Empty;
+	public string? WirelessMac { get; set; }
 
 	/// <summary>
 	/// Readonly: WAN 1 IP address
