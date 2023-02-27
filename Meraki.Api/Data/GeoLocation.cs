@@ -12,11 +12,12 @@ public class GeoLocation
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "lat")]
 
-	public double? Latitude { get; set; }
+	public double Latitude { get; set; }
+
 	/// <summary>
 	/// Longitude
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "lng")]
-	public double? Longitude { get; set; }
+	public double Longitude { get; set; }
 }

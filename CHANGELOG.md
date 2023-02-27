@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.30.14
+- Made all device properties nullable
+- Modified GeoLocation Lat/Long to be non nullable as they should either both be present or the GeoLocation should be null
+
 ## 1.30.9
 - Added LastRequestUri to MerakiClient
 
