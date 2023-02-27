@@ -63,6 +63,7 @@ public class Device : NamedItem
 	/// <summary>
 	/// ReadOnly: The model of a device
 	/// </summary>
+	[ApiForeignKey(typeof(Device))] // Not strictly true, but it's the closest we have and we want to record the Model as useful information
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "model")]
 	public string? Model { get; set; }
