@@ -106,7 +106,6 @@ public class Device : NamedItem
 	/// <summary>
 	/// The floor plan to associate to this device. null disassociates the device from the floorplan.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
 	[ApiForeignKey(typeof(FloorPlan))]
 	[DataMember(Name = "floorPlanId")]
 	[JsonProperty(NullValueHandling = NullValueHandling.Include)]
