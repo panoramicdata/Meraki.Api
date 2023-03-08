@@ -31,7 +31,8 @@ namespace My.Project
 		{
 			using var merakiClient = new MerakiClient(new MerakiClientOptions
 			{
-				ApiKey = "0123456789abcdef0123456789abcdef01234567"
+				ApiKey = "0123456789abcdef0123456789abcdef01234567",
+				UserAgent = "MerakiGPT/1.1 CiscoMeraki"
 			});
 
 			var organizations = await merakiClient
