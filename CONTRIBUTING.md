@@ -93,15 +93,15 @@ When querying with a list of values, the API expects the field name to end in []
 // Used by IOrganizationsDevicesExtensions.GetOrganizationDeviceStatusesAllAsync
 [Get("/organizations/{organizationId}/devices/statuses")]
 internal Task<ApiResponse<List<OrganizationDeviceStatus>>> GetDevicesStatusesApiResponseAsync(
-	[AliasAs("organizationId")] string organizationId,
-	[AliasAs("startingAfter")] string? startingAfter = null,
+	string organizationId,
+	string? startingAfter = null,
 	[AliasAs("networkIds[]")] List<string>? networkIds = null,
 	[AliasAs("serials[]")] List<string>? serials = null,
 	[AliasAs("statuses[]")] List<string>? statuses = null,
 	[AliasAs("productTypes[]")] List<string>? productTypes = null,
 	[AliasAs("models[]")] List<string>? models = null,
 	[AliasAs("tags[]")] List<string>? tags = null,
-	[AliasAs("tagsFilterType")] string? tagsFilterType = null,
+	string? tagsFilterType = null,
 	CancellationToken cancellationToken = default);
 ```
 
