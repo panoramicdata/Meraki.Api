@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.30.23
+- Fixed GetOrganizationDevicesStatusesAsync and GetNetworkSmDevicesAsync to use "[]" after the parameter names for lists to work.
+- Updated log messages when retry fails to include the method and url.
+
 ## 1.30.15 
 - Added obsolete VmConcentrator to ProductType
 - Made all device properties nullable

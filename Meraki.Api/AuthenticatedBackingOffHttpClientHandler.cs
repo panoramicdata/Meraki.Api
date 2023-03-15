@@ -141,8 +141,13 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			if (attemptCount >= _options.MaxAttemptCount)
 			{
 				_logger.LogInformation(
-					"{LogPrefix}Giving up retrying.  Returning {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
-					logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
+					"{LogPrefix}Giving up retrying. Returning {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+					logPrefix,
+					statusCodeInt,
+					attemptCount,
+					_options.MaxAttemptCount,
+					request.Method.ToString(),
+					request.RequestUri
 					);
 				return httpResponseMessage;
 			}
