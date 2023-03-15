@@ -75,4 +75,8 @@ public class SmDevice : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "notes")]
 	public string Notes { get; set; } = string.Empty;
+
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "batteryEstCharge")]
+	public string BatteryEstCharge { get; set; } = string.Empty;
 }

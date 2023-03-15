@@ -21,11 +21,11 @@ public interface ISmDevices
 	[Get("/networks/{networkId}/sm/devices")]
 	Task<List<SmDevice>> GetNetworkSmDevicesAsync(
 		[AliasAs("networkId")] string networkId,
-		[AliasAs("fields")] List<string> fields = null!,
-		[AliasAs("wifiMacs")] List<string> wifiMacs = null!,
-		[AliasAs("serials")] List<string> serials = null!,
-		[AliasAs("ids")] List<string> ids = null!,
-		[AliasAs("scope")] List<string> scope = null!,
+		[AliasAs("fields[]")] List<string> fields = null!,
+		[AliasAs("wifiMacs[]")] List<string> wifiMacs = null!,
+		[AliasAs("serials[]")] List<string> serials = null!,
+		[AliasAs("ids[]")] List<string> ids = null!,
+		[AliasAs("scope[]")] List<string> scope = null!,
 		[AliasAs("perPage")] int? perPage = 1000,
 		[AliasAs("startingAfter")] string? startingAfter = null,
 		[AliasAs("endingBefore")] string? endingBefore = null,
