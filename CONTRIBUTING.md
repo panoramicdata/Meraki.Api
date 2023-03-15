@@ -86,6 +86,25 @@ public static class IOrganizationsInventoryDevicesExtensions
 6.  This will allow people to call this method from the `IOrganizationsInventoryDevices` interface and 
 7.  it will appear to be on the interface directly.
 
+## Querying with list filters
+
+When querying with a list of values, the API expects the field name to end in []. For example:
+```c#
+// Used by IOrganizationsDevicesExtensions.GetOrganizationDeviceStatusesAllAsync
+[Get("/organizations/{organizationId}/devices/statuses")]
+internal Task<ApiResponse<List<OrganizationDeviceStatus>>> GetDevicesStatusesApiResponseAsync(
+	[AliasAs("organizationId")] string organizationId,
+	[AliasAs("startingAfter")] string? startingAfter = null,
+	[AliasAs("networkIds[]")] List<string>? networkIds = null,
+	[AliasAs("serials[]")] List<string>? serials = null,
+	[AliasAs("statuses[]")] List<string>? statuses = null,
+	[AliasAs("productTypes[]")] List<string>? productTypes = null,
+	[AliasAs("models[]")] List<string>? models = null,
+	[AliasAs("tags[]")] List<string>? tags = null,
+	[AliasAs("tagsFilterType")] string? tagsFilterType = null,
+	CancellationToken cancellationToken = default);
+```
+
 ## ENUMS
 
 Where possible, assuming all known values are available, create enums for well defined lists of options.
