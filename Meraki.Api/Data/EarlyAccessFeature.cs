@@ -33,4 +33,11 @@ public class EarlyAccessFeature : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isOrgScopedOnly")]
 	public bool IsOrgScopedOnly { get; }
+
+	/// <summary>
+	/// Documentation Lnk
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "documentationLink")]
+	public string? DocumentationLink { get; }
 }
