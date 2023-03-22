@@ -9,9 +9,9 @@ public interface ICameraOnbording
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/camera/onboarding/statuses")]
 	Task<List<OnboardingStatus>> GetOrganizationCameraOnboardingStatusesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("serials")] List<string>? serials = null,
-		[AliasAs("networkIds")] List<string>? networkIds = null,
+		string organizationId,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		CancellationToken cancellationToken = default
 		);
 

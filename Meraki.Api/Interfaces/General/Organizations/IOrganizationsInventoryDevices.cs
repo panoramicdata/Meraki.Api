@@ -27,14 +27,14 @@ public interface IOrganizationsInventoryDevices
 		string? endingBefore = null,
 		string? usedState = null,
 		string? search = null,
-		List<string>? macs = null,
-		List<string>? networkIds = null,
-		List<string>? serials = null,
-		List<string>? models = null,
-		List<string>? orderNumbers = null,
-		List<string>? tags = null,
+		[AliasAs("macs[]")] List<string>? macs = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("models[]")] List<string>? models = null,
+		[AliasAs("orderNumbers[]")] List<string>? orderNumbers = null,
+		[AliasAs("tags[]")] List<string>? tags = null,
 		TagsFilterType? tagsFilterType = null,
-		List<ProductType>? productTypes = null,
+		[AliasAs("productTypes[]")] List<ProductType>? productTypes = null,
 		CancellationToken cancellationToken = default);
 
 	// Used by IOrganizationsInventoryDevicesExtensions.GetOrganizationInventoryDevicesAllAsync
@@ -44,14 +44,14 @@ public interface IOrganizationsInventoryDevices
 		string? startingAfter = null,
 		string? usedState = null,
 		string? search = null,
-		List<string>? macs = null,
-		List<string>? networkIds = null,
-		List<string>? serials = null,
-		List<string>? models = null,
-		List<string>? orderNumbers = null,
-		List<string>? tags = null,
+		[AliasAs("macs[]")] List<string>? macs = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("models[]")] List<string>? models = null,
+		[AliasAs("orderNumbers[]")] List<string>? orderNumbers = null,
+		[AliasAs("tags[]")] List<string>? tags = null,
 		TagsFilterType? tagsFilterType = null,
-		List<ProductType>? productTypes = null,
+		[AliasAs("productTypes[]")] List<ProductType>? productTypes = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

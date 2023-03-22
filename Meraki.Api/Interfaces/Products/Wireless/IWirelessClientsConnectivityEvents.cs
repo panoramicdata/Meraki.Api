@@ -21,19 +21,19 @@ public interface IWirelessClientsConnectivityEvents
 	/// <param name="deviceSerial">Filter results by an AP's serial number.</param>
 	[Get("/networks/{networkId}/wireless/clients/{clientId}/connectivityEvents")]
 	Task<List<ConnectivityEvents>> GetNetworkWirelessClientConnectivityEventsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("types")] List<string>? types = null,
-		[AliasAs("includedSeverities")] List<string>? includedSeverities = null,
-		[AliasAs("band")] string? band = null,
-		[AliasAs("ssidNumber")] int? ssidNumber = null,
-		[AliasAs("deviceSerial")] string? deviceSerial = null,
+		string networkId,
+		string clientId,
+		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
+		[AliasAs("types[]")] List<string>? types = null,
+		[AliasAs("includedSeverities[]")] List<string>? includedSeverities = null,
+		string? band = null,
+		int? ssidNumber = null,
+		string? deviceSerial = null,
 		CancellationToken cancellationToken = default
 		);
 }

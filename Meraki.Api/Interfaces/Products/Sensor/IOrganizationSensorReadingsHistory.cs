@@ -17,15 +17,15 @@ public interface IOrganizationSensorReadingsHistory
 	/// <param name="metrics">Types of sensor readings to retrieve. If no metrics are supplied, all available types of readings will be retrieved. Allowed values are temperature, humidity, water, door, tvoc, pm25, noise, indoorAirQuality, button, and battery.</param>
 	[Get("/organizations/{organizationId}/sensor/readings/history")]
 	Task<List<SensorReading>> GetOrganizationSensorReadingsHistoryAsync(
-		[AliasAs("perPage")] int? perPage,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("networkIds")] List<string>? networkIds = null,
-		[AliasAs("serials")] List<string>? serials = null,
-		[AliasAs("metrics")] List<SensorMetrics>? metrics = null,
+		int? perPage,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("metrics[]")] List<SensorMetrics>? metrics = null,
 		CancellationToken cancellationToken = default
 		);
 }

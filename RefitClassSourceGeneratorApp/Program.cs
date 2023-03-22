@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 
 namespace TestConsoleApp;
 
-class Program
+sealed class Program
 {
 	static void Main()
 	{

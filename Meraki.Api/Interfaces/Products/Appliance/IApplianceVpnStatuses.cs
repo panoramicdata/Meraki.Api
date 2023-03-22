@@ -13,11 +13,11 @@ public interface IApplianceVpnStatuses
 	/// <param name="networkIds">A list of Meraki network IDs to filter results to contain only specified networks. E.g.: networkIds[]=N_12345678&networkIds[]=L_3456</param>
 	[Get("/organizations/{organizationId}/appliance/vpn/statuses")]
 	Task<List<VpnStatus>> GetOrganizationApplianceVpnStatusesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("perPage")] int? perPage = 300,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("networkIds")] List<string>? networkIds = null,
+		string organizationId,
+		int? perPage = 300,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		CancellationToken cancellationToken = default
 		);
 }

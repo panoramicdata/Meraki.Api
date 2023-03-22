@@ -15,23 +15,23 @@ public interface IOrganizationsNetworks
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	[Get("/organizations/{organizationId}/networks")]
 	Task<List<Network>> GetOrganizationNetworksAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("configTemplateId")] string? configTemplateId = null,
-		[AliasAs("tags")] List<string>? tags = null,
-		[AliasAs("tagsFilterType")] string? tagsFilterType = null,
-		[AliasAs("perPage")] int? perPage = 100000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
+		string organizationId,
+		string? configTemplateId = null,
+		[AliasAs("tags[]")] List<string>? tags = null,
+		string? tagsFilterType = null,
+		int? perPage = 100000,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default);
 
 	// Used by IOrganizationsNetworksExtensions.GetOrganizationNetworksAllAsync
 	[Get("/organizations/{organizationId}/networks")]
 	internal Task<ApiResponse<List<Network>>> GetNetworksApiResponseAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("configTemplateId")] string? configTemplateId = null,
-		[AliasAs("tags")] List<string>? tags = null,
-		[AliasAs("tagsFilterType")] string? tagsFilterType = null,
-		[AliasAs("startingAfter")] string? startingAfter = null,
+		string organizationId,
+		string? configTemplateId = null,
+		[AliasAs("tags[]")] List<string>? tags = null,
+		string? tagsFilterType = null,
+		string? startingAfter = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

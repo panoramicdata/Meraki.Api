@@ -23,20 +23,20 @@ public interface INetworksClients
 	[ApiOperationId("getNetworkClients")]
 	[Get("/networks/{networkId}/clients")]
 	Task<List<Client>> GetNetworkClientsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
-		[AliasAs("statuses")] string? statuses = null,
-		[AliasAs("ip")] string? ip = null,
-		[AliasAs("ip6")] string? ip6 = null,
-		[AliasAs("ip6Local")] string? ip6Local = null,
-		[AliasAs("mac")] string? mac = null,
-		[AliasAs("os")] string? os = null,
-		[AliasAs("description")] string? description = null,
-		[AliasAs("recentDeviceConnections")] List<string>? recentDeviceConnections = null,
+		string networkId,
+		string t0 = null!,
+		double? timespan = null,
+		int? perPage = 1000,
+		string startingAfter = null!,
+		string endingBefore = null!,
+		string? statuses = null,
+		string? ip = null,
+		string? ip6 = null,
+		string? ip6Local = null,
+		string? mac = null,
+		string? os = null,
+		string? description = null,
+		[AliasAs("recentDeviceConnections[]")] List<string>? recentDeviceConnections = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

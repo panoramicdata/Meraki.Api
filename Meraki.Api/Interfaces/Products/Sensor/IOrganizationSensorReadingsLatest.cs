@@ -14,12 +14,12 @@ public interface IOrganizationSensorReadingsLatest
 	/// <param name="metrics">Types of sensor readings to retrieve. If no metrics are supplied, all available types of readings will be retrieved. Allowed values are temperature, humidity, water, door, tvoc, pm25, noise, indoorAirQuality, button, and battery.</param>
 	[Get("/organizations/{organizationId}/sensor/readings/latest")]
 	Task<List<SensorReadingLatest>> GetOrganizationSensorReadingsLatestAsync(
-		[AliasAs("perPage")] int? perPage,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("networkIds")] List<string>? networkIds = null,
-		[AliasAs("serials")] List<string>? serials = null,
-		[AliasAs("metrics")] List<SensorMetrics>? metrics = null,
+		int? perPage,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("metrics[]")] List<SensorMetrics>? metrics = null,
 		CancellationToken cancellationToken = default
 		);
 }

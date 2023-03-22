@@ -24,21 +24,21 @@ public interface INetworksEvents
 	[ApiOperationId("getNetworkEvents")]
 	[Get("/networks/{networkId}/events")]
 	Task<NetworkEvents> GetNetworkEventsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("productType")] string productType = null!,
-		[AliasAs("includedEventTypes")] List<string> includedEventTypes = null!,
-		[AliasAs("excludedEventTypes")] List<string> excludedEventTypes = null!,
-		[AliasAs("deviceMac")] string deviceMac = null!,
-		[AliasAs("deviceSerial")] string deviceSerial = null!,
-		[AliasAs("deviceName")] string deviceName = null!,
-		[AliasAs("clientIp")] string clientIp = null!,
-		[AliasAs("clientMac")] string clientMac = null!,
-		[AliasAs("clientName")] string clientName = null!,
-		[AliasAs("smDeviceMac")] string smDeviceMac = null!,
-		[AliasAs("smDeviceName")] string smDeviceName = null!,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
+		string networkId,
+		string productType = null!,
+		[AliasAs("includedEventTypes[]")] List<string> includedEventTypes = null!,
+		[AliasAs("excludedEventTypes[]")] List<string> excludedEventTypes = null!,
+		string deviceMac = null!,
+		string deviceSerial = null!,
+		string deviceName = null!,
+		string clientIp = null!,
+		string clientMac = null!,
+		string clientName = null!,
+		string smDeviceMac = null!,
+		string smDeviceName = null!,
+		int? perPage = 1000,
+		string startingAfter = null!,
+		string endingBefore = null!,
 		CancellationToken cancellationToken = default
 		);
 }
