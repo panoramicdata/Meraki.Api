@@ -20,7 +20,7 @@ public interface IOrganizationSensorRelationships
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkSensorRelationships")]
-	[Get("/networks/{networkId}/sensor/alerts/profiles")]
+	[Get("/networks/{networkId}/sensor/relationships")]
 	Task<List<NetworkSensorRelationship>> GetNetworkSensorRelationshipsAsync(
 		string networkId,
 		CancellationToken cancellationToken = default
