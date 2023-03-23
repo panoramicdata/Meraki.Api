@@ -74,7 +74,7 @@ public class Tests : MerakiClientTest
 
 		Func<Task> action = async () =>
 		{
-			var newNetwork = await TestMerakiClient
+			_ = await TestMerakiClient
 				.Organizations
 				.Networks
 				.CreateOrganizationNetworkAsync(
@@ -138,6 +138,7 @@ public class Tests : MerakiClientTest
 			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
 		var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
+		device.Should().NotBeNull();
 
 		// Perform any clean-up
 		await EnsureNetworkRemovedAsync(networkName)
@@ -154,7 +155,7 @@ public class Tests : MerakiClientTest
 				Name = networkName,
 				Tags = new List<string>(),
 				TimeZone = "Europe/London",
-				ProductTypes = new List<ProductType>() { ProductType.Wireless }
+				ProductTypes = new List<ProductType> { ProductType.Wireless }
 			})
 			.ConfigureAwait(false);
 
@@ -441,21 +442,6 @@ public class Tests : MerakiClientTest
 				.GenerateDeviceCameraSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
 				.ConfigureAwait(false);
 			_ = newResult.Should().NotBeNull();
-
-			//		//Download the image
-			//		using var client = new WebClient();
-			//		using var stream = client.OpenRead(newResult.Url);
-			//		using var bitmap = new Bitmap(stream);
-
-			//		bitmap.Save("temp.png", ImageFormat.Png);
-
-			//		stream.Flush();
-			//		stream.Close();
-			//	}
-			//	else
-			//	{
-			//		Skip.If(true);
-			//	}
 		}
 	}
 

@@ -104,7 +104,7 @@ public class WebHookTests : MerakiClientUnitTest
 		try
 		{
 			//Create a payload template
-			var testCreateWebhookPayloadTemplateRequest = new PayloadTemplate()
+			var testCreateWebhookPayloadTemplateRequest = new PayloadTemplate
 			{
 				Name = "Test Payload Template",
 				Body = "{\"event_type\":\"{{alertTypeId}}\",\"client_payload\":{\"text\":\"{{alertData}}\"}}",

@@ -9,9 +9,6 @@ public class DeviceStatusesTests : MerakiClientTest
 	[Fact]
 	public async Task GetAllDevicesAsync_Succeeds()
 	{
-		//var network = await GetFirstNetworkAsync()
-		//	.ConfigureAwait(false);
-
 		var result = await TestMerakiClient
 			.Organizations
 			.Devices
