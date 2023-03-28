@@ -25,12 +25,12 @@ public class Radius
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "criticalAuth")]
-	public CriticalAuth CriticalAuth { get; set; } = new();
+	public CriticalAuth? CriticalAuth { get; set; }
 
 	/// <summary>
 	/// suspendReAuthentication
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "suspendReAuthentication")]
-	public bool suspendReAuthentication { get; set; }
+	public bool? suspendReAuthentication { get; set; }
 }
