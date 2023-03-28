@@ -11,28 +11,28 @@ public class AdaptivePolicyAcl : NamedItem
 	/// </summary>
 	[ApiKey]
 	[DataMember(Name = "aclId")]
-	public int AclId { get; set; }
+	public string? AclId { get; set; }
 
 	/// <summary>
 	/// Description
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "description")]
-	public string Description { get; set; } = string.Empty;
+	public string? Description { get; set; }
 
 	/// <summary>
 	/// Ip version
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ipVersion")]
-	public string IpVersion { get; set; } = string.Empty;
+	public string? IpVersion { get; set; }
 
 	/// <summary>
 	/// Rules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "rules")]
-	public List<AdaptivePolicyAclRules> Rules { get; set; } = new();
+	public List<AdaptivePolicyAclRules>? Rules { get; set; }
 
 	/// <summary>
 	/// Created at
@@ -47,10 +47,4 @@ public class AdaptivePolicyAcl : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "updatedAt")]
 	public DateTime UpdatedAt { get; set; }
-
-	/// <summary>
-	/// Id
-	/// </summary>
-	//[DataMember(Name = "id")]
-	//public int Id { get; set; }
 }
