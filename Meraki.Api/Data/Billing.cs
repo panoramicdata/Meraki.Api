@@ -21,6 +21,13 @@ public class Billing
 	public bool? PrepaidAccessFastLoginEnabled { get; set; }
 
 	/// <summary>
+	/// Payment Methods
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "paymentMethods")]
+	public List<string>? PaymentMethods { get; set; }
+
+	/// <summary>
 	/// Free access
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
