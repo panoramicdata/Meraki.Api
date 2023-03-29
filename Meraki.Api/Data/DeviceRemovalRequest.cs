@@ -1,5 +1,6 @@
 ﻿namespace Meraki.Api.Data;
 
+[DataContract]
 public class DeviceRemovalRequest
 {
 	/// <summary>

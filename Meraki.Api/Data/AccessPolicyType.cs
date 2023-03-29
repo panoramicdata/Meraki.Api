@@ -6,7 +6,7 @@ public enum AccessPolicyType
 	[EnumMember(Value = "Open")]
 	Open = 1,
 
-	[EnumMember(Value = "Custom access policy'")]
+	[EnumMember(Value = "Custom access policy")]
 	CustomAccessPolicy,
 
 	[EnumMember(Value = "MAC allow list")]

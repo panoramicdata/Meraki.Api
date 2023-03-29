@@ -15,13 +15,13 @@ public interface ICellularGatewayUplinkStatuses
 	/// <param name="iccids">A list of ICCIDs. The returned devices will be filtered to only include these ICCIDs.</param>
 	[Get("/organizations/{organizationId}/cellularGateway/uplink/statuses")]
 	Task<List<UplinkStatus>> GetOrganizationCellularGatewayUplinkStatusesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("networkIds")] List<string>? networkIds = null,
-		[AliasAs("serials")] List<string>? serials = null,
-		[AliasAs("iccids")] List<string>? iccids = null,
+		string organizationId,
+		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("iccids[]")] List<string>? iccids = null,
 		CancellationToken cancellationToken = default
 		);
 }

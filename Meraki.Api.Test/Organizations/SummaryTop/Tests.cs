@@ -19,7 +19,5 @@ public class Tests : MerakiClientTest
 		_ = result.Should().BeOfType<List<EnergyUsageSummary>>();
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
-		//var firstResult = result[0];
-		//ValidateNetwork(firstResult);
 	}
 }

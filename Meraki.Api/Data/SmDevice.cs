@@ -56,6 +56,13 @@ public class SmDevice : NamedIdentifiedItem
 	public string SerialNumber { get; set; } = string.Empty;
 
 	/// <summary>
+	/// hasChromeMdm
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "hasChromeMdm")]
+	public bool HasChromeMdm { get; set; }
+
+	/// <summary>
 	/// Serial
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
@@ -75,4 +82,8 @@ public class SmDevice : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "notes")]
 	public string Notes { get; set; } = string.Empty;
+
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "batteryEstCharge")]
+	public string BatteryEstCharge { get; set; } = string.Empty;
 }

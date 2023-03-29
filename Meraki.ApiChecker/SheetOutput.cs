@@ -53,7 +53,7 @@ public static class SheetOutput
 									// At this point just check whether one is an array and the other isn't
 									// Is the schema response an array and the model property is not IEnumerable
 									if (responseSchema.Type == "array"
-										&& !singleImplementation.ResponseType.IsGenericList())
+										&& !singleImplementation.ResponseType!.IsGenericList())
 									{
 										// YES - The base types don't match
 										schemaDetails += $" - Response schema is '{responseSchema.Type}', model type '{singleImplementation.ResponseType?.Name}' is not IEnumerable";
@@ -132,6 +132,7 @@ public static class SheetOutput
 				_ = pathKpv.Value.Operations.Remove(pathOperation);
 			}
 		}
+
 		return endpointSet;
 	}
 

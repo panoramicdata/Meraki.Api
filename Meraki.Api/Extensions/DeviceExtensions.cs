@@ -3,7 +3,7 @@
 public static class DeviceExtensions
 {
 	public static ModelType GetModelType(this Device device)
-		=> device.Model.Length < 2
+		=> device.Model is null || device.Model.Length < 2
 			? ModelType.Unknown
 			: device.Model.Substring(0, 2).ToUpperInvariant() switch
 			{

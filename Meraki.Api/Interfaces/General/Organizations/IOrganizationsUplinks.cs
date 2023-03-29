@@ -13,12 +13,12 @@ public interface IOrganizationsUplinks
 	[ApiOperationId("getOrganizationUplinksStatuses")]
 	[Get("/organizations/{organizationId}/uplinks/statuses")]
 	Task<List<UplinkStatus>> GetOrganizationUplinksStatusesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("perPage")] int perPage = 1000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("networkIds")] List<int>? networkIds = null,
-		[AliasAs("serials")] List<int>? serials = null,
-		[AliasAs("iccids")] List<int>? iccids = null,
+		string organizationId,
+		int perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("networkIds[]")] List<int>? networkIds = null,
+		[AliasAs("serials[]")] List<int>? serials = null,
+		[AliasAs("iccids[]")] List<int>? iccids = null,
 		CancellationToken cancellationToken = default);
 }

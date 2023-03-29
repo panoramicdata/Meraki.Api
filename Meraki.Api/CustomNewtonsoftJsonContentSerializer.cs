@@ -41,12 +41,12 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		=> _options.JsonMissingMemberHandling switch
 		{
 			JsonMissingMemberHandling.Ignore => await _serializerIgnore.FromHttpContentAsync<T>(content, cancellationToken).ConfigureAwait(false),
-			JsonMissingMemberHandling.ThrowOnError => await LogOnErrorAndThrowFromHttpContentAsync<T>(content, cancellationToken).ConfigureAwait(false),
-			JsonMissingMemberHandling.LogWarningOnErrorAndContinue => await LogWarningOnErrorAndContinueFromHttpContentAsync<T>(content, cancellationToken).ConfigureAwait(false),
+			JsonMissingMemberHandling.ThrowOnError => await LogOnErrorAndThrowFromHttpContentAsync<T>(content).ConfigureAwait(false),
+			JsonMissingMemberHandling.LogWarningOnErrorAndContinue => await LogWarningOnErrorAndContinueFromHttpContentAsync<T>(content).ConfigureAwait(false),
 			_ => throw new NotSupportedException()
 		};
 
-	private async Task<T?> LogWarningOnErrorAndContinueFromHttpContentAsync<T>(HttpContent content, CancellationToken _)
+	private async Task<T?> LogWarningOnErrorAndContinueFromHttpContentAsync<T>(HttpContent content)
 	{
 		// This code has to read the content all at once into a stream
 		// as we might re-use it in the second DeserializeObject call
@@ -76,7 +76,7 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 	}
 
-	private async Task<T?> LogOnErrorAndThrowFromHttpContentAsync<T>(HttpContent content, CancellationToken _)
+	private async Task<T?> LogOnErrorAndThrowFromHttpContentAsync<T>(HttpContent content)
 	{
 		// This code has to read the content all at once into a stream
 		// as we might re-use it in the second DeserializeObject call

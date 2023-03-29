@@ -79,7 +79,7 @@ public class Tests : MerakiClientTest
 				.ConfigureAwait(false);
 
 			// Set VLAN info
-			var result = await TestMerakiClient
+			_ = await TestMerakiClient
 				.Appliance
 				.Vlans
 				.CreateNetworkApplianceVlanAsync(

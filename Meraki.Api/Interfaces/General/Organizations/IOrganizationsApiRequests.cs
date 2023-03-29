@@ -26,21 +26,21 @@ public interface IOrganizationsApiRequests
 	/// <param name="operationIds">Filter the results by one or more operation IDs for the API request</param>
 	[Get("/organizations/{organizationId}/apiRequests")]
 	Task<List<ApiUsage>> GetOrganizationApiRequestsAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("adminId")] string? adminId = null,
-		[AliasAs("path")] string? path = null,
-		[AliasAs("method")] string? method = null,
-		[AliasAs("responseCode")] int? responseCode = null,
-		[AliasAs("sourceIp")] string? sourceIp = null,
-		[AliasAs("userAgent")] string? userAgent = null,
-		[AliasAs("version")] int? version = null,
-		[AliasAs("operationIds")] List<string>? operationIds = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
+		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? adminId = null,
+		string? path = null,
+		string? method = null,
+		int? responseCode = null,
+		string? sourceIp = null,
+		string? userAgent = null,
+		int? version = null,
+		[AliasAs("operationIds[]")] List<string>? operationIds = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -48,19 +48,19 @@ public interface IOrganizationsApiRequests
 	/// </summary>
 	[Get("/organizations/{organizationId}/apiRequests")]
 	internal Task<ApiResponse<List<ApiUsage>>> GetOrganizationApiRequestsApiResponseAsync(
-	[AliasAs("organizationId")] string organizationId,
-	[AliasAs("t0")] string? t0 = null,
-	[AliasAs("t1")] string? t1 = null,
-	[AliasAs("timespan")] double? timespan = null,
-	[AliasAs("startingAfter")] string? startingAfter = null,
-	[AliasAs("adminId")] string? adminId = null,
-	[AliasAs("path")] string? path = null,
-	[AliasAs("method")] string? method = null,
-	[AliasAs("responseCode")] int? responseCode = null,
-	[AliasAs("sourceIp")] string? sourceIp = null,
-	[AliasAs("userAgent")] string? userAgent = null,
-	[AliasAs("version")] int? version = null,
-	[AliasAs("operationIds")] List<string>? operationIds = null,
+	string organizationId,
+	string? t0 = null,
+	string? t1 = null,
+	double? timespan = null,
+	string? startingAfter = null,
+	string? adminId = null,
+	string? path = null,
+	string? method = null,
+	int? responseCode = null,
+	string? sourceIp = null,
+	string? userAgent = null,
+	int? version = null,
+	[AliasAs("operationIds[]")] List<string>? operationIds = null,
 	CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -95,15 +95,15 @@ public interface IOrganizationsApiRequests
 	/// <param name="userAgent">Filter by user agent string for API request. This will filter by a complete or partial match.</param>
 	[Get("/organizations/{organizationId}/apiRequests/overview/responseCodes/byInterval")]
 	Task<List<ApiRequestsOverview>> GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("interval")] int? interval = null,
-		[AliasAs("version")] int? version = null,
-		[AliasAs("operationIds")] List<string>? operationIds = null,
-		[AliasAs("sourceIps")] List<string>? sourceIps = null,
-		[AliasAs("adminIds")] List<string>? adminIds = null,
-		[AliasAs("userAgent")] List<string>? userAgent = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
+		int? interval = null,
+		int? version = null,
+		[AliasAs("operationIds[]")] List<string>? operationIds = null,
+		[AliasAs("sourceIps[]")] List<string>? sourceIps = null,
+		[AliasAs("adminIds[]")] List<string>? adminIds = null,
+		[AliasAs("userAgent[]")] List<string>? userAgent = null,
 		CancellationToken cancellationToken = default);
 }

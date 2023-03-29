@@ -16,14 +16,14 @@ public interface IApplianceVpnStats
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
 	[Get("/organizations/{organizationId}/appliance/vpn/stats")]
 	Task<List<VpnStats>> GetOrganizationApplianceVpnStatsAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("perPage")] int? perPage = 300,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("networkIds")] List<string>? networkIds = null,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
+		string organizationId,
+		int? perPage = 300,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
 		CancellationToken cancellationToken = default
 		);
 }

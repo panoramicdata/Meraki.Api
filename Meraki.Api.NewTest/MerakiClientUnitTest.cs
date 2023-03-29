@@ -15,11 +15,7 @@ public abstract class MerakiClientUnitTest
 	{
 		var testConfig = JsonConvert.DeserializeObject<TestConfig>(
 			File.ReadAllText("../../../appsettings.json")
-			);
-		if (testConfig is null)
-		{
-			throw new InvalidDataException("API Config Data is empty");
-		}
+			) ?? throw new InvalidDataException("API Config Data is empty");
 
 		var merakiClientOptions = new MerakiClientOptions
 		{

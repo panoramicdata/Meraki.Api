@@ -30,7 +30,7 @@ public class Tests : MerakiClientTest
 		_ = device.Serial.Should().Equals(deviceSerial);
 		_ = device.Firmware.Should().NotBeNull();
 
-		if (device.Address != string.Empty)
+		if (!string.IsNullOrEmpty(device.Address))
 		{
 			device.Address = string.Empty;
 			_ = await TestMerakiClient

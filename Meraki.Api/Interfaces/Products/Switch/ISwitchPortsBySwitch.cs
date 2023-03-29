@@ -27,12 +27,12 @@ public interface ISwitchPortsBySwitch
 		string? startingAfter,
 		string? endingBefore,
 		string? configurationUpdatedAfter,
-		List<string>? networkIds,
+		[AliasAs("networkIds[]")] List<string>? networkIds,
 		string? name,
 		string? mac,
 		string serial,
-		List<string>? serials,
-		List<string>? macs,
+		[AliasAs("serials[]")] List<string>? serials,
+		[AliasAs("macs[]")] List<string>? macs,
 		CancellationToken cancellationToken = default
 		);
 
@@ -44,12 +44,12 @@ public interface ISwitchPortsBySwitch
 		string organizationId,
 		string? startingAfter,
 		string? configurationUpdatedAfter,
-		List<string>? networkIds,
+		[AliasAs("networkIds[]")] List<string>? networkIds,
 		string? name,
 		string? mac,
 		string? serial,
-		List<string>? serials,
-		List<string>? macs,
+		[AliasAs("serials[]")] List<string>? serials,
+		[AliasAs("macs[]")] List<string>? macs,
 		CancellationToken cancellationToken = default
 	);
 }
