@@ -33,6 +33,7 @@ namespace My.Project
 			{
 				ApiKey = "0123456789abcdef0123456789abcdef01234567",
 				// UserAgent = "YourProductName/YourProductVersion YourCompanyName"
+				// UserAgent = "YourProductName YourCompanyName"
 				UserAgent = "DeviceLister/1.0 MyCompanyInc"
 			});
 
