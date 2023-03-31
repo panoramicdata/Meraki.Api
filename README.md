@@ -32,7 +32,9 @@ namespace My.Project
 			using var merakiClient = new MerakiClient(new MerakiClientOptions
 			{
 				ApiKey = "0123456789abcdef0123456789abcdef01234567",
-				UserAgent = "YourProductName/YourProductVersion YourComment"
+				// UserAgent = "YourProductName/YourProductVersion YourCompanyName"
+				// UserAgent = "YourProductName YourCompanyName"
+				UserAgent = "DeviceLister/1.0 MyCompanyInc"
 			});
 
 			var organizations = await merakiClient

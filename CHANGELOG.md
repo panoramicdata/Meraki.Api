@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.31.14
+- Fixed bug with missing DataContract on DeviceRemovalRequest
+
 ## 1.31.8
 - Updated for 1.31 API changes
 - All query endpoints that provide lists now have "[]" after the parameter name to allow for multiple values to be passed in and work with the Meraki API.
