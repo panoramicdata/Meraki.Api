@@ -43,6 +43,13 @@ public class AccessPolicy
 	public bool? RadiusTestingEnabled { get; set; }
 
 	/// <summary>
+	/// Guest Port Bouncng - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "guestPortBouncing")]
+	public bool? GuestPortBouncing { get; set; }
+
+	/// <summary>
 	/// Change of authentication for RADIUS re-authentication and disconnection
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
