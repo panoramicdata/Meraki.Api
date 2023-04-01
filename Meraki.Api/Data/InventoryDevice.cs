@@ -65,13 +65,6 @@ public class InventoryDevice
 	public List<string>? Tags { get; set; }
 
 	/// <summary>
-	/// Born As - Undocumented
-	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "bornAs")]
-	public string? BornAs { get; set; }
-
-	/// <summary>
 	/// Claimed at
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
