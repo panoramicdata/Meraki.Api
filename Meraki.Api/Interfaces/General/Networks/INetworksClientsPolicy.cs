@@ -11,8 +11,8 @@ public interface INetworksClientsPolicy
 	[ApiOperationId("getNetworkClientPolicy")]
 	[Get("/networks/{networkId}/clients/{clientId}/policy")]
 	Task<ClientPolicyUpdateRequest> GetNetworkClientPolicyAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
+		string networkId,
+		string clientId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -25,8 +25,8 @@ public interface INetworksClientsPolicy
 	[ApiOperationId("updateNetworkClientPolicy")]
 	[Put("/networks/{networkId}/clients/{clientId}/policy")]
 	Task<ClientPolicyUpdateRequest> UpdateNetworkClientPolicyAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
+		string networkId,
+		string clientId,
 		[Body] ClientPolicyUpdateRequest clientPolicyUpdateRequest,
 		CancellationToken cancellationToken = default);
 }

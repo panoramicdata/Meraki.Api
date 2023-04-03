@@ -13,7 +13,7 @@ public interface INetworksMerakiAuthUsers
 	[ApiOperationId("getNetworkMerakiAuthUsers")]
 	[Get("/networks/{networkId}/merakiAuthUsers")]
 	Task<List<MerakiAuthUser>> GetNetworkMerakiAuthUsersAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface INetworksMerakiAuthUsers
 	[ApiOperationId("createNetworkMerakiAuthUser")]
 	[Post("/networks/{networkId}/merakiAuthUsers")]
 	Task<MerakiAuthUser> CreateNetworkMerakiAuthUserAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] MerakiAuthUserCreateUpdateRequest merakiAuthUser,
 		CancellationToken cancellationToken = default
 		);
@@ -40,8 +40,8 @@ public interface INetworksMerakiAuthUsers
 	[ApiOperationId("getNetworkMerakiAuthUser")]
 	[Get("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 	Task<MerakiAuthUser> GetNetworkMerakiAuthUserAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
+		string networkId,
+		string merakiAuthUserId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -54,8 +54,8 @@ public interface INetworksMerakiAuthUsers
 	[ApiOperationId("deleteNetworkMerakiAuthUser")]
 	[Delete("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 	Task DeleteNetworkMerakiAuthUserAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
+		string networkId,
+		string merakiAuthUserId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -68,8 +68,8 @@ public interface INetworksMerakiAuthUsers
 	[ApiOperationId("updateNetworkMerakiAuthUser")]
 	[Put("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 	Task<MerakiAuthUser> UpdateNetworkMerakiAuthUserAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("merakiAuthUserId")] string merakiAuthUserId,
+		string networkId,
+		string merakiAuthUserId,
 		[Body] MerakiAuthUserCreateUpdateRequest merakiAuthUser,
 		CancellationToken cancellationToken = default
 		);

@@ -10,8 +10,8 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	[Get("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 	Task<WebhookHttpServer> GetNetworkWebhooksHttpServerAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("httpServerId")] string httpServerId,
+		string networkId,
+		string httpServerId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -22,7 +22,7 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/webhooks/httpServers")]
 	Task<List<WebhookHttpServer>> GetNetworkWebhooksHttpServersAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -34,7 +34,7 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="httpServer">Body for creating a network HTTP server</param>
 	[Post("/networks/{networkId}/webhooks/httpServers")]
 	Task<WebhookHttpServer> CreateNetworkWebhooksHttpServerAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] WebhookHttpServer httpServer,
 		CancellationToken cancellationToken = default
 		);
@@ -48,8 +48,8 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="httpServer">Body for updating a network HTTP server</param>
 	[Put("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 	Task<WebhookHttpServer> UpdateNetworkWebhooksHttpServerAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("httpServerId")] string httpServerId,
+		string networkId,
+		string httpServerId,
 		[Body] WebhookHttpServer httpServer,
 		CancellationToken cancellationToken = default
 		);
@@ -62,8 +62,8 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	[Delete("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 	Task DeleteNetworkWebhooksHttpServerAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("httpServerId")] string httpServerId,
+		string networkId,
+		string httpServerId,
 		CancellationToken cancellationToken = default
 		);
 }

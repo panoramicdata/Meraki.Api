@@ -13,7 +13,7 @@ public interface IDevices
 	[ApiOperationId("getDevice")]
 	[Get("/devices/{serial}")]
 	Task<Device> GetDeviceAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -25,7 +25,7 @@ public interface IDevices
 	[ApiOperationId("updateDevice")]
 	[Put("/devices/{serial}")]
 	Task<Device> UpdateDeviceAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] Device device,
 		CancellationToken cancellationToken = default);
 
@@ -38,7 +38,7 @@ public interface IDevices
 	[ApiOperationId("blinkDeviceLeds")]
 	[Post("/devices/{serial}/blinkLeds")]
 	Task<BlinkLeds> BlinkDeviceLedsAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] BlinkLeds blinkLeds,
 		CancellationToken cancellationToken = default);
 
@@ -50,6 +50,6 @@ public interface IDevices
 	[ApiOperationId("rebootDevice")]
 	[Post("/devices/{serial}/reboot")]
 	Task<ActionResponse> RebootDeviceAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default);
 }

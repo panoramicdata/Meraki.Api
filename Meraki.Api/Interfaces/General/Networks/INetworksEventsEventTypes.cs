@@ -10,7 +10,7 @@ public interface INetworksEventsEventTypes
 	[ApiOperationId("getNetworkEventsEventTypes")]
 	[Get("/networks/{networkId}/events/eventTypes")]
 	Task<List<EventType>> GetNetworkEventsEventTypesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 }

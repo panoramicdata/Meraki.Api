@@ -11,7 +11,7 @@ public interface INetworks
 	[ApiOperationId("getNetwork")]
 	[Get("/networks/{networkId}")]
 	Task<Network> GetNetworkAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -23,7 +23,7 @@ public interface INetworks
 	[ApiOperationId("updateNetwork")]
 	[Put("/networks/{networkId}")]
 	Task<Network> UpdateNetworkAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkUpdateRequest networkUpdateRequest,
 		CancellationToken cancellationToken = default
 		);
@@ -36,7 +36,7 @@ public interface INetworks
 	[ApiOperationId("deleteNetwork")]
 	[Delete("/networks/{networkId}")]
 	Task DeleteNetworkAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -48,7 +48,7 @@ public interface INetworks
 	[ApiOperationId("bindNetwork")]
 	[Post("/networks/{networkId}/bind")]
 	Task BindNetworkAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] ConfigurationTemplateBindRequest bindNetwork,
 		CancellationToken cancellationToken = default);
 
@@ -60,7 +60,7 @@ public interface INetworks
 	[ApiOperationId("splitNetwork")]
 	[Post("/networks/{networkId}/split")]
 	Task<SplitNetworkResponse> SplitNetworkAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -71,7 +71,7 @@ public interface INetworks
 	[ApiOperationId("unbindNetwork")]
 	[Post("/networks/{networkId}/unbind")]
 	Task<Network> UnbindNetworkAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 }

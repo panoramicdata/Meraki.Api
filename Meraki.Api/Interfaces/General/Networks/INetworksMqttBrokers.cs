@@ -13,7 +13,7 @@ public interface INetworksMqttBrokers
 	[ApiOperationId("getNetworkMqttBrokers")]
 	[Get("/networks/{networkId}/mqttBrokers")]
 	Task<List<MqttBroker>> GetNetworkMqttBrokersAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -25,7 +25,7 @@ public interface INetworksMqttBrokers
 	[ApiOperationId("createNetworkMqttBroker")]
 	[Post("/networks/{networkId}/mqttBrokers")]
 	Task<MqttBroker> CreateNetworkMqttBrokerAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] MqttBrokerCreateUpdateRequest createNetworkMqttBroker,
 		CancellationToken cancellationToken = default);
 
@@ -38,8 +38,8 @@ public interface INetworksMqttBrokers
 	[ApiOperationId("getNetworkMqttBroker")]
 	[Get("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
 	Task<MqttBroker> GetNetworkMqttBrokerAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("mqttBrokerId")] string mqttBrokerId,
+		string networkId,
+		string mqttBrokerId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -52,8 +52,8 @@ public interface INetworksMqttBrokers
 	[ApiOperationId("updateNetworkMqttBroker")]
 	[Put("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
 	Task<MqttBroker> UpdateNetworkMqttBrokerAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("mqttBrokerId")] string mqttBrokerId,
+		string networkId,
+		string mqttBrokerId,
 		[Body] MqttBrokerCreateUpdateRequest updateNetworkMqttBroker,
 		CancellationToken cancellationToken = default);
 
@@ -66,7 +66,7 @@ public interface INetworksMqttBrokers
 	[ApiOperationId("deleteNetworkMqttBroker")]
 	[Delete("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
 	Task DeleteNetworkMqttBrokerAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("mqttBrokerId")] string mqttBrokerId,
+		string networkId,
+		string mqttBrokerId,
 		CancellationToken cancellationToken = default);
 }

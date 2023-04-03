@@ -11,8 +11,8 @@ public interface INetworksClientsSplashAuthorizationStatus
 	[ApiOperationId("getNetworkClientSplashAuthorizationStatus")]
 	[Get("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
 	Task<ClientSplashAuthorizationStatusUpdateRequest> GetNetworkClientSplashAuthorizationStatusAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
+		string networkId,
+		string clientId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -25,8 +25,8 @@ public interface INetworksClientsSplashAuthorizationStatus
 	[ApiOperationId("updateNetworkClientSplashAuthorizationStatus")]
 	[Put("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
 	Task<ClientSplashAuthorizationStatusUpdateRequest> UpdateNetworkClientSplashAuthorizationStatusAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
+		string networkId,
+		string clientId,
 		[Body] ClientSplashAuthorizationStatusUpdateRequest updateNetworkClientSplashAuthorizationStatus,
 		CancellationToken cancellationToken = default);
 }

@@ -13,7 +13,7 @@ public interface INetworksPiiRequests
 	[ApiOperationId("getNetworkPiiRequests")]
 	[Get("/networks/{networkId}/pii/requests")]
 	Task<List<PiiRequest>> GetNetworkPiiRequestsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface INetworksPiiRequests
 	[ApiOperationId("createNetworkPiiRequest")]
 	[Post("/networks/{networkId}/pii/requests")]
 	Task<PiiRequest> CreateNetworkPiiRequestAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] PiiRequestCreateRequest piiRequest,
 		CancellationToken cancellationToken = default
 		);
@@ -40,8 +40,8 @@ public interface INetworksPiiRequests
 	[ApiOperationId("getNetworkPiiRequest")]
 	[Get("/networks/{networkId}/pii/requests/{requestId}")]
 	Task<PiiRequest> GetNetworkPiiRequestAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("requestId")] string requestId,
+		string networkId,
+		string requestId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -54,8 +54,8 @@ public interface INetworksPiiRequests
 	[ApiOperationId("deleteNetworkPiiRequest")]
 	[Delete("/networks/{networkId}/pii/requests/{requestId}")]
 	Task DeleteNetworkPiiRequestAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("requestId")] string requestId,
+		string networkId,
+		string requestId,
 		CancellationToken cancellationToken = default
 		);
 }

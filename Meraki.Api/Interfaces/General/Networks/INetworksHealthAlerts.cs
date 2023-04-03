@@ -10,6 +10,6 @@ public interface INetworksHealthAlerts
 	[ApiOperationId("getNetworkHealthAlerts")]
 	[Get("/networks/{networkId}/health/alerts")]
 	Task<List<HealthAlert>> GetNetworkHealthAlertsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 }

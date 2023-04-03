@@ -11,7 +11,7 @@ public interface INetworksClientsUsageHistory
 	[ApiOperationId("getNetworkClientUsageHistory")]
 	[Get("/networks/{networkId}/clients/{clientId}/usageHistory")]
 	Task<List<ClientUsageHistory>> GetNetworkClientUsageHistoryAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
+		string networkId,
+		string clientId,
 		CancellationToken cancellationToken = default);
 }
