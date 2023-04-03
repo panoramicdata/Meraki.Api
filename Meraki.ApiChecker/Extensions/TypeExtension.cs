@@ -1,5 +1,6 @@
 ﻿using Meraki.Api.Attributes;
 using System.Reflection;
+using System.Runtime.Serialization;
 
 namespace Meraki.ApiChecker.Extensions;
 public static class TypeExtension
@@ -27,7 +28,7 @@ public static class TypeExtension
 	public static bool IsGenericList(this Type type)
 		=> type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
 
-	public static List<string> GetDeficientDataModels(this Type type, bool isRoot = true)
+	public static List<string> GetDeficientDataModels(this Type type, bool isRoot = true, bool isParentClassReadOnly = false)
 	{
 		// If we're at the root and this is a generic list then deal with the underlying generic type
 		// as attributes won't be assigned to the generic list
@@ -43,23 +44,36 @@ public static class TypeExtension
 			return new();
 		}
 
-		if (type.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is not null)
-		{
-			// It's a read-only class, so return here
-			return new List<string>();
-		}
+		var isClassReadOnly = isParentClassReadOnly || type.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is not null;
 
 		var deficientDataModels = new List<string>();
+		var dataMemberNames = new Dictionary<string, string>();
+
 		foreach (var property in type.GetProperties())
 		{
+			var dataMemberAttribute = property.GetCustomAttribute<DataMemberAttribute>();
+			if (dataMemberAttribute != null)
+			{
+				var dataMemberName = dataMemberAttribute.Name ?? "Not set";
+				if (dataMemberNames.TryGetValue(dataMemberName, out var existingPropertyName))
+				{
+					deficientDataModels.Add($"Found {existingPropertyName} already has DataMemberName '{dataMemberName}' when processing {property.Name} property on {type}");
+				}
+				else
+				{
+					dataMemberNames[dataMemberName] = property.Name;
+				}
+			}
+
 			// Is ApiAccessAttribute or ApiKeyAttribute present on the property?
-			if (property.GetCustomAttribute<ApiAccessAttribute>() is null
+			if (!isClassReadOnly
+				&& property.GetCustomAttribute<ApiAccessAttribute>() is null
 				&& property.GetCustomAttribute<ApiKeyAttribute>() is null)
 			{
 				// NO - ApiAccess is not fully denoted for the type
 				if (!deficientDataModels.Contains(type.Name))
 				{
-					deficientDataModels.Add(type.Name);
+					deficientDataModels.Add($"{type.Name} is missing ApiAccessAttribute");
 				}
 			}
 
@@ -68,7 +82,7 @@ public static class TypeExtension
 			// Is it a class? AND ensure it's a class we didn't discover yet
 			if (propertyType?.IsClass == true && !deficientDataModels.Contains(propertyType.Name))
 			{
-				deficientDataModels.AddRange(GetDeficientDataModels(propertyType, false));
+				deficientDataModels.AddRange(GetDeficientDataModels(propertyType, false, isClassReadOnly));
 			}
 		}
 
