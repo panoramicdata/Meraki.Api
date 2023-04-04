@@ -7,12 +7,12 @@ public interface IAppliancePorts
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="appliancePortId">The appliance port id</param>
+	/// <param name="portId">The appliance port id</param>
 	[ApiOperationId("getNetworkAppliancePort")]
 	[Get("/networks/{networkId}/appliance/ports/{portId}")]
 	Task<AppliancePort> GetNetworkAppliancePortAsync(
 		string networkId,
-		string appliancePortId,
+		string portId,
 		CancellationToken cancellationToken = default
 		);
 
