@@ -38,7 +38,7 @@ public interface ISwitchRoutingInterfaces
 	[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 	Task<RoutingInterface> GetDeviceSwitchRoutingInterfaceAsync(
 		string serial,
-		[AliasAs("interfaceId")] string interfaceId,
+		string interfaceId,
 		CancellationToken cancellationToken = default
 		);
 
