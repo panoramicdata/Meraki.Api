@@ -9,21 +9,37 @@ namespace RefitAnalyzer;
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 {
-	private static readonly LocalizableString _title = "List parameter must have AliasAs attribute with proper format";
-	private static readonly LocalizableString _messageFormat = "The parameter '{0}' of type List<T> must have an AliasAs attribute with the same name as the parameter followed by '[]'";
-	private static readonly LocalizableString _description = "Meraki Refit Interface GET methods with List<T> parameters must have an AliasAs attribute with the same name as the parameter followed by '[]'.";
+	private static readonly LocalizableString _requireListParameterRule_Title = "List parameter must have AliasAs attribute with proper format";
+	private static readonly LocalizableString _requireListParameterRule_MessageFormat = "The parameter '{0}' of type List<T> must have an AliasAs attribute with the same name as the parameter followed by '[]'";
+	private static readonly LocalizableString _requireListParameterRule_Description = "Meraki Refit Interface GET methods with List<T> parameters must have an AliasAs attribute with the same name as the parameter followed by '[]'.";
+
+	private static readonly LocalizableString _removeAliasAsRule_Title = "AliasAs attribute should only be present for parameters of type List<T>";
+	private static readonly LocalizableString _removeAliasAsRule_MessageFormat = "The parameter '{0}' should not have an AliasAs attribute";
+	private static readonly LocalizableString _removeAliasAsRule_Description = "Meraki Refit Interface GET methods parameters should not have an AliasAs attribute unless they are of type List<T>.";
+
 
 	private const string Category = "Refit";
-	private static readonly DiagnosticDescriptor _rule = new(
+	private static readonly DiagnosticDescriptor _requireListParameterRule = new(
 		"REFIT001",
-		_title,
-		_messageFormat,
+		_requireListParameterRule_Title,
+		_requireListParameterRule_MessageFormat,
 		Category,
 		DiagnosticSeverity.Error,
 		isEnabledByDefault: true,
-		description: _description);
+		description: _requireListParameterRule_Description);
+	private static readonly DiagnosticDescriptor _removeAliasAsRule = new(
+		"REFIT002",
+		_removeAliasAsRule_Title,
+		_removeAliasAsRule_MessageFormat,
+		Category,
+		DiagnosticSeverity.Error,
+		isEnabledByDefault: true,
+		description: _removeAliasAsRule_Description);
 
-	public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(_rule);
+
+	public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(
+		_requireListParameterRule,
+		_removeAliasAsRule);
 
 	public override void Initialize(AnalysisContext context)
 	{
@@ -81,11 +97,29 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 
 				context.ReportDiagnostic(
 					Diagnostic.Create(
-						_rule,
+						_requireListParameterRule,
 						parameter.GetLocation(),
 						parameter.Identifier.Text
 						)
 					);
+			}
+			else
+			{
+				// The parameter is not a generic List - it should not have an AliasAs attribute
+				var aliasAsAttribute = parameter.AttributeLists
+					.SelectMany(attrList => attrList.Attributes)
+					.FirstOrDefault(attr => semanticModel.GetTypeInfo(attr).Type?.Name == "AliasAsAttribute");
+
+				if (aliasAsAttribute is not null)
+				{
+					context.ReportDiagnostic(
+						Diagnostic.Create(
+							_removeAliasAsRule,
+							parameter.GetLocation(),
+							parameter.Identifier.Text
+							)
+						);
+				}
 			}
 		}
 	}
