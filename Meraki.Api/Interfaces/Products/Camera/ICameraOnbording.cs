@@ -22,7 +22,7 @@ public interface ICameraOnbording
 	/// <param name="organizationId">The organization id</param>
 	[Put("/organizations/{organizationId}/camera/onboarding/statuses")]
 	Task<ActionResponse> UpdateOrganizationCameraOnboardingStatusesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] OnboardingStatusUpdateRequest unboardingStatusUpdateRequest,
 		CancellationToken cancellationToken = default
 		);

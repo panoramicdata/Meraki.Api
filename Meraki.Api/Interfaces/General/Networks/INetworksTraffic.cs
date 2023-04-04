@@ -11,10 +11,10 @@ public interface INetworksTraffic
 	/// <param name="deviceType">Filter the data by device type: 'combined', 'wireless', 'switch' or 'appliance'. Defaults to 'combined'.     When using 'combined', for each rule the data will come from the device type with the most usage.  (optional)</param>
 	[Get("/networks/{networkId}/traffic")]
 	Task<List<NetworkTraffic>> GetNetworkTrafficAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("deviceType")] string deviceType = null!,
+		string networkId,
+		string t0 = null!,
+		double? timespan = null,
+		string deviceType = null!,
 		CancellationToken cancellationToken = default
 		);
 }

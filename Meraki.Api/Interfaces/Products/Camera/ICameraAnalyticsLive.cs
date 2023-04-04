@@ -9,7 +9,7 @@ public interface ICameraAnalyticsLive
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/camera/analytics/live")]
 	Task<CameraLive> GetDeviceCameraAnalyticsLiveAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 }

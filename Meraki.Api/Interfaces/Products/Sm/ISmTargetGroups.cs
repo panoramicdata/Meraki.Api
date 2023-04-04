@@ -13,7 +13,7 @@ public interface ISmTargetGroups
 	/// <param name="createNetworkSmTargetGroup">Body for adding target group</param>
 	[Post("/networks/{networkId}/sm/targetGroups")]
 	Task<SmTargetGroup> CreateNetworkSmTargetGroupAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SmTargetGroupCreateUpdateRequest createNetworkSmTargetGroup,
 		CancellationToken cancellationToken = default
 		);
@@ -26,8 +26,8 @@ public interface ISmTargetGroups
 	/// <param name="targetGroupId">The target group id</param>
 	[Delete("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 	Task DeleteNetworkSmTargetGroupAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("targetGroupId")] string targetGroupId,
+		string networkId,
+		string targetGroupId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -40,9 +40,9 @@ public interface ISmTargetGroups
 	/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
 	[Get("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 	Task<SmTargetGroup> GetNetworkSmTargetGroupAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("targetGroupId")] string targetGroupId,
-		[AliasAs("withDetails")] bool? withDetails = null,
+		string networkId,
+		string targetGroupId,
+		bool? withDetails = null,
 		CancellationToken cancellationToken = default
 		);
 
@@ -54,8 +54,8 @@ public interface ISmTargetGroups
 	/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
 	[Get("/networks/{networkId}/sm/targetGroups")]
 	Task<List<SmTargetGroup>> GetNetworkSmTargetGroupsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("withDetails")] bool? withDetails = null,
+		string networkId,
+		bool? withDetails = null,
 		CancellationToken cancellationToken = default
 		);
 
@@ -68,8 +68,8 @@ public interface ISmTargetGroups
 	/// <param name="updateNetworkSmTargetGroup">Body for updating a target group</param>
 	[Put("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 	Task<SmTargetGroup> UpdateNetworkSmTargetGroupAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("targetGroupId")] string targetGroupId,
+		string networkId,
+		string targetGroupId,
 		[Body] SmTargetGroupCreateUpdateRequest updateNetworkSmTargetGroup,
 		CancellationToken cancellationToken = default
 		);

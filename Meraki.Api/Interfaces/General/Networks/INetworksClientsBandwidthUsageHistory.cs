@@ -16,12 +16,12 @@ public interface INetworksClientsBandwidthUsageHistory
 	[ApiOperationId("getNetworkClientsBandwidthUsageHistory")]
 	[Get("/networks/{networkId}/clients/bandwidthUsageHistory")]
 	Task<List<NetworkClientBandwidthUsageHistory>> GetNetworkClientsBandwidthUsageHistoryAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
+		string networkId,
+		int? perPage = 1000,
+		string startingAfter = null!,
+		string endingBefore = null!,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 }

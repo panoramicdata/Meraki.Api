@@ -9,7 +9,7 @@ public interface INetworksTrafficShapingDscpTaggingOptions
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/trafficShaping/dscpTaggingOptions")]
 	Task<List<DscpTaggingValue>> GetNetworkTrafficShapingDscpTaggingOptionsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 }

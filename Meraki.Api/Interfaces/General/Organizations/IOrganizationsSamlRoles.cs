@@ -14,7 +14,7 @@ public interface IOrganizationsSamlRoles
 	/// <param name="cancellationToken">Cancellation token</param>
 	[Post("/organizations/{organizationId}/samlRoles")]
 	Task<SamlRole> CreateOrganizationSamlRoleAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] SamlRoleCreateRequest createOrganizationSamlRole,
 		CancellationToken cancellationToken
 		);
@@ -28,8 +28,8 @@ public interface IOrganizationsSamlRoles
 	/// <param name="cancellationToken">Cancellation token</param>
 	[Delete("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
 	Task DeleteOrganizationSamlRoleAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("samlRoleId")] string samlRoleId,
+		string organizationId,
+		string samlRoleId,
 		CancellationToken cancellationToken
 		);
 
@@ -42,8 +42,8 @@ public interface IOrganizationsSamlRoles
 	/// <param name="cancellationToken">Cancellation token</param>
 	[Get("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
 	Task<SamlRole> GetOrganizationSamlRoleAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("samlRoleId")] string samlRoleId,
+		string organizationId,
+		string samlRoleId,
 		CancellationToken cancellationToken
 		);
 
@@ -55,7 +55,7 @@ public interface IOrganizationsSamlRoles
 	/// <param name="cancellationToken">Cancellation token</param>
 	[Get("/organizations/{organizationId}/samlRoles")]
 	Task<List<SamlRole>> GetOrganizationSamlRolesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken
 		);
 
@@ -69,8 +69,8 @@ public interface IOrganizationsSamlRoles
 	/// <param name="cancellationToken">Cancellation token</param>
 	[Put("/organizations/{organizationId}/samlRoles/{samlRoleId}")]
 	Task<SamlRole> UpdateOrganizationSamlRoleAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("samlRoleId")] string samlRoleId,
+		string organizationId,
+		string samlRoleId,
 		[Body] SamlRoleUpdateRequest updateOrganizationSamlRole,
 		CancellationToken cancellationToken);
 }

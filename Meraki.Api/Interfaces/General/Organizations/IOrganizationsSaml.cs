@@ -9,7 +9,7 @@ public interface IOrganizationsSaml
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/saml")]
 	Task<Saml> GetOrganizationSamlAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,7 +21,7 @@ public interface IOrganizationsSaml
 	/// <param name="updateOrganizationSaml">Body for updating SAML SSO enabled settings</param>
 	[Put("/organizations/{organizationId}/saml")]
 	Task<Saml> UpdateOrganizationSamlAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] Saml updateOrganizationSaml,
 		CancellationToken cancellationToken = default
 		);

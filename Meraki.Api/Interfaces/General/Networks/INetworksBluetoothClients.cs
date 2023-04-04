@@ -16,10 +16,10 @@ public interface INetworksBluetoothClients
 	[ApiOperationId("getNetworkBluetoothClient")]
 	[Get("/networks/{networkId}/bluetoothClients/{bluetoothClientId}")]
 	Task<BluetoothClient> GetNetworkBluetoothClientAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("bluetoothClientId")] string bluetoothClientId,
-		[AliasAs("includeConnectivityHistory")] bool? includeConnectivityHistory = null,
-		[AliasAs("connectivityHistoryTimespan")] int? connectivityHistoryTimespan = null,
+		string networkId,
+		string bluetoothClientId,
+		bool? includeConnectivityHistory = null,
+		int? connectivityHistoryTimespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -36,12 +36,12 @@ public interface INetworksBluetoothClients
 	[ApiOperationId("getNetworkBluetoothClients")]
 	[Get("/networks/{networkId}/bluetoothClients")]
 	Task<List<BluetoothClient>> GetNetworkBluetoothClientsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
-		[AliasAs("includeConnectivityHistory")] bool? includeConnectivityHistory = null,
+		string networkId,
+		string t0 = null!,
+		double? timespan = null,
+		int? perPage = 1000,
+		string startingAfter = null!,
+		string endingBefore = null!,
+		bool? includeConnectivityHistory = null,
 		CancellationToken cancellationToken = default);
 }

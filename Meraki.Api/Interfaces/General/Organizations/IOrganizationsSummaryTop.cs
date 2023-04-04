@@ -16,10 +16,10 @@ public interface IOrganizationsSummaryTop
 	[ApiOperationId("getOrganizationSummaryTopAppliancesByUtilization")]
 	[Get("/organizations/{organizationId}/summary/top/appliances/byUtilization")]
 	Task<List<ApplianceUtilizationSummary>> GetOrganizationSummaryTopAppliancesByUtilizationAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -33,10 +33,10 @@ public interface IOrganizationsSummaryTop
 	[ApiOperationId("getOrganizationSummaryTopClientsByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/clients/byUsage")]
 	Task<List<ClientUsageSummary>> GetOrganizationSummaryTopClientsByUsageAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -50,10 +50,10 @@ public interface IOrganizationsSummaryTop
 	[ApiOperationId("getOrganizationSummaryTopClientsManufacturersByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/clients/manufacturers/byUsage")]
 	Task<List<ClientManufacturersSummary>> GetOrganizationSummaryTopClientsManufacturersByUsageAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -67,10 +67,10 @@ public interface IOrganizationsSummaryTop
 	[ApiOperationId("getOrganizationSummaryTopDevicesByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/devices/byUsage")]
 	Task<List<DeviceUsageSummary>> GetOrganizationSummaryTopDevicesByUsageAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -84,10 +84,10 @@ public interface IOrganizationsSummaryTop
 	[ApiOperationId("getOrganizationSummaryTopDevicesModelsByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/devices/models/byUsage")]
 	Task<List<DeviceModelUsageSummary>> GetOrganizationSummaryTopDevicesModelsByUsageAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -101,10 +101,10 @@ public interface IOrganizationsSummaryTop
 	[ApiOperationId("getOrganizationSummaryTopSsidsByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/ssids/byUsage")]
 	Task<List<SsidUsageSummary>> GetOrganizationSummaryTopSsidsByUsageAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -118,9 +118,9 @@ public interface IOrganizationsSummaryTop
 	[ApiOperationId("getOrganizationSummaryTopSwitchesByEnergyUsage")]
 	[Get("/organizations/{organizationId}/summary/top/switches/byEnergyUsage")]
 	Task<List<EnergyUsageSummary>> GetOrganizationSummaryTopSwitchesByEnergyUsageAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 }

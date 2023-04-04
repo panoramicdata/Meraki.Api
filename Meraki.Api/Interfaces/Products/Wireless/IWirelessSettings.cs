@@ -12,7 +12,7 @@ public interface IWirelessSettings
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/wireless/settings")]
 	Task<WirelessSettings> GetNetworkWirelessSettingsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -23,7 +23,7 @@ public interface IWirelessSettings
 	/// <param name="updateNetworkWirelessSettings"></param>
 	[Put("/networks/{networkId}/wireless/settings")]
 	Task<WirelessSettings> UpdateNetworkWirelessSettingsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] WirelessSettingsUpdateDto updateNetworkWirelessSettings,
 		CancellationToken cancellationToken = default);
 }

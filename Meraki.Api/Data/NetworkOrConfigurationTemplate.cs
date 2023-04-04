@@ -15,5 +15,6 @@ public abstract class NetworkOrConfigurationTemplate : NamedIdentifiedItem
 	/// Product Types
 	/// Implemented with different API AccessLevels by parents
 	/// </summary>
+	[ApiForeignKey(typeof(ProductType))]
 	public abstract List<ProductType> ProductTypes { get; set; }
 }

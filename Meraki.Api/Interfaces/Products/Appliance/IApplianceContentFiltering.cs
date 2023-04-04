@@ -10,7 +10,7 @@ public interface IApplianceContentFiltering
 	[ApiOperationId("getNetworkApplianceContentFiltering")]
 	[Get("/networks/{networkId}/appliance/contentFiltering")]
 	Task<ApplianceContentFilteringResult> GetNetworkApplianceContentFilteringAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface IApplianceContentFiltering
 	[ApiOperationId("updateNetworkApplianceContentFiltering")]
 	[Put("/networks/{networkId}/appliance/contentFiltering")]
 	Task<ApplianceContentFilteringResult> UpdateNetworkApplianceContentFilteringAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] ContentFilteringUpdateRequest networkContentFilteringUpdateRequest,
 		CancellationToken cancellationToken = default
 		);

@@ -13,7 +13,7 @@ public interface ISwitchAccessPolicies
 	[ApiOperationId("getNetworkSwitchAccessPolicies")]
 	[Get("/networks/{networkId}/switch/accessPolicies")]
 	Task<List<AccessPolicy>> GetNetworkSwitchAccessPoliciesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface ISwitchAccessPolicies
 	[ApiOperationId("createNetworkSwitchAccessPolicy")]
 	[Post("/networks/{networkId}/switch/accessPolicies")]
 	Task<AccessPolicy> CreateNetworkSwitchAccessPolicyAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] AccessPolicy createNetworkSwitchAccessPolicy,
 		CancellationToken cancellationToken = default
 		);
@@ -40,8 +40,8 @@ public interface ISwitchAccessPolicies
 	[ApiOperationId("getNetworkSwitchAccessPolicy")]
 	[Get("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
 	Task<AccessPolicy> GetNetworkSwitchAccessPolicyAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("accessPolicyNumber")] string accessPolicyNumber,
+		string networkId,
+		string accessPolicyNumber,
 		CancellationToken cancellationToken = default
 		);
 
@@ -55,8 +55,8 @@ public interface ISwitchAccessPolicies
 	[ApiOperationId("updateNetworkSwitchAccessPolicy")]
 	[Put("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
 	Task<AccessPolicy> UpdateNetworkSwitchAccessPolicyAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("accessPolicyNumber")] string accessPolicyNumber,
+		string networkId,
+		string accessPolicyNumber,
 		[Body] AccessPolicy updateNetworkSwitchAccessPolicy,
 		CancellationToken cancellationToken = default
 		);
@@ -70,7 +70,7 @@ public interface ISwitchAccessPolicies
 	[ApiOperationId("deleteNetworkSwitchAccessPolicy")]
 	[Delete("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
 	Task DeleteNetworkSwitchAccessPolicyAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("accessPolicyNumber")] string accessPolicyNumber,
+		string networkId,
+		string accessPolicyNumber,
 		CancellationToken cancellationToken = default);
 }

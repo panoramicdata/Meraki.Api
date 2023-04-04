@@ -9,7 +9,7 @@ public interface INetworksTopologyLinkLayer
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/topology/linkLayer")]
 	Task<LinkLayers> GetNetworkTopologyLinkLayerAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 }

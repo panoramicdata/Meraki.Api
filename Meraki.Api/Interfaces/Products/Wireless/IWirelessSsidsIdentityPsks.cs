@@ -10,8 +10,8 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
 	Task<List<IdentityPsk>> GetNetworkWirelessSsidIdentityPsksAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,8 +24,8 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="createNetworkWirelessSsidIdentityPsk"></param>
 	[Post("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
 	Task<IdentityPsk> CreateNetworkWirelessSsidIdentityPskAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		[Body] IdentityPsk createNetworkWirelessSsidIdentityPsk,
 		CancellationToken cancellationToken = default
 		);
@@ -39,9 +39,9 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="identityPskId">The identity psk id</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
 	Task<IdentityPsk> GetNetworkWirelessSsidIdentityPskAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
-		[AliasAs("identityPskId")] string identityPskId,
+		string networkId,
+		string number,
+		string identityPskId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -55,9 +55,9 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="updateNetworkWirelessSsidIdentityPsk"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
 	Task<IdentityPsk> UpdateNetworkWirelessSsidIdentityPskAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
-		[AliasAs("identityPskId")] string identityPskId,
+		string networkId,
+		string number,
+		string identityPskId,
 		[Body] IdentityPsk updateNetworkWirelessSsidIdentityPsk,
 		CancellationToken cancellationToken = default
 		);
@@ -71,8 +71,8 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="identityPskId">The identity psk id</param>
 	[Delete("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
 	Task DeleteNetworkWirelessSsidIdentityPskAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
-		[AliasAs("identityPskId")] string identityPskId,
+		string networkId,
+		string number,
+		string identityPskId,
 		CancellationToken cancellationToken = default);
 }

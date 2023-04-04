@@ -9,7 +9,7 @@ public interface IApplianceTrafficShapingUplinkSelection
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
 	Task<UplinkSelection> GetNetworkApplianceTrafficShapingUplinkSelectionAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -22,7 +22,7 @@ public interface IApplianceTrafficShapingUplinkSelection
 	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
 	Task<UplinkSelection> UpdateNetworkApplianceTrafficShapingUplinkSelectionAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] UplinkSelection updateTrafficShapingUplinkSelection,
 		CancellationToken cancellationToken = default
 		);

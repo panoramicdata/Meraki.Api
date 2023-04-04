@@ -9,7 +9,7 @@ public interface IOrganizationsBrandingPolicies
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/brandingPolicies")]
 	Task<List<BrandingPolicy>> GetOrganizationBrandingPoliciesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,8 +21,8 @@ public interface IOrganizationsBrandingPolicies
 	/// <param name="brandingPolicyId">The branding policy id</param>
 	[Get("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 	Task<BrandingPolicy> GetOrganizationBrandingPolicyAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("brandingPolicyId")] string brandingPolicyId,
+		string organizationId,
+		string brandingPolicyId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -34,7 +34,7 @@ public interface IOrganizationsBrandingPolicies
 	/// <param name="brandingPolicy">Body for creating an organization's branding policy</param>
 	[Post("/organizations/{organizationId}/brandingPolicies")]
 	Task<BrandingPolicy> CreateOrganizationBrandingPolicyAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] BrandingPolicy brandingPolicy,
 		CancellationToken cancellationToken = default
 		);
@@ -48,8 +48,8 @@ public interface IOrganizationsBrandingPolicies
 	/// <param name="brandingPolicy">Body for updating an organization's branding policy</param>
 	[Put("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 	Task<BrandingPolicy> UpdateOrganizationBrandingPolicyAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("brandingPolicyId")] string brandingPolicyId,
+		string organizationId,
+		string brandingPolicyId,
 		[Body] BrandingPolicy brandingPolicy,
 		CancellationToken cancellationToken = default
 		);
@@ -62,8 +62,8 @@ public interface IOrganizationsBrandingPolicies
 	/// <param name="brandingPolicyId">The branding policy id</param>
 	[Delete("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 	Task DeleteOrganizationBrandingPolicyAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("brandingPolicyId")] string brandingPolicyId,
+		string organizationId,
+		string brandingPolicyId,
 		CancellationToken cancellationToken = default
 		);
 }

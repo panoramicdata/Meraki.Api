@@ -13,7 +13,7 @@ public interface INetworksWebhooksPayloadTemplates
 	[ApiOperationId("getNetworkWebhooksPayloadTemplates")]
 	[Get("/networks/{networkId}/webhooks/payloadTemplates")]
 	Task<List<PayloadTemplate>> GetNetworkWebhooksPayloadTemplatesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -25,7 +25,7 @@ public interface INetworksWebhooksPayloadTemplates
 	[ApiOperationId("createNetworkWebhooksPayloadTemplate")]
 	[Post("/networks/{networkId}/webhooks/payloadTemplates")]
 	Task<PayloadTemplate> CreateNetworkWebhooksPayloadTemplateAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] PayloadTemplate webhookPayloadTemplate,
 		CancellationToken cancellationToken = default);
 
@@ -38,8 +38,8 @@ public interface INetworksWebhooksPayloadTemplates
 	[ApiOperationId("getNetworkWebhooksPayloadTemplate")]
 	[Get("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task<PayloadTemplate> GetNetworkWebhooksPayloadTemplateAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("payloadTemplateId")] string payloadTemplateId,
+		string networkId,
+		string payloadTemplateId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -51,8 +51,8 @@ public interface INetworksWebhooksPayloadTemplates
 	[ApiOperationId("deleteNetworkWebhooksPayloadTemplate")]
 	[Delete("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task DeleteNetworkWebhooksPayloadTemplateAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("payloadTemplateId")] string payloadTemplateId,
+		string networkId,
+		string payloadTemplateId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -65,8 +65,8 @@ public interface INetworksWebhooksPayloadTemplates
 	[ApiOperationId("updateNetworkWebhooksPayloadTemplate")]
 	[Put("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task<PayloadTemplate> UpdateNetworkWebhooksPayloadTemplateAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("payloadTemplateId")] string payloadTemplateId,
+		string networkId,
+		string payloadTemplateId,
 		[Body] PayloadTemplate webhookPayloadTemplate,
 		CancellationToken cancellationToken = default);
 }

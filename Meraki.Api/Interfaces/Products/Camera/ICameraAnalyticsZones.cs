@@ -15,13 +15,13 @@ public interface ICameraAnalyticsZones
 	/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
 	[Get("/devices/{serial}/camera/analytics/zones/{zoneId}/history")]
 	Task<List<CameraZoneHistory>> GetDeviceCameraAnalyticsZoneHistoryAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("zoneId")] string zoneId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("resolution")] int? resolution = null,
-		[AliasAs("objectType")] string objectType = null!,
+		string serial,
+		string zoneId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		int? resolution = null,
+		string objectType = null!,
 		CancellationToken cancellationToken = default
 		);
 
@@ -32,7 +32,7 @@ public interface ICameraAnalyticsZones
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/camera/analytics/zones")]
 	Task<List<CameraZone>> GetDeviceCameraAnalyticsZonesAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 }

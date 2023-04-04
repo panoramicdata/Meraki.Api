@@ -10,8 +10,8 @@ public interface IWirelessSsidsHotSpot20
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
 	Task<Hotspot20> GetNetworkWirelessSsidHotspot20Async(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,8 +24,8 @@ public interface IWirelessSsidsHotSpot20
 	/// <param name="hotspot20"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
 	Task<Hotspot20> UpdateNetworkWirelessSsidHotspot20Async(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		[Body] Hotspot20 hotspot20,
 		CancellationToken cancellationToken = default
 		);

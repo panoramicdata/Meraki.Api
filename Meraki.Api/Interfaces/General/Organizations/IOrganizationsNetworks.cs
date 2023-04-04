@@ -42,7 +42,7 @@ public interface IOrganizationsNetworks
 	/// <param name="combineOrganizationNetworks">Body for combining networks</param>
 	[Post("/organizations/{organizationId}/networks/combine")]
 	Task<CombineNetworkResponse> CombineOrganizationNetworksAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] CombineOrganizationNetworksRequest combineOrganizationNetworks,
 		CancellationToken cancellationToken = default);
 
@@ -54,7 +54,7 @@ public interface IOrganizationsNetworks
 	/// <param name="createOrganizationNetwork">Body for creating a network</param>
 	[Post("/organizations/{organizationId}/networks")]
 	Task<Network> CreateOrganizationNetworkAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] NetworkCreationRequest createOrganizationNetwork,
 		CancellationToken cancellationToken = default);
 }

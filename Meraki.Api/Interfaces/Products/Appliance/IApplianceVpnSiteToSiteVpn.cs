@@ -10,7 +10,7 @@ public interface IApplianceVpnSiteToSiteVpn
 	[ApiOperationId("getNetworkApplianceVpnSiteToSiteVpn")]
 	[Get("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 	Task<SiteToSiteVpn> GetNetworkApplianceVpnSiteToSiteVpnAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface IApplianceVpnSiteToSiteVpn
 	[ApiOperationId("updateNetworkApplianceVpnSiteToSiteVpn")]
 	[Put("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 	Task<SiteToSiteVpn> UpdateNetworkApplianceVpnSiteToSiteVpnAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SiteToSiteVpn siteToSiteVpn,
 		CancellationToken cancellationToken = default
 		);

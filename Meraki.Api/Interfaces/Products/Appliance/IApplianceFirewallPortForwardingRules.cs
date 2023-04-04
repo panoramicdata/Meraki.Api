@@ -10,7 +10,7 @@ public interface IApplianceFirewallPortForwardingRules
 	[ApiOperationId("getNetworkApplianceFirewallPortForwardingRules")]
 	[Get("/networks/{networkId}/appliance/firewall/portForwardingRules")]
 	Task<PortForwardingRules> GetNetworkApplianceFirewallPortForwardingRulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface IApplianceFirewallPortForwardingRules
 	[ApiOperationId("updateNetworkApplianceFirewallPortForwardingRules")]
 	[Put("/networks/{networkId}/appliance/firewall/portForwardingRules")]
 	Task<PortForwardingRules> UpdateNetworkApplianceFirewallPortForwardingRulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] PortForwardingRules updateNetworkPortForwardingRules,
 		CancellationToken cancellationToken = default
 		);

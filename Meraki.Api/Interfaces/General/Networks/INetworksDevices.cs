@@ -10,7 +10,7 @@ public interface INetworksDevices
 	[ApiOperationId("getNetworkDevices")]
 	[Get("/networks/{networkId}/devices")]
 	Task<List<Device>> GetNetworkDevicesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -22,7 +22,7 @@ public interface INetworksDevices
 	[ApiOperationId("claimNetworkDevices")]
 	[Post("/networks/{networkId}/devices/claim")]
 	Task ClaimNetworkDevicesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] DeviceClaimRequest claimNetworkDevices,
 		CancellationToken cancellationToken = default);
 
@@ -34,7 +34,7 @@ public interface INetworksDevices
 	[ApiOperationId("removeNetworkDevices")]
 	[Post("/networks/{networkId}/devices/remove")]
 	Task RemoveNetworkDevicesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] DeviceRemovalRequest deviceRemovalRequest,
 		CancellationToken cancellationToken = default);
 
@@ -47,7 +47,7 @@ public interface INetworksDevices
 	[ApiOperationId("vmxNetworkDevicesClaim")]
 	[Post("/networks/{networkId}/devices/claim/vmx")]
 	Task<Device> VmxNetworkDevicesClaimAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] VmxNetworkDevicesClaim vmxNetworkDevicesClaim,
 		CancellationToken cancellationToken = default);
 }

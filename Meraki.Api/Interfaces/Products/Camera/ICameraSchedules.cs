@@ -9,6 +9,6 @@ public interface ICameraSchedules
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/camera/schedules")]
 	Task<List<CameraSchedule>> GetNetworkCameraSchedulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 }

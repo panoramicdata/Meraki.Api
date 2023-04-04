@@ -13,7 +13,7 @@ public interface ISmDevicesFields
 	/// <param name="updateNetworkSmDeviceFields">Body for modifying a device</param>
 	[Put("/networks/{networkId}/sm/devices/fields")]
 	Task<List<SmDevice>> UpdateNetworkSmDevicesFieldsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SmDeviceFieldsUpdateRequest updateNetworkSmDeviceFields,
 		CancellationToken cancellationToken = default
 		);

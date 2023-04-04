@@ -10,7 +10,7 @@ public interface INetworksFirmwareUpgrades
 	[ApiOperationId("getNetworkFirmwareUpgrades")]
 	[Get("/networks/{networkId}/firmwareUpgrades")]
 	Task<NetworkFirmwareUpgrade> GetNetworkFirmwareUpgradesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -22,7 +22,7 @@ public interface INetworksFirmwareUpgrades
 	[ApiOperationId("updateNetworkFirmwareUpgrades")]
 	[Put("/networks/{networkId}/firmwareUpgrades")]
 	Task<NetworkFirmwareUpgrade> UpdateNetworkFirmwareUpgradesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkFirmwareUpgradeUpdateRequest updateNetworkFirmwareUpgrades,
 		CancellationToken cancellationToken = default);
 
@@ -35,7 +35,7 @@ public interface INetworksFirmwareUpgrades
 	[ApiOperationId("createNetworkFirmwareUpgradesRollback")]
 	[Post("/networks/{networkId}/firmwareUpgrades/rollbacks")]
 	Task<NetworkFirmwareUpgrade> CreateNetworkFirmwareUpgradesRollbackAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] FirmwareUpgradeRollbackRequest createNetworkFirmwareUpgradesRollback,
 		CancellationToken cancellationToken = default
 		);

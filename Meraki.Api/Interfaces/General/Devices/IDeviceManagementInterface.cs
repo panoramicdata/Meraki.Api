@@ -10,7 +10,7 @@ public interface IDeviceManagementInterface
 	[ApiOperationId("getDeviceManagementInterface")]
 	[Get("/devices/{serial}/managementInterface")]
 	Task<DeviceManagementInterfaceSettings> GetDeviceManagementInterfaceAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -22,7 +22,7 @@ public interface IDeviceManagementInterface
 	[ApiOperationId("updateDeviceManagementInterface")]
 	[Put("/devices/{serial}/managementInterface")]
 	Task<DeviceManagementInterfaceSettings> UpdateDeviceManagementInterfaceAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] DeviceManagementInterfaceSettings managementInterfaceSettingsUpdateDto,
 		CancellationToken cancellationToken = default);
 }

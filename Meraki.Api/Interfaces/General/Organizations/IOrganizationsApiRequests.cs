@@ -73,10 +73,10 @@ public interface IOrganizationsApiRequests
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 31 days. (optional)</param>
 	[Get("/organizations/{organizationId}/apiRequests/overview")]
 	Task<ApiUsageOverview> GetOrganizationApiRequestsOverviewAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
+		string organizationId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

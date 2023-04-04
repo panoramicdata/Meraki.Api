@@ -13,7 +13,7 @@ public interface ICameraQualityAndRetentionProfiles
 	[ApiOperationId("getNetworkCameraQualityRetentionProfiles")]
 	[Get("/networks/{networkId}/camera/qualityRetentionProfiles")]
 	Task<List<CameraQualityRetentionProfile>> GetNetworkCameraQualityRetentionProfilesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -25,8 +25,8 @@ public interface ICameraQualityAndRetentionProfiles
 	[ApiOperationId("getNetworkCameraQualityRetentionProfile")]
 	[Get("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 	Task<CameraQualityRetentionProfile> GetNetworkCameraQualityRetentionProfileAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("qualityRetentionProfileId")] string qualityRetentionProfileId,
+		string networkId,
+		string qualityRetentionProfileId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -38,7 +38,7 @@ public interface ICameraQualityAndRetentionProfiles
 	[ApiOperationId("createNetworkCameraQualityRetentionProfile")]
 	[Post("/networks/{networkId}/camera/qualityRetentionProfiles")]
 	Task<CameraQualityRetentionProfile> CreateNetworkCameraQualityRetentionProfileAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] CameraQualityRetentionProfileCreateUpdateRequest createNetworkCameraQualityRetentionProfile,
 		CancellationToken cancellationToken = default);
 
@@ -52,8 +52,8 @@ public interface ICameraQualityAndRetentionProfiles
 	[ApiOperationId("updateNetworkCameraQualityRetentionProfile")]
 	[Put("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 	Task<CameraQualityRetentionProfile> UpdateNetworkCameraQualityRetentionProfileAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("qualityRetentionProfileId")] string qualityRetentionProfileId,
+		string networkId,
+		string qualityRetentionProfileId,
 		[Body] CameraQualityRetentionProfileCreateUpdateRequest updateNetworkCameraQualityRetentionProfile,
 		CancellationToken cancellationToken = default);
 
@@ -66,7 +66,7 @@ public interface ICameraQualityAndRetentionProfiles
 	[ApiOperationId("deleteNetworkCameraQualityRetentionProfile")]
 	[Delete("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 	Task DeleteNetworkCameraQualityRetentionProfileAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("qualityRetentionProfileId")] string qualityRetentionProfileId,
+		string networkId,
+		string qualityRetentionProfileId,
 		CancellationToken cancellationToken = default);
 }

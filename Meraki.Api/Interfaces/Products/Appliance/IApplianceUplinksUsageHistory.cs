@@ -14,11 +14,11 @@ public interface IApplianceUplinksUsageHistory
 	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/uplinks/usageHistory")]
 	Task<List<UplinkStatus>> GetNetworkApplianceUplinksUsageHistoryAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("resolution")] int? resolution = null,
+		string networkId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		int? resolution = null,
 		CancellationToken cancellationToken = default
 		);
 }

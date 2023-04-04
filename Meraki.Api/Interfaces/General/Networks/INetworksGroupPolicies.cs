@@ -10,7 +10,7 @@ public interface INetworksGroupPolicies
 	[ApiOperationId("getNetworkGroupPolicies")]
 	[Get("/networks/{networkId}/groupPolicies")]
 	Task<List<GroupPolicy>> GetNetworkGroupPoliciesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface INetworksGroupPolicies
 	[ApiOperationId("createNetworkGroupPolicy")]
 	[Post("/networks/{networkId}/groupPolicies")]
 	Task<GroupPolicy> CreateNetworkGroupPolicyAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] GroupPolicy createNetworkGroupPolicy,
 		CancellationToken cancellationToken = default
 		);
@@ -37,8 +37,8 @@ public interface INetworksGroupPolicies
 	[ApiOperationId("getNetworkGroupPolicy")]
 	[Get("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 	Task<GroupPolicy> GetNetworkGroupPolicyAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("groupPolicyId")] string groupPolicyId,
+		string networkId,
+		string groupPolicyId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -52,8 +52,8 @@ public interface INetworksGroupPolicies
 	[ApiOperationId("updateNetworkGroupPolicy")]
 	[Put("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 	Task<GroupPolicy> UpdateNetworkGroupPolicyAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("groupPolicyId")] string groupPolicyId,
+		string networkId,
+		string groupPolicyId,
 		[Body] GroupPolicy updateNetworkGroupPolicy,
 		CancellationToken cancellationToken = default);
 
@@ -66,8 +66,8 @@ public interface INetworksGroupPolicies
 	[ApiOperationId("deleteNetworkGroupPolicy")]
 	[Delete("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 	Task DeleteNetworkGroupPolicyAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("groupPolicyId")] string groupPolicyId,
+		string networkId,
+		string groupPolicyId,
 		CancellationToken cancellationToken = default
 		);
 }

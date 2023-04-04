@@ -30,7 +30,7 @@ public interface IOrganizations
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}")]
 	Task<Organization> GetOrganizationAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -41,7 +41,7 @@ public interface IOrganizations
 	/// <param name="updateOrganization">Body for updating an organization</param>
 	[Put("/organizations/{organizationId}")]
 	Task<Organization> UpdateOrganizationAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] OrganizationUpdateRequest updateOrganization,
 		CancellationToken cancellationToken = default);
 
@@ -52,7 +52,7 @@ public interface IOrganizations
 	/// <param name="organizationId">The organization id</param>
 	[Delete("/organizations/{organizationId}")]
 	Task DeleteOrganizationAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -64,7 +64,7 @@ public interface IOrganizations
 	/// <param name="organizationClaimRequest">Body for making a claim request</param>
 	[Post("/organizations/{organizationId}/claim")]
 	Task<OrganizationClaimResponse> ClaimIntoOrganizationAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] OrganizationClaimRequest organizationClaimRequest,
 		CancellationToken cancellationToken = default);
 
@@ -76,7 +76,7 @@ public interface IOrganizations
 	/// <param name="cloneOrganization">Body for cloning an organization</param>
 	[Post("/organizations/{organizationId}/clone")]
 	Task<Organization> CloneOrganizationAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] CloneOrganization cloneOrganization,
 		CancellationToken cancellationToken = default);
 }

@@ -13,7 +13,7 @@ public interface INetworksAlertsSettings
 	[ApiOperationId("getNetworkAlertsSettings")]
 	[Get("/networks/{networkId}/alerts/settings")]
 	Task<NetworkAlertSettings> GetNetworkAlertsSettingsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -25,7 +25,7 @@ public interface INetworksAlertsSettings
 	[ApiOperationId("updateNetworkAlertsSettings")]
 	[Put("/networks/{networkId}/alerts/settings")]
 	Task<NetworkAlertSettings> UpdateNetworkAlertsSettingsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkAlertSettings updateNetworkAlertSettings = null!,
 		CancellationToken cancellationToken = default);
 }

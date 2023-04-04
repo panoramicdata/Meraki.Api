@@ -9,7 +9,7 @@ public interface ISwitchRoutingInterfaces
 	[ApiOperationId("getDeviceSwitchRoutingInterfaces")]
 	[Get("/devices/{serial}/switch/routing/interfaces")]
 	Task<List<RoutingInterface>> GetDeviceSwitchRoutingInterfacesAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface ISwitchRoutingInterfaces
 	[ApiOperationId("createDeviceSwitchRoutingInterface")]
 	[Post("/devices/{serial}/switch/routing/interfaces")]
 	Task<RoutingInterface> CreateDeviceSwitchRoutingInterfaceAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] RoutingInterfaceCreateRequest routingInterface,
 		CancellationToken cancellationToken = default
 		);
@@ -37,8 +37,8 @@ public interface ISwitchRoutingInterfaces
 	[ApiOperationId("getDeviceSwitchRoutingInterface")]
 	[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 	Task<RoutingInterface> GetDeviceSwitchRoutingInterfaceAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("interfaceId")] string interfaceId,
+		string serial,
+		string interfaceId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -52,8 +52,8 @@ public interface ISwitchRoutingInterfaces
 	[ApiOperationId("updateDeviceSwitchRoutingInterface")]
 	[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 	Task<RoutingInterface> UpdateDeviceSwitchRoutingInterfaceAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("interfaceId")] string interfaceId,
+		string serial,
+		string interfaceId,
 		[Body] RoutingInterfaceUpdateRequest updateRoutingInterface,
 		CancellationToken cancellationToken = default
 		);
@@ -67,8 +67,8 @@ public interface ISwitchRoutingInterfaces
 	[ApiOperationId("deleteDeviceSwitchRoutingInterface")]
 	[Delete("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 	Task DeleteDeviceSwitchRoutingInterfaceAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("interfaceId")] string interfaceId,
+		string serial,
+		string interfaceId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -81,8 +81,8 @@ public interface ISwitchRoutingInterfaces
 	[ApiOperationId("getDeviceSwitchRoutingInterfaceDhcp")]
 	[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
 	Task<RoutingInterfaceDhcp> GetDeviceSwitchRoutingInterfaceDhcpAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("interfaceId")] string interfaceId,
+		string serial,
+		string interfaceId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -96,8 +96,8 @@ public interface ISwitchRoutingInterfaces
 	[ApiOperationId("updateDeviceSwitchRoutingInterfaceDhcp")]
 	[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
 	Task<RoutingInterfaceDhcp> UpdateDeviceSwitchRoutingInterfaceDhcpAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("interfaceId")] string interfaceId,
+		string serial,
+		string interfaceId,
 		[Body] RoutingInterfaceDhcp updateDeviceSwitchRoutingInterfaceDhcp,
 		CancellationToken cancellationToken = default
 		);

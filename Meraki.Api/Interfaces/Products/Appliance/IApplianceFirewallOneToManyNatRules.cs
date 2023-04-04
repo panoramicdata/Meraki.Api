@@ -10,7 +10,7 @@ public interface IApplianceFirewallOneToManyNatRules
 	[ApiOperationId("getNetworkApplianceFirewallOneToManyNatRules")]
 	[Get("/networks/{networkId}/appliance/firewall/oneToManyNatRules")]
 	Task<OneToManyNatRules> GetNetworkApplianceFirewallOneToManyNatRulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface IApplianceFirewallOneToManyNatRules
 	[ApiOperationId("updateNetworkApplianceFirewallOneToManyNatRules")]
 	[Put("/networks/{networkId}/appliance/firewall/oneToManyNatRules")]
 	Task<OneToManyNatRules> UpdateNetworkApplianceFirewallOneToManyNatRulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] OneToManyNatRules oneToManyNatRules,
 		CancellationToken cancellationToken = default
 		);

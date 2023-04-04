@@ -9,7 +9,7 @@ public interface IApplianceDhcpSubnets
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/appliance/dhcp/subnets")]
 	Task<List<DhcpSubnets>> GetDeviceApplianceDhcpSubnetsAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 }

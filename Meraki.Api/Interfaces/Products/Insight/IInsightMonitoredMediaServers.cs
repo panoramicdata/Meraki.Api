@@ -12,7 +12,7 @@ public interface IInsightMonitoredMediaServers
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/insight/monitoredMediaServers")]
 	Task<List<InsightMonitoredMediaServer>> GetOrganizationInsightMonitoredMediaServersAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface IInsightMonitoredMediaServers
 	/// <param name="createOrganizationInsightMonitoredMediaServer">Body for adding a media server</param>
 	[Post("/organizations/{organizationId}/insight/monitoredMediaServers")]
 	Task<InsightMonitoredMediaServer> CreateOrganizationInsightMonitoredMediaServerAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] InsightMonitoredMediaServerCreationRequest createOrganizationInsightMonitoredMediaServer,
 		CancellationToken cancellationToken = default
 		);
@@ -37,8 +37,8 @@ public interface IInsightMonitoredMediaServers
 	/// <param name="monitoredMediaServerId">The monitored media server id</param>
 	[Get("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 	Task<InsightMonitoredMediaServer> GetOrganizationInsightMonitoredMediaServerAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("monitoredMediaServerId")] string monitoredMediaServerId,
+		string organizationId,
+		string monitoredMediaServerId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -51,8 +51,8 @@ public interface IInsightMonitoredMediaServers
 	/// <param name="updateOrganizationInsightMonitoredMediaServer">Body for updating a monitored media server</param>
 	[Put("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 	Task<InsightMonitoredMediaServer> UpdateOrganizationInsightMonitoredMediaServerAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("monitoredMediaServerId")] string monitoredMediaServerId,
+		string organizationId,
+		string monitoredMediaServerId,
 		[Body] InsightMonitoredMediaServerUpdateRequest updateOrganizationInsightMonitoredMediaServer,
 		CancellationToken cancellationToken = default
 		);
@@ -65,8 +65,8 @@ public interface IInsightMonitoredMediaServers
 	/// <param name="monitoredMediaServerId">The monitored media server id</param>
 	[Delete("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 	Task DeleteOrganizationInsightMonitoredMediaServerAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("monitoredMediaServerId")] string monitoredMediaServerId,
+		string organizationId,
+		string monitoredMediaServerId,
 		CancellationToken cancellationToken = default
 		);
 }

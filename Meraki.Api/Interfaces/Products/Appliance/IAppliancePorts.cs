@@ -11,8 +11,8 @@ public interface IAppliancePorts
 	[ApiOperationId("getNetworkAppliancePort")]
 	[Get("/networks/{networkId}/appliance/ports/{portId}")]
 	Task<AppliancePort> GetNetworkAppliancePortAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("portId")] string appliancePortId,
+		string networkId,
+		string appliancePortId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface IAppliancePorts
 	[ApiOperationId("getNetworkAppliancePorts")]
 	[Get("/networks/{networkId}/appliance/ports")]
 	Task<List<AppliancePort>> GetNetworkAppliancePortsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -38,8 +38,8 @@ public interface IAppliancePorts
 	[ApiOperationId("updateNetworkAppliancePorts")]
 	[Put("/networks/{networkId}/appliance/ports/{portId}")]
 	Task<AppliancePort> UpdateNetworkAppliancePortAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("portId")] string portId,
+		string networkId,
+		string portId,
 		[Body] AppliancePortUpdateRequest appliancePort,
 		CancellationToken cancellationToken = default
 		);

@@ -13,7 +13,7 @@ public interface ISwitchLinkAggregations
 	[ApiOperationId("getNetworkSwitchLinkAggregations")]
 	[Get("/networks/{networkId}/switch/linkAggregations")]
 	Task<List<SwitchLinkAggregation>> GetNetworkSwitchLinkAggregationsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface ISwitchLinkAggregations
 	[ApiOperationId("createNetworkSwitchLinkAggregation")]
 	[Post("/networks/{networkId}/switch/linkAggregations")]
 	Task<SwitchLinkAggregation> CreateNetworkSwitchLinkAggregationAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SwitchLinkAggregation createNetworkSwitchLinkAggregation,
 		CancellationToken cancellationToken = default
 		);
@@ -40,8 +40,8 @@ public interface ISwitchLinkAggregations
 	[ApiOperationId("deleteNetworkSwitchLinkAggregation")]
 	[Delete("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
 	Task DeleteNetworkSwitchLinkAggregationAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("linkAggregationId")] string linkAggregationId,
+		string networkId,
+		string linkAggregationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -55,8 +55,8 @@ public interface ISwitchLinkAggregations
 	[ApiOperationId("updateNetworkSwitchLinkAggregation")]
 	[Put("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
 	Task<SwitchLinkAggregation> UpdateNetworkSwitchLinkAggregationAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("linkAggregationId")] string linkAggregationId,
+		string networkId,
+		string linkAggregationId,
 		[Body] SwitchLinkAggregation updateNetworkSwitchLinkAggregation,
 		CancellationToken cancellationToken = default
 		);

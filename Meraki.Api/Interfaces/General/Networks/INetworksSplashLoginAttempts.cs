@@ -15,9 +15,9 @@ public interface INetworksSplashLoginAttempts
 	/// <param name="timespan">The timespan, in seconds, for the login attempts. The period will be from [timespan] seconds ago until now. The maximum timespan is 3 months (optional)</param>
 	[Get("/networks/{networkId}/splashLoginAttempts")]
 	Task<List<SplashLoginAttempts>> GetNetworkSplashLoginAttemptsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("ssidNumber")] string ssidNumber = null!,
-		[AliasAs("loginIdentifier")] string loginIdentifier = null!,
-		[AliasAs("timespan")] int? timespan = null,
+		string networkId,
+		string ssidNumber = null!,
+		string loginIdentifier = null!,
+		int? timespan = null,
 		CancellationToken cancellationToken = default);
 }

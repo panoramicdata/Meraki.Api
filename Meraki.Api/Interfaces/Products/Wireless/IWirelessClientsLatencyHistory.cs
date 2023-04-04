@@ -14,11 +14,11 @@ public interface IWirelessClientsLatencyHistory
 	/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 86400. The default is 86400. (optional)</param>
 	[Get("/networks/{networkId}/wireless/clients/{clientId}/latencyHistory")]
 	Task<List<ClientLatencyHistory>> GetNetworkWirelessClientLatencyHistoryAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("resolution")] int? resolution = null,
+		string networkId,
+		string clientId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		int? resolution = null,
 		CancellationToken cancellationToken = default);
 }

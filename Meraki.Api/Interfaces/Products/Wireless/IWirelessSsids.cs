@@ -9,7 +9,7 @@ public interface IWirelessSsids
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/wireless/ssids")]
 	Task<List<Ssid>> GetNetworkWirelessSsidsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -20,8 +20,8 @@ public interface IWirelessSsids
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}")]
 	Task<Ssid> GetNetworkWirelessSsidAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -33,8 +33,8 @@ public interface IWirelessSsids
 	/// <param name="updateNetworkSsid"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}")]
 	Task<Ssid> UpdateNetworkWirelessSsidAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		[Body] SsidUpdateRequest updateNetworkSsid,
 		CancellationToken cancellationToken = default);
 }

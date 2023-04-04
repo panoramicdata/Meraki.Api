@@ -10,7 +10,7 @@ public interface IApplianceVpnThirdPartyVpnPeers
 	[ApiOperationId("getOrganizationApplianceVpnThirdPartyVPNPeers")]
 	[Get("/organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers")]
 	Task<ThirdPartyVpnPeers> GetOrganizationApplianceVpnThirdPartyVPNPeersAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -21,7 +21,7 @@ public interface IApplianceVpnThirdPartyVpnPeers
 	[ApiOperationId("getOrganizationApplianceVpnThirdPartyVPNPeers")]
 	[Put("/organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers")]
 	Task<ThirdPartyVpnPeers> UpdateOrganizationApplianceVpnThirdPartyVPNPeersAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] ThirdPartyVpnPeers peerList,
 		CancellationToken cancellationToken = default);
 }

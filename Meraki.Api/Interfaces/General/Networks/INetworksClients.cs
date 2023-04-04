@@ -48,8 +48,8 @@ public interface INetworksClients
 	[ApiOperationId("getNetworkClient")]
 	[Get("/networks/{networkId}/clients/{clientId}")]
 	Task<Client> GetNetworkClientAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
+		string networkId,
+		string clientId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -61,7 +61,7 @@ public interface INetworksClients
 	[ApiOperationId("provisionNetworkClients")]
 	[Post("/networks/{networkId}/clients/provision")]
 	Task<ClientProvisionRequest> ProvisionNetworkClientsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] ClientProvisionRequest clientProvisionRequest,
 		CancellationToken cancellationToken = default);
 }

@@ -10,8 +10,8 @@ public interface IWirelessSsidsSchedules
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/schedules")]
 	Task<WirelessSsidOutageSchedule> GetNetworkWirelessSsidSchedulesAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,8 +23,8 @@ public interface IWirelessSsidsSchedules
 	/// <param name="number">The SSID number</param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/schedules")]
 	Task<WirelessSsidOutageSchedule> UpdateNetworkWirelessSsidSchedulesAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		[Body] WirelessSsidOutageSchedule updateNetworkWirelessSsidSchedules,
 		CancellationToken cancellationToken = default
 		);

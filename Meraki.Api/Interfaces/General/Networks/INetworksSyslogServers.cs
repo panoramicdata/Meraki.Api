@@ -9,7 +9,7 @@ public interface INetworksSyslogServers
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/syslogServers")]
 	Task<SyslogServers> GetNetworkSyslogServersAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,7 +21,7 @@ public interface INetworksSyslogServers
 	/// <param name="syslogServers"></param>
 	[Put("/networks/{networkId}/syslogServers")]
 	Task<SyslogServers> UpdateNetworkSyslogServersAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SyslogServers syslogServers,
 		CancellationToken cancellationToken = default
 		);

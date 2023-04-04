@@ -16,13 +16,13 @@ public interface IWirelessDeviceConnectionStats
 	/// <param name="apTag">Filter results by AP Tag (optional)</param>
 	[Get("/networks/{networkId}/wireless/devices/connectionStats")]
 	Task<List<NetworkDeviceConnectionStats>> GetNetworkWirelessDevicesConnectionStatsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("band")] string band = null!,
-		[AliasAs("ssid")] int? ssid = null,
-		[AliasAs("vlan")] int? vlan = null,
-		[AliasAs("apTag")] string apTag = null!,
+		string networkId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		string band = null!,
+		int? ssid = null,
+		int? vlan = null,
+		string apTag = null!,
 		CancellationToken cancellationToken = default);
 }

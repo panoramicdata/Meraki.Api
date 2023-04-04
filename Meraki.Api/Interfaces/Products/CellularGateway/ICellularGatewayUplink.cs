@@ -12,7 +12,7 @@ public interface ICellularGatewayUplink
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/cellularGateway/uplink")]
 	Task<NetworkCellularGatewayUplink> GetNetworkCellularGatewayUplinkAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface ICellularGatewayUplink
 	/// <param name="updateNetworkCellularGatewaySettingsUplink">Body for updating uplink settings</param>
 	[Put("/networks/{networkId}/cellularGateway/uplink")]
 	Task<NetworkCellularGatewayUplink> UpdateNetworkCellularGatewayUplinkAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkCellularGatewayUplink updateNetworkCellularGatewaySettingsUplink,
 		CancellationToken cancellationToken = default
 		);
