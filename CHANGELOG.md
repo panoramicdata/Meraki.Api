@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.31.31
+- Removed unnecessary AliasAs attributes to improve code maintenance
+- Added analysers to detect correct AliasAs usage
+
 ## 1.31.14
 - Fixed bug with missing DataContract on DeviceRemovalRequest
 

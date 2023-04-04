@@ -17,7 +17,6 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 	private static readonly LocalizableString _removeAliasAsRule_MessageFormat = "The parameter '{0}' should not have an AliasAs attribute";
 	private static readonly LocalizableString _removeAliasAsRule_Description = "Meraki Refit Interface GET methods parameters should not have an AliasAs attribute unless they are of type List<T>.";
 
-
 	private const string Category = "Refit";
 	private static readonly DiagnosticDescriptor _requireListParameterRule = new(
 		"REFIT001",
@@ -36,7 +35,6 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 		isEnabledByDefault: true,
 		description: _removeAliasAsRule_Description);
 
-
 	public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(
 		_requireListParameterRule,
 		_removeAliasAsRule);
@@ -53,14 +51,9 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 		var methodDeclaration = (MethodDeclarationSyntax)context.Node;
 		var semanticModel = context.SemanticModel;
 
-		var refitGetAttribute = methodDeclaration.AttributeLists
+		var hasRefitGetAttribute = methodDeclaration.AttributeLists
 			.SelectMany(attrList => attrList.Attributes)
-			.FirstOrDefault(attr => semanticModel.GetTypeInfo(attr).Type?.Name == "GetAttribute");
-
-		if (refitGetAttribute == null)
-		{
-			return;
-		}
+			.FirstOrDefault(attr => semanticModel.GetTypeInfo(attr).Type?.Name == "GetAttribute") is not null;
 
 		foreach (var parameter in methodDeclaration.ParameterList.Parameters)
 		{
@@ -74,11 +67,12 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 				continue;
 			}
 
-			if (parameter.Type is not null && parameterType.IsGenericType && parameterType.Name == "List")
+			var aliasAsAttribute = parameter.AttributeLists
+				.SelectMany(attrList => attrList.Attributes)
+				.FirstOrDefault(attr => semanticModel.GetTypeInfo(attr).Type?.Name == "AliasAsAttribute");
+
+			if (hasRefitGetAttribute && parameter.Type is not null && parameterType.IsGenericType && parameterType.Name == "List")
 			{
-				var aliasAsAttribute = parameter.AttributeLists
-					.SelectMany(attrList => attrList.Attributes)
-					.FirstOrDefault(attr => semanticModel.GetTypeInfo(attr).Type?.Name == "AliasAsAttribute");
 
 				if (aliasAsAttribute?.ArgumentList is not null)
 				{
@@ -102,24 +96,19 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 						parameter.Identifier.Text
 						)
 					);
+				continue;
 			}
-			else
-			{
-				// The parameter is not a generic List - it should not have an AliasAs attribute
-				var aliasAsAttribute = parameter.AttributeLists
-					.SelectMany(attrList => attrList.Attributes)
-					.FirstOrDefault(attr => semanticModel.GetTypeInfo(attr).Type?.Name == "AliasAsAttribute");
 
-				if (aliasAsAttribute is not null)
-				{
-					context.ReportDiagnostic(
-						Diagnostic.Create(
-							_removeAliasAsRule,
-							parameter.GetLocation(),
-							parameter.Identifier.Text
-							)
-						);
-				}
+			// For all request methods, if the parameter is not a generic List - it should not have an AliasAs attribute
+			if (aliasAsAttribute is not null)
+			{
+				context.ReportDiagnostic(
+					Diagnostic.Create(
+						_removeAliasAsRule,
+						parameter.GetLocation(),
+						parameter.Identifier.Text
+						)
+					);
 			}
 		}
 	}
