@@ -18,16 +18,16 @@ public interface IWirelessChannelUtilizationHistory
 	/// <param name="band">Filter results by band (either '2.4' or '5').</param>
 	[Get("/networks/{networkId}/wireless/channelUtilizationHistory")]
 	Task<List<ChannelUtilizationHistory>> GetNetworkWirelessChannelUtilizationHistoryAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("resolution")] int? resolution = null,
-		[AliasAs("autoResolution")] bool? autoResolution = null,
-		[AliasAs("clientId")] string? clientId = null,
-		[AliasAs("deviceSerial")] string? deviceSerial = null,
-		[AliasAs("apTag")] string? apTag = null,
-		[AliasAs("band")] string? band = null,
+		string networkId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		int? resolution = null,
+		bool? autoResolution = null,
+		string? clientId = null,
+		string? deviceSerial = null,
+		string? apTag = null,
+		string? band = null,
 		CancellationToken cancellationToken = default
 		);
 }

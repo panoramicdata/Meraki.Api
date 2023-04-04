@@ -18,15 +18,15 @@ public interface IWirelessFailedConnections
 	/// <param name="clientId">Filter by client MAC (optional)</param>
 	[Get("/networks/{networkId}/wireless/failedConnections")]
 	Task<List<FailedConnection>> GetNetworkWirelessFailedConnectionsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("band")] string band = null!,
-		[AliasAs("ssid")] int? ssid = null,
-		[AliasAs("vlan")] int? vlan = null,
-		[AliasAs("apTag")] string apTag = null!,
-		[AliasAs("serial")] string serial = null!,
-		[AliasAs("clientId")] string clientId = null!,
+		string networkId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		string band = null!,
+		int? ssid = null,
+		int? vlan = null,
+		string apTag = null!,
+		string serial = null!,
+		string clientId = null!,
 		CancellationToken cancellationToken = default);
 }

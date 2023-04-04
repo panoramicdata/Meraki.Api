@@ -12,7 +12,7 @@ public interface IWirelessBilling
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/wireless/billing")]
 	Task<WirelessBilling> GetNetworkWirelessBillingAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface IWirelessBilling
 	/// <param name="updateNetworkWirelessBilling">Body for updating network wireless billing</param>
 	[Put("/networks/{networkId}/wireless/billing")]
 	Task<WirelessBilling> UpdateNetworkWirelessBillingAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] WirelessBilling updateNetworkWirelessBilling,
 		CancellationToken cancellationToken = default
 		);

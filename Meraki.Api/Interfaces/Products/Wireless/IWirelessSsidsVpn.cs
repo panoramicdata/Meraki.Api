@@ -10,8 +10,8 @@ public interface IWirelessSsidsVpn
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/vpn")]
 	Task<VpnSettings> GetNetworkWirelessSsidVpnAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,8 +24,8 @@ public interface IWirelessSsidsVpn
 	/// <param name="updateNetworkWirelessSsidVpn"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/vpn")]
 	Task<VpnSettings> UpdateNetworkWirelessSsidVpnAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		[Body] VpnSettings updateNetworkWirelessSsidVpn,
 		CancellationToken cancellationToken = default
 		);

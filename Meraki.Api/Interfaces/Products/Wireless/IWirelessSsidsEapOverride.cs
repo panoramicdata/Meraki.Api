@@ -10,8 +10,8 @@ public interface IWirelessSsidsEapOverride
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/eapOverride")]
 	Task<EapOverride> GetNetworkWirelessSsidEapOverrideAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,8 +23,8 @@ public interface IWirelessSsidsEapOverride
 	/// <param name="number">The SSID number</param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/eapOverride")]
 	Task<EapOverride> UpdateNetworkWirelessSsidEapOverrideAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		[Body] EapOverrideUpdateRequest eapOverrideUpdateRequest,
 		CancellationToken cancellationToken = default
 		);
