@@ -13,7 +13,7 @@ public interface ISwitchSettings
 	[ApiOperationId("getNetworkSwitchSettings")]
 	[Get("/networks/{networkId}/switch/settings")]
 	Task<SwitchSettings> GetNetworkSwitchSettingsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface ISwitchSettings
 	[ApiOperationId("updateNetworkSwitchSettings")]
 	[Put("/networks/{networkId}/switch/settings")]
 	Task<SwitchSettings> UpdateNetworkSwitchSettingsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SwitchSettings updateNetworkSwitchSettings,
 		CancellationToken cancellationToken = default
 		);

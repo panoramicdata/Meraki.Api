@@ -20,26 +20,26 @@ public interface IOrganizationsConfigurationChanges
 	/// <param name="adminId">Filters on the given Admin (optional)</param>
 	[Get("/organizations/{organizationId}/configurationChanges")]
 	Task<List<ChangeLogEntry>> GetOrganizationConfigurationChangesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("perPage")] int? perPage = 5000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("networkId")] string? networkId = null,
-		[AliasAs("adminId")] string? adminId = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
+		int? perPage = 5000,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? networkId = null,
+		string? adminId = null,
 		CancellationToken cancellationToken = default);
 
 	// Used by IOrganizationConfigurationChangesExtensions.GetOrganizationConfigurationChangesAllAsync
 	[Get("/organizations/{organizationId}/configurationChanges")]
 	internal Task<ApiResponse<List<ChangeLogEntry>>> GetOrganizationConfigurationChangesApiResponseAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string? t0 = null,
-		[AliasAs("t1")] string? t1 = null,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("networkId")] string? networkId = null,
-		[AliasAs("adminId")] string? adminId = null,
+		string organizationId,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
+		string? startingAfter = null,
+		string? networkId = null,
+		string? adminId = null,
 		CancellationToken cancellationToken = default);
 }

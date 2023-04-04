@@ -4,6 +4,7 @@
 /// Wireless Device Ethernet Status Link Aggregation
 /// </summary>
 [DataContract]
+[ApiAccessReadOnlyClass]
 public class WirelessDeviceEthernetStatusAggregation
 {
 	/// <summary>

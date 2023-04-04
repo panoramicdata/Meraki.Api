@@ -9,7 +9,7 @@ public interface IApplianceVpnBgp
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/appliance/vpn/bgp")]
 	Task<VpnBgp> GetNetworkApplianceVpnBgpAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,7 +21,7 @@ public interface IApplianceVpnBgp
 	/// <param name="updateVpnBgp"></param>
 	[Put("/networks/{networkId}/appliance/vpn/bgp")]
 	Task<VpnBgp> UpdateNetworkApplianceVpnBgpAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] VpnBgp updateVpnBgp,
 		CancellationToken cancellationToken = default
 		);

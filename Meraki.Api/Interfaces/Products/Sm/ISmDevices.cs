@@ -20,15 +20,15 @@ public interface ISmDevices
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	[Get("/networks/{networkId}/sm/devices")]
 	Task<List<SmDevice>> GetNetworkSmDevicesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[AliasAs("fields[]")] List<string> fields = null!,
 		[AliasAs("wifiMacs[]")] List<string> wifiMacs = null!,
 		[AliasAs("serials[]")] List<string> serials = null!,
 		[AliasAs("ids[]")] List<string> ids = null!,
 		[AliasAs("scope[]")] List<string> scope = null!,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
+		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 
@@ -40,7 +40,7 @@ public interface ISmDevices
 	/// <param name="checkinNetworkSmDevices">Body for check-in of device</param>
 	[Post("/networks/{networkId}/sm/devices/checkin")]
 	Task<SmDevicesCheckinRequest> CheckinNetworkSmDevicesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SmDevicesCheckinRequest checkinNetworkSmDevices,
 		CancellationToken cancellationToken = default
 		);
@@ -53,7 +53,7 @@ public interface ISmDevices
 	/// <param name="lockNetworkSmDevices">Body for locking a set of devices</param>
 	[Post("/networks/{networkId}/sm/devices/lock")]
 	Task<SmDevicesCheckinRequest> LockNetworkSmDevicesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SmDevicesCheckinRequest lockNetworkSmDevices,
 		CancellationToken cancellationToken = default
 		);
@@ -65,7 +65,7 @@ public interface ISmDevices
 	/// <param name="networkId">The network id</param>
 	[Post("/networks/{networkId}/sm/devices/modifyTags")]
 	Task<List<SmDevicesCheckinRequest>> ModifyNetworkSmDevicesTagsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] ModifyNetworkDeviceTags modifyNetworkSmDevicesTags,
 		CancellationToken cancellationToken = default
 		);
@@ -78,7 +78,7 @@ public interface ISmDevices
 	/// <param name="moveNetworkSmDevices">Body for moving devices</param>
 	[Post("/networks/{networkId}/sm/devices/move")]
 	Task<MoveNetworkSmDevicesRequest> MoveNetworkSmDevicesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] MoveNetworkSmDevicesRequest moveNetworkSmDevices,
 		CancellationToken cancellationToken = default
 		);
@@ -91,7 +91,7 @@ public interface ISmDevices
 	/// <param name="wipeNetworkSmDevices">Body for wiping a device</param>
 	[Post("/networks/{networkId}/sm/devices/wipe")]
 	Task<WipeNetworkSmDeviceRequest> WipeNetworkSmDevicesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] WipeNetworkSmDeviceRequest wipeNetworkSmDevices,
 		CancellationToken cancellationToken = default);
 
@@ -103,8 +103,8 @@ public interface ISmDevices
 	/// <param name="deviceId">The device id</param>
 	[Post("/networks/{networkId}/sm/devices/{deviceId}/refreshDetails")]
 	Task RefreshNetworkSmDeviceDetailsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("deviceId")] string deviceId,
+		string networkId,
+		string deviceId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -116,8 +116,8 @@ public interface ISmDevices
 	/// <param name="deviceId">The device id</param>
 	[Post("/networks/{networkId}/sm/devices/{deviceId}/unenroll")]
 	Task<ActionResponse> UnenrollNetworkSmDeviceAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("deviceId")] string deviceId,
+		string networkId,
+		string deviceId,
 		CancellationToken cancellationToken = default
 		);
 }

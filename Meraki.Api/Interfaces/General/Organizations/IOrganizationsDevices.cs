@@ -9,31 +9,31 @@ public interface IOrganizationsDevices
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/devices/statuses")]
 	Task<List<OrganizationDeviceStatus>> GetOrganizationDevicesStatusesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
+		string organizationId,
+		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		[AliasAs("serials[]")] List<string>? serials = null,
 		[AliasAs("statuses[]")] List<string>? statuses = null,
 		[AliasAs("productTypes[]")] List<string>? productTypes = null,
 		[AliasAs("models[]")] List<string>? models = null,
 		[AliasAs("tags[]")] List<string>? tags = null,
-		[AliasAs("tagsFilterType")] string? tagsFilterType = null,
+		string? tagsFilterType = null,
 		CancellationToken cancellationToken = default);
 
 	// Used by IOrganizationsDevicesExtensions.GetOrganizationDeviceStatusesAllAsync
 	[Get("/organizations/{organizationId}/devices/statuses")]
 	internal Task<ApiResponse<List<OrganizationDeviceStatus>>> GetDevicesStatusesApiResponseAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("startingAfter")] string? startingAfter = null,
+		string organizationId,
+		string? startingAfter = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		[AliasAs("serials[]")] List<string>? serials = null,
 		[AliasAs("statuses[]")] List<string>? statuses = null,
 		[AliasAs("productTypes[]")] List<string>? productTypes = null,
 		[AliasAs("models[]")] List<string>? models = null,
 		[AliasAs("tags[]")] List<string>? tags = null,
-		[AliasAs("tagsFilterType")] string? tagsFilterType = null,
+		string? tagsFilterType = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -48,12 +48,12 @@ public interface IOrganizationsDevices
 	/// <param name="ip">Optional filter for a specific destination IP. Default will return all destination IPs. (optional)</param>
 	[Get("/organizations/{organizationId}/devices/uplinksLossAndLatency")]
 	Task<List<UplinksLossAndLatencyResponse>> GetOrganizationDevicesUplinksLossAndLatencyAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("uplink")] string uplink = null!,
-		[AliasAs("ip")] string ip = null!,
+		string organizationId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		string uplink = null!,
+		string ip = null!,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -110,8 +110,8 @@ public interface IOrganizationsDevices
 	[ApiOperationId("getOrganizationDevicesStatusesOverview")]
 	[Get("/organizations/{organizationId}/devices/statuses/overview")]
 	Task<DeviceStatusOverview> GetOrganizationDevicesStatusesOverviewAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("productTypes")] string[]? productTypes,
-		[AliasAs("networkIds")] string[]? networkIds,
+		string organizationId,
+		[AliasAs("productTypes[]")] List<string>? productTypes,
+		[AliasAs("networkIds[]")] List<string>? networkIds,
 		CancellationToken cancellationToken = default);
 }

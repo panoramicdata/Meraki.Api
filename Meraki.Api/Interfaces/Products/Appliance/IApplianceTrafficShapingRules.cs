@@ -10,7 +10,7 @@ public interface IApplianceTrafficShapingRules
 	[ApiOperationId("getNetworkApplianceTrafficShapingRules")]
 	[Get("/networks/{networkId}/appliance/trafficShaping/rules")]
 	Task<NetworkApplianceTrafficShapingRule> GetNetworkApplianceTrafficShapingRulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface IApplianceTrafficShapingRules
 	[ApiOperationId("getNetworkApplianceTrafficShapingRules")]
 	[Put("/networks/{networkId}/appliance/trafficShaping/rules")]
 	Task<NetworkApplianceTrafficShapingRule> UpdateNetworkApplianceTrafficShapingRulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkApplianceTrafficShapingRule trafficShapingRule,
 		CancellationToken cancellationToken = default
 		);

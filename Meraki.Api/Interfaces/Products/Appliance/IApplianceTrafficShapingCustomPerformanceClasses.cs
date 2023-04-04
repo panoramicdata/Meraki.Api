@@ -10,7 +10,7 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	[ApiOperationId("getNetworkApplianceTrafficShapingCustomPerformanceClasses")]
 	[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
 	Task<List<CustomPerformanceClass>> GetNetworkApplianceTrafficShapingCustomPerformanceClassesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	[ApiOperationId("createNetworkApplianceTrafficShapingCustomPerformanceClass")]
 	[Post("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
 	Task<CustomPerformanceClass> CreateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] CustomPerformanceClass trafficShapingCustomPerformanceClass,
 		CancellationToken cancellationToken = default
 		);
@@ -38,8 +38,8 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	[ApiOperationId("getNetworkApplianceTrafficShapingCustomPerformanceClass")]
 	[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
 	Task<CustomPerformanceClass> GetNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
+		string networkId,
+		string customPerformanceClassId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -53,8 +53,8 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	[ApiOperationId("updateNetworkApplianceTrafficShapingCustomPerformanceClass")]
 	[Put("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
 	Task<CustomPerformanceClass> UpdateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
+		string networkId,
+		string customPerformanceClassId,
 		[Body] CustomPerformanceClass trafficShapingCustomPerformanceClass,
 		CancellationToken cancellationToken = default
 		);
@@ -68,7 +68,7 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	[ApiOperationId("deleteNetworkApplianceTrafficShapingCustomPerformanceClass")]
 	[Delete("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
 	Task DeleteNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("customPerformanceClassId")] string customPerformanceClassId,
+		string networkId,
+		string customPerformanceClassId,
 		CancellationToken cancellationToken = default);
 }

@@ -9,7 +9,7 @@ public interface ICellularGatewayConnectivityMonitoringDestinations
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
 	Task<NetworkCellularGatewayConnectivityMonitoringDestinations> GetNetworkCellularGatewayConnectivityMonitoringDestinationsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,7 +21,7 @@ public interface ICellularGatewayConnectivityMonitoringDestinations
 	/// <param name="updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations">Body for updating the connectivity testing destinations</param>
 	[Put("/networks/{networkId}/cellularGateway/connectivityMonitoringDestinations")]
 	Task<NetworkCellularGatewayConnectivityMonitoringDestinations> UpdateNetworkCellularGatewayConnectivityMonitoringDestinationsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkCellularGatewayConnectivityMonitoringDestinations updateNetworkCellularGatewaySettingsConnectivityMonitoringDestinations,
 		CancellationToken cancellationToken = default
 		);

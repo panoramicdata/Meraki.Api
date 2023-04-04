@@ -11,9 +11,9 @@ public interface IWirelessAirMarshal
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 7 days. (optional)</param>
 	[Get("/networks/{networkId}/wireless/airMarshal")]
 	Task<List<AirMarshal>> GetNetworkWirelessAirMarshalAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("timespan")] double? timespan = null,
+		string networkId,
+		string t0 = null!,
+		double? timespan = null,
 		CancellationToken cancellationToken = default
 		);
 }

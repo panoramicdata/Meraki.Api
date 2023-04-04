@@ -9,7 +9,7 @@ public interface ISmProfiles
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/sm/profiles")]
 	Task<List<SmProfile>> GetNetworkSmProfilesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 }

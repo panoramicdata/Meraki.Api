@@ -13,11 +13,11 @@ public interface ISmUsers
 	/// <param name="scope">Specify a scope (one of all, none, withAny, withAll, withoutAny, withoutAll) and a set of tags as comma separated values. (optional)</param>
 	[Get("/networks/{networkId}/sm/users")]
 	Task<List<SmNetworkUser>> GetNetworkSmUsersAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("ids")] string ids = null!,
-		[AliasAs("usernames")] string usernames = null!,
-		[AliasAs("emails")] string emails = null!,
-		[AliasAs("scope")] string scope = null!,
+		string networkId,
+		string ids = null!,
+		string usernames = null!,
+		string emails = null!,
+		string scope = null!,
 		CancellationToken cancellationToken = default
 		);
 }

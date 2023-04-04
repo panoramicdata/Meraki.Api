@@ -16,9 +16,9 @@ public interface IOrganizationsClientOverview
 	[ApiOperationId("getOrganizationClientsOverview")]
 	[Get("/organizations/{organizationId}/clients/overview")]
 	Task<ClientOverview> GetOrganizationClientsOverviewAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string t0,
-		[AliasAs("t1")] string t1,
-		[AliasAs("timespan")] int timespan = 1,
+		string organizationId,
+		string t0,
+		string t1,
+		int timespan = 1,
 		CancellationToken cancellationToken = default);
 }

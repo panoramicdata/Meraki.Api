@@ -12,6 +12,6 @@ public interface ISmApnsCert
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/sm/apnsCert")]
 	Task<ApnsCert> GetOrganizationSmApnsCertAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 }

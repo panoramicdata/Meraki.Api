@@ -13,10 +13,10 @@ public interface ISmTrustedAccessConfigs
 	[ApiOperationId("getNetworkSmTrustedAccessConfigs")]
 	[Get("/networks/{networkId}/sm/trustedAccessConfigs")]
 	Task<List<SmTrustedAccessConfig>> GetNetworkSmTrustedAccessConfigsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
+		string networkId,
+		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 
@@ -29,8 +29,8 @@ public interface ISmTrustedAccessConfigs
 	[ApiOperationId("getNetworkSmTrustedAccessConfigs")]
 	[Get("/networks/{networkId}/sm/trustedAccessConfigs")]
 	internal Task<ApiResponse<List<SmTrustedAccessConfig>>> GetNetworkSmTrustedAccessConfigsApiResponseAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("startingAfter")] string? startingAfter = null,
+		string networkId,
+		string? startingAfter = null,
 		CancellationToken cancellationToken = default
 		);
 }

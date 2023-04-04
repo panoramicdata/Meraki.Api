@@ -11,8 +11,8 @@ public interface IApplianceStaticRoutes
 	[ApiOperationId("getNetworkApplianceStaticRoute")]
 	[Get("/networks/{networkId}/appliance/staticRoutes/{staticRouteId}")]
 	Task<StaticRoute> GetNetworkApplianceStaticRouteAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("staticRouteId")] string staticRouteId,
+		string networkId,
+		string staticRouteId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface IApplianceStaticRoutes
 	[ApiOperationId("getNetworkApplianceStaticRoutes")]
 	[Get("/networks/{networkId}/appliance/staticRoutes")]
 	Task<List<StaticRoute>> GetNetworkApplianceStaticRoutesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -37,7 +37,7 @@ public interface IApplianceStaticRoutes
 	[ApiOperationId("createNetworkApplianceStaticRoute")]
 	[Post("/networks/{networkId}/appliance/staticRoutes")]
 	Task<StaticRoute> CreateNetworkApplianceStaticRouteAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] StaticRouteCreationRequest createNetworkStaticRoute,
 		CancellationToken cancellationToken = default
 		);
@@ -52,8 +52,8 @@ public interface IApplianceStaticRoutes
 	[ApiOperationId("updateNetworkApplianceStaticRoute")]
 	[Put("/networks/{networkId}/appliance/staticRoutes/{staticRouteId}")]
 	Task<StaticRoute> UpdateNetworkApplianceStaticRouteAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("staticRouteId")] string staticRouteId,
+		string networkId,
+		string staticRouteId,
 		[Body] StaticRouteUpdateRequest updateNetworkStaticRoute,
 		CancellationToken cancellationToken = default);
 
@@ -66,8 +66,8 @@ public interface IApplianceStaticRoutes
 	[ApiOperationId("deleteNetworkApplianceStaticRoute")]
 	[Delete("/networks/{networkId}/appliance/staticRoutes/{staticRouteId}")]
 	Task DeleteNetworkApplianceStaticRouteAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("staticRouteId")] string staticRouteId,
+		string networkId,
+		string staticRouteId,
 		CancellationToken cancellationToken = default
 		);
 }

@@ -13,7 +13,7 @@ public interface ISwitchStormControl
 	[ApiOperationId("getNetworkSwitchStormControl")]
 	[Get("/networks/{networkId}/switch/stormControl")]
 	Task<StormControl> GetNetworkSwitchStormControlAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface ISwitchStormControl
 	[ApiOperationId("updateNetworkSwitchStormControl")]
 	[Put("/networks/{networkId}/switch/stormControl")]
 	Task<StormControl> UpdateNetworkSwitchStormControlAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] StormControl updateNetworkSwitchSettingsStormControl,
 		CancellationToken cancellationToken = default
 		);

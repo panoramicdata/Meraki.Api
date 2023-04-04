@@ -13,7 +13,7 @@ public interface ISwitchQosRules
 	[ApiOperationId("getNetworkSwitchQosRules")]
 	[Get("/networks/{networkId}/switch/qosRules")]
 	Task<List<QosRule>> GetNetworkSwitchQosRulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,8 +26,8 @@ public interface ISwitchQosRules
 	[ApiOperationId("getNetworkSwitchQosRule")]
 	[Get("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 	Task<QosRule> GetNetworkSwitchQosRuleAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("qosRuleId")] string qosRuleId,
+		string networkId,
+		string qosRuleId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -40,7 +40,7 @@ public interface ISwitchQosRules
 	[ApiOperationId("createNetworkSwitchQosRule")]
 	[Post("/networks/{networkId}/switch/qosRules")]
 	Task<QosRule> CreateNetworkSwitchQosRuleAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SwitchSettingsQosRuleCreationRequest createNetworkSwitchSettingsQosRule,
 		CancellationToken cancellationToken = default
 		);
@@ -55,8 +55,8 @@ public interface ISwitchQosRules
 	[ApiOperationId("updateNetworkSwitchQosRule")]
 	[Put("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 	Task<QosRule> UpdateNetworkSwitchQosRuleAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("qosRuleId")] string qosRuleId,
+		string networkId,
+		string qosRuleId,
 		[Body] SwitchSettingsQosRuleUpdateRequest updateNetworkSwitchSettingsQosRule,
 		CancellationToken cancellationToken = default
 		);
@@ -70,8 +70,8 @@ public interface ISwitchQosRules
 	[ApiOperationId("deleteNetworkSwitchQosRule")]
 	[Delete("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 	Task DeleteNetworkSwitchQosRuleAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("qosRuleId")] string qosRuleId,
+		string networkId,
+		string qosRuleId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -83,7 +83,7 @@ public interface ISwitchQosRules
 	[ApiOperationId("getNetworkSwitchQosRulesOrder")]
 	[Get("/networks/{networkId}/switch/qosRules/order")]
 	Task<QosRulesOrder> GetNetworkSwitchQosRulesOrderAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -96,7 +96,7 @@ public interface ISwitchQosRules
 	[ApiOperationId("updateNetworkSwitchQosRulesOrder")]
 	[Put("/networks/{networkId}/switch/qosRules/order")]
 	Task<QosRulesOrder> UpdateNetworkSwitchQosRulesOrderAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] QosRulesOrder qosRulesOrder,
 		CancellationToken cancellationToken = default
 		);

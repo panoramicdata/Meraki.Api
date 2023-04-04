@@ -17,13 +17,13 @@ public interface IOrganizationsApplianceSecurityEvents
 	[ApiOperationId("getOrganizationApplianceSecurityEvents")]
 	[Get("/organizations/{organizationId}/appliance/security/events")]
 	Task<List<SecurityEvent>> GetOrganizationApplianceSecurityEventsAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string t0,
-		[AliasAs("t1")] string t1,
-		[AliasAs("timespan")] int timespan = 31,
-		[AliasAs("perPage")] int perPage = 100,
-		[AliasAs("startingBefore")] string? startingBefore = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("sortOrder")] string sortOrder = "ascending",
+		string organizationId,
+		string t0,
+		string t1,
+		int timespan = 31,
+		int perPage = 100,
+		string? startingBefore = null,
+		string? endingBefore = null,
+		string sortOrder = "ascending",
 		CancellationToken cancellationToken = default);
 }

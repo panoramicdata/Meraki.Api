@@ -10,7 +10,7 @@ public interface ICameraVideoLink
 	/// <param name="timestamp">[optional] The video link will start at this timestamp. The timestamp is in UNIX Epoch time (milliseconds). If no timestamp is specified, we will assume current time. (optional)</param>
 	[Get("/devices/{serial}/camera/videoLink")]
 	Task<VideoLink> GetDeviceCameraVideoLinkAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("timestamp")] string timestamp = null!,
+		string serial,
+		string timestamp = null!,
 		CancellationToken cancellationToken = default);
 }

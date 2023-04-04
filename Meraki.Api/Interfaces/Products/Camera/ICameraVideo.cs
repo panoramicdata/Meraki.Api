@@ -10,7 +10,7 @@ public interface ICameraVideo
 	[ApiOperationId("getDeviceCameraVideoSettings")]
 	[Get("/devices/{serial}/camera/video/settings")]
 	Task<CameraVideo> GetDeviceCameraVideoSettingsAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -22,7 +22,7 @@ public interface ICameraVideo
 	[ApiOperationId("updateDeviceCameraVideoSettings")]
 	[Put("/devices/{serial}/camera/video/settings")]
 	Task<CameraVideo> UpdateDeviceCameraVideoSettingsAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] CameraVideo cameraVideoSetting,
 		CancellationToken cancellationToken = default);
 }

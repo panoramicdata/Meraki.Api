@@ -12,7 +12,7 @@ public interface ISmVppAccounts
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/sm/vppAccounts")]
 	Task<List<SmVppAccount>> GetOrganizationSmVppAccountsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -23,7 +23,7 @@ public interface ISmVppAccounts
 	/// <param name="vppAccountId">The VPP account id</param>
 	[Get("/organizations/{organizationId}/sm/vppAccounts/{vppAccountId}")]
 	Task<SmVppAccount> GetOrganizationSmVppAccountAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("vppAccountId")] string vppAccountId,
+		string organizationId,
+		string vppAccountId,
 		CancellationToken cancellationToken = default);
 }

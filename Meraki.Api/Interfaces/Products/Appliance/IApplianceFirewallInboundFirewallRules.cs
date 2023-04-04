@@ -9,7 +9,7 @@ public interface IApplianceFirewallInboundFirewallRules
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
 	Task<InboundFirewallRules> GetNetworkApplianceFirewallInboundFirewallRulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,7 +21,7 @@ public interface IApplianceFirewallInboundFirewallRules
 	/// <param name="inboundFirewallRules">Body for updating inbound firewall rules</param>
 	[Put("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
 	Task<InboundFirewallRules> UpdateNetworkApplianceFirewallInboundFirewallRulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] InboundFirewallRules inboundFirewallRules,
 		CancellationToken cancellationToken = default
 		);

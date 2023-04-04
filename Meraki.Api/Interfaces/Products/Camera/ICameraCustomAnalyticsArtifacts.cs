@@ -9,7 +9,7 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// <param name="organizationId">The organization Id</param>
 	[Get("/organizations/{organizationId}/camera/customAnalytics/artifacts")]
 	Task<List<CameraCustomAnalyticsArtifact>> GetOrganizationCameraCustomAnalyticsArtifactsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -22,7 +22,7 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// <param name="cameraCustomAnalyticsArtifactCreateRequest">Body for updating camera custom analytics</param>
 	[Post("/organizations/{organizationId}/camera/customAnalytics/artifacts")]
 	Task<CameraCustomAnalyticsArtifactCreateResponse> CreateOrganizationCameraCustomAnalyticsArtifactAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] CameraCustomAnalyticsArtifactCreateRequest cameraCustomAnalyticsArtifactCreateRequest,
 		CancellationToken cancellationToken = default
 		);
@@ -35,8 +35,8 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// <param name="artifactId">The artifact Id</param>
 	[Get("/organizations/{organizationId}/camera/customAnalytics/artifacts/{artifactId}")]
 	Task<CameraCustomAnalyticsArtifact> GetOrganizationCameraCustomAnalyticsArtifactAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("artifactId")] string artifactId,
+		string organizationId,
+		string artifactId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -48,7 +48,7 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// <param name="artifactId">The artifact id</param>
 	[Delete("/organizations/{organizationId}/camera/customAnalytics/artifacts/{artifactId}")]
 	Task DeleteOrganizationCameraCustomAnalyticsArtifactAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("artifactId")] string artifactId,
+		string organizationId,
+		string artifactId,
 		CancellationToken cancellationToken = default);
 }

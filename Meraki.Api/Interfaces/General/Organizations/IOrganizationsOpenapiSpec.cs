@@ -12,6 +12,6 @@ public interface IOrganizationsOpenapiSpec
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/openapiSpec")]
 	Task<object> GetOrganizationOpenapiSpecAsync(
-		[AliasAs("organizationId")] string organizationId
+		string organizationId
 		);
 }

@@ -10,7 +10,7 @@ public interface ISwitchRoutingOspf
 	[ApiOperationId("getNetworkSwitchRoutingOspf")]
 	[Get("/networks/{networkId}/switch/routing/ospf")]
 	Task<RoutingOspf> GetNetworkSwitchRoutingOspfAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface ISwitchRoutingOspf
 	[ApiOperationId("updateNetworkSwitchRoutingOspf")]
 	[Put("/networks/{networkId}/switch/routing/ospf")]
 	Task<RoutingOspf> UpdateNetworkSwitchRoutingOspfAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] RoutingOspf routingOspf,
 		CancellationToken cancellationToken = default
 		);

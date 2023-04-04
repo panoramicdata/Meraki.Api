@@ -9,7 +9,7 @@ public interface IApplianceSecurityIntrusion
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/appliance/security/intrusion")]
 	Task<OrganizationSecurityIntrusion> GetOrganizationApplianceSecurityIntrusionAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,7 +21,7 @@ public interface IApplianceSecurityIntrusion
 	/// <param name="securityIntrusion">Body for updating security intrusion settings</param>
 	[Put("/organizations/{organizationId}/appliance/security/intrusion")]
 	Task<OrganizationSecurityIntrusion> UpdateOrganizationApplianceSecurityIntrusionAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] OrganizationSecurityIntrusion securityIntrusion,
 		CancellationToken cancellationToken = default
 		);
@@ -34,7 +34,7 @@ public interface IApplianceSecurityIntrusion
 	[ApiOperationId("getNetworkApplianceSecurityIntrusion")]
 	[Get("/networks/{networkId}/appliance/security/intrusion")]
 	Task<NetworkApplianceSecurityIntrusion> GetNetworkApplianceSecurityIntrusionAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -47,7 +47,7 @@ public interface IApplianceSecurityIntrusion
 	[ApiOperationId("updateNetworkApplianceSecurityIntrusion")]
 	[Put("/networks/{networkId}/appliance/security/intrusion")]
 	Task<NetworkApplianceSecurityIntrusion> UpdateNetworkApplianceSecurityIntrusionAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkApplianceSecurityIntrusion networkSecurityIntrusion,
 		CancellationToken cancellationToken = default
 		);

@@ -10,7 +10,7 @@ public interface ICameraWirelessProfiles
 	[ApiOperationId("getDeviceCameraWirelessProfiles")]
 	[Get("/devices/{serial}/camera/wirelessProfiles")]
 	Task<CameraWirelessProfiles> GetDeviceCameraWirelessProfilesAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface ICameraWirelessProfiles
 	[ApiOperationId("updateDeviceCameraWirelessProfiles")]
 	[Put("/devices/{serial}/camera/wirelessProfiles")]
 	Task<CameraWirelessProfiles> UpdateDeviceCameraWirelessProfilesAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] CameraWirelessProfiles updateDeviceCameraWirelessProfiles,
 		CancellationToken cancellationToken = default
 		);
@@ -36,7 +36,7 @@ public interface ICameraWirelessProfiles
 	[ApiOperationId("getNetworkCameraWirelessProfiles")]
 	[Get("/networks/{networkId}/camera/wirelessProfiles")]
 	Task<List<NetworkCameraWirelessProfile>> GetNetworkCameraWirelessProfilesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -49,8 +49,8 @@ public interface ICameraWirelessProfiles
 	[ApiOperationId("getNetworkCameraWirelessProfile")]
 	[Get("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
 	Task<NetworkCameraWirelessProfile> GetNetworkCameraWirelessProfileAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("wirelessProfileId")] string wirelessProfileId,
+		string networkId,
+		string wirelessProfileId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -64,8 +64,8 @@ public interface ICameraWirelessProfiles
 	[ApiOperationId("updateNetworkCameraWirelessProfile")]
 	[Put("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
 	Task<NetworkCameraWirelessProfile> UpdateNetworkCameraWirelessProfileAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("wirelessProfileId")] string wirelessProfileId,
+		string networkId,
+		string wirelessProfileId,
 		[Body] NetworkCameraWirelessProfileCreateUpdateRequest updateNetworkCameraWirelessProfile,
 		CancellationToken cancellationToken = default
 		);
@@ -79,7 +79,7 @@ public interface ICameraWirelessProfiles
 	[ApiOperationId("createNetworkCameraWirelessProfile")]
 	[Post("/networks/{networkId}/camera/wirelessProfiles")]
 	Task<NetworkCameraWirelessProfile> CreateNetworkCameraWirelessProfileAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkCameraWirelessProfileCreateUpdateRequest createNetworkCameraWirelessProfile,
 		CancellationToken cancellationToken = default
 		);
@@ -93,7 +93,7 @@ public interface ICameraWirelessProfiles
 	[ApiOperationId("deleteNetworkCameraWirelessProfile")]
 	[Delete("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
 	Task DeleteNetworkCameraWirelessProfileAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("wirelessProfileId")] string wirelessProfileId,
+		string networkId,
+		string wirelessProfileId,
 		CancellationToken cancellationToken = default);
 }

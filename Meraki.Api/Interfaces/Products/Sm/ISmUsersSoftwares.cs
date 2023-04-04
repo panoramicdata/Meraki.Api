@@ -10,8 +10,8 @@ public interface ISmUsersSoftwares
 	/// <param name="userId">The user id</param>
 	[Get("/networks/{networkId}/sm/users/{userId}/softwares")]
 	Task<List<Software>> GetNetworkSmUserSoftwaresAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("userId")] string userId,
+		string networkId,
+		string userId,
 		CancellationToken cancellationToken = default
 		);
 }

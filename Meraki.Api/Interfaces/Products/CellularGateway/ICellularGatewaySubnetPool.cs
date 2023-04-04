@@ -12,7 +12,7 @@ public interface ICellularGatewaySubnetPool
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/cellularGateway/subnetPool")]
 	Task<NetworkCellularGatewaySubnetPool> GetNetworkCellularGatewaySubnetPoolAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface ICellularGatewaySubnetPool
 	/// <param name="updateNetworkCellularGatewaySettingsSubnetPool">Body for updating subnet pool and mask config</param>
 	[Put("/networks/{networkId}/cellularGateway/subnetPool")]
 	Task<NetworkCellularGatewaySubnetPool> UpdateNetworkCellularGatewaySubnetPoolAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkCellularGatewaySubnetPoolUpdateRequest updateNetworkCellularGatewaySettingsSubnetPool,
 		CancellationToken cancellationToken = default
 		);

@@ -13,7 +13,7 @@ public interface ISwitchDhcpServerPolicy
 	[ApiOperationId("getNetworkSwitchDhcpServerPolicy")]
 	[Get("/networks/{networkId}/switch/dhcpServerPolicy")]
 	Task<DhcpServerPolicy> GetNetworkSwitchDhcpServerPolicyAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface ISwitchDhcpServerPolicy
 	[ApiOperationId("updateNetworkSwitchDhcpServerPolicy")]
 	[Put("/networks/{networkId}/switch/dhcpServerPolicy")]
 	Task<DhcpServerPolicy> UpdateNetworkSwitchDhcpServerPolicyAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] DhcpServerPolicy updateNetworkSwitchSettingsDhcpServerPolicy,
 		CancellationToken cancellationToken = default
 		);

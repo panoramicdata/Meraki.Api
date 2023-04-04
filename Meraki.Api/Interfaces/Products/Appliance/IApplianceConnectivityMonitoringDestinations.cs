@@ -12,7 +12,7 @@ public interface IApplianceConnectivityMonitoringDestinations
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/appliance/connectivityMonitoringDestinations")]
 	Task<NetworkConnectivityMonitoringDestinations> GetNetworkApplianceConnectivityMonitoringDestinationsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface IApplianceConnectivityMonitoringDestinations
 	/// <param name="updateNetworkConnectivityMonitoringDestinations">Body for updating monitoring destinations</param>
 	[Put("/networks/{networkId}/appliance/connectivityMonitoringDestinations")]
 	Task<NetworkConnectivityMonitoringDestinations> UpdateNetworkApplianceConnectivityMonitoringDestinationsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkConnectivityMonitoringDestinations updateNetworkConnectivityMonitoringDestinations,
 		CancellationToken cancellationToken = default
 		);

@@ -7,7 +7,7 @@
 [DebuggerDisplay("{" + nameof(Serial) + "} ({" + nameof(Model) + "} - {" + nameof(Name) + "})")]
 public class Device : NamedItem
 {
-	public static int MaxAddressLength => 255;
+	public static int MaxAddressLength = 255;
 
 	/// <summary>
 	/// The latitude of a device

@@ -10,7 +10,7 @@ public interface ISmDevicesBypassActivationLockAttempts
 	/// <param name="createNetworkSmBypassActivationLockAttempt">Body for bypassing a lock attempt</param>
 	[Post("/networks/{networkId}/sm/bypassActivationLockAttempts")]
 	Task<SmBypassActivationLockAttempt> CreateNetworkSmBypassActivationLockAttemptAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SmBypassActivationLockAttemptCreationRequest createNetworkSmBypassActivationLockAttempt,
 		CancellationToken cancellationToken = default
 		);
@@ -23,8 +23,8 @@ public interface ISmDevicesBypassActivationLockAttempts
 	/// <param name="attemptId">The attempt id</param>
 	[Get("/networks/{networkId}/sm/bypassActivationLockAttempts/{attemptId}")]
 	Task<SmBypassActivationLockAttempt> GetNetworkSmBypassActivationLockAttemptAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("attemptId")] string attemptId,
+		string networkId,
+		string attemptId,
 		CancellationToken cancellationToken = default
 		);
 }

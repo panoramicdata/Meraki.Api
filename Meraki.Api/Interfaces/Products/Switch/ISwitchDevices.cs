@@ -10,7 +10,7 @@ public interface ISwitchDevices
 	/// <param name="cloneOrganizationSwitchDevices">Body for cloning an organization's switch devices</param>
 	[Post("/organizations/{organizationId}/switch/devices/clone")]
 	Task<CloneOrganizationSwitchDevices> CloneOrganizationSwitchDevicesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] CloneOrganizationSwitchDevices cloneOrganizationSwitchDevices,
 		CancellationToken cancellationToken = default
 		);

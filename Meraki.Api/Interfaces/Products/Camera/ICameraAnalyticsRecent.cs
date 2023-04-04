@@ -10,8 +10,8 @@ public interface ICameraAnalyticsRecent
 	/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
 	[Get("/devices/{serial}/camera/analytics/recent")]
 	Task<List<CameraOverview>> GetDeviceCameraAnalyticsRecentAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("objectType")] string objectType = null!,
+		string serial,
+		string objectType = null!,
 		CancellationToken cancellationToken = default
 		);
 }

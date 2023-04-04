@@ -10,6 +10,6 @@ public interface IOrganizationMonitorAdaptivePolicy
 	[ApiOperationId("getOrganizationAdaptivePolicyOverview")]
 	[Get("/organizations/{organizationId}/adaptivePolicy/overview")]
 	Task<OrganizationAdaptivePolicyOverview> GetOrganizationAdaptivePolicyOverviewAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 }

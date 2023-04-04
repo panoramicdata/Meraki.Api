@@ -9,7 +9,7 @@ public interface ISwitchRoutingMulticast
 	[ApiOperationId("getNetworkSwitchRoutingMulticast")]
 	[Get("/networks/{networkId}/switch/routing/multicast")]
 	Task<Multicast> GetNetworkSwitchRoutingMulticastAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -22,7 +22,7 @@ public interface ISwitchRoutingMulticast
 	[ApiOperationId("updateNetworkSwitchRoutingMulticast")]
 	[Put("/networks/{networkId}/switch/routing/multicast")]
 	Task<Multicast> UpdateNetworkSwitchRoutingMulticastAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] Multicast multicast,
 		CancellationToken cancellationToken = default
 		);
@@ -35,7 +35,7 @@ public interface ISwitchRoutingMulticast
 	[ApiOperationId("getNetworkSwitchRoutingMulticastRendezvousPoints")]
 	[Get("/networks/{networkId}/switch/routing/multicast/rendezvousPoints")]
 	Task<List<RendezvousPoint>> GetNetworkSwitchRoutingMulticastRendezvousPointsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -49,7 +49,7 @@ public interface ISwitchRoutingMulticast
 	[ApiOperationId("createNetworkSwitchRoutingMulticastRendezvousPoint")]
 	[Post("/networks/{networkId}/switch/routing/multicast/rendezvousPoints")]
 	Task<RendezvousPoint> CreateNetworkSwitchRoutingMulticastRendezvousPointAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] RendezvousPointCreateUpdateRequest rendezvousPoint,
 		CancellationToken cancellationToken = default
 		);
@@ -62,8 +62,8 @@ public interface ISwitchRoutingMulticast
 	[ApiOperationId("getNetworkSwitchRoutingMulticastRendezvousPoint")]
 	[Get("/networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}")]
 	Task<RendezvousPoint> GetNetworkSwitchRoutingMulticastRendezvousPointAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("rendezvousPointId")] string rendezvousPointId,
+		string networkId,
+		string rendezvousPointId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -77,8 +77,8 @@ public interface ISwitchRoutingMulticast
 	[ApiOperationId("updateNetworkSwitchRoutingMulticastRendezvousPoint")]
 	[Put("/networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}")]
 	Task<RendezvousPoint> UpdateNetworkSwitchRoutingMulticastRendezvousPointAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("rendezvousPointId")] string rendezvousPointId,
+		string networkId,
+		string rendezvousPointId,
 		[Body] RendezvousPointCreateUpdateRequest rendezvousPoint,
 		CancellationToken cancellationToken = default
 		);
@@ -91,8 +91,8 @@ public interface ISwitchRoutingMulticast
 	[ApiOperationId("deleteNetworkSwitchRoutingMulticastRendezvousPoint")]
 	[Delete("/networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}")]
 	Task<RendezvousPoint> DeleteNetworkSwitchRoutingMulticastRendezvousPointAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("rendezvousPointId")] string rendezvousPointId,
+		string networkId,
+		string rendezvousPointId,
 		CancellationToken cancellationToken = default
 		);
 }

@@ -10,8 +10,8 @@ public interface ISmUsersDeviceProfiles
 	/// <param name="userId">The user id</param>
 	[Get("/networks/{networkId}/sm/users/{userId}/deviceProfiles")]
 	Task<List<DeviceProfile>> GetNetworkSmUserDeviceProfilesAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("userId")] string userId,
+		string networkId,
+		string userId,
 		CancellationToken cancellationToken = default
 		);
 }

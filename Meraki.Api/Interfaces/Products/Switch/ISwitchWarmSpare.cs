@@ -13,7 +13,7 @@ public interface ISwitchWarmSpare
 	[ApiOperationId("getDeviceSwitchWarmSpare")]
 	[Get("/devices/{serial}/switch/warmSpare")]
 	Task<SwitchWarmSpare> GetDeviceSwitchWarmSpareAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface ISwitchWarmSpare
 	[ApiOperationId("updateDeviceSwitchWarmSpare")]
 	[Put("/devices/{serial}/switch/warmSpare")]
 	Task<SwitchWarmSpare> UpdateDeviceSwitchWarmSpareAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] SwitchWarmSpareUpdateRequest updateDeviceSwitchWarmSpare,
 		CancellationToken cancellationToken = default);
 }
