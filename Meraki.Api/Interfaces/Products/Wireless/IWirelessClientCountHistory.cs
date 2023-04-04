@@ -30,7 +30,7 @@ public interface IWirelessClientCountHistory
 		string? clientId = null,
 		string? deviceSerial = null,
 		string? apTag = null,
-		tring? band = null,
+		string? band = null,
 		int? ssid = null,
 		CancellationToken cancellationToken = default
 		);
