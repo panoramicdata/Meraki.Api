@@ -19,4 +19,11 @@ public class ApplianceSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "deploymentMode")]
 	public string? DeploymentMode { get; set; }
+
+	/// <summary>
+	/// Dynamic DNS settings for a network
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "dynamicDns")]
+	public ApplianceSettingsDynamicDns? dynamicDns { get; set; }
 }
