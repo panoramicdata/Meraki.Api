@@ -17,9 +17,9 @@ if (git status --porcelain) {
 $nbgvVersion = nbgv get-version -v Version
 $versionParts = $nbgvVersion.Split(".")
 $versionString = $versionParts[0] + "." + $versionParts[1] + "." + $versionParts[2];
-Write-Host("Tagging as " + $versionString);
+Write-Information("Tagging as " + $versionString);
 
 git tag -a "$versionString" -m "Tagged version ${versionString}"
 
-Write-Host("Pushing tag...");
+Write-Information("Pushing tag...");
 git push origin $versionString
