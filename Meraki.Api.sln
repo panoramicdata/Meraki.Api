@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Meraki.Api.sln.vsspell = Meraki.Api.sln.vsspell
 		Meraki.Api.sln.vsspell.dic = Meraki.Api.sln.vsspell.dic
 		README.md = README.md
+		Tag.ps1 = Tag.ps1
 		version.json = version.json
 	EndProjectSection
 EndProject
@@ -29,6 +30,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitClassSourceGeneratorApp", "RefitClassSourceGeneratorApp\RefitClassSourceGeneratorApp.csproj", "{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meraki.Api.NewTest", "Meraki.Api.NewTest\Meraki.Api.NewTest.csproj", "{F491879D-2939-4BB6-BFC2-F5E0A76520C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHubWorkFlows", "GitHubWorkFlows", "{23327A92-08A3-4DAB-9163-F23D76723C56}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
+		.github\workflows\publish-nuget.yml = .github\workflows\publish-nuget.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +70,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23327A92-08A3-4DAB-9163-F23D76723C56} = {21D39EEC-0E3D-47F2-9721-8A2B43DE1707}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F6B83CD-B4FA-4448-A6B6-2794DBDB2439}
