@@ -26,5 +26,5 @@ jobs:
     - name: Publish NuGet Package
       run: |
         dotnet pack Meraki.Api/Meraki.Api.csproj --configuration Release --no-build -o out
+        # Push the package and symbols
         dotnet nuget push "out/*.nupkg" -k "${{ secrets.NUGET_API_KEY }}" -s "https://api.nuget.org/v3/index.json"
-        #dotnet nuget push "out/*.snupkg" -k "${{ secrets.NUGET_API_KEY }}" -s "https://api.nuget.org/v3/index.json"
