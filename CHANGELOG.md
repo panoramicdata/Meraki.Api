@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.31.46
+- Added MerakiClient.ApiClientVersion to return the library version which returns similar to 1.31.46
+
 ## 1.31.31
 - Removed unnecessary AliasAs attributes to improve code maintenance
 - Added analysers to detect correct AliasAs usage

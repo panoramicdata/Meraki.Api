@@ -12,6 +12,8 @@ public partial class MerakiClient : IDisposable
 
 	public string LastRequestUri => _httpClientHandler.LastRequestUri;
 
+	public string ApiClientVersion { get; private set; }
+
 	/// <summary>
 	/// A Meraki portal client
 	/// </summary>
@@ -19,6 +21,9 @@ public partial class MerakiClient : IDisposable
 	/// <param name="logger"></param>
 	public MerakiClient(MerakiClientOptions options, ILogger? logger = default)
 	{
+		var apiClientVersion = new System.Version(ThisAssembly.AssemblyFileVersion);
+		ApiClientVersion = $"{apiClientVersion.Major}.{apiClientVersion.Minor}.{apiClientVersion.Build}";
+
 		_options = options;
 		_logger = logger ?? NullLogger.Instance;
 		_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), this, _logger);
