@@ -61,12 +61,12 @@ public class Network : NetworkOrConfigurationTemplate
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "url")]
-	public string Url { get; set; } = string.Empty;
+	public string? Url { get; set; }
 
 	/// <summary>
 	/// IsBoundToConfigTemplate
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isBoundToConfigTemplate")]
-	public bool IsBoundToConfigTemplate { get; set; }
+	public bool? IsBoundToConfigTemplate { get; set; }
 }
