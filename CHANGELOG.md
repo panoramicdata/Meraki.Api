@@ -1,5 +1,12 @@
 ﻿# Changelog
 
+## 1.31.51
+- Thanks to @rlouch2 for the PR to fix the encoding of colons in MACs being set in a GET query.
+- Thanks to @garlic17 for the PR to catch the typo in a datamember for cidr.
+
+## 1.31.48
+- Allow all properties on an SSID Update to be nullable to allow only setting certain properties.
+
 ## 1.31.46
 - Added MerakiClient.ApiClientVersion to return the library version which returns similar to 1.31.46
 
