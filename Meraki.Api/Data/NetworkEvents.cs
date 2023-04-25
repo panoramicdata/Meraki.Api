@@ -7,6 +7,12 @@
 public class NetworkEvents
 {
 	/// <summary>
+	/// A message regarding the events sent. Usually 'null' unless there are no events
+	/// </summary>
+	[DataMember(Name = "message")]
+	public string? Message { get; set; }
+
+	/// <summary>
 	/// Page start at
 	/// </summary>
 	[DataMember(Name = "pageStartAt")]

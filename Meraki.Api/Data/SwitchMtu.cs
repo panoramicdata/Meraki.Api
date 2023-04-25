@@ -11,12 +11,12 @@ public class SwitchMtu
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "defaultMtuSize")]
-	public int DefaultMtuSize { get; set; }
+	public int? DefaultMtuSize { get; set; }
 
 	/// <summary>
 	/// Override MTU size for individual switches or switch profiles. An empty array will clear overrides.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "overrides")]
-	public List<MtuOverride> Overrides { get; set; } = new();
+	public List<MtuOverride>? Overrides { get; set; }
 }
