@@ -33,4 +33,11 @@ public class IdentityPsk : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "email")]
 	public string? Email { get; set; }
+
+	/// <summary>
+	/// Expires At
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "expiresAt")]
+	public DateTime? expiresAt { get; set; }
 }
