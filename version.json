@@ -1,5 +1,5 @@
 {
-	"version": "1.31",
+	"version": "1.32",
 	"publicReleaseRefSpec": [
 		"^refs/heads/main$",
 		"^refs/tags/1\\.\\d+.\\d+"

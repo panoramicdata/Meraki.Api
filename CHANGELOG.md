@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.32.X
+- Updates models to reflect changes on API v1.32. Some nullability updated.
+
 ## 1.31.51
 - Thanks to @rlouch2 for the PR to fix the encoding of colons in MACs being set in a GET query.
 - Thanks to @garlic17 for the PR to catch the typo in a datamember for cidr.
