@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.32.X
+## 1.32.2
 - Updates models to reflect changes on API v1.32. Some nullability updated.
 
 ## 1.31.51
