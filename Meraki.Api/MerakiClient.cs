@@ -34,7 +34,8 @@ public partial class MerakiClient : IDisposable
 		};
 		_refitSettings = new RefitSettings
 		{
-			ContentSerializer = new CustomNewtonsoftJsonContentSerializer(_options, _logger)
+			ContentSerializer = new CustomNewtonsoftJsonContentSerializer(_options, _logger),
+			CollectionFormat = CollectionFormat.Multi
 		};
 
 		// General level sections //

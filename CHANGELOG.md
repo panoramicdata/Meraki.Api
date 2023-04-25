@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.32.3
+- RefitSettings CollectionFormat now set to CollectionFormat.Multi, default was CSV, this allows sending multiple values for the filters.
+
 ## 1.32.2
 - Updates models to reflect changes on API v1.32. Some nullability updated.
 
