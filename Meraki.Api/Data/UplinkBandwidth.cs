@@ -12,11 +12,4 @@ public class UplinkBandwidth
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "bandwidthLimits")]
 	public UplinkBandwidthLimits? BandwidthLimits { get; set; }
-
-	/// <summary>
-	/// Capabilities
-	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "capabilities")]
-	public List<UplinkBandwidthCapability>? Capabilities { get; }
 }
