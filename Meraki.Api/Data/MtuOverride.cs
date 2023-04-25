@@ -11,14 +11,14 @@ public class MtuOverride
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "switches")]
-	public List<string>? Switches { get; set; } = new();
+	public List<string>? Switches { get; set; }
 
 	/// <summary>
 	/// List of switch profile IDs. Applicable only for template network.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "switchProfiles")]
-	public List<string>? SwitchProfiles { get; set; } = new();
+	public List<string>? SwitchProfiles { get; set; }
 
 	/// <summary>
 	/// MTU size for the switches or switch profiles.

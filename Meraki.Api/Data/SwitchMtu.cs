@@ -18,5 +18,5 @@ public class SwitchMtu
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "overrides")]
-	public List<MtuOverride>? Overrides { get; set; } = new();
+	public List<MtuOverride>? Overrides { get; set; }
 }
