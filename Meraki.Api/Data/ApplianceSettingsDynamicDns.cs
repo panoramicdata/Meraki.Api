@@ -19,4 +19,11 @@ public class ApplianceSettingsDynamicDns
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
 	public bool? Enabled { get; set; }
+
+	/// <summary>
+	/// Dynamic DNS url. DDNS must be enabled to update
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "url")]
+	public string? Url { get; set; }
 }
