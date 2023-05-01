@@ -13,7 +13,7 @@ public interface INetworksFloorplans
 	[ApiOperationId("getNetworkFloorPlans")]
 	[Get("/networks/{networkId}/floorPlans")]
 	Task<List<FloorPlan>> GetNetworkFloorPlansAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface INetworksFloorplans
 	[ApiOperationId("createNetworkFloorPlan")]
 	[Post("/networks/{networkId}/floorPlans")]
 	Task<FloorPlan> CreateNetworkFloorPlanAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] FloorPlanCreationRequest createNetworkFloorPlan,
 		CancellationToken cancellationToken = default
 		);
@@ -40,8 +40,8 @@ public interface INetworksFloorplans
 	[ApiOperationId("getNetworkFloorPlan")]
 	[Get("/networks/{networkId}/floorPlans/{floorPlanId}")]
 	Task<FloorPlan> GetNetworkFloorPlanAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("floorPlanId")] string floorPlanId,
+		string networkId,
+		string floorPlanId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -55,8 +55,8 @@ public interface INetworksFloorplans
 	[ApiOperationId("updateNetworkFloorPlan")]
 	[Put("/networks/{networkId}/floorPlans/{floorPlanId}")]
 	Task<FloorPlan> UpdateNetworkFloorPlanAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("floorPlanId")] string floorPlanId,
+		string networkId,
+		string floorPlanId,
 		[Body] FloorPlanUpdateRequest updateNetworkFloorPlan,
 		CancellationToken cancellationToken = default);
 
@@ -69,8 +69,8 @@ public interface INetworksFloorplans
 	[ApiOperationId("deleteNetworkFloorPlan")]
 	[Delete("/networks/{networkId}/floorPlans/{floorPlanId}")]
 	Task DeleteNetworkFloorPlanAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("floorPlanId")] string floorPlanId,
+		string networkId,
+		string floorPlanId,
 		CancellationToken cancellationToken = default
 		);
 }

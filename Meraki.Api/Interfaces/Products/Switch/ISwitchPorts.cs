@@ -13,7 +13,7 @@ public interface ISwitchPorts
 	[ApiOperationId("getDeviceSwitchPorts")]
 	[Get("/devices/{serial}/switch/ports")]
 	Task<List<SwitchPort>> GetDeviceSwitchPortsAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,8 +26,8 @@ public interface ISwitchPorts
 	[ApiOperationId("getDeviceSwitchPort")]
 	[Get("/devices/{serial}/switch/ports/{portId}")]
 	Task<SwitchPort> GetDeviceSwitchPortAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("portId")] string portId,
+		string serial,
+		string portId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -41,8 +41,8 @@ public interface ISwitchPorts
 	[ApiOperationId("updateDeviceSwitchPort")]
 	[Put("/devices/{serial}/switch/ports/{portId}")]
 	Task<SwitchPort> UpdateDeviceSwitchPortAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("portId")] string portId,
+		string serial,
+		string portId,
 		[Body] SwitchPort deviceSwitchPort,
 		CancellationToken cancellationToken = default
 		);
@@ -56,9 +56,9 @@ public interface ISwitchPorts
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)</param>
 	[Get("/devices/{serial}/switch/ports/statuses")]
 	Task<List<SwitchPortStatus>> GetDeviceSwitchPortsStatusesAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("timespan")] double? timespan = null,
+		string serial,
+		string t0 = null!,
+		double? timespan = null,
 		CancellationToken cancellationToken = default
 		);
 
@@ -71,9 +71,9 @@ public interface ISwitchPorts
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 1 day. The default is 1 day. (optional)</param>
 	[Get("/devices/{serial}/switch/ports/statuses/packets")]
 	Task<List<PacketsList>> GetDeviceSwitchPortsStatusesPacketsAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("timespan")] double? timespan = null,
+		string serial,
+		string t0 = null!,
+		double? timespan = null,
 		CancellationToken cancellationToken = default
 		);
 
@@ -85,7 +85,7 @@ public interface ISwitchPorts
 	/// <param name="deviceSwitchPortsCycleRequest">Body for cycling switch ports</param>
 	[Post("/devices/{serial}/switch/ports/cycle")]
 	Task<DeviceSwitchPortsCycleRequest> CycleDeviceSwitchPortsAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] DeviceSwitchPortsCycleRequest deviceSwitchPortsCycleRequest,
 		CancellationToken cancellationToken = default);
 }

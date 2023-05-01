@@ -16,13 +16,13 @@ public interface INetworksPiiSmDevicesForKey
 	[ApiOperationId("getNetworkPiiSmDevicesForKey")]
 	[Get("/networks/{networkId}/pii/smDevicesForKey")]
 	Task<PiiSmKeys> GetNetworkPiiSmDevicesForKeyAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("username")] string username = null!,
-		[AliasAs("email")] string email = null!,
-		[AliasAs("mac")] string mac = null!,
-		[AliasAs("serial")] string serial = null!,
-		[AliasAs("imei")] string imei = null!,
-		[AliasAs("bluetoothMac")] string bluetoothMac = null!,
+		string networkId,
+		string username = null!,
+		string email = null!,
+		string mac = null!,
+		string serial = null!,
+		string imei = null!,
+		string bluetoothMac = null!,
 		CancellationToken cancellationToken = default
 		);
 }

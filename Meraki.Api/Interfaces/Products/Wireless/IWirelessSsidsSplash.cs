@@ -11,8 +11,8 @@ public interface IWirelessSsidsSplash
 	/// <param name="updateNetworkWirelessSsidSplashSettings"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
 	Task<SsidSplashSettings> UpdateNetworkWirelessSsidSplashSettingsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		[Body] SsidSplashSettings updateNetworkWirelessSsidSplashSettings,
 		CancellationToken cancellationToken = default
 		);
@@ -25,8 +25,8 @@ public interface IWirelessSsidsSplash
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
 	Task<SsidSplashSettings> GetNetworkWirelessSsidSplashSettingsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		CancellationToken cancellationToken = default
 		);
 }

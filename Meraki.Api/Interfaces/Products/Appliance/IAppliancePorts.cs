@@ -7,12 +7,12 @@ public interface IAppliancePorts
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="appliancePortId">The appliance port id</param>
+	/// <param name="portId">The appliance port id</param>
 	[ApiOperationId("getNetworkAppliancePort")]
 	[Get("/networks/{networkId}/appliance/ports/{portId}")]
 	Task<AppliancePort> GetNetworkAppliancePortAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("portId")] string appliancePortId,
+		string networkId,
+		string portId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface IAppliancePorts
 	[ApiOperationId("getNetworkAppliancePorts")]
 	[Get("/networks/{networkId}/appliance/ports")]
 	Task<List<AppliancePort>> GetNetworkAppliancePortsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -38,8 +38,8 @@ public interface IAppliancePorts
 	[ApiOperationId("updateNetworkAppliancePorts")]
 	[Put("/networks/{networkId}/appliance/ports/{portId}")]
 	Task<AppliancePort> UpdateNetworkAppliancePortAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("portId")] string portId,
+		string networkId,
+		string portId,
 		[Body] AppliancePortUpdateRequest appliancePort,
 		CancellationToken cancellationToken = default
 		);

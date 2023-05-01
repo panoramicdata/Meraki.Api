@@ -10,8 +10,8 @@ public interface IWirelessSsidsDeviceTypeGroupPolicies
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
 	Task<DeviceTypeGroupPolicies> GetNetworkWirelessSsidDeviceTypeGroupPoliciesAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,8 +23,8 @@ public interface IWirelessSsidsDeviceTypeGroupPolicies
 	/// <param name="number">The SSID number</param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
 	Task<DeviceTypeGroupPolicies> UpdateNetworkWirelessSsidDeviceTypeGroupPoliciesAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		[Body] DeviceTypeGroupPolicies updateNetworkWirelessSsidDeviceTypeGroupPolicies,
 		CancellationToken cancellationToken = default
 		);

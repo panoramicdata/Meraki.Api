@@ -9,7 +9,7 @@ public interface INetworksSnmp
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/snmp")]
 	Task<NetworkSnmpSetting> GetNetworkSnmpAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,7 +21,7 @@ public interface INetworksSnmp
 	/// <param name="networkSnmpSetting"></param>
 	[Put("/networks/{networkId}/snmp")]
 	Task<NetworkSnmpSetting> UpdateNetworkSnmpAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkSnmpSetting networkSnmpSetting,
 		CancellationToken cancellationToken = default
 		);

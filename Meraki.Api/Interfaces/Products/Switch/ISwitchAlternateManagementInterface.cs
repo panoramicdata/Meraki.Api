@@ -13,7 +13,7 @@ public interface ISwitchAlternateManagementInterface
 	[ApiOperationId("getNetworkSwitchAlternateManagementInterface")]
 	[Get("/networks/{networkId}/switch/alternateManagementInterface")]
 	Task<AlternateManagementInterface> GetNetworkSwitchAlternateManagementInterfaceAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface ISwitchAlternateManagementInterface
 	[ApiOperationId("updateNetworkSwitchAlternateManagementInterface")]
 	[Put("/networks/{networkId}/switch/alternateManagementInterface")]
 	Task<AlternateManagementInterface> UpdateNetworkSwitchAlternateManagementInterfaceAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] AlternateManagementInterface alternateManagementInterface,
 		CancellationToken cancellationToken = default
 		);

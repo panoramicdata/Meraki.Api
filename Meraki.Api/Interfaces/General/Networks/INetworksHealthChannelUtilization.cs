@@ -20,14 +20,14 @@ public interface INetworksHealthChannelUtilization
 	[ApiOperationId("getNetworkNetworkHealthChannelUtilization")]
 	[Get("/networks/{networkId}/networkHealth/channelUtilization")]
 	Task<List<ChannelUtilization>> GetNetworkNetworkHealthChannelUtilizationAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("resolution")] int? resolution = null,
-		[AliasAs("perPage")] int? perPage = 100,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
+		string networkId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		int? resolution = null,
+		int? perPage = 100,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 }

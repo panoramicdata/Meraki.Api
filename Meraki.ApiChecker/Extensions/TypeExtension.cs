@@ -54,7 +54,8 @@ public static class TypeExtension
 		{
 			// Is ApiAccessAttribute or ApiKeyAttribute present on the property?
 			if (property.GetCustomAttribute<ApiAccessAttribute>() is null
-				&& property.GetCustomAttribute<ApiKeyAttribute>() is null)
+				&& property.GetCustomAttribute<ApiKeyAttribute>() is null
+				&& property.GetCustomAttribute<ApiForeignKeyAttribute>() is null)
 			{
 				// NO - ApiAccess is not fully denoted for the type
 				if (!deficientDataModels.Contains(type.Name))

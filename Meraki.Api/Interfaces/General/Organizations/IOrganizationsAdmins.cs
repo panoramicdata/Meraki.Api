@@ -12,7 +12,7 @@ public interface IOrganizationsAdmins
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/admins")]
 	Task<List<Admin>> GetOrganizationAdminsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -23,7 +23,7 @@ public interface IOrganizationsAdmins
 	/// <param name="createOrganizationAdmin">Body for creating organization admin</param>
 	[Post("/organizations/{organizationId}/admins")]
 	Task<Admin> CreateOrganizationAdminAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] AdminCreationRequest createOrganizationAdmin,
 		CancellationToken cancellationToken = default);
 
@@ -35,8 +35,8 @@ public interface IOrganizationsAdmins
 	/// <param name="adminId">The admin id</param>
 	[Delete("/organizations/{organizationId}/admins/{adminId}")]
 	Task DeleteOrganizationAdminAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("adminId")] string adminId,
+		string organizationId,
+		string adminId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -48,8 +48,8 @@ public interface IOrganizationsAdmins
 	/// <param name="adminUpdateRequest">Body for updating admin</param>
 	[Put("/organizations/{organizationId}/admins/{adminId}")]
 	Task<Admin> UpdateOrganizationAdminAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("adminId")] string adminId,
+		string organizationId,
+		string adminId,
 		[Body] AdminUpdateRequest adminUpdateRequest,
 		CancellationToken cancellationToken = default);
 }

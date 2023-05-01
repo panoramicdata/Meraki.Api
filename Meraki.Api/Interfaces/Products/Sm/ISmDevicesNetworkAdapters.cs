@@ -10,8 +10,8 @@ public interface ISmDevicesNetworkAdapters
 	/// <param name="deviceId">The device id</param>
 	[Get("/networks/{networkId}/sm/devices/{deviceId}/networkAdapters")]
 	Task<List<NetworkAdapter>> GetNetworkSmDeviceNetworkAdaptersAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("deviceId")] string deviceId,
+		string networkId,
+		string deviceId,
 		CancellationToken cancellationToken = default
 		);
 }

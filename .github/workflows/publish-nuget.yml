@@ -1,0 +1,30 @@
+name: Publish NuGet
+
+on:
+  push:
+    tags:
+      - '1.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+
+    - name: Build
+      run: |
+        dotnet build Meraki.Api/Meraki.Api.csproj --configuration Release
+
+    - name: Publish NuGet Package
+      run: |
+        dotnet pack Meraki.Api/Meraki.Api.csproj --configuration Release --no-build -o out
+        # Push the package and symbols
+        dotnet nuget push "out/*.nupkg" -k "${{ secrets.NUGET_API_KEY }}" -s "https://api.nuget.org/v3/index.json"

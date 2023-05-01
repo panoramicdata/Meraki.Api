@@ -9,7 +9,7 @@ public interface INetworksTrafficShapingApplicationCategories
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/trafficShaping/applicationCategories")]
 	Task<Layer7ApplicationCategories> GetNetworkTrafficShapingApplicationCategoriesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 }

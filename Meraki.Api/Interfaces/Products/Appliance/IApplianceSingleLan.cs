@@ -10,7 +10,7 @@ public interface IApplianceSingleLan
 	[ApiOperationId("getNetworkApplianceSingleLan")]
 	[Get("/networks/{networkId}/appliance/singleLan")]
 	Task<LanConfiguration> GetNetworkApplianceSingleLanAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface IApplianceSingleLan
 	[ApiOperationId("updateNetworkApplianceSingleLan")]
 	[Put("/networks/{networkId}/appliance/singleLan")]
 	Task<LanConfiguration> UpdateNetworkApplianceSingleLanAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] LanConfigurationUpdateRequest updateNetworkApplianceSingleLan,
 		CancellationToken cancellationToken = default
 		);

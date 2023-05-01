@@ -14,6 +14,13 @@ public class VlanIpv6PrefixAssignment
 	public bool? Autonomous { get; set; }
 
 	/// <summary>
+	/// Disabled - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "disabled")]
+	public bool? Disabled { get; set; }
+
+	/// <summary>
 	/// Static Prefix
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

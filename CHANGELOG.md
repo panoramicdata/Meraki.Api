@@ -1,5 +1,28 @@
 ﻿# Changelog
 
+## 1.32.4
+- Added missing  Appliance DynamicDns Url
+
+## 1.32.3
+- RefitSettings CollectionFormat now set to CollectionFormat.Multi, default was CSV, this allows sending multiple values for the filters.
+
+## 1.32.2
+- Updates models to reflect changes on API v1.32. Some nullability updated.
+
+## 1.31.51
+- Thanks to @rlouch2 for the PR to fix the encoding of colons in MACs being set in a GET query.
+- Thanks to @garlic17 for the PR to catch the typo in a datamember for cidr.
+
+## 1.31.48
+- Allow all properties on an SSID Update to be nullable to allow only setting certain properties.
+
+## 1.31.46
+- Added MerakiClient.ApiClientVersion to return the library version which returns similar to 1.31.46
+
+## 1.31.31
+- Removed unnecessary AliasAs attributes to improve code maintenance
+- Added analysers to detect correct AliasAs usage
+
 ## 1.31.14
 - Fixed bug with missing DataContract on DeviceRemovalRequest
 

@@ -13,8 +13,8 @@ public interface IOrganizationsWebhooksAlertTypes
 	/// <param name="productType">The product type (Optional)</param>
 	[Get("/organizations/{organizationId}/webhooks/alertTypes")]
 	Task<List<WebhookAlertType>> GetOrganizationWebhooksAlertTypesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("productType")] string? productType = null,
+		string organizationId,
+		string? productType = null,
 		CancellationToken cancellationToken = default
 		);
 }

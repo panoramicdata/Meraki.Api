@@ -9,7 +9,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/adaptivePolicy/acls")]
 	Task<List<AdaptivePolicyAcl>> GetOrganizationAdaptivePolicyAclsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -20,7 +20,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <param name="acls">Body for creating an ACL</param>
 	[Post("/organizations/{organizationId}/adaptivePolicy/acls")]
 	Task<List<AdaptivePolicyAcl>> CreateOrganizationAdaptivePolicyAclAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] AdaptivePolicyAcl acls,
 		CancellationToken cancellationToken = default);
 

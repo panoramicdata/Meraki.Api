@@ -12,7 +12,7 @@ public interface IWirelessAlternateManagementInterface
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/wireless/alternateManagementInterface")]
 	Task<WirelessAlternateManagementInterface> GetNetworkWirelessAlternateManagementInterfaceAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface IWirelessAlternateManagementInterface
 	/// <param name="updateNetworkWirelessAlternateManagementInterface"></param>
 	[Put("/networks/{networkId}/wireless/alternateManagementInterface")]
 	Task<WirelessAlternateManagementInterface> UpdateNetworkWirelessAlternateManagementInterfaceAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] WirelessAlternateManagementInterface updateNetworkWirelessAlternateManagementInterface,
 		CancellationToken cancellationToken = default
 		);

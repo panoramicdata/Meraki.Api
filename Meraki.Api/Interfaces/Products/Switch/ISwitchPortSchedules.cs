@@ -12,7 +12,7 @@ public interface ISwitchPortSchedules
 	[ApiOperationId("getNetworkSwitchPortSchedules")]
 	[Get("/networks/{networkId}/switch/portSchedules")]
 	Task<List<SwitchPortSchedule>> GetNetworkSwitchPortSchedulesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -25,7 +25,7 @@ public interface ISwitchPortSchedules
 	[ApiOperationId("createNetworkSwitchPortSchedules")]
 	[Post("/networks/{networkId}/switch/portSchedules")]
 	Task<SwitchPortSchedule> CreateNetworkSwitchPortScheduleAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SwitchPortScheduleCreationRequest createNetworkSwitchPortSchedule,
 		CancellationToken cancellationToken = default
 		);
@@ -40,8 +40,8 @@ public interface ISwitchPortSchedules
 	[ApiOperationId("updateNetworkSwitchPortSchedules")]
 	[Put("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
 	Task<SwitchPortSchedule> UpdateNetworkSwitchPortScheduleAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("portScheduleId")] string portScheduleId,
+		string networkId,
+		string portScheduleId,
 		[Body] SwitchPortScheduleCreationRequest updateNetworkSwitchPortSchedule,
 		CancellationToken cancellationToken = default
 		);
@@ -55,8 +55,8 @@ public interface ISwitchPortSchedules
 	[ApiOperationId("deleteNetworkSwitchPortSchedules")]
 	[Delete("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
 	Task DeleteNetworkSwitchPortScheduleAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("portScheduleId")] string portScheduleId,
+		string networkId,
+		string portScheduleId,
 		CancellationToken cancellationToken = default
 		);
 }

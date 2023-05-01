@@ -13,7 +13,7 @@ public interface ICamera
 	/// <param name="generateNetworkCameraSnapshot">Body for generating network camera snapshot</param>
 	[Post("/devices/{serial}/camera/generateSnapshot")]
 	Task<CameraSnapshot> GenerateDeviceCameraSnapshotAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] CameraSnapshotRequest generateNetworkCameraSnapshot,
 		CancellationToken cancellationToken = default);
 }

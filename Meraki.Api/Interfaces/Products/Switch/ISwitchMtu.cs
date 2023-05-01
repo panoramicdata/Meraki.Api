@@ -13,7 +13,7 @@ public interface ISwitchMtu
 	[ApiOperationId("getNetworkSwitchMtu")]
 	[Get("/networks/{networkId}/switch/mtu")]
 	Task<SwitchMtu> GetNetworkSwitchMtuAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -26,7 +26,7 @@ public interface ISwitchMtu
 	[ApiOperationId("updateNetworkSwitchMtu")]
 	[Put("/networks/{networkId}/switch/mtu")]
 	Task<SwitchMtu> UpdateNetworkSwitchMtuAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] SwitchMtu updateSwitchMtu,
 		CancellationToken cancellationToken = default
 		);

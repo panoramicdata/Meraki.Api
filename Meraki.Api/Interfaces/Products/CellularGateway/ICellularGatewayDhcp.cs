@@ -12,7 +12,7 @@ public interface ICellularGatewayDhcp
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/cellularGateway/dhcp")]
 	Task<NetworkCellularGatewayDhcp> GetNetworkCellularGatewayDhcpAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface ICellularGatewayDhcp
 	/// <param name="updateNetworkCellularGatewaySettingsDhcp">Body for updating DHCP settings</param>
 	[Put("/networks/{networkId}/cellularGateway/dhcp")]
 	Task<NetworkCellularGatewayDhcp> UpdateNetworkCellularGatewayDhcpAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] NetworkCellularGatewayDhcp updateNetworkCellularGatewaySettingsDhcp,
 		CancellationToken cancellationToken = default
 		);

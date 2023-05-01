@@ -14,12 +14,12 @@ public interface IInsightApplicationHealthByTime
 	/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 60, 300, 3600, 86400. The default is 300.</param>
 	[Get("/networks/{networkId}/insight/applications/{applicationId}/healthByTime")]
 	Task<List<HealthByTime>> GetNetworkInsightApplicationHealthByTimeAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("applicationId")] string applicationId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("resolution")] int? resolution = null,
+		string networkId,
+		string applicationId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		int? resolution = null,
 		CancellationToken cancellationToken = default
 		);
 }

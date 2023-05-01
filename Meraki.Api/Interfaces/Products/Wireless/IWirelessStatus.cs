@@ -9,7 +9,7 @@ public interface IWirelessStatus
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/wireless/status")]
 	Task<WirelessStatus> GetDeviceWirelessStatusAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 }

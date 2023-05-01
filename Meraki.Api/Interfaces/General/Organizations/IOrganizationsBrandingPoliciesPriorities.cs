@@ -9,7 +9,7 @@ public interface IOrganizationsBrandingPoliciesPriorities
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/brandingPolicies/priorities")]
 	Task<BrandingPoliciesPriorities> GetOrganizationBrandingPoliciesPrioritiesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,7 +21,7 @@ public interface IOrganizationsBrandingPoliciesPriorities
 	/// <param name="brandingPoliciesPriorities">Body for updating an organization branding policies priorities</param>
 	[Put("/organizations/{organizationId}/brandingPolicies/priorities")]
 	Task<BrandingPoliciesPriorities> UpdateOrganizationBrandingPoliciesPrioritiesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] BrandingPoliciesPriorities brandingPoliciesPriorities,
 		CancellationToken cancellationToken = default
 		);

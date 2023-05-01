@@ -10,8 +10,8 @@ public interface IWirelessSsidsBonjourForwarding
 	/// <param name="number">The SSID number</param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/bonjourForwarding")]
 	Task<SsidBonjourForwarding> GetNetworkWirelessSsidBonjourForwardingAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,8 +24,8 @@ public interface IWirelessSsidsBonjourForwarding
 	/// <param name="updateNetworkWirelessSsidBonjourForwarding"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/bonjourForwarding")]
 	Task<SsidBonjourForwarding> UpdateNetworkWirelessSsidBonjourForwardingAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("number")] string number,
+		string networkId,
+		string number,
 		[Body] SsidBonjourForwarding updateNetworkWirelessSsidBonjourForwarding,
 		CancellationToken cancellationToken = default
 		);

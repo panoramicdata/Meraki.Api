@@ -14,11 +14,11 @@ public interface ISmDevicesPerformanceHistory
 	[ApiOperationId("getNetworkSmDevicePerformanceHistory")]
 	[Get("/networks/{networkId}/sm/devices/{deviceId}/performanceHistory")]
 	Task<List<SmDevicePerformanceHistory>> GetNetworkSmDevicePerformanceHistoryAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("deviceId")] string deviceId,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
+		string networkId,
+		string deviceId,
+		int? perPage = 1000,
+		string startingAfter = null!,
+		string endingBefore = null!,
 		CancellationToken cancellationToken = default
 		);
 }

@@ -18,14 +18,14 @@ public interface INetworksClientsUsageHistories
 	[ApiOperationId("getNetworkClientsUsageHistories")]
 	[Get("/networks/{networkId}/clients/usageHistories")]
 	Task<List<ClientApplicationHistory>> GetNetworkClientsUsageHistoriesAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clients")] string clients = null!,
-		[AliasAs("ssidNumber")] int? ssidNumber = null,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
+		string networkId,
+		string clients = null!,
+		int? ssidNumber = null,
+		int? perPage = 1000,
+		string startingAfter = null!,
+		string endingBefore = null!,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 }

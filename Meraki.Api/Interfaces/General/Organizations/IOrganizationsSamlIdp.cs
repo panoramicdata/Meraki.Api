@@ -9,7 +9,7 @@ public interface IOrganizationsSamlIdp
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/saml/idps")]
 	Task<List<SamlIdp>> GetOrganizationSamlIdpsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -21,7 +21,7 @@ public interface IOrganizationsSamlIdp
 	/// <param name="createOrganizationSamlIdp">Body for creating a SAML IdP</param>
 	[Post("/organizations/{organizationId}/saml/idps")]
 	Task<List<SamlIdp>> CreateOrganizationSamlIdpAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] SamlIdpsCreateRequest createOrganizationSamlIdp,
 		CancellationToken cancellationToken = default
 		);
@@ -34,8 +34,8 @@ public interface IOrganizationsSamlIdp
 	/// <param name="idpId">The IdP id</param>
 	[Get("/organizations/{organizationId}/saml/idps/{idpId}")]
 	Task<SamlIdp> GetOrganizationSamlIdpAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("idpId")] string idpId,
+		string organizationId,
+		string idpId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -48,8 +48,8 @@ public interface IOrganizationsSamlIdp
 	/// <param name="updateOrganizationSamlIdp">Body for updating a SAML IdP</param>
 	[Put("/organizations/{organizationId}/saml/idps/{idpId}")]
 	Task<List<SamlIdp>> UpdateOrganizationSamlIdpAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("idpId")] string idpId,
+		string organizationId,
+		string idpId,
 		[Body] SamlIdpsCreateRequest updateOrganizationSamlIdp,
 		CancellationToken cancellationToken = default
 		);
@@ -62,7 +62,7 @@ public interface IOrganizationsSamlIdp
 	/// <param name="idpId">The IdP id</param>
 	[Delete("/organizations/{organizationId}/saml/idps/{idpId}")]
 	Task DeleteOrganizationSamlIdpAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("idpId")] string idpId,
+		string organizationId,
+		string idpId,
 		CancellationToken cancellationToken = default);
 }

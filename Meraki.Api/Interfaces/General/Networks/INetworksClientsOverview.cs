@@ -10,6 +10,6 @@ public interface INetworksClientsOverview
 	[ApiOperationId("getNetworkClientsOverview")]
 	[Get("/networks/{networkId}/clients/overview")]
 	Task<NetworkClientOverview> GetNetworkClientsOverviewAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default);
 }

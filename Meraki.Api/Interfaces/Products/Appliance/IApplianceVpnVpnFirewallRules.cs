@@ -10,7 +10,7 @@ public interface IApplianceVpnVpnFirewallRules
 	[ApiOperationId("getOrganizationApplianceVpnVpnFirewallRules")]
 	[Get("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
 	Task<VpnFirewallRules> GetOrganizationApplianceVpnVpnFirewallRulesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface IApplianceVpnVpnFirewallRules
 	[ApiOperationId("updateOrganizationApplianceVpnVpnFirewallRules")]
 	[Put("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
 	Task<VpnFirewallRules> UpdateOrganizationApplianceVpnVpnFirewallRulesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] VpnFirewallRules vpnFirewallRules,
 		CancellationToken cancellationToken = default
 		);

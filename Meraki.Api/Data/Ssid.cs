@@ -27,4 +27,12 @@ public class Ssid : SsidUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "adminSplashUrl")]
 	public string AdminSplashUrl { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Whether or not the SSID is enabled, this will always be true or false when retrieving an SSID,
+	/// but can be set to null when updating an SSID using the SsidUpdateRequest to allow not setting the value.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "enabled")]
+	public new bool Enabled { get; set; }
 }

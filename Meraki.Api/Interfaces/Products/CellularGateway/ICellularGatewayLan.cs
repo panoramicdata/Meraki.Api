@@ -12,7 +12,7 @@ public interface ICellularGatewayLan
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/cellularGateway/lan")]
 	Task<CellularGatewayLan> GetDeviceCellularGatewayLanAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -23,7 +23,7 @@ public interface ICellularGatewayLan
 	/// <param name="cellularGatewaySettings">Body for updating LAN settings</param>
 	[Put("/devices/{serial}/cellularGateway/lan")]
 	Task<CellularGatewayLan> UpdateDeviceCellularGatewayLanAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] CellularGatewayLanUpdateRequest cellularGatewaySettings,
 		CancellationToken cancellationToken = default);
 }

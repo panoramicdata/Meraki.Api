@@ -12,7 +12,7 @@ public interface IInsightApplication
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/insight/applications")]
 	Task<List<InsightApplication>> GetOrganizationInsightApplicationsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 }

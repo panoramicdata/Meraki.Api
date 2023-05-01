@@ -62,8 +62,8 @@ public interface IOrganizationsInventoryDevices
 	/// <param name="serial">The serial number</param>
 	[Get("/organizations/{organizationId}/inventory/devices/{serial}")]
 	Task<InventoryDevice> GetOrganizationInventoryDeviceAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("serial")] string serial,
+		string organizationId,
+		string serial,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -74,7 +74,7 @@ public interface IOrganizationsInventoryDevices
 	/// <param name="organizationClaimRequest">Body for making an inventory claim request</param>
 	[Post("/organizations/{organizationId}/inventory/claim")]
 	Task<OrganizationInventoryClaimResponse> ClaimIntoOrganizationInventoryAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] OrganizationInventoryClaimRequest organizationInventoryClaimRequest,
 		CancellationToken cancellationToken = default);
 
@@ -86,7 +86,7 @@ public interface IOrganizationsInventoryDevices
 	/// <param name="organizationClaimRequest">Body for making an inventory release request</param>
 	[Post("/organizations/{organizationId}/inventory/release")]
 	Task<OrganizationInventoryReleaseResponse> ReleaseFromOrganizationInventoryAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] OrganizationInventoryReleaseRequest organizationInventoryReleaseRequest,
 		CancellationToken cancellationToken = default);
 }

@@ -9,7 +9,7 @@ public interface IApplianceFirewallFirewalledServices
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/appliance/firewall/firewalledServices")]
 	Task<List<FirewalledService>> GetNetworkApplianceFirewallFirewalledServicesAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -18,11 +18,11 @@ public interface IApplianceFirewallFirewalledServices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="serviceType">The serviceType</param>
+	/// <param name="service">The serviceType</param>
 	[Get("/networks/{networkId}/appliance/firewall/firewalledServices/{service}")]
 	Task<List<FirewalledService>> GetNetworkApplianceFirewallFirewalledServiceAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("service")] FirewalledServiceType serviceType,
+		string networkId,
+		FirewalledServiceType service,
 		CancellationToken cancellationToken = default
 		);
 
@@ -34,8 +34,8 @@ public interface IApplianceFirewallFirewalledServices
 	/// <param name="serviceType">The serviceType</param>
 	[Put("/networks/{networkId}/appliance/firewall/firewalledServices/{service}")]
 	Task<List<FirewalledService>> UpdateNetworkApplianceFirewallFirewalledServiceAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("service")] FirewalledServiceType serviceType,
+		string networkId,
+		FirewalledServiceType service,
 		[Body] FirewalledService firewalledService,
 		CancellationToken cancellationToken = default
 		);

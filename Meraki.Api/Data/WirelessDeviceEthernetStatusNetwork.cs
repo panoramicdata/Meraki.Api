@@ -4,6 +4,7 @@
 /// Network details object
 /// </summary>
 [DataContract]
+[ApiAccessReadOnlyClass]
 public class WirelessDeviceEthernetStatusNetwork : IdentifiedItem
 {
 

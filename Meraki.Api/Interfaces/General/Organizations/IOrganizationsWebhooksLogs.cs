@@ -19,13 +19,13 @@ public interface IOrganizationsWebhooksLogs
 	/// <param name="url">The URL the webhook was sent to (optional)</param>
 	[Get("/organizations/{organizationId}/webhooks/logs")]
 	Task<List<WebhookLog>> GetOrganizationWebhooksLogsAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
-		[AliasAs("url")] string url = null!,
+		string organizationId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		int? perPage = 1000,
+		string startingAfter = null!,
+		string endingBefore = null!,
+		string url = null!,
 		CancellationToken cancellationToken = default);
 }

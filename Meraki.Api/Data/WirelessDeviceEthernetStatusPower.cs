@@ -4,6 +4,7 @@
 /// Power Details Object
 /// </summary>
 [DataContract]
+[ApiAccessReadOnlyClass]
 public class WirelessDeviceEthernetStatusPower
 {
 	/// <summary>

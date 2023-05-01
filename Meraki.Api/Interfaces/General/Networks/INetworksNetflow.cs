@@ -10,7 +10,7 @@ public interface INetworksNetflow
 	[ApiOperationId("getNetworkNetflow")]
 	[Get("/networks/{networkId}/netflow")]
 	Task<Netflow> GetNetworkNetflowAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -23,7 +23,7 @@ public interface INetworksNetflow
 	[ApiOperationId("updateNetworkNetflow")]
 	[Put("/networks/{networkId}/netflow")]
 	Task<Netflow> UpdateNetworkNetflowAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] Netflow netflow,
 		CancellationToken cancellationToken = default
 		);

@@ -18,28 +18,28 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "perClientBandwidthLimitUp")]
-	public int PerClientBandwidthLimitUp { get; set; }
+	public int? PerClientBandwidthLimitUp { get; set; }
 
 	/// <summary>
 	/// The download bandwidth limit in Kbps. (0 represents no limit.)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "perClientBandwidthLimitDown")]
-	public int PerClientBandwidthLimitDown { get; set; }
+	public int? PerClientBandwidthLimitDown { get; set; }
 
 	/// <summary>
 	/// The total upload bandwidth limit in Kbps. (0 represents no limit.)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "perSsidBandwidthLimitUp")]
-	public int PerSsidBandwidthLimitUp { get; set; }
+	public int? PerSsidBandwidthLimitUp { get; set; }
 
 	/// <summary>
 	/// The total download bandwidth limit in Kbps. (0 represents no limit.)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "perSsidBandwidthLimitDown")]
-	public int PerSsidBandwidthLimitDown { get; set; }
+	public int? PerSsidBandwidthLimitDown { get; set; }
 
 	/// <summary>
 	/// The interval (in seconds) in which accounting information is updated and sent to the RADIUS accounting server
@@ -81,7 +81,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "authMode")]
-	public AuthMode AuthMode { get; set; }
+	public AuthMode? AuthMode { get; set; }
 
 	/// <summary>
 	/// The client-serving radio frequencies of this SSID in the default indoor RF profile. ('Dual band operation', '5 GHz band only' or 'Dual band operation with Band Steering')
@@ -123,7 +123,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
+	public string? Name { get; set; } = string.Empty;
 
 	/// <summary>
 	/// The passkey for the SSID. This param is only valid if the authMode is 'psk'
@@ -179,7 +179,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashPage")]
-	public SplashPage SplashPage { get; set; }
+	public SplashPage? SplashPage { get; set; }
 
 	/// <summary>
 	/// The types of WPA encryption. ('WPA1 only', 'WPA1 and WPA2', 'WPA2 only', 'WPA3 Transition Mode' or 'WPA3 only')
@@ -193,28 +193,28 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "adultContentFilteringEnabled")]
-	public bool AdultContentFilteringEnabled { get; set; }
+	public bool? AdultContentFilteringEnabled { get; set; }
 
 	/// <summary>
 	/// Boolean indicating whether all APs should broadcast the SSID or if it should be restricted to APs matching any availability tags. Can only be false if the SSID has availability tags
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "availableOnAllAps")]
-	public bool AvailableOnAllAps { get; set; }
+	public bool? AvailableOnAllAps { get; set; }
 
 	/// <summary>
 	/// Disassociate clients when 'VPN' concentrator failover occurs in order to trigger clients to re-associate and generate new DHCP requests. This param is only valid if ipAssignmentMode is 'VPN'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "disassociateClientsOnVpnFailover")]
-	public bool DisassociateClientsOnVpnFailover { get; set; }
+	public bool? DisassociateClientsOnVpnFailover { get; set; }
 
 	/// <summary>
 	/// Whether or not the SSID is enabled
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// Boolean indicating whether Layer 2 LAN isolation should be enabled or disabled. Only configurable when ipAssignmentMode is 'Bridge mode'.
@@ -291,7 +291,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "visible")]
-	public bool Visible { get; set; }
+	public bool? Visible { get; set; }
 
 	/// <summary>
 	/// Allow access to a configurable list of IP ranges, which users may access prior to sign-on.
@@ -305,7 +305,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "minBitrate")]
-	public decimal MinBitrate { get; set; }
+	public decimal? MinBitrate { get; set; }
 
 	/// <summary>
 	/// Accepts a list of tags for this SSID. If availableOnAllAps is false, then the SSID will only be broadcast by APs with tags matching any of the tags in this list.

@@ -9,7 +9,7 @@ public interface IOrganizationsLicenses
 	/// <param name="organizationId">The organization id</param>
 	[Post("/organizations/{organizationId}/licenses/assignSeats")]
 	Task<AssignSeatsResponse> AssignOrganizationLicensesSeatsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] LicenseSeatsAssignmentRequest licenseSeatsAssignmentRequest,
 		CancellationToken cancellationToken = default);
 
@@ -21,8 +21,8 @@ public interface IOrganizationsLicenses
 	/// <param name="licenseId">The license id</param>
 	[Get("/organizations/{organizationId}/licenses/{licenseId}")]
 	Task<OrganizationLicense> GetOrganizationLicenseAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("licenseId")] string licenseId,
+		string organizationId,
+		string licenseId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -38,23 +38,23 @@ public interface IOrganizationsLicenses
 	/// <param name="state">Filter the licenses to those in a particular state. Can be one of 'active', 'expired', 'expiring', 'unused', 'unusedActive' or 'recentlyQueued' (optional)</param>
 	[Get("/organizations/{organizationId}/licenses")]
 	Task<List<OrganizationLicense>> GetOrganizationLicensesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("endingBefore")] string? endingBefore = null,
-		[AliasAs("deviceSerial")] string? deviceSerial = null,
-		[AliasAs("networkId")] string? networkId = null,
-		[AliasAs("state")] string? state = null,
+		string organizationId,
+		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? deviceSerial = null,
+		string? networkId = null,
+		string? state = null,
 		CancellationToken cancellationToken = default);
 
 	// Used by IOrganizationsLicensesExtensions.GetOrganizationLicensesAllAsync
 	[Get("/organizations/{organizationId}/licenses")]
 	internal Task<ApiResponse<List<OrganizationLicense>>> GetPagedApiResponseAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("startingAfter")] string? startingAfter = null,
-		[AliasAs("deviceSerial")] string? deviceSerial = null,
-		[AliasAs("networkId")] string? networkId = null,
-		[AliasAs("state")] string? state = null,
+		string organizationId,
+		string? startingAfter = null,
+		string? deviceSerial = null,
+		string? networkId = null,
+		string? state = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -65,7 +65,7 @@ public interface IOrganizationsLicenses
 	/// <param name="licenseMoveRequest">Body for moving a license</param>
 	[Post("/organizations/{organizationId}/licenses/move")]
 	Task<LicenseMoveRequest> MoveOrganizationLicensesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] LicenseMoveRequest licenseMoveRequest,
 		CancellationToken cancellationToken = default);
 
@@ -77,7 +77,7 @@ public interface IOrganizationsLicenses
 	/// <param name="licenseSeatsMoveRequest">Body for moving SM seats</param>
 	[Post("/organizations/{organizationId}/licenses/moveSeats")]
 	Task<LicenseSeatsMoveRequest> MoveOrganizationLicensesSeatsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] LicenseSeatsMoveRequest licenseSeatsMoveRequest,
 		CancellationToken cancellationToken = default);
 
@@ -89,7 +89,7 @@ public interface IOrganizationsLicenses
 	/// <param name="licenseSeatsRenewalRequest">Body for renewing SM seats</param>
 	[Post("/organizations/{organizationId}/licenses/renewSeats")]
 	Task<AssignSeatsResponse> RenewOrganizationLicensesSeatsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] LicenseSeatsRenewalRequest licenseSeatsRenewalRequest,
 		CancellationToken cancellationToken = default);
 
@@ -102,8 +102,8 @@ public interface IOrganizationsLicenses
 	/// <param name="updateOrganizationLicense">Body for updating a license</param>
 	[Put("/organizations/{organizationId}/licenses/{licenseId}")]
 	Task<OrganizationLicense> UpdateOrganizationLicenseAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("licenseId")] string licenseId,
+		string organizationId,
+		string licenseId,
 		[Body] LicenseUpdateRequest updateOrganizationLicense,
 		CancellationToken cancellationToken = default);
 
@@ -114,6 +114,6 @@ public interface IOrganizationsLicenses
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/licenses/overview")]
 	Task<OrganizationLicenseState> GetOrganizationLicensesOverviewAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 }

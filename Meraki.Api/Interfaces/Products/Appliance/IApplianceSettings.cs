@@ -10,7 +10,7 @@ public interface IApplianceSettings
 	[ApiOperationId("getNetworkApplianceSettings")]
 	[Get("/networks/{networkId}/appliance/settings")]
 	Task<ApplianceSettings> GetNetworkApplianceSettingsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -22,7 +22,7 @@ public interface IApplianceSettings
 	[ApiOperationId("updateNetworkApplianceSettings")]
 	[Put("/networks/{networkId}/appliance/settings")]
 	Task<ApplianceSettings> UpdateNetworkApplianceSettingsAsync(
-		[AliasAs("networkId")] string networkId,
+		string networkId,
 		[Body] ApplianceSettings applianceSettings,
 		CancellationToken cancellationToken = default
 		);

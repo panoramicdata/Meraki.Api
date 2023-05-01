@@ -15,10 +15,10 @@ public interface ISmUserAccessDevices
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	[Get("/networks/{networkId}/sm/userAccessDevices")]
 	Task<List<UserAccessDevices>> GetNetworkSmUserAccessDevicesAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
+		string networkId,
+		int? perPage = 1000,
+		string startingAfter = null!,
+		string endingBefore = null!,
 		CancellationToken cancellationToken = default
 		);
 
@@ -30,8 +30,8 @@ public interface ISmUserAccessDevices
 	/// <param name="userAccessDeviceId">The user access device id</param>
 	[Delete("/networks/{networkId}/sm/userAccessDevices/{userAccessDeviceId}")]
 	Task DeleteNetworkSmUserAccessDeviceAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("userAccessDeviceId")] string userAccessDeviceId,
+		string networkId,
+		string userAccessDeviceId,
 		CancellationToken cancellationToken = default
 		);
 }

@@ -12,8 +12,8 @@ public interface IDeviceClients
 	[ApiOperationId("getDeviceClients")]
 	[Get("/devices/{serial}/clients")]
 	Task<List<DeviceClient>> GetDeviceClientsAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("timespan")] double? timespan = null,
+		string serial,
+		string t0 = null!,
+		double? timespan = null,
 		CancellationToken cancellationToken = default);
 }

@@ -9,7 +9,7 @@ public interface IOrganizationsAdaptivePolicySettings
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/adaptivePolicy/settings")]
 	Task<AdaptivePolicySettings> GetOrganizationAdaptivePolicySettingsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -19,7 +19,7 @@ public interface IOrganizationsAdaptivePolicySettings
 	/// <param name="organizationId">The organization id</param>
 	[Put("/organizations/{organizationId}/adaptivePolicy/settings")]
 	Task<AdaptivePolicySettings> UpdateOrganizationAdaptivePolicySettingsAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] AdaptivePolicySettings adaptivePolicySettings,
 		CancellationToken cancellationToken = default);
 }

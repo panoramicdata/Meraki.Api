@@ -13,8 +13,8 @@ public interface ISwitchProfiles
 	/// <param name="configTemplateId">The configuration id</param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles")]
 	Task<List<SwitchProfile>> GetOrganizationConfigTemplateSwitchProfilesAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("configTemplateId")] string configTemplateId,
+		string organizationId,
+		string configTemplateId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -26,9 +26,9 @@ public interface ISwitchProfiles
 	/// <param name="profileId">The profile id</param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports")]
 	Task<List<ConfigTemplateSwitchProfilePort>> GetOrganizationConfigTemplateSwitchProfilePortsAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("configTemplateId")] string configTemplateId,
-		[AliasAs("profileId")] string profileId,
+		string organizationId,
+		string configTemplateId,
+		string profileId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -42,10 +42,10 @@ public interface ISwitchProfiles
 	/// <param name="portId">The port id</param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}")]
 	Task<ConfigTemplateSwitchProfilePort> GetOrganizationConfigTemplateSwitchProfilePortAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("configTemplateId")] string configTemplateId,
-		[AliasAs("profileId")] string profileId,
-		[AliasAs("portId")] string portId,
+		string organizationId,
+		string configTemplateId,
+		string profileId,
+		string portId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -60,10 +60,10 @@ public interface ISwitchProfiles
 	/// <param name="updateOrganizationConfigTemplateSwitchProfilePort"></param>
 	[Put("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}")]
 	Task<ConfigTemplateSwitchProfilePort> UpdateOrganizationConfigTemplateSwitchProfilePortAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("configTemplateId")] string configTemplateId,
-		[AliasAs("profileId")] string profileId,
-		[AliasAs("portId")] string portId,
+		string organizationId,
+		string configTemplateId,
+		string profileId,
+		string portId,
 		[Body] ConfigTemplateSwitchProfilePort updateOrganizationConfigTemplateSwitchProfilePort,
 		CancellationToken cancellationToken = default
 		);

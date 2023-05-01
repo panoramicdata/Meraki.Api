@@ -10,7 +10,7 @@ public interface ICameraSense
 	[ApiOperationId("getDeviceCameraSense")]
 	[Get("/devices/{serial}/camera/sense")]
 	Task<CameraSense> GetDeviceCameraSenseAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -22,7 +22,7 @@ public interface ICameraSense
 	[ApiOperationId("updateDeviceCameraSense")]
 	[Put("/devices/{serial}/camera/sense")]
 	Task<CameraSense> UpdateDeviceCameraSenseAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] CameraSense cameraSense,
 		CancellationToken cancellationToken = default);
 
@@ -33,6 +33,6 @@ public interface ICameraSense
 	/// <param name="serial">The serial id</param>
 	[Get("/devices/{serial}/camera/sense/objectDetectionModels")]
 	Task<List<CameraObjectDetectionModel>> GetDeviceCameraSenseObjectDetectionModelsAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default);
 }

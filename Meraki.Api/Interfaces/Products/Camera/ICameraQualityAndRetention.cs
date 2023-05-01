@@ -10,7 +10,7 @@ public interface ICameraQualityAndRetention
 	[ApiOperationId("getDeviceCameraQualityAndRetention")]
 	[Get("/devices/{serial}/camera/qualityAndRetention")]
 	Task<CameraQualityAndRetention> GetDeviceCameraQualityAndRetentionAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -22,7 +22,7 @@ public interface ICameraQualityAndRetention
 	[ApiOperationId("updateDeviceCameraQualityAndRetention")]
 	[Put("/devices/{serial}/camera/qualityAndRetention")]
 	Task<CameraQualityAndRetention> UpdateDeviceCameraQualityAndRetentionAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] CameraQualityAndRetention cameraQualityAndRetention,
 		CancellationToken cancellationToken = default);
 }

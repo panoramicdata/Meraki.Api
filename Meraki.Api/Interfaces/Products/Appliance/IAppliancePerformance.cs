@@ -9,6 +9,6 @@ public interface IAppliancePerformance
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/appliance/performance")]
 	Task<Performance> GetDeviceAppliancePerformanceAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default);
 }

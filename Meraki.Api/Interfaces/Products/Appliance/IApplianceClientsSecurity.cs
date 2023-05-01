@@ -16,14 +16,14 @@ public interface IApplianceClientsSecurity
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	[Get("/networks/{networkId}/appliance/clients/{clientId}/security/events")]
 	Task<List<SecurityEvent>> GetNetworkApplianceClientSecurityEventsAsync(
-		[AliasAs("networkId")] string networkId,
-		[AliasAs("clientId")] string clientId,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("perPage")] int? perPage = 1000,
-		[AliasAs("startingAfter")] string startingAfter = null!,
-		[AliasAs("endingBefore")] string endingBefore = null!,
+		string networkId,
+		string clientId,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		int? perPage = 1000,
+		string startingAfter = null!,
+		string endingBefore = null!,
 		CancellationToken cancellationToken = default
 		);
 }

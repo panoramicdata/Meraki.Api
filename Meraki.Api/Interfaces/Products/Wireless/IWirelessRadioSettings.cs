@@ -12,7 +12,7 @@ public interface IWirelessRadioSettings
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/wireless/radio/settings")]
 	Task<WirelessRadioSettings> GetDeviceWirelessRadioSettingsAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface IWirelessRadioSettings
 	/// <param name="updateNetworkDeviceWirelessRadioSettings">Body for updating radio settings</param>
 	[Put("/devices/{serial}/wireless/radio/settings")]
 	Task<WirelessRadioSettings> UpdateDeviceWirelessRadioSettingsAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] WirelessRadioSettings updateNetworkDeviceWirelessRadioSettings,
 		CancellationToken cancellationToken = default
 		);

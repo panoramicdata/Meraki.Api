@@ -67,6 +67,12 @@ public class Events
 	public string SsidName { get; set; } = string.Empty;
 
 	/// <summary>
+	/// The category that the event type belongs to
+	/// </summary>
+	[DataMember(Name = "category")]
+	public string Category { get; set; } = string.Empty;
+
+	/// <summary>
 	/// Event data
 	/// </summary>
 	[DataMember(Name = "eventData")]

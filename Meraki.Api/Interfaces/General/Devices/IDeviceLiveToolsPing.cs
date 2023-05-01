@@ -11,7 +11,7 @@ public interface IDeviceLiveToolsPing
 	[ApiOperationId("createDeviceLiveToolsPing")]
 	[Post("/devices/{serial}/liveTools/ping")]
 	Task<LiveToolPing> CreateDeviceLiveToolsPingAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] LiveToolPingCreate createDeviceLiveToolsPing,
 		CancellationToken cancellationToken = default);
 
@@ -24,8 +24,8 @@ public interface IDeviceLiveToolsPing
 	[ApiOperationId("getDeviceLiveToolsPing")]
 	[Get("/devices/{serial}/liveTools/ping/{id}")]
 	Task<LiveToolPing> GetDeviceLiveToolsPingAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("id")] string id,
+		string serial,
+		string id,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -37,7 +37,7 @@ public interface IDeviceLiveToolsPing
 	[ApiOperationId("createDeviceLiveToolsPingDevice")]
 	[Post("/devices/{serial}/liveTools/pingDevice")]
 	Task<LiveToolPing> CreateDeviceLiveToolsPingDeviceAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] LiveToolPing createDeviceLiveToolsPingDevice,
 		CancellationToken cancellationToken = default);
 
@@ -49,7 +49,7 @@ public interface IDeviceLiveToolsPing
 	[ApiOperationId("getDeviceLiveToolsPingDevice")]
 	[Get("/devices/{serial}/liveTools/pingDevice/{id}")]
 	Task<LiveToolPing> GetDeviceLiveToolsPingDeviceAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("id")] string id,
+		string serial,
+		string id,
 		CancellationToken cancellationToken = default);
 }

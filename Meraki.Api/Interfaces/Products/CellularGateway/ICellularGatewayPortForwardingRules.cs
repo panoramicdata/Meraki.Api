@@ -12,7 +12,7 @@ public interface ICellularGatewayPortForwardingRules
 	/// <param name="serial">The serial number</param>
 	[Get("/devices/{serial}/cellularGateway/portForwardingRules")]
 	Task<CellularGatewayPortForwardingRules> GetDeviceCellularGatewayPortForwardingRulesAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 
@@ -24,7 +24,7 @@ public interface ICellularGatewayPortForwardingRules
 	/// <param name="updateDeviceCellularGatewaySettingsPortForwardingRules">Body for updating port forwarding rules</param>
 	[Put("/devices/{serial}/cellularGateway/portForwardingRules")]
 	Task<CellularGatewayPortForwardingRules> UpdateDeviceCellularGatewayPortForwardingRulesAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] CellularGatewayPortForwardingRules updateDeviceCellularGatewaySettingsPortForwardingRules,
 		CancellationToken cancellationToken = default
 		);

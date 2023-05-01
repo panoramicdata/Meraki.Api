@@ -13,7 +13,7 @@ public interface IOrganizationsAlerts
 	[ApiOperationId("getOrganizationAlertsProfiles")]
 	[Get("/organizations/{organizationId}/alerts/profiles")]
 	Task<List<OrganizationAlertProfile>> GetOrganizationAlertsProfilesAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -25,7 +25,7 @@ public interface IOrganizationsAlerts
 	[ApiOperationId("createOrganizationAlertsProfile")]
 	[Post("/organizations/{organizationId}/alerts/profiles")]
 	Task<OrganizationAlertProfile> CreateOrganizationAlertsProfileAsync(
-		[AliasAs("organizationId")] string organizationId,
+		string organizationId,
 		[Body] OrganizationAlertProfileCreateRequest createRequest,
 		CancellationToken cancellationToken = default);
 
@@ -39,8 +39,8 @@ public interface IOrganizationsAlerts
 	[ApiOperationId("updateOrganizationAlertsProfile")]
 	[Put("/organizations/{organizationId}/alerts/profiles/{alertConfigId}")]
 	Task<OrganizationAlertProfile> UpdateOrganizationAlertsProfileAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("alertConfigId")] string alertConfigId,
+		string organizationId,
+		string alertConfigId,
 		[Body] OrganizationAlertProfileUpdateRequest updateRequest,
 		CancellationToken cancellationToken = default);
 
@@ -53,8 +53,8 @@ public interface IOrganizationsAlerts
 	[ApiOperationId("deleteOrganizationAlertsProfile")]
 	[Delete("/organizations/{organizationId}/alerts/profiles/{alertConfigId}")]
 	Task DeleteOrganizationAlertsProfileAsync(
-		[AliasAs("organizationId")] string organizationId,
-		[AliasAs("alertConfigId")] string alertConfigId,
+		string organizationId,
+		string alertConfigId,
 		CancellationToken cancellationToken = default
 		);
 }

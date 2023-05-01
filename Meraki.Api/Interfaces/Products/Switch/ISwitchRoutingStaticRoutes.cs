@@ -9,7 +9,7 @@ public interface ISwitchRoutingStaticRoutes
 	[ApiOperationId("getDeviceSwitchRoutingStaticRoutes")]
 	[Get("/devices/{serial}/switch/routing/staticRoutes")]
 	Task<List<SwitchStaticRoute>> GetDeviceSwitchRoutingStaticRoutesAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 
@@ -22,8 +22,8 @@ public interface ISwitchRoutingStaticRoutes
 	[ApiOperationId("getDeviceSwitchRoutingStaticRoute")]
 	[Get("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
 	Task<SwitchStaticRoute> GetDeviceSwitchRoutingStaticRouteAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("staticRouteId")] string staticRouteId,
+		string serial,
+		string staticRouteId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -37,7 +37,7 @@ public interface ISwitchRoutingStaticRoutes
 	[ApiOperationId("createDeviceSwitchRoutingStaticRoute")]
 	[Post("/devices/{serial}/switch/routing/staticRoutes")]
 	Task<SwitchStaticRoute> CreateDeviceSwitchRoutingStaticRouteAsync(
-		[AliasAs("serial")] string serial,
+		string serial,
 		[Body] SwitchStaticRoute switchStaticRoute,
 		CancellationToken cancellationToken = default
 		);
@@ -52,8 +52,8 @@ public interface ISwitchRoutingStaticRoutes
 	[ApiOperationId("updateDeviceSwitchRoutingStaticRoute")]
 	[Put("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
 	Task<SwitchStaticRoute> UpdateDeviceSwitchRoutingStaticRouteAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("staticRouteId")] string staticRouteId,
+		string serial,
+		string staticRouteId,
 		[Body] SwitchStaticRoute switchStaticRoute,
 		CancellationToken cancellationToken = default
 		);
@@ -67,8 +67,8 @@ public interface ISwitchRoutingStaticRoutes
 	[ApiOperationId("deleteDeviceSwitchRoutingStaticRoute")]
 	[Delete("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
 	Task DeleteDeviceSwitchRoutingStaticRouteAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("staticRouteId")] string staticRouteId,
+		string serial,
+		string staticRouteId,
 		CancellationToken cancellationToken = default
 		);
 }

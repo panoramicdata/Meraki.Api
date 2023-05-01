@@ -11,7 +11,7 @@ public interface IDeviceLldpCdp
 	[ApiOperationId("getDeviceLldpCdp")]
 	[Get("/devices/{serial}/lldpCdp")]
 	Task<LldpCdp> GetDeviceLldpCdpAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("timespan")] int? timespan = null,
+		string serial,
+		int? timespan = null,
 		CancellationToken cancellationToken = default);
 }

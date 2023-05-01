@@ -16,12 +16,12 @@ public interface IDeviceLossAndLatencyHistory
 	[ApiOperationId("getDeviceLossAndLatencyHistory")]
 	[Get("/devices/{serial}/lossAndLatencyHistory")]
 	Task<List<LossAndLatencyHistory>> GetDeviceLossAndLatencyHistoryAsync(
-		[AliasAs("serial")] string serial,
-		[AliasAs("ip")] string ip,
-		[AliasAs("t0")] string t0 = null!,
-		[AliasAs("t1")] string t1 = null!,
-		[AliasAs("timespan")] double? timespan = null,
-		[AliasAs("resolution")] int? resolution = null,
-		[AliasAs("uplink")] string uplink = null!,
+		string serial,
+		string ip,
+		string t0 = null!,
+		string t1 = null!,
+		double? timespan = null,
+		int? resolution = null,
+		string uplink = null!,
 		CancellationToken cancellationToken = default);
 }

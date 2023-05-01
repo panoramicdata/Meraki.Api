@@ -11,12 +11,13 @@ public class RendezvousPointCreateUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "interfaceIp")]
-	public string InterfaceIp { get; set; } = string.Empty;
+	public string? InterfaceIp { get; set; }
 
 	/// <summary>
 	/// 'Any', or the IP address of a multicast group
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "multicastGroup")]
-	public string MulticastGroup { get; set; } = string.Empty;
+	public string? MulticastGroup { get; set; }
+
 }
