@@ -22,6 +22,13 @@ public class PayloadTemplate : NamedItem
 	public PayloadTemplateType? Type { get; set; }
 
 	/// <summary>
+	/// Information on which entities have access to the template
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "sharing")]
+	public PayloadTemplateSharing? Sharing { get; set; }
+
+	/// <summary>
 	/// The headers
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
