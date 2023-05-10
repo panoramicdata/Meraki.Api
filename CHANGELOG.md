@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.32.7
+- Added observed value "open" for EncryptionMode on SSID
+
 ## 1.32.6
 - Added missing AuthModes in SSID and corrected typos.
 
