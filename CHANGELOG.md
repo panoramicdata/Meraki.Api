@@ -1,7 +1,10 @@
 ﻿# Changelog
 
+## 1.32.6
+- Added missing AuthModes in SSID and corrected typos.
+
 ## 1.32.4
-- Added missing  Appliance DynamicDns Url
+- Added missing Appliance DynamicDns Url.
 
 ## 1.32.3
 - RefitSettings CollectionFormat now set to CollectionFormat.Multi, default was CSV, this allows sending multiple values for the filters.
