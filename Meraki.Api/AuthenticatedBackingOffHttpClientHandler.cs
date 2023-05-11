@@ -70,8 +70,6 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 
 			LastRequestUri = request.RequestUri.ToString();
 
-			Statistics.TotalRequestCount++;
-
 			// Complete the action
 			var httpResponseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
 
@@ -91,6 +89,9 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			TimeSpan delay;
 			// As long as we were not given a back-off request then we'll return the response and any further StatusCode handling is up to the caller
 			var statusCodeInt = (int)httpResponseMessage.StatusCode;
+
+			// Record the status code
+			Statistics.TotalRequestCount++;
 			Statistics.RecordStatusCode(statusCodeInt);
 
 			switch (statusCodeInt)
