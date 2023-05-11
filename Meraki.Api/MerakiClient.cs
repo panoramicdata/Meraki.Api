@@ -12,6 +12,8 @@ public partial class MerakiClient : IDisposable
 
 	public string LastRequestUri => _httpClientHandler.LastRequestUri;
 
+	public MerakiClientStatistics StatusCode
+
 	public string ApiClientVersion { get; private set; }
 
 	/// <summary>
