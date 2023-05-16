@@ -9,6 +9,7 @@ public class WirelessSsidVpnConcentrator
 	/// <summary>
 	/// The NAT ID of the concentrator that should be set.
 	/// </summary>
+	[ApiForeignKey(typeof(Network))]
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "networkId")]
 	public string? NetworkId { get; set; }
