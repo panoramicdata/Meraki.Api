@@ -11,26 +11,26 @@ public class SwitchPortStatusSecurePort
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// Active
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "active")]
-	public bool Active { get; set; }
+	public bool? Active { get; set; }
 
 	/// <summary>
 	/// Authentication status
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "authenticationStatus")]
-	public string AuthenticationStatus { get; set; } = string.Empty;
+	public string? AuthenticationStatus { get; set; }
 
 	/// <summary>
 	/// Config overrides
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "configOverrides")]
-	public ConfigOverrides ConfigOverrides { get; set; } = new();
+	public ConfigOverrides? ConfigOverrides { get; set; }
 }

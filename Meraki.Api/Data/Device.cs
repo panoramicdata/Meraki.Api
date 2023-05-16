@@ -117,7 +117,7 @@ public class Device : NamedItem
 	/// it must (1) be a switch, and (2) belong to a network that is bound to a configuration template.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[ApiForeignKey(typeof(SwitchProfile))]
+	[ApiForeignKey(typeof(SwitchPortsStatuses))]
 	[DataMember(Name = "switchProfileId")]
 	public string? SwitchProfileId { get; set; }
 

@@ -4,8 +4,8 @@
 public class Usage
 {
 	[DataMember(Name = "sent")]
-	public double Sent { get; set; }
+	public double? Sent { get; set; }
 
 	[DataMember(Name = "recv")]
-	public double Recv { get; set; }
+	public double? Recv { get; set; }
 }

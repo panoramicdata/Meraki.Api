@@ -136,7 +136,7 @@ public class Tests : MerakiClientTest
 				.Switch.ConfigTemplates.Profiles
 				.GetOrganizationConfigTemplateSwitchProfilesAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
 				.ConfigureAwait(false);
-			_ = switchProfiles.Should().BeOfType<List<SwitchProfile>>();
+			_ = switchProfiles.Should().BeOfType<List<SwitchPortsStatuses>>();
 			_ = switchProfiles.Should().NotBeNull();
 			if (switchProfiles.Count > 0)
 			{
