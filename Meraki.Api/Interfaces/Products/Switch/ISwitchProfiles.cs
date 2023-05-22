@@ -12,7 +12,7 @@ public interface ISwitchProfiles
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="configTemplateId">The configuration id</param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles")]
-	Task<List<SwitchPortsStatuses>> GetOrganizationConfigTemplateSwitchProfilesAsync(
+	Task<List<SwitchProfile>> GetOrganizationConfigTemplateSwitchProfilesAsync(
 		string organizationId,
 		string configTemplateId,
 		CancellationToken cancellationToken = default);

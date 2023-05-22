@@ -29,7 +29,7 @@ public class SwitchPortStatus
 
 	[DataMember(Name = "usageInKb")]
 	public UsageInKb? UsageInKb { get; set; }
-?
+
 	[DataMember(Name = "cdp")]
 	public Cdp? Cdp { get; set; }
 

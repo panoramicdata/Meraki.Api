@@ -4,7 +4,7 @@
 /// An switch profile
 /// </summary>
 [DataContract]
-public class SwitchPortsStatuses : NamedItem
+public class SwitchProfile : NamedItem
 {
 	/// <summary>
 	/// The switch profile Id
