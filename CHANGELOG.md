@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.33.1
+- Updated for v1.33 API changes
+
 ## 1.32.7
 - Added observed value "open" for EncryptionMode on SSID
 
