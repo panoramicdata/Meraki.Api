@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api.Extensions;
 
-public static class IOrganizationSwitchPortsStatusesExtentions
+public static class IOrganizationSwitchPortsStatusesExtensions
 {
 	/// <summary>
 	/// List the switchports in an organization
