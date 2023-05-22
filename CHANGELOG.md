@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.33.6
+- Added uplinkClientSampling to Network Switch Settings
+
 ## 1.33.1
 - Updated for v1.33 API changes
 
