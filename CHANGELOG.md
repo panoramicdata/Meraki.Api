@@ -3,8 +3,14 @@
 ## 1.33.1
 - Updated for v1.33 API changes
 
+## 1.32.7
+- Added observed value "open" for EncryptionMode on SSID
+
+## 1.32.6
+- Added missing AuthModes in SSID and corrected typos.
+
 ## 1.32.4
-- Added missing  Appliance DynamicDns Url
+- Added missing Appliance DynamicDns Url.
 
 ## 1.32.3
 - RefitSettings CollectionFormat now set to CollectionFormat.Multi, default was CSV, this allows sending multiple values for the filters.

@@ -23,5 +23,12 @@ public enum EncryptionMode
 	/// Enum WpaEap for "wpa-eap"
 	/// </summary>
 	[EnumMember(Value = "wpa-eap")]
-	WpaEap
+	WpaEap,
+
+	/// <summary>
+	/// Open
+	/// </summary>
+	[EnumMember(Value = "open")]
+	Open
+
 }

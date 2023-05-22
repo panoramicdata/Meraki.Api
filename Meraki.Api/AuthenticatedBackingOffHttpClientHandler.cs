@@ -19,6 +19,8 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 
 	public string LastRequestUri { get; private set; } = string.Empty;
 
+	public MerakiClientStatistics Statistics { get; } = new();
+
 	protected override async Task<HttpResponseMessage> SendAsync(
 		HttpRequestMessage request,
 		CancellationToken cancellationToken)
@@ -87,6 +89,11 @@ internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
 			TimeSpan delay;
 			// As long as we were not given a back-off request then we'll return the response and any further StatusCode handling is up to the caller
 			var statusCodeInt = (int)httpResponseMessage.StatusCode;
+
+			// Record the status code
+			Statistics.TotalRequestCount++;
+			Statistics.RecordStatusCode(statusCodeInt);
+
 			switch (statusCodeInt)
 			{
 				case 429:
