@@ -1,6 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 [DataContract]
+[ApiAccessReadOnlyClass]
 public class DeviceProvisioningStatus
 {
 	/// <summary>
