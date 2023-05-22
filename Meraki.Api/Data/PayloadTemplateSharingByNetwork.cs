@@ -9,8 +9,7 @@ public class PayloadTemplateSharingByNetwork
 	/// <summary>
 	/// Indicates whether network admins may modify this template
 	/// </summary>
-	[ApiKey]
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "adminsCanModify")]
 	public bool? AdminsCanModify { get; set; }
 

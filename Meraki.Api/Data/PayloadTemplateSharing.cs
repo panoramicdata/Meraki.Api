@@ -9,8 +9,7 @@ public class PayloadTemplateSharing
 	/// <summary>
 	/// Information on network access to the template
 	/// </summary>
-	[ApiKey]
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "byNetwork")]
 	public PayloadTemplateSharingByNetwork? ByNetwork { get; set; }
 
