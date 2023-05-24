@@ -35,6 +35,9 @@ public enum ProductType
 	[EnumMember(Value = "wired")]
 	Wired,
 
+	[EnumMember(Value = "frontizo")]
+	Frontizo,
+
 	[Obsolete("No longer available")]
 	[EnumMember(Value = "vm_concentrator")]
 	VmConcentrator

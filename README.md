@@ -1,20 +1,16 @@
 # Meraki.Api
 
-[![Nuget](https://img.shields.io/nuget/v/Meraki.Api)](https://www.nuget.org/packages/Meraki.Api/)
-[![Nuget](https://img.shields.io/nuget/dt/Meraki.Api)](https://www.nuget.org/packages/Meraki.Api/)
+[![Nuget](https://img.shields.io/nuget/v/Meraki.Api.Frontizo)](https://www.nuget.org/packages/Meraki.Api.Frontizo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d52eda04578e471e90b8495c40bdcb9d)](https://www.codacy.com/gh/panoramicdata/Meraki.Api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=panoramicdata/Meraki.Api&amp;utm_campaign=Badge_Grade)
 
 This project implements access to the v1 Meraki API
-
-See the [contribution guide](CONTRIBUTING.md) for more information regarding contributing to this project
 
 To use the Meraki API nuget package:
 
 ## Visual Studio
 1. Open your project in Visual Studio
 1. Right-click on the project and click "Manage Nuget packages"
-1. Find the package "Meraki.Api" - install the latest version
+1. Find the package "Meraki.Api.Frontizo" - install the latest version
 
 ## Example code (C# 11)
 
