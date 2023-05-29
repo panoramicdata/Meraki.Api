@@ -113,7 +113,12 @@ public class Tests : MerakiClientTest
 				await TestMerakiClient
 					.Networks
 					.Devices
-					.RemoveNetworkDevicesAsync(oldNetwork.Id, new DeviceRemovalRequest { Serial = oldNetworkDevice.Serial })
+					.RemoveNetworkDevicesAsync(
+						oldNetwork.Id,
+						new DeviceRemovalRequest {
+							Serial = oldNetworkDevice.Serial
+								?? throw new InvalidDataException("Expected serial number")
+						})
 					.ConfigureAwait(false);
 			}
 
@@ -136,7 +141,7 @@ public class Tests : MerakiClientTest
 			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId)
 			.ConfigureAwait(false);
 		var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
-		device.Should().NotBeNull();
+		_ = device.Should().NotBeNull();
 
 		// Perform any clean-up
 		await EnsureNetworkRemovedAsync(networkName)

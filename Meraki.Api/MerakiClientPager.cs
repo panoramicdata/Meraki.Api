@@ -99,7 +99,9 @@ public partial class MerakiClient
 	}
 
 	public static async Task<List<T>> GetAllAsync<T>(
+#pragma warning disable CS3001 // Argument type is not CLS-compliant
 		Func<string?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
+#pragma warning restore CS3001 // Argument type is not CLS-compliant
 		CancellationToken cancellationToken)
 	{
 		var allEntries = new List<T>();

@@ -8,7 +8,9 @@ public abstract class MerakiClientUnitTest
 {
 	protected string TestOrganizationId { get; }
 	protected string TestSwitchSerial { get; }
+#pragma warning disable CS3003 // Type is not CLS-compliant
 	protected ICacheLogger Logger { get; }
+#pragma warning restore CS3003 // Type is not CLS-compliant
 	protected MerakiClient TestMerakiClient { get; }
 
 	protected MerakiClientUnitTest(ITestOutputHelper testOutputHelper)
