@@ -72,9 +72,8 @@ public class Tests : MerakiClientTest
 	{
 		var networkName = new string('X', Network.MaxNameLength + 1);
 
-		Func<Task> action = async () =>
-		{
-			_ = await TestMerakiClient
+		Func<Task> action = async ()
+			=> _ = await TestMerakiClient
 				.Organizations
 				.Networks
 				.CreateOrganizationNetworkAsync(
@@ -86,7 +85,6 @@ public class Tests : MerakiClientTest
 						TimeZone = "Europe/London"
 					})
 				 .ConfigureAwait(false);
-		};
 
 		return action
 			.Should()
@@ -351,13 +349,11 @@ public class Tests : MerakiClientTest
 			.DeleteNetworkAsync(newNetwork.Id)
 			.ConfigureAwait(false);
 
-		action = async () =>
-		{
-			_ = await TestMerakiClient
-			   .Networks
-			   .GetNetworkAsync(newNetwork.Id)
-			   .ConfigureAwait(false);
-		};
+		action = async ()
+			=> _ = await TestMerakiClient
+				.Networks
+				.GetNetworkAsync(newNetwork.Id)
+				.ConfigureAwait(false);
 
 		_ = await action
 			.Should()
@@ -462,10 +458,10 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetRepeatedlyInQuickSuccession_Succeeds()
 	{
-		foreach (var __ in Enumerable.Range(0, 10))
+		// The code will call the `GetFirstNetworkAsync()` method 10 times sequentially without a pause.
+		for (var i = 0; i < 10; i++)
 		{
-			_ = await GetFirstNetworkAsync()
-				.ConfigureAwait(false);
+			_ = await GetFirstNetworkAsync().ConfigureAwait(false);
 		}
 	}
 
