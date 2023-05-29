@@ -26,4 +26,11 @@ public class SwitchSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "powerExceptions")]
 	public List<PowerException>? PowerExceptions { get; set; }
+
+	/// <summary>
+	/// Uplink Client Sampling - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "uplinkClientSampling")]
+	public SwitchSettingsUplinkClientSampling? UplinkClientSampling { get; set; }
 }

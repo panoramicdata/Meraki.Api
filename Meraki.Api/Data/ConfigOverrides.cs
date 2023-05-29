@@ -11,19 +11,19 @@ public class ConfigOverrides
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "type")]
-	public string Type { get; set; } = string.Empty;
+	public string? Type { get; set; }
 
 	/// <summary>
 	/// Allowed vlans
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "allowedVlans")]
-	public string AllowedVlans { get; set; } = string.Empty;
+	public string? AllowedVlans { get; set; }
 
 	/// <summary>
 	/// Vlan
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlan")]
-	public int Vlan { get; set; }
+	public int? Vlan { get; set; }
 }

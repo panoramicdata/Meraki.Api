@@ -23,6 +23,7 @@ public partial class OrganizationsSection
 	public IOrganizationsSamlRoles SamlRoles { get; internal set; } = null!;
 	public IOrganizationsSnmp Snmp { get; internal set; } = null!;
 	public OrganizationsSummarySection Summary { get; internal set; } = new();
+	public IOrganizationSwitches Switches { get; internal set; } = null!;
 	public OrganizationsWebhooksSection Webhooks { get; internal set; } = new();
 	public OrganizationBrandingPoliciesSection BrandingPolicies { get; internal set; } = new();
 }
