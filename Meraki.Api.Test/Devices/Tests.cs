@@ -105,7 +105,7 @@ public class Tests : MerakiClientTest
 			.NotBeEmpty();
 
 		var deviceSerial = devices[0].Serial
-			?? throw new InvalidDataException("Expected non-null serial");
+			?? throw new InvalidDataException("Expected serial number");
 
 		var deviceManagementInterfaceSettings = await TestMerakiClient
 			.Devices
