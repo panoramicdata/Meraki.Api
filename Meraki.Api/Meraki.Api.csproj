@@ -7,6 +7,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AnalysisMode>Recommended</AnalysisMode>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Copyright>Panoramic Data Limited 2021-2023</Copyright>
 		<PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
