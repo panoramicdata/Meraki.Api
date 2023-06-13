@@ -47,4 +47,11 @@ public class NetworkSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "clientPrivacy")]
 	public NetworkSettingsClientPrivacy? ClientPrivacy { get; set; }
+
+	/// <summary>
+	/// A hash of Named VLANs options applied to the Network.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "namedVlans")]
+	public NetworkSettingsNamedVlans? NamedVlans { get; set; }
 }

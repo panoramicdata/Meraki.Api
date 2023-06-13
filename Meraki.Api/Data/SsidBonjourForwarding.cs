@@ -19,4 +19,11 @@ public class SsidBonjourForwarding
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
 	public List<BonjourForwardingRule> Rules { get; set; } = new();
+
+	/// <summary>
+	/// Undocumented June 2023
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "exception")]
+	public SsidBonjourForwardingException? Exception { get; set; }
 }
