@@ -18,5 +18,5 @@ public class DeviceAvailabilityHistoryDetailNew
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "value")]
-	public string Value { get; set; } = string.Empty;
+	public string? Value { get; set; }
 }
