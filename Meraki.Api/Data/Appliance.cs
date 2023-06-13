@@ -7,6 +7,12 @@
 public class Appliance
 {
 	/// <summary>
+	/// Whether or not the network wants beta firmware
+	/// </summary>
+	[DataMember(Name = "participateInNextBetaRelease")]
+	public bool? ParticipateInNextBetaRelease { get; set; }
+
+	/// <summary>
 	/// Next upgrade
 	/// </summary>
 	[DataMember(Name = "nextUpgrade")]

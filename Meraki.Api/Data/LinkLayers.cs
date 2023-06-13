@@ -18,4 +18,10 @@ public class LinkLayers
 	/// </summary>
 	[DataMember(Name = "links")]
 	public List<LinkLayerLinks> Links { get; set; } = new();
+
+	/// <summary>
+	/// Errors - No example response as at June 2023
+	/// </summary>
+	[DataMember(Name = "errors")]
+	public List<object> Errors { get; set; } = new();
 }
