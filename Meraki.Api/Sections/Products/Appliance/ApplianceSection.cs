@@ -10,7 +10,8 @@ public class ApplianceSection
 	public IAppliancePerformance Performance { get; internal set; } = null!;
 	public IAppliancePorts Ports { get; internal set; } = null!;
 	public AppliancePrefixesSection Prefixes { get; internal set; } = new();
-	public IApplianceRfProfiles RfProfiles { get; internal set; } = null!
+	public IApplianceRadioSettings RadioSettings { get; internal set; } = null!;
+	public IApplianceRfProfiles RfProfiles { get; internal set; } = null!;
 	public ApplianceSecuritySection Security { get; internal set; } = new();
 	public IApplianceSettings Settings { get; internal set; } = null!;
 	public IApplianceSingleLan SingleLan { get; internal set; } = null!;
