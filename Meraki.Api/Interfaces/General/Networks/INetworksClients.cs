@@ -18,6 +18,7 @@ public interface INetworksClients
 	/// <param name="ip6Local">Filters clients based on a partial or full match for the ip6Local address field.</param>
 	/// <param name="mac">Filters clients based on a partial or full match for the mac address field.</param>
 	/// <param name="os">Filters clients based on a partial or full match for the os (operating system) field.</param>
+	/// <param name="pskGroup">Filters clients based on partial or full match for the iPSK name field.</param>
 	/// <param name="description">Filters clients based on a partial or full match for the description field.</param>
 	/// <param name="recentDeviceConnections">Filters clients based on recent connection type. Can be one of 'Wired' or 'Wireless'.</param>
 	[ApiOperationId("getNetworkClients")]
@@ -36,6 +37,7 @@ public interface INetworksClients
 		string? ip6Local = null,
 		string? mac = null,
 		string? os = null,
+		string? pskGroup = null,
 		string? description = null,
 		[AliasAs("recentDeviceConnections[]")] List<string>? recentDeviceConnections = null,
 		CancellationToken cancellationToken = default);
