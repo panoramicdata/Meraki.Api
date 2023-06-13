@@ -35,4 +35,25 @@ public class SmTrustedAccessConfig : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "accessEndAt")]
 	public DateTime? AccessEndAt { get; set; }
+
+	/// <summary>
+	/// Send Email Notifications
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "sendExpirationEmails")]
+	public bool? SendExpirationEmails { get; set; }
+
+	/// <summary>
+	/// Time before access expiration reminder email sends
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "notifyTimeBeforeAccessEnds")]
+	public int? NotifyTimeBeforeAccessEnds { get; set; }
+
+	/// <summary>
+	/// Optional email text
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "additionalEmailText")]
+	public string? AdditionalEmailText { get; set; }
 }
