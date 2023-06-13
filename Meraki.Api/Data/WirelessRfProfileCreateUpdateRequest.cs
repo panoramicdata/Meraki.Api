@@ -68,4 +68,18 @@ public class WirelessRfProfileCreateUpdateRequest
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "perSsidSettings")]
 	public PerSsidSettings? PerSsidSettings { get; set; }
+
+	/// <summary>
+	/// Undocumented June 2023
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "isIndoorDefault")]
+	public bool? IsIndoorDefault { get; set; }
+
+	/// <summary>
+	/// Undocumented June 2023
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "isOutdoorDefault")]
+	public bool? IsOutdoorDefault { get; set; }
 }
