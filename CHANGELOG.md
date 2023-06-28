@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.33.22
+- Updated ClientUsageHistory Sent and Received to be longs instead of ints.
+
 ## 1.33.6
 - Added uplinkClientSampling to Network Switch Settings
 
