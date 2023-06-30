@@ -19,6 +19,7 @@ public partial class MerakiClient
 		{ "Q2BX", "MS120-8LP" },
 		{ "Q2CW", "MS425-16" },
 		{ "Q2CX", "MS120-8FP" },
+		{ "Q2DK", "MR72" },
 		{ "Q2EK", "MR84" },
 		{ "Q2EV", "MV12N" },
 		{ "Q2EW", "MS350-24X" },
