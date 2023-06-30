@@ -855,8 +855,8 @@ public partial class MerakiClient
 			ProductType = productType,
 			IsVirtual = model?[0] == 'v',
 			Model = model ?? "Unknown",
-			EndOfSale = eox?["EndOfSale"]?.ToObject<DateTime?>(),
-			EndOfSupport = eox?["EndOfSupport"]?.ToObject<DateTime?>(),
+			EndOfSale = eox?["EndOfSale"]?.ToObject<DateTimeOffset?>(),
+			EndOfSupport = eox?["EndOfSupport"]?.ToObject<DateTimeOffset?>(),
 			EndOfSaleNoticeUrl = eox?["EosNoticeUrl"]?.ToString(),
 		};
 	}
