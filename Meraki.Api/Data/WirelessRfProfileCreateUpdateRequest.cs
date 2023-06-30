@@ -63,6 +63,13 @@ public class WirelessRfProfileCreateUpdateRequest
 	public FiveGhzSettings? FiveGhzSettings { get; set; }
 
 	/// <summary>
+	/// Settings related to 6Ghz band. Only applicable to networks with 6Ghz capable APs
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "sixGhzSettings")]
+	public SixGhzSettings? SixGhzSettings { get; set; }
+
+	/// <summary>
 	/// Per-SSID radio settings by number.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
