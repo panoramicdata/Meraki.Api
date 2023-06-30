@@ -2,8 +2,6 @@
 
 public class Tests : MerakiClientTest
 {
-	private const string SerialNumber = "Q2AT-1234-1234";
-
 	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
 	}
