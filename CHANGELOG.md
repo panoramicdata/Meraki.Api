@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.34.1
+- Updated for v1.34 API changes
+
 ## 1.33.22
 - Updated ClientUsageHistory Sent and Received to be longs instead of ints.
 
