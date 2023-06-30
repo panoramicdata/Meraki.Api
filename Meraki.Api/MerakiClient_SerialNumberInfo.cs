@@ -848,6 +848,9 @@ public partial class MerakiClient
 			(ProductType?)null;
 
 		var eox = eoxData.Find(x => x["DeviceModel"]?.ToString() == model);
+		var endOfSaleDateTime = eox?["EndOfSale"]?.ToObject<DateTime?>();
+		var endOfSupportDateTime = eox?["EndOfSupport"]?.ToObject<DateTime?>();
+		var endOfSaleNoticeUrl = eox?["EosNoticeUrl"]?.ToString();
 
 		return new SerialNumberInfo
 		{
@@ -855,9 +858,9 @@ public partial class MerakiClient
 			ProductType = productType,
 			IsVirtual = model?[0] == 'v',
 			Model = model ?? "Unknown",
-			EndOfSale = eox?["EndOfSale"]?.ToObject<DateTimeOffset?>(),
-			EndOfSupport = eox?["EndOfSupport"]?.ToObject<DateTimeOffset?>(),
-			EndOfSaleNoticeUrl = eox?["EosNoticeUrl"]?.ToString(),
+			EndOfSale = endOfSaleDateTime is null ? null : new DateTimeOffset(endOfSaleDateTime.Value, TimeSpan.Zero),
+			EndOfSupport = endOfSupportDateTime is null ? null : new DateTimeOffset(endOfSupportDateTime.Value, TimeSpan.Zero),
+			EndOfSaleNoticeUrl = endOfSaleNoticeUrl
 		};
 	}
 }

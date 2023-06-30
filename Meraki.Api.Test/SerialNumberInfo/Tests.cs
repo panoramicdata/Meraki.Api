@@ -16,8 +16,12 @@ public class Tests : MerakiClientTest
 		_ = result.Model.Should().Be(productName);
 		_ = result.ProductType.Should().Be(productType);
 		_ = result.IsVirtual.Should().Be(isVirtual);
-		//_ = result.EndOfSale.Should().NotBeNull();
-		//_ = result.EndOfSupport.Should().NotBeNull();
-		//_ = result.EndOfSaleNoticeUrl.Should().NotBeNull();
+
+		if (result.EndOfSale is not null)
+		{
+			_ = result.EndOfSale.Value.Offset.Should().Be(TimeSpan.Zero);
+			_ = result.EndOfSupport.Should().NotBeNull();
+			_ = result.EndOfSaleNoticeUrl.Should().NotBeNull();
+		}
 	}
 }
