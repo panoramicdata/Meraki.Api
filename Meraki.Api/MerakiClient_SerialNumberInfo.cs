@@ -834,9 +834,10 @@ public partial class MerakiClient
 
 		var model = _serialNumberModels.TryGetValue(serialNumber.Substring(0, 4), out var m)
 			? m
-			: throw new NotSupportedException("Serial number not recognized.");
+			: null;
 
 		var productType =
+			model is null ? null :
 			model.StartsWith("MX") || model.StartsWith("Z") ? ProductType.Appliance :
 			model.StartsWith("MS") ? ProductType.Switch :
 			model.StartsWith("MR") || model.StartsWith("CW") ? ProductType.Wireless :
@@ -844,7 +845,7 @@ public partial class MerakiClient
 			model.StartsWith("MG") ? ProductType.CellularGateway :
 			model.StartsWith("MC") ? ProductType.Phone :
 			model.StartsWith("MT") ? ProductType.Sensor :
-			throw new NotSupportedException($"Model {model} not supported.");
+			(ProductType?)null;
 
 		var eox = eoxData.Find(x => x["DeviceModel"]?.ToString() == model);
 
@@ -852,8 +853,8 @@ public partial class MerakiClient
 		{
 			SerialNumber = serialNumber,
 			ProductType = productType,
-			IsVirtual = model[0] == 'v',
-			Model = model,
+			IsVirtual = model?[0] == 'v',
+			Model = model ?? "Unknown",
 			EndOfSale = eox?["EndOfSale"]?.ToObject<DateTime?>(),
 			EndOfSupport = eox?["EndOfSupport"]?.ToObject<DateTime?>(),
 			EndOfSaleNoticeUrl = eox?["EosNoticeUrl"]?.ToString(),

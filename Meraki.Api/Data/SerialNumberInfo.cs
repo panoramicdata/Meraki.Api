@@ -6,9 +6,9 @@ public class SerialNumberInfo
 
 	public string Model { get; internal set; } = string.Empty;
 
-	public ProductType ProductType { get; internal set; }
+	public ProductType? ProductType { get; internal set; }
 
-	public bool IsVirtual { get; internal set; }
+	public bool? IsVirtual { get; internal set; }
 
 	public DateTimeOffset? EndOfSale { get; internal set; }
 
