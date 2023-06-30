@@ -9,7 +9,7 @@ public interface IApplianceRadioSettings
 	/// <param name="serial">The network id</param>
 	[ApiOperationId("getDeviceApplianceRadioSettings")]
 	[Get("/devices/{serial}/appliance/radio/settings")]
-	Task<DeviceApplianceRadioSettings> getDeviceApplianceRadioSettings(
+	Task<DeviceApplianceRadioSettings> GetDeviceApplianceRadioSettings(
 		string networkId,
 		CancellationToken cancellationToken = default
 		);
