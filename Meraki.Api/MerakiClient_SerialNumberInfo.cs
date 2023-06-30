@@ -53,6 +53,7 @@ public partial class MerakiClient
 		{ "Q2QN", "MX65" },
 		{ "Q2QY", "Z3C-HW-WW" },
 		{ "Q2RD", "MR30H" },
+		{ "Q2SX", "MS210-24P" },
 		{ "Q2SW", "MX250" },
 		{ "Q2TD", "MR42E" },
 		{ "Q2TN", "Z3" },
