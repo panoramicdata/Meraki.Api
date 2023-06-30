@@ -8,13 +8,15 @@ public class Tests : MerakiClientTest
 	{
 	}
 
-	[Fact]
-	public void GetFromSerialNumber()
+	[Theory]
+	[InlineData("Q2AT-1234-1234", "MC74", ProductType.Phone, false)]
+	[InlineData("Q5AC-1234-1234", "CW9164I", ProductType.Wireless, false)]
+	public void GetFromSerialNumber(string serialNumber, string productName, ProductType productType, bool isVirtual)
 	{
-		var result = MerakiClient.GetInfoFromSerialNumber(SerialNumber);
-		_ = result.SerialNumber.Should().Be(SerialNumber);
-		_ = result.Model.Should().Be("MC74");
-		_ = result.ProductType.Should().Be(ProductType.Phone);
-		_ = result.IsVirtual.Should().BeFalse();
+		var result = MerakiClient.GetInfoFromSerialNumber(serialNumber);
+		_ = result.SerialNumber.Should().Be(serialNumber);
+		_ = result.Model.Should().Be(productName);
+		_ = result.ProductType.Should().Be(productType);
+		_ = result.IsVirtual.Should().Be(isVirtual);
 	}
 }

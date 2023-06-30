@@ -65,6 +65,8 @@ public partial class MerakiClient
 		{ "Q3AB", "MR56" },
 		{ "Q3AC", "MR46" },
 		{ "Q3AD", "MR46E" },
+		{ "Q5AC", "CW9164I" },
+		{ "Q5AE", "CW9166I" },
 	};
 
 	/// <summary>
@@ -89,13 +91,13 @@ public partial class MerakiClient
 			: throw new NotSupportedException("Serial number not recognized.");
 
 		var productType =
-			model.Contains("MX") || model.Contains("Z") ? ProductType.Appliance :
-			model.Contains("MS") ? ProductType.Switch :
-			model.Contains("MR") ? ProductType.Wireless :
-			model.Contains("MV") ? ProductType.Camera :
-			model.Contains("MG") ? ProductType.CellularGateway :
-			model.Contains("MC") ? ProductType.Phone :
-			model.Contains("MT") ? ProductType.Sensor :
+			model.StartsWith("MX") || model.StartsWith("Z") ? ProductType.Appliance :
+			model.StartsWith("MS") ? ProductType.Switch :
+			model.StartsWith("MR") || model.StartsWith("CW") ? ProductType.Wireless :
+			model.StartsWith("MV") ? ProductType.Camera :
+			model.StartsWith("MG") ? ProductType.CellularGateway :
+			model.StartsWith("MC") ? ProductType.Phone :
+			model.StartsWith("MT") ? ProductType.Sensor :
 			throw new NotSupportedException($"Model {model} not supported.");
 
 		return new SerialNumberInfo
