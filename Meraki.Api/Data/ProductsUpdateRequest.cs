@@ -10,25 +10,25 @@ public class ProductsUpdateRequest
 	/// Appliance
 	/// </summary>
 	[DataMember(Name = "appliance")]
-	public Appliance? Appliance { get; set; }
+	public NetworkFirmwareUpdateRequestProduct? Appliance { get; set; }
 
 	/// <summary>
 	/// Camera
 	/// </summary>
 	[DataMember(Name = "camera")]
-	public Appliance? Camera { get; set; }
+	public NetworkFirmwareUpdateRequestProduct? Camera { get; set; }
 
 	/// <summary>
 	/// Cellular gateway
 	/// </summary>
 	[DataMember(Name = "cellularGateway")]
-	public Appliance? CellularGateway { get; set; }
+	public NetworkFirmwareUpdateRequestProduct? CellularGateway { get; set; }
 
 	/// <summary>
 	/// Environmental
 	/// </summary>
 	[DataMember(Name = "environmental")]
-	public Appliance? Environmental { get; set; }
+	public NetworkFirmwareUpdateRequestProduct? Environmental { get; set; }
 
 	/// <summary>
 	/// Switch
@@ -40,23 +40,23 @@ public class ProductsUpdateRequest
 	/// VMX Host
 	/// </summary>
 	[DataMember(Name = "vmxHost")]
-	public Appliance? VmxHost { get; set; }
+	public NetworkFirmwareUpdateRequestProduct? VmxHost { get; set; }
 
 	/// <summary>
 	/// Wireless
 	/// </summary>
 	[DataMember(Name = "wireless")]
-	public Appliance? Wireless { get; set; }
+	public NetworkFirmwareUpdateRequestProduct? Wireless { get; set; }
 
 	/// <summary>
 	/// CloudGateway
 	/// </summary>
 	[DataMember(Name = "cloudGateway")]
-	public Appliance? CloudGateway { get; set; }
+	public NetworkFirmwareUpdateRequestProduct? CloudGateway { get; set; }
 
 	/// <summary>
 	/// SwitchCatalyst
 	/// </summary>
 	[DataMember(Name = "switchCatalyst")]
-	public Appliance? SwitchCatalyst { get; set; }
+	public NetworkFirmwareUpdateRequestProduct? SwitchCatalyst { get; set; }
 }

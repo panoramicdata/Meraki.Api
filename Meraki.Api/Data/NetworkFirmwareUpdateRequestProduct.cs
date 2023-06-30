@@ -4,7 +4,7 @@
 /// Network device to be updated
 /// </summary>
 [DataContract]
-public class Appliance
+public class NetworkFirmwareUpdateRequestProduct
 {
 	/// <summary>
 	/// Whether or not the network wants beta firmware
