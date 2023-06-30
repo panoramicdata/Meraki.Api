@@ -16,7 +16,7 @@ public class DeviceApplianceRadioSettings
 	/// <summary>
 	/// The device serial
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiForeignKey(typeof(Device))]
 	[DataMember(Name = "serial")]
 	public string Serial { get; set; } = string.Empty;
 
