@@ -73,6 +73,7 @@ public partial class MerakiClient
 		{ "Q3AL", "MR44" },
 		{ "Q3AJ", "MR36" },
 		{ "Q3AK", "MR76" },
+		{ "Q3AU", "MR78" },
 		{ "Q5AC", "CW9164I" },
 		{ "Q5AE", "CW9166I" },
 	};
