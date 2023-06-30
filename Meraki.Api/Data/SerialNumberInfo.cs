@@ -9,7 +9,7 @@ public class SerialNumberInfo
 	public ProductType ProductType { get; internal set; }
 
 	public bool IsVirtual { get; internal set; }
-	public DateTime? EndOfSale { get; internal set; }
-	public DateTime? EndOfSupport { get; internal set; }
+	public DateTimeOffset? EndOfSale { get; internal set; }
+	public DateTimeOffset? EndOfSupport { get; internal set; }
 	public string? EndOfSaleNoticeUrl { get; internal set; }
 }
