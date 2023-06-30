@@ -1,10 +1,9 @@
 ﻿namespace Meraki.Api;
 
-/// <summary>
-/// A Meraki Dashboard API client!
-/// </summary>
 public partial class MerakiClient
 {
+	// Information from https://community.meraki.com/t5/Developers-APIs/Serial-number-to-Device-Type/m-p/199859?utm_campaign=immediate_general%27&utm_medium=email&utm_source=communitymembers
+	// ...and other contributors.
 	private static readonly Dictionary<string, string> _serialNumberModels = new()
 	{
 		{ "Q2AT", "MC74" },
