@@ -5,6 +5,8 @@
 /// </summary>
 public partial class MerakiClient
 {
+	// Information from https://community.meraki.com/t5/Developers-APIs/Serial-number-to-Device-Type/m-p/199859
+	// ...and other contributors.
 	private static readonly Dictionary<string, string> _serialNumberModels = new()
 	{
 		{ "Q2AT", "MC74" },
