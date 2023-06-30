@@ -44,7 +44,7 @@ public class SsidLayer3FirewallRule
 	/// <summary>
 	/// Undocumented IP Version - Observed values so far: 'ipv4'
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ipVer")]
 	public string? IpVer { get; set; }
 }

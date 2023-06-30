@@ -114,4 +114,36 @@ public interface IOrganizationsDevices
 		[AliasAs("productTypes[]")] List<string>? productTypes,
 		[AliasAs("networkIds[]")] List<string>? networkIds,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// List the provisioning statuses information for devices in an organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	[Get("/organizations/{organizationId}/devices/provisioning/statuses")]
+	Task<List<DeviceProvisioningStatus>> GetOrganizationDevicesProvisioningStatusesAsync(
+		string organizationId,
+		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("productTypes[]")] List<string>? productTypes = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		string? status = null,
+		[AliasAs("tags[]")] List<string>? tags = null,
+		string? tagsFilterType = null,
+		CancellationToken cancellationToken = default);
+
+	// Used by IOrganizationsDevicesExtensions.GetOrganizationDeviceProvisioningStatusesAllAsync
+	[Get("/organizations/{organizationId}/devices/provisioning/statuses")]
+	internal Task<ApiResponse<List<DeviceProvisioningStatus>>> GetDevicesProvisioningStatusesApiResponseAsync(
+		string organizationId,
+		string? startingAfter = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		string? status = null,
+		[AliasAs("productTypes[]")] List<string>? productTypes = null,
+		[AliasAs("tags[]")] List<string>? tags = null,
+		string? tagsFilterType = null,
+		CancellationToken cancellationToken = default);
 }

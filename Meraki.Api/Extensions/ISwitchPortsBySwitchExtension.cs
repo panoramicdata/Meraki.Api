@@ -16,7 +16,7 @@ public static class ISwitchPortsBySwitchExtensions
 	/// <param name="serials">Optional parameter to filter switchports belonging to switches with one or more serial numbers. All switchports returned belong to serial numbers of switches that are an exact match.</param>
 	/// <param name="macs">Optional parameter to filter switchports by one or more MAC addresses belonging to devices. All switchports returned belong to MAC addresses of switches that are an exact match.</param>
 	public static Task<List<SwitchPortsBySwitch>> GetOrganizationSwitchPortsBySwitchAllAsync(
-		this ISwitchPortsBySwitch switchPortsBySwitch,
+		this IOrganizationSwitches switchPortsBySwitch,
 		string organizationId,
 		string? configurationUpdatedAfter = null,
 		List<string>? networkIds = null,

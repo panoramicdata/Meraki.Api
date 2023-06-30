@@ -10,13 +10,13 @@ public class ClientUsageHistory
 	/// Sent
 	/// </summary>
 	[DataMember(Name = "sent")]
-	public int Sent { get; set; }
+	public long Sent { get; set; }
 
 	/// <summary>
 	/// Received
 	/// </summary>
 	[DataMember(Name = "received")]
-	public int Received { get; set; }
+	public long Received { get; set; }
 
 	/// <summary>
 	/// Ts

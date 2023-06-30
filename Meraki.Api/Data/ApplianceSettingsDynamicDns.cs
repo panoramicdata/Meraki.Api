@@ -23,7 +23,7 @@ public class ApplianceSettingsDynamicDns
 	/// <summary>
 	/// Dynamic DNS url. DDNS must be enabled to update
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "url")]
 	public string? Url { get; set; }
 }

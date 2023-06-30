@@ -140,7 +140,12 @@ public class Tests : MerakiClientTest
 				await TestMerakiClient
 					.Networks
 					.Devices
-					.RemoveNetworkDevicesAsync(oldNetwork.Id, new DeviceRemovalRequest { Serial = oldNetworkDevice.Serial })
+					.RemoveNetworkDevicesAsync(
+						oldNetwork.Id,
+						new DeviceRemovalRequest {
+							Serial = oldNetworkDevice.Serial
+								?? throw new InvalidDataException("Expected serial number")
+						})
 					.ConfigureAwait(false);
 			}
 

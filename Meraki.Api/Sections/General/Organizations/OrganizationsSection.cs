@@ -11,6 +11,7 @@ public partial class OrganizationsSection
 	public IOrganizationsConfigTemplates ConfigTemplates { get; internal set; } = null!;
 	public IOrganizationsConfigurationChanges ConfigurationChanges { get; internal set; } = null!;
 	public IOrganizationsDevices Devices { get; internal set; } = null!;
+	public IOrganizationsDevicesAvailabilitiesHistories DevicesAvailabilitiesHistories { get; internal set; } = null!;
 	public OrganizationsEarlyAccessSection EarlyAccess { get; internal set; } = new();
 	public IOrganizationsInventoryDevices InventoryDevices { get; internal set; } = null!;
 	public IOrganizationsLicenses Licenses { get; internal set; } = null!;
@@ -23,6 +24,7 @@ public partial class OrganizationsSection
 	public IOrganizationsSamlRoles SamlRoles { get; internal set; } = null!;
 	public IOrganizationsSnmp Snmp { get; internal set; } = null!;
 	public OrganizationsSummarySection Summary { get; internal set; } = new();
+	public IOrganizationSwitches Switches { get; internal set; } = null!;
 	public OrganizationsWebhooksSection Webhooks { get; internal set; } = new();
 	public OrganizationBrandingPoliciesSection BrandingPolicies { get; internal set; } = new();
 }
