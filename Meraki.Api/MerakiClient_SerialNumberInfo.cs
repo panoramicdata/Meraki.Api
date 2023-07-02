@@ -11,12 +11,14 @@ public partial class MerakiClient
 	// ...and other contributors.
 	private static readonly Dictionary<string, string> _serialNumberModels = new()
 	{
+		{ "Q2AP", "MS22" },
 		{ "Q2AT", "MC74" },
 		{ "Q2AW", "MS410-16" },
 		{ "Q2AX", "MS120-8" },
 		{ "Q2AZ", "vMX100" },
 		{ "Q2BV", "MV21" },
 		{ "Q2BX", "MS120-8LP" },
+		{ "Q2CN", "MX60W" },
 		{ "Q2CW", "MS425-16" },
 		{ "Q2CX", "MS120-8FP" },
 		{ "Q2DK", "MR72" },
@@ -25,6 +27,7 @@ public partial class MerakiClient
 		{ "Q2EW", "MS350-24X" },
 		{ "Q2EX", "MS120-24P" },
 		{ "Q2FD", "MR34" },
+		{ "Q2FN", "MX400" },
 		{ "Q2FW", "MS225-24" },
 		{ "Q2FY", "MX67" },
 		{ "Q2GD", "MR18" },
@@ -42,6 +45,7 @@ public partial class MerakiClient
 		{ "Q2KD", "MR42" },
 		{ "Q2KN", "MX64" },
 		{ "Q2KP", "MS220-24P" },
+		{ "Q2KY", "MX68" },
 		{ "Q2LD", "MR52" },
 		{ "Q2LP", "MS220-48" },
 		{ "Q2MD", "MR53" },
