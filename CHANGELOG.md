@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.34.28
+- Serial numbers added
+- Updated dependencies
+
 ## 1.34.1
 - Updated for v1.34 API changes
 
