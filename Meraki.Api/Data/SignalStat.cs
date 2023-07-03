@@ -10,11 +10,11 @@ public class SignalStat
 	/// Rsrp
 	/// </summary>
 	[DataMember(Name = "rsrp")]
-	public string Rsrp { get; set; } = string.Empty;
+	public string? Rsrp { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Rsrq
 	/// </summary>
 	[DataMember(Name = "rsrq")]
-	public string Rsrq { get; set; } = string.Empty;
+	public string? Rsrq { get; set; } = string.Empty;
 }
