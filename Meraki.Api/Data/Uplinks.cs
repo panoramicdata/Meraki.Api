@@ -52,6 +52,7 @@ public class Uplinks
 	/// Signal stat
 	/// </summary>
 	[DataMember(Name = "signalStat")]
+	[JsonConverter(typeof(EmptyArrayOrDictionaryConverter))]
 	public SignalStat? SignalStat { get; set; }
 
 	/// <summary>
