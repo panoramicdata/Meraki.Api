@@ -97,7 +97,7 @@ public partial class MerakiClient
 	/// <summary>
 	/// This information from a ReportMagic call: [Meraki.EndOfLife: =>Array]
 	/// </summary>
-	private static List<JObject> eoxData = JsonConvert.DeserializeObject<List<JObject>>("""
+	private static readonly List<JObject> _eoxData = JsonConvert.DeserializeObject<List<JObject>>("""
  [
    {
      "DeviceModel": "GS110-8P",
@@ -870,7 +870,7 @@ public partial class MerakiClient
 			model.StartsWith("MT") ? ProductType.Sensor :
 			(ProductType?)null;
 
-		var eox = eoxData.Find(x => x["DeviceModel"]?.ToString() == model);
+		var eox = _eoxData.Find(x => x["DeviceModel"]?.ToString() == model);
 		var endOfSaleDateTime = eox?["EndOfSale"]?.ToObject<DateTime?>();
 		var endOfSupportDateTime = eox?["EndOfSupport"]?.ToObject<DateTime?>();
 		var endOfSaleNoticeUrl = eox?["EosNoticeUrl"]?.ToString();
