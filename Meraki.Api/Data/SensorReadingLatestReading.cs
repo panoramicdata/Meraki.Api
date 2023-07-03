@@ -2,6 +2,7 @@
 
 /// <summary>
 /// Sensor Readings
+/// See: https://documentation.meraki.com/MT/MT_General_Articles/MT14_Metrics_Explained
 /// </summary>
 [DataContract]
 public class SensorReadingLatestReading

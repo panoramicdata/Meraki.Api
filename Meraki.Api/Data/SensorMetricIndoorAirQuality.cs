@@ -11,5 +11,4 @@ public class SensorMetricIndoorAirQuality
 	/// </summary>
 	[DataMember(Name = "score")]
 	public int Score { get; set; }
-
 }
