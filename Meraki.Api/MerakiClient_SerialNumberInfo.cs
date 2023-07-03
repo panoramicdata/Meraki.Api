@@ -872,7 +872,7 @@ public partial class MerakiClient
 			model.StartsWith("MT") ? ProductType.Sensor :
 			(ProductType?)null;
 
-		var eox = _eoxData.Find(x => x["DeviceModel"]?.ToString() == model);
+		var eox = _eoxData.Find(eox => eox?["DeviceModel"]?.ToString() == model);
 		var endOfSaleDateTime = eox?["EndOfSale"]?.ToObject<DateTime?>();
 		var endOfSupportDateTime = eox?["EndOfSupport"]?.ToObject<DateTime?>();
 		var endOfSaleNoticeUrl = eox?["EosNoticeUrl"]?.ToString();
