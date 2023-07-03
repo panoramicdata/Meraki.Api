@@ -27,6 +27,7 @@ global using Meraki.Api.Sections.Products.Wireless;
 global using Microsoft.Extensions.Logging;
 global using Microsoft.Extensions.Logging.Abstractions;
 global using Newtonsoft.Json;
+global using Newtonsoft.Json.Linq;
 global using Newtonsoft.Json.Converters;
 global using Refit;
 global using System;
