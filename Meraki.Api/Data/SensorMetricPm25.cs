@@ -10,5 +10,6 @@ public class SensorMetricPm25
 	///<summary>
 	/// PM2.5 in micrograms per cubic meter
 	/// </summary>
-	public int MicrogramsPerCubicMeter { get; set; }
+	[DataMember(Name = "concentration")]
+	public int Concentration { get; set; }
 }
