@@ -54,6 +54,7 @@ public partial class MerakiClient
 		{ "Q2MP", "MS220-48LP" },
 		{ "Q2MW", "MS250-24P" },
 		{ "Q2MY", "MX68CW-NA" },
+		{ "Q2NV", "MV2" },
 		{ "Q2NY", "MX68CW-WW" },
 		{ "Q2PD", "MR33" },
 		{ "Q2PN", "MX84" },
@@ -91,6 +92,9 @@ public partial class MerakiClient
 		{ "Q3CA", "MT10" },
 		{ "Q3CB", "MT12" },
 		{ "Q3CC", "MT20" },
+		{ "Q3CE", "MT11" },
+		{ "Q3CG", "MT14" },
+		{ "Q3CJ", "MT40" },
 
 		{ "Q5AC", "CW9164I" },
 		{ "Q5AE", "CW9166I" },
