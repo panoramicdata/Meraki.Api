@@ -21,7 +21,7 @@ public class SensorMetricPower
 	///<summary>
 	/// Factor
 	/// </summary>
-	[DataMember(Name = "real")]
+	[DataMember(Name = "factor")]
 	public SensorMetricPowerFactor Factor { get; set; } = new();
 }
 
