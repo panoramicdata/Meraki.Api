@@ -39,4 +39,7 @@ public enum SensorMetrics
 
 	[EnumMember(Value = "downstreamPower")]
 	DownstreamPower,
+
+	[EnumMember(Value = "power")]
+	Power,
 }
