@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.34.36
+## 1.34.39
 - Added UnbindNetworkAsync with optional "retainConfigs" property.
 
 ## 1.34.35
