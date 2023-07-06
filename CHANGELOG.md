@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 1.34.39
+- Added UnbindNetworkAsync with optional "retainConfigs" property.
+
+## 1.34.35
+- Added Multi to the BandOperationMode in the Meraki API
+
 ## 1.34.28
 - Serial numbers added
 - Updated dependencies
