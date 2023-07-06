@@ -68,6 +68,18 @@ public interface INetworks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	[ApiOperationId("unbindNetwork")]
+	[Post("/networks/{networkId}/unbind")]
+	Task<Network> UnbindNetworkAsync(
+		string networkId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Unbind a network from a template.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
 	/// <param name="configurationTemplateUnbindRequest">Body for unbinding a network</param>
 	[ApiOperationId("unbindNetwork")]
 	[Post("/networks/{networkId}/unbind")]

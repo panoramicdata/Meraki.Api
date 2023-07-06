@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.34.XX
+- Added UnbindNetworkAsync with optional "retainConfigs" property.
+
 ## 1.34.28
 - Serial numbers added
 - Updated dependencies
