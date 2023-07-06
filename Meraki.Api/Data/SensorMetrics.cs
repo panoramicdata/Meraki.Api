@@ -51,4 +51,7 @@ public enum SensorMetrics
 
 	[EnumMember(Value = "voltage")]
 	Voltage,
+
+	[EnumMember(Value = "eco2")]
+	Eco2,
 }
