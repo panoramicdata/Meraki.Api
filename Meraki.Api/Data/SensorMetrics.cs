@@ -48,4 +48,7 @@ public enum SensorMetrics
 
 	[EnumMember(Value = "frequency")]
 	Frequency,
+
+	[EnumMember(Value = "voltage")]
+	Voltage,
 }
