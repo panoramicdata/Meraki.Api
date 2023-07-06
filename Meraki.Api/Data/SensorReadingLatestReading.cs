@@ -42,4 +42,19 @@ public class SensorReadingLatestReading
 
 	[DataMember(Name = "battery")]
 	public SensorMetricBattery? Battery { get; set; }
+
+	[DataMember(Name = "downstreamPower")]
+	public SensorMetricDownstreamPower? DownstreamPower { get; set; }
+
+	[DataMember(Name = "power")]
+	public SensorMetricPower? Power { get; set; }
+
+	[DataMember(Name = "current")]
+	public SensorMetricLevel? Current { get; set; }
+
+	[DataMember(Name = "frequency")]
+	public SensorMetricLevel? Frequency { get; set; }
+
+	[DataMember(Name = "voltage")]
+	public SensorMetricLevel? Voltage { get; set; }
 }
