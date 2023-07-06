@@ -42,4 +42,7 @@ public enum SensorMetrics
 
 	[EnumMember(Value = "power")]
 	Power,
+
+	[EnumMember(Value = "current")]
+	Current,
 }
