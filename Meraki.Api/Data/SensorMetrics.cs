@@ -45,4 +45,7 @@ public enum SensorMetrics
 
 	[EnumMember(Value = "current")]
 	Current,
+
+	[EnumMember(Value = "frequency")]
+	Frequency,
 }
