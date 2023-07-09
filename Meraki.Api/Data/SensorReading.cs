@@ -24,6 +24,12 @@ public class SensorReading
 	// Also there is no documentation for the structure of each sensor's values so we can't get any
 	// further. The documentation only shows the response for temperature.
 
+	[DataMember(Name = "downstreamPower")]
+	public SensorMetricDownstreamPower? DownstreamPower { get; set; }
+
+	[DataMember(Name = "power")]
+	public SensorMetricPower? Power { get; set; }
+
 	[DataMember(Name = "temperature")]
 	public SensorMetricTemperature? Temperature { get; set; }
 
