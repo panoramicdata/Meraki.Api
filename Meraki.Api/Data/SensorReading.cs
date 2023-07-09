@@ -27,6 +27,17 @@ public class SensorReading
 	[DataMember(Name = "downstreamPower")]
 	public SensorMetricDownstreamPower? DownstreamPower { get; set; }
 
+	[DataMember(Name = "current")]
+	public SensorMetricLevel? Current { get; set; }
+
+	[DataMember(Name = "frequency")]
+	public SensorMetricLevel? Frequency { get; set; }
+
+	[DataMember(Name = "voltage")]
+	public SensorMetricLevel? Voltage { get; set; }
+
+	[DataMember(Name = "eco2")]
+	public SensorMetricConcentration? Eco2 { get; set; }
 
 	[DataMember(Name = "power")]
 	public SensorMetricPower? Power { get; set; }
@@ -44,10 +55,10 @@ public class SensorReading
 	public SensorMetricDoor? Door { get; set; }
 
 	[DataMember(Name = "tvoc")]
-	public SensorMetricTvoc? Tvoc { get; set; }
+	public SensorMetricConcentration? Tvoc { get; set; }
 
 	[DataMember(Name = "pm25")]
-	public SensorMetricPm25? Pm25 { get; set; }
+	public SensorMetricConcentration? Pm25 { get; set; }
 
 	[DataMember(Name = "noise")]
 	public SensorMetricNoise? Noise { get; set; }
