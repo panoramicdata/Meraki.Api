@@ -25,32 +25,32 @@ public class SensorReading
 	// further. The documentation only shows the response for temperature.
 
 	[DataMember(Name = "temperature")]
-	public object? Temperature { get; set; }
+	public SensorMetricTemperature? Temperature { get; set; }
 
 	[DataMember(Name = "humidity")]
-	public object? Humidity { get; set; }
+	public SensorMetricHumidity? Humidity { get; set; }
 
 	[DataMember(Name = "water")]
-	public object? Water { get; set; }
+	public SensorMetricWater? Water { get; set; }
 
 	[DataMember(Name = "door")]
-	public object? Door { get; set; }
+	public SensorMetricDoor? Door { get; set; }
 
 	[DataMember(Name = "tvoc")]
-	public object? Tvoc { get; set; }
+	public SensorMetricTvoc? Tvoc { get; set; }
 
 	[DataMember(Name = "pm25")]
-	public object? Pm25 { get; set; }
+	public SensorMetricPm25? Pm25 { get; set; }
 
 	[DataMember(Name = "noise")]
-	public object? Noise { get; set; }
+	public SensorMetricNoise? Noise { get; set; }
 
 	[DataMember(Name = "indoorAirQuality")]
-	public object? IndoorAirQuality { get; set; }
+	public SensorMetricIndoorAirQuality? IndoorAirQuality { get; set; }
 
 	[DataMember(Name = "button")]
-	public object? Button { get; set; }
+	public SensorMetricButton? Button { get; set; }
 
 	[DataMember(Name = "battery")]
-	public object? Battery { get; set; }
+	public SensorMetricBattery? Battery { get; set; }
 }
