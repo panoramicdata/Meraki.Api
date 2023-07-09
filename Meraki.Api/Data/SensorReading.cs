@@ -27,6 +27,7 @@ public class SensorReading
 	[DataMember(Name = "downstreamPower")]
 	public SensorMetricDownstreamPower? DownstreamPower { get; set; }
 
+
 	[DataMember(Name = "power")]
 	public SensorMetricPower? Power { get; set; }
 
