@@ -37,4 +37,3 @@ public class SensorMetricDownstreamPowerHistoric
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
 }
-
