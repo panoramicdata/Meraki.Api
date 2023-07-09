@@ -44,7 +44,7 @@ public class SensorReadingLatestReading
 	public SensorMetricBattery? Battery { get; set; }
 
 	[DataMember(Name = "downstreamPower")]
-	public SensorMetricDownstreamPower? DownstreamPower { get; set; }
+	public SensorMetricDownstreamPowerLatest? DownstreamPower { get; set; }
 
 	[DataMember(Name = "power")]
 	public SensorMetricPower? Power { get; set; }

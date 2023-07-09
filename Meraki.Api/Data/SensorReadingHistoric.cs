@@ -4,7 +4,7 @@
 /// </summary>
 [DataContract]
 
-public class SensorReading
+public class SensorReadingHistoric
 {
 	[DataMember(Name = "ts")]
 	public string Ts { get; set; } = string.Empty;
@@ -25,7 +25,7 @@ public class SensorReading
 	// further. The documentation only shows the response for temperature.
 
 	[DataMember(Name = "downstreamPower")]
-	public SensorMetricDownstreamPower? DownstreamPower { get; set; }
+	public SensorMetricDownstreamPowerHistoric? DownstreamPower { get; set; }
 
 	[DataMember(Name = "current")]
 	public SensorMetricLevel? Current { get; set; }
