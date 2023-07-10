@@ -305,7 +305,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "minBitrate")]
-	public decimal? MinBitrate { get; set; }
+	public double? MinBitrate { get; set; }
 
 	/// <summary>
 	/// Accepts a list of tags for this SSID. If availableOnAllAps is false, then the SSID will only be broadcast by APs with tags matching any of the tags in this list.

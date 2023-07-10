@@ -11,7 +11,7 @@ public class NetworkApplianceRfProfileFiveGhzSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "minBitrate")]
-	public int? MinBitrate { get; set; }
+	public double? MinBitrate { get; set; }
 
 	/// <summary>
 	/// Whether ax radio on 5Ghz band is on or off.
