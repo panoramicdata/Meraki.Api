@@ -11,7 +11,7 @@ public class NetworkApplianceRfProfileTwoFourGhzSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "minBitrate")]
-	public int? MinBitrate { get; set; }
+	public double? MinBitrate { get; set; }
 
 	/// <summary>
 	/// Whether ax radio on 2.4Ghz band is on or off.

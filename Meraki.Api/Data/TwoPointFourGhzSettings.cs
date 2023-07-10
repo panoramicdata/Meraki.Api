@@ -25,7 +25,7 @@ public class TwoPointFourGhzSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "minBitrate")]
-	public int? MinBitrate { get; set; }
+	public double? MinBitrate { get; set; }
 
 	/// <summary>
 	/// Sets valid auto channels for 2.4Ghz band. Can be one of '1', '6' or '11'. Defaults to [1, 6, 11].
