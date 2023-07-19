@@ -13,7 +13,7 @@ public class MerakiClientTest
 
 	private MerakiClient? _merakiClient;
 
-	private Configuration? _configuration;
+	private TestConfig? _configuration;
 
 	protected ICacheLogger Logger { get; }
 
@@ -22,7 +22,7 @@ public class MerakiClientTest
 		Logger = iTestOutputHelper.BuildLogger();
 	}
 
-	public Configuration Configuration
+	public TestConfig Configuration
 	{
 		get
 		{
@@ -46,7 +46,7 @@ public class MerakiClientTest
 			// Yes
 
 			// Load in the config
-			_configuration = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(fileInfo.FullName));
+			_configuration = JsonConvert.DeserializeObject<TestConfig>(File.ReadAllText(fileInfo.FullName));
 			if (_configuration is null)
 			{
 				throw new ConfigurationException("Configuration did not deserialize");

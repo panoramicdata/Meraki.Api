@@ -34,16 +34,11 @@ public static class Extensions
 			_ = result.Append(" override");
 		}
 
-		if (methodSymbol.ReturnsVoid)
-		{
-			_ = result.Append(" void");
-		}
-		else
-		{
-			_ = result
+		_ = methodSymbol.ReturnsVoid
+			? result.Append(" void")
+			: result
 				.Append(' ')
 				.Append((methodSymbol.ReturnType as INamedTypeSymbol)?.GetFullTypeString() ?? throw new Exception("No return type found"));
-		}
 
 		_ = result.Append(' ')
 			.Append(methodSymbol.Name)

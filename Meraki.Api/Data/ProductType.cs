@@ -26,7 +26,7 @@ public enum ProductType
 	Sensor,
 
 	/// <summary>
-	/// Use sensor insead of environmental
+	/// Use sensor instead of environmental
 	/// </summary>
 	[Obsolete("Appears to have been replaced by sensor")]
 	[EnumMember(Value = "environmental")]
@@ -40,5 +40,8 @@ public enum ProductType
 
 	[Obsolete("No longer available")]
 	[EnumMember(Value = "vm_concentrator")]
-	VmConcentrator
+	VmConcentrator,
+
+	[EnumMember(Value = "phone")]
+	Phone
 }

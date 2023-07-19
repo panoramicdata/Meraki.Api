@@ -4,7 +4,7 @@
 /// </summary>
 [DataContract]
 
-public class SensorReading
+public class SensorReadingHistoric
 {
 	[DataMember(Name = "ts")]
 	public string Ts { get; set; } = string.Empty;
@@ -24,33 +24,51 @@ public class SensorReading
 	// Also there is no documentation for the structure of each sensor's values so we can't get any
 	// further. The documentation only shows the response for temperature.
 
+	[DataMember(Name = "downstreamPower")]
+	public SensorMetricDownstreamPowerHistoric? DownstreamPower { get; set; }
+
+	[DataMember(Name = "current")]
+	public SensorMetricLevel? Current { get; set; }
+
+	[DataMember(Name = "frequency")]
+	public SensorMetricLevel? Frequency { get; set; }
+
+	[DataMember(Name = "voltage")]
+	public SensorMetricLevel? Voltage { get; set; }
+
+	[DataMember(Name = "eco2")]
+	public SensorMetricConcentration? Eco2 { get; set; }
+
+	[DataMember(Name = "power")]
+	public SensorMetricPower? Power { get; set; }
+
 	[DataMember(Name = "temperature")]
-	public object? Temperature { get; set; }
+	public SensorMetricTemperature? Temperature { get; set; }
 
 	[DataMember(Name = "humidity")]
-	public object? Humidity { get; set; }
+	public SensorMetricHumidity? Humidity { get; set; }
 
 	[DataMember(Name = "water")]
-	public object? Water { get; set; }
+	public SensorMetricWater? Water { get; set; }
 
 	[DataMember(Name = "door")]
-	public object? Door { get; set; }
+	public SensorMetricDoor? Door { get; set; }
 
 	[DataMember(Name = "tvoc")]
-	public object? Tvoc { get; set; }
+	public SensorMetricConcentration? Tvoc { get; set; }
 
 	[DataMember(Name = "pm25")]
-	public object? Pm25 { get; set; }
+	public SensorMetricConcentration? Pm25 { get; set; }
 
 	[DataMember(Name = "noise")]
-	public object? Noise { get; set; }
+	public SensorMetricNoise? Noise { get; set; }
 
 	[DataMember(Name = "indoorAirQuality")]
-	public object? IndoorAirQuality { get; set; }
+	public SensorMetricIndoorAirQuality? IndoorAirQuality { get; set; }
 
 	[DataMember(Name = "button")]
-	public object? Button { get; set; }
+	public SensorMetricButton? Button { get; set; }
 
 	[DataMember(Name = "battery")]
-	public object? Battery { get; set; }
+	public SensorMetricBattery? Battery { get; set; }
 }

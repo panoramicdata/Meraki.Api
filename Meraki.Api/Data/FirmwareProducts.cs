@@ -61,4 +61,18 @@ public class FirmwareProducts
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wireless")]
 	public FirmwareUpgradeProduct Wireless { get; set; } = new();
+
+	/// <summary>
+	/// cloudGateway
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "cloudGateway")]
+	public FirmwareUpgradeProduct CloudGateway { get; set; } = new();
+
+	/// <summary>
+	/// switchCatalyst
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "switchCatalyst")]
+	public FirmwareUpgradeProduct SwitchCatalyst { get; set; } = new();
 }

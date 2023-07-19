@@ -18,6 +18,7 @@ public class RateLimitingTests : MerakiClientTest
 		foreach (var __ in Enumerable.Range(0, 10))
 		{
 			var queryResult = new QueryResult();
+#pragma warning disable CA1031 // Do not catch general exception types
 			try
 			{
 				stopwatch.Restart();
@@ -41,6 +42,7 @@ public class RateLimitingTests : MerakiClientTest
 				queryResult.DurationMs = stopwatch.ElapsedMilliseconds;
 				timerList.Add(queryResult);
 			}
+#pragma warning restore CA1031 // Do not catch general exception types
 		}
 
 		var fileInfo = new FileInfo(Path.GetTempFileName() + ".xlsx");

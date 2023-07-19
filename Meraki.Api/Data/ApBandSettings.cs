@@ -11,12 +11,19 @@ public class ApBandSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bandOperationMode")]
-	public BandOperationMode BandOperationMode { get; set; }
+	public BandOperationMode? BandOperationMode { get; set; }
 
 	/// <summary>
 	/// Steers client to most open band. Can be either true or false. Defaults to true.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bandSteeringEnabled")]
-	public bool BandSteeringEnabled { get; set; }
+	public bool? BandSteeringEnabled { get; set; }
+
+	/// <summary>
+	/// ApBandSettings Bands
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "bands")]
+	public ApBandSettingsBands? Bands { get; set; }
 }

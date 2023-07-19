@@ -22,5 +22,12 @@ public enum BandOperationMode
 	/// Enum _5ghz for "5ghz"
 	/// </summary>
 	[EnumMember(Value = "5ghz")]
-	FiveGHz
+	FiveGHz,
+
+	/// <summary>
+	/// Enum multi (undocumented 2023-07-06)
+	/// </summary>
+	[EnumMember(Value = "multi")]
+	Multi
+
 }

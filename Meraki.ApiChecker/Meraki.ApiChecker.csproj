@@ -15,14 +15,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.OpenApi" Version="1.6.4" />
-    <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.6.4" />
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.132">
+    <PackageReference Include="Microsoft.OpenApi" Version="1.6.5" />
+    <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.6.5" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.133">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="PanoramicData.SheetMagic" Version="3.0.85" />
-    <PackageReference Include="Refit" Version="6.3.2" />
+    <PackageReference Include="PanoramicData.SheetMagic" Version="3.0.96" />
+    <PackageReference Include="Refit" Version="7.0.0" />
     <PackageReference Include="Roslynator.Analyzers" Version="4.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

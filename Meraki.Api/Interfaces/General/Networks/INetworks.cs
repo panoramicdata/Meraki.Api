@@ -44,12 +44,12 @@ public interface INetworks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="bindNetwork">Body for binding a network</param>
+	/// <param name="configurationTemplateBindRequest">Body for binding a network</param>
 	[ApiOperationId("bindNetwork")]
 	[Post("/networks/{networkId}/bind")]
 	Task BindNetworkAsync(
 		string networkId,
-		[Body] ConfigurationTemplateBindRequest bindNetwork,
+		[Body] ConfigurationTemplateBindRequest configurationTemplateBindRequest,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -72,6 +72,20 @@ public interface INetworks
 	[Post("/networks/{networkId}/unbind")]
 	Task<Network> UnbindNetworkAsync(
 		string networkId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Unbind a network from a template.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="configurationTemplateUnbindRequest">Body for unbinding a network</param>
+	[ApiOperationId("unbindNetwork")]
+	[Post("/networks/{networkId}/unbind")]
+	Task<Network> UnbindNetworkAsync(
+		string networkId,
+		[Body] ConfigurationTemplateUnbindRequest configurationTemplateUnbindRequest,
 		CancellationToken cancellationToken = default
 		);
 }

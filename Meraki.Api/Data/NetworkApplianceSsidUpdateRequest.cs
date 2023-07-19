@@ -68,4 +68,11 @@ public class NetworkApplianceSsidUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusServers")]
 	public List<RadiusServer>? RadiusServers { get; set; }
+
+	/// <summary>
+	/// The current setting for Protected Management Frames (802.11w).
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "dot11w")]
+	public NetworkApplianceSsidDot11w? Dot11w { get; set; }
 }

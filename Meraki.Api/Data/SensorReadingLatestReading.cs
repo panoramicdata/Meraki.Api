@@ -1,9 +1,10 @@
 ﻿namespace Meraki.Api.Data;
+
 /// <summary>
 /// Sensor Readings
+/// See: https://documentation.meraki.com/MT/MT_General_Articles/MT14_Metrics_Explained
 /// </summary>
 [DataContract]
-
 public class SensorReadingLatestReading
 {
 	[DataMember(Name = "ts")]
@@ -13,32 +14,50 @@ public class SensorReadingLatestReading
 	public SensorMetrics SensorMetric { get; set; }
 
 	[DataMember(Name = "temperature")]
-	public object? Temperature { get; set; }
+	public SensorMetricTemperature? Temperature { get; set; }
 
 	[DataMember(Name = "humidity")]
-	public object? Humidity { get; set; }
+	public SensorMetricHumidity? Humidity { get; set; }
 
 	[DataMember(Name = "water")]
-	public object? Water { get; set; }
+	public SensorMetricWater? Water { get; set; }
 
 	[DataMember(Name = "door")]
-	public object? Door { get; set; }
+	public SensorMetricDoor? Door { get; set; }
 
 	[DataMember(Name = "tvoc")]
-	public object? Tvoc { get; set; }
+	public SensorMetricConcentration? Tvoc { get; set; }
 
 	[DataMember(Name = "pm25")]
-	public object? Pm25 { get; set; }
+	public SensorMetricConcentration? Pm25 { get; set; }
 
 	[DataMember(Name = "noise")]
-	public object? Noise { get; set; }
+	public SensorMetricNoise? Noise { get; set; }
 
 	[DataMember(Name = "indoorAirQuality")]
-	public object? IndoorAirQuality { get; set; }
+	public SensorMetricIndoorAirQuality? IndoorAirQuality { get; set; }
 
 	[DataMember(Name = "button")]
-	public object? Button { get; set; }
+	public SensorMetricButton? Button { get; set; }
 
 	[DataMember(Name = "battery")]
-	public object? Battery { get; set; }
+	public SensorMetricBattery? Battery { get; set; }
+
+	[DataMember(Name = "downstreamPower")]
+	public SensorMetricDownstreamPowerLatest? DownstreamPower { get; set; }
+
+	[DataMember(Name = "power")]
+	public SensorMetricPower? Power { get; set; }
+
+	[DataMember(Name = "current")]
+	public SensorMetricLevel? Current { get; set; }
+
+	[DataMember(Name = "frequency")]
+	public SensorMetricLevel? Frequency { get; set; }
+
+	[DataMember(Name = "voltage")]
+	public SensorMetricLevel? Voltage { get; set; }
+
+	[DataMember(Name = "eco2")]
+	public SensorMetricConcentration? Eco2 { get; set; }
 }

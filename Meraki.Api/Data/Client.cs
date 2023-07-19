@@ -179,4 +179,10 @@ public class Client : IdentifiedItem
 
 	[DataMember(Name = "usage")]
 	public UsageInKb Usage { get; set; } = new();
+
+	/// <summary>
+	/// The pskGroup
+	/// </summary>
+	[DataMember(Name = "pskGroup")]
+	public string? PskGroup { get; set; }
 }
