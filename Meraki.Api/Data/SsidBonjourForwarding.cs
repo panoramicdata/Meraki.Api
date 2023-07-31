@@ -21,7 +21,7 @@ public class SsidBonjourForwarding
 	public List<BonjourForwardingRule> Rules { get; set; } = new();
 
 	/// <summary>
-	/// Undocumented June 2023
+	/// Bonjour forwarding exception
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "exception")]
