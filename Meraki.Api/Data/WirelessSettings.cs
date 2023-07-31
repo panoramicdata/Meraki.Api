@@ -47,4 +47,13 @@ public class WirelessSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "upgradeStrategy")]
 	public string UpgradeStrategy { get; set; } = "minimizeUpgradeTime";
+
+	/// <summary>
+	/// Undocumented at July 2023
+	/// The regulatory domain is determined automatically by Meraki based on the country location of the organization.
+	/// It does not appear that these settings can be changed.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "regulatoryDomain")]
+	public WirelessSettingsRegulatoryDomain RegulatoryDomain { get; set; } = new();
 }
