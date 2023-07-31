@@ -53,7 +53,7 @@ public class WirelessSettings
 	/// The regulatory domain is determined automatically by Meraki based on the country location of the organization.
 	/// It does not appear that these settings can be changed.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "regulatoryDomain")]
 	public WirelessSettingsRegulatoryDomain RegulatoryDomain { get; set; } = new();
 }

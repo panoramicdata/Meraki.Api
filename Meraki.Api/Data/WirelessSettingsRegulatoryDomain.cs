@@ -9,14 +9,14 @@ public class WirelessSettingsRegulatoryDomain
 	/// <summary>
 	/// Name
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "name")]
 	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
 	/// permits6e
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "permits6e")]
 	public bool Permits6e { get; set; }
 
