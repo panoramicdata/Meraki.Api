@@ -6,7 +6,7 @@ namespace Meraki.Api.Interfaces.Products.Switch;
 public interface ISwitchProfiles
 {
 	/// <summary>
-	/// List the switch profiles for your switch template configuration
+	/// List the switch templates for your switch template configuration
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
@@ -18,7 +18,7 @@ public interface ISwitchProfiles
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// Return all the ports of a switch profile
+	/// Return all the templates of a switch profile
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
@@ -33,7 +33,7 @@ public interface ISwitchProfiles
 		);
 
 	/// <summary>
-	/// Return a switch profile port
+	/// Return a switch template port
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
@@ -50,7 +50,7 @@ public interface ISwitchProfiles
 		);
 
 	/// <summary>
-	/// Update a switch profile port
+	/// Update a switch template port
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>

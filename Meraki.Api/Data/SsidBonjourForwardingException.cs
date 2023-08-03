@@ -1,13 +1,13 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Undocumented Object June 2023
+/// Bonjour forwarding exception
 /// </summary>
 [DataContract]
 public class SsidBonjourForwardingException
 {
 	/// <summary>
-	/// Undocumented Bool JUne 2023
+	/// If true, Bonjour forwarding exception is enabled on this SSID. Exception is required to enable L2 isolation and Bonjour forwarding to work together.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "enabled")]
