@@ -1,3 +1,8 @@
+[*]
+# VSSPELL: Spell checker settings from Meraki.Api.sln.vsspell
+vsspell_section_id = 380de64fe2c54b63871cbe33f596ddb9
+vsspell_ignored_words_380de64fe2c54b63871cbe33f596ddb9 = File:Meraki.Api.sln.vsspell.dic
+
 # Remove the line below if you want to inherit .editorconfig settings from higher directories
 root = true
 

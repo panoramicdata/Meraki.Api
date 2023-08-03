@@ -54,7 +54,7 @@ public class FloorPlan
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "devices")]
-	public List<Device>? Devices { get; set; }
+	public List<FloorplanDevice>? Devices { get; set; }
 
 	/// <summary>
 	/// Width

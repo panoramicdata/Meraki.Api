@@ -31,4 +31,11 @@ public class SsidRadioSetting
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "minBitrate")]
 	public double MinBitrate { get; set; }
+
+	/// <summary>
+	/// SsidRadioSetting Bands
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "bands")]
+	public SsidRadioSettingBands? Bands { get; set; }
 }

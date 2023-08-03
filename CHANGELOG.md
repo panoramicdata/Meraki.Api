@@ -1,5 +1,21 @@
 ﻿# Changelog
 
+## 1.34.39
+- Added UnbindNetworkAsync with optional "retainConfigs" property.
+
+## 1.34.35
+- Added Multi to the BandOperationMode in the Meraki API
+
+## 1.34.28
+- Serial numbers added
+- Updated dependencies
+
+## 1.34.1
+- Updated for v1.34 API changes
+
+## 1.33.22
+- Updated ClientUsageHistory Sent and Received to be longs instead of ints.
+
 ## 1.33.6
 - Added uplinkClientSampling to Network Switch Settings
 

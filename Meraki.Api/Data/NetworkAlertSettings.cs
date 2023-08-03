@@ -20,4 +20,11 @@ public class NetworkAlertSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "alerts")]
 	public List<Alert>? Alerts { get; set; }
+
+	/// <summary>
+	/// Muting - Undocumented as at 2023-06-23
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "muting")]
+	public NetworkAlertSettingsMuting? Muting { get; set; }
 }

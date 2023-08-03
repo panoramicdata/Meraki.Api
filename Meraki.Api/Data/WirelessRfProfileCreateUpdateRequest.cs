@@ -63,9 +63,37 @@ public class WirelessRfProfileCreateUpdateRequest
 	public FiveGhzSettings? FiveGhzSettings { get; set; }
 
 	/// <summary>
+	/// Settings related to 6Ghz band. Only applicable to networks with 6Ghz capable APs
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "sixGhzSettings")]
+	public SixGhzSettings? SixGhzSettings { get; set; }
+
+	/// <summary>
 	/// Per-SSID radio settings by number.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "perSsidSettings")]
 	public PerSsidSettings? PerSsidSettings { get; set; }
+
+	/// <summary>
+	/// Undocumented June 2023
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "isIndoorDefault")]
+	public bool? IsIndoorDefault { get; set; }
+
+	/// <summary>
+	/// Undocumented June 2023
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "isOutdoorDefault")]
+	public bool? IsOutdoorDefault { get; set; }
+
+	/// <summary>
+	/// Flex radio settings.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "flexRadios")]
+	public WirelessRfProfileFlexRadios? FlexRadios { get; set; }
 }

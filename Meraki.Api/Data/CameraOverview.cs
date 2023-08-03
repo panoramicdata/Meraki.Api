@@ -34,5 +34,5 @@ public class CameraOverview
 	/// Average count
 	/// </summary>
 	[DataMember(Name = "averageCount")]
-	public int AverageCount { get; set; }
+	public double AverageCount { get; set; }
 }
