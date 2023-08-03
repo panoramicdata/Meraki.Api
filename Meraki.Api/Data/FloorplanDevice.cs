@@ -4,6 +4,7 @@
 /// A Device on a floorplan
 /// </summary>
 [DataContract]
+[ApiAccessReadOnlyClass]
 public class FloorplanDevice : NamedItem
 {
 	public static int MaxAddressLength = 255;
