@@ -3,7 +3,7 @@
 public interface ISmProfiles
 {
 	/// <summary>
-	/// List all profiles in a network
+	/// List all the profiles in the network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
