@@ -51,11 +51,13 @@ public interface INetworksMerakiAuthUsers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="merakiAuthUserId">The meraki user id</param>
+	/// <param name="delete">If the ID supplied is for a splash guest or client VPN user, and that user is not authorized for any other networks in the organization, then also delete the user. 802.1X RADIUS users are always deleted regardless of this optional attribute.</param>
 	[ApiOperationId("deleteNetworkMerakiAuthUser")]
 	[Delete("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 	Task DeleteNetworkMerakiAuthUserAsync(
 		string networkId,
 		string merakiAuthUserId,
+		bool delete,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

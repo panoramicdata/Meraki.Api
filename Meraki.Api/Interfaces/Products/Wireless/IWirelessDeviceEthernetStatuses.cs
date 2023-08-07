@@ -3,7 +3,7 @@
 public interface IWirelessDeviceEthernetStatuses
 {
 	/// <summary>
-	/// Endpoint to see power status for wireless devices
+	/// List the most recent Ethernet link speed, duplex, aggregation and power mode and status information for wireless devices.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization ID</param>
