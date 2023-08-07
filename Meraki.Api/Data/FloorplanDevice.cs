@@ -73,6 +73,12 @@ public class FloorplanDevice : NamedItem
 	public string? LanIp { get; set; }
 
 	/// <summary>
+	/// Readonly: The url to the device managment interface
+	/// </summary>
+	[DataMember(Name = "url")]
+	public string? Url { get; set; }
+
+	/// <summary>
 	/// Readonly: The firmware version of a device
 	/// </summary>
 	[DataMember(Name = "firmware")]
