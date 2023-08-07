@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 1.36.3
+- Updated for v1.36 API changes
+
+## 1.35.1
+- Updated for v1.35 API changes
+
 ## 1.34.39
 - Added UnbindNetworkAsync with optional "retainConfigs" property.
 
