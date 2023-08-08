@@ -43,8 +43,10 @@ public class SsidLayer3FirewallRule
 
 	/// <summary>
 	/// Undocumented IP Version - Observed values so far: 'ipv4'
+	/// Firewall rules created before the implementation of the ipVer property would have been ipv4 but are returned as null by the API
+	/// Sending null is interpreted as ipv4 AND ipv6 so this property is now not nullable to avoid ambiguity
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ipVer")]
-	public string? IpVer { get; set; }
+	public string IpVer { get; set; } = "ipv4";
 }
