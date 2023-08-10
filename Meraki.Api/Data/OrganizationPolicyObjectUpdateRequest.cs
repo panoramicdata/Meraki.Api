@@ -10,7 +10,7 @@ public class OrganizationPolicyObjectUpdateRequest : NamedItem
 	/// <summary>
 	/// CIDR Value of a policy object (e.g. 10.11.12.1/24)
 	/// </summary>
-	[DataMember(Name = "category")]
+	[DataMember(Name = "cidr")]
 	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Cidr { get; set; }
 
