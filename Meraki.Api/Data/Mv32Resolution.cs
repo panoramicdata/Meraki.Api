@@ -14,6 +14,12 @@ public enum Mv32Resolution
 	Size1080x1080,
 
 	/// <summary>
+	/// Enum _2112x2112 for "2112x2112"
+	/// </summary>
+	[EnumMember(Value = "2112x2112")]
+	Size2112x2112,
+
+	/// <summary>
 	/// Enum _2058x2058 for "2058x2058"
 	/// </summary>
 	[EnumMember(Value = "2058x2058")]
