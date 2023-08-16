@@ -15,4 +15,12 @@ public class EarlyAccessFeatureTests : MerakiClientUnitTest
 		_ = result.Should().NotBeNullOrEmpty();
 
 	}
+
+	[Fact]
+	public async Task BasicGet_GetOptins_Suceeds()
+	{
+		var result = await TestMerakiClient.Organizations.EarlyAccess.Features.GetOrganizationEarlyAccessFeaturesOptInsAsync(TestOrganizationId);
+		_ = result.Should().NotBeNullOrEmpty();
+
+	}
 }
