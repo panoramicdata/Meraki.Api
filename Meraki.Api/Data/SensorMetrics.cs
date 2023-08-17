@@ -54,4 +54,16 @@ public enum SensorMetrics
 
 	[EnumMember(Value = "eco2")]
 	Eco2,
+
+	[EnumMember(Value = "powerFactor")]
+	PowerFactor,
+
+	[EnumMember(Value = "apparentPower")]
+	ApparentPower,
+
+	[EnumMember(Value = "realPower")]
+	RealPower,
+
+	[EnumMember(Value = "remoteLockoutSwitch")]
+	RemoteLockoutSwitch,
 }

@@ -44,13 +44,13 @@ public class SensorReadingLatestReading
 	public SensorMetricBattery? Battery { get; set; }
 
 	[DataMember(Name = "downstreamPower")]
-	public SensorMetricDownstreamPowerLatest? DownstreamPower { get; set; }
+	public SensorMetricDownstreamPower? DownstreamPower { get; set; }
 
 	[DataMember(Name = "power")]
 	public SensorMetricPower? Power { get; set; }
 
 	[DataMember(Name = "current")]
-	public SensorMetricLevel? Current { get; set; }
+	public SensorMetricCurrent? Current { get; set; }
 
 	[DataMember(Name = "frequency")]
 	public SensorMetricLevel? Frequency { get; set; }
@@ -60,4 +60,16 @@ public class SensorReadingLatestReading
 
 	[DataMember(Name = "eco2")]
 	public SensorMetricConcentration? Eco2 { get; set; }
+
+	[DataMember(Name = "powerFactor")]
+	public SensorMetricPowerFactor? PowerFactor { get; set; }
+
+	[DataMember(Name = "apparentPower")]
+	public SensorMetricApparentPower? ApparentPower { get; set; }
+
+	[DataMember(Name = "realPower")]
+	public SensorMetricRealPower? RealPower { get; set; }
+
+	[DataMember(Name = "remoteLockoutSwitch")]
+	public SensorMetricRemoteLockoutSwitch? RemoteLockoutSwitch { get; set; }
 }

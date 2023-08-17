@@ -43,6 +43,32 @@ public class TestConfig
 	public string TestCameraNetworkId { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Test MT10 Serial number, if available
+	/// </summary>
+	public string? TestMt10Serial { get; set; }
+
+	/// <summary>
+	/// Test MT14 Serial number, if available
+	/// </summary>
+	public string? TestMt14Serial { get; set; }
+
+	/// <summary>
+	/// Test MT20 Serial number, if available
+	/// </summary>
+	public string? TestMt20Serial { get; set; }
+
+	/// <summary>
+	/// Test MT30 Serial number, if available
+	/// </summary>
+	public string? TestMt30Serial { get; set; }
+
+	/// <summary>
+	/// Test MT40 Serial number
+	/// Leave blank if not testing MT40
+	/// </summary>
+	public string? TestMt40Serial { get; set; }
+
+	/// <summary>
 	/// Test Network ID
 	/// </summary>
 	public string TestNetworkId { get; set; } = string.Empty;

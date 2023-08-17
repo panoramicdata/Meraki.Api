@@ -28,7 +28,7 @@ public class SensorReadingHistoric
 	public SensorMetricDownstreamPowerHistoric? DownstreamPower { get; set; }
 
 	[DataMember(Name = "current")]
-	public SensorMetricLevel? Current { get; set; }
+	public SensorMetricCurrent? Current { get; set; }
 
 	[DataMember(Name = "frequency")]
 	public SensorMetricLevel? Frequency { get; set; }
@@ -41,6 +41,12 @@ public class SensorReadingHistoric
 
 	[DataMember(Name = "power")]
 	public SensorMetricPower? Power { get; set; }
+
+	[DataMember(Name = "realPower")]
+	public SensorMetricRealPower? RealPower { get; set; }
+
+	[DataMember(Name = "apparentPower")]
+	public SensorMetricApparentPower? ApparentPower { get; set; }
 
 	[DataMember(Name = "temperature")]
 	public SensorMetricTemperature? Temperature { get; set; }
