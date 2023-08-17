@@ -60,9 +60,6 @@ public class SensorReadingHistoric
 	[DataMember(Name = "pm25")]
 	public SensorMetricConcentration? Pm25 { get; set; }
 
-	[DataMember(Name = "power")]
-	public SensorMetricPower? Power { get; set; }
-
 	[DataMember(Name = "powerFactor")]
 	public SensorMetricPowerFactor? PowerFactor { get; set; }
 
