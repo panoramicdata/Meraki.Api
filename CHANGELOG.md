@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.36.X
+- Added UpdateNetworkApplianceTrafficShapingVpnExclusionsAsync
+
 ## 1.36.3
 - Updated for v1.36 API changes
 
