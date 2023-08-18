@@ -8,4 +8,5 @@ public partial class ApplianceTrafficShapingSection
 	public IApplianceTrafficShapingRules Rules { get; internal set; } = null!;
 	public IApplianceTrafficShapingUplinkBandwidth UplinkBandwidth { get; internal set; } = null!;
 	public IApplianceTrafficShapingUplinkSelection UplinkSelection { get; internal set; } = null!;
+	public IApplianceTrafficShapingVpnExclusions VpnExclusions { get; internal set; } = null!;
 }
