@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.36.19
+- Fixes for Webhooks.  In some places, "WebHooks" has been changed to "Webhooks for consistency, which is a breaking change.
+
 ## 1.36.13
 - Added missing MacBlockList settings on SwitchSettings - undocumented
 
