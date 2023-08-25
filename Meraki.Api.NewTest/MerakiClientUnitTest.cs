@@ -45,11 +45,22 @@ public abstract class MerakiClientUnitTest
 			Tags = new() { "TestTag1", "TestTag2", "TestTag3" }
 		};
 
-	protected Task<Network> CreateValidNetworkAsync(string networkName)
-		=> TestMerakiClient
+	protected async Task<Network> CreateValidNetworkAsync(string networkName)
+	{
+		var existingNetworks = await TestMerakiClient
 			.Organizations
 			.Networks
-			.CreateOrganizationNetworkAsync(TestOrganizationId, GetValidNetworkCreationRequest(networkName));
+			.GetOrganizationNetworksAsync(TestOrganizationId)
+			.ConfigureAwait(false);
+
+		return existingNetworks.Any(x => x.Name == networkName)
+			? existingNetworks.First(x => x.Name == networkName)
+			: await TestMerakiClient
+				.Organizations
+				.Networks
+				.CreateOrganizationNetworkAsync(TestOrganizationId, GetValidNetworkCreationRequest(networkName))
+			.ConfigureAwait(false);
+	}
 
 	protected static ConfigurationTemplateCreateRequest GetValidConfigurationTemplateCreationRequest(string configurationTemplateName)
 		=> new()

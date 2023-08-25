@@ -1,6 +1,7 @@
 ﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 public interface INetworksWebhooksHttpServers
+
 {
 	/// <summary>
 	/// Return an HTTP server for a network
@@ -9,7 +10,7 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	[Get("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
-	Task<WebhookHttpServer> GetNetworkWebhooksHttpServerAsync(
+	Task<WebHookHttpServer> GetNetworkWebhooksHttpServerAsync(
 		string networkId,
 		string httpServerId,
 		CancellationToken cancellationToken = default
@@ -21,7 +22,7 @@ public interface INetworksWebhooksHttpServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/webhooks/httpServers")]
-	Task<List<WebhookHttpServer>> GetNetworkWebhooksHttpServersAsync(
+	Task<List<WebHookHttpServer>> GetNetworkWebhooksHttpServersAsync(
 		string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -33,9 +34,9 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServer">Body for creating a network HTTP server</param>
 	[Post("/networks/{networkId}/webhooks/httpServers")]
-	Task<WebhookHttpServer> CreateNetworkWebhooksHttpServerAsync(
+	Task<WebHookHttpServer> CreateNetworkWebhooksHttpServerAsync(
 		string networkId,
-		[Body] WebhookHttpServer httpServer,
+		[Body] WebHookHttpServer httpServer,
 		CancellationToken cancellationToken = default
 		);
 
@@ -47,10 +48,10 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	/// <param name="httpServer">Body for updating a network HTTP server</param>
 	[Put("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
-	Task<WebhookHttpServer> UpdateNetworkWebhooksHttpServerAsync(
+	Task<WebHookHttpServer> UpdateNetworkWebhooksHttpServerAsync(
 		string networkId,
 		string httpServerId,
-		[Body] WebhookHttpServer httpServer,
+		[Body] WebHookHttpServer httpServer,
 		CancellationToken cancellationToken = default
 		);
 
