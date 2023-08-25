@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.36.13
+- Added missing MacBlockList settings on SwitchSettings - undocumented
+
 ## 1.36.3
 - Updated for v1.36 API changes
 
