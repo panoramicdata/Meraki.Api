@@ -4,7 +4,7 @@
 /// HTTP servers
 /// </summary>
 [DataContract]
-public class WebHookHttpServer : NamedIdentifiedItem
+public class WebhookHttpServer : NamedIdentifiedItem
 {
 	/// <summary>
 	/// The URL of the HTTP server
@@ -33,5 +33,5 @@ public class WebHookHttpServer : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "payloadTemplate")]
-	public WebHookHttpServerPayloadTemplate? PayloadTemplate { get; set; }
+	public WebhookHttpServerPayloadTemplate? PayloadTemplate { get; set; }
 }

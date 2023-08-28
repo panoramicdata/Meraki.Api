@@ -6,14 +6,14 @@ using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
 [Collection("API Collection")]
-public class WebHookTests : MerakiClientUnitTest
+public class WebhookTests : MerakiClientUnitTest
 {
-	public WebHookTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
+	public WebhookTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
 	{
 	}
 
 	[Fact]
-	public async Task WebHookHttpServersCrud_Succeeds()
+	public async Task WebhookHttpServersCrud_Succeeds()
 	{
 		var network = await CreateValidNetworkAsync("WebhookHttpServer Test Network");
 		_ = network.Should().NotBeNull();
@@ -21,7 +21,7 @@ public class WebHookTests : MerakiClientUnitTest
 		try
 		{
 			// Set up Webhook Http Server create request
-			var testWebHookHttpServerRequest = new WebHookHttpServer
+			var testWebhookHttpServerRequest = new WebhookHttpServer
 			{
 				Name = "Test Webhook HTTP Server",
 				SharedSecret = "testsharedsecret",
@@ -30,62 +30,62 @@ public class WebHookTests : MerakiClientUnitTest
 			};
 
 			// Create the webhook http server
-			var testWebHookHttpServer = await TestMerakiClient
+			var testWebhookHttpServer = await TestMerakiClient
 				.Networks
 				.Webhooks
 				.HttpServers
-				.CreateNetworkWebhooksHttpServerAsync(network.Id, testWebHookHttpServerRequest);
-			_ = testWebHookHttpServer.Should().NotBeNull();
+				.CreateNetworkWebhooksHttpServerAsync(network.Id, testWebhookHttpServerRequest);
+			_ = testWebhookHttpServer.Should().NotBeNull();
 
-			// Request all WebHookHttpServers and check it's there
-			var testWebHookHttpServers = await TestMerakiClient.Networks.Webhooks.HttpServers.GetNetworkWebhooksHttpServersAsync(network.Id);
-			_ = testWebHookHttpServers.Should().Contain(testWebHookHttpServer => testWebHookHttpServer.Name == testWebHookHttpServerRequest.Name);
+			// Request all WebhookHttpServers and check it's there
+			var testWebhookHttpServers = await TestMerakiClient.Networks.Webhooks.HttpServers.GetNetworkWebhooksHttpServersAsync(network.Id);
+			_ = testWebhookHttpServers.Should().Contain(testWebhookHttpServer => testWebhookHttpServer.Name == testWebhookHttpServerRequest.Name);
 
-			// Create a comparison WebHookHttpSever object
-			var expectedWebHookHttpServer = new WebHookHttpServer
+			// Create a comparison WebhookHttpSever object
+			var expectedWebhookHttpServer = new WebhookHttpServer
 			{
 				// Don't set SharedSecret in the comparison object because it won't come back
-				Name = testWebHookHttpServerRequest.Name,
+				Name = testWebhookHttpServerRequest.Name,
 				NetworkId = network.Id,
-				// The new WebHookHttpSever Id is only returned after creation so we have to get it from there
-				Id = testWebHookHttpServer.Id,
-				Url = testWebHookHttpServerRequest.Url,
+				// The new WebhookHttpSever Id is only returned after creation so we have to get it from there
+				Id = testWebhookHttpServer.Id,
+				Url = testWebhookHttpServerRequest.Url,
 			};
 
 			// Get and check the details
-			var retrievedTestWebHookHttpServer = await TestMerakiClient.Networks.Webhooks.HttpServers.GetNetworkWebhooksHttpServerAsync(network.Id, testWebHookHttpServer.Id);
-			_ = retrievedTestWebHookHttpServer.Should().NotBeNull();
-			_ = retrievedTestWebHookHttpServer.Should()
+			var retrievedTestWebhookHttpServer = await TestMerakiClient.Networks.Webhooks.HttpServers.GetNetworkWebhooksHttpServerAsync(network.Id, testWebhookHttpServer.Id);
+			_ = retrievedTestWebhookHttpServer.Should().NotBeNull();
+			_ = retrievedTestWebhookHttpServer.Should()
 				.NotBeNull()
 				.And
 				.BeEquivalentTo(
-					expectedWebHookHttpServer,
+					expectedWebhookHttpServer,
 					// Exclude the payload template because we didn't set it
 					options => options.Excluding(n => n.PayloadTemplate)
 				);
 
 			// update the webhook http server
-			var updateWebHookHttpServerRequest = new WebHookHttpServer
+			var updateWebhookHttpServerRequest = new WebhookHttpServer
 			{
 				// Only providing the item we want to change
 				Name = "Test Webhook HTTP Server - Updated",
 			};
-			var updatedTestWebHookHttpServer = await TestMerakiClient.Networks.Webhooks.HttpServers.UpdateNetworkWebhooksHttpServerAsync(network.Id, testWebHookHttpServer.Id, updateWebHookHttpServerRequest);
-			_ = updatedTestWebHookHttpServer.Should().NotBeNull();
+			var updatedTestWebhookHttpServer = await TestMerakiClient.Networks.Webhooks.HttpServers.UpdateNetworkWebhooksHttpServerAsync(network.Id, testWebhookHttpServer.Id, updateWebhookHttpServerRequest);
+			_ = updatedTestWebhookHttpServer.Should().NotBeNull();
 
 			// Get and recheck the details
-			expectedWebHookHttpServer.Name = "Test Webhook HTTP Server - Updated";
-			_ = updatedTestWebHookHttpServer.Should()
+			expectedWebhookHttpServer.Name = "Test Webhook HTTP Server - Updated";
+			_ = updatedTestWebhookHttpServer.Should()
 				.BeEquivalentTo(
-					expectedWebHookHttpServer,
+					expectedWebhookHttpServer,
 					options => options.Excluding(n => n.PayloadTemplate)
 					);
 
 			// Delete the webhook http server
-			await TestMerakiClient.Networks.Webhooks.HttpServers.DeleteNetworkWebhooksHttpServerAsync(network.Id, testWebHookHttpServer.Id);
+			await TestMerakiClient.Networks.Webhooks.HttpServers.DeleteNetworkWebhooksHttpServerAsync(network.Id, testWebhookHttpServer.Id);
 
 			// Check the webhook http server is gone
-			var webhookhttpserverexception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Networks.Webhooks.HttpServers.GetNetworkWebhooksHttpServerAsync(network.Id, testWebHookHttpServer.Id));
+			var webhookhttpserverexception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Networks.Webhooks.HttpServers.GetNetworkWebhooksHttpServerAsync(network.Id, testWebhookHttpServer.Id));
 			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
 		}
@@ -102,7 +102,7 @@ public class WebHookTests : MerakiClientUnitTest
 	}
 
 	[Fact]
-	public async Task NetworkWebHookPayloadTemplatesCrud_Succeeds()
+	public async Task NetworkWebhookPayloadTemplatesCrud_Succeeds()
 	{
 		var network = await CreateValidNetworkAsync("WebhookPayload Test Network");
 		_ = network.Should().NotBeNull();
@@ -171,7 +171,7 @@ public class WebHookTests : MerakiClientUnitTest
 				.Contain(payloadTemplate => payloadTemplate.Name == testCreateWebhookPayloadTemplateRequest.Name);
 
 			// Create an http webhook server that uses the template
-			var testWebHookHttpServerRequest = new WebHookHttpServer
+			var testWebhookHttpServerRequest = new WebhookHttpServer
 			{
 				Name = "Test Webhook HTTP Server",
 				SharedSecret = "testsharedsecret",
@@ -183,14 +183,14 @@ public class WebHookTests : MerakiClientUnitTest
 					Name = testPayloadTemplateName,
 				}
 			};
-			var testWebHookHttpServer = await TestMerakiClient
+			var testWebhookHttpServer = await TestMerakiClient
 				.Networks
 				.Webhooks
 				.HttpServers
 				.CreateNetworkWebhooksHttpServerAsync(
 					network.Id,
-					testWebHookHttpServerRequest);
-			_ = testWebHookHttpServer.Should().NotBeNull();
+					testWebhookHttpServerRequest);
+			_ = testWebhookHttpServer.Should().NotBeNull();
 
 			// Create an alternate name for the template
 			var testPayloadAlternateName = testPayloadTemplateName + " Updated";
@@ -223,8 +223,8 @@ public class WebHookTests : MerakiClientUnitTest
 						);
 
 			// Delete the http webhook server and double check it's gone
-			await TestMerakiClient.Networks.Webhooks.HttpServers.DeleteNetworkWebhooksHttpServerAsync(network.Id, testWebHookHttpServer.Id);
-			var webhookhttpserverexception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Networks.Webhooks.HttpServers.GetNetworkWebhooksHttpServerAsync(network.Id, testWebHookHttpServer.Id));
+			await TestMerakiClient.Networks.Webhooks.HttpServers.DeleteNetworkWebhooksHttpServerAsync(network.Id, testWebhookHttpServer.Id);
+			var webhookhttpserverexception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Networks.Webhooks.HttpServers.GetNetworkWebhooksHttpServerAsync(network.Id, testWebhookHttpServer.Id));
 			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
 			// Delete the payload template
@@ -247,7 +247,7 @@ public class WebHookTests : MerakiClientUnitTest
 		}
 		catch (Exception e)
 		{
-			Logger.LogError(e, "NetworkWebHookPayloadTemplatesCrud_Succeeds failed: {Message}", e.Message);
+			Logger.LogError(e, "NetworkWebhookPayloadTemplatesCrud_Succeeds failed: {Message}", e.Message);
 			throw;
 		}
 		finally
@@ -265,7 +265,7 @@ public class WebHookTests : MerakiClientUnitTest
 	}
 
 	[Fact]
-	public async Task OrganizationWebHookPayloadTemplatesCrud_Succeeds()
+	public async Task OrganizationWebhookPayloadTemplatesCrud_Succeeds()
 	{
 		try
 		{
@@ -331,7 +331,7 @@ public class WebHookTests : MerakiClientUnitTest
 				.Contain(payloadTemplate => payloadTemplate.Name == testCreateWebhookPayloadTemplateRequest.Name);
 
 			// Create an http webhook server that uses the template
-			var testWebHookHttpServerRequest = new WebHookHttpServer
+			var testWebhookHttpServerRequest = new WebhookHttpServer
 			{
 				Name = "Test Webhook HTTP Server",
 				SharedSecret = "testsharedsecret",
@@ -343,14 +343,14 @@ public class WebHookTests : MerakiClientUnitTest
 					Name = testPayloadTemplateName,
 				}
 			};
-			var testWebHookHttpServer = await TestMerakiClient
+			var testWebhookHttpServer = await TestMerakiClient
 				.Organizations
 				.Webhooks
 				.HttpServers
 				.CreateOrganizationWebhooksHttpServerAsync(
 					TestOrganizationId,
-					testWebHookHttpServerRequest);
-			_ = testWebHookHttpServer.Should().NotBeNull();
+					testWebhookHttpServerRequest);
+			_ = testWebhookHttpServer.Should().NotBeNull();
 
 			// Create an alternate name for the template
 			var testPayloadAlternateName = testPayloadTemplateName + " Updated";
@@ -389,7 +389,7 @@ public class WebHookTests : MerakiClientUnitTest
 				.HttpServers
 				.DeleteOrganizationWebhooksHttpServerAsync(
 					TestOrganizationId,
-					testWebHookHttpServer.Id
+					testWebhookHttpServer.Id
 				);
 			var webhookhttpserverexception = await Assert.ThrowsAsync<Refit.ApiException>(
 				() => TestMerakiClient
@@ -398,7 +398,7 @@ public class WebHookTests : MerakiClientUnitTest
 					.HttpServers
 					.GetOrganizationWebhooksHttpServerAsync(
 						TestOrganizationId,
-						testWebHookHttpServer.Id
+						testWebhookHttpServer.Id
 					)
 				);
 			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
@@ -426,13 +426,13 @@ public class WebHookTests : MerakiClientUnitTest
 		}
 		catch (Exception e)
 		{
-			Logger.LogError(e, "OrganizationWebHookPayloadTemplatesCrud_Succeeds failed: {Message}", e.Message);
+			Logger.LogError(e, "OrganizationWebhookPayloadTemplatesCrud_Succeeds failed: {Message}", e.Message);
 			throw;
 		}
 	}
 
 	[Fact]
-	public async Task WebHookTestCr_Succeeds()
+	public async Task WebhookTestCr_Succeeds()
 	{
 		var network = await CreateValidNetworkAsync("WebhookTest Test Network");
 		_ = network.Should().NotBeNull();

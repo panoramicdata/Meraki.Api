@@ -4,7 +4,7 @@
 /// HTTP servers
 /// </summary>
 [DataContract]
-public class WebHookHttpServerPayloadTemplate
+public class WebhookHttpServerPayloadTemplate
 {
 	/// <summary>
 	/// Id

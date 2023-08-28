@@ -10,7 +10,7 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	[Get("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
-	Task<WebHookHttpServer> GetNetworkWebhooksHttpServerAsync(
+	Task<WebhookHttpServer> GetNetworkWebhooksHttpServerAsync(
 		string networkId,
 		string httpServerId,
 		CancellationToken cancellationToken = default
@@ -22,7 +22,7 @@ public interface INetworksWebhooksHttpServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[Get("/networks/{networkId}/webhooks/httpServers")]
-	Task<List<WebHookHttpServer>> GetNetworkWebhooksHttpServersAsync(
+	Task<List<WebhookHttpServer>> GetNetworkWebhooksHttpServersAsync(
 		string networkId,
 		CancellationToken cancellationToken = default
 		);
@@ -34,9 +34,9 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServer">Body for creating a network HTTP server</param>
 	[Post("/networks/{networkId}/webhooks/httpServers")]
-	Task<WebHookHttpServer> CreateNetworkWebhooksHttpServerAsync(
+	Task<WebhookHttpServer> CreateNetworkWebhooksHttpServerAsync(
 		string networkId,
-		[Body] WebHookHttpServer httpServer,
+		[Body] WebhookHttpServer httpServer,
 		CancellationToken cancellationToken = default
 		);
 
@@ -48,10 +48,10 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	/// <param name="httpServer">Body for updating a network HTTP server</param>
 	[Put("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
-	Task<WebHookHttpServer> UpdateNetworkWebhooksHttpServerAsync(
+	Task<WebhookHttpServer> UpdateNetworkWebhooksHttpServerAsync(
 		string networkId,
 		string httpServerId,
-		[Body] WebHookHttpServer httpServer,
+		[Body] WebhookHttpServer httpServer,
 		CancellationToken cancellationToken = default
 		);
 

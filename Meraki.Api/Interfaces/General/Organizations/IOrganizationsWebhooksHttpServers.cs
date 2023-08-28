@@ -10,7 +10,7 @@ public interface IOrganizationsWebhooksHttpServers
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	[Get("/organizations/{organizationId}/webhooks/httpServers/{httpServerId}")]
-	Task<WebHookHttpServer> GetOrganizationWebhooksHttpServerAsync(
+	Task<WebhookHttpServer> GetOrganizationWebhooksHttpServerAsync(
 		string organizationId,
 		string httpServerId,
 		CancellationToken cancellationToken = default
@@ -22,7 +22,7 @@ public interface IOrganizationsWebhooksHttpServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/webhooks/httpServers")]
-	Task<List<WebHookHttpServer>> GetOrganizationWebhooksHttpServersAsync(
+	Task<List<WebhookHttpServer>> GetOrganizationWebhooksHttpServersAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default
 		);
@@ -34,9 +34,9 @@ public interface IOrganizationsWebhooksHttpServers
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="httpServer">Body for creating an organization HTTP server</param>
 	[Post("/organizations/{organizationId}/webhooks/httpServers")]
-	Task<WebHookHttpServer> CreateOrganizationWebhooksHttpServerAsync(
+	Task<WebhookHttpServer> CreateOrganizationWebhooksHttpServerAsync(
 		string organizationId,
-		[Body] WebHookHttpServer httpServer,
+		[Body] WebhookHttpServer httpServer,
 		CancellationToken cancellationToken = default
 		);
 
@@ -48,10 +48,10 @@ public interface IOrganizationsWebhooksHttpServers
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	/// <param name="httpServer">Body for updating an organization HTTP server</param>
 	[Put("/organizations/{organizationId}/webhooks/httpServers/{httpServerId}")]
-	Task<WebHookHttpServer> UpdateOrganizationWebhooksHttpServerAsync(
+	Task<WebhookHttpServer> UpdateOrganizationWebhooksHttpServerAsync(
 		string organizationId,
 		string httpServerId,
-		[Body] WebHookHttpServer httpServer,
+		[Body] WebhookHttpServer httpServer,
 		CancellationToken cancellationToken = default
 		);
 
