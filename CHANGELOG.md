@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-# 1.36.20
+## 1.36.20
 - Fixed further inconsistencies with webhook and corrected all occurrences of WebHooks/webHook to lowercase h.
 
 ## 1.36.19
