@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.36.24
+- Added detection of catalyst 9200 and 9300 models as a switch
+
 ## 1.36.20
 - Fixed further inconsistencies with webhook and corrected all occurrences of WebHooks/webHook to lowercase h.
 
