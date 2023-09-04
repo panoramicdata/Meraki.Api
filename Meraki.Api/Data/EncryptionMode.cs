@@ -30,5 +30,4 @@ public enum EncryptionMode
 	/// </summary>
 	[EnumMember(Value = "open")]
 	Open
-
 }

@@ -5,6 +5,7 @@ namespace Meraki.Api.NewTest;
 public class DeviceGetModelTypeTests
 {
 	[Theory]
+#pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
 	[InlineData("MR1234", ModelType.WirelessLan)]
 	[InlineData("MS1234", ModelType.Switch)]
 	[InlineData("SM1234", ModelType.MobileDeviceManagement)]
@@ -21,6 +22,7 @@ public class DeviceGetModelTypeTests
 	[InlineData("mv1234", ModelType.Camera)]
 	[InlineData("mt1234", ModelType.Sensor)]
 	[InlineData("xy1234", ModelType.Unknown)]
+#pragma warning restore CS3016 // Arrays as attribute arguments is not CLS-compliant
 	public void DeviceGetModelType_ReturnsExpectedType(string model, ModelType expected)
 	{
 		var device = new Device { Model = model };

@@ -1,3 +1,4 @@
+using Meraki.Api.Exceptions;
 using Newtonsoft.Json;
 
 namespace Meraki.Api.Test.Organizations;
@@ -59,7 +60,7 @@ public class Tests : MerakiClientTest
 			.ConfigureAwait(false);
 		if (existingOrganizations.Any(o => o.Name == initialOrganizationName))
 		{
-			throw new Exception($"Test Organization {initialOrganizationName} already exists");
+			throw new ConfigurationException($"Test Organization {initialOrganizationName} already exists");
 		}
 
 		// Create
@@ -101,13 +102,11 @@ public class Tests : MerakiClientTest
 			.ConfigureAwait(false);
 
 		// It should be gone now
-		Func<Task> act = async () =>
-		{
-			_ = await TestMerakiClient
+		Func<Task> act = async ()
+			=> _ = await TestMerakiClient
 				.Organizations
 				.GetOrganizationAsync(createdOrganization.Id)
 				.ConfigureAwait(false);
-		};
 		_ = await act
 			.Should()
 			.ThrowAsync<ApiException>()
@@ -115,15 +114,15 @@ public class Tests : MerakiClientTest
 	}
 
 	//[Fact(Skip = "Not part of general run")]
-	public async Task ClaimDeviceAsync_Succeeds()
-	{
-		var result = await TestMerakiClient
-			.Organizations
-			.ClaimIntoOrganizationAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
-			.ConfigureAwait(false);
-		_ = result.Should().NotBeNull();
-		_ = result.Serials.Should().NotBeEmpty();
-	}
+	//public async Task ClaimDeviceAsync_Succeeds()
+	//{
+	//	var result = await TestMerakiClient
+	//		.Organizations
+	//		.ClaimIntoOrganizationAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
+	//		.ConfigureAwait(false);
+	//	_ = result.Should().NotBeNull();
+	//	_ = result.Serials.Should().NotBeEmpty();
+	//}
 
 	private static void ValidateOrganisation(Organization org)
 	{

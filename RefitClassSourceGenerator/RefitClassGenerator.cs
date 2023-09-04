@@ -149,7 +149,7 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 		}
 	}
 
-	public IImmutableList<INamedTypeSymbol?> GetMatchingInterfacesInSolution(Compilation compilation, string name)
+	public static IImmutableList<INamedTypeSymbol?> GetMatchingInterfacesInSolution(Compilation compilation, string name)
 		=> compilation.SyntaxTrees.Select(syntaxTree => compilation.GetSemanticModel(syntaxTree))
 			.SelectMany(
 				semanticModel => semanticModel
@@ -161,7 +161,7 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 			.Where(symbol => symbol != null && name == symbol.ToDisplayString())
 			.ToImmutableList();
 
-	public IImmutableList<string> GetInterfaceNamesInSolution(Compilation compilation)
+	public static IImmutableList<string> GetInterfaceNamesInSolution(Compilation compilation)
 		=> compilation.SyntaxTrees.Select(syntaxTree => compilation.GetSemanticModel(syntaxTree))
 			.SelectMany(
 				semanticModel => semanticModel

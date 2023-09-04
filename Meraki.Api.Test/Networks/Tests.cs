@@ -115,7 +115,8 @@ public class Tests : MerakiClientTest
 					.Devices
 					.RemoveNetworkDevicesAsync(
 						oldNetwork.Id,
-						new DeviceRemovalRequest {
+						new DeviceRemovalRequest
+						{
 							Serial = oldNetworkDevice.Serial
 								?? throw new InvalidDataException("Expected serial number")
 						})
@@ -273,7 +274,7 @@ public class Tests : MerakiClientTest
 		var wanSpecs = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial)
+			.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial!)
 			.ConfigureAwait(false);
 		_ = wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 		_ = wanSpecs.Should().NotBeNull();
@@ -298,7 +299,7 @@ public class Tests : MerakiClientTest
 		var updatedWanSpecs = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.UpdateDeviceManagementInterfaceAsync(fetchedDevice.Serial, new DeviceManagementInterfaceSettings
+			.UpdateDeviceManagementInterfaceAsync(fetchedDevice.Serial!, new DeviceManagementInterfaceSettings
 			{
 				Wan1 = new Wan
 				{

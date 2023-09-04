@@ -12,5 +12,4 @@ public class NeighborIpv6
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "address")]
 	public string Address { get; set; } = string.Empty;
-
 }

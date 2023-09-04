@@ -97,9 +97,7 @@ public class Tests : MerakiClientTest
 	{
 		var networkName = new string('X', Network.MaxNameLength + 1);
 
-		Func<Task> action = async () =>
-		{
-			_ = await TestMerakiClient
+		Func<Task> action = async () => _ = await TestMerakiClient
 				.Organizations
 				.Networks
 				.CreateOrganizationNetworkAsync(
@@ -111,7 +109,6 @@ public class Tests : MerakiClientTest
 						TimeZone = "Europe/London"
 					})
 				 .ConfigureAwait(false);
-		};
 
 		return action
 			.Should()
@@ -142,7 +139,8 @@ public class Tests : MerakiClientTest
 					.Devices
 					.RemoveNetworkDevicesAsync(
 						oldNetwork.Id,
-						new DeviceRemovalRequest {
+						new DeviceRemovalRequest
+						{
 							Serial = oldNetworkDevice.Serial
 								?? throw new InvalidDataException("Expected serial number")
 						})
@@ -169,7 +167,7 @@ public class Tests : MerakiClientTest
 			.ConfigureAwait(false);
 		var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
 
-		device.Should().NotBeNull();
+		_ = device.Should().NotBeNull();
 
 		// Perform any clean-up
 		await EnsureNetworkRemovedAsync(networkName)
@@ -301,7 +299,7 @@ public class Tests : MerakiClientTest
 		var wanSpecs = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial)
+			.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial!)
 			.ConfigureAwait(false);
 		_ = wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 		_ = wanSpecs.Should().NotBeNull();
@@ -326,7 +324,7 @@ public class Tests : MerakiClientTest
 		var updatedWanSpecs = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.UpdateDeviceManagementInterfaceAsync(fetchedDevice.Serial, new DeviceManagementInterfaceSettings
+			.UpdateDeviceManagementInterfaceAsync(fetchedDevice.Serial!, new DeviceManagementInterfaceSettings
 			{
 				Wan1 = new Wan
 				{
@@ -382,13 +380,10 @@ public class Tests : MerakiClientTest
 			.DeleteNetworkAsync(newNetwork.Id)
 			.ConfigureAwait(false);
 
-		action = async () =>
-		{
-			_ = await TestMerakiClient
+		action = async () => _ = await TestMerakiClient
 			   .Networks
 			   .GetNetworkAsync(newNetwork.Id)
 			   .ConfigureAwait(false);
-		};
 
 		_ = await action
 			.Should()
@@ -584,7 +579,7 @@ public class Tests : MerakiClientTest
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 		var firstResult = result[0];
-		Networks.Tests.ValidateNetwork(firstResult);
+		ValidateNetwork(firstResult);
 	}
 
 	[Fact]
@@ -609,7 +604,7 @@ public class Tests : MerakiClientTest
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 		var firstResult = result[0];
-		Networks.Tests.ValidateNetwork(firstResult);
+		ValidateNetwork(firstResult);
 	}
 
 	[Fact]
@@ -625,6 +620,6 @@ public class Tests : MerakiClientTest
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 		var firstResult = result[0];
-		Networks.Tests.ValidateNetwork(firstResult);
+		ValidateNetwork(firstResult);
 	}
 }

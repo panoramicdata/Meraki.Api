@@ -19,5 +19,4 @@ public class WirelessSettingsRegulatoryDomain
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "permits6e")]
 	public bool Permits6e { get; set; }
-
 }

@@ -9,5 +9,4 @@ public class DeviceProvisioningStatusNetwork
 	/// </summary>
 	[DataMember(Name = "id")]
 	public string? Id { get; set; }
-
 }

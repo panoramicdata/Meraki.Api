@@ -158,8 +158,7 @@ public static class SheetOutput
 				return modelProperty.CanWrite && dataMemberAttribute is null;
 			})
 			.ToList();
-		if (modelPropertiesWithoutDataMembers is not null
-			&& modelPropertiesWithoutDataMembers.Count > 0)
+		if (modelPropertiesWithoutDataMembers?.Count > 0)
 		{
 			result += $" Found writable properties without DataMember: {string.Join(", ", modelPropertiesWithoutDataMembers.Select(p => p.Name))}";
 			// Don't do anything else

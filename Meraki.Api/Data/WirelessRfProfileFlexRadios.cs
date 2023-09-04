@@ -12,6 +12,4 @@ public class WirelessRfProfileFlexRadios
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "byModel")]
 	public List<WirelessRfProfileFlexRadiosByModel>? ByModel { get; set; }
-
-
 }

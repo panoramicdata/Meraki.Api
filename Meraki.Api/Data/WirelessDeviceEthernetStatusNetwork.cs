@@ -7,5 +7,4 @@
 [ApiAccessReadOnlyClass]
 public class WirelessDeviceEthernetStatusNetwork : IdentifiedItem
 {
-
 }
