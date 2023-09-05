@@ -77,4 +77,11 @@ public class InventoryDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "productType")]
 	public ProductType? ProductType { get; set; }
+
+	/// <summary>
+	/// Country Code - Undocumented 2023-09-05
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "countryCode")]
+	public string? CountryCode { get; set; }
 }

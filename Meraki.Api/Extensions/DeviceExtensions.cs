@@ -8,6 +8,7 @@ public static class DeviceExtensions
 				: device.Model.Substring(0, 2).ToUpperInvariant() switch
 				{
 					"MR" => ModelType.WirelessLan,
+					"CW" => ModelType.WirelessLan,
 					"MS" => ModelType.Switch,
 					"SM" => ModelType.MobileDeviceManagement,
 					"MG" => ModelType.Cellular,
@@ -16,7 +17,7 @@ public static class DeviceExtensions
 					"MT" => ModelType.Sensor,
 					_ => device.Model.Substring(0, 5).ToUpperInvariant() switch
 					{
-						"C9200" or "C9300" => ModelType.Switch,
+						"C9200" or "C9300" or "C9500" => ModelType.Switch,
 						_ => ModelType.Unknown
 					}
 				};
