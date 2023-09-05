@@ -7,8 +7,7 @@ public static class DeviceExtensions
 				? ModelType.Unknown
 				: device.Model.Substring(0, 2).ToUpperInvariant() switch
 				{
-					"MR" => ModelType.WirelessLan,
-					"CW" => ModelType.WirelessLan,
+					"MR" or "CW" => ModelType.WirelessLan,
 					"MS" => ModelType.Switch,
 					"SM" => ModelType.MobileDeviceManagement,
 					"MG" => ModelType.Cellular,
