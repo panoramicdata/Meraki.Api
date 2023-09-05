@@ -61,10 +61,28 @@ public class FloorplanDevice : NamedItem
 	public string? Model { get; set; }
 
 	/// <summary>
+	/// ReadOnly: switchProfileId
+	/// </summary>
+	[DataMember(Name = "switchProfileId")]
+	public string? SwitchProfileId { get; set; }
+
+	/// <summary>
 	/// ReadOnly: The MAC address of a device
 	/// </summary>
 	[DataMember(Name = "mac")]
 	public string? Mac { get; set; }
+
+	/// <summary>
+	/// Readonly: The WAN1 IP address
+	/// </summary>
+	[DataMember(Name = "wan1Ip")]
+	public string? Wan1Ip { get; set; }
+
+	/// <summary>
+	/// Readonly: The WAN2 IP address
+	/// </summary>
+	[DataMember(Name = "wan2Ip")]
+	public string? Wan2Ip { get; set; }
 
 	/// <summary>
 	/// Readonly: The LAN IP address
@@ -79,6 +97,12 @@ public class FloorplanDevice : NamedItem
 	public string? Url { get; set; }
 
 	/// <summary>
+	/// Readonly: beaconIdParams - Undocumented
+	/// </summary>
+	[DataMember(Name = "beaconIdParams")]
+	public FloorplanDeviceBeaconIdParams? BeaconIdParams { get; set; }
+
+	/// <summary>
 	/// Readonly: The firmware version of a device
 	/// </summary>
 	[DataMember(Name = "firmware")]
@@ -89,4 +113,11 @@ public class FloorplanDevice : NamedItem
 	/// </summary>
 	[DataMember(Name = "productType")]
 	public string? ProductType { get; set; }
+
+	/// <summary>
+	/// ReadOnly: The ID of the Floorplan on which this device is placed
+	/// </summary>
+	[ApiForeignKey(typeof(FloorPlan))]
+	[DataMember(Name = "floorplanId")]
+	public string? FloorplanId { get; set; }
 }

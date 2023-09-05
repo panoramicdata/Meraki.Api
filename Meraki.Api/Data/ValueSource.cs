@@ -7,6 +7,13 @@
 public class ValueSource
 {
 	/// <summary>
+	/// ID - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "id")]
+	public string? Id { get; set; }
+
+	/// <summary>
 	/// E.g.: "any", "0" (also means "any"), "8080", "1-1024"
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
