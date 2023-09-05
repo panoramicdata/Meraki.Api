@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.36.30
+- Updated for some missing Properties and added CW to product type detection as a Wireless device
+
 ## 1.36.24
 - Added detection of catalyst 9200 and 9300 models as a switch
 
