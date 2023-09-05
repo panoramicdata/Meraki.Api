@@ -85,6 +85,12 @@ public class FloorplanDevice : NamedItem
 	public string? Wan2Ip { get; set; }
 
 	/// <summary>
+	/// Readonly: The LAN IP address
+	/// </summary>
+	[DataMember(Name = "lanIp")]
+	public string? LanIp { get; set; }
+
+	/// <summary>
 	/// Readonly: The url to the device managment interface
 	/// </summary>
 	[DataMember(Name = "url")]
