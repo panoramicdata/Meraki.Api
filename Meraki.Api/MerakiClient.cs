@@ -95,7 +95,9 @@ public partial class MerakiClient : IDisposable
 			Webhooks = new()
 			{
 				AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes),
-				Logs = RefitFor(Organizations.Webhooks.Logs)
+				Logs = RefitFor(Organizations.Webhooks.Logs),
+				PayloadTemplates = RefitFor(Organizations.Webhooks.PayloadTemplates),
+				HttpServers = RefitFor(Organizations.Webhooks.HttpServers)
 			}
 		};
 
@@ -152,11 +154,11 @@ public partial class MerakiClient : IDisposable
 				ApplicationCategories = RefitFor(Networks.TrafficShaping.ApplicationCategories),
 				DscpTaggingOptions = RefitFor(Networks.TrafficShaping.DscpTaggingOptions)
 			},
-			WebHooks = new()
+			Webhooks = new()
 			{
-				HttpServers = RefitFor(Networks.WebHooks.HttpServers),
-				WebhookTests = RefitFor(Networks.WebHooks.WebhookTests),
-				PayloadTemplates = RefitFor(Networks.WebHooks.PayloadTemplates)
+				HttpServers = RefitFor(Networks.Webhooks.HttpServers),
+				WebhookTests = RefitFor(Networks.Webhooks.WebhookTests),
+				PayloadTemplates = RefitFor(Networks.Webhooks.PayloadTemplates)
 			}
 		};
 

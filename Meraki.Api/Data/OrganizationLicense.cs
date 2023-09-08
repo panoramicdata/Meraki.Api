@@ -103,7 +103,6 @@ public class OrganizationLicense : IdentifiedItem
 	/// <summary>
 	/// headLicenseId - undocumented
 	/// </summary>
-
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "headLicenseId")]
 	public object? HeadLicenseId { get; set; }

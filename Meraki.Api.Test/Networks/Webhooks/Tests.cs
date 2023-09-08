@@ -14,7 +14,7 @@ public class Tests : MerakiClientTest
 
 		var result = await TestMerakiClient
 			.Networks
-			.WebHooks
+			.Webhooks
 			.PayloadTemplates
 			.GetNetworkWebhooksPayloadTemplatesAsync(network.Id)
 			.ConfigureAwait(false);

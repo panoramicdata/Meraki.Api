@@ -33,7 +33,7 @@ public class PayloadTemplate : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "headers")]
-	public Dictionary<string, string>? Headers { get; set; }
+	public List<PayloadTemplateHeader>? Headers { get; set; }
 
 	/// <summary>
 	/// The body

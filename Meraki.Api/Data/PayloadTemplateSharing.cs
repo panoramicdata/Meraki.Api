@@ -12,5 +12,4 @@ public class PayloadTemplateSharing
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "byNetwork")]
 	public PayloadTemplateSharingByNetwork? ByNetwork { get; set; }
-
 }

@@ -1,13 +1,13 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// NeighborTtlSecurity
+/// MacBlockList on SwitchSettings
 /// </summary>
 [DataContract]
-public class NeighborTtlSecurity
+public class MacBlockListSettings
 {
 	/// <summary>
-	/// Settings for BGP TTL security to protect BGP peering sessions from forged IP attacks.
+	/// Enabled - undocumented 2023-08-25
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]

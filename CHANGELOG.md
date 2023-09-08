@@ -3,6 +3,21 @@
 ## 1.36.X
 - Added UpdateNetworkApplianceTrafficShapingVpnExclusionsAsync
 
+## 1.36.30
+- Updated for some missing Properties and added CW to product type detection as a Wireless device
+
+## 1.36.24
+- Added detection of catalyst 9200 and 9300 models as a switch
+
+## 1.36.20
+- Fixed further inconsistencies with webhook and corrected all occurrences of WebHooks/webHook to lowercase h.
+
+## 1.36.19
+- Fixes for Webhooks.  In some places, "WebHooks" has been changed to "Webhooks for consistency, which is a breaking change.
+
+## 1.36.13
+- Added missing MacBlockList settings on SwitchSettings - undocumented
+
 ## 1.36.3
 - Updated for v1.36 API changes
 

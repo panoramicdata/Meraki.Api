@@ -1,7 +1,7 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Resolution of the camera. 
+/// Resolution of the camera.
 /// </summary>
 /// <value>Resolution of the camera.</value>
 [JsonConverter(typeof(StringEnumConverter))]

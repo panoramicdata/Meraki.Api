@@ -24,5 +24,5 @@ public partial class NetworksSection
 	public INetworksSnmp Snmp { get; internal set; } = null!;
 	public INetworksSplashLoginAttempts SplashLoginAttempts { get; internal set; } = null!;
 	public INetworksSyslogServers SyslogServers { get; internal set; } = null!;
-	public NetworksWebhooksSection WebHooks { get; internal set; } = new();
+	public NetworksWebhooksSection Webhooks { get; internal set; } = new();
 }

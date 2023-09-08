@@ -29,5 +29,4 @@ public enum BandOperationMode
 	/// </summary>
 	[EnumMember(Value = "multi")]
 	Multi
-
 }

@@ -33,5 +33,5 @@ public class WebhookHttpServer : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "payloadTemplate")]
-	public PayloadTemplate? PayloadTemplate { get; set; }
+	public WebhookHttpServerPayloadTemplate? PayloadTemplate { get; set; }
 }

@@ -14,7 +14,7 @@ public interface ICameraCustomAnalyticsArtifacts
 		);
 
 	/// <summary>
-	/// Create custom analytics artifact. Returns an artifact upload URL with expiry time. 
+	/// Create custom analytics artifact. Returns an artifact upload URL with expiry time.
 	/// Upload the artifact file with a put request to the returned upload URL before its expiry.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
