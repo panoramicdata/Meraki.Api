@@ -18,5 +18,5 @@ public class NetworkApplianceTrafficShapingRule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<TrafficShapingRule> Rules { get; set; } = new();
+	public List<TrafficShapingRule>? Rules { get; set; }
 }
