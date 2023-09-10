@@ -9,7 +9,7 @@ public class EarlyAccessFeatureTests : MerakiClientUnitTest
 	}
 
 	[Fact]
-	public async Task BasicGet_Features_Suceeds()
+	public async Task BasicGet_Features_Succeeds()
 	{
 		var result = await TestMerakiClient.Organizations.EarlyAccess.Features.GetOrganizationEarlyAccessFeaturesAsync(TestOrganizationId);
 		_ = result.Should().NotBeNullOrEmpty();
@@ -17,7 +17,7 @@ public class EarlyAccessFeatureTests : MerakiClientUnitTest
 	}
 
 	[Fact]
-	public async Task BasicGet_GetOptins_Suceeds()
+	public async Task BasicGet_GetOptIns_Succeeds()
 	{
 		var result = await TestMerakiClient.Organizations.EarlyAccess.Features.GetOrganizationEarlyAccessFeaturesOptInsAsync(TestOrganizationId);
 		_ = result.Should().NotBeNullOrEmpty();

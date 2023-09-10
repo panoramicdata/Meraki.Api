@@ -98,17 +98,17 @@ public class Tests : MerakiClientTest
 		var networkName = new string('X', Network.MaxNameLength + 1);
 
 		Func<Task> action = async () => _ = await TestMerakiClient
-				.Organizations
-				.Networks
-				.CreateOrganizationNetworkAsync(
-					Configuration.TestOrganizationId,
-					new NetworkCreationRequest
-					{
-						Name = networkName,
-						Tags = new List<string>(),
-						TimeZone = "Europe/London"
-					})
-				 .ConfigureAwait(false);
+			.Organizations
+			.Networks
+			.CreateOrganizationNetworkAsync(
+				Configuration.TestOrganizationId,
+				new NetworkCreationRequest
+				{
+					Name = networkName,
+					Tags = new List<string>(),
+					TimeZone = "Europe/London"
+				})
+				.ConfigureAwait(false);
 
 		return action
 			.Should()
@@ -381,9 +381,9 @@ public class Tests : MerakiClientTest
 			.ConfigureAwait(false);
 
 		action = async () => _ = await TestMerakiClient
-			   .Networks
-			   .GetNetworkAsync(newNetwork.Id)
-			   .ConfigureAwait(false);
+			.Networks
+			.GetNetworkAsync(newNetwork.Id)
+			.ConfigureAwait(false);
 
 		_ = await action
 			.Should()

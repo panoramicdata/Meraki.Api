@@ -24,5 +24,4 @@ public class FloorplanDeviceBeaconIdParams
 	/// </summary>
 	[DataMember(Name = "minor")]
 	public int? Minor { get; set; }
-
 }
