@@ -128,4 +128,7 @@ public enum AlertType
 
 	[EnumMember(Value = "cellularUpDown")]
 	CellularUpDown,
+
+	[EnumMember(Value = "clientConnectivity")]
+	ClientConnectivity,
 }
