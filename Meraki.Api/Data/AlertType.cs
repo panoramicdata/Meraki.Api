@@ -134,4 +134,7 @@ public enum AlertType
 
 	[EnumMember(Value = "vrrp")]
 	Vrrp,
+
+	[EnumMember(Value = "weeklyUmbrella")]
+	WeeklyUmbrella,
 }
