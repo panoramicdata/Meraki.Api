@@ -104,4 +104,7 @@ public enum AlertType
 
 	[EnumMember(Value = "applianceDown")]
 	ApplianceDown,
+
+	[EnumMember(Value = "failoverEvent")]
+	FailoverEvent,
 }
