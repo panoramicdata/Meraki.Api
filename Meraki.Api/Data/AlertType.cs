@@ -116,4 +116,7 @@ public enum AlertType
 
 	[EnumMember(Value = "ipConflict")]
 	IpConflict,
+
+	[EnumMember(Value = "ip6Conflict")]
+	Ip6Conflict,
 }
