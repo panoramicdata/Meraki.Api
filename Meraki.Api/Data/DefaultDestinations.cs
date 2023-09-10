@@ -20,14 +20,16 @@ public class DefaultDestinations
 	/// <value>If true, then all network admins will receive emails.</value>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "allAdmins")]
-	public bool? AllAdmins { get; set; }
+	public bool AllAdmins { get; set; }
+
 	/// <summary>
 	/// If true, then an SNMP trap will be sent if there is an SNMP trap server configured for this network.
 	/// </summary>
 	/// <value>If true, then an SNMP trap will be sent if there is an SNMP trap server configured for this network.</value>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "snmp")]
-	public bool? Snmp { get; set; }
+	public bool Snmp { get; set; }
+
 	/// <summary>
 	/// A list of HTTP server IDs to send a Webhook to
 	/// </summary>

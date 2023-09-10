@@ -11,7 +11,7 @@ public class NetworkAlertSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "defaultDestinations")]
-	public DefaultDestinations? DefaultDestinations { get; set; }
+	public DefaultDestinations DefaultDestinations { get; set; } = new();
 
 	/// <summary>
 	/// Alert-specific configuration for each type. Only alerts that pertain to the network can be updated.
@@ -26,5 +26,5 @@ public class NetworkAlertSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "muting")]
-	public NetworkAlertSettingsMuting? Muting { get; set; }
+	public NetworkAlertSettingsMuting Muting { get; set; } = new();
 }
