@@ -137,4 +137,7 @@ public enum AlertType
 
 	[EnumMember(Value = "weeklyUmbrella")]
 	WeeklyUmbrella,
+
+	[EnumMember(Value = "prefixStarvation")]
+	PrefixStarvation,
 }
