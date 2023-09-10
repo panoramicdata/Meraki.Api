@@ -95,4 +95,7 @@ public enum AlertType
 
 	[EnumMember(Value = "sensorUsbPowerCable")]
 	SensorUsbPowerCable,
+
+	[EnumMember(Value = "ampMalwareDetected")]
+	AmpMalwareDetected,
 }
