@@ -107,4 +107,7 @@ public enum AlertType
 
 	[EnumMember(Value = "failoverEvent")]
 	FailoverEvent,
+
+	[EnumMember(Value = "dchpNoLeases")]
+	DhcpNoLeases,
 }
