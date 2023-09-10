@@ -35,5 +35,5 @@ public class Alert
 	/// <value>A hash of specific configuration data for the alert. Only filters specific to the alert will be updated.</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "filters")]
-	public Dictionary<string, string> Filters { get; set; } = new();
+	public AlertFilters Filters { get; set; } = new();
 }
