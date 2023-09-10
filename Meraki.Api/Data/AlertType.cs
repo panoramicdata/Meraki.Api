@@ -110,4 +110,7 @@ public enum AlertType
 
 	[EnumMember(Value = "dchpNoLeases")]
 	DhcpNoLeases,
+
+	[EnumMember(Value = "rogueDhcp")]
+	RogueDhcp,
 }
