@@ -98,4 +98,7 @@ public enum AlertType
 
 	[EnumMember(Value = "ampMalwareDetected")]
 	AmpMalwareDetected,
+
+	[EnumMember(Value = "ampMalwareBlocked")]
+	AmpMalwareBlocked,
 }
