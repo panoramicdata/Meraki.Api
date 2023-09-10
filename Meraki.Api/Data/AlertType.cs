@@ -113,4 +113,7 @@ public enum AlertType
 
 	[EnumMember(Value = "rogueDhcp")]
 	RogueDhcp,
+
+	[EnumMember(Value = "ipConflict")]
+	IpConflict,
 }
