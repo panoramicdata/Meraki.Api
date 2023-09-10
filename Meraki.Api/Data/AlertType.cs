@@ -119,4 +119,7 @@ public enum AlertType
 
 	[EnumMember(Value = "ip6Conflict")]
 	Ip6Conflict,
+
+	[EnumMember(Value = "dhcp6naRenumber")]
+	Dhcp6naRenumber,
 }
