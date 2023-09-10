@@ -131,4 +131,7 @@ public enum AlertType
 
 	[EnumMember(Value = "clientConnectivity")]
 	ClientConnectivity,
+
+	[EnumMember(Value = "vrrp")]
+	Vrrp,
 }

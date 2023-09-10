@@ -164,6 +164,7 @@ vap
 vlan
 vlans
 vpn
+vrrp
 webhook
 webhooks
 wednesday
