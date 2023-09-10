@@ -125,4 +125,7 @@ public enum AlertType
 
 	[EnumMember(Value = "dhcp6pdRenumber")]
 	Dhcp6PdRenumber,
+
+	[EnumMember(Value = "cellularUpDown")]
+	CellularUpDown,
 }
