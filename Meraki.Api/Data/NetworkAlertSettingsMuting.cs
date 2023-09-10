@@ -11,5 +11,5 @@ public class NetworkAlertSettingsMuting
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "byPortSchedules")]
-	public NetworkAlertSettingsMutingByPortSchedules? ByPortSchedules { get; set; }
+	public NetworkAlertSettingsMutingByPortSchedules ByPortSchedules { get; set; } = new();
 }
