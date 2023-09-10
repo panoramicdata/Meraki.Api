@@ -140,4 +140,7 @@ public enum AlertType
 
 	[EnumMember(Value = "prefixStarvation")]
 	PrefixStarvation,
+
+	[EnumMember(Value = "cellularGatewayDown")]
+	CellularGatewayDown,
 }
