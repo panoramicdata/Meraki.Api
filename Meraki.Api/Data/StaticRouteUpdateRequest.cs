@@ -18,12 +18,12 @@ public class StaticRouteUpdateRequest : StaticRouteCreationRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "fixedIpAssignments")]
-	public object FixedIpAssignments { get; set; } = null!;
+	public Dictionary<string, StaticRouteFixedIpAssignment>? FixedIpAssignments { get; set; }
 
 	/// <summary>
 	/// The DHCP reserved IP ranges on the static route
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "reservedIpRanges")]
-	public List<ReservedIpRange> ReservedIpRanges { get; set; } = new();
+	public List<ReservedIpRange>? ReservedIpRanges { get; set; }
 }
