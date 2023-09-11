@@ -19,11 +19,13 @@ public partial class MerakiClient
 		{ "Q2BV", "MV21" },
 		{ "Q2BX", "MS120-8LP" },
 		{ "Q2BY", "MS355-24X2" },
+		{ "Q2BZ", "VMX-S" },
 		{ "Q2CN", "MX60W" },
 		{ "Q2CW", "MS425-16" },
 		{ "Q2CX", "MS120-8FP" },
 		{ "Q2DK", "MR72" },
 		{ "Q2DY", "MS355-48X2" },
+		{ "Q2DZ", "VMX-M" },
 		{ "Q2EK", "MR84" },
 		{ "Q2EV", "MV12N" },
 		{ "Q2EW", "MS350-24X" },
@@ -103,6 +105,7 @@ public partial class MerakiClient
 		{ "Q3CJ", "MT40" },
 
 		{ "Q4AA", "MS120-8" },
+		{ "Q4AC", "MS120-8FP" },
 
 		{ "Q5AC", "CW9164I" },
 		{ "Q5AE", "CW9166I" },
