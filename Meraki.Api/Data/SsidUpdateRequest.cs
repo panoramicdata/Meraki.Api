@@ -425,4 +425,11 @@ public class SsidUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "speedBurst")]
 	public SpeedBurst? SpeedBurst { get; set; }
+
+	/// <summary>
+	/// localAuth
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "localAuth")]
+	public bool? LocalAuth { get; set; }
 }
