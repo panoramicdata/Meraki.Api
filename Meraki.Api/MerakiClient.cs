@@ -348,6 +348,7 @@ public partial class MerakiClient : IDisposable
 				OrganizationEthernetStatuses = RefitFor(Wireless.Devices.OrganizationEthernetStatuses)
 			},
 			ConnectionStats = RefitFor(Wireless.ConnectionStats),
+			EthernetPortsProfile = RefitFor(Wireless.EthernetPortsProfile),
 			FailedConnections = RefitFor(Wireless.FailedConnections),
 			LatencyHistory = RefitFor(Wireless.LatencyHistory),
 			LatencyStats = RefitFor(Wireless.LatencyStats),
