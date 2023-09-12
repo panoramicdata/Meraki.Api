@@ -273,7 +273,8 @@ public partial class MerakiClient : IDisposable
 			Onbording = new()
 			{
 				Onbording = RefitFor(Camera.Onbording.Onbording)
-			}
+			},
+			Roles = RefitFor(Camera.Roles)
 		};
 
 		CellularGateway = new()
