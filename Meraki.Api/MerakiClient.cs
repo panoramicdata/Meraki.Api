@@ -217,7 +217,8 @@ public partial class MerakiClient : IDisposable
 				CustomPerformanceClasses = RefitFor(Appliance.TrafficShaping.CustomPerformanceClasses),
 				Rules = RefitFor(Appliance.TrafficShaping.Rules),
 				UplinkBandwidth = RefitFor(Appliance.TrafficShaping.UplinkBandwidth),
-				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection)
+				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection),
+				VpnExclusions = RefitFor(Appliance.TrafficShaping.VpnExclusions)
 			},
 			Uplink = new()
 			{
