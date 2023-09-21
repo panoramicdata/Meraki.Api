@@ -12,7 +12,7 @@ public class WirelessSection
 	public IWirelessClientCountHistory ClientCountHistory { get; internal set; } = null!;
 	public IWirelessConnectionStats ConnectionStats { get; internal set; } = null!;
 	public WirelessDevicesSection Devices { get; internal set; } = new();
-	public WirelessEthernetPortsProfile EthernetPortsProfile { get; internal set; } = new();
+	public IWirelessEthernetPortsProfiles EthernetPortsProfile { get; internal set; } = null!;
 	public IWirelessFailedConnections FailedConnections { get; internal set; } = null!;
 	public IWirelessLatencyHistory LatencyHistory { get; internal set; } = null!;
 	public IWirelessLatencyStats LatencyStats { get; internal set; } = null!;

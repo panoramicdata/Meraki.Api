@@ -38,6 +38,7 @@ public interface ICameraRoles
 	[Get("/organizations/{organizationId}/camera/roles/{roleId}")]
 	Task<CameraRole> GetOrganizationCameraRoleAsync(
 		string organizationId,
+		string roleId,
 		CancellationToken cancellationToken = default
 		);
 
@@ -51,6 +52,7 @@ public interface ICameraRoles
 	[Put("/organizations/{organizationId}/camera/role/{roleId}")]
 	Task<CameraRole> UpdateOrganizationCameraRoleAsync(
 		string organizationId,
+		string roleId,
 		[Body] CameraRole cameraRole,
 		CancellationToken cancellationToken = default
 		);
