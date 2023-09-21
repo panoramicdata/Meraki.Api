@@ -6,6 +6,7 @@ public partial class CameraSection
 	internal ICamera Camera { get; set; } = null!;
 	public CameraAnalyticsSection Analytics { get; internal set; } = new();
 	public ICameraQualityAndRetention QualityAndRetention { get; internal set; } = null!;
+	public ICameraRoles Roles { get; internal set; } = null!;
 	public CameraSenseSection Sense { get; internal set; } = new();
 	public CameraVideoSection Video { get; internal set; } = new();
 	public ICameraVideoLink VideoLink { get; internal set; } = null!;

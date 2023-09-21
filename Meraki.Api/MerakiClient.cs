@@ -217,7 +217,8 @@ public partial class MerakiClient : IDisposable
 				CustomPerformanceClasses = RefitFor(Appliance.TrafficShaping.CustomPerformanceClasses),
 				Rules = RefitFor(Appliance.TrafficShaping.Rules),
 				UplinkBandwidth = RefitFor(Appliance.TrafficShaping.UplinkBandwidth),
-				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection)
+				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection),
+				VpnExclusions = RefitFor(Appliance.TrafficShaping.VpnExclusions)
 			},
 			Uplink = new()
 			{
@@ -272,7 +273,8 @@ public partial class MerakiClient : IDisposable
 			Onbording = new()
 			{
 				Onbording = RefitFor(Camera.Onbording.Onbording)
-			}
+			},
+			Roles = RefitFor(Camera.Roles)
 		};
 
 		CellularGateway = new()
@@ -346,6 +348,7 @@ public partial class MerakiClient : IDisposable
 				OrganizationEthernetStatuses = RefitFor(Wireless.Devices.OrganizationEthernetStatuses)
 			},
 			ConnectionStats = RefitFor(Wireless.ConnectionStats),
+			EthernetPortsProfile = RefitFor(Wireless.EthernetPortsProfile),
 			FailedConnections = RefitFor(Wireless.FailedConnections),
 			LatencyHistory = RefitFor(Wireless.LatencyHistory),
 			LatencyStats = RefitFor(Wireless.LatencyStats),
