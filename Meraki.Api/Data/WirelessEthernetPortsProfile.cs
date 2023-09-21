@@ -21,7 +21,7 @@ public class WirelessEthernetPortsProfile
 	public string? Name { get; set; }
 
 	/// <summary>
-	/// Is Default
+	/// Is Default - This is returned but can only be set by the setNetworkWirelessEthernetPortsProfilesDefault endpoint
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "isDefault")]

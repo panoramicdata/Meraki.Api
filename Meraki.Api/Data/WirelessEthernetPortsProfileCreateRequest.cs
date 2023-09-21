@@ -13,12 +13,6 @@ public class WirelessEthernetPortsProfileCreateRequest
 	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Is Default
-	/// </summary>
-	[DataMember(Name = "isDefault")]
-	public bool? IsDefault { get; set; }
-
-	/// <summary>
 	/// Ports
 	/// </summary>
 	[DataMember(Name = "ports")]
