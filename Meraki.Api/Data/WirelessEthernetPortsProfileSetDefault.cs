@@ -9,7 +9,6 @@ public class WirelessEthernetPortsProfileSetDefault
 	/// <summary>
 	/// Profile Id
 	/// </summary>
-	[ApiKey]
 	[DataMember(Name = "profileId")]
 	public string ProfileId { get; set; } = string.Empty;
 }

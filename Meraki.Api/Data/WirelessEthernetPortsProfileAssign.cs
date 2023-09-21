@@ -15,7 +15,6 @@ public class WirelessEthernetPortsProfileAssign
 	/// <summary>
 	/// List of AP serials
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "serials")]
 	public List<string>? Serials { get; set; }
 
