@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.37.1
+- Updated for v1.37 API changes
+
 ## 1.36.30
 - Updated for some missing Properties and added CW to product type detection as a Wireless device
 
