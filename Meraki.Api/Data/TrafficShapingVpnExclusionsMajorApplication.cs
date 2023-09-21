@@ -20,4 +20,3 @@ public class TrafficShapingVpnExclusionsMajorApplication
 	[DataMember(Name = "name")]
 	public string? Name { get; set; }
 }
-}

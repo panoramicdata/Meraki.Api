@@ -27,4 +27,3 @@ public class TrafficShapingVpnExclusionsCustom
 	[DataMember(Name = "protocol")]
 	public TrafficShapingVpnExclusionsCustomProtocol? Protocol { get; set; }
 }
-}
