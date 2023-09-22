@@ -54,4 +54,11 @@ public class ValueSource
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "network")]
 	public string? Network { get; set; }
+
+	/// <summary>
+	/// Name
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "name")]
+	public string? Name { get; set; }
 }

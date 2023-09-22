@@ -120,4 +120,10 @@ public class FloorplanDevice : NamedItem
 	[ApiForeignKey(typeof(FloorPlan))]
 	[DataMember(Name = "floorplanId")]
 	public string? FloorplanId { get; set; }
+
+	/// <summary>
+	/// wirelessMac
+	/// </summary>
+	[DataMember(Name = "wirelessMac")]
+	public string? WirelessMac { get; set; }
 }
