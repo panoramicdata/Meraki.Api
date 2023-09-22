@@ -11,7 +11,7 @@ public class WebhookHttpServerPayloadTemplate
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "id")]
-	public string Id { get; set; } = string.Empty;
+	public string payloadTemplateId { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Name
