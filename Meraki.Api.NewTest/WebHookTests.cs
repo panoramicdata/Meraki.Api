@@ -179,7 +179,7 @@ public class WebhookTests : MerakiClientUnitTest
 				Url = "https://webhook.site",
 				PayloadTemplate = new()
 				{
-					Id = testCreateWebhookPayloadTemplate.PayloadTemplateId!,
+					PayloadTemplateId = testCreateWebhookPayloadTemplate.PayloadTemplateId!,
 					Name = testPayloadTemplateName,
 				}
 			};
@@ -339,7 +339,7 @@ public class WebhookTests : MerakiClientUnitTest
 				Url = "https://webhook.site",
 				PayloadTemplate = new()
 				{
-					Id = testCreateWebhookPayloadTemplate.PayloadTemplateId!,
+					PayloadTemplateId = testCreateWebhookPayloadTemplate.PayloadTemplateId!,
 					Name = testPayloadTemplateName,
 				}
 			};
