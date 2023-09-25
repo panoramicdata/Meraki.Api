@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.37.7
+- Updated with missing model members
+
 ## 1.37.1
 - Updated for v1.37 API changes
 
