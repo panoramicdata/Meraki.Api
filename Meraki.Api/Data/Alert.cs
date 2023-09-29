@@ -20,7 +20,7 @@ public class Alert
 	/// <value>A boolean depicting if the alert is turned on or off</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// Gets or Sets AlertDestinations
