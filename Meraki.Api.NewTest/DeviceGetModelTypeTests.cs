@@ -22,6 +22,7 @@ public class DeviceGetModelTypeTests
 	[InlineData("mv1234", ModelType.Camera)]
 	[InlineData("mt1234", ModelType.Sensor)]
 	[InlineData("xy1234", ModelType.Unknown)]
+	[InlineData("xy123", ModelType.Unknown)]
 #pragma warning restore CS3016 // Arrays as attribute arguments is not CLS-compliant
 	public void DeviceGetModelType_ReturnsExpectedType(string model, ModelType expected)
 	{
