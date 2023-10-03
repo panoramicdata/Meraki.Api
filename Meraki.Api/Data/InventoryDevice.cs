@@ -84,4 +84,11 @@ public class InventoryDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "countryCode")]
 	public string? CountryCode { get; set; }
+
+	/// <summary>
+	/// Usage - Undocumentes 2023-10-03
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "usage")]
+	public string? Usage { get; set; }
 }
