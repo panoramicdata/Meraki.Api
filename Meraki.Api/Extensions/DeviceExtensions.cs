@@ -14,10 +14,13 @@ public static class DeviceExtensions
 					"MX" => ModelType.Appliance,
 					"MV" => ModelType.Camera,
 					"MT" => ModelType.Sensor,
-					_ => device.Model.Substring(0, 5).ToUpperInvariant() switch
-					{
-						"C9200" or "C9300" or "C9500" => ModelType.Switch,
-						_ => ModelType.Unknown
-					}
+					// If we have at least 5 characters then we can check for somee specific model types
+					_ => device.Model.Length >= 5
+						? device.Model.Substring(0, 5).ToUpperInvariant() switch
+						{
+							"C9200" or "C9300" or "C9500" => ModelType.Switch,
+							_ => ModelType.Unknown
+						}
+						: ModelType.Unknown
 				};
 }

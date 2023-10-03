@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.37.9
+- Updated GetModelType to handle more model strings
+
 ## 1.37.7
 - Updated with missing model members
 
