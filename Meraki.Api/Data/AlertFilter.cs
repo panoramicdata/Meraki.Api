@@ -44,4 +44,10 @@ public class AlertFilters
 	/// </summary>
 	[DataMember(Name = "period")]
 	public long? PeriodSeconds { get; set; }
+
+	/// <summary>
+	/// Alert Filter Clients
+	/// </summary>
+	[DataMember(Name = "clients")]
+	public List<AlertFiltersClient>? Clients { get; set; }
 }
