@@ -154,5 +154,8 @@ public enum AlertType
 	CloudArchiveAlert,
 
 	[EnumMember(Value = "pccOutage")]
-	PccOutage
+	PccOutage,
+
+	[EnumMember(Value = "pccUnmanaged")]
+	PccUnmanaged,
 }
