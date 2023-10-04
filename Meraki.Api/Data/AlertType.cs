@@ -158,4 +158,7 @@ public enum AlertType
 
 	[EnumMember(Value = "pccUnmanaged")]
 	PccUnmanaged,
+
+	[EnumMember(Value = "geofencingOut")]
+	GeofencingOut,
 }
