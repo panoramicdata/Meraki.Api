@@ -143,4 +143,13 @@ public enum AlertType
 
 	[EnumMember(Value = "cellularGatewayDown")]
 	CellularGatewayDown,
+
+	[EnumMember(Value = "newSplashSignup")]
+	NewSplashSignup,
+
+	[EnumMember(Value = "swFound")]
+	SwFound,
+
+	[EnumMember(Value = "cloudArchiveAlert")]
+	CloudArchiveAlert
 }

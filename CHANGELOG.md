@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.37.13
+- Added missing AlertTypes
+
 ## 1.37.9
 - Updated GetModelType to handle more model strings
 
