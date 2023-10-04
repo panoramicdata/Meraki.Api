@@ -161,4 +161,13 @@ public enum AlertType
 
 	[EnumMember(Value = "geofencingOut")]
 	GeofencingOut,
+
+	[EnumMember(Value = "geofencingIn")]
+	GeofencingIn,
+
+	[EnumMember(Value = "pccEnrollment")]
+	PccEnrollment,
+
+	[EnumMember(Value = "pccExpiredApnsCert")]
+	PccExpiredApnsCert,
 }
