@@ -151,5 +151,8 @@ public enum AlertType
 	SwFound,
 
 	[EnumMember(Value = "cloudArchiveAlert")]
-	CloudArchiveAlert
+	CloudArchiveAlert,
+
+	[EnumMember(Value = "pccOutage")]
+	PccOutage
 }
