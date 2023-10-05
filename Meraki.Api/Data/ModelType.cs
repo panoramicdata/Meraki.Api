@@ -9,6 +9,5 @@ public enum ModelType
 	WirelessLan,
 	MobileDeviceManagement,
 	Sensor,
-	Appliance,
-	TeleworkerGateway
+	Appliance
 }
