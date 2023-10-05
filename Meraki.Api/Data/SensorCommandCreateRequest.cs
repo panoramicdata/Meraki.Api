@@ -1,4 +1,6 @@
 ﻿namespace Meraki.Api.Data;
+
+[DataContract]
 public class SensorCommandCreateRequest
 {
 	/// <summary>
