@@ -14,8 +14,9 @@ public class CameraVideo
 	public bool ExternalRtspEnabled { get; set; }
 
 	/// <summary>
-	/// Rtsp Url
+	/// RTSP URL
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "rtspUrl")]
 	public string? RtspUrl { get; set; }
 }

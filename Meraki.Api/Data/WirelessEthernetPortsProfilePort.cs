@@ -30,11 +30,9 @@ public class WirelessEthernetPortsProfilePort
 	[DataMember(Name = "ssid")]
 	public int? Ssid { get; set; }
 
-
 	/// <summary>
 	/// PSK Group Id
 	/// </summary>
 	[DataMember(Name = "pskGroupId")]
 	public string? PskGroupId { get; set; }
-
 }

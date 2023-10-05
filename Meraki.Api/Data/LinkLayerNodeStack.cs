@@ -3,7 +3,6 @@
 /// Stack
 /// </summary>
 [DataContract]
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1711:Identifiers should not have incorrect suffix", Justification = "This class is literally called stacked on the Meraki API.")]
 public class LinkLayerNodeStack
 {
 	/// <summary>

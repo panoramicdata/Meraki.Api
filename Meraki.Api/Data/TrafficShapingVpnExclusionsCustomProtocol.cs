@@ -18,4 +18,3 @@ public enum TrafficShapingVpnExclusionsCustomProtocol
 	[EnumMember(Value = "udp")]
 	Udp
 }
-
