@@ -163,4 +163,11 @@ public class Device : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bleParams")]
 	public DeviceBleParams? BleParams { get; set; }
+
+	/// <summary>
+	/// Device Details
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "details")]
+	public List<DeviceDetail>? Details { get; set; }
 }
