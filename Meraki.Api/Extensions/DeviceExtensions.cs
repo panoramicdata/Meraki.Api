@@ -15,10 +15,9 @@ public static class DeviceExtensions
 						"MS" => ModelType.Switch,
 						"SM" => ModelType.MobileDeviceManagement,
 						"MG" => ModelType.Cellular,
-						"MX" => ModelType.Appliance,
+						"MX" or "Z3" => ModelType.Appliance,
 						"MV" => ModelType.Camera,
 						"MT" => ModelType.Sensor,
-						"Z3" => ModelType.TeleworkerGateway,
 						// We didn't manage to match on the first two characters
 						_ => deviceModelUpper.Substring(0, 3) switch
 						{

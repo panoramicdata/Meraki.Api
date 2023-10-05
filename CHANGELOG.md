@@ -1,7 +1,7 @@
 ﻿# Changelog
 
-## 1.37.18
-- Updated model detection to match Z3* as a TeleworkerGateway
+## 1.37.19
+- Updated model detection to match Z3* as an Appliance
 
 ## 1.37.13
 - Added missing AlertTypes
