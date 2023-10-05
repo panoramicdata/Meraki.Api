@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.37.x
+- Added Device Sensor Commands endpoints (currently in Early-Access)
+
 ## 1.37.19
 - Updated model detection to match Z3* as an Appliance
 
