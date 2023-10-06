@@ -25,7 +25,7 @@ public class SensorCommand
 	/// Information about the admin who triggered the command
 	/// </summary>
 	[DataMember(Name = "createdBy")]
-	public Createdby CreatedBy { get; set; } = new();
+	public SensorCommandCreatedby CreatedBy { get; set; } = new();
 
 	/// <summary>
 	/// Operation run on the sensor
@@ -43,49 +43,11 @@ public class SensorCommand
 	/// Info about the gateway that was used to connect to the sensor
 	/// </summary>
 	[DataMember(Name = "gateway")]
-	public Gateway Gateway { get; set; } = new();
+	public SensorCommandGateway Gateway { get; set; } = new();
 
 	/// <summary>
 	/// Array of errors if failed
 	/// </summary>
 	[DataMember(Name = "errors")]
 	public List<string> Errors { get; set; } = new();
-}
-
-[DataContract]
-public class Createdby
-{
-	/// <summary>
-	/// ID of the admin
-	/// </summary>
-	[DataMember(Name = "adminId")]
-	public string AdminId { get; set; } = string.Empty;
-
-	/// <summary>
-	/// Email of the admin
-	/// </summary>
-	[DataMember(Name = "email")]
-	public string Email { get; set; } = string.Empty;
-
-	/// <summary>
-	/// Name of the admin
-	/// </summary>
-	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
-}
-
-[DataContract]
-public class Gateway
-{
-	/// <summary>
-	/// Gateway serial
-	/// </summary>
-	[DataMember(Name = "serial")]
-	public string Serial { get; set; } = string.Empty;
-
-	/// <summary>
-	/// Gateway name
-	/// </summary>
-	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
 }
