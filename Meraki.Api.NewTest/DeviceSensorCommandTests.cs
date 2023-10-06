@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Meraki.Api.Data;
+using Meraki.Api.Extensions;
 using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
@@ -27,5 +28,28 @@ public class DeviceSensorCommandTests : MerakiClientUnitTest
 				);
 
 		_ = command.Status.Should().Be("pending");
+	}
+
+	[Fact]
+	public async Task GetAll_Succeeds()
+	{
+		var commands = await TestMerakiClient
+			.Devices
+			.SensorCommands
+			.GetDeviceSensorCommandsAllAsync(TestMt40DeviceSerial);
+
+		_ = commands.Should().NotBeEmpty();
+	}
+
+	[Fact]
+	public async Task GetAllPaged_Succeeds()
+	{
+		var commands = await TestMerakiClient
+			.Devices
+			.SensorCommands
+			.GetDeviceSensorCommandsAsync(TestMt40DeviceSerial, perPage: 3);
+
+		_ = commands.Should().NotBeEmpty();
+		_ = commands.Should().HaveCount(3);
 	}
 }

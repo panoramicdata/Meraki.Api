@@ -18,8 +18,19 @@ public interface IDeviceSensorCommands
 	[Get("/devices/{serial}/sensor/commands")]
 	Task<List<SensorCommand>> GetDeviceSensorCommandsAsync(
 		string serial,
-		[AliasAs("operations[]")] List<string>? operations,
+		[AliasAs("operations[]")] List<string>? operations = null,
 		int? perPage = 1000,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? t0 = null,
+		string? t1 = null,
+		string? timespan = null,
+		CancellationToken cancellationToken = default);
+
+	[Get("/devices/{serial}/sensor/commands")]
+	internal Task<ApiResponse<List<SensorCommand>>> GetDeviceSensorCommandsApiResponseAsync(
+		string serial,
+		[AliasAs("operations[]")] List<string>? operations = null,
 		string? startingAfter = null,
 		string? endingBefore = null,
 		string? t0 = null,
