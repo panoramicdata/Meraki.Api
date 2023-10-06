@@ -10,6 +10,5 @@ public partial class DevicesSection
 	public IDeviceLldpCdp LldpCdp { get; internal set; } = null!;
 	public IDeviceLossAndLatencyHistory LossAndLatencyHistory { get; internal set; } = null!;
 	public IDeviceManagementInterface ManagementInterface { get; internal set; } = null!;
-
 	public IDeviceSensorCommands SensorCommands { get; internal set; } = null!;
 }
