@@ -41,7 +41,8 @@ public static class SheetOutput
 						{
 							var response = pathOperation.Value.Responses.First();
 							var responseValue = response.Value;
-							var responseSchema = responseValue.Content.First().Value.Schema;
+							// If there is a content then there should be a schema; otherwise it's probably something like a 204
+							var responseSchema = responseValue.Content.Count == 0 ? null : responseValue.Content.First().Value.Schema;
 							if (responseSchema is not null)
 							{
 								var responseProperties = responseSchema.Properties;
@@ -166,8 +167,8 @@ public static class SheetOutput
 		}
 
 		// Get all the writable properties from the responseModel and put them in a Dictionary indexed by DataMember name
-		var modelProperties = modelType?
-			.GetProperties()
+		var props = modelType?.GetProperties();
+		var modelProperties = props?
 			.Where(modelProperty => modelProperty.CanWrite)
 			.ToDictionary(
 				modelProperty =>

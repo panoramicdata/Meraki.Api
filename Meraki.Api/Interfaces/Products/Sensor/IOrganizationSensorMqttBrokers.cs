@@ -36,7 +36,7 @@ public interface IOrganizationSensorMqttBrokers
 	/// <param name="mqttBrokerId">The broker id</param>
 	/// <param name="mqttBrokerUpdate">Body for updating a SensorMqttBroker</param>
 	[ApiOperationId("updateNetworkSensorMqttBroker")]
-	[Get("/networks/{networkId}/sensor/mqttBrokers/{mqttBrokerId}")]
+	[Put("/networks/{networkId}/sensor/mqttBrokers/{mqttBrokerId}")]
 	Task<SensorMqttBroker> UpdateNetworkSensorMqttBrokerAsync(
 		string networkId,
 		string mqttBrokerId,

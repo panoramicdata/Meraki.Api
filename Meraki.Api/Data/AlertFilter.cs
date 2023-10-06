@@ -46,6 +46,12 @@ public class AlertFilters
 	public long? PeriodSeconds { get; set; }
 
 	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[DataMember(Name = "regex")]
+	public string? Regex { get; set; }
+
+	/// <summary>
 	/// Alert Filter Clients
 	/// </summary>
 	[DataMember(Name = "clients")]

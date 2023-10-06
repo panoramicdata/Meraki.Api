@@ -103,6 +103,12 @@ public class FloorplanDevice : NamedItem
 	public FloorplanDeviceBeaconIdParams? BeaconIdParams { get; set; }
 
 	/// <summary>
+	/// Readonly: bleParams - Undocumented
+	/// </summary>
+	[DataMember(Name = "bleParams")]
+	public FloorplanDeviceBleParams? BleParams { get; set; }
+
+	/// <summary>
 	/// Readonly: The firmware version of a device
 	/// </summary>
 	[DataMember(Name = "firmware")]
@@ -126,4 +132,10 @@ public class FloorplanDevice : NamedItem
 	/// </summary>
 	[DataMember(Name = "wirelessMac")]
 	public string? WirelessMac { get; set; }
+
+	/// <summary>
+	/// Device details
+	/// </summary>
+	[DataMember(Name = "details")]
+	public List<DeviceDetail>? Details { get; set; }
 }

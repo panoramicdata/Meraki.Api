@@ -10,13 +10,13 @@ public class WebhookHttpServerPayloadTemplate
 	/// Id
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "id")]
-	public string PayloadTemplateId { get; set; } = string.Empty;
+	[DataMember(Name = "payloadTemplateid")]
+	public string? PayloadTemplateId { get; set; }
 
 	/// <summary>
 	/// Name
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "name")]
-	public string Name { get; set; } = string.Empty;
+	public string? Name { get; set; }
 }

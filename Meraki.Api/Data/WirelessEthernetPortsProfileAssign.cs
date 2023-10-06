@@ -17,5 +17,4 @@ public class WirelessEthernetPortsProfileAssign
 	/// </summary>
 	[DataMember(Name = "serials")]
 	public List<string>? Serials { get; set; }
-
 }

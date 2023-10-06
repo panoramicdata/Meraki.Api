@@ -252,6 +252,13 @@ public class SsidUpdateRequest
 	public bool? RadiusFallbackEnabled { get; set; }
 
 	/// <summary>
+	/// radiusRadsecTlsIdleTimeout - undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "radiusRadsecTlsIdleTimeout")]
+	public int? RadiusRadsecTlsIdleTimeout { get; set; }
+
+	/// <summary>
 	/// Whether or not RADIUS Guest VLAN is enabled. This param is only valid if the authMode is 'open-with-radius' and addressing mode is not set to 'isolated' or 'nat' mode
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
