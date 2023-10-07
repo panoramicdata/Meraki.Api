@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.38.1
+- Initial updates for 1.38 API changes
+- Added missing member Tag on AlertFilter
+
 ## 1.37.19
 - Updated model detection to match Z3* as an Appliance
 
