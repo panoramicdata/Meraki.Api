@@ -31,6 +31,13 @@ public class DeviceGetModelTypeTests
 	[InlineData("VMX-S", ModelType.Appliance)]
 	[InlineData("VMX-M", ModelType.Appliance)]
 	[InlineData("vMX100", ModelType.Appliance)]
+	[InlineData("UMB-SIG", ModelType.Appliance)]
+	[InlineData("X", ModelType.Unknown)]
+	[InlineData("XX", ModelType.Unknown)]
+	[InlineData("XXX", ModelType.Unknown)]
+	[InlineData("XXXX", ModelType.Unknown)]
+	[InlineData("XXXXX", ModelType.Unknown)]
+	[InlineData("XXXXXX", ModelType.Unknown)]
 #pragma warning restore CS3016 // Arrays as attribute arguments is not CLS-compliant
 	public void DeviceGetModelType_ReturnsExpectedType(string model, ModelType expected)
 	{

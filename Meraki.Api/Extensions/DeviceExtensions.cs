@@ -6,9 +6,10 @@ public static class DeviceExtensions
 	{
 		var deviceModelUpper = device.Model?.ToUpperInvariant();
 
-		return deviceModelUpper is null || deviceModelUpper.Length < 2
-					? ModelType.Unknown
-					: deviceModelUpper.Substring(0, 2) switch
+		return deviceModelUpper == "UMB-SIG"
+				? ModelType.Appliance
+				: deviceModelUpper?.Length >= 2
+					? deviceModelUpper.Substring(0, 2) switch
 					{
 						// Try matching on the first two characters
 						"MR" or "CW" => ModelType.WirelessLan,
@@ -19,17 +20,22 @@ public static class DeviceExtensions
 						"MV" => ModelType.Camera,
 						"MT" => ModelType.Sensor,
 						// We didn't manage to match on the first two characters
-						_ => deviceModelUpper.Substring(0, 3) switch
-						{
-							"VMX" => ModelType.Appliance,
-							// We didn't manage to match on the first three characters
-							_ => deviceModelUpper.Substring(0, 5) switch
+						_ => deviceModelUpper?.Length >= 3
+							? deviceModelUpper.Substring(0, 3) switch
 							{
-								"C9200" or "C9300" or "C9500" => ModelType.Switch,
-								// We don't know what this is
-								_ => ModelType.Unknown
+								"VMX" => ModelType.Appliance,
+								// We didn't manage to match on the first three characters
+								_ => deviceModelUpper.Length >= 5
+									? deviceModelUpper.Substring(0, 5) switch
+									{
+										"C9200" or "C9300" or "C9500" => ModelType.Switch,
+										// We don't know what this is
+										_ => ModelType.Unknown
+									}
+									: ModelType.Unknown
 							}
-						}
-					};
+							: ModelType.Unknown
+					}
+					: ModelType.Unknown;
 	}
 }
