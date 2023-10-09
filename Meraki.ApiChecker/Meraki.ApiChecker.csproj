@@ -21,7 +21,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="PanoramicData.SheetMagic" Version="3.0.96" />
+    <PackageReference Include="PanoramicData.SheetMagic" Version="3.0.98" />
     <PackageReference Include="Refit" Version="7.0.0" />
     <PackageReference Include="Roslynator.Analyzers" Version="4.5.0">
       <PrivateAssets>all</PrivateAssets>
