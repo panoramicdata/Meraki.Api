@@ -63,7 +63,7 @@ public class FirmwareProducts
 	public FirmwareUpgradeProduct Wireless { get; set; } = new();
 
 	/// <summary>
-	/// cloudGateway
+	/// cloudGateway - Deprecated from v1.38
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "cloudGateway")]
