@@ -439,4 +439,11 @@ public class SsidUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "localAuth")]
 	public bool? LocalAuth { get; set; }
+
+	/// <summary>
+	/// Named VLAN settings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "namedVlans")]
+	public SsidNamedVlans? NamedVlans { get; set; }
 }

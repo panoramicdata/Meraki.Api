@@ -149,6 +149,7 @@ public partial class MerakiClient : IDisposable
 			SplashLoginAttempts = RefitFor(Networks.SplashLoginAttempts),
 			SyslogServers = RefitFor(Networks.SyslogServers),
 			TrafficAnalysis = RefitFor(Networks.TrafficAnalysis),
+			VlanProfiles = RefitFor(Networks.VlanProfiles),
 			TrafficShaping = new()
 			{
 				ApplicationCategories = RefitFor(Networks.TrafficShaping.ApplicationCategories),
