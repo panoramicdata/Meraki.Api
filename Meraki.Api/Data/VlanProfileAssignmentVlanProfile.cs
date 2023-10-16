@@ -10,7 +10,7 @@ public class VlanProfileAssignmentVlanProfile
 	/// IName of the VLAN Profile
 	/// </summary>
 	[DataMember(Name = "iname")]
-	public string Iname { get; set; } = string.Empty;
+	public string IName { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Name of the VLAN Profile

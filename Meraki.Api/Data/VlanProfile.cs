@@ -11,7 +11,7 @@ public class VlanProfile : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "iname")]
-	public string? Iname { get; set; }
+	public string? IName { get; set; }
 
 	/// <summary>
 	/// Boolean indicating the default VLAN Profile for any device that does not have a profile explicitly assigned

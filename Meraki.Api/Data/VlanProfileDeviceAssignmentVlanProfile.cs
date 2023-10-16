@@ -9,7 +9,7 @@ public class VlanProfileDeviceAssignmentVlanProfile
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "iname")]
-	public string? Iname { get; set; }
+	public string? IName { get; set; }
 
 	/// <summary>
 	/// Name of the VLAN Profile

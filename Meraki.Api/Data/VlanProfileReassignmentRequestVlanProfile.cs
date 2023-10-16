@@ -10,5 +10,5 @@ public class VlanProfileReassignmentRequestVlanProfile
 	/// IName of the VLAN Profile
 	/// </summary>
 	[DataMember(Name = "iname")]
-	public string? Iname { get; set; }
+	public string? IName { get; set; }
 }

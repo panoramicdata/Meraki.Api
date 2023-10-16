@@ -63,8 +63,9 @@ public class FirmwareProducts
 	public FirmwareUpgradeProduct Wireless { get; set; } = new();
 
 	/// <summary>
-	/// cloudGateway - Deprecated from v1.38
+	/// cloudGateway
 	/// </summary>
+	[Obsolete("Removed in Meraki API v1.38")]
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "cloudGateway")]
 	public FirmwareUpgradeProduct CloudGateway { get; set; } = new();

@@ -10,7 +10,7 @@ public class VlanProfileUpdateRequest : NamedItem
 	/// IName of the VLAN profile
 	/// </summary>
 	[DataMember(Name = "iname")]
-	public string? Iname { get; set; }
+	public string? IName { get; set; }
 
 	/// <summary>
 	/// An array of named VLANs
