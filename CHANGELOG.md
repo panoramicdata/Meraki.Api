@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.38.x
+## 1.38.10
 - Added Device Sensor Commands endpoints (currently in Early-Access)
 
 ## 1.38.1
