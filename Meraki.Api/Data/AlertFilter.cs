@@ -56,4 +56,10 @@ public class AlertFilters
 	/// </summary>
 	[DataMember(Name = "clients")]
 	public List<AlertFiltersClient>? Clients { get; set; }
+
+	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[DataMember(Name = "tag")]
+	public string? Tag { get; set; }
 }

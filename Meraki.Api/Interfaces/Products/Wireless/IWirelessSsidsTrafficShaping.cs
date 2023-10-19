@@ -3,7 +3,7 @@
 public interface IWirelessSsidsTrafficShaping
 {
 	/// <summary>
-	/// Display the traffic shaping settings for a SSID on an MR network
+	/// Display the traffic shaping rules for a SSID on an MR network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
@@ -16,7 +16,7 @@ public interface IWirelessSsidsTrafficShaping
 		);
 
 	/// <summary>
-	/// Update the traffic shaping settings for an SSID on an MR network
+	/// Update the traffic shaping rules for an SSID on an MR network.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
