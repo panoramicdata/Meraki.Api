@@ -48,7 +48,8 @@ public partial class MerakiClient : IDisposable
 			Clients = RefitFor(Devices.Clients),
 			LldpCdp = RefitFor(Devices.LldpCdp),
 			LossAndLatencyHistory = RefitFor(Devices.LossAndLatencyHistory),
-			ManagementInterface = RefitFor(Devices.ManagementInterface)
+			ManagementInterface = RefitFor(Devices.ManagementInterface),
+			SensorCommands = RefitFor(Devices.SensorCommands),
 		};
 
 		Organizations = new OrganizationsSection

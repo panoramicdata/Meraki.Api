@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.38.x
+- Added Device Sensor Commands endpoints (currently in Early-Access)
+
 ## 1.38.1
 - Initial updates for 1.38 API changes
 - Added missing member Tag on AlertFilter
