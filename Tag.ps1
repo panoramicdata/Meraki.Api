@@ -24,4 +24,4 @@ git tag -a "$versionString" -m "Tagged version ${versionString}"
 Write-Information("Pushing tag...");
 git push origin $versionString
 
-& CheckForNugetPublish.ps1 -packageName "Meraki.Api" -expectedVersion $versionString
+& ./CheckForNugetPublish.ps1 -packageName "Meraki.Api" -expectedVersion $versionString
