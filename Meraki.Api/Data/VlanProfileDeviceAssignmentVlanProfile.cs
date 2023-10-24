@@ -2,6 +2,7 @@
 /// <summary>
 /// The VLAN Profile
 /// </summary>
+[DataContract]
 public class VlanProfileDeviceAssignmentVlanProfile
 {
 	/// <summary>

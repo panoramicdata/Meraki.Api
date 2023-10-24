@@ -2,6 +2,7 @@
 /// <summary>
 ///  The Switch Stack the device belongs to
 /// </summary>
+[DataContract]
 public class VlanProfileDeviceAssignmentStack
 {
 	/// <summary>
