@@ -9,28 +9,29 @@ public class VlanProfileDeviceAssignment
 	/// <summary>
 	/// MAC address of the device
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "mac")]
 	public string? Mac { get; set; }
 
 	/// <summary>
 	/// Name of the Device
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "name")]
 	public string? Name { get; set; }
 
 	/// <summary>
 	/// The product type
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "produtType")]
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "productType")]
 	public string? ProductType { get; set; }
 
 	/// <summary>
 	/// Serial of the Device
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiForeignKey(typeof(Device))]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "serial")]
 	public string? Serial { get; set; }
 
