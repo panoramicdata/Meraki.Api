@@ -86,9 +86,16 @@ public class InventoryDevice
 	public string? CountryCode { get; set; }
 
 	/// <summary>
-	/// Usage - Undocumentes 2023-10-03
+	/// Usage - Undocumented 2023-10-03
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "usage")]
 	public string? Usage { get; set; }
+
+	/// <summary>
+	/// Device Details
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "details")]
+	public List<DeviceDetail>? Details { get; set; }
 }

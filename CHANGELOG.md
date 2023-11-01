@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.38.18
+- Added details to InventoryDevice
+
 ## 1.38.10
 - Added Device Sensor Commands endpoints (currently in Early-Access)
 
