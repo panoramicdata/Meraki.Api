@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.38.19
+- Updated dependencies
+
 ## 1.38.18
 - Added details to InventoryDevice
 
