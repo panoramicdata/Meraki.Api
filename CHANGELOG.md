@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.38.20
+- Updated SensorCommand CompletedAt to be nullable
+
 ## 1.38.19
 - Updated dependencies
 

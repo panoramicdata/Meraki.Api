@@ -19,7 +19,7 @@ public class SensorCommand
 	/// Time when the command was completed
 	/// </summary>
 	[DataMember(Name = "completedAt")]
-	public DateTime CompletedAt { get; set; }
+	public DateTime? CompletedAt { get; set; }
 
 	/// <summary>
 	/// Information about the admin who triggered the command
