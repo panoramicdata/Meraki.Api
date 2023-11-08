@@ -68,6 +68,7 @@ public partial class MerakiClient : IDisposable
 				BrandingPolicies = RefitFor(Organizations.BrandingPolicies.BrandingPolicies),
 				Priorities = RefitFor(Organizations.BrandingPolicies.Priorities)
 			},
+			Clients = RefitFor(Organizations.Clients),
 			ConfigurationChanges = RefitFor(Organizations.ConfigurationChanges),
 			ConfigTemplates = RefitFor(Organizations.ConfigTemplates),
 			Devices = RefitFor(Organizations.Devices),
