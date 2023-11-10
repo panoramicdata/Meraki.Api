@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.38.23
+- Updated video resolutions enum
+
 ## 1.38.20
 - Updated SensorCommand CompletedAt to be nullable
 
