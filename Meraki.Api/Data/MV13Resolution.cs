@@ -14,6 +14,12 @@ public enum MV13Resolution
 	Size1080x1080,
 
 	/// <summary>
+	/// Enum for "1920x1080"
+	/// </summary>
+	[EnumMember(Value = "1920x1080")]
+	Size1920x1080,
+
+	/// <summary>
 	/// Enum 2688x1512
 	/// </summary>
 	[EnumMember(Value = "2688x1512")]
