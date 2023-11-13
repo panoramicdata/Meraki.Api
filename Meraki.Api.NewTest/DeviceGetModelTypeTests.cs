@@ -25,6 +25,8 @@ public class DeviceGetModelTypeTests
 	[InlineData("xy123", ModelType.Unknown)]
 	[InlineData("z3", ModelType.Appliance)]
 	[InlineData("Z3", ModelType.Appliance)]
+	[InlineData("z4", ModelType.Appliance)]
+	[InlineData("Z4", ModelType.Appliance)]
 	[InlineData("Z3C", ModelType.Appliance)]
 	[InlineData("Z3C-WW", ModelType.Appliance)]
 	[InlineData("VMX", ModelType.Appliance)]

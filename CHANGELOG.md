@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.38.24
+- Added Z4 to be detected as an appliance
+
 ## 1.38.23
 - Updated video resolutions enum
 

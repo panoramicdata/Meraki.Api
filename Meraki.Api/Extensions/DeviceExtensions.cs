@@ -16,7 +16,7 @@ public static class DeviceExtensions
 						"MS" => ModelType.Switch,
 						"SM" => ModelType.MobileDeviceManagement,
 						"MG" => ModelType.Cellular,
-						"MX" or "Z3" => ModelType.Appliance,
+						"MX" or "Z3" or "Z4"=> ModelType.Appliance,
 						"MV" => ModelType.Camera,
 						"MT" => ModelType.Sensor,
 						// We didn't manage to match on the first two characters
