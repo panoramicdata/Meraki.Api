@@ -40,5 +40,8 @@ public enum ProductType
 	VmConcentrator,
 
 	[EnumMember(Value = "phone")]
-	Phone
+	Phone,
+
+	[EnumMember(Value = "frontizo")]
+	Frontizo
 }
