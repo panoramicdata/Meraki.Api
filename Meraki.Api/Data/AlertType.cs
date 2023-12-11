@@ -170,4 +170,7 @@ public enum AlertType
 
 	[EnumMember(Value = "pccExpiredApnsCert")]
 	PccExpiredApnsCert,
+
+	[EnumMember(Value = "motionAlert")]
+	MotionAlert,
 }
