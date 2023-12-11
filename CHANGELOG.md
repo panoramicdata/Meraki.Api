@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.39.1
+- Updated for AlertType motionAlert
+
 ## 1.38.24
 - Added Z4 to be detected as an appliance
 
