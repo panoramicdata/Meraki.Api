@@ -3,7 +3,7 @@ namespace Meraki.Api.Interfaces.General.Organizations;
 /// <summary>
 /// Organizations Summary
 /// </summary>
-public interface IOrganizationsSummary
+public interface IOrganizationsSummarySwitchPower
 {
 	/// <summary>
 	/// Returns the total PoE power draw for all switch ports in the organization over the requested timespan (by default the last 24 hours). 
