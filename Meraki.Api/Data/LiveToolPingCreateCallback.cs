@@ -23,7 +23,7 @@ public class LiveToolPingCreateCallback
 	/// The webhook receiver used for the callback webhook.
 	/// </summary>
 	[DataMember(Name = "httpServer")]
-	public LiveToolPingCallBackHttpServer? httpServer { get; set; } = new();
+	public LiveToolPingCallbackHttpServer? httpServer { get; set; } = new();
 
 	/// <summary>
 	/// The ID of the payload template. Defaults to 'wpt_00005' for the Callback (included) template.

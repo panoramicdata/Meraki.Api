@@ -25,5 +25,5 @@ public class LiveToolPingCreate
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "callback")]
-	public LiveToolPingCreateCallback? Callback { get; set; } = string.Empty;
+	public LiveToolPingCreateCallback? Callback { get; set; } = new();
 }
