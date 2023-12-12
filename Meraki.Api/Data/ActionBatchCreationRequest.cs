@@ -21,6 +21,12 @@ public class ActionBatchCreationRequest
 	public bool? Synchronous { get; set; }
 
 	/// <summary>
+	/// Details for the callback. Please include either an httpServerId OR url and sharedSecret
+	/// </summary>
+	[DataMember(Name = "callback")]
+	public ActionBatchCreationRequestCallback? Callback { get; set; }
+
+	/// <summary>
 	/// A set of changes to make as part of this action (&lt;a href&#x3D;'https://developer.cisco.com/meraki/api/#/rest/guides/action-batches/'&gt;more details&lt;/a&gt;)
 	/// </summary>
 	/// <value>A set of changes to make as part of this action (&lt;a href&#x3D;'https://developer.cisco.com/meraki/api/#/rest/guides/action-batches/'&gt;more details&lt;/a&gt;)</value>
