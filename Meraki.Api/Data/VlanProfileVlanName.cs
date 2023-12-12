@@ -19,4 +19,11 @@ public class VlanProfileVlanName
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlanId")]
 	public string? VlanId { get; set; }
+
+	/// <summary>
+	/// Adaptive Policy Group
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "adaptivePolicyGroup")]
+	public VlanProfileVlanNameAdaptivePolicyGroup? AdaptivePolicyGroup { get; set; }
 }

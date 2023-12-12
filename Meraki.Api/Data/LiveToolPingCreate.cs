@@ -19,4 +19,11 @@ public class LiveToolPingCreate
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "target")]
 	public string Target { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Details for the callback. Please include either an httpServerId OR url and sharedSecret
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "callback")]
+	public LiveToolPingCreateCallback? Callback { get; set; } = string.Empty;
 }
