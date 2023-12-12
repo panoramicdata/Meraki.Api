@@ -138,4 +138,11 @@ public class FloorplanDevice : NamedItem
 	/// </summary>
 	[DataMember(Name = "details")]
 	public List<DeviceDetail>? Details { get; set; }
+
+	/// <summary>
+	/// Imei
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "imei")]
+	public string? Imei { get; set; }
 }
