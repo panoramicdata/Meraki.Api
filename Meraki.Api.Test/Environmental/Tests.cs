@@ -31,8 +31,7 @@ public class Tests : MerakiClientTest
 			.Sensor
 			.Readings
 			.Latest
-			.GetOrganizationSensorReadingsLatestAsync(Configuration.TestOrganizationId, perPage: 10, serials: _serials)
-			.ConfigureAwait(false);
+			.GetOrganizationSensorReadingsLatestAsync(Configuration.TestOrganizationId, perPage: 10, serials: _serials);
 
 		_ = deviceLatestReadings
 			.Should()
@@ -52,8 +51,7 @@ public class Tests : MerakiClientTest
 			.Sensor
 			.Readings
 			.History
-			.GetOrganizationSensorReadingsHistoryAsync(Configuration.TestOrganizationId, perPage: 10, serials: _serials)
-			.ConfigureAwait(false);
+			.GetOrganizationSensorReadingsHistoryAsync(Configuration.TestOrganizationId, perPage: 10, serials: _serials);
 
 		_ = deviceLatestReadings
 			.Should()

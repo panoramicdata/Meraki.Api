@@ -1,19 +1,14 @@
 namespace Meraki.Api.Test.Organizations.InventoryDevices;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetInventoryAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
 			.InventoryDevices
-			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}
@@ -24,8 +19,7 @@ public class Tests : MerakiClientTest
 		var result = await TestMerakiClient
 			.Organizations
 			.InventoryDevices
-			.GetOrganizationInventoryDevicesAllAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationInventoryDevicesAllAsync(Configuration.TestOrganizationId);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}

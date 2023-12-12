@@ -1,11 +1,7 @@
 ﻿namespace Meraki.Api.Test.Networks.Devices;
 
-public class DeviceStatusesTests : MerakiClientTest
+public class DeviceStatusesTests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public DeviceStatusesTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetAllDevicesAsync_Succeeds()
 	{
@@ -14,9 +10,8 @@ public class DeviceStatusesTests : MerakiClientTest
 			.Devices
 			.GetOrganizationDevicesStatusesAllAsync(
 				Configuration.TestOrganizationId,
-				networkIds: new List<string> { "L_603482350067654439" }
-				)
-			.ConfigureAwait(false);
+				networkIds: ["L_603482350067654439"]
+				);
 		_ = result.Should().BeOfType<List<OrganizationDeviceStatus>>();
 		_ = result.Should().NotBeNull();
 	}

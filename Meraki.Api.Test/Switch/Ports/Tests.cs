@@ -1,19 +1,14 @@
 ﻿namespace Meraki.Api.Test.Switch.Ports;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetSwitchPortStatuses_Succeeds()
 	{
 		var switchPorts = await TestMerakiClient
 			.Switch
 			.Ports
-			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial, default)
-			.ConfigureAwait(false);
+			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial, default);
 
 		_ = switchPorts.Should().NotBeNullOrEmpty();
 	}
@@ -25,8 +20,7 @@ public class Tests : MerakiClientTest
 		var switchPorts = await TestMerakiClient
 			.Switch
 			.Ports
-			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial)
-			.ConfigureAwait(false);
+			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial);
 
 		var switchPort = switchPorts[0];
 		_ = switchPort.PortScheduleId.Should().NotBeNullOrEmpty();
@@ -35,8 +29,7 @@ public class Tests : MerakiClientTest
 		switchPort.PortScheduleId = null;
 		var switchPortAfterUpdate = await TestMerakiClient
 			.Switch.Ports
-			.UpdateDeviceSwitchPortAsync(Configuration.TestDeviceSerial, switchPort.PortId, switchPort)
-			.ConfigureAwait(false);
+			.UpdateDeviceSwitchPortAsync(Configuration.TestDeviceSerial, switchPort.PortId, switchPort);
 
 		// ASSERT
 		_ = switchPortAfterUpdate.Should().NotBeNull();

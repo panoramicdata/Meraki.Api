@@ -1,11 +1,7 @@
 namespace Meraki.Api.Test.Organizations.Appliance.Vpn.ThirdPartyVpnPeers;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetAllThirdPartyVpnPeersAsync_Succeeds()
 	{
@@ -13,8 +9,7 @@ public class Tests : MerakiClientTest
 			.Appliance
 			.Vpn
 			.ThirdPartyVpnPeers
-			.GetOrganizationApplianceVpnThirdPartyVPNPeersAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationApplianceVpnThirdPartyVPNPeersAsync(Configuration.TestOrganizationId);
 		_ = result.Should().BeOfType<Data.ThirdPartyVpnPeers>();
 		_ = result.Should().NotBeNull();
 	}

@@ -1,20 +1,15 @@
 ﻿namespace Meraki.Api.Test.Switch.AccessControlLists;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetNetworkSwitchAccessControlListsNestedInterface()
 	{
-		var testNetwork = await GetFirstNetworkAsync().ConfigureAwait(false);
+		var testNetwork = await GetFirstNetworkAsync();
 		var acls = await TestMerakiClient
 			.Switch
 			.AccessControlLists
-			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
-			.ConfigureAwait(false);
+			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id);
 		_ = acls.Should().NotBeNull();
 		_ = acls.Rules.Should().NotBeNullOrEmpty();
 	}
@@ -22,12 +17,11 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetNetworkSwitchAccessControlLists()
 	{
-		var testNetwork = await GetFirstNetworkAsync().ConfigureAwait(false);
+		var testNetwork = await GetFirstNetworkAsync();
 		var acls = await TestMerakiClient
 			.Switch
 			.AccessControlLists
-			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
-			.ConfigureAwait(false);
+			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id);
 		_ = acls.Should().NotBeNull();
 		_ = acls.Rules.Should().NotBeNullOrEmpty();
 	}
@@ -35,7 +29,7 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task CreateNewNetworkSwitchAccessControlLists()
 	{
-		var testNetwork = await CreateTestNetworkAsync().ConfigureAwait(false);
+		var testNetwork = await CreateTestNetworkAsync();
 
 		try
 		{
@@ -43,8 +37,7 @@ public class Tests : MerakiClientTest
 			var acls = await TestMerakiClient
 				.Switch
 				.AccessControlLists
-				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
-				.ConfigureAwait(false);
+				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id);
 			_ = acls.Should().NotBeNull();
 			_ = acls.Rules.Should().ContainSingle();
 			_ = acls.Rules[0].Comment.Should().Be("Default rule");
@@ -85,21 +78,19 @@ public class Tests : MerakiClientTest
 					testNetwork.Id,
 					new()
 					{
-						Rules = new()
-						{
+						Rules =
+						[
 							denySsh,
 							allowHttp
-						}
+						]
 					}
-				)
-				.ConfigureAwait(false);
+				);
 
 			// Get the rules and check they're both there
 			acls = await TestMerakiClient
 				.Switch
 				.AccessControlLists
-				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id)
-				.ConfigureAwait(false);
+				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id);
 
 			// We should have 2 rules now
 			_ = acls.Should().NotBeNull();
@@ -112,7 +103,7 @@ public class Tests : MerakiClientTest
 		}
 		finally
 		{
-			await RemoveNetworkAsync(testNetwork.Id).ConfigureAwait(false);
+			await RemoveNetworkAsync(testNetwork.Id);
 		}
 	}
 }

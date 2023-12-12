@@ -1,19 +1,14 @@
 namespace Meraki.Api.Test.Organizations.Devices;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetOrganizationDevices_Succeeds()
 	{
 		var organizationDevices = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId, default)
-			.ConfigureAwait(false);
+			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId, default);
 
 		_ = organizationDevices.Should().NotBeNull();
 	}
@@ -24,8 +19,7 @@ public class Tests : MerakiClientTest
 		var organizationDeviceStatus = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesStatusesAsync(Configuration.TestOrganizationId, default)
-			.ConfigureAwait(false);
+			.GetOrganizationDevicesStatusesAsync(Configuration.TestOrganizationId, default);
 
 		_ = organizationDeviceStatus.Should().NotBeNull();
 	}
@@ -36,8 +30,7 @@ public class Tests : MerakiClientTest
 		var result = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesStatusesAllAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationDevicesStatusesAllAsync(Configuration.TestOrganizationId);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}
