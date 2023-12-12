@@ -5,13 +5,13 @@
 public class SwitchPowerHistorySummary
 {
 	/// <summary>
-	/// Timespan
+	/// Timestamp of the start of the interval.
 	/// </summary>
 	[DataMember(Name = "ts")]
 	public string Ts { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Draw
+	/// The PoE power draw in watts for all switch ports in the organization for the given interval.
 	/// </summary>
 	[DataMember(Name = "draw")]
 	public double Draw { get; set; }
