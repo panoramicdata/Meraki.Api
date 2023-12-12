@@ -28,5 +28,5 @@ public class ActionBatchCreationRequestCallback
 	/// The payload template of the webhook used for the callback
 	/// </summary>
 	[DataMember(Name = "payloadTemplate")]
-	public ActionBatchCreationRequestCallbackPayloadTemplate? PayloadTemplate { get; set; } = null!;
+	public ActionBatchCreationRequestCallbackPayloadTemplate? PayloadTemplate { get; set; }
 }

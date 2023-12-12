@@ -17,5 +17,5 @@ public class SwitchSettingsStp
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "stpBridgePriority")]
-	public List<StpBridgePriority> StpBridgePriority { get; set; } = new();
+	public List<StpBridgePriority> StpBridgePriority { get; set; } = [];
 }

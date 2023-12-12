@@ -28,5 +28,5 @@ public class NetworkEvents
 	/// Events
 	/// </summary>
 	[DataMember(Name = "events")]
-	public List<Events> Events { get; set; } = new();
+	public List<Events> Events { get; set; } = [];
 }

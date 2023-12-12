@@ -34,5 +34,5 @@ public class UplinksLossAndLatencyResponse
 	/// Time series
 	/// </summary>
 	[DataMember(Name = "timeSeries")]
-	public List<TimeSeries> TimeSeries { get; set; } = new();
+	public List<TimeSeries> TimeSeries { get; set; } = [];
 }

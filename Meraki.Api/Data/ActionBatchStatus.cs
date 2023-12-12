@@ -23,11 +23,11 @@ public class ActionBatchStatus
 	/// Errors
 	/// </summary>
 	[DataMember(Name = "errors")]
-	public List<string> Errors { get; set; } = new();
+	public List<string> Errors { get; set; } = [];
 
 	/// <summary>
 	/// Created resourcea
 	/// </summary>
 	[DataMember(Name = "createdResources")]
-	public List<CreatedResources> CreatedResources { get; set; } = new();
+	public List<CreatedResources> CreatedResources { get; set; } = [];
 }

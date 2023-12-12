@@ -319,7 +319,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "availabilityTags")]
-	public List<string>? AvailabilityTags { get; set; } = new();
+	public List<string>? AvailabilityTags { get; set; } = [];
 
 	/// <summary>
 	/// Array of valid sponsor email domains for sponsored guest splash type.

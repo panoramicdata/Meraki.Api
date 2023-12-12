@@ -34,7 +34,7 @@ public class NetworkCreationRequest
 	/// The product type(s) of the new network. Valid types are wireless, appliance, switch, systemsManager, camera, cellularGateway, sensor, environmental. If more than one type is included, the network will be a combined network.
 	/// </summary>
 	[DataMember(Name = "productTypes")]
-	public List<ProductType> ProductTypes { get; set; } = new();
+	public List<ProductType> ProductTypes { get; set; } = [];
 
 	/// <summary>
 	/// Add any notes or additional information about this network here.

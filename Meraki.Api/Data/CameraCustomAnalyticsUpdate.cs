@@ -22,5 +22,5 @@ public class CameraCustomAnalyticsUpdate
 	/// Parameters
 	/// </summary>
 	[DataMember(Name = "parameters")]
-	public List<CameraCustomAnalyticsParameters>? Parameters { get; set; } = new();
+	public List<CameraCustomAnalyticsParameters>? Parameters { get; set; } = [];
 }

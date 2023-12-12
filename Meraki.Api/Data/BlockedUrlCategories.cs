@@ -18,5 +18,5 @@ public class BlockedUrlCategories
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "categories")]
-	public List<string> Categories { get; set; } = new();
+	public List<string> Categories { get; set; } = [];
 }

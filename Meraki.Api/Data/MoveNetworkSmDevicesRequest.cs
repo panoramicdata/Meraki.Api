@@ -18,7 +18,7 @@ public class MoveNetworkSmDevicesRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "ids")]
-	public List<string> Ids { get; set; } = new();
+	public List<string> Ids { get; set; } = [];
 
 	/// <summary>
 	/// The serials of the devices to be moved.

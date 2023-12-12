@@ -11,5 +11,5 @@ public class ThirdPartyVpnPeersUpdateRequest
 	/// </summary>
 	/// <value>The list of VPN peers</value>
 	[DataMember(Name = "peers")]
-	public List<ThirdPartyVpnPeer> Peers { get; set; } = new List<ThirdPartyVpnPeer>();
+	public List<ThirdPartyVpnPeer> Peers { get; set; } = [];
 }

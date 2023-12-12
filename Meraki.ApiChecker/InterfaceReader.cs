@@ -37,7 +37,7 @@ public static class InterfaceReader
 					// Create a new list for this API path
 					implementedEndpoints[refitAttribute.Path]
 						= existingList
-						= new List<MethodDetails>();
+						= [];
 				}
 
 				var methodDetails = new MethodDetails(method, refitAttribute);

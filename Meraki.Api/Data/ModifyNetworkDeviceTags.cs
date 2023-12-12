@@ -22,7 +22,7 @@ public class ModifyNetworkDeviceTags
 	/// Scope
 	/// </summary>
 	[DataMember(Name = "scope")]
-	public List<string> Scope { get; set; } = new();
+	public List<string> Scope { get; set; } = [];
 
 	/// <summary>
 	/// Serials
@@ -34,7 +34,7 @@ public class ModifyNetworkDeviceTags
 	/// Tags
 	/// </summary>
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// Wifi macs

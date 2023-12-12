@@ -25,7 +25,7 @@ public class CallbackStatus
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "errors")]
-	public List<string> Errors { get; set; } = new();
+	public List<string> Errors { get; set; } = [];
 
 	/// <summary>
 	/// Information around who initiated the callback

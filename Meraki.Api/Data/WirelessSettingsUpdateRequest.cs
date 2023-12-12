@@ -38,7 +38,6 @@ public class WirelessSettingsUpdateDto
 	/// <summary>
 	/// Named VLAN settings for wireless networks.
 	/// </summary>
-
 	[DataMember(Name = "namedVlans")]
 	public WirelessSettingsNamedVlans? NamedVlans { get; set; }
 }

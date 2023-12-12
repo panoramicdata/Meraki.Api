@@ -11,5 +11,5 @@ public class OrganizationInventoryReleaseRequest
 	/// </summary>
 	/// <value>Serials of the devices that should be released</value>
 	[DataMember(Name = "serials")]
-	public List<string> Serials { get; set; } = new();
+	public List<string> Serials { get; set; } = [];
 }

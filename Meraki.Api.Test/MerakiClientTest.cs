@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Meraki.Api.Test;
 
-public class MerakiClientTest : IDisposable
+public class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : IDisposable
 {
 	protected DateTimeOffset UtcNow { get; } = DateTimeOffset.UtcNow;
 
@@ -16,12 +16,7 @@ public class MerakiClientTest : IDisposable
 	private TestConfig? _configuration;
 	private bool _disposedValue;
 
-	private readonly ICacheLogger _logger;
-
-	public MerakiClientTest(ITestOutputHelper iTestOutputHelper)
-	{
-		_logger = iTestOutputHelper.BuildLogger();
-	}
+	private readonly ICacheLogger _logger = _iTestOutputHelper.BuildLogger();
 
 	public TestConfig Configuration
 	{
@@ -98,12 +93,12 @@ public class MerakiClientTest : IDisposable
 				new NetworkCreationRequest
 				{
 					Name = $"XUnit {Guid.NewGuid()}",
-					ProductTypes = new()
-					{
+					ProductTypes =
+					[
 						ProductType.Appliance,
 						ProductType.Switch,
 						ProductType.Camera
-					},
+					],
 					Notes = $"Created as part of unit testing on {DateTime.UtcNow}, should be removed automatically"
 				}
 			)

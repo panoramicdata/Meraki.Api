@@ -18,7 +18,7 @@ public class DeviceCellularSimsSimApn
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedIpTypes")]
-	public List<string> AllowedIpTypes { get; set; } = new();
+	public List<string> AllowedIpTypes { get; set; } = [];
 
 	/// <summary>
 	/// A list of Sims

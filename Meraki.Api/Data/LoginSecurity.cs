@@ -88,7 +88,7 @@ public class LoginSecurity
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "loginIpRanges")]
-	public List<string> LoginIpRanges { get; set; } = new();
+	public List<string> LoginIpRanges { get; set; } = [];
 
 	/// <summary>
 	/// ApiAuthentication

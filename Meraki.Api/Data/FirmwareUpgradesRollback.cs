@@ -40,5 +40,5 @@ public class FirmwareUpgradesRollback
 	/// Reasons
 	/// </summary>
 	[DataMember(Name = "reasons")]
-	public List<Reasons> Reasons { get; set; } = new();
+	public List<Reasons> Reasons { get; set; } = [];
 }

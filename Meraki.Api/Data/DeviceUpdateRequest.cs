@@ -17,7 +17,7 @@ public class DeviceUpdateRequest
 	/// </summary>
 	/// <value>The tags of a device</value>
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// The latitude of a device

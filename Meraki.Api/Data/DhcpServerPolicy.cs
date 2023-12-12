@@ -18,14 +18,14 @@ public class DhcpServerPolicy
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedServers")]
-	public List<string> AllowedServers { get; set; } = new();
+	public List<string> AllowedServers { get; set; } = [];
 
 	/// <summary>
 	/// List the MAC addresses of DHCP servers to block on the network. Applicable only if defaultPolicy is set to allow. An empty array will clear the entries.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "blockedServers")]
-	public List<string> BlockedServers { get; set; } = new();
+	public List<string> BlockedServers { get; set; } = [];
 
 	/// <summary>
 	/// Alerts - no documentation

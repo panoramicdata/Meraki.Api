@@ -12,7 +12,7 @@ public class DefaultDestinations
 	/// <value>A list of emails that will receive the alert(s).</value>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "emails")]
-	public List<string> Emails { get; set; } = new();
+	public List<string> Emails { get; set; } = [];
 
 	/// <summary>
 	/// If true, then all network admins will receive emails.
@@ -36,5 +36,5 @@ public class DefaultDestinations
 	/// <value>A list of HTTP server IDs to send a Webhook to</value>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "httpServerIds")]
-	public List<string> HttpServerIds { get; set; } = new();
+	public List<string> HttpServerIds { get; set; } = [];
 }

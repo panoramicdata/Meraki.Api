@@ -21,7 +21,7 @@ public class LinkLayerNodeStack
 	/// Members
 	/// </summary>
 	[DataMember(Name = "members")]
-	public List<LinkLayerNodeStackMember> Members { get; set; } = new();
+	public List<LinkLayerNodeStackMember> Members { get; set; } = [];
 
 	/// <summary>
 	/// Clients

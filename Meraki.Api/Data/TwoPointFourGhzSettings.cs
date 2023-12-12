@@ -32,7 +32,7 @@ public class TwoPointFourGhzSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "validAutoChannels")]
-	public List<int?> ValidAutoChannels { get; set; } = new();
+	public List<int?> ValidAutoChannels { get; set; } = [];
 
 	/// <summary>
 	/// Determines whether ax radio on 2.4Ghz band is on or off. Can be either true or false. If false, we highly recommend disabling band steering. Defaults to true.

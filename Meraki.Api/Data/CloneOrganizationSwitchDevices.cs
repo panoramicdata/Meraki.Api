@@ -17,5 +17,5 @@ public class CloneOrganizationSwitchDevices
 	/// Target serials
 	/// </summary>
 	[DataMember(Name = "targetSerials")]
-	public List<string> TargetSerial { get; set; } = new();
+	public List<string> TargetSerial { get; set; } = [];
 }

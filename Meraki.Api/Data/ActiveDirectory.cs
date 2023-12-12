@@ -18,5 +18,5 @@ public class ActiveDirectory
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "servers")]
-	public List<ActiveDirectoryServer> Servers { get; set; } = new();
+	public List<ActiveDirectoryServer> Servers { get; set; } = [];
 }

@@ -58,5 +58,5 @@ public class BluetoothClient : NamedIdentifiedItem
 	/// The list of associated tags
 	/// </summary>
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new List<string>();
+	public List<string> Tags { get; set; } = [];
 }

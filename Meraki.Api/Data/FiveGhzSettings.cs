@@ -32,7 +32,7 @@ public class FiveGhzSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "validAutoChannels")]
-	public List<int?> ValidAutoChannels { get; set; } = new();
+	public List<int?> ValidAutoChannels { get; set; } = [];
 
 	/// <summary>
 	/// Sets channel width (MHz) for 5Ghz band. Can be one of 'auto', '20', '40' or '80'. Defaults to auto.

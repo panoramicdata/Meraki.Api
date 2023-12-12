@@ -1,11 +1,7 @@
 ﻿namespace Meraki.Api.Test.Networks.BluetoothClients;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetBluetoothClientsAsync_Succeeds()
 	{

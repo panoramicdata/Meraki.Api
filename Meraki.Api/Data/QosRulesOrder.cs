@@ -11,5 +11,5 @@ public class QosRulesOrder
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ruleIds")]
-	public List<string> RuleIds { get; set; } = new();
+	public List<string> RuleIds { get; set; } = [];
 }

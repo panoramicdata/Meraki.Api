@@ -49,5 +49,5 @@ public class SensorCommand
 	/// Array of errors if failed
 	/// </summary>
 	[DataMember(Name = "errors")]
-	public List<string> Errors { get; set; } = new();
+	public List<string> Errors { get; set; } = [];
 }

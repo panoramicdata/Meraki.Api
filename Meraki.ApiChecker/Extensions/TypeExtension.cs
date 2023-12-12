@@ -40,13 +40,13 @@ public static class TypeExtension
 		// A root level Task is never Deficient
 		if (isRoot && type == typeof(Task))
 		{
-			return new();
+			return [];
 		}
 
 		if (type.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is not null)
 		{
 			// It's a read-only class, so return here
-			return new List<string>();
+			return [];
 		}
 
 		var deficientDataModels = new List<string>();

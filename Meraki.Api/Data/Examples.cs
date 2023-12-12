@@ -10,5 +10,5 @@ public class Examples
 	/// Application/JSON
 	/// </summary>
 	[DataMember(Name = "application/json")]
-	public List<ApplicationJson> ApplicationJson { get; set; } = new();
+	public List<ApplicationJson> ApplicationJson { get; set; } = [];
 }

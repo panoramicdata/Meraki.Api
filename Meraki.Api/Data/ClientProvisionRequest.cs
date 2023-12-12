@@ -32,12 +32,12 @@ public class ClientProvisionRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "policiesBySsid")]
-	public Dictionary<string, DevicePolicyBySsid> PoliciesBySsid { get; set; } = new();
+	public Dictionary<string, DevicePolicyBySsid> PoliciesBySsid { get; set; } = [];
 
 	/// <summary>
 	/// The array of clients to provision
 	/// </summary>
 	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "clients")]
-	public List<ClientProvision> Clients { get; set; } = new();
+	public List<ClientProvision> Clients { get; set; } = [];
 }

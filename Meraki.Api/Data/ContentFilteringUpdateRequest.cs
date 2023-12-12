@@ -11,21 +11,21 @@ public class ContentFilteringUpdateRequest
 	/// </summary>
 	/// <value>A list of URL patterns to allow</value>
 	[DataMember(Name = "allowedUrlPatterns")]
-	public List<string> AllowedUrlPatterns { get; set; } = new();
+	public List<string> AllowedUrlPatterns { get; set; } = [];
 
 	/// <summary>
 	/// A list of URL patterns to block
 	/// </summary>
 	/// <value>A list of URL patterns to block</value>
 	[DataMember(Name = "blockedUrlPatterns")]
-	public List<string> BlockedUrlPatterns { get; set; } = new();
+	public List<string> BlockedUrlPatterns { get; set; } = [];
 
 	/// <summary>
 	/// A list of URL categories to block
 	/// </summary>
 	/// <value>A list of URL categories to block</value>
 	[DataMember(Name = "blockedUrlCategories")]
-	public List<string> BlockedUrlCategories { get; set; } = new();
+	public List<string> BlockedUrlCategories { get; set; } = [];
 
 	/// <summary>
 	/// Gets or Sets UrlCategoryListSize

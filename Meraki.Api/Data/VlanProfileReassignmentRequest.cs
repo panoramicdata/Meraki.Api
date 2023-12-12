@@ -10,13 +10,13 @@ public class VlanProfileReassignmentRequest
 	/// Array of Device Serials
 	/// </summary>
 	[DataMember(Name = "serials")]
-	public List<string> Serials { get; set; } = new();
+	public List<string> Serials { get; set; } = [];
 
 	/// <summary>
 	/// Array of Switch Stack IDs
 	/// </summary>
 	[DataMember(Name = "stackIds")]
-	public List<string> StackIds { get; set; } = new();
+	public List<string> StackIds { get; set; } = [];
 
 	/// <summary>
 	/// The VLAN Profile

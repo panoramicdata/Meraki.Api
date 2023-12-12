@@ -4,7 +4,7 @@ public class MerakiClientStatistics
 {
 	public IReadOnlyDictionary<int, int> StatusCodeCounts => _statusCodeCounts;
 
-	private readonly Dictionary<int, int> _statusCodeCounts = new();
+	private readonly Dictionary<int, int> _statusCodeCounts = [];
 
 	public int TotalRequestCount { get; internal set; }
 

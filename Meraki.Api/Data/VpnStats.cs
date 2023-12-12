@@ -22,5 +22,5 @@ public class VpnStats
 	/// Usage summary
 	/// </summary>
 	[DataMember(Name = "merakiVpnPeers")]
-	public List<MerakiVpnPeers> MerakiVpnPeers { get; set; } = new();
+	public List<MerakiVpnPeers> MerakiVpnPeers { get; set; } = [];
 }

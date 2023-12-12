@@ -32,5 +32,5 @@ public class Ldap
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "servers")]
-	public List<LdapServer> Servers { get; set; } = new();
+	public List<LdapServer> Servers { get; set; } = [];
 }

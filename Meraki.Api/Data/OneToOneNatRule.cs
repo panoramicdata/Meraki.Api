@@ -39,5 +39,5 @@ public class OneToOneNatRule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedInbound")]
-	public List<AllowedInbound> AllowedInbounds { get; set; } = new();
+	public List<AllowedInbound> AllowedInbounds { get; set; } = [];
 }

@@ -11,5 +11,5 @@ public class NetworkConnectivityMonitoringDestinations
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "destinations")]
-	public List<Destination> Destinations { get; set; } = new();
+	public List<Destination> Destinations { get; set; } = [];
 }

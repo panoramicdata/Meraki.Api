@@ -16,5 +16,5 @@ public class PacketsList
 	/// Packets
 	/// </summary>
 	[DataMember(Name = "packets")]
-	public List<Packets> Packets { get; set; } = new();
+	public List<Packets> Packets { get; set; } = [];
 }

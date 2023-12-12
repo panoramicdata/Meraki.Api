@@ -18,5 +18,5 @@ public class AllowedUrlPatterns
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "patterns")]
-	public List<string> Patterns { get; set; } = new();
+	public List<string> Patterns { get; set; } = [];
 }

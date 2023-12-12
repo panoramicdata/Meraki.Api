@@ -11,5 +11,5 @@ public class ClientSplashAuthorizationStatusUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ssids")]
-	public Dictionary<string, SsidSplashAuthorization> Ssids { get; set; } = new();
+	public Dictionary<string, SsidSplashAuthorization> Ssids { get; set; } = [];
 }

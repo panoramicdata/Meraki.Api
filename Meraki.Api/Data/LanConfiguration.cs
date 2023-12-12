@@ -40,7 +40,7 @@ public class LanConfiguration
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "reservedIpRanges")]
-	public List<object> ReservedIpRanges { get; set; } = new();
+	public List<object> ReservedIpRanges { get; set; } = [];
 
 	/// <summary>
 	/// DnsNameservers - No documentation
@@ -54,7 +54,7 @@ public class LanConfiguration
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "dnsCustomNameservers")]
-	public List<object> DnsCustomNameservers { get; set; } = new();
+	public List<object> DnsCustomNameservers { get; set; } = [];
 
 	/// <summary>
 	/// DhcpHandling - No documentation
@@ -82,7 +82,7 @@ public class LanConfiguration
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "dhcpOptions")]
-	public List<object> DhcpOptions { get; set; } = new();
+	public List<object> DhcpOptions { get; set; } = [];
 
 	/// <summary>
 	/// mandatoryDhcp - No documentation

@@ -40,7 +40,7 @@ public class PiiRequest : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "datasets")]
-	public List<string>? Datasets { get; set; } = new();
+	public List<string>? Datasets { get; set; } = [];
 
 	/// <summary>
 	/// Status

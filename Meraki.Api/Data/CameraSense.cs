@@ -39,5 +39,5 @@ public class CameraSense
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "mqttTopics")]
-	public List<string> MqttTopics { get; set; } = new();
+	public List<string> MqttTopics { get; set; } = [];
 }

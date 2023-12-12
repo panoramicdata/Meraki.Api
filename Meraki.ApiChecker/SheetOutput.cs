@@ -179,7 +179,7 @@ public static class SheetOutput
 						: throw new InvalidDataException($"Expected property {modelProperty.Name} to have DataMember attribute with a name set");
 				},
 				modelProperty => modelProperty
-			) ?? new();
+			) ?? [];
 
 		// Loop through the properties in the schema and check if they exist in the responseModel
 		// Deconstruct each Dictionary entry Key and Value into two variables

@@ -11,12 +11,12 @@ public class DeviceAvailabilityHistoryDetails
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "new")]
-	public List<DeviceAvailabilityHistoryDetailNew> New { get; set; } = new();
+	public List<DeviceAvailabilityHistoryDetailNew> New { get; set; } = [];
 
 	/// <summary>
 	/// Details about the old status
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "old")]
-	public List<DeviceAvailabilityHistoryDetailOld> Old { get; set; } = new();
+	public List<DeviceAvailabilityHistoryDetailOld> Old { get; set; } = [];
 }

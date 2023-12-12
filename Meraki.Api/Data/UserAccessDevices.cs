@@ -53,12 +53,12 @@ public class UserAccessDevices
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// Trusted access connections
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "trustedAccessConnections")]
-	public List<TrustedAccessConnection> TrustedAccessConnections { get; set; } = new();
+	public List<TrustedAccessConnection> TrustedAccessConnections { get; set; } = [];
 }

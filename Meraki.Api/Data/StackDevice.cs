@@ -58,5 +58,5 @@ public class StackDevice
 	/// Uplinks
 	/// </summary>
 	[DataMember(Name = "uplinks")]
-	public List<StackDeviceUplinks> Uplinks { get; set; } = new();
+	public List<StackDeviceUplinks> Uplinks { get; set; } = [];
 }

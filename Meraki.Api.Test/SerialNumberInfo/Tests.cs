@@ -1,11 +1,7 @@
 ﻿namespace Meraki.Api.Test.SerialNumberInfo;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Theory]
 #pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
 	[InlineData("Q2AT-1234-1234", "MC74", ProductType.Phone, false)]

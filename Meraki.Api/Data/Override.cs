@@ -11,21 +11,21 @@ public class Override
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "switchProfiles")]
-	public List<string> SwitchProfiles { get; set; } = new();
+	public List<string> SwitchProfiles { get; set; } = [];
 
 	/// <summary>
 	/// List of switch serials for non-template network
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "switches")]
-	public List<string> Switches { get; set; } = new();
+	public List<string> Switches { get; set; } = [];
 
 	/// <summary>
 	/// List of switch stack ids for non-template network
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "stacks")]
-	public List<string> Stacks { get; set; } = new();
+	public List<string> Stacks { get; set; } = [];
 
 	/// <summary>
 	/// IGMP snooping setting for switches, switch stacks or switch profiles

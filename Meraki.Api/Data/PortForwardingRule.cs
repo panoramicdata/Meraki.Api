@@ -46,7 +46,7 @@ public class PortForwardingRule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedIps")]
-	public List<string> AllowedIps { get; set; } = new();
+	public List<string> AllowedIps { get; set; } = [];
 
 	/// <summary>
 	/// Gets or Sets Protocol

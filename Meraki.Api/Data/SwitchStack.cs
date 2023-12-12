@@ -13,5 +13,5 @@ public class SwitchStack : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "serials")]
-	public List<string> Serials { get; set; } = new List<string>();
+	public List<string> Serials { get; set; } = [];
 }

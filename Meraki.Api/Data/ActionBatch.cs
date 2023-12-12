@@ -40,7 +40,7 @@ public class ActionBatch : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "actions")]
-	public List<Action> Action { get; set; } = new();
+	public List<Action> Action { get; set; } = [];
 
 	/// <summary>
 	/// Information for callback used to send back results

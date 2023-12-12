@@ -18,5 +18,5 @@ public class DeviceTypeGroupPolicies
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "deviceTypePolicies")]
-	public List<DeviceTypePolicy> DeviceTypePolicies { get; set; } = new();
+	public List<DeviceTypePolicy> DeviceTypePolicies { get; set; } = [];
 }

@@ -34,7 +34,7 @@ public class VpnStatus
 	/// Uplinks
 	/// </summary>
 	[DataMember(Name = "uplinks")]
-	public List<VpnStatusUplink> Uplinks { get; set; } = new();
+	public List<VpnStatusUplink> Uplinks { get; set; } = [];
 
 	/// <summary>
 	/// VPN mode
@@ -46,17 +46,17 @@ public class VpnStatus
 	/// Exported subnets
 	/// </summary>
 	[DataMember(Name = "exportedSubnets")]
-	public List<ExportedSubnet> ExportedSubnets { get; set; } = new();
+	public List<ExportedSubnet> ExportedSubnets { get; set; } = [];
 
 	/// <summary>
 	/// Meraki VPN peers
 	/// </summary>
 	[DataMember(Name = "merakiVpnPeers")]
-	public List<MerakiVpnPeers> MerakiVpnPeers { get; set; } = new();
+	public List<MerakiVpnPeers> MerakiVpnPeers { get; set; } = [];
 
 	/// <summary>
 	/// Third party VPN peers
 	/// </summary>
 	[DataMember(Name = "thirdPartyVpnPeers")]
-	public List<ThirdPartyVpnPeers> ThirdPartyVpnPeers { get; set; } = new();
+	public List<ThirdPartyVpnPeers> ThirdPartyVpnPeers { get; set; } = [];
 }

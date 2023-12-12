@@ -11,7 +11,7 @@ public class VpnFirewallRules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<VpnFirewallRule> Rules { get; set; } = new();
+	public List<VpnFirewallRule> Rules { get; set; } = [];
 
 	/// <summary>
 	/// Log the special default rule (boolean value - enable only if you've configured a syslog server) (optional)

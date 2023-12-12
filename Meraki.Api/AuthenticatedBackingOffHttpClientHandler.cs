@@ -1,21 +1,14 @@
 ﻿namespace Meraki.Api;
 
-internal class AuthenticatedBackingOffHttpClientHandler : HttpClientHandler
+internal class AuthenticatedBackingOffHttpClientHandler(
+	MerakiClientOptions options,
+	MerakiClient merakiClient,
+	ILogger logger) : HttpClientHandler
 {
-	private readonly MerakiClientOptions _options;
-	private readonly MerakiClient _merakiClient;
-	private readonly ILogger _logger;
+	private readonly MerakiClientOptions _options = options;
+	private readonly MerakiClient _merakiClient = merakiClient;
+	private readonly ILogger _logger = logger;
 	private readonly LogLevel _levelToLogAt = LogLevel.Trace;
-
-	public AuthenticatedBackingOffHttpClientHandler(
-		MerakiClientOptions options,
-		MerakiClient merakiClient,
-		ILogger logger)
-	{
-		_options = options;
-		_merakiClient = merakiClient;
-		_logger = logger;
-	}
 
 	public string LastRequestUri { get; private set; } = string.Empty;
 

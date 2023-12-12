@@ -34,5 +34,5 @@ public class UplinkStatus
 	/// Uplinks
 	/// </summary>
 	[DataMember(Name = "uplinks")]
-	public List<Uplinks> Uplinks { get; set; } = new();
+	public List<Uplinks> Uplinks { get; set; } = [];
 }

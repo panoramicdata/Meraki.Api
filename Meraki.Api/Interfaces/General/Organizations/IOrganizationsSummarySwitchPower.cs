@@ -6,9 +6,9 @@ namespace Meraki.Api.Interfaces.General.Organizations;
 public interface IOrganizationsSummarySwitchPower
 {
 	/// <summary>
-	/// Returns the total PoE power draw for all switch ports in the organization over the requested timespan (by default the last 24 hours). 
-	/// The returned array is a newest-first list of intervals. 
-	/// The time between intervals depends on the requested timespan with 20 minute intervals used for timespans up to 1 day, 
+	/// Returns the total PoE power draw for all switch ports in the organization over the requested timespan (by default the last 24 hours).
+	/// The returned array is a newest-first list of intervals.
+	/// The time between intervals depends on the requested timespan with 20 minute intervals used for timespans up to 1 day,
 	/// 4 hour intervals used for timespans up to 2 weeks, and 1 day intervals for timespans larger than 2 weeks.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -24,5 +24,4 @@ public interface IOrganizationsSummarySwitchPower
 		string? t1 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default);
-
 }
