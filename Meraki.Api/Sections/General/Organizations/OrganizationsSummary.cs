@@ -3,4 +3,5 @@
 public class OrganizationsSummarySection
 {
 	public IOrganizationsSummaryTop Top { get; set; } = null!;
+	public IOrganizationsSummary Summary { get; set; } = null!;
 }
