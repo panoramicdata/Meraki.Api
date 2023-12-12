@@ -32,7 +32,7 @@ public class CallbackStatus
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdBy")]
-	public CallbackStatusCreatedBy? CreatedBy { get; set; }
+	public CallbackStatusCreatedBy CreatedBy { get; set; } = new();
 
 	/// <summary>
 	/// The webhook receiver used by the callback to send results
