@@ -878,13 +878,13 @@ public partial class MerakiClient
 
 		var productType =
 			model is null ? null :
-			model.StartsWith("MX") || model.StartsWith("Z") ? ProductType.Appliance :
-			model.StartsWith("MS") ? ProductType.Switch :
-			model.StartsWith("MR") || model.StartsWith("CW") ? ProductType.Wireless :
-			model.StartsWith("MV") ? ProductType.Camera :
-			model.StartsWith("MG") ? ProductType.CellularGateway :
-			model.StartsWith("MC") ? ProductType.Phone :
-			model.StartsWith("MT") ? ProductType.Sensor :
+			model.StartsWith("MX", StringComparison.Ordinal) || model.StartsWith("Z", StringComparison.Ordinal) ? ProductType.Appliance :
+			model.StartsWith("MS", StringComparison.Ordinal) ? ProductType.Switch :
+			model.StartsWith("MR", StringComparison.Ordinal) || model.StartsWith("CW", StringComparison.Ordinal) ? ProductType.Wireless :
+			model.StartsWith("MV", StringComparison.Ordinal) ? ProductType.Camera :
+			model.StartsWith("MG", StringComparison.Ordinal) ? ProductType.CellularGateway :
+			model.StartsWith("MC", StringComparison.Ordinal) ? ProductType.Phone :
+			model.StartsWith("MT", StringComparison.Ordinal) ? ProductType.Sensor :
 			(ProductType?)null;
 
 		var eox = _eoxData.Find(eox => eox?["DeviceModel"]?.ToString() == model);

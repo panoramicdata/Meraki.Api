@@ -6,7 +6,7 @@
 [DataContract]
 public class Network : NetworkOrConfigurationTemplate
 {
-	public static int MaxNameLength = 38;
+	public const int MaxNameLength = 38;
 
 	/// <summary>
 	/// Product types

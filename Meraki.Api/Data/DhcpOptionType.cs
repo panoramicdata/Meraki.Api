@@ -7,6 +7,7 @@ namespace Meraki.Api.Data;
 [JsonConverter(typeof(StringEnumConverter))]
 public enum DhcpOptionType
 {
+#pragma warning disable CA1720 // Identifier contains type name
 	/// <summary>
 	/// Enum Text for "text"
 	/// </summary>
@@ -30,4 +31,5 @@ public enum DhcpOptionType
 	/// </summary>
 	[EnumMember(Value = "integer")]
 	Integer
+#pragma warning restore CA1720 // Identifier contains type name
 }

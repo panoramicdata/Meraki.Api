@@ -18,7 +18,7 @@ public class Hotspot20
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "operator")]
-	public Operator Operator { get; set; } = new();
+	public HotspotOperator Operator { get; set; } = new();
 
 	/// <summary>
 	/// Venue settings for this SSID

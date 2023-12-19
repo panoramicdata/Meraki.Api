@@ -6,7 +6,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<AnalysisMode>Recommended</AnalysisMode>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 		<PackageIcon>Icon.png</PackageIcon>
 		<Copyright>Panoramic Data Limited 2021-2023</Copyright>

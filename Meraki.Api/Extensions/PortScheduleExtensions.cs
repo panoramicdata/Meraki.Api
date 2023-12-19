@@ -1,4 +1,6 @@
-﻿namespace Meraki.Api.Extensions;
+﻿using System.Globalization;
+
+namespace Meraki.Api.Extensions;
 public static class PortScheduleExtensions
 {
 	public static double TotalActiveHours(this PortSchedule portSchedule)
@@ -16,5 +18,5 @@ public static class PortScheduleExtensions
 			: 24 - (GetTotalHours(daySchedule.To) - GetTotalHours(daySchedule.From));
 
 	private static double GetTotalHours(string timeString)
-		=> timeString == "24:00" ? 24 : TimeSpan.Parse(timeString).TotalHours;
+		=> timeString == "24:00" ? 24 : TimeSpan.Parse(timeString, CultureInfo.InvariantCulture).TotalHours;
 }

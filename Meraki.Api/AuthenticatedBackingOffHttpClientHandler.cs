@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api;
 
-internal class AuthenticatedBackingOffHttpClientHandler(
+internal sealed class AuthenticatedBackingOffHttpClientHandler(
 	MerakiClientOptions options,
 	MerakiClient merakiClient,
 	ILogger logger) : HttpClientHandler

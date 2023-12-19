@@ -6,7 +6,7 @@
 [DataContract]
 public class SwitchStack : NamedIdentifiedItem
 {
-	public static int MaxNameLength = 38;
+	public const int MaxNameLength = 38;
 
 	/// <summary>
 	/// Serials

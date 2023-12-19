@@ -7,7 +7,7 @@
 [ApiAccessReadOnlyClass]
 public class FloorplanDevice : NamedItem
 {
-	public static int MaxAddressLength = 255;
+	public const int MaxAddressLength = 255;
 
 	/// <summary>
 	/// The latitude of a device

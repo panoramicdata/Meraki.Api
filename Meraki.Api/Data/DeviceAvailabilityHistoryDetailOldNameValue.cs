@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 /// <summary>
-/// Details about the new status
+/// Details about the old status
 /// </summary>
 [DataContract]
 
-public class DeviceAvailabilityHistoryDetailNew
+public class DeviceAvailabilityHistoryDetailOldNameValue
 {
 	/// <summary>
 	/// Name of the detail
