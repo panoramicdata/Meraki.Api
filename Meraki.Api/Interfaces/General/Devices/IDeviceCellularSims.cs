@@ -18,11 +18,11 @@ public interface IDeviceCellularSims
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
-	/// <param name="deviceCellularSimsSimUpdateRequest">Body for updating</param>
+	/// <param name="deviceCellularSimsUpdateRequest">Body for updating</param>
 	[ApiOperationId("updateDeviceCellularSims")]
 	[Put("/devices/{serial}/cellular/sims")]
 	Task<DeviceCellularSims> UpdateDeviceCellularSimsAsync(
 		string serial,
-		[Body] DeviceCellularSimsSimUpdateRequest deviceCellularSimsSimUpdateRequest,
+		[Body] DeviceCellularSimsUpdateRequest deviceCellularSimsUpdateRequest,
 		CancellationToken cancellationToken = default);
 }
