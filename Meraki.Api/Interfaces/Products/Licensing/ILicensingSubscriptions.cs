@@ -48,14 +48,14 @@ public interface ILicensingSubscriptions
 	[Get("/administered/licensing/subscription/subscriptions")]
 	Task<List<LicensingSubscriptionSubscription>> GetAdministeredLicensingSubscriptionSubscriptionsAsync(
 		int? perPage = 1000,
-		string? startingAfter,
-		string? endingBefore,
-		[AliasAs("subscriptionIds[]")] List<string>? subscriptionIds,
-		[AliasAs("organizationIds[]")] List<string>? organizationIds,
-		[AliasAs("statuses[]")] List<string>? statuses,
-		[AliasAs("productTypes[]")] List<string>? productTypes,
-		string? startDate,
-		string? endDate,
+		string startingAfter = null!,
+		string endingBefore = null!,
+		[AliasAs("subscriptionIds[]")] List<string> subscriptionIds = null!,
+		[AliasAs("organizationIds[]")] List<string> organizationIds = null!,
+		[AliasAs("statuses[]")] List<string> statuses = null!,
+		[AliasAs("productTypes[]")] List<string> productTypes = null!,
+		string startDate = null!,
+		string endDate = null!,
 		CancellationToken cancellationToken = default
 		);
 
