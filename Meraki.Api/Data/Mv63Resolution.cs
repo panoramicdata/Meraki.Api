@@ -13,14 +13,22 @@ public enum Mv63Resolution
 	Size1920x1080,
 
 	/// <summary>
+	/// Enum 2688x1512
+	/// </summary>
+	[EnumMember(Value = "2688x1512")]
+	Size2688x1512,
+
+	/// <summary>
 	/// Enum 2560x1440
 	/// </summary>
+	[Obsolete("No longer available")]
 	[EnumMember(Value = "2560x1440")]
 	Size2560x1440,
 
 	/// <summary>
 	/// Enum 3840x2160
 	/// </summary>
+	[Obsolete("No longer available")]
 	[EnumMember(Value = "3840x2160")]
 	Size3840x2160
 }
