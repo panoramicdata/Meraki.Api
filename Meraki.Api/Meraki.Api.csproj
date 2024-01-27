@@ -6,17 +6,12 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<AnalysisMode>Recommended</AnalysisMode>
-		<Copyright>Leeps B.V. 2023-2023</Copyright>
+		<Copyright>Leeps B.V. 2023-2024</Copyright>
 		<PackageId>Meraki.Api.frontizo</PackageId>
 		<PackageProjectUrl>https://github.com/leepsbv/Meraki.Api.frontizo</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/leepsbv/Meraki.Api.frontizo</RepositoryUrl>
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-		<PackageIcon>Icon.png</PackageIcon>
-		<Copyright>Panoramic Data Limited 2021-2023</Copyright>
-		<PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/panoramicdata/Meraki.Api</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Description>Meraki API with frontizo productType</Description>
