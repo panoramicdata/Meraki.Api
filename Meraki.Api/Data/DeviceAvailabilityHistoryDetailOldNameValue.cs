@@ -4,7 +4,7 @@
 /// </summary>
 [DataContract]
 
-public class DeviceAvailabilityHistoryDetailOld
+public class DeviceAvailabilityHistoryDetailOldNameValue
 {
 	/// <summary>
 	/// Name of the detail

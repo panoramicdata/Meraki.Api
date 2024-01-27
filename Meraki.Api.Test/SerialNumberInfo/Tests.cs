@@ -1,14 +1,12 @@
 ﻿namespace Meraki.Api.Test.SerialNumberInfo;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Theory]
+#pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
 	[InlineData("Q2AT-1234-1234", "MC74", ProductType.Phone, false)]
 	[InlineData("Q5AC-1234-1234", "CW9164I", ProductType.Wireless, false)]
+#pragma warning restore CS3016 // Arrays as attribute arguments is not CLS-compliant
 	public void GetFromSerialNumber(string serialNumber, string productName, ProductType productType, bool isVirtual)
 	{
 		var result = MerakiClient.GetInfoFromSerialNumber(serialNumber);

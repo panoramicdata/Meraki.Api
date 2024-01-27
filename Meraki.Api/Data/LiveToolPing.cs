@@ -36,4 +36,10 @@ public class LiveToolPing
 	/// </summary>
 	[DataMember(Name = "results")]
 	public LiveToolPingResults Results { get; set; } = new();
+
+	/// <summary>
+	/// Callback
+	/// </summary>
+	[DataMember(Name = "callback")]
+	public LiveToolPingCallback Callback { get; set; } = new();
 }

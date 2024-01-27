@@ -1,19 +1,14 @@
 ﻿namespace Meraki.Api.Test.Devices;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task PutDeviceAsync_WithMoveMapMarker_Succeeds()
 	{
 		var devices = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(Configuration.TestNetworkId)
-			.ConfigureAwait(false);
+			.GetNetworkDevicesAsync(Configuration.TestNetworkId);
 
 		_ = devices
 			.Should()
@@ -23,8 +18,7 @@ public class Tests : MerakiClientTest
 
 		var device = await TestMerakiClient
 			.Devices
-			.GetDeviceAsync(deviceSerial)
-			.ConfigureAwait(false);
+			.GetDeviceAsync(deviceSerial);
 
 		_ = device.Should().NotBeNull();
 		_ = device.Serial.Should().Equals(deviceSerial);
@@ -38,8 +32,7 @@ public class Tests : MerakiClientTest
 				.UpdateDeviceAsync(
 					device.Serial,
 					device
-				)
-				.ConfigureAwait(false);
+				);
 		}
 		//Device now has blank address
 
@@ -50,8 +43,7 @@ public class Tests : MerakiClientTest
 			.UpdateDeviceAsync(
 				device.Serial,
 				device
-			)
-			.ConfigureAwait(false);
+			);
 
 		_ = updatedDevice.Should().NotBeNull();
 	}
@@ -62,8 +54,7 @@ public class Tests : MerakiClientTest
 		var deviceStatuses = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesStatusesAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationDevicesStatusesAsync(Configuration.TestOrganizationId);
 
 		_ = deviceStatuses
 			.Should()
@@ -80,8 +71,7 @@ public class Tests : MerakiClientTest
 				{
 					Duration = 10,
 					Period = 500
-				})
-			.ConfigureAwait(false);
+				});
 
 		_ = outcome
 			.Should()
@@ -95,8 +85,7 @@ public class Tests : MerakiClientTest
 		var devices = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(Configuration.TestNetworkId)
-			.ConfigureAwait(false);
+			.GetNetworkDevicesAsync(Configuration.TestNetworkId);
 
 		_ = devices
 			.Should()
@@ -110,8 +99,7 @@ public class Tests : MerakiClientTest
 		var deviceManagementInterfaceSettings = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.GetDeviceManagementInterfaceAsync(deviceSerial)
-			.ConfigureAwait(false);
+			.GetDeviceManagementInterfaceAsync(deviceSerial);
 
 		_ = deviceManagementInterfaceSettings
 			.Should()

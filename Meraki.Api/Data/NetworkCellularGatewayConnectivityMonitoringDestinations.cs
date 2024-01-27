@@ -11,5 +11,5 @@ public class NetworkCellularGatewayConnectivityMonitoringDestinations
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destinations")]
-	public List<Destination> Destinations { get; set; } = new();
+	public List<Destination> Destinations { get; set; } = [];
 }

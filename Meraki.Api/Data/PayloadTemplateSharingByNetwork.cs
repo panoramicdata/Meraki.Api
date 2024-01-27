@@ -12,5 +12,4 @@ public class PayloadTemplateSharingByNetwork
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "adminsCanModify")]
 	public bool? AdminsCanModify { get; set; }
-
 }

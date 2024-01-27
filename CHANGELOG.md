@@ -1,5 +1,66 @@
 ﻿# Changelog
 
+## 1.39.1
+- Updated for AlertType motionAlert
+
+## 1.38.24
+- Added Z4 to be detected as an appliance
+
+## 1.38.23
+- Updated video resolutions enum
+
+## 1.38.20
+- Updated SensorCommand CompletedAt to be nullable
+
+## 1.38.19
+- Updated dependencies
+
+## 1.38.18
+- Added details to InventoryDevice
+
+## 1.38.10
+- Added Device Sensor Commands endpoints (currently in Early-Access)
+
+## 1.38.1
+- Initial updates for 1.38 API changes
+- Added missing member Tag on AlertFilter
+
+## 1.37.19
+- Updated model detection to match Z3* as an Appliance
+
+## 1.37.13
+- Added missing AlertTypes
+
+## 1.37.9
+- Updated GetModelType to handle more model strings
+
+## 1.37.7
+- Updated with missing model members
+
+## 1.37.1
+- Updated for v1.37 API changes
+
+## 1.36.30
+- Updated for some missing Properties and added CW to product type detection as a Wireless device
+
+## 1.36.24
+- Added detection of catalyst 9200 and 9300 models as a switch
+
+## 1.36.20
+- Fixed further inconsistencies with webhook and corrected all occurrences of WebHooks/webHook to lowercase h.
+
+## 1.36.19
+- Fixes for Webhooks.  In some places, "WebHooks" has been changed to "Webhooks for consistency, which is a breaking change.
+
+## 1.36.13
+- Added missing MacBlockList settings on SwitchSettings - undocumented
+
+## 1.36.3
+- Updated for v1.36 API changes
+
+## 1.35.1
+- Updated for v1.35 API changes
+
 ## 1.34.39
 - Added UnbindNetworkAsync with optional "retainConfigs" property.
 

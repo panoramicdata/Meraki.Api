@@ -24,5 +24,5 @@ public class NetworkCellularGatewayDhcp
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dnsCustomNameservers")]
-	public List<string> DnsCustomNameservers { get; set; } = new();
+	public List<string> DnsCustomNameservers { get; set; } = [];
 }

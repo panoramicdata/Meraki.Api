@@ -55,4 +55,11 @@ public class AppliancePort
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "accessPolicy")]
 	public string? AccessPolicy { get; set; }
+
+	/// <summary>
+	/// If true, Peer SGT is enabled for traffic through this port. Applicable to trunk port only, not access port.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "peerSgtCapable")]
+	public bool? PeerSgtCapable { get; set; }
 }

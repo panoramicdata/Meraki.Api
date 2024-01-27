@@ -39,5 +39,5 @@ public class MerakiAuthUser : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "authorizations")]
-	public List<Authorization> Authorizations { get; set; } = new();
+	public List<Authorization> Authorizations { get; set; } = [];
 }

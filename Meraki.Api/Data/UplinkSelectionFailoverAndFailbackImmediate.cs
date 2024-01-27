@@ -12,5 +12,4 @@ public class UplinkSelectionFailoverAndFailbackImmediate
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
 	public bool? Enabled { get; set; }
-
 }

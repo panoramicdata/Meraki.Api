@@ -1,22 +1,16 @@
 ﻿namespace Meraki.Api.Test.Networks;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetAllSsidsAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Wireless
 			.Ssids
-			.GetNetworkWirelessSsidsAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkWirelessSsidsAsync(network.Id);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}
@@ -24,14 +18,12 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetAllDevicesAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkDevicesAsync(network.Id);
 		_ = result.Should().BeOfType<List<Device>>();
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
@@ -42,8 +34,7 @@ public class Tests : MerakiClientTest
 	{
 		var networkName = new string('X', Network.MaxNameLength);
 
-		await EnsureNetworkRemovedAsync(networkName)
-			.ConfigureAwait(false);
+		await EnsureNetworkRemovedAsync(networkName);
 
 		// Create network
 		var newNetwork = await TestMerakiClient
@@ -54,17 +45,15 @@ public class Tests : MerakiClientTest
 				new NetworkCreationRequest
 				{
 					Name = networkName,
-					ProductTypes = new() { ProductType.Wireless },
-					Tags = new List<string>(),
+					ProductTypes = [ProductType.Wireless],
+					Tags = [],
 					TimeZone = "Europe/London"
-				})
-			.ConfigureAwait(false);
+				});
 
 		// And delete it again
 		await TestMerakiClient
 			.Networks
-			.DeleteNetworkAsync(newNetwork.Id)
-			.ConfigureAwait(false);
+			.DeleteNetworkAsync(newNetwork.Id);
 	}
 
 	[Fact]
@@ -81,10 +70,9 @@ public class Tests : MerakiClientTest
 					new NetworkCreationRequest
 					{
 						Name = networkName,
-						Tags = new List<string>(),
+						Tags = [],
 						TimeZone = "Europe/London"
-					})
-				 .ConfigureAwait(false);
+					});
 
 		return action
 			.Should()
@@ -115,7 +103,8 @@ public class Tests : MerakiClientTest
 					.Devices
 					.RemoveNetworkDevicesAsync(
 						oldNetwork.Id,
-						new DeviceRemovalRequest {
+						new DeviceRemovalRequest
+						{
 							Serial = oldNetworkDevice.Serial
 								?? throw new InvalidDataException("Expected serial number")
 						})
@@ -138,14 +127,12 @@ public class Tests : MerakiClientTest
 		var devices = await TestMerakiClient
 			.Organizations
 			.InventoryDevices
-			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId);
 		var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
 		_ = device.Should().NotBeNull();
 
 		// Perform any clean-up
-		await EnsureNetworkRemovedAsync(networkName)
-			.ConfigureAwait(false);
+		await EnsureNetworkRemovedAsync(networkName);
 
 		// Create network
 		var newNetwork = await TestMerakiClient
@@ -156,19 +143,17 @@ public class Tests : MerakiClientTest
 			new NetworkCreationRequest
 			{
 				Name = networkName,
-				Tags = new List<string>(),
+				Tags = [],
 				TimeZone = "Europe/London",
-				ProductTypes = new List<ProductType> { ProductType.Wireless }
-			})
-			.ConfigureAwait(false);
+				ProductTypes = [ProductType.Wireless]
+			});
 
 		_ = newNetwork.Should().NotBeNull();
 
 		// Re-fetch the network
 		var refetchedNetwork = await TestMerakiClient
 			.Networks
-			.GetNetworkAsync(newNetwork.Id)
-			.ConfigureAwait(false);
+			.GetNetworkAsync(newNetwork.Id);
 
 		_ = newNetwork.Name.Should().Be(refetchedNetwork.Name);
 
@@ -176,8 +161,7 @@ public class Tests : MerakiClientTest
 		var configurationTemplates = await TestMerakiClient
 			.Organizations
 			.ConfigTemplates
-			.GetOrganizationConfigTemplatesAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationConfigTemplatesAsync(Configuration.TestOrganizationId);
 		_ = configurationTemplates.Should().NotBeNull();
 		_ = configurationTemplates.Should().NotBeEmpty();
 		var configurationTemplate = configurationTemplates[0];
@@ -189,15 +173,13 @@ public class Tests : MerakiClientTest
 				{
 					ConfigurationTemplateId = configurationTemplate.Id,
 					AutoBind = true
-				})
-			.ConfigureAwait(false);
+				});
 
 		// Get all VLANs - should be the default one
 		var initialVlans = await TestMerakiClient
 			.Appliance
 			.Vlans
-			.GetNetworkApplianceVlansAsync(newNetwork.Id)
-			.ConfigureAwait(false);
+			.GetNetworkApplianceVlansAsync(newNetwork.Id);
 		_ = initialVlans.Should().NotBeNull();
 
 		var vlan10 = initialVlans.SingleOrDefault(v => v.Id == "10");
@@ -212,31 +194,28 @@ public class Tests : MerakiClientTest
 			{
 				Subnet = $"{PrivateNetworkFirst3Octets}.128/28",
 				ApplianceIp = $"{PrivateNetworkFirst3Octets}.129",
-				ReservedIpRanges = new List<ReservedIpRange>
-				{
+				ReservedIpRanges =
+				[
 						new ReservedIpRange
 						{
 							Comment = "Temp",
 							Start = $"{PrivateNetworkFirst3Octets}.129",
 							End = $"{PrivateNetworkFirst3Octets}.131"
 						}
-				}
-			})
-			.ConfigureAwait(false);
+				]
+			});
 		_ = updatedVlan.Should().NotBeNull();
 
 		//--- Claim/Remove device
 		await TestMerakiClient
 			.Networks
 			.Devices
-			.ClaimNetworkDevicesAsync(newNetwork.Id, new DeviceClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
-			.ConfigureAwait(false);
+			.ClaimNetworkDevicesAsync(newNetwork.Id, new DeviceClaimRequest { Serials = [Configuration.TestDeviceSerial] });
 
 		// Make sure it's there.
 		var fetchedDevice = await TestMerakiClient
 			.Devices
-			.GetDeviceAsync(newNetwork.Id)
-			.ConfigureAwait(false);
+			.GetDeviceAsync(newNetwork.Id);
 		_ = fetchedDevice.Should().BeOfType<Device>();
 		_ = fetchedDevice.Should().NotBeNull();
 
@@ -246,35 +225,30 @@ public class Tests : MerakiClientTest
 			fetchedDevice.Address = new string('x', Device.MaxAddressLength + 1);
 			_ = await TestMerakiClient
 				.Devices
-				.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
-				.ConfigureAwait(false);
+				.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice);
 		};
 
 		_ = await action
 			.Should()
-			.ThrowAsync<ApiException>()
-			.ConfigureAwait(false);
+			.ThrowAsync<ApiException>();
 
 		//// But an OK length should succeed
 		fetchedDevice.Address = new string('x', Device.MaxAddressLength);
 		_ = await TestMerakiClient
 			.Devices
-			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
-			.ConfigureAwait(false);
+			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice);
 
 		//// Setting the address should succeed
 		fetchedDevice.Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA";
 		_ = await TestMerakiClient
 			.Devices
-			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice)
-			.ConfigureAwait(false);
+			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice);
 
 		//// Get the management interface settings
 		var wanSpecs = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial)
-			.ConfigureAwait(false);
+			.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial!);
 		_ = wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 		_ = wanSpecs.Should().NotBeNull();
 
@@ -282,7 +256,7 @@ public class Tests : MerakiClientTest
 		{
 			Wan1 = new Wan
 			{
-				StaticDns = new List<string> { DnsServer },
+				StaticDns = [DnsServer],
 				StaticGatewayIp = $"{PrivateNetworkFirst3Octets}.1",
 				StaticIp = $"{PrivateNetworkFirst3Octets}.254",
 				StaticSubnetMask = $"{SubnetMaskFirst3Octets}.0",
@@ -298,7 +272,7 @@ public class Tests : MerakiClientTest
 		var updatedWanSpecs = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.UpdateDeviceManagementInterfaceAsync(fetchedDevice.Serial, new DeviceManagementInterfaceSettings
+			.UpdateDeviceManagementInterfaceAsync(fetchedDevice.Serial!, new DeviceManagementInterfaceSettings
 			{
 				Wan1 = new Wan
 				{
@@ -310,8 +284,7 @@ public class Tests : MerakiClientTest
 					Vlan = newDeviceManagementInterfaceSettings.Wan1.Vlan,
 					WanEnabledStatus = newDeviceManagementInterfaceSettings.Wan1.WanEnabledStatus,
 				}
-			})
-			.ConfigureAwait(false);
+			});
 		_ = updatedWanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 		_ = updatedWanSpecs.Should().NotBeNull();
 
@@ -319,8 +292,7 @@ public class Tests : MerakiClientTest
 		var wanSpecsRefetch = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.GetDeviceManagementInterfaceAsync(newNetwork.Id)
-			.ConfigureAwait(false);
+			.GetDeviceManagementInterfaceAsync(newNetwork.Id);
 		_ = wanSpecsRefetch.Should().NotBeNull();
 		_ = wanSpecsRefetch.Wan1.Should().NotBeNull();
 		_ = wanSpecsRefetch.Wan1!.StaticDns.Should().NotBeNull();
@@ -332,8 +304,7 @@ public class Tests : MerakiClientTest
 		var allOrganizationDevices = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId);
 		_ = allOrganizationDevices.Should().NotBeNull();
 		_ = allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();
 
@@ -343,40 +314,34 @@ public class Tests : MerakiClientTest
 
 		_ = await TestMerakiClient
 			.Networks
-			.UnbindNetworkAsync(newNetwork.Id)
-			.ConfigureAwait(false);
+			.UnbindNetworkAsync(newNetwork.Id);
 
 		//--- Delete the network
 
 		// Delete the network
 		await TestMerakiClient
 			.Networks
-			.DeleteNetworkAsync(newNetwork.Id)
-			.ConfigureAwait(false);
+			.DeleteNetworkAsync(newNetwork.Id);
 
 		action = async ()
 			=> _ = await TestMerakiClient
 				.Networks
-				.GetNetworkAsync(newNetwork.Id)
-				.ConfigureAwait(false);
+				.GetNetworkAsync(newNetwork.Id);
 
 		_ = await action
 			.Should()
-			.ThrowAsync<ApiException>()
-			.ConfigureAwait(false);
+			.ThrowAsync<ApiException>();
 	}
 
 	[Fact]
 	public async Task GetClientsAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Networks
 			.Clients
-			.GetNetworkClientsAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkClientsAsync(network.Id);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}
@@ -384,14 +349,12 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetBluetoothClientsAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Networks
 			.BluetoothClients
-			.GetNetworkBluetoothClientsAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkBluetoothClientsAsync(network.Id);
 		_ = result.Should().BeOfType<List<BluetoothClient>>();
 		_ = result.Should().NotBeNull();
 	}
@@ -399,15 +362,13 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetWirelessSettingsAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		// Get the wireless settings
 		var originalResult = await TestMerakiClient
 			.Wireless
 			.Settings
-			.GetNetworkWirelessSettingsAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkWirelessSettingsAsync(network.Id);
 		_ = originalResult.Should().BeOfType<WirelessSettings>();
 		_ = originalResult.Should().NotBeNull();
 
@@ -421,8 +382,7 @@ public class Tests : MerakiClientTest
 				LedLightsOn = originalResult.LedLightsOn,
 				LocationAnalyticsEnabled = originalResult.LocationAnalyticsEnabled,
 				MeshingEnabled = originalResult.MeshingEnabled,
-			})
-			.ConfigureAwait(false);
+			});
 		_ = newResult.Should().BeOfType<WirelessSettings>();
 		_ = newResult.Should().NotBeNull();
 
@@ -440,8 +400,7 @@ public class Tests : MerakiClientTest
 			// Get a snapshot from the camera
 			var newResult = await TestMerakiClient
 				.Camera
-				.GenerateDeviceCameraSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true })
-				.ConfigureAwait(false);
+				.GenerateDeviceCameraSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true });
 			_ = newResult.Should().NotBeNull();
 		}
 	}
@@ -455,8 +414,7 @@ public class Tests : MerakiClientTest
 		var newResult = await TestMerakiClient
 		.Camera
 		.VideoLink
-		.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!)
-		.ConfigureAwait(false);
+		.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!);
 		_ = newResult.Should().NotBeNull();
 	}
 
@@ -466,7 +424,7 @@ public class Tests : MerakiClientTest
 		// The code will call the `GetFirstNetworkAsync()` method 10 times sequentially without a pause.
 		for (var i = 0; i < 10; i++)
 		{
-			_ = await GetFirstNetworkAsync().ConfigureAwait(false);
+			_ = await GetFirstNetworkAsync();
 		}
 	}
 
@@ -487,13 +445,13 @@ public class Tests : MerakiClientTest
 						new NetworkCreationRequest
 						{
 							Name = Guid.NewGuid().ToString(),
-							ProductTypes = new() { ProductType.Wireless },
-							Tags = new List<string>(),
+							ProductTypes = [ProductType.Wireless],
+							Tags = [],
 							TimeZone = "Europe/London",
 							Notes = $"Created at {DateTime.UtcNow:u} during unit testing, OK to delete"
 						}
 					)
-				).ConfigureAwait(false);
+				);
 			_ = exception.Message.Should().Be("The client options have been configured to only allow read actions");
 		}
 		finally

@@ -12,5 +12,4 @@ public class NeighborTtlSecurity
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
 	public bool? Enabled { get; set; }
-
 }

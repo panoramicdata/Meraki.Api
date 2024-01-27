@@ -22,5 +22,5 @@ public class Bssids
 	/// Detected by
 	/// </summary>
 	[DataMember(Name = "detectedBy")]
-	public List<DetectedBy> DetectedBy { get; set; } = new();
+	public List<DetectedBy> DetectedBy { get; set; } = [];
 }

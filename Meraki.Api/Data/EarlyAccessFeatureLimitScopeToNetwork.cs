@@ -6,17 +6,19 @@
 [DataContract]
 public class EarlyAccessFeatureDescription
 {
+#pragma warning disable CA1720 // Identifier contains type name
 	/// <summary>
 	/// Short Description
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "short")]
-	public string ShortDescription { get; set; } = string.Empty;
+	public string Short { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Long Description
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "long")]
-	public string LongDescription { get; set; } = string.Empty;
+	public string Long { get; set; } = string.Empty;
+#pragma warning restore CA1720 // Identifier contains type name
 }

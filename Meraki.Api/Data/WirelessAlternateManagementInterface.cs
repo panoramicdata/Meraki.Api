@@ -25,12 +25,12 @@ public class WirelessAlternateManagementInterface
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "protocols")]
-	public List<string> Protocols { get; set; } = new();
+	public List<string> Protocols { get; set; } = [];
 
 	/// <summary>
 	/// Array of access point serial number and IP assignment. Note: accessPoints IP assignment is not applicable for template networks, in other words, do not put 'accessPoints' in the body when updating template networks. Also, an empty 'accessPoints' array will remove all previous static IP assignments
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "accessPoints")]
-	public List<AccessPoints> AccessPoints { get; set; } = new();
+	public List<AccessPoints> AccessPoints { get; set; } = [];
 }

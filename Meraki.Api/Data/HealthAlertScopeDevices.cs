@@ -46,5 +46,5 @@ public class HealthAlertScopeDevices
 	/// Clients
 	/// </summary>
 	[DataMember(Name = "clients")]
-	public List<Client> Clients { get; set; } = new();
+	public List<Client> Clients { get; set; } = [];
 }

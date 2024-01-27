@@ -8,5 +8,5 @@ public class SplitNetworkResponse
 	/// </summary>
 	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "resultingNetworks")]
-	public List<Network> ResultingNetworks { get; set; } = new();
+	public List<Network> ResultingNetworks { get; set; } = [];
 }

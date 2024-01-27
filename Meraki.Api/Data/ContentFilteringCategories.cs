@@ -11,5 +11,5 @@ public class ContentFilteringCategories
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "categories")]
-	public List<ContentFilteringCategory> Categories { get; set; } = new();
+	public List<ContentFilteringCategory> Categories { get; set; } = [];
 }

@@ -1,23 +1,17 @@
 ﻿namespace Meraki.Api.Test.Networks.Webhooks;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetAllPayloadTemplatesAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Networks
-			.WebHooks
+			.Webhooks
 			.PayloadTemplates
-			.GetNetworkWebhooksPayloadTemplatesAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkWebhooksPayloadTemplatesAsync(network.Id);
 		_ = result.Should().BeOfType<List<PayloadTemplate>>();
 		_ = result.Should().NotBeNull();
 	}

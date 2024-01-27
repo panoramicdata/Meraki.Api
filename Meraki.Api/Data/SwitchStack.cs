@@ -6,12 +6,12 @@
 [DataContract]
 public class SwitchStack : NamedIdentifiedItem
 {
-	public static int MaxNameLength = 38;
+	public const int MaxNameLength = 38;
 
 	/// <summary>
 	/// Serials
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "serials")]
-	public List<string> Serials { get; set; } = new List<string>();
+	public List<string> Serials { get; set; } = [];
 }

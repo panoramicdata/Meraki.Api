@@ -11,5 +11,5 @@ public class OneToManyNatRules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<OneToManyNatRule> Rules { get; set; } = new();
+	public List<OneToManyNatRule> Rules { get; set; } = [];
 }

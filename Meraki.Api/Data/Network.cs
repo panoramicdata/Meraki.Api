@@ -6,14 +6,14 @@
 [DataContract]
 public class Network : NetworkOrConfigurationTemplate
 {
-	public static int MaxNameLength = 38;
+	public const int MaxNameLength = 38;
 
 	/// <summary>
 	/// Product types
 	/// </summary>
 	[DataMember(Name = "productTypes")]
 	[ApiAccess(ApiAccess.ReadCreate)]
-	public override List<ProductType> ProductTypes { get; set; } = new();
+	public override List<ProductType> ProductTypes { get; set; } = [];
 
 	/// <summary>
 	/// OrganizationId
@@ -28,7 +28,7 @@ public class Network : NetworkOrConfigurationTemplate
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// The ID of the template to which the network should be bound.

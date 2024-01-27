@@ -9,7 +9,7 @@ public class LinkLayerLinks
 	/// Ends
 	/// </summary>
 	[DataMember(Name = "ends")]
-	public List<LinkLayerLinksEnds> Ends { get; set; } = new();
+	public List<LinkLayerLinksEnds> Ends { get; set; } = [];
 
 	/// <summary>
 	/// Last reported at

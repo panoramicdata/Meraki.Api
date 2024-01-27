@@ -16,5 +16,5 @@ public class Thresholds
 	/// By network
 	/// </summary>
 	[DataMember(Name = "byNetwork")]
-	public List<ByNetworks> ByNetwork { get; set; } = new();
+	public List<ByNetworks> ByNetwork { get; set; } = [];
 }

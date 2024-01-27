@@ -19,5 +19,4 @@ public class RendezvousPointCreateUpdateRequest
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "multicastGroup")]
 	public string? MulticastGroup { get; set; }
-
 }

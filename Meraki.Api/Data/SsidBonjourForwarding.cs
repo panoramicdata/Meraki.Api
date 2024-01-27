@@ -18,10 +18,10 @@ public class SsidBonjourForwarding
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<BonjourForwardingRule> Rules { get; set; } = new();
+	public List<BonjourForwardingRule> Rules { get; set; } = [];
 
 	/// <summary>
-	/// Undocumented June 2023
+	/// Bonjour forwarding exception
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "exception")]

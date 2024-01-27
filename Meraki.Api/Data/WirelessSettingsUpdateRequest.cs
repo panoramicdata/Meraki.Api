@@ -35,4 +35,9 @@ public class WirelessSettingsUpdateDto
 	/// </summary>
 	[DataMember(Name = "upgradeStrategy")]
 	public string? UpgradeStrategy { get; set; }
+	/// <summary>
+	/// Named VLAN settings for wireless networks.
+	/// </summary>
+	[DataMember(Name = "namedVlans")]
+	public WirelessSettingsNamedVlans? NamedVlans { get; set; }
 }

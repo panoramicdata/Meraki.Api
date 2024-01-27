@@ -28,7 +28,7 @@ public class LinkLayerNodeDiscoveredLldp
 	/// System capabilities
 	/// </summary>
 	[DataMember(Name = "systemCapabilities")]
-	public List<string> SystemCapabilities { get; set; } = new();
+	public List<string> SystemCapabilities { get; set; } = [];
 
 	/// <summary>
 	/// Management address

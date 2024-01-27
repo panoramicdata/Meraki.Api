@@ -9,5 +9,5 @@ public class IpRestrictionsForKeys
 
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ranges")]
-	public List<string> Ranges { get; set; } = new();
+	public List<string> Ranges { get; set; } = [];
 }

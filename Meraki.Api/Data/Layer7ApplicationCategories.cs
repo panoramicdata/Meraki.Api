@@ -11,5 +11,5 @@ public class Layer7ApplicationCategories
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "applicationCategories")]
-	public List<ApplicationCategory> ApplicationCategories { get; set; } = new();
+	public List<ApplicationCategory> ApplicationCategories { get; set; } = [];
 }

@@ -89,4 +89,11 @@ public class WirelessRfProfileCreateUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "isOutdoorDefault")]
 	public bool? IsOutdoorDefault { get; set; }
+
+	/// <summary>
+	/// Flex radio settings.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "flexRadios")]
+	public WirelessRfProfileFlexRadios? FlexRadios { get; set; }
 }

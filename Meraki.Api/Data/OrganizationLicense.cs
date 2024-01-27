@@ -77,7 +77,7 @@ public class OrganizationLicense : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "permanentlyQueuedLicenses")]
-	public List<Dictionary<string, string>> PermanentlyQueuedLicenses { get; set; } = new List<Dictionary<string, string>>();
+	public List<Dictionary<string, string>> PermanentlyQueuedLicenses { get; set; } = [];
 
 	/// <summary>
 	/// ClaimDate
@@ -103,7 +103,6 @@ public class OrganizationLicense : IdentifiedItem
 	/// <summary>
 	/// headLicenseId - undocumented
 	/// </summary>
-
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "headLicenseId")]
 	public object? HeadLicenseId { get; set; }

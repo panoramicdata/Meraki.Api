@@ -48,7 +48,8 @@ public partial class MerakiClient : IDisposable
 			Clients = RefitFor(Devices.Clients),
 			LldpCdp = RefitFor(Devices.LldpCdp),
 			LossAndLatencyHistory = RefitFor(Devices.LossAndLatencyHistory),
-			ManagementInterface = RefitFor(Devices.ManagementInterface)
+			ManagementInterface = RefitFor(Devices.ManagementInterface),
+			SensorCommands = RefitFor(Devices.SensorCommands),
 		};
 
 		Organizations = new OrganizationsSection
@@ -95,7 +96,9 @@ public partial class MerakiClient : IDisposable
 			Webhooks = new()
 			{
 				AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes),
-				Logs = RefitFor(Organizations.Webhooks.Logs)
+				Logs = RefitFor(Organizations.Webhooks.Logs),
+				PayloadTemplates = RefitFor(Organizations.Webhooks.PayloadTemplates),
+				HttpServers = RefitFor(Organizations.Webhooks.HttpServers)
 			}
 		};
 
@@ -147,16 +150,17 @@ public partial class MerakiClient : IDisposable
 			SplashLoginAttempts = RefitFor(Networks.SplashLoginAttempts),
 			SyslogServers = RefitFor(Networks.SyslogServers),
 			TrafficAnalysis = RefitFor(Networks.TrafficAnalysis),
+			VlanProfiles = RefitFor(Networks.VlanProfiles),
 			TrafficShaping = new()
 			{
 				ApplicationCategories = RefitFor(Networks.TrafficShaping.ApplicationCategories),
 				DscpTaggingOptions = RefitFor(Networks.TrafficShaping.DscpTaggingOptions)
 			},
-			WebHooks = new()
+			Webhooks = new()
 			{
-				HttpServers = RefitFor(Networks.WebHooks.HttpServers),
-				WebhookTests = RefitFor(Networks.WebHooks.WebhookTests),
-				PayloadTemplates = RefitFor(Networks.WebHooks.PayloadTemplates)
+				HttpServers = RefitFor(Networks.Webhooks.HttpServers),
+				WebhookTests = RefitFor(Networks.Webhooks.WebhookTests),
+				PayloadTemplates = RefitFor(Networks.Webhooks.PayloadTemplates)
 			}
 		};
 
@@ -215,7 +219,8 @@ public partial class MerakiClient : IDisposable
 				CustomPerformanceClasses = RefitFor(Appliance.TrafficShaping.CustomPerformanceClasses),
 				Rules = RefitFor(Appliance.TrafficShaping.Rules),
 				UplinkBandwidth = RefitFor(Appliance.TrafficShaping.UplinkBandwidth),
-				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection)
+				UplinkSelection = RefitFor(Appliance.TrafficShaping.UplinkSelection),
+				VpnExclusions = RefitFor(Appliance.TrafficShaping.VpnExclusions)
 			},
 			Uplink = new()
 			{
@@ -270,7 +275,8 @@ public partial class MerakiClient : IDisposable
 			Onbording = new()
 			{
 				Onbording = RefitFor(Camera.Onbording.Onbording)
-			}
+			},
+			Roles = RefitFor(Camera.Roles)
 		};
 
 		CellularGateway = new()
@@ -344,6 +350,7 @@ public partial class MerakiClient : IDisposable
 				OrganizationEthernetStatuses = RefitFor(Wireless.Devices.OrganizationEthernetStatuses)
 			},
 			ConnectionStats = RefitFor(Wireless.ConnectionStats),
+			EthernetPortsProfile = RefitFor(Wireless.EthernetPortsProfile),
 			FailedConnections = RefitFor(Wireless.FailedConnections),
 			LatencyHistory = RefitFor(Wireless.LatencyHistory),
 			LatencyStats = RefitFor(Wireless.LatencyStats),

@@ -8,6 +8,9 @@ public abstract class MerakiClientUnitTest
 {
 	protected string TestOrganizationId { get; }
 	protected string TestSwitchSerial { get; }
+
+	protected string TestMt40DeviceSerial { get; }
+
 #pragma warning disable CS3003 // Type is not CLS-compliant
 	protected ICacheLogger Logger { get; }
 #pragma warning restore CS3003 // Type is not CLS-compliant
@@ -26,6 +29,7 @@ public abstract class MerakiClientUnitTest
 		};
 		TestOrganizationId = testConfig.OrganizationId;
 		TestSwitchSerial = testConfig.SwitchSerial;
+		TestMt40DeviceSerial = testConfig.Mt40DeviceSerial;
 		Logger = testOutputHelper.BuildLogger();
 		TestMerakiClient = new MerakiClient(merakiClientOptions, Logger);
 	}
@@ -45,11 +49,22 @@ public abstract class MerakiClientUnitTest
 			Tags = new() { "TestTag1", "TestTag2", "TestTag3" }
 		};
 
-	protected Task<Network> CreateValidNetworkAsync(string networkName)
-		=> TestMerakiClient
+	protected async Task<Network> CreateValidNetworkAsync(string networkName)
+	{
+		var existingNetworks = await TestMerakiClient
 			.Organizations
 			.Networks
-			.CreateOrganizationNetworkAsync(TestOrganizationId, GetValidNetworkCreationRequest(networkName));
+			.GetOrganizationNetworksAsync(TestOrganizationId)
+			.ConfigureAwait(false);
+
+		return existingNetworks.Any(x => x.Name == networkName)
+			? existingNetworks.First(x => x.Name == networkName)
+			: await TestMerakiClient
+				.Organizations
+				.Networks
+				.CreateOrganizationNetworkAsync(TestOrganizationId, GetValidNetworkCreationRequest(networkName))
+			.ConfigureAwait(false);
+	}
 
 	protected static ConfigurationTemplateCreateRequest GetValidConfigurationTemplateCreationRequest(string configurationTemplateName)
 		=> new()

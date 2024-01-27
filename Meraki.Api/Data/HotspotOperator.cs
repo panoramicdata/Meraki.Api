@@ -4,7 +4,7 @@
 /// Operator
 /// </summary>
 [DataContract]
-public class Operator
+public class HotspotOperator
 {
 	/// <summary>
 	/// Operator name

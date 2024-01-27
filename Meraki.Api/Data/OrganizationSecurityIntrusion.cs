@@ -11,5 +11,5 @@ public class OrganizationSecurityIntrusion
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedRules")]
-	public List<AllowedRule> AllowedRules { get; set; } = new();
+	public List<AllowedRule> AllowedRules { get; set; } = [];
 }

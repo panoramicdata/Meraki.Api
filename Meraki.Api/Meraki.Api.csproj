@@ -11,6 +11,12 @@
 		<PackageId>Meraki.Api.frontizo</PackageId>
 		<PackageProjectUrl>https://github.com/leepsbv/Meraki.Api.frontizo</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/leepsbv/Meraki.Api.frontizo</RepositoryUrl>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<PackageIcon>Icon.png</PackageIcon>
+		<Copyright>Panoramic Data Limited 2021-2023</Copyright>
+		<PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/panoramicdata/Meraki.Api</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<Description>Meraki API with frontizo productType</Description>
@@ -35,7 +41,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="HtmlAgilityPack" Version="1.11.49" />
+		<PackageReference Include="HtmlAgilityPack" Version="1.11.54" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -48,7 +54,7 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="refit" Version="7.0.0" />
 		<PackageReference Include="Refit.Newtonsoft.Json" Version="7.0.0" />
-		<PackageReference Include="Roslynator.Analyzers" Version="4.3.0">
+		<PackageReference Include="Roslynator.Analyzers" Version="4.6.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>

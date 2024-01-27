@@ -42,31 +42,31 @@ public class SmNetworkUser
 	/// Tags
 	/// </summary>
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// Ad groups
 	/// </summary>
 	[DataMember(Name = "adGroups")]
-	public List<string> AdGroups { get; set; } = new();
+	public List<string> AdGroups { get; set; } = [];
 
 	/// <summary>
 	/// Azure ad groups
 	/// </summary>
 	[DataMember(Name = "azureAdGroups")]
-	public List<string> AzureAdGroups { get; set; } = new();
+	public List<string> AzureAdGroups { get; set; } = [];
 
 	/// <summary>
 	/// Saml groups
 	/// </summary>
 	[DataMember(Name = "samlGroups")]
-	public List<string> SamlGroups { get; set; } = new();
+	public List<string> SamlGroups { get; set; } = [];
 
 	/// <summary>
 	/// Asm groups
 	/// </summary>
 	[DataMember(Name = "asmGroups")]
-	public List<string> AsmGroups { get; set; } = new();
+	public List<string> AsmGroups { get; set; } = [];
 
 	/// <summary>
 	/// Is external

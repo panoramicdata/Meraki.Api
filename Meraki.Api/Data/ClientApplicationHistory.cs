@@ -28,5 +28,5 @@ public class ClientApplicationHistory
 	/// Application usage
 	/// </summary>
 	[DataMember(Name = "usageHistory")]
-	public List<SubclassUsageHistory> UsageHistory { get; set; } = new();
+	public List<SubclassUsageHistory> UsageHistory { get; set; } = [];
 }

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Meraki.Api.Test;
 
-public class MerakiClientTest
+public class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : IDisposable
 {
 	protected DateTimeOffset UtcNow { get; } = DateTimeOffset.UtcNow;
 
@@ -14,13 +14,9 @@ public class MerakiClientTest
 	private MerakiClient? _merakiClient;
 
 	private TestConfig? _configuration;
+	private bool _disposedValue;
 
-	protected ICacheLogger Logger { get; }
-
-	public MerakiClientTest(ITestOutputHelper iTestOutputHelper)
-	{
-		Logger = iTestOutputHelper.BuildLogger();
-	}
+	private readonly ICacheLogger _logger = _iTestOutputHelper.BuildLogger();
 
 	public TestConfig Configuration
 	{
@@ -71,7 +67,7 @@ public class MerakiClientTest
 			// Log the response JSON so we can see what's going on
 			Configuration.MerakiClientOptions.JsonMissingMemberResponseLogLevel = Microsoft.Extensions.Logging.LogLevel.Critical;
 
-			return _merakiClient = new MerakiClient(Configuration.MerakiClientOptions, Logger);
+			return _merakiClient = new MerakiClient(Configuration.MerakiClientOptions, _logger);
 		}
 	}
 
@@ -97,12 +93,12 @@ public class MerakiClientTest
 				new NetworkCreationRequest
 				{
 					Name = $"XUnit {Guid.NewGuid()}",
-					ProductTypes = new()
-					{
+					ProductTypes =
+					[
 						ProductType.Appliance,
 						ProductType.Switch,
 						ProductType.Camera
-					},
+					],
 					Notes = $"Created as part of unit testing on {DateTime.UtcNow}, should be removed automatically"
 				}
 			)
@@ -120,4 +116,25 @@ public class MerakiClientTest
 	protected static string DnsServer => string.Join('.', new[] { 0, 1, 2, 3 }.Select(_ => 8));
 	protected static string PrivateNetworkFirst3Octets => "10.1.2";
 	protected static string SubnetMaskFirst3Octets => "255.255.255";
+
+	protected virtual void Dispose(bool disposing)
+	{
+		if (!_disposedValue)
+		{
+			if (disposing)
+			{
+				_merakiClient?.Dispose();
+				_logger?.Dispose();
+			}
+
+			_disposedValue = true;
+		}
+	}
+
+	public void Dispose()
+	{
+		// Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+		Dispose(disposing: true);
+		GC.SuppressFinalize(this);
+	}
 }

@@ -1,6 +1,7 @@
 ﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 public interface INetworksWebhooksHttpServers
+
 {
 	/// <summary>
 	/// Return an HTTP server for a network

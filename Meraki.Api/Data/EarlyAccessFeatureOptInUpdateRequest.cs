@@ -10,5 +10,5 @@ public class EarlyAccessFeatureOptInUpdateRequest
 	/// A list of network IDs to apply the opt-in to
 	/// </summary>
 	[DataMember(Name = "limitScopeToNetworks")]
-	public List<string> LimitScopeToNetworks { get; set; } = new();
+	public List<string> LimitScopeToNetworks { get; set; } = [];
 }

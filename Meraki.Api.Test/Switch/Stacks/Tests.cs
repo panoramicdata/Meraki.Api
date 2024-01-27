@@ -1,11 +1,7 @@
 ﻿namespace Meraki.Api.Test.Switch.Stacks;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetNetworkSwitchStacksAsync_Succeeds()
 	{
@@ -14,8 +10,7 @@ public class Tests : MerakiClientTest
 		var switchStacks = await TestMerakiClient
 			.Switch
 			.Stacks
-			.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, default)
-			.ConfigureAwait(false);
+			.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, default);
 
 		_ = switchStacks.Should().NotBeNull();
 	}

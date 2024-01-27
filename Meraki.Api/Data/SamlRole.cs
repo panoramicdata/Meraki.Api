@@ -25,14 +25,14 @@ public class SamlRole : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tags")]
-	public List<AdminTag> Tags { get; set; } = new();
+	public List<AdminTag> Tags { get; set; } = [];
 
 	/// <summary>
 	/// The list of networks that the SAML administrator has privileges on
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "networks")]
-	public List<SamlRoleNetwork> Networks { get; set; } = new();
+	public List<SamlRoleNetwork> Networks { get; set; } = [];
 
 	/// <summary>
 	/// Camera - Undocumented object

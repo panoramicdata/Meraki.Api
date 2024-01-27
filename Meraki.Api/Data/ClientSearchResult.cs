@@ -27,5 +27,5 @@ public class ClientSearchResult
 	/// Records
 	/// </summary>
 	[DataMember(Name = "records")]
-	public List<ClientSearchResultRecords> Network { get; set; } = new();
+	public List<ClientSearchResultRecords> Network { get; set; } = [];
 }

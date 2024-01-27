@@ -19,7 +19,7 @@ public class SwitchPort : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// The status of the switch port

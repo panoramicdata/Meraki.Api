@@ -7,8 +7,8 @@
 public class SensorMetricPowerFactor
 {
 	///<summary>
-	/// Index
+	/// Percentage
 	/// </summary>
-	[DataMember(Name = "index")]
-	public int Index { get; set; }
+	[DataMember(Name = "percentage")]
+	public int Percentage { get; set; }
 }

@@ -40,9 +40,6 @@ public enum SensorMetrics
 	[EnumMember(Value = "downstreamPower")]
 	DownstreamPower,
 
-	[EnumMember(Value = "power")]
-	Power,
-
 	[EnumMember(Value = "current")]
 	Current,
 
@@ -54,4 +51,16 @@ public enum SensorMetrics
 
 	[EnumMember(Value = "eco2")]
 	Eco2,
+
+	[EnumMember(Value = "powerFactor")]
+	PowerFactor,
+
+	[EnumMember(Value = "apparentPower")]
+	ApparentPower,
+
+	[EnumMember(Value = "realPower")]
+	RealPower,
+
+	[EnumMember(Value = "remoteLockoutSwitch")]
+	RemoteLockoutSwitch,
 }

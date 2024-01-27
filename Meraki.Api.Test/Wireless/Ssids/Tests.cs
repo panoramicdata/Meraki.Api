@@ -1,22 +1,17 @@
 ﻿namespace Meraki.Api.Test.Wireless.Ssids;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetAllSsidsAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Wireless
 			.Ssids
-			.GetNetworkWirelessSsidsAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkWirelessSsidsAsync(network.Id);
+
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}

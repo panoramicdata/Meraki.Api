@@ -11,5 +11,5 @@ public class NetworkAlertSettingsMutingByPortSchedules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool? Enabled { get; set; }
+	public bool Enabled { get; set; }
 }

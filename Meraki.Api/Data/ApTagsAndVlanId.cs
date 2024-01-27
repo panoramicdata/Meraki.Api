@@ -11,7 +11,7 @@ public class ApTagsAndVlanId
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// Numerical identifier that is assigned to the VLAN

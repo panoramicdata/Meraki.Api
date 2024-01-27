@@ -12,7 +12,7 @@ public class Alert
 	/// <value>The type of alert</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "type")]
-	public string Type { get; set; } = string.Empty;
+	public AlertType Type { get; set; }
 
 	/// <summary>
 	/// A boolean depicting if the alert is turned on or off
@@ -35,5 +35,5 @@ public class Alert
 	/// <value>A hash of specific configuration data for the alert. Only filters specific to the alert will be updated.</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "filters")]
-	public object Filters { get; set; } = new();
+	public AlertFilters Filters { get; set; } = new();
 }

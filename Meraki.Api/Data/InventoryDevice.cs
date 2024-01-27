@@ -77,4 +77,25 @@ public class InventoryDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "productType")]
 	public ProductType? ProductType { get; set; }
+
+	/// <summary>
+	/// Country Code - Undocumented 2023-09-05
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "countryCode")]
+	public string? CountryCode { get; set; }
+
+	/// <summary>
+	/// Usage - Undocumented 2023-10-03
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "usage")]
+	public string? Usage { get; set; }
+
+	/// <summary>
+	/// Device Details
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "details")]
+	public List<DeviceDetail>? Details { get; set; }
 }

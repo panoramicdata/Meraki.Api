@@ -1,22 +1,16 @@
 ﻿namespace Meraki.Api.Test.Networks.Clients;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetClientsAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Networks
 			.Clients
-			.GetNetworkClientsAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkClientsAsync(network.Id);
 		_ = result.Should().BeOfType<List<Client>>();
 		_ = result.Should().NotBeNull();
 	}
@@ -28,14 +22,12 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetClientAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Networks
 			.Clients
-			.GetNetworkClientAsync(network.Id, Configuration.TestMac)
-			.ConfigureAwait(false);
+			.GetNetworkClientAsync(network.Id, Configuration.TestMac);
 		_ = result.Should().BeOfType<List<Client>>();
 		_ = result.Should().NotBeNull();
 	}

@@ -1,19 +1,14 @@
 ﻿namespace Meraki.Api.Test.Switch.PortSchedules;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetSwitchPortStatuses_Succeeds()
 	{
 		var switchPortSchedules = await TestMerakiClient
 			.Switch
 			.PortSchedules
-			.GetNetworkSwitchPortSchedulesAsync(Configuration.TestNetworkId)
-			.ConfigureAwait(false);
+			.GetNetworkSwitchPortSchedulesAsync(Configuration.TestNetworkId);
 
 		_ = switchPortSchedules.Should().NotBeNull();
 	}

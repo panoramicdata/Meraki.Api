@@ -41,7 +41,8 @@ public static class SheetOutput
 						{
 							var response = pathOperation.Value.Responses.First();
 							var responseValue = response.Value;
-							var responseSchema = responseValue.Content.First().Value.Schema;
+							// If there is a content then there should be a schema; otherwise it's probably something like a 204
+							var responseSchema = responseValue.Content.Count == 0 ? null : responseValue.Content.First().Value.Schema;
 							if (responseSchema is not null)
 							{
 								var responseProperties = responseSchema.Properties;
@@ -158,8 +159,7 @@ public static class SheetOutput
 				return modelProperty.CanWrite && dataMemberAttribute is null;
 			})
 			.ToList();
-		if (modelPropertiesWithoutDataMembers is not null
-			&& modelPropertiesWithoutDataMembers.Count > 0)
+		if (modelPropertiesWithoutDataMembers?.Count > 0)
 		{
 			result += $" Found writable properties without DataMember: {string.Join(", ", modelPropertiesWithoutDataMembers.Select(p => p.Name))}";
 			// Don't do anything else
@@ -167,8 +167,8 @@ public static class SheetOutput
 		}
 
 		// Get all the writable properties from the responseModel and put them in a Dictionary indexed by DataMember name
-		var modelProperties = modelType?
-			.GetProperties()
+		var props = modelType?.GetProperties();
+		var modelProperties = props?
 			.Where(modelProperty => modelProperty.CanWrite)
 			.ToDictionary(
 				modelProperty =>
@@ -179,7 +179,7 @@ public static class SheetOutput
 						: throw new InvalidDataException($"Expected property {modelProperty.Name} to have DataMember attribute with a name set");
 				},
 				modelProperty => modelProperty
-			) ?? new();
+			) ?? [];
 
 		// Loop through the properties in the schema and check if they exist in the responseModel
 		// Deconstruct each Dictionary entry Key and Value into two variables

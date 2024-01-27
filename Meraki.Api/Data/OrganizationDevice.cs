@@ -68,7 +68,7 @@ public class OrganizationDevice : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// lanIp
@@ -125,4 +125,11 @@ public class OrganizationDevice : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "sensor")]
 	public SensorInformation? Sensor { get; set; }
+
+	/// <summary>
+	/// Additional device information
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "details")]
+	public List<DeviceDetail>? Details { get; set; }
 }

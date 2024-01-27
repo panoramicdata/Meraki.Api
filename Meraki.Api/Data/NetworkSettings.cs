@@ -44,6 +44,7 @@ public class NetworkSettings
 	/// <summary>
 	/// Client Privacy
 	/// </summary>
+	[Obsolete("Removed in Meraki API v1.39")]
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "clientPrivacy")]
 	public NetworkSettingsClientPrivacy? ClientPrivacy { get; set; }

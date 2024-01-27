@@ -11,7 +11,7 @@ public class TrafficAndDistribution
 	/// </summary>
 	[DataMember(Name = "rawDistribution")]
 	public Dictionary<string, long> RawDistribution { get; set; }
-		= new Dictionary<string, long>();
+		= [];
 
 	/// <summary>
 	/// avg

@@ -11,5 +11,5 @@ public class DscpToCosMappings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "mappings")]
-	public List<DscpToCosMapping> Mappings { get; set; } = new();
+	public List<DscpToCosMapping> Mappings { get; set; } = [];
 }

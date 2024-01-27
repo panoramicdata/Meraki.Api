@@ -12,4 +12,11 @@ public class VideoLink
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "url")]
 	public string Url { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Vision Url
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "visionUrl")]
+	public string VisionUrl { get; set; } = string.Empty;
 }

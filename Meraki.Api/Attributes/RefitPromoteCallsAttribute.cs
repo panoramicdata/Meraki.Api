@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-internal class RefitPromoteCallsAttribute : Attribute
+internal sealed class RefitPromoteCallsAttribute : Attribute
 {
 }

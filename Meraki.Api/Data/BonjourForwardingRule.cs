@@ -25,5 +25,5 @@ public class BonjourForwardingRule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "services")]
-	public List<BonjourService> Services { get; set; } = new();
+	public List<BonjourService> Services { get; set; } = [];
 }

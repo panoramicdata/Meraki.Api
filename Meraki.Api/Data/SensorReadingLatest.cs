@@ -13,5 +13,5 @@ public class SensorReadingLatest
 	public SensorReadingNetwork SensorReadingNetwork { get; set; } = new();
 
 	[DataMember(Name = "readings")]
-	public List<SensorReadingLatestReading> Readings { get; set; } = new();
+	public List<SensorReadingLatestReading> Readings { get; set; } = [];
 }

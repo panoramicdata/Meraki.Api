@@ -252,6 +252,13 @@ public class SsidUpdateRequest
 	public bool? RadiusFallbackEnabled { get; set; }
 
 	/// <summary>
+	/// radiusRadsecTlsIdleTimeout - undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "radiusRadsecTlsIdleTimeout")]
+	public int? RadiusRadsecTlsIdleTimeout { get; set; }
+
+	/// <summary>
 	/// Whether or not RADIUS Guest VLAN is enabled. This param is only valid if the authMode is 'open-with-radius' and addressing mode is not set to 'isolated' or 'nat' mode
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
@@ -312,7 +319,7 @@ public class SsidUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "availabilityTags")]
-	public List<string>? AvailabilityTags { get; set; } = new();
+	public List<string>? AvailabilityTags { get; set; } = [];
 
 	/// <summary>
 	/// Array of valid sponsor email domains for sponsored guest splash type.
@@ -425,4 +432,18 @@ public class SsidUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "speedBurst")]
 	public SpeedBurst? SpeedBurst { get; set; }
+
+	/// <summary>
+	/// localAuth
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "localAuth")]
+	public bool? LocalAuth { get; set; }
+
+	/// <summary>
+	/// Named VLAN settings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "namedVlans")]
+	public SsidNamedVlans? NamedVlans { get; set; }
 }

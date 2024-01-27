@@ -11,5 +11,5 @@ public class AssignSeatsResponse
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "resultingLicenses")]
-	public List<OrganizationLicense> ResultingLicenses { get; set; } = new();
+	public List<OrganizationLicense> ResultingLicenses { get; set; } = [];
 }

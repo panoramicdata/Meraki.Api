@@ -4,12 +4,8 @@ using System.Net;
 
 namespace Meraki.Api.Test;
 
-public class RateLimitingTests : MerakiClientTest
+public class RateLimitingTests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public RateLimitingTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetAll_Succeeds()
 	{
@@ -24,8 +20,7 @@ public class RateLimitingTests : MerakiClientTest
 				stopwatch.Restart();
 				var result = await TestMerakiClient
 				.Organizations
-				.GetOrganizationAsync(Configuration.TestOrganizationId)
-				.ConfigureAwait(false);
+				.GetOrganizationAsync(Configuration.TestOrganizationId);
 				_ = result.Should().BeOfType<Organization>();
 			}
 			catch (ApiException apiException)

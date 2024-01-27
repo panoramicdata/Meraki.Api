@@ -1,20 +1,16 @@
+using Meraki.Api.Exceptions;
 using Newtonsoft.Json;
 
 namespace Meraki.Api.Test.Organizations;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetAllAsync_Succeeds()
 	{
 		var result = await TestMerakiClient
 			.Organizations
-			.GetOrganizationsAsync()
-			.ConfigureAwait(false);
+			.GetOrganizationsAsync();
 		_ = result.Should().BeOfType<List<Organization>>();
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
@@ -36,8 +32,7 @@ public class Tests : MerakiClientTest
 		{
 			var result = await TestMerakiClient
 				.Organizations
-				.GetOrganizationAsync(Configuration.TestOrganizationId)
-				.ConfigureAwait(false);
+				.GetOrganizationAsync(Configuration.TestOrganizationId);
 			ValidateOrganisation(result);
 		}
 		finally
@@ -55,75 +50,63 @@ public class Tests : MerakiClientTest
 		// Check to see if the organization already exists and bomb out if it does
 		var existingOrganizations = await TestMerakiClient
 			.Organizations
-			.GetOrganizationsAsync()
-			.ConfigureAwait(false);
+			.GetOrganizationsAsync();
 		if (existingOrganizations.Any(o => o.Name == initialOrganizationName))
 		{
-			throw new Exception($"Test Organization {initialOrganizationName} already exists");
+			throw new ConfigurationException($"Test Organization {initialOrganizationName} already exists");
 		}
 
 		// Create
 		var createdOrganization = await TestMerakiClient
 			.Organizations
-			.CreateOrganizationAsync(new OrganizationCreateRequest { Name = initialOrganizationName })
-			.ConfigureAwait(false);
+			.CreateOrganizationAsync(new OrganizationCreateRequest { Name = initialOrganizationName });
 		CheckOrganization(createdOrganization, initialOrganizationName);
 
 		// wait to allow the organization to be created properly
-		await Task.Delay(TimeSpan.FromSeconds(5))
-			.ConfigureAwait(false);
+		await Task.Delay(TimeSpan.FromSeconds(5));
 
 		// Read
 		var refetchedOrganization = await TestMerakiClient
 			.Organizations
-			.GetOrganizationAsync(createdOrganization.Id)
-			.ConfigureAwait(false);
+			.GetOrganizationAsync(createdOrganization.Id);
 		CheckOrganization(refetchedOrganization, initialOrganizationName, createdOrganization.Id);
 
 		// Update
 		const string newOrganizationName = "TestOrganizationNewName";
 		var updatedOrganization = await TestMerakiClient
 			.Organizations
-			.UpdateOrganizationAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName })
-			.ConfigureAwait(false);
+			.UpdateOrganizationAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName });
 		CheckOrganization(updatedOrganization, newOrganizationName, createdOrganization.Id);
 
-		await Task.Delay(TimeSpan.FromSeconds(5))
-			.ConfigureAwait(false);
+		await Task.Delay(TimeSpan.FromSeconds(5));
 
 		// Delete
 		await TestMerakiClient
 			.Organizations
-			.DeleteOrganizationAsync(createdOrganization.Id)
-			.ConfigureAwait(false);
+			.DeleteOrganizationAsync(createdOrganization.Id);
 
-		await Task.Delay(TimeSpan.FromSeconds(5))
-			.ConfigureAwait(false);
+		await Task.Delay(TimeSpan.FromSeconds(5));
 
 		// It should be gone now
-		Func<Task> act = async () =>
-		{
-			_ = await TestMerakiClient
+		Func<Task> act = async ()
+			=> _ = await TestMerakiClient
 				.Organizations
-				.GetOrganizationAsync(createdOrganization.Id)
-				.ConfigureAwait(false);
-		};
+				.GetOrganizationAsync(createdOrganization.Id);
 		_ = await act
 			.Should()
-			.ThrowAsync<ApiException>()
-			.ConfigureAwait(false);
+			.ThrowAsync<ApiException>();
 	}
 
 	//[Fact(Skip = "Not part of general run")]
-	public async Task ClaimDeviceAsync_Succeeds()
-	{
-		var result = await TestMerakiClient
-			.Organizations
-			.ClaimIntoOrganizationAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
-			.ConfigureAwait(false);
-		_ = result.Should().NotBeNull();
-		_ = result.Serials.Should().NotBeEmpty();
-	}
+	//public async Task ClaimDeviceAsync_Succeeds()
+	//{
+	//	var result = await TestMerakiClient
+	//		.Organizations
+	//		.ClaimIntoOrganizationAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
+	//		.ConfigureAwait(false);
+	//	_ = result.Should().NotBeNull();
+	//	_ = result.Serials.Should().NotBeEmpty();
+	//}
 
 	private static void ValidateOrganisation(Organization org)
 	{

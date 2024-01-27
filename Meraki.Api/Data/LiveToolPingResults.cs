@@ -34,5 +34,5 @@ public class LiveToolPingResults
 	/// Replies
 	/// </summary>
 	[DataMember(Name = "replies")]
-	public List<LiveToolPingResultsReplies> Replies { get; set; } = new();
+	public List<LiveToolPingResultsReplies> Replies { get; set; } = [];
 }

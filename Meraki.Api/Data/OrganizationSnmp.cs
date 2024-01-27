@@ -53,7 +53,7 @@ public class OrganizationSnmp
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "peerIps")]
-	public List<string> PeerIps { get; set; } = new();
+	public List<string> PeerIps { get; set; } = [];
 
 	/// <summary>
 	/// The Hostname

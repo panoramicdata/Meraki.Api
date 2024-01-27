@@ -16,5 +16,5 @@ public class LldpCdp
 	/// Ports
 	/// </summary>
 	[DataMember(Name = "ports")]
-	public Dictionary<string, Port> Ports { get; set; } = new();
+	public Dictionary<string, Port> Ports { get; set; } = [];
 }

@@ -11,5 +11,5 @@ public class PortForwardingRules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<PortForwardingRule> Rules { get; set; } = new();
+	public List<PortForwardingRule> Rules { get; set; } = [];
 }

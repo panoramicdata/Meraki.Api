@@ -11,5 +11,5 @@ public class ThirdPartyVpnPeers
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "peers")]
-	public List<ThirdPartyVpnPeer> Peers { get; set; } = new();
+	public List<ThirdPartyVpnPeer> Peers { get; set; } = [];
 }

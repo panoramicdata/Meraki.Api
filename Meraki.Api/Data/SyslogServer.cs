@@ -26,5 +26,5 @@ public class SyslogServer
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "roles")]
-	public List<string> Roles { get; set; } = new();
+	public List<string> Roles { get; set; } = [];
 }

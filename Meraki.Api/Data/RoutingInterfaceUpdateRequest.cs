@@ -12,21 +12,21 @@ public class RoutingInterfaceUpdateRequest : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlanId")]
 	public int? VlanId { get; set; }
-	
+
 	/// <summary>
 	/// The next hop for any traffic that isn't going to a directly connected subnet or over a static route. This IP address must exist in a subnet with a routed interface.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "defaultGateway")]
 	public string? DefaultGateway { get; set; }
-	
+
 	/// <summary>
 	/// The IP address this switch will use for layer 3 routing on this VLAN or subnet. This cannot be the same as the switch's management IP.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "interfaceIp")]
 	public string? InterfaceIp { get; set; }
-	
+
 	/// <summary>
 	/// Enable multicast support if, multicast routing between VLANs is required. Options are, 'disabled', 'enabled' or 'IGMP snooping querier'.
 	/// </summary>

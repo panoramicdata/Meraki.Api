@@ -65,6 +65,7 @@ public class FirmwareProducts
 	/// <summary>
 	/// cloudGateway
 	/// </summary>
+	[Obsolete("Removed in Meraki API v1.38")]
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "cloudGateway")]
 	public FirmwareUpgradeProduct CloudGateway { get; set; } = new();

@@ -18,5 +18,5 @@ public class GroupPolicyBonjourForwarding
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<BonjourForwardingRule> Rules { get; set; } = new();
+	public List<BonjourForwardingRule> Rules { get; set; } = [];
 }

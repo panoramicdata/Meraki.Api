@@ -16,7 +16,7 @@ public class WirelessMeshStatuses
 	/// Mesh route
 	/// </summary>
 	[DataMember(Name = "meshRoute")]
-	public List<string> MeshRoute { get; set; } = new();
+	public List<string> MeshRoute { get; set; } = [];
 
 	/// <summary>
 	/// Latest mesh performance

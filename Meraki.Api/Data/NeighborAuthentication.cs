@@ -12,5 +12,4 @@ public class NeighborAuthentication
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "password")]
 	public string? Password { get; set; }
-
 }

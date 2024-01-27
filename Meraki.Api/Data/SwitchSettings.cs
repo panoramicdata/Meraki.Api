@@ -33,4 +33,11 @@ public class SwitchSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "uplinkClientSampling")]
 	public SwitchSettingsUplinkClientSampling? UplinkClientSampling { get; set; }
+
+	/// <summary>
+	/// Undocumented macBlockList added 2023-08-25
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "macBlocklist")]
+	public MacBlockListSettings? MacBlockList { get; set; }
 }

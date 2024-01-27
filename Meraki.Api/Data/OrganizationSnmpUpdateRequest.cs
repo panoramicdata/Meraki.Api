@@ -46,5 +46,5 @@ public class OrganizationSnmpUpdateRequest
 	/// The list of IPv4 addresses that are allowed to access the SNMP server.
 	/// </summary>
 	[DataMember(Name = "peerIps")]
-	public List<string> PeerIps { get; set; } = new();
+	public List<string> PeerIps { get; set; } = [];
 }

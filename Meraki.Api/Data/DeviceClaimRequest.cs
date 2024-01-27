@@ -11,5 +11,5 @@ public class DeviceClaimRequest
 	/// </summary>
 	/// <value>A list of serials of devices to claim</value>
 	[DataMember(Name = "serials")]
-	public List<string> Serials { get; set; } = new List<string>();
+	public List<string> Serials { get; set; } = [];
 }

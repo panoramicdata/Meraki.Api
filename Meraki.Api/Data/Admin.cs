@@ -53,14 +53,14 @@ public class Admin : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tags")]
-	public List<AdminTag> Tags { get; set; } = new List<AdminTag>();
+	public List<AdminTag> Tags { get; set; } = [];
 
 	/// <summary>
 	/// The list of networks that the dashboard administrator has privileges on
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "networks")]
-	public List<AdminNetworkAccess> Networks { get; set; } = new List<AdminNetworkAccess>();
+	public List<AdminNetworkAccess> Networks { get; set; } = [];
 
 	/// <summary>
 	/// The method of authentication the user will use to sign in to the Meraki dashboard. Can be one of 'Email' or 'Cisco SecureX Sign-On'. The default is Email authentication

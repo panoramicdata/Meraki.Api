@@ -1,11 +1,7 @@
 ﻿namespace Meraki.Api.Test.Organizations.ConfigTemplates;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task CreateReadUpdateDeleteConfigurationTemplate_Succeeds()
 	{
@@ -21,8 +17,7 @@ public class Tests : MerakiClientTest
 				{
 					Name = configurationTemplateName,
 					TimeZone = timeZone
-				})
-			.ConfigureAwait(false);
+				});
 		_ = createResult.Should().NotBeNull();
 
 		try
@@ -34,8 +29,7 @@ public class Tests : MerakiClientTest
 				.ConfigTemplates
 				.GetOrganizationConfigTemplateAsync(
 					Configuration.TestOrganizationId,
-					createResult.Id)
-				.ConfigureAwait(false);
+					createResult.Id);
 			_ = refetchedConfigurationTemplate.Should().NotBeNull();
 			_ = refetchedConfigurationTemplate.Name.Should().Be(configurationTemplateName);
 			_ = refetchedConfigurationTemplate.TimeZone.Should().Be(timeZone);
@@ -51,8 +45,7 @@ public class Tests : MerakiClientTest
 					{
 						Name = configurationTemplateName + "x",
 						TimeZone = timeZone
-					})
-				.ConfigureAwait(false);
+					});
 
 			// Read 2
 			var refetchedConfigurationTemplate2 =
@@ -61,8 +54,7 @@ public class Tests : MerakiClientTest
 				.ConfigTemplates
 				.GetOrganizationConfigTemplateAsync(
 					Configuration.TestOrganizationId,
-					createResult.Id)
-				.ConfigureAwait(false);
+					createResult.Id);
 			_ = refetchedConfigurationTemplate2.Should().NotBeNull();
 			_ = refetchedConfigurationTemplate2.Name.Should().Be(configurationTemplateName + "x");
 			_ = refetchedConfigurationTemplate2.TimeZone.Should().Be(timeZone);
@@ -75,8 +67,7 @@ public class Tests : MerakiClientTest
 				.UpdateNetworkApplianceVlansSettingsAsync(createResult.Id, new VlansEnabledState
 				{
 					Enabled = true
-				})
-				.ConfigureAwait(false);
+				});
 
 			// Set VLAN info
 			_ = await TestMerakiClient
@@ -90,8 +81,7 @@ public class Tests : MerakiClientTest
 						Name = "VLAN 2",
 						Subnet = $"{PrivateNetworkFirst3Octets}.0/24",
 						ApplianceIp = $"{PrivateNetworkFirst3Octets}.1"
-					})
-				.ConfigureAwait(false);
+					});
 		}
 		finally
 		{
@@ -100,15 +90,14 @@ public class Tests : MerakiClientTest
 				.ConfigTemplates
 				.DeleteOrganizationConfigTemplateAsync(
 					Configuration.TestOrganizationId,
-					createResult.Id)
-				.ConfigureAwait(false);
+					createResult.Id);
 		}
 	}
 
 	[Fact]
 	public async Task GetNetworksByConfigTemplateIdAsync_Succeeds()
 	{
-		var configurationTemplates = await GetAllAsync().ConfigureAwait(false);
+		var configurationTemplates = await GetAllAsync();
 		if (configurationTemplates.Count == 0)
 		{
 			return;
@@ -119,23 +108,21 @@ public class Tests : MerakiClientTest
 		var result = await TestMerakiClient
 			.Organizations
 			.Networks
-			.GetOrganizationNetworksAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
-			.ConfigureAwait(false);
+			.GetOrganizationNetworksAsync(Configuration.TestOrganizationId, configurationTemplate.Id);
 		_ = result.Should().NotBeNull();
 	}
 
 	[Fact]
 	public async Task GetAllConfigurationTemplatesAsync_Succeeds()
 	{
-		var configurationTemplates = await GetAllAsync().ConfigureAwait(false);
+		var configurationTemplates = await GetAllAsync();
 
 		// Get their associated switch profiles (for the first up to 3)
 		foreach (var configurationTemplate in configurationTemplates.Take(3))
 		{
 			var switchProfiles = await TestMerakiClient
 				.Switch.ConfigTemplates.Profiles
-				.GetOrganizationConfigTemplateSwitchProfilesAsync(Configuration.TestOrganizationId, configurationTemplate.Id)
-				.ConfigureAwait(false);
+				.GetOrganizationConfigTemplateSwitchProfilesAsync(Configuration.TestOrganizationId, configurationTemplate.Id);
 			_ = switchProfiles.Should().BeOfType<List<SwitchProfile>>();
 			_ = switchProfiles.Should().NotBeNull();
 			if (switchProfiles.Count > 0)

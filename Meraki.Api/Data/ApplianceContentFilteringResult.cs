@@ -18,19 +18,19 @@ public class ApplianceContentFilteringResult
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedUrlPatterns")]
-	public List<string> AllowedUrlPatterns { get; set; } = new();
+	public List<string> AllowedUrlPatterns { get; set; } = [];
 
 	/// <summary>
 	/// Gets or Sets BlockedUrlPatterns
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "blockedUrlPatterns")]
-	public List<string> BlockedUrlPatterns { get; set; } = new();
+	public List<string> BlockedUrlPatterns { get; set; } = [];
 
 	/// <summary>
 	/// Gets or Sets BlockedUrlCategories
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "blockedUrlCategories")]
-	public List<ContentFilteringCategory> BlockedUrlCategories { get; set; } = new();
+	public List<ContentFilteringCategory> BlockedUrlCategories { get; set; } = [];
 }

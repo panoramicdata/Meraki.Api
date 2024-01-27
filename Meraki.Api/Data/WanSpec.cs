@@ -27,7 +27,7 @@ public class Wan
 	/// <value>The IP the device should use on the WAN.</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "staticIp")]
-	public string? StaticIp { get; set; } = null!;
+	public string? StaticIp { get; set; }
 
 	/// <summary>
 	/// The IP of the gateway on the WAN.
@@ -35,7 +35,7 @@ public class Wan
 	/// <value>The IP of the gateway on the WAN.</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "staticGatewayIp")]
-	public string? StaticGatewayIp { get; set; } = null!;
+	public string? StaticGatewayIp { get; set; }
 
 	/// <summary>
 	/// The subnet mask for the WAN.
@@ -43,7 +43,7 @@ public class Wan
 	/// <value>The subnet mask for the WAN.</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "staticSubnetMask")]
-	public string? StaticSubnetMask { get; set; } = null!;
+	public string? StaticSubnetMask { get; set; }
 
 	/// <summary>
 	/// Up to two DNS IPs.

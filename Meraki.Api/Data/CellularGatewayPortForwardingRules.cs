@@ -11,5 +11,5 @@ public class CellularGatewayPortForwardingRules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<CellularGatewayPortForwardingRule> Rules { get; set; } = new();
+	public List<CellularGatewayPortForwardingRule> Rules { get; set; } = [];
 }

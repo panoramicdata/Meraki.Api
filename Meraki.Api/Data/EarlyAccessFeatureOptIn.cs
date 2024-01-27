@@ -11,19 +11,19 @@ public class EarlyAccessFeatureOptIn : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "shortName")]
-	public string ShortName { get; } = string.Empty;
+	public string ShortName { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Limit Scope To Networks
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "limitScopeToNetworks")]
-	public List<EarlyAccessFeatureOptInLimitScopeToNetwork> LimitScopeToNetworks { get; } = new();
+	public List<EarlyAccessFeatureOptInLimitScopeToNetwork> LimitScopeToNetworks { get; set; } = [];
 
 	/// <summary>
 	/// Created At
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
-	public DateTime CreatedAt { get; }
+	public DateTime CreatedAt { get; set; }
 }

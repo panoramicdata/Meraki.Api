@@ -19,11 +19,13 @@ public partial class MerakiClient
 		{ "Q2BV", "MV21" },
 		{ "Q2BX", "MS120-8LP" },
 		{ "Q2BY", "MS355-24X2" },
+		{ "Q2BZ", "VMX-S" },
 		{ "Q2CN", "MX60W" },
 		{ "Q2CW", "MS425-16" },
 		{ "Q2CX", "MS120-8FP" },
 		{ "Q2DK", "MR72" },
 		{ "Q2DY", "MS355-48X2" },
+		{ "Q2DZ", "VMX-M" },
 		{ "Q2EK", "MR84" },
 		{ "Q2EV", "MV12N" },
 		{ "Q2EW", "MS350-24X" },
@@ -31,6 +33,7 @@ public partial class MerakiClient
 		{ "Q2FD", "MR34" },
 		{ "Q2FN", "MX400" },
 		{ "Q2FW", "MS225-24" },
+		{ "Q2FV", "MV12WE" },
 		{ "Q2FY", "MX67" },
 		{ "Q2GD", "MR18" },
 		{ "Q2GV", "MV12W" },
@@ -91,13 +94,18 @@ public partial class MerakiClient
 		{ "Q3AL", "MR44" },
 		{ "Q3AJ", "MR36" },
 		{ "Q3AK", "MR76" },
+		{ "Q3AS", "MR28" },
 		{ "Q3AU", "MR78" },
 		{ "Q3CA", "MT10" },
 		{ "Q3CB", "MT12" },
 		{ "Q3CC", "MT20" },
 		{ "Q3CE", "MT11" },
 		{ "Q3CG", "MT14" },
+		{ "Q3CH", "MT30" },
 		{ "Q3CJ", "MT40" },
+
+		{ "Q4AA", "MS120-8" },
+		{ "Q4AC", "MS120-8FP" },
 
 		{ "Q5AC", "CW9164I" },
 		{ "Q5AE", "CW9166I" },
@@ -870,13 +878,13 @@ public partial class MerakiClient
 
 		var productType =
 			model is null ? null :
-			model.StartsWith("MX") || model.StartsWith("Z") ? ProductType.Appliance :
-			model.StartsWith("MS") ? ProductType.Switch :
-			model.StartsWith("MR") || model.StartsWith("CW") ? ProductType.Wireless :
-			model.StartsWith("MV") ? ProductType.Camera :
-			model.StartsWith("MG") ? ProductType.CellularGateway :
-			model.StartsWith("MC") ? ProductType.Phone :
-			model.StartsWith("MT") ? ProductType.Sensor :
+			model.StartsWith("MX", StringComparison.Ordinal) || model.StartsWith("Z", StringComparison.Ordinal) ? ProductType.Appliance :
+			model.StartsWith("MS", StringComparison.Ordinal) ? ProductType.Switch :
+			model.StartsWith("MR", StringComparison.Ordinal) || model.StartsWith("CW", StringComparison.Ordinal) ? ProductType.Wireless :
+			model.StartsWith("MV", StringComparison.Ordinal) ? ProductType.Camera :
+			model.StartsWith("MG", StringComparison.Ordinal) ? ProductType.CellularGateway :
+			model.StartsWith("MC", StringComparison.Ordinal) ? ProductType.Phone :
+			model.StartsWith("MT", StringComparison.Ordinal) ? ProductType.Sensor :
 			(ProductType?)null;
 
 		var eox = _eoxData.Find(eox => eox?["DeviceModel"]?.ToString() == model);

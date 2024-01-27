@@ -12,5 +12,4 @@ public class UplinkSelectionFailoverAndFailback
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "immediate")]
 	public UplinkSelectionFailoverAndFailbackImmediate? Immediate { get; set; }
-
 }

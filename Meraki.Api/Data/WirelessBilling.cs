@@ -18,5 +18,5 @@ public class WirelessBilling
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "plans")]
-	public List<WirelessBillingPlan> Plans { get; set; } = new();
+	public List<WirelessBillingPlan> Plans { get; set; } = [];
 }

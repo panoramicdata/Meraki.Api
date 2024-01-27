@@ -25,7 +25,7 @@ public class SmProfile : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// TargetGroupId

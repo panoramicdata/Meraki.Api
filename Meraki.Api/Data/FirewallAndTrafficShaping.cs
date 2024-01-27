@@ -18,19 +18,19 @@ public class FirewallAndTrafficShaping
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "trafficShapingRules")]
-	public List<TrafficShapingRule> TrafficShapingRules { get; set; } = new();
+	public List<TrafficShapingRule> TrafficShapingRules { get; set; } = [];
 
 	/// <summary>
 	/// An ordered array of the L3 firewall rules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "l3FirewallRules")]
-	public List<Layer3FirewallRule> Layer3FirewallRules { get; set; } = new();
+	public List<Layer3FirewallRule> Layer3FirewallRules { get; set; } = [];
 
 	/// <summary>
 	/// An ordered array of L7 firewall rules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "l7FirewallRules")]
-	public List<Layer7FirewallRule> Layer7FirewallRules { get; set; } = new();
+	public List<Layer7FirewallRule> Layer7FirewallRules { get; set; } = [];
 }

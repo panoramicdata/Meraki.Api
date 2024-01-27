@@ -97,6 +97,12 @@ public class OrganizationDeviceStatus : NamedItem
 	public ProductType? ProductType { get; set; }
 
 	/// <summary>
+	/// Components
+	/// </summary>
+	[DataMember(Name = "components")]
+	public OrganizationDeviceStatusComponents? Components { get; set; }
+
+	/// <summary>
 	/// Model
 	/// </summary>
 	[DataMember(Name = "model")]
@@ -106,7 +112,7 @@ public class OrganizationDeviceStatus : NamedItem
 	/// Tags
 	/// </summary>
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// ConfigurationUpdatedAt

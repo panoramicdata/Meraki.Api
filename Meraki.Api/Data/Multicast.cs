@@ -18,5 +18,5 @@ public class Multicast
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "overrides")]
-	public List<Override> Overrides { get; set; } = new();
+	public List<Override> Overrides { get; set; } = [];
 }

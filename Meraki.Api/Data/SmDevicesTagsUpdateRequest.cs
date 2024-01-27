@@ -39,7 +39,7 @@ public class SmDevicesTagsUpdateRequest
 	/// </summary>
 	/// <value>The tags to be added, deleted, or updated.</value>
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// One of add, delete, or update. Only devices that have been modified will be returned.
