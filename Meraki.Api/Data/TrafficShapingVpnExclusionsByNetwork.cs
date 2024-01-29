@@ -1,7 +1,7 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// TrafficShapingVpnExclusionsByNetwork
+/// TrafficShapingVpnExclusionByNetwork
 /// </summary>
 [DataContract]
 public class TrafficShapingVpnExclusionsByNetwork : TrafficShapingVpnExclusions

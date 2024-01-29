@@ -8,19 +8,20 @@ public static class IApplianceTrafficShapingVpnExclusionsExtensions
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
-	public static Task<List<TrafficShapingVpnExclusionsByNetwork>> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkAllAsync(
+	public static Task<TrafficShapingVpnExclusionsByNetworkResponse> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkAllAsync(
 		this IApplianceTrafficShapingVpnExclusions applianceTrafficShapingVpnExclusions,
 		string organizationId,
 		List<string>? networkIds,
 		CancellationToken cancellationToken = default)
-		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
-				=> applianceTrafficShapingVpnExclusions.GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkApiResponseAsync(
-						organizationId,
-						startingAfter,
-						networkIds,
-						cancellationToken
-					),
-					cancellationToken
-			);
+		=> throw new NotImplementedException("Waiting on meraki bugfix for this endpoint, it should not have 'items'");
+	//MerakiClient.GetAllAsync(
+	//			(startingAfter, cancellationToken)
+	//			=> applianceTrafficShapingVpnExclusions.GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkApiResponseAsync(
+	//					organizationId,
+	//					startingAfter,
+	//					networkIds,
+	//					cancellationToken
+	//				),
+	//				cancellationToken
+	//		);
 }
