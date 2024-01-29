@@ -8,7 +8,7 @@ public static class IApplianceTrafficShapingVpnExclusionsExtensions
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
-	public static Task<TrafficShapingVpnExclusionsByNetwork> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkAllAsync(
+	public static Task<TrafficShapingVpnExclusionsByNetworkResponse> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkAllAsync(
 		this IApplianceTrafficShapingVpnExclusions applianceTrafficShapingVpnExclusions,
 		string organizationId,
 		List<string>? networkIds,
