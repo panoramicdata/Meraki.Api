@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.41.6
+- Updated for 1.41
+
 ## 1.39.1
 - Updated for AlertType motionAlert
 
