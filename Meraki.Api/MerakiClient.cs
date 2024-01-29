@@ -1,4 +1,6 @@
-﻿namespace Meraki.Api;
+﻿using Meraki.Api.Sections.Products.Licensing;
+
+namespace Meraki.Api;
 
 /// <summary>
 /// A Meraki Dashboard API client
@@ -390,6 +392,11 @@ public partial class MerakiClient : IDisposable
 			MonitoredMediaServers = RefitFor(Insight.MonitoredMediaServers)
 		};
 
+		Licensing = new()
+		{
+			Subscriptions = RefitFor(Licensing.Subscriptions)
+		};
+
 		Sensor = new()
 		{
 			Alerts = new()
@@ -452,6 +459,7 @@ public partial class MerakiClient : IDisposable
 	public DevicesSection Devices { get; } = new();
 
 	public InsightSection Insight { get; } = new();
+	public LicensingSection Licensing { get; } = new();
 
 	public NetworksSection Networks { get; } = new();
 
