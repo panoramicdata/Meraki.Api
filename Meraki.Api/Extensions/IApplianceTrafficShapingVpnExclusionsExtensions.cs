@@ -13,14 +13,15 @@ public static class IApplianceTrafficShapingVpnExclusionsExtensions
 		string organizationId,
 		List<string>? networkIds,
 		CancellationToken cancellationToken = default)
-		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
-				=> applianceTrafficShapingVpnExclusions.GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkApiResponseAsync(
-						organizationId,
-						startingAfter,
-						networkIds,
-						cancellationToken
-					),
-					cancellationToken
-			);
+		=> throw new NotImplementedException("Waiting on meraki bugfix for this endpoint, it should not have 'items'");
+	//MerakiClient.GetAllAsync(
+	//			(startingAfter, cancellationToken)
+	//			=> applianceTrafficShapingVpnExclusions.GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkApiResponseAsync(
+	//					organizationId,
+	//					startingAfter,
+	//					networkIds,
+	//					cancellationToken
+	//				),
+	//				cancellationToken
+	//		);
 }
