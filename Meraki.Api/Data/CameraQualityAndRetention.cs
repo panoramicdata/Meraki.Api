@@ -18,14 +18,14 @@ public class CameraQualityAndRetention
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "motionBasedRetentionEnabled")]
-	public bool MotionBasedRetentionEnabled { get; set; }
+	public bool? MotionBasedRetentionEnabled { get; set; }
 
 	/// <summary>
 	/// Boolean indicating if audio recording is enabled(true) or disabled(false) on the camera
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "audioRecordingEnabled")]
-	public bool AudioRecordingEnabled { get; set; }
+	public bool? AudioRecordingEnabled { get; set; }
 
 	/// <summary>
 	/// Boolean indicating if restricted bandwidth is enabled(true) or disabled(false) on the camera. This setting does not apply to MV2 cameras.
@@ -39,19 +39,19 @@ public class CameraQualityAndRetention
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "quality")]
-	public CameraQuality Quality { get; set; }
+	public CameraQuality? Quality { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Resolution
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "resolution")]
-	public Resolution Resolution { get; set; }
+	public Resolution? Resolution { get; set; }
 
 	/// <summary>
 	/// Gets or Sets MotionDetectorVersion
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "motionDetectorVersion")]
-	public MotionDetectorVersion MotionDetectorVersion { get; set; }
+	public MotionDetectorVersion? MotionDetectorVersion { get; set; }
 }
