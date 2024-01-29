@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.41.8
+- Added Organization Clients search in
+- Updated dependencies
+
 ## 1.41.6
 - Updated for 1.41
 
