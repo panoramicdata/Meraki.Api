@@ -13,7 +13,7 @@ public interface IApplianceTrafficShapingVpnExclusions
 	/// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
 	[ApiOperationId("getOrganizationApplianceTrafficShapingVpnExclusionsByNetwork")]
 	[Get("/organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork")]
-	Task<List<TrafficShapingVpnExclusionsByNetwork>> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetwork(
+	Task<TrafficShapingVpnExclusionsByNetwork> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetwork(
 		string organizationId,
 		int? perPage,
 		string? startingAfter,
@@ -31,7 +31,7 @@ public interface IApplianceTrafficShapingVpnExclusions
 	/// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
 	[ApiOperationId("getOrganizationApplianceTrafficShapingVpnExclusionsByNetwork")]
 	[Get("/organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork")]
-	internal Task<ApiResponse<List<TrafficShapingVpnExclusionsByNetwork>>> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkApiResponseAsync(
+	internal Task<ApiResponse<TrafficShapingVpnExclusionsByNetwork>> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkApiResponseAsync(
 		string organizationId,
 		string? startingAfter,
 		[AliasAs("networkIds[]")] List<string>? networkIds,

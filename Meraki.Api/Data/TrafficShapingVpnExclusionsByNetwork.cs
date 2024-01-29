@@ -4,19 +4,12 @@ namespace Meraki.Api.Data;
 /// TrafficShapingVpnExclusionsByNetwork
 /// </summary>
 [DataContract]
-public class TrafficShapingVpnExclusionsByNetwork : TrafficShapingVpnExclusions
+public class TrafficShapingVpnExclusionsByNetwork
 {
 	/// <summary>
-	/// Network Id
+	/// items
 	/// </summary>
-	[ApiForeignKey(typeof(Network))]
-	[DataMember(Name = "networkId")]
-	public string? NetworkId { get; set; }
+	[DataMember(Name = "items")]
+	public List<TrafficShapingVpnExclusionByNetwork>? Items { get; set; }
 
-	/// <summary>
-	/// Network Name
-	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "networkName")]
-	public string? NetworkName { get; set; }
 }
