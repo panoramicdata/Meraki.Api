@@ -13,7 +13,7 @@ public interface IApplianceTrafficShapingVpnExclusions
 	/// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
 	[ApiOperationId("getOrganizationApplianceTrafficShapingVpnExclusionsByNetwork")]
 	[Get("/organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork")]
-	Task<TrafficShapingVpnExclusionsByNetworkResponse> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetwork(
+	Task<TrafficShapingVpnExclusionsByNetworkResponse> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkAsync(
 		string organizationId,
 		int? perPage,
 		string? startingAfter,
