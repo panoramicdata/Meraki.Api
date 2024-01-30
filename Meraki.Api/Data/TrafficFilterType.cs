@@ -10,6 +10,12 @@ public enum TrafficFilterType
 	ApplicationCategory = 1,
 
 	/// <summary>
+	/// Enum Application for "majorApplication"
+	/// </summary>
+	[EnumMember(Value = "majorApplication")]
+	MajorApplication,
+
+	/// <summary>
 	/// Enum Application for "application"
 	/// </summary>
 	[EnumMember(Value = "application")]
