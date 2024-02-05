@@ -25,5 +25,5 @@ public enum TrafficFilterType
 	/// Enum Custom for "custom"
 	/// </summary>
 	[EnumMember(Value = "custom")]
-	Custom,
+	Custom
 }
