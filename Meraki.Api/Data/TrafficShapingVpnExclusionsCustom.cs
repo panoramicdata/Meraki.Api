@@ -10,7 +10,7 @@ public class TrafficShapingVpnExclusionsCustom
 	/// Destination address; hostname required for DNS, IPv4 otherwise.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "destnation")]
+	[DataMember(Name = "destination")]
 	public string? Destination { get; set; }
 
 	/// <summary>
