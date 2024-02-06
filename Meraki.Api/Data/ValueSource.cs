@@ -7,6 +7,13 @@
 public class ValueSource
 {
 	/// <summary>
+	/// Nbar - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "nbar")]
+	public object? Nbar { get; set; }
+
+	/// <summary>
 	/// E.g.: "any", "0" (also means "any"), "8080", "1-1024"
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
