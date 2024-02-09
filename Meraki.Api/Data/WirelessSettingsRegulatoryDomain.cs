@@ -14,6 +14,13 @@ public class WirelessSettingsRegulatoryDomain
 	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
+	/// CountryCode - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "countryCode")]
+	public string CountryCode { get; set; } = string.Empty;
+
+	/// <summary>
 	/// permits6e
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]

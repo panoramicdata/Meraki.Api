@@ -1,17 +1,31 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Source
+/// Destination
 /// </summary>
 [DataContract]
-public class ValueSource
+public class ValueDestination
 {
+	/// <summary>
+	/// Id - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "id")]
+	public string? Id { get; set; }
+
 	/// <summary>
 	/// Nbar - Undocumented
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "nbar")]
 	public object? Nbar { get; set; }
+
+	/// <summary>
+	/// majorApp - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "majorApp")]
+	public List<ValueDestinationMajorApp>? MajorApp { get; set; }
 
 	/// <summary>
 	/// E.g.: "any", "0" (also means "any"), "8080", "1-1024"
@@ -42,9 +56,23 @@ public class ValueSource
 	public int? Host { get; set; }
 
 	/// <summary>
+	/// FQDN format address. Currently only available in 'destination' of 'vpnTrafficUplinkPreference' object. E.g.: 'www.google.com'
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "fqdn")]
+	public string? Fqdn { get; set; }
+
+	/// <summary>
 	/// Meraki network ID. Currently only available under a template network, and the value should be ID of either same template network, or another template network currently. E.g.: "L_12345678".
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "network")]
 	public string? Network { get; set; }
+
+	/// <summary>
+	/// Name
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "name")]
+	public string? Name { get; set; }
 }

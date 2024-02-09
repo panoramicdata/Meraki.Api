@@ -25,7 +25,7 @@ public class TrafficFiltersValue : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destination")]
-	public ValueSource? Destination { get; set; }
+	public ValueDestination? Destination { get; set; }
 
 	/// <summary>
 	/// ID of this applicationCategory or application type traffic filter. E.g.: "meraki:layer7/category/1", "meraki:layer7/application/4"
