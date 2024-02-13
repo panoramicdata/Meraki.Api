@@ -139,4 +139,11 @@ public class AccessPolicy
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "authenticationMethod")]
 	public object? AuthenticationMethod { get; set; }
+
+	/// <summary>
+	/// Counts
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "counts")]
+	public AccessPolicyCounts? Counts { get; set; }
 }

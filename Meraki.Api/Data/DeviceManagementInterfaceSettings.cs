@@ -23,4 +23,11 @@ public class DeviceManagementInterfaceSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wan2")]
 	public Wan? Wan2 { get; set; }
+
+	/// <summary>
+	/// WAN 3 settings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "wan3")]
+	public Wan? Wan3 { get; set; }
 }

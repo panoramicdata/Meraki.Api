@@ -187,4 +187,11 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "profile")]
 	public ConfigTemplateSwitchProfilePortProfile? Profile { get; set; }
+
+	/// <summary>
+	/// Mirror
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "mirror")]
+	public SwitchPortMirror? Mirror { get; set; }
 }

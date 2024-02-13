@@ -77,6 +77,13 @@ public class ChangeLogEntry
 	public string? NetworkId { get; set; }
 
 	/// <summary>
+	/// The url of the network that the configuration change was applied to. This attribute may be null.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "networkUrl")]
+	public string? NetworkUrl { get; set; }
+
+	/// <summary>
 	/// The SSID name
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
