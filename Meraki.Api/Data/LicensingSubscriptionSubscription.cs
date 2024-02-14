@@ -60,7 +60,7 @@ public class LicensingSubscriptionSubscription
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "productTypes")]
-	public List<string> ProductTypes { get; set; } = new();
+	public List<string> ProductTypes { get; set; } = [];
 
 	/// <summary>
 	/// Numeric breakdown of network and entitlement counts
@@ -74,5 +74,5 @@ public class LicensingSubscriptionSubscription
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "entitlements")]
-	public List<LicensingSubscriptionClaimEntitlement> Entitlements { get; set; } = new();
+	public List<LicensingSubscriptionClaimEntitlement> Entitlements { get; set; } = [];
 }

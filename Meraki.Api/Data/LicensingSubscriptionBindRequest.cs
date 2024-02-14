@@ -11,7 +11,7 @@ public class LicensingSubscriptionBindRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkIds")]
-	public List<string> NetworkIds { get; set; } = new();
+	public List<string> NetworkIds { get; set; } = [];
 
 	/// <summary>
 	/// Check if the provided networks can be bound to the subscription. Returns any licensing problems and does not commit the results.
