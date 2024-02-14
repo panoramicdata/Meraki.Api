@@ -19,5 +19,4 @@ public class LicensingSubscriptionBindRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "validate")]
 	public bool? Validate { get; set; }
-
 }

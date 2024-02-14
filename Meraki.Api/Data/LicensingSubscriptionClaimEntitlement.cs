@@ -19,5 +19,4 @@ public class LicensingSubscriptionClaimEntitlement
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "seats")]
 	public LicensingSubscriptionClaimEntitlementSeats Seats { get; set; } = new();
-
 }

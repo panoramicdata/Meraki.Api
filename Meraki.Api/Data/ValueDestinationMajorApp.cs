@@ -19,5 +19,4 @@ public class ValueDestinationMajorApp
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "name")]
 	public string? Name { get; set; }
-
 }

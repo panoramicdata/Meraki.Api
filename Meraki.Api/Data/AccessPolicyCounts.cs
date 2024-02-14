@@ -12,5 +12,4 @@ public class AccessPolicyCounts
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ports")]
 	public AccessPolicyCountsPorts? Ports { get; set; }
-
 }

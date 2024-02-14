@@ -19,5 +19,4 @@ public class LicensingSubscriptionClaimCounts
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "endDate")]
 	public LicensingSubscriptionClaimCountsSeats Seats { get; set; } = new();
-
 }

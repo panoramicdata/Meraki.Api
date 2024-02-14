@@ -26,5 +26,4 @@ public class LicensingSubscriptionClaimEntitlementSeats
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "limit")]
 	public int Limit { get; set; }
-
 }

@@ -19,5 +19,4 @@ public class LicensingSubscriptionBindingsInsufficientEntitlement
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "sku")]
 	public string Sku { get; set; } = string.Empty;
-
 }

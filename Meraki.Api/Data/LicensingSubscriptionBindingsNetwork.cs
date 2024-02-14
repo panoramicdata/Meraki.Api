@@ -19,5 +19,4 @@ public class LicensingSubscriptionBindingsNetwork
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "name")]
 	public string Name { get; set; } = string.Empty;
-
 }
