@@ -200,5 +200,5 @@ public class SwitchPort : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "mirror")]
-	public SwitchPortMirror? Mirrore { get; set; }
+	public SwitchPortMirror? Mirror { get; set; }
 }

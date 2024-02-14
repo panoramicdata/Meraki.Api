@@ -143,7 +143,7 @@ public class AccessPolicy
 	/// <summary>
 	/// Counts
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "counts")]
 	public AccessPolicyCounts? Counts { get; set; }
 }
