@@ -1,4 +1,5 @@
-﻿using Meraki.Api.Sections.Products.Licensing;
+﻿using Meraki.Api.Sections.General.LiveTools;
+using Meraki.Api.Sections.Products.Licensing;
 
 namespace Meraki.Api;
 
@@ -398,6 +399,12 @@ public partial class MerakiClient : IDisposable
 			Subscriptions = RefitFor(Licensing.Subscriptions)
 		};
 
+		LiveTools = new()
+		{
+			Ping = RefitFor(LiveTools.Ping),
+			PingDevice = RefitFor(LiveTools.PingDevice)
+		};
+
 		Sensor = new()
 		{
 			Alerts = new()
@@ -460,7 +467,10 @@ public partial class MerakiClient : IDisposable
 	public DevicesSection Devices { get; } = new();
 
 	public InsightSection Insight { get; } = new();
+
 	public LicensingSection Licensing { get; } = new();
+
+	public LiveToolsSection LiveTools { get; } = new();
 
 	public NetworksSection Networks { get; } = new();
 
