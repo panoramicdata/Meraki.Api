@@ -25,7 +25,7 @@ public interface IOrganizationSwitches
 	/// <param name="serials">Optional parameter to filter switchports belonging to switches with one or more serial numbers. All switchports returned belong to serial numbers of switches that are an exact match.</param>
 	/// <param name="configurationUpdatedAfter">Optional parameter to filter results by switches where the configuration has been updated after the given timestamp</param>
 	[ApiOperationId("getOrganizationSwitchPortsStatusesBySwitch")]
-	[Get("/organizations/{organizationId}/uplinks/statuses")]
+	[Get("/organizations/{organizationId}/switch/ports/statuses/bySwitch")]
 	Task<List<SwitchPortsStatusesBySwitch>> GetOrganizationSwitchPortsStatusesBySwitchAsync(
 		string organizationId,
 		string? t0,
@@ -44,7 +44,7 @@ public interface IOrganizationSwitches
 		CancellationToken cancellationToken = default);
 
 	// Used by GetOrganzationSwitchPortsStatusesBySwitchAllAsync
-	[Get("/organizations/{organizationId}/uplinks/statuses")]
+	[Get("/organizations/{organizationId}/switch/ports/statuses/bySwitch")]
 	internal Task<ApiResponse<List<SwitchPortsStatusesBySwitch>>> GetOrganizationSwitchPortsStatusesBySwitchApiResponseAsync(
 		string organizationId,
 		string? t0,

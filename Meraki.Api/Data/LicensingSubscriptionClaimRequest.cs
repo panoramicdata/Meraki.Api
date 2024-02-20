@@ -7,6 +7,13 @@
 public class LicensingSubscriptionClaimRequest
 {
 	/// <summary>
+	/// Validate - Check if the provided claim key is valid and can be claimed into the organization.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "validate")]
+	public bool? Validate { get; set; }
+
+	/// <summary>
 	/// Subscription description
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
