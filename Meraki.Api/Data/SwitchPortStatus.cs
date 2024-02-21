@@ -4,7 +4,7 @@
 public class SwitchPortStatus
 {
 	[DataMember(Name = "portId")]
-	public string? PortId { get; set; }
+	public string PortId { get; set; } = string.Empty;
 
 	[DataMember(Name = "enabled")]
 	public bool? Enabled { get; set; }
