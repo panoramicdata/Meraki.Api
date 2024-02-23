@@ -402,7 +402,8 @@ public partial class MerakiClient : IDisposable
 		LiveTools = new()
 		{
 			Ping = RefitFor(LiveTools.Ping),
-			PingDevice = RefitFor(LiveTools.PingDevice)
+			PingDevice = RefitFor(LiveTools.PingDevice),
+			CableTest = RefitFor(LiveTools.CableTest)
 		};
 
 		Sensor = new()
