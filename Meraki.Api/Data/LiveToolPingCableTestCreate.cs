@@ -10,12 +10,14 @@ public class LiveToolsCableTestCreate
 	/// <summary>
 	/// A list of ports for which to perform the cable test.
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ports")]
 	public List<string> Ports { get; set; } = new();
 
 	/// <summary>
 	/// Details for the callback. Please include either an httpServerId OR url and sharedSecret
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "callback")]
 	public LiveToolsCableTestCreateCallback Callback { get; set; } = new();
 }

@@ -10,30 +10,35 @@ public class LiveToolsCableTestResult
 	/// <summary>
 	/// Id of the cable test request. Used to check the status of the request.
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "cableTestId")]
 	public string CableTestId { get; set; } = string.Empty;
 
 	/// <summary>
 	/// An error message for a failed execution
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "error")]
 	public string Error { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Status of the cable test request.
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "status")]
 	public string Status { get; set; } = string.Empty;
 
 	/// <summary>
 	/// GET this url to check the status of your cable test request.
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "url")]
 	public string Url { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Cable test request parameters
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "request")]
 	public LiveToolsCableTestRequest Request { get; set; } = new();
 

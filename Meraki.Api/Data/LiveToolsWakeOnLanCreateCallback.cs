@@ -1,11 +1,11 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Live Tools Cable Test Create Callback
+/// Wake On Lan Create Callback
 /// </summary>
 [DataContract]
 
-public class LiveToolsCableTestCreateCallback
+public class LiveToolsWakeOnLanCreateCallback
 {
 	/// <summary>
 	/// A shared secret that will be included in the requests sent to the callback URL. It can be used to verify that the request was sent by Meraki. If using this field, please also specify an url.
@@ -26,12 +26,12 @@ public class LiveToolsCableTestCreateCallback
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "httpServer")]
-	public LiveToolsCableTestCreateCallbackHttpServer? HttpServer { get; set; }
+	public LiveToolsWakeOnLanCreateCallbackHttpServer? HttpServer { get; set; }
 
 	/// <summary>
 	/// The payload template of the webhook used for the callback
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "payloadTemplate")]
-	public LiveToolsCableTestCreateCallbackPayloadTemplate? PayloadTemplate { get; set; }
+	public LiveToolsWakeOnLanCreateCallbackPayloadTemplate? PayloadTemplate { get; set; }
 }

@@ -1,16 +1,16 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Live Tools Cable Test Create Callback Payload Template
+/// Wake On Lan Create Callback Payload Template
 /// </summary>
 [DataContract]
 
-public class LiveToolsCableTestCreateCallbackPayloadTemplate
+public class LiveToolsWakeOnLanCreateCallbackPayloadTemplate
 {
 	/// <summary>
 	/// The ID of the payload template. Defaults to 'wpt_00005' for the Callback (included) template.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "id")]
-	public string? Id { get; set; }
+	public string Id { get; set; } = string.Empty;
 }

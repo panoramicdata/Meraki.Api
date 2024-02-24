@@ -1,11 +1,11 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Live Tools Cable Test Callback
+/// Wake On Lan Callback
 /// </summary>
 [DataContract]
 
-public class LiveToolsCableTestCallback
+public class LiveToolsWakeOnLanCallback
 {
 	/// <summary>
 	/// The ID of the callback. To check the status of the callback, use this ID in a request to /webhooks/callbacks/statuses/{id}
@@ -15,14 +15,14 @@ public class LiveToolsCableTestCallback
 	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Status of the callback
+	/// The status of the callback
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "status")]
 	public string Status { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The callback URL for the webhook target. This was either provided in the original request or comes from a configured webhook receiver.
+	/// The callback URL for the webhook target. This was either provided in the original request or comes from a configured webhook receiver
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "url")]

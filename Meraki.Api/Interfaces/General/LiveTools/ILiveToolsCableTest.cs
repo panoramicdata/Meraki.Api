@@ -10,7 +10,7 @@ public interface ILiveToolsCableTest
 	/// <param name="createDeviceLiveToolsCableTest">Body</param>
 	[ApiOperationId("createDeviceLiveToolsCableTest")]
 	[Post("/devices/{serial}/liveTools/cableTest")]
-	Task<LiveToolsCableTest> CreateDeviceLiveToolsCableTest(
+	Task<LiveToolsCableTest> CreateDeviceLiveToolsCableTestAsync(
 		string serial,
 		[Body] LiveToolsCableTestCreate createDeviceLiveToolsCableTest,
 		CancellationToken cancellationToken = default);
@@ -23,7 +23,7 @@ public interface ILiveToolsCableTest
 	/// <param name="id">The cable test id</param>
 	[ApiOperationId("getDeviceLiveToolsCableTest")]
 	[Get("/devices/{serial}/liveTools/cableTest/{id}")]
-	Task<LiveToolsCableTestResult> GetDeviceLiveToolsCableTest(
+	Task<LiveToolsCableTestResult> GetDeviceLiveToolsCableTestAsync(
 		string serial,
 		string id,
 		CancellationToken cancellationToken = default);
