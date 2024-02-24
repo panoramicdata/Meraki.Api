@@ -4,11 +4,12 @@
 /// Loss percentage
 /// </summary>
 [DataContract]
-public class LiveToolPingResultsLoss
+public class LiveToolsPingResultsLoss
 {
 	/// <summary>
 	/// Percentage
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "percentage")]
 	public int Percentage { get; set; }
 }

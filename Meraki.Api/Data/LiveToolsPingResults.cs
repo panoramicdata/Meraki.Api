@@ -4,35 +4,40 @@
 /// Results
 /// </summary>
 [DataContract]
-public class LiveToolPingResults
+public class LiveToolsPingResults
 {
 	/// <summary>
 	/// Sent
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "sent")]
 	public int Sent { get; set; }
 
 	/// <summary>
 	/// Received
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "received")]
 	public int Received { get; set; }
 
 	/// <summary>
 	/// Loss
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "loss")]
-	public LiveToolPingResultsLoss Loss { get; set; } = new();
+	public LiveToolsPingResultsLoss Loss { get; set; } = new();
 
 	/// <summary>
 	/// Latencies
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "latencies")]
-	public LiveToolPingResultsLatencies Latencies { get; set; } = new();
+	public LiveToolsPingResultsLatencies Latencies { get; set; } = new();
 
 	/// <summary>
 	/// Replies
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "replies")]
-	public List<LiveToolPingResultsReplies> Replies { get; set; } = [];
+	public List<LiveToolsPingResultsReply> Replies { get; set; } = [];
 }

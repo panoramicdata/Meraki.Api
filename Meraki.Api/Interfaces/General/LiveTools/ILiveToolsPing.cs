@@ -10,9 +10,9 @@ public interface ILiveToolsPing
 	/// <param name="createDeviceLiveToolsPing">Body</param>
 	[ApiOperationId("createDeviceLiveToolsPing")]
 	[Post("/devices/{serial}/liveTools/ping")]
-	Task<LiveToolPing> CreateDeviceLiveToolsPingAsync(
+	Task<LiveToolsPing> CreateDeviceLiveToolsPingAsync(
 		string serial,
-		[Body] LiveToolPingCreate createDeviceLiveToolsPing,
+		[Body] LiveToolsPingCreate createDeviceLiveToolsPing,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -23,7 +23,7 @@ public interface ILiveToolsPing
 	/// <param name="id">The device id</param>
 	[ApiOperationId("getDeviceLiveToolsPing")]
 	[Get("/devices/{serial}/liveTools/ping/{id}")]
-	Task<LiveToolPing> GetDeviceLiveToolsPingAsync(
+	Task<LiveToolsPing> GetDeviceLiveToolsPingAsync(
 		string serial,
 		string id,
 		CancellationToken cancellationToken = default);
