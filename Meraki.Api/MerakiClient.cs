@@ -262,7 +262,7 @@ public partial class MerakiClient : IDisposable
 				Recent = RefitFor(Camera.Analytics.Recent),
 				Zones = RefitFor(Camera.Analytics.Zones)
 			},
-
+			Boundaries = RefitFor(Camera.Boundaries),
 			QualityAndRetention = RefitFor(Camera.QualityAndRetention),
 			Sense = new()
 			{
