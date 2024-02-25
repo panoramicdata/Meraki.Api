@@ -401,6 +401,7 @@ public partial class MerakiClient : IDisposable
 
 		LiveTools = new()
 		{
+			ArpTable = RefitFor(LiveTools.ArpTable),
 			CableTest = RefitFor(LiveTools.CableTest),
 			Ping = RefitFor(LiveTools.Ping),
 			PingDevice = RefitFor(LiveTools.PingDevice),

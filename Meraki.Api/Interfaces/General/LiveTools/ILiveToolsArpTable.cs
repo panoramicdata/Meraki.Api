@@ -12,7 +12,7 @@ public interface ILiveToolsArpTable
 	[Post("/devices/{serial}/liveTools/arpTable")]
 	Task<LiveToolsArpTable> CreateDeviceLiveToolsArpTableAsync(
 		string serial,
-		[Body] LiveToolsArpTableCreate createDeviceArpTable,
+		[Body] LiveToolsArpTableCreate createDeviceLiveToolsArpTable,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
