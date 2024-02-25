@@ -22,7 +22,7 @@ public interface ILiveToolsArpTable
 	/// <param name="serial">The serial number</param>
 	/// <param name="arpTableId">Arp table ID</param>
 	[ApiOperationId("getDeviceLiveToolsArpTable")]
-	[Get("/devices/{serial}/liveTools/wakeOnLan/{wakeOnLanId}")]
+	[Get("/devices/{serial}/liveTools/arpTable/{arpTableId}")]
 	Task<LiveToolsArpTableResult> GetDeviceLiveToolsArpTableAsync(
 		string serial,
 		string arpTableId,
