@@ -4,7 +4,7 @@ namespace Meraki.Api.Sections.General.LiveTools;
 
 public partial class LiveToolsSection
 {
-	internal ILiveToolsArpTable ArpTable { get; set; } = null;
+	internal ILiveToolsArpTable ArpTable { get; set; } = null!;
 
 	internal ILiveToolsCableTest CableTest { get; set; } = null!;
 
