@@ -6,11 +6,11 @@ public interface IApplianceRadioSettings
 	/// Return the radio settings of an appliance
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="serial">The network id</param>
+	/// <param name="serial">The serial</param>
 	[ApiOperationId("getDeviceApplianceRadioSettings")]
 	[Get("/devices/{serial}/appliance/radio/settings")]
 	Task<DeviceApplianceRadioSettings> GetDeviceApplianceRadioSettings(
-		string networkId,
+		string serial,
 		CancellationToken cancellationToken = default
 		);
 

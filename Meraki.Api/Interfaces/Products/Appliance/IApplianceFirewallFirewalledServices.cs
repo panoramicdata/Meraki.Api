@@ -31,7 +31,7 @@ public interface IApplianceFirewallFirewalledServices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="serviceType">The serviceType</param>
+	/// <param name="service">The service</param>
 	[Put("/networks/{networkId}/appliance/firewall/firewalledServices/{service}")]
 	Task<List<FirewalledService>> UpdateNetworkApplianceFirewallFirewalledServiceAsync(
 		string networkId,

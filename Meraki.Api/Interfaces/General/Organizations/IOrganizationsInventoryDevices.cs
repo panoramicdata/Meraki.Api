@@ -71,7 +71,7 @@ public interface IOrganizationsInventoryDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="organizationClaimRequest">Body for making an inventory claim request</param>
+	/// <param name="organizationInventoryClaimRequest">Body for making an inventory claim request</param>
 	[Post("/organizations/{organizationId}/inventory/claim")]
 	Task<OrganizationInventoryClaimResponse> ClaimIntoOrganizationInventoryAsync(
 		string organizationId,
@@ -83,7 +83,7 @@ public interface IOrganizationsInventoryDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="organizationClaimRequest">Body for making an inventory release request</param>
+	/// <param name="organizationInventoryReleaseRequest">Body for making an inventory release request</param>
 	[Post("/organizations/{organizationId}/inventory/release")]
 	Task<OrganizationInventoryReleaseResponse> ReleaseFromOrganizationInventoryAsync(
 		string organizationId,

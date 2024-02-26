@@ -34,7 +34,7 @@ public interface IOrganizationSensorMqttBrokers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="mqttBrokerId">The broker id</param>
-	/// <param name="mqttBrokerUpdate">Body for updating a SensorMqttBroker</param>
+	/// <param name="sensorMqttUpdate">Body for updating a SensorMqttBroker</param>
 	[ApiOperationId("updateNetworkSensorMqttBroker")]
 	[Put("/networks/{networkId}/sensor/mqttBrokers/{mqttBrokerId}")]
 	Task<SensorMqttBroker> UpdateNetworkSensorMqttBrokerAsync(

@@ -46,7 +46,7 @@ public interface IAppliancePrefixesDelegatedStatics
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="staticDelegatedPrefixId">The static sdelegated prefix id</param>
-	/// <param name="networkAppliancePrefixesDelegatedStaticUpdateRequest">Body for the update request</param>
+	/// <param name="networkAppliancePrefixedsDelegatedStaticUpdateRequest">Body for the update request</param>
 	[ApiOperationId("updateNetworkAppliancePrefixesDelegatedStatic")]
 	[Put("/networks/{networkId}/appliance/prefixes/delegated/statics/{staticDelegatedPrefixId}")]
 	Task<NetworkAppliancePrefixesDelegatedStatic> UpdateNetworkAppliancePrefixesDelegatedStaticAsync(

@@ -9,7 +9,6 @@ public static class IOrganizationSwitchPortsStatusesExtensions
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
-	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="networkIds">Optional parameter to filter switchports by network.</param>
 	/// <param name="portProfileIds">Optional parameter to filter switchports belonging to the specified port profiles</param>
 	/// <param name="name">Optional parameter to filter switchports belonging to switches by name. All returned switches will have a name that contains the search term or is an exact match.</param>
