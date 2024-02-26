@@ -57,7 +57,9 @@ public interface INetworksMerakiAuthUsers
 	Task DeleteNetworkMerakiAuthUserAsync(
 		string networkId,
 		string merakiAuthUserId,
+#pragma warning disable CA1716 // Identifiers should not match keywords - This is the name of the API parameter so no choice
 		bool delete,
+#pragma warning restore CA1716 // Identifiers should not match keywords
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
