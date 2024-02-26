@@ -12,8 +12,7 @@ public class Tests : MerakiClientTest
 		var organizationClientSearch = await TestMerakiClient
 			.Organizations
 			.Clients
-			.GetOrganizationClientsSearchAsync(Configuration.TestOrganizationId, Configuration.TestMac)
-			.ConfigureAwait(false);
+			.GetOrganizationClientsSearchAsync(Configuration.TestOrganizationId, Configuration.TestMac);
 
 		_ = organizationClientSearch.Should().NotBeNull();
 	}
