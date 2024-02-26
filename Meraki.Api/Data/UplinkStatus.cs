@@ -25,6 +25,12 @@ public class UplinkStatus
 	public string Model { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Device High Availability Capabilities
+	/// </summary>
+	[DataMember(Name = "highAvailability")]
+	public UplinkStatusHighAvailability HighAvailability { get; set; } = new();
+
+	/// <summary>
 	/// Last reported at
 	/// </summary>
 	[DataMember(Name = "lastReportedAt")]

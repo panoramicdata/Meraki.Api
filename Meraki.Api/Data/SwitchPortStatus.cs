@@ -47,6 +47,9 @@ public class SwitchPortStatus
 
 	[DataMember(Name = "securePort")]
 	public SwitchPortStatusSecurePort? SecurePort { get; set; }
+
+	[DataMember(Name = "spanningTree")]
+	public SwitchPortStatusSpanningTree? SpanningTree { get; set; }
 }
 
 public class UsageInKb : Usage

@@ -1,4 +1,5 @@
-﻿using Meraki.Api.Sections.Products.Licensing;
+﻿using Meraki.Api.Sections.General.LiveTools;
+using Meraki.Api.Sections.Products.Licensing;
 
 namespace Meraki.Api;
 
@@ -232,7 +233,8 @@ public partial class MerakiClient : IDisposable
 			Uplinks = new()
 			{
 				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory),
-				Settings = RefitFor(Appliance.Uplinks.Settings)
+				Settings = RefitFor(Appliance.Uplinks.Settings),
+				StatusesOverview = RefitFor(Appliance.Uplinks.StatusesOverview)
 			},
 			Vlans = new()
 			{
@@ -261,7 +263,7 @@ public partial class MerakiClient : IDisposable
 				Recent = RefitFor(Camera.Analytics.Recent),
 				Zones = RefitFor(Camera.Analytics.Zones)
 			},
-
+			Boundaries = RefitFor(Camera.Boundaries),
 			QualityAndRetention = RefitFor(Camera.QualityAndRetention),
 			Sense = new()
 			{
@@ -398,6 +400,16 @@ public partial class MerakiClient : IDisposable
 			Subscriptions = RefitFor(Licensing.Subscriptions)
 		};
 
+		LiveTools = new()
+		{
+			ArpTable = RefitFor(LiveTools.ArpTable),
+			CableTest = RefitFor(LiveTools.CableTest),
+			Ping = RefitFor(LiveTools.Ping),
+			PingDevice = RefitFor(LiveTools.PingDevice),
+			WakeOnLan = RefitFor(LiveTools.WakeOnLan)
+
+		};
+
 		Sensor = new()
 		{
 			Alerts = new()
@@ -460,7 +472,10 @@ public partial class MerakiClient : IDisposable
 	public DevicesSection Devices { get; } = new();
 
 	public InsightSection Insight { get; } = new();
+
 	public LicensingSection Licensing { get; } = new();
+
+	public LiveToolsSection LiveTools { get; } = new();
 
 	public NetworksSection Networks { get; } = new();
 

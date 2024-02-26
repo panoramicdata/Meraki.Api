@@ -4,26 +4,26 @@
 /// Ping create request
 /// </summary>
 [DataContract]
-public class LiveToolPingCreate
+public class LiveToolsPingCreate
 {
 	/// <summary>
 	/// Count
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "count")]
 	public int Count { get; set; }
 
 	/// <summary>
 	/// Target
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "target")]
 	public string Target { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Details for the callback. Please include either an httpServerId OR url and sharedSecret
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "callback")]
-	public LiveToolPingCreateCallback? Callback { get; set; } = new();
+	public LiveToolsPingCreateCallback? Callback { get; set; } = new();
 }
