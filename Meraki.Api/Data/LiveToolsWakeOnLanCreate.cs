@@ -26,5 +26,5 @@ public class LiveToolsWakeOnLanCreate
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "callback")]
-	public LiveToolsWakeOnLanCreateCallback Callback { get; set; } = new();
+	public LiveToolsWakeOnLanCreateCallback? Callback { get; set; }
 }
