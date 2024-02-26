@@ -20,7 +20,7 @@
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="PanoramicData.SheetMagic" Version="3.0.101" />
-		<PackageReference Include="Roslynator.Analyzers" Version="4.10.0">
+		<PackageReference Include="Roslynator.Analyzers" Version="4.11.0">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
@@ -29,13 +29,13 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="System.Drawing.Common" Version="8.0.2" />
-		<PackageReference Include="xunit" Version="2.6.6" />
-		<PackageReference Include="xunit.analyzers" Version="1.10.0" />
-		<PackageReference Include="xunit.runner.visualstudio" Version="2.5.6">
+		<PackageReference Include="xunit" Version="2.7.0" />
+		<PackageReference Include="xunit.analyzers" Version="1.11.0" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="coverlet.collector" Version="6.0.0">
+		<PackageReference Include="coverlet.collector" Version="6.0.1">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
