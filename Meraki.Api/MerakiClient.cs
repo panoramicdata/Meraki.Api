@@ -233,7 +233,8 @@ public partial class MerakiClient : IDisposable
 			Uplinks = new()
 			{
 				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory),
-				Settings = RefitFor(Appliance.Uplinks.Settings)
+				Settings = RefitFor(Appliance.Uplinks.Settings),
+				StatusesOverview = RefitFor(Appliance.Uplinks.StatusesOverview)
 			},
 			Vlans = new()
 			{
