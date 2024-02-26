@@ -26,7 +26,7 @@ public class SensorReadingLatestReading
 	public SensorMetricCurrent? Current { get; set; }
 
 	[DataMember(Name = "co2")]
-	public SensorMetricCo2? CurCo2rent { get; set; }
+	public SensorMetricCo2? Co2 { get; set; }
 
 	[DataMember(Name = "door")]
 	public SensorMetricDoor? Door { get; set; }
