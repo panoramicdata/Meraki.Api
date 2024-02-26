@@ -8,7 +8,7 @@ public interface IApplianceUplinksStatusesOverview
 	/// <param name="organizationId">Organization ID</param>
 	[ApiOperationId("getOrganizationApplianceUplinksStatusesOverview")]
 	[Get("/organizations/{organizationId}/appliance/uplinks/statuses/overview")]
-	Task<ApplianceUplinkStatusesOverview> GetOrganizationApplianceUplinksStatusesOverviewAsync(
+	Task<ApplianceUplinksStatusesOverview> GetOrganizationApplianceUplinksStatusesOverviewAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
 
