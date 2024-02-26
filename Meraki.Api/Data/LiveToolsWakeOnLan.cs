@@ -40,7 +40,7 @@ public class LiveToolsWakeOnLan
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "callback")]
-	public LiveToolsWakeOnLanCallback Callback { get; set; } = new();
+	public LiveToolsWakeOnLanCallback? Callback { get; set; }
 
 	/// <summary>
 	/// The parameters of the Wake-on-LAN request
