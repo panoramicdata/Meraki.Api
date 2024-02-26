@@ -21,8 +21,6 @@ public partial class OrganizationsSection
 
 	public IOrganizationsDevices Devices { get; internal set; } = null!;
 
-	public IOrganizationsDevicesAvailabilitiesHistories DevicesAvailabilitiesHistories { get; internal set; } = null!;
-
 	public OrganizationsEarlyAccessSection EarlyAccess { get; internal set; } = new();
 
 	public IOrganizationsInventoryDevices InventoryDevices { get; internal set; } = null!;
