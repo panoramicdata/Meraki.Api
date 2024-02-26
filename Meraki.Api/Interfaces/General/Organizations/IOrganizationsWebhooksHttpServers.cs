@@ -8,11 +8,11 @@ public interface IOrganizationsWebhooksHttpServers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="httpServerId">The id of a HTTP server</param>
-	[Get("/organizations/{organizationId}/webhooks/httpServers/{httpServerId}")]
+	/// <param name="id">The id of a HTTP server</param>
+	[Get("/organizations/{organizationId}/webhooks/httpServers/{id}")]
 	Task<WebhookHttpServer> GetOrganizationWebhooksHttpServerAsync(
 		string organizationId,
-		string httpServerId,
+		string id,
 		CancellationToken cancellationToken = default
 		);
 
@@ -45,12 +45,12 @@ public interface IOrganizationsWebhooksHttpServers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="httpServerId">The id of a HTTP server</param>
+	/// <param name="id">The id of a HTTP server</param>
 	/// <param name="httpServer">Body for updating an organization HTTP server</param>
-	[Put("/organizations/{organizationId}/webhooks/httpServers/{httpServerId}")]
+	[Put("/organizations/{organizationId}/webhooks/httpServers/{id}")]
 	Task<WebhookHttpServer> UpdateOrganizationWebhooksHttpServerAsync(
 		string organizationId,
-		string httpServerId,
+		string id,
 		[Body] WebhookHttpServer httpServer,
 		CancellationToken cancellationToken = default
 		);
@@ -60,11 +60,11 @@ public interface IOrganizationsWebhooksHttpServers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="httpServerId">The id of a HTTP server</param>
-	[Delete("/organizations/{organizationId}/webhooks/httpServers/{httpServerId}")]
+	/// <param name="id">The id of a HTTP server</param>
+	[Delete("/organizations/{organizationId}/webhooks/httpServers/{id}")]
 	Task DeleteOrganizationWebhooksHttpServerAsync(
 		string organizationId,
-		string httpServerId,
+		string id,
 		CancellationToken cancellationToken = default
 		);
 }
