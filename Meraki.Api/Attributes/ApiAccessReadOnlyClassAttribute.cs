@@ -4,6 +4,4 @@
 namespace Meraki.Api.Attributes;
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
-public class ApiAccessReadOnlyClassAttribute : Attribute
-{
-}
+public class ApiAccessReadOnlyClassAttribute : Attribute;

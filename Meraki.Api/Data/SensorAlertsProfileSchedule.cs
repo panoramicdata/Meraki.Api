@@ -3,6 +3,4 @@
 /// Sensor alerts profile schedule
 /// </summary>
 [DataContract]
-public class SensorAlertsProfileSchedule : NamedIdentifiedItem
-{
-}
+public class SensorAlertsProfileSchedule : NamedIdentifiedItem;

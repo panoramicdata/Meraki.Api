@@ -3,6 +3,4 @@
 /// Network details for a sensor reading
 /// </summary>
 [DataContract]
-public class SensorReadingNetwork : NamedIdentifiedItem
-{
-}
+public class SensorReadingNetwork : NamedIdentifiedItem;

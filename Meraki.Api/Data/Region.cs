@@ -1,6 +1,4 @@
 ﻿namespace Meraki.Api.Data;
 
 [DataContract]
-public class Region : NamedItem
-{
-}
+public class Region : NamedItem;

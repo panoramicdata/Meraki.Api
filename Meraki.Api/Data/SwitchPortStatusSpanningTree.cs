@@ -12,5 +12,4 @@ public class SwitchPortStatusSpanningTree
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "statuses")]
 	public List<string>? Statuses { get; set; }
-
 }

@@ -4,6 +4,4 @@
 /// Update the EAP overridden parameters for an SSID
 /// </summary>
 [DataContract]
-public class EapOverrideUpdateRequest : EapOverride
-{
-}
+public class EapOverrideUpdateRequest : EapOverride;

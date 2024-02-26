@@ -5,6 +5,4 @@
 /// </summary>
 [DataContract]
 [ApiAccessReadOnlyClass]
-public class WirelessDeviceEthernetStatusNetwork : IdentifiedItem
-{
-}
+public class WirelessDeviceEthernetStatusNetwork : IdentifiedItem;

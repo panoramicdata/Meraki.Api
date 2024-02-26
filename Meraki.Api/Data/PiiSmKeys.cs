@@ -5,6 +5,4 @@
 /// </summary>
 [ApiAccessReadOnlyClass]
 [DataContract]
-public class PiiSmKeys : Dictionary<string, List<string>>
-{
-}
+public class PiiSmKeys : Dictionary<string, List<string>>;
