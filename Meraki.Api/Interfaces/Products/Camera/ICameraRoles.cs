@@ -49,7 +49,7 @@ public interface ICameraRoles
 	/// <param name="organizationId">Organization ID</param>
 	/// <param name="cameraRole">Camera Role</param>
 	[ApiOperationId("updateOrganizationCameraRole")]
-	[Put("/organizations/{organizationId}/camera/role/{roleId}")]
+	[Put("/organizations/{organizationId}/camera/roles/{roleId}")]
 	Task<CameraRole> UpdateOrganizationCameraRoleAsync(
 		string organizationId,
 		string roleId,

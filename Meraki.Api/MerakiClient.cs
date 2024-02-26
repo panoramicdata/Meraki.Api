@@ -313,7 +313,6 @@ public partial class MerakiClient : IDisposable
 			Mtu = RefitFor(Switch.Mtu),
 			LinkAggregations = RefitFor(Switch.LinkAggregations),
 			Ports = RefitFor(Switch.Ports),
-			PortsProfiles = RefitFor(Switch.PortsProfiles),
 			PortSchedules = RefitFor(Switch.PortSchedules),
 			QosRules = RefitFor(Switch.QosRules),
 			Routing = new()
