@@ -1,11 +1,7 @@
 namespace Meraki.Api.Test.Organizations.Clients;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetOrganizationClients_Succeeds()
 	{

@@ -17,7 +17,7 @@ public class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : IDisposabl
 
 	private readonly ICacheLogger _logger = _iTestOutputHelper.BuildLogger();
 
-	public TestConfig Configuration { get; private set; }
+	public TestConfig Configuration { get; } = LoadConfig();
 
 	private static TestConfig LoadConfig()
 	{
@@ -49,8 +49,6 @@ public class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : IDisposabl
 			{
 				return _merakiClient;
 			}
-
-			Configuration = LoadConfig();
 
 			// Unit tests should always error if members are missing to aid picking up issues with models early
 			Configuration.MerakiClientOptions.JsonMissingMemberHandling = JsonMissingMemberHandling.ThrowOnError;
