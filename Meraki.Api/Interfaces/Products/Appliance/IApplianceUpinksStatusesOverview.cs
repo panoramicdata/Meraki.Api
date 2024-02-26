@@ -11,5 +11,4 @@ public interface IApplianceUplinksStatusesOverview
 	Task<ApplianceUplinksStatusesOverview> GetOrganizationApplianceUplinksStatusesOverviewAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
-
 }

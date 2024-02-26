@@ -13,5 +13,4 @@ public class SwitchPortStatusSpanningTree
 	[DataMember(Name = "statuses")]
 	public List<string>? Statuses { get; set; }
 
-
 }

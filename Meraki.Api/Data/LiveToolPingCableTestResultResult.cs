@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Live Tools Cable Test Result Result
+/// Live Tools Cable Test ResultResult
 /// </summary>
 [DataContract]
 

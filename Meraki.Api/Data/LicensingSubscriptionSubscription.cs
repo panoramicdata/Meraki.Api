@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Licensing Subscription Subscription
+/// Licensing SubscriptionSubscription
 /// </summary>
 [DataContract]
 public class LicensingSubscriptionSubscription

@@ -8,10 +8,9 @@
 public class LiveToolsArpTableCreate
 {
 	/// <summary>
-	/// Details for the callback. Please include either an httpServerId OR url and sharedSecret	
+	/// Details for the callback. Please include either an httpServerId OR url and sharedSecret
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "callback")]
 	public LiveToolsArpTableCreateCallback Callback { get; set; } = new();
-
 }

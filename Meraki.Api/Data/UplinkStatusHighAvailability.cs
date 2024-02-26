@@ -18,5 +18,4 @@ public class UplinkStatusHighAvailability
 	[DataMember(Name = "enabled")]
 	public bool Enabled { get; set; }
 
-
 }

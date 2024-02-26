@@ -43,7 +43,7 @@ public class CodeFixProviderRefit001 : CodeFixProvider
 
 		var aliasAsAttributeName = generator.IdentifierName("AliasAs");
 		var aliasAsValue = $"{parameterSyntax.Identifier.Text}[]";
-		var aliasAsAttribute = generator.Attribute(aliasAsAttributeName, new[] { generator.LiteralExpression(aliasAsValue) });
+		var aliasAsAttribute = generator.Attribute(aliasAsAttributeName, [generator.LiteralExpression(aliasAsValue)]);
 
 		editor.AddAttribute(parameterSyntax, aliasAsAttribute);
 

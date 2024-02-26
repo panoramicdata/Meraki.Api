@@ -13,5 +13,4 @@ public partial class LiveToolsSection
 	internal ILiveToolsPingDevice PingDevice { get; set; } = null!;
 
 	internal ILiveToolsWakeOnLan WakeOnLan { get; set; } = null!;
-
 }

@@ -28,7 +28,6 @@ public class CameraBoundariesLinesBoundaries
 	[DataMember(Name = "type")]
 	public string Type { get; set; } = string.Empty;
 
-
 	/// <summary>
 	/// The line boundary crossing direction vertex
 	/// </summary>
@@ -41,5 +40,5 @@ public class CameraBoundariesLinesBoundaries
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vertices")]
-	public List<CameraBoundariesLinesBoundariesVertex> Vertices { get; set; } = new();
+	public List<CameraBoundariesLinesBoundariesVertex> Vertices { get; set; } = [];
 }
