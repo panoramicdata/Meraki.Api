@@ -6,7 +6,8 @@
 public partial class MerakiClient
 {
 	// The following data ensures consistency between SensorMetrics and the Meraki Dashboard UI for the Sensor Readings page.
-	public Dictionary<SensorMetrics, List<SensorRange>> SensorRanges => new()
+	public static Dictionary<SensorMetrics, List<SensorRange>> SensorRanges
+		=> new()
 	{
 		{
 			SensorMetrics.Temperature,
