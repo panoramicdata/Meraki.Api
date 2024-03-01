@@ -15,6 +15,13 @@ public class AlertDestinations
 	public List<string>? Emails { get; set; }
 
 	/// <summary>
+	/// smsNumbers - Undocumented - This is an array of something so a strong possibility it will be a list of string. Not populated as of 2024-02-29
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "smsNumbers")]
+	public List<string>? SmsNumbers { get; set; }
+
+	/// <summary>
 	/// If true, then all network admins will receive emails for this alert
 	/// </summary>
 	/// <value>If true, then all network admins will receive emails for this alert</value>
