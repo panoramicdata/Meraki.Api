@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.43.34
+- SwitchPortType updated to add Stack
+
 ## 1.41.8
 - Added Organization Clients search in
 - Updated dependencies
