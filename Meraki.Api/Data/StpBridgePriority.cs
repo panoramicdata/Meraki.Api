@@ -24,6 +24,7 @@ public class StpBridgePriority
 	/// List of stack IDs
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiForeignKey(typeof(List<SwitchStack>))]
 	[DataMember(Name = "stacks")]
 	public List<string>? Stacks { get; set; }
 
