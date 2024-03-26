@@ -74,11 +74,11 @@ public class SsidSplashSettings
 	public bool? UseRedirectUrl { get; set; }
 
 	/// <summary>
-	/// Theme ID - Undocumented
+	/// Theme ID
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "themeId")]
-	public object? ThemeId { get; set; }
+	public string? ThemeId { get; set; }
 
 	/// <summary>
 	/// [optional] Boolean indicating whether the users will be redirected to the custom splash url. A custom splash URL must be set if this is true. Note that depending on your SSID's access control settings, it may not be possible to use the custom splash URL.
