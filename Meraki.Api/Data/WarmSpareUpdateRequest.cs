@@ -32,12 +32,12 @@ public class WarmSpareUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "virtualIp1")]
-	public string VirtualIp1 { get; set; } = string.Empty;
+	public string? VirtualIp1 { get; set; }
 
 	/// <summary>
 	/// The WAN 2 shared IP
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "virtualIp2")]
-	public string VirtualIp2 { get; set; } = string.Empty;
+	public string? VirtualIp2 { get; set; }
 }
