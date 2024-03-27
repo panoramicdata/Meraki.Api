@@ -18,7 +18,7 @@ public class VlanProfileDeviceAssignmentStack
 	/// </summary>
 	/// While this is not strictly a foreign key it is useful for comparing historical entries where the switch stack id may have changed.
 	[ApiForeignKey(typeof(SwitchStack))]
-	[ApiAccess(ApiAccess.Read)
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "name")]
 	public string? Name { get; set; }
 }
