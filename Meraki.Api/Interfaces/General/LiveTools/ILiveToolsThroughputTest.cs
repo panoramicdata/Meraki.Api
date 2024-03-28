@@ -10,20 +10,21 @@ public interface ILiveToolsThroughputTest
 	/// <param name="createDeviceLiveToolsThroughputTest">Body</param>
 	[ApiOperationId("createDeviceLiveToolsThroughputTest")]
 	[Post("/devices/{serial}/liveTools/throughputTest")]
-	Task<LiveToolsThroughputTest> CreateDeviceLiveToolsThroughputTestAsync(
+	Task<LiveToolsThroughputTestCreateResponse> CreateDeviceLiveToolsThroughputTestAsync(
 		string serial,
-		[Body] LiveToolsThroughputTestCreate createDeviceLiveToolsThroughputTest,
+		[Body] LiveToolsThroughputTestCreateRequest createDeviceLiveToolsThroughputTest,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// Return a ping job. Latency unit in response is in milliseconds. Size is in bytes.
+	/// Return a throughput test job
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
-	[ApiOperationId("getDeviceLiveToolsPingDevice")]
-	[Get("/devices/{serial}/liveTools/pingDevice/{id}")]
-	Task<LiveToolsPing> GetDeviceLiveToolsPingDeviceAsync(
+	/// <param name="throughputTestId">Throughput test ID</param>
+	[ApiOperationId("getDeviceLiveToolsThroughputTest")]
+	[Get("/devices/{serial}/liveTools/throughputTest/{throughputTestId}")]
+	Task<LiveToolsThroughputTest> GetDeviceLiveToolsThroughputTestAsync(
 		string serial,
-		string id,
+		string throughputTestId,
 		CancellationToken cancellationToken = default);
 }
