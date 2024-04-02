@@ -175,5 +175,8 @@ public enum AlertType
 	MotionAlert,
 
 	[EnumMember(Value = "sensorPowerSavingScheduleSuccessEvent")]
-	SensorPowerSavingScheduleSuccessEvent
+	SensorPowerSavingScheduleSuccessEvent,
+
+	[EnumMember(Value = "sensorPowerSavingScheduleFailureEvent")]
+	SensorPowerSavingScheduleFailureEvent,
 }
