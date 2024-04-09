@@ -39,5 +39,5 @@ public class SamlRole : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "camera")]
-	public object? Camera { get; set; }
+	public SamlRoleCamera? Camera { get; set; }
 }
