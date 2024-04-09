@@ -6,7 +6,7 @@ namespace Meraki.Api.Interfaces.General.Organizations;
 public interface IOrganizationsClientOverview
 {
 	/// <summary>
-	/// Return summary information around client data usage (in mb) across the given organization.
+	/// Return summary information around client data usage (in kb) across the given organization.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
