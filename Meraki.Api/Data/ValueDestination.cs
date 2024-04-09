@@ -14,11 +14,11 @@ public class ValueDestination
 	public string? Id { get; set; }
 
 	/// <summary>
-	/// Applications - Undocumented
+	/// Applications
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "applications")]
-	public object? Applications { get; set; }
+	public List<ValueDestinationApplication>? Applications { get; set; }
 
 	/// <summary>
 	/// Nbar - Undocumented
