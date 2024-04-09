@@ -7,6 +7,13 @@ namespace Meraki.Api.Data;
 public class DeviceCellularSims
 {
 	/// <summary>
+	/// Specifies which SIMs to use for primary and secondary. Required for devices with 3 or more SIMs.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "simOrdering")]
+	public List<string>? SimOrdering { get; set; }
+
+	/// <summary>
 	/// Sim Failover
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
