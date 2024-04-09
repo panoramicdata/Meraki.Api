@@ -177,4 +177,11 @@ public class Device : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "imei")]
 	public string? Imei { get; set; }
+
+	/// <summary>
+	/// Product type of the device
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "productType")]
+	public string? ProductType { get; set; }
 }
