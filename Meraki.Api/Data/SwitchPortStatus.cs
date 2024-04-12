@@ -50,6 +50,9 @@ public class SwitchPortStatus
 
 	[DataMember(Name = "spanningTree")]
 	public SwitchPortStatusSpanningTree? SpanningTree { get; set; }
+
+	[DataMember(Name = "poe")]
+	public SwitchPortStatusPoe? Poe { get; set; }
 }
 
 public class UsageInKb : Usage
