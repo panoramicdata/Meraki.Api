@@ -14,9 +14,9 @@ public class DhcpServerPolicyArpInspection
 	public bool Enabled { get; set; }
 
 	/// <summary>
-	/// No documentation available
+	/// List of switch models that does not support dynamic ARP inspection
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "unsupportedModels")]
-	public List<object>? UnsupportedModels { get; set; }
+	public List<string>? UnsupportedModels { get; set; }
 }
