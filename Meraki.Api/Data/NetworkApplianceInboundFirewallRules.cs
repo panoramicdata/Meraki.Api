@@ -11,7 +11,7 @@ public class InboundFirewallRules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<MxFirewallRule> Rules { get; set; } = new();
+	public List<MxFirewallRule> Rules { get; set; } = [];
 
 	/// <summary>
 	/// Log the special default rule (boolean value - enable only if you've configured a syslog server) (optional)

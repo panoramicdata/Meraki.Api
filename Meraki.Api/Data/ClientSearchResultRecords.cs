@@ -86,13 +86,13 @@ public class ClientSearchResultRecords
 	/// Client vpn connections
 	/// </summary>
 	[DataMember(Name = "clientVpnConnections")]
-	public List<ClientVpnConnections> ClientVpnConnections { get; set; } = new();
+	public List<ClientVpnConnections> ClientVpnConnections { get; set; } = [];
 
 	/// <summary>
 	/// Lldp
 	/// </summary>
 	[DataMember(Name = "lldp")]
-	public List<List<string>> Lldp { get; set; } = new();
+	public List<List<string>> Lldp { get; set; } = [];
 
 	/// <summary>
 	/// CDP

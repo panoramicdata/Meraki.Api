@@ -112,7 +112,7 @@ public class OrganizationDeviceStatus : NamedItem
 	/// Tags
 	/// </summary>
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// ConfigurationUpdatedAt

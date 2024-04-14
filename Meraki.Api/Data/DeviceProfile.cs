@@ -35,7 +35,7 @@ public class DeviceProfile
 	/// Profile data
 	/// </summary>
 	[DataMember(Name = "profileData")]
-	public List<string> ProfileData { get; set; } = new();
+	public List<string> ProfileData { get; set; } = [];
 
 	/// <summary>
 	/// Profile identifier

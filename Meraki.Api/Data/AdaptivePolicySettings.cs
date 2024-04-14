@@ -11,5 +11,5 @@ public class AdaptivePolicySettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabledNetworks")]
-	public List<string> EnabledNetworks { get; set; } = new();
+	public List<string> EnabledNetworks { get; set; } = [];
 }

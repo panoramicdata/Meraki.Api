@@ -26,7 +26,7 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// The status of the switch profile port
@@ -187,4 +187,11 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "profile")]
 	public ConfigTemplateSwitchProfilePortProfile? Profile { get; set; }
+
+	/// <summary>
+	/// Mirror
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "mirror")]
+	public SwitchPortMirror? Mirror { get; set; }
 }

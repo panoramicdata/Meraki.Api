@@ -1,11 +1,7 @@
 ﻿namespace RefitClassSourceGenerator;
 
-public class RefitClassAttribute : Attribute
+[AttributeUsage(AttributeTargets.Class)]
+public class RefitClassAttribute(Type interfaceType) : Attribute
 {
-    public RefitClassAttribute(Type interfaceType)
-    {
-        InterfaceType = interfaceType;
-    }
-
-    public Type InterfaceType { get; }
+	public Type InterfaceType { get; } = interfaceType;
 }

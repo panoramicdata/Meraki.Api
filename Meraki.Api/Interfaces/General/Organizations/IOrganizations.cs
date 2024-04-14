@@ -63,6 +63,7 @@ public interface IOrganizations
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="organizationClaimRequest">Body for making a claim request</param>
 	[Post("/organizations/{organizationId}/claim")]
+	[Obsolete("Use ClaimIntoOrganizationInventoryAsync")]
 	Task<OrganizationClaimResponse> ClaimIntoOrganizationAsync(
 		string organizationId,
 		[Body] OrganizationClaimRequest organizationClaimRequest,

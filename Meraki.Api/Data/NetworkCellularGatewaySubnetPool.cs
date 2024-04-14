@@ -11,5 +11,5 @@ public class NetworkCellularGatewaySubnetPool : NetworkCellularGatewaySubnetPool
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "subnets")]
-	public List<CellularGatewaySubnet> Subnets { get; set; } = new();
+	public List<CellularGatewaySubnet> Subnets { get; set; } = [];
 }

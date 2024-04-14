@@ -25,5 +25,5 @@ public class ApplicationCategory
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "applications")]
-	public List<Application> Applications { get; set; } = new();
+	public List<Application> Applications { get; set; } = [];
 }

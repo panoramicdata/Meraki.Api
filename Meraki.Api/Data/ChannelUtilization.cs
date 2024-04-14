@@ -29,11 +29,11 @@ public class ChannelUtilization
 	/// Wifi0
 	/// </summary>
 	[DataMember(Name = "wifi0")]
-	public List<Wifi> Wifi0 { get; set; } = new();
+	public List<Wifi> Wifi0 { get; set; } = [];
 
 	/// <summary>
 	/// Wifi1
 	/// </summary>
 	[DataMember(Name = "wifi1")]
-	public List<Wifi> Wifi1 { get; set; } = new();
+	public List<Wifi> Wifi1 { get; set; } = [];
 }

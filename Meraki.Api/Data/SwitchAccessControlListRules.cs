@@ -11,5 +11,5 @@ public class SwitchAccessControlListRules
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<SwitchAccessControlListRule> Rules { get; set; } = new();
+	public List<SwitchAccessControlListRule> Rules { get; set; } = [];
 }

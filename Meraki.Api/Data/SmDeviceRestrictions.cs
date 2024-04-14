@@ -17,5 +17,5 @@ public class SmDeviceRestrictions
 	/// Restrictions
 	/// </summary>
 	[DataMember(Name = "restrictions")]
-	public Dictionary<string, object> Restrictions { get; set; } = new();
+	public Dictionary<string, object> Restrictions { get; set; } = [];
 }

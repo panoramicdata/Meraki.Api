@@ -10,5 +10,5 @@ public class ApiUsageOverview
 	/// The stats
 	/// </summary>
 	[DataMember(Name = "responseCodeCounts")]
-	public Dictionary<string, int> ResponseCodeCounts { get; set; } = new Dictionary<string, int>();
+	public Dictionary<string, int> ResponseCodeCounts { get; set; } = [];
 }

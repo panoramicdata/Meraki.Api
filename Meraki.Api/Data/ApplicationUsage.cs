@@ -28,5 +28,5 @@ public class ApplicationUsage
 	/// Application usage
 	/// </summary>
 	[DataMember(Name = "applicationUsage")]
-	public List<SubclassApplicationUsage> ApplicationUsageList { get; set; } = new();
+	public List<SubclassApplicationUsage> ApplicationUsageList { get; set; } = [];
 }

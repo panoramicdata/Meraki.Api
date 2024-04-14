@@ -26,5 +26,5 @@ public class CameraCustomAnalytics
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "parameters")]
-	public List<CameraCustomAnalyticsParameters> Parameters { get; set; } = new();
+	public List<CameraCustomAnalyticsParameters> Parameters { get; set; } = [];
 }

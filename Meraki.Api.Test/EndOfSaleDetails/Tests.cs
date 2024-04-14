@@ -1,16 +1,11 @@
 ﻿namespace Meraki.Api.Test.EndOfSaleDetails;
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetEndOfLifeDetailsAsync_Succeeds()
 	{
 		var details = await MerakiClient
-			.GetEndOfLifeDetailsAsync()
-			.ConfigureAwait(false);
+			.GetEndOfLifeDetailsAsync();
 
 		_ = details
 			.Should()

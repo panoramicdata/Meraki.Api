@@ -18,12 +18,12 @@ public class SiteToSiteVpn
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "hubs")]
-	public List<Hub> Hubs { get; set; } = new();
+	public List<Hub> Hubs { get; set; } = [];
 
 	/// <summary>
 	/// The list of subnets and their VPN presence.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "subnets")]
-	public List<Subnet> Subnets { get; set; } = new();
+	public List<Subnet> Subnets { get; set; } = [];
 }

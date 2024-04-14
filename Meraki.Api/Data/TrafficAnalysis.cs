@@ -17,5 +17,5 @@ public class TrafficAnalysis
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "customPieChartItems")]
-	public List<CustomPieChartItem> CustomPieChartItems { get; set; } = new();
+	public List<CustomPieChartItem> CustomPieChartItems { get; set; } = [];
 }

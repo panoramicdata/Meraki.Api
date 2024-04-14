@@ -1,22 +1,16 @@
 ﻿namespace Meraki.Api.Test.Networks.Devices;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetAllDevicesAsync_Succeeds()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkDevicesAsync(network.Id);
 		_ = result.Should().BeOfType<List<Device>>();
 		_ = result.Should().NotBeNull();
 	}
@@ -27,8 +21,7 @@ public class Tests : MerakiClientTest
 		var devices = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId)
-			.ConfigureAwait(false);
+			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId);
 
 		_ = devices
 			.Should()
@@ -40,8 +33,7 @@ public class Tests : MerakiClientTest
 
 		var device = await TestMerakiClient
 			.Devices
-			.GetDeviceAsync(deviceSerial)
-			.ConfigureAwait(false);
+			.GetDeviceAsync(deviceSerial);
 		_ = device.Should().NotBeNull();
 
 		_ = device.Serial.Should().Equals(deviceSerial);
@@ -54,8 +46,7 @@ public class Tests : MerakiClientTest
 		var devices = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId)
-			.ConfigureAwait(false);
+			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId);
 
 		_ = devices
 			.Should()

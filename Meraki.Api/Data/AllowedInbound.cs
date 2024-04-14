@@ -18,12 +18,12 @@ public class AllowedInbound
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "destinationPorts")]
-	public List<string> DestinationPorts { get; set; } = new();
+	public List<string> DestinationPorts { get; set; } = [];
 
 	/// <summary>
 	/// An array of ranges of WAN IP addresses that are allowed to make inbound connections on the specified ports or port ranges, or 'any'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "allowedIps")]
-	public List<string> AllowedIps { get; set; } = new();
+	public List<string> AllowedIps { get; set; } = [];
 }

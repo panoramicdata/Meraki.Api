@@ -18,7 +18,7 @@ public interface IApplianceFirewallSettings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="ApplianceFirewallSettingsUpdateRequest">Body for updating the appliance firewall settings</param>
+	/// <param name="applianceFirewallSettingsUpdateRequest">Body for updating the appliance firewall settings</param>
 	[Put("/networks/{networkId}/appliance/firewall/settings")]
 	Task<ApplianceFirewallSettings> UpdateNetworkApplianceFirewallSettingsAsync(
 		string networkId,

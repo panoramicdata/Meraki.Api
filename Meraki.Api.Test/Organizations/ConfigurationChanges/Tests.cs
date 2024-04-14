@@ -2,9 +2,9 @@
 
 namespace Meraki.Api.Test.Organizations.ConfigurationChanges;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	private static readonly string[] _problematicDecodes = new string[]{
+	private static readonly string[] _problematicDecodes = [
 // This one doesn't work in Docker.
 """
 {
@@ -61,11 +61,7 @@ public class Tests : MerakiClientTest
 	}
 }
 """
-	};
-
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
+	];
 
 	[Fact]
 	public void GetOrganizationConfigurationChangesAsync_Succeeds()
@@ -85,8 +81,7 @@ public class Tests : MerakiClientTest
 		var result = await TestMerakiClient
 			.Organizations
 			.ConfigurationChanges
-			.GetOrganizationConfigurationChangesAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationConfigurationChangesAsync(Configuration.TestOrganizationId);
 		_ = result.Should().BeOfType<List<ChangeLogEntry>>();
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
@@ -98,8 +93,7 @@ public class Tests : MerakiClientTest
 		var result = await TestMerakiClient
 			.Organizations
 			.ConfigurationChanges
-			.GetOrganizationConfigurationChangesAllAsync(organizationId: Configuration.TestOrganizationId, cancellationToken: CancellationToken.None)
-			.ConfigureAwait(false);
+			.GetOrganizationConfigurationChangesAllAsync(organizationId: Configuration.TestOrganizationId, cancellationToken: CancellationToken.None);
 
 		_ = result.Should().BeOfType<List<ChangeLogEntry>>();
 		_ = result.Should().NotBeNull();

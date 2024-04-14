@@ -7,9 +7,16 @@ namespace Meraki.Api.Data;
 public class DeviceCellularSimsSimFailover
 {
 	/// <summary>
-	/// Failover
+	/// Timeout
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "failover")]
-	public bool? Failover { get; set; }
+	[DataMember(Name = "timeout")]
+	public int? Timeout { get; set; }
+
+	/// <summary>
+	/// Enabled
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "enabled")]
+	public bool? Enabled { get; set; }
 }

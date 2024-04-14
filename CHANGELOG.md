@@ -1,5 +1,18 @@
 ﻿# Changelog
 
+## 1.43.34
+- SwitchPortType updated to add Stack
+
+## 1.41.8
+- Added Organization Clients search in
+- Updated dependencies
+
+## 1.41.6
+- Updated for 1.41
+
+## 1.39.1
+- Updated for AlertType motionAlert
+
 ## 1.38.24
 - Added Z4 to be detected as an appliance
 

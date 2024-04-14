@@ -12,5 +12,5 @@ public class ConfigurationTemplate : NetworkOrConfigurationTemplate
 	[DataMember(Name = "productTypes")]
 	[ApiForeignKey(typeof(ProductType))]
 	[ApiAccess(ApiAccess.Read)]
-	public override List<ProductType> ProductTypes { get; set; } = new();
+	public override List<ProductType> ProductTypes { get; set; } = [];
 }

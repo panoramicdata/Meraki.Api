@@ -19,7 +19,7 @@ public class SwitchPort : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = new();
+	public List<string> Tags { get; set; } = [];
 
 	/// <summary>
 	/// The status of the switch port
@@ -187,4 +187,18 @@ public class SwitchPort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "profile")]
 	public SwitchPortProfile? Profile { get; set; }
+
+	/// <summary>
+	/// Switch Port Module
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "module")]
+	public SwitchPortModule? Module { get; set; }
+
+	/// <summary>
+	/// Switch Port Mirror
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "mirror")]
+	public SwitchPortMirror? Mirror { get; set; }
 }

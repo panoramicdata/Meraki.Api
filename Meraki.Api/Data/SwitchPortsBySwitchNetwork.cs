@@ -3,6 +3,4 @@
 /// Network details for switch port list
 /// </summary>
 [DataContract]
-public class SwitchPortsBySwitchNetwork : NamedIdentifiedItem
-{
-}
+public class SwitchPortsBySwitchNetwork : NamedIdentifiedItem;

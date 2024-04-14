@@ -16,13 +16,13 @@ public class AirMarshal
 	/// BSSIDS
 	/// </summary>
 	[DataMember(Name = "bssids")]
-	public List<Bssids> Bssids { get; set; } = new();
+	public List<Bssids> Bssids { get; set; } = [];
 
 	/// <summary>
 	/// Channels
 	/// </summary>
 	[DataMember(Name = "channels")]
-	public List<int> Channels { get; set; } = new();
+	public List<int> Channels { get; set; } = [];
 
 	/// <summary>
 	/// First seen
@@ -40,13 +40,13 @@ public class AirMarshal
 	/// Wired macs
 	/// </summary>
 	[DataMember(Name = "wiredMacs")]
-	public List<string> WiredMacs { get; set; } = new();
+	public List<string> WiredMacs { get; set; } = [];
 
 	/// <summary>
 	/// Wired vlans
 	/// </summary>
 	[DataMember(Name = "wiredVlans")]
-	public List<int> WiredVlans { get; set; } = new();
+	public List<int> WiredVlans { get; set; } = [];
 
 	/// <summary>
 	/// Wired last seen

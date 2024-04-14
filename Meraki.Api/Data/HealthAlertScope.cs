@@ -10,17 +10,17 @@ public class HealthAlertScope
 	/// Devices
 	/// </summary>
 	[DataMember(Name = "devices")]
-	public List<HealthAlertScopeDevices> Devices { get; set; } = new();
+	public List<HealthAlertScopeDevices> Devices { get; set; } = [];
 
 	/// <summary>
 	/// Applications
 	/// </summary>
 	[DataMember(Name = "applications")]
-	public List<ApplicationJson> Applications { get; set; } = new();
+	public List<ApplicationJson> Applications { get; set; } = [];
 
 	/// <summary>
 	/// Peers
 	/// </summary>
 	[DataMember(Name = "peers")]
-	public List<HealthAlertScopePeer> Peers { get; set; } = new();
+	public List<HealthAlertScopePeer> Peers { get; set; } = [];
 }

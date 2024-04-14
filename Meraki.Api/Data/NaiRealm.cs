@@ -24,5 +24,5 @@ public class NaiRealm
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "methods")]
-	public List<EapMethod> Methods { get; set; } = new();
+	public List<EapMethod> Methods { get; set; } = [];
 }

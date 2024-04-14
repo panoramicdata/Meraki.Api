@@ -13,13 +13,13 @@ public partial class OrganizationsSection
 
 	public IOrganizationsApiRequests ApiRequests { get; internal set; } = null!;
 
+	public IOrganizationsClients Clients { get; internal set; } = null!;
+
 	public IOrganizationsConfigTemplates ConfigTemplates { get; internal set; } = null!;
 
 	public IOrganizationsConfigurationChanges ConfigurationChanges { get; internal set; } = null!;
 
 	public IOrganizationsDevices Devices { get; internal set; } = null!;
-
-	public IOrganizationsDevicesAvailabilitiesHistories DevicesAvailabilitiesHistories { get; internal set; } = null!;
 
 	public OrganizationsEarlyAccessSection EarlyAccess { get; internal set; } = new();
 

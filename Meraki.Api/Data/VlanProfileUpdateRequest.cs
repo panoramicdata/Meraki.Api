@@ -16,11 +16,11 @@ public class VlanProfileUpdateRequest : NamedItem
 	/// An array of named VLANs
 	/// </summary>
 	[DataMember(Name = "vlanGroups")]
-	public List<VlanProfileVlanGroup> VlanGroups { get; set; } = new();
+	public List<VlanProfileVlanGroup> VlanGroups { get; set; } = [];
 
 	/// <summary>
 	/// An array of named VLANs
 	/// </summary>
 	[DataMember(Name = "vlanNames")]
-	public List<VlanProfileVlanName> VlanNames { get; set; } = new();
+	public List<VlanProfileVlanName> VlanNames { get; set; } = [];
 }

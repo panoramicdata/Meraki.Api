@@ -1,21 +1,15 @@
 ﻿namespace Meraki.Api.Test.Networks.Vlans;
-public class GetNetworkVlansTests : MerakiClientTest
+public class GetNetworkVlansTests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public GetNetworkVlansTests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetAllNetworkVlans()
 	{
-		var network = await GetFirstNetworkAsync()
-			.ConfigureAwait(false);
+		var network = await GetFirstNetworkAsync();
 
 		var result = await TestMerakiClient
 			.Appliance
 			.Vlans
-			.GetNetworkApplianceVlansAsync(network.Id)
-			.ConfigureAwait(false);
+			.GetNetworkApplianceVlansAsync(network.Id);
 		_ = result.Should().BeOfType<List<Vlan>>();
 		_ = result.Should().NotBeNull();
 	}

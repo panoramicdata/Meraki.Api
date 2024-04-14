@@ -36,5 +36,5 @@ public class SwitchPortsBySwitch : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ports")]
-	public List<SwitchPort> Ports { get; set; } = new();
+	public List<SwitchPort> Ports { get; set; } = [];
 }

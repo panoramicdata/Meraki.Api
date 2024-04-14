@@ -17,5 +17,11 @@ public enum SwitchPortType
 	/// Enum Access for "access"
 	/// </summary>
 	[EnumMember(Value = "access")]
-	Access
+	Access,
+
+	/// <summary>
+	///	Enum Stack for "stack"
+	///	</summary>
+	[EnumMember(Value = "stack")]
+	Stack
 }

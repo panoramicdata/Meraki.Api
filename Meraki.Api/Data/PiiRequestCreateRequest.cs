@@ -18,7 +18,7 @@ public class PiiRequestCreateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "datasets")]
-	public List<string>? Datasets { get; set; } = new();
+	public List<string>? Datasets { get; set; } = [];
 
 	/// <summary>
 	/// The username of a network log in. Only applies to "delete" requests.

@@ -32,7 +32,7 @@ public class FirmwareUpgradeProduct
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "availableVersions")]
-	public List<Version> AvailableVersions { get; set; } = new();
+	public List<Version> AvailableVersions { get; set; } = [];
 
 	/// <summary>
 	/// Participate in next beta release?

@@ -80,7 +80,7 @@ namespace Meraki.Api.Sections.General.Networks {
 			}
 		}
 
-		var compilation = CSharpCompilation.Create("foo", new SyntaxTree[] { syntaxTree }, references, new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+		var compilation = CSharpCompilation.Create("foo", [syntaxTree], references, new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
 		ISourceGenerator generator = new RefitClassGenerator();
 

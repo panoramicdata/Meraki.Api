@@ -33,6 +33,9 @@ public class SensorReadingHistoric
 	[DataMember(Name = "button")]
 	public SensorMetricButton? Button { get; set; }
 
+	[DataMember(Name = "co2")]
+	public SensorMetricCo2? Co2 { get; set; }
+
 	[DataMember(Name = "current")]
 	public SensorMetricCurrent? Current { get; set; }
 

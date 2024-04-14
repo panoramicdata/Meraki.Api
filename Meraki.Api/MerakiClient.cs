@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api;
+﻿using Meraki.Api.Sections.General.LiveTools;
+using Meraki.Api.Sections.Products.Licensing;
+
+namespace Meraki.Api;
 
 /// <summary>
 /// A Meraki Dashboard API client
@@ -68,6 +71,7 @@ public partial class MerakiClient : IDisposable
 				BrandingPolicies = RefitFor(Organizations.BrandingPolicies.BrandingPolicies),
 				Priorities = RefitFor(Organizations.BrandingPolicies.Priorities)
 			},
+			Clients = RefitFor(Organizations.Clients),
 			ConfigurationChanges = RefitFor(Organizations.ConfigurationChanges),
 			ConfigTemplates = RefitFor(Organizations.ConfigTemplates),
 			Devices = RefitFor(Organizations.Devices),
@@ -229,7 +233,8 @@ public partial class MerakiClient : IDisposable
 			Uplinks = new()
 			{
 				UsageHistory = RefitFor(Appliance.Uplinks.UsageHistory),
-				Settings = RefitFor(Appliance.Uplinks.Settings)
+				Settings = RefitFor(Appliance.Uplinks.Settings),
+				StatusesOverview = RefitFor(Appliance.Uplinks.StatusesOverview)
 			},
 			Vlans = new()
 			{
@@ -258,7 +263,7 @@ public partial class MerakiClient : IDisposable
 				Recent = RefitFor(Camera.Analytics.Recent),
 				Zones = RefitFor(Camera.Analytics.Zones)
 			},
-
+			Boundaries = RefitFor(Camera.Boundaries),
 			QualityAndRetention = RefitFor(Camera.QualityAndRetention),
 			Sense = new()
 			{
@@ -308,7 +313,6 @@ public partial class MerakiClient : IDisposable
 			Mtu = RefitFor(Switch.Mtu),
 			LinkAggregations = RefitFor(Switch.LinkAggregations),
 			Ports = RefitFor(Switch.Ports),
-			PortsProfiles = RefitFor(Switch.PortsProfiles),
 			PortSchedules = RefitFor(Switch.PortSchedules),
 			QosRules = RefitFor(Switch.QosRules),
 			Routing = new()
@@ -390,6 +394,20 @@ public partial class MerakiClient : IDisposable
 			MonitoredMediaServers = RefitFor(Insight.MonitoredMediaServers)
 		};
 
+		Licensing = new()
+		{
+			Subscriptions = RefitFor(Licensing.Subscriptions)
+		};
+
+		LiveTools = new()
+		{
+			ArpTable = RefitFor(LiveTools.ArpTable),
+			CableTest = RefitFor(LiveTools.CableTest),
+			Ping = RefitFor(LiveTools.Ping),
+			PingDevice = RefitFor(LiveTools.PingDevice),
+			WakeOnLan = RefitFor(LiveTools.WakeOnLan)
+		};
+
 		Sensor = new()
 		{
 			Alerts = new()
@@ -452,6 +470,10 @@ public partial class MerakiClient : IDisposable
 	public DevicesSection Devices { get; } = new();
 
 	public InsightSection Insight { get; } = new();
+
+	public LicensingSection Licensing { get; } = new();
+
+	public LiveToolsSection LiveTools { get; } = new();
 
 	public NetworksSection Networks { get; } = new();
 

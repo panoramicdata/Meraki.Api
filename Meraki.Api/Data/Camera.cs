@@ -28,5 +28,5 @@ public class Camera
 	/// Available versions
 	/// </summary>
 	[DataMember(Name = "availableVersions")]
-	public List<Version> AvailableVersions { get; set; } = new();
+	public List<Version> AvailableVersions { get; set; } = [];
 }

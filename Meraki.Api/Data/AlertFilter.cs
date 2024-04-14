@@ -62,4 +62,7 @@ public class AlertFilters
 	/// </summary>
 	[DataMember(Name = "tag")]
 	public string? Tag { get; set; }
+
+	[DataMember(Name = "min_duration")]
+	public int? MinDuration { get; set; }
 }

@@ -22,5 +22,5 @@ public class OrganizationLicenseState
 	/// Licensed device counts
 	/// </summary>
 	[DataMember(Name = "licensedDeviceCounts")]
-	public Dictionary<string, int> LicensedDeviceCounts { get; set; } = new Dictionary<string, int>();
+	public Dictionary<string, int> LicensedDeviceCounts { get; set; } = [];
 }

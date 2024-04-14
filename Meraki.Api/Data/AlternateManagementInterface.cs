@@ -25,12 +25,12 @@ public class AlternateManagementInterface
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "protocols")]
-	public List<string> Protocols { get; set; } = new();
+	public List<string> Protocols { get; set; } = [];
 
 	/// <summary>
 	/// Array of switch serial number and IP assignment. If parameter is present, it cannot have empty body. Note: switches parameter is not applicable for template networks, in other words, do not put 'switches' in the body when updating template networks. Also, an empty 'switches' array will remove all previous assignments
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "switches")]
-	public List<AlternateManagementSwitch> Switches { get; set; } = new();
+	public List<AlternateManagementSwitch> Switches { get; set; } = [];
 }

@@ -18,7 +18,7 @@ public class EarlyAccessFeatureOptIn : IdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "limitScopeToNetworks")]
-	public List<EarlyAccessFeatureOptInLimitScopeToNetwork> LimitScopeToNetworks { get; set; } = new();
+	public List<EarlyAccessFeatureOptInLimitScopeToNetwork> LimitScopeToNetworks { get; set; } = [];
 
 	/// <summary>
 	/// Created At

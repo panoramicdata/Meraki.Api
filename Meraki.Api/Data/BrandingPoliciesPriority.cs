@@ -12,5 +12,5 @@ public class BrandingPoliciesPriorities
 	/// <value>A list of branding policy IDs arranged in ascending priority order (IDs later in the array have higher priority).</value>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "brandingPolicyIds")]
-	public List<string> BrandingPolicyIds { get; set; } = new();
+	public List<string> BrandingPolicyIds { get; set; } = [];
 }

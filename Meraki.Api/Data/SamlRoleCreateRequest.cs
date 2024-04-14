@@ -22,11 +22,11 @@ public class SamlRoleCreateRequest
 	/// The list of tags that the SAML administrator has privileges on
 	/// </summary>
 	[DataMember(Name = "tags")]
-	public List<AdminTag> Tags { get; set; } = new();
+	public List<AdminTag> Tags { get; set; } = [];
 
 	/// <summary>
 	/// The list of networks that the SAML administrator has privileges on
 	/// </summary>
 	[DataMember(Name = "networks")]
-	public List<SamlRoleNetwork> Networks { get; set; } = new();
+	public List<SamlRoleNetwork> Networks { get; set; } = [];
 }

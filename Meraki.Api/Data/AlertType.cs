@@ -170,4 +170,13 @@ public enum AlertType
 
 	[EnumMember(Value = "pccExpiredApnsCert")]
 	PccExpiredApnsCert,
+
+	[EnumMember(Value = "motionAlert")]
+	MotionAlert,
+
+	[EnumMember(Value = "sensorPowerSavingScheduleSuccessEvent")]
+	SensorPowerSavingScheduleSuccessEvent,
+
+	[EnumMember(Value = "sensorPowerSavingScheduleFailureEvent")]
+	SensorPowerSavingScheduleFailureEvent,
 }

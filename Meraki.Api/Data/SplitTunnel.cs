@@ -18,5 +18,5 @@ public class SplitTunnel
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rules")]
-	public List<SplitTunnelRule> Rules { get; set; } = new();
+	public List<SplitTunnelRule> Rules { get; set; } = [];
 }

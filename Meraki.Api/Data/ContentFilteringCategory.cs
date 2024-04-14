@@ -1,5 +1,3 @@
 ﻿namespace Meraki.Api.Data;
 
-public class ContentFilteringCategory : NamedIdentifiedItem
-{
-}
+public class ContentFilteringCategory : NamedIdentifiedItem;

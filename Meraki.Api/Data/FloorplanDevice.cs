@@ -7,7 +7,7 @@
 [ApiAccessReadOnlyClass]
 public class FloorplanDevice : NamedItem
 {
-	public static int MaxAddressLength = 255;
+	public const int MaxAddressLength = 255;
 
 	/// <summary>
 	/// The latitude of a device
@@ -138,4 +138,11 @@ public class FloorplanDevice : NamedItem
 	/// </summary>
 	[DataMember(Name = "details")]
 	public List<DeviceDetail>? Details { get; set; }
+
+	/// <summary>
+	/// Imei
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "imei")]
+	public string? Imei { get; set; }
 }

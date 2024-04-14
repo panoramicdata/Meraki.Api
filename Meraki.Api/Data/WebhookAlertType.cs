@@ -58,7 +58,7 @@ public class WebhookAlertType
 	/// Alert data
 	/// </summary>
 	[DataMember(Name = "alertData")]
-	public List<string> AlertData { get; set; } = new();
+	public List<string> AlertData { get; set; } = [];
 
 	/// <summary>
 	/// Organization id
@@ -106,7 +106,7 @@ public class WebhookAlertType
 	/// Device tags
 	/// </summary>
 	[DataMember(Name = "deviceTags")]
-	public List<string> DeviceTags { get; set; } = new();
+	public List<string> DeviceTags { get; set; } = [];
 
 	/// <summary>
 	/// Device model

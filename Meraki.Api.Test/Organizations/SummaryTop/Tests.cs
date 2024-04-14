@@ -1,11 +1,7 @@
 ﻿namespace Meraki.Api.Test.Organizations.SummaryTop;
 
-public class Tests : MerakiClientTest
+public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
-	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetOrganizationSummaryTopSwitchesByEnergyUsageAsync_Succeeds()
 	{
@@ -13,8 +9,7 @@ public class Tests : MerakiClientTest
 			.Organizations
 			.Summary
 			.Top
-			.GetOrganizationSummaryTopSwitchesByEnergyUsageAsync("542676", "2022-10-12", "2022-10-13")
-			.ConfigureAwait(false);
+			.GetOrganizationSummaryTopSwitchesByEnergyUsageAsync("542676", "2022-10-12", "2022-10-13");
 
 		_ = result.Should().BeOfType<List<EnergyUsageSummary>>();
 		_ = result.Should().NotBeNull();

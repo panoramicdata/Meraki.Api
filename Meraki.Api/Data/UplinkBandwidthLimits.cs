@@ -21,6 +21,13 @@ public class UplinkBandwidthLimits
 	public BandwidthLimit? Wan2 { get; set; }
 
 	/// <summary>
+	/// The bandwidth settings for the 'wan3' uplink
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "wan3")]
+	public BandwidthLimit? Wan3 { get; set; }
+
+	/// <summary>
 	/// The bandwidth settings for the 'cellular' uplink
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

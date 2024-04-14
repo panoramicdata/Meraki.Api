@@ -11,7 +11,7 @@ public class SmDevicesCheckinRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "ids")]
-	public List<string> Ids { get; set; } = new();
+	public List<string> Ids { get; set; } = [];
 
 	/// <summary>
 	/// The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be checked-in.

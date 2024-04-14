@@ -4,6 +4,4 @@
 /// A camera schedule
 /// </summary>
 [DataContract]
-public class CameraSchedule : NamedIdentifiedItem
-{
-}
+public class CameraSchedule : NamedIdentifiedItem;

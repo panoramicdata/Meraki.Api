@@ -13,7 +13,7 @@ public interface IApplianceTrafficShapingVpnExclusions
 	/// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
 	[ApiOperationId("getOrganizationApplianceTrafficShapingVpnExclusionsByNetwork")]
 	[Get("/organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork")]
-	Task<List<TrafficShapingVpnExclusionsByNetwork>> GetNetworkApplianceTrafficShapingRulesAsync(
+	Task<TrafficShapingVpnExclusionsByNetworkResponse> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkAsync(
 		string organizationId,
 		int? perPage,
 		string? startingAfter,
@@ -22,21 +22,21 @@ public interface IApplianceTrafficShapingVpnExclusions
 		CancellationToken cancellationToken = default
 		);
 
-	/// <summary>
-	/// Display VPN exclusion rules for MX networks. Used internally for the GetAll endpoint
-	/// </summary>
-	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId">The organization id</param>
-	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
-	/// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
-	[ApiOperationId("getOrganizationApplianceTrafficShapingVpnExclusionsByNetwork")]
-	[Get("/organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork")]
-	internal Task<ApiResponse<List<TrafficShapingVpnExclusionsByNetwork>>> GetNetworkApplianceTrafficShapingRulesApiResponseAsync(
-		string organizationId,
-		string? startingAfter,
-		[AliasAs("networkIds[]")] List<string>? networkIds,
-		CancellationToken cancellationToken = default
-		);
+	///// <summary>
+	///// Display VPN exclusion rules for MX networks. Used internally for the GetAll endpoint
+	///// </summary>
+	///// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	///// <param name="organizationId">The organization id</param>
+	///// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+	///// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
+	//[ApiOperationId("getOrganizationApplianceTrafficShapingVpnExclusionsByNetwork")]
+	//[Get("/organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork")]
+	//internal Task<ApiResponse<TrafficShapingVpnExclusionsByNetworkResponse>> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkApiResponseAsync(
+	//	string organizationId,
+	//	string? startingAfter,
+	//	[AliasAs("networkIds[]")] List<string>? networkIds,
+	//	CancellationToken cancellationToken = default
+	//	);
 
 	/// <summary>
 	/// Update VPN exclusion rules for an MX network.
@@ -46,7 +46,7 @@ public interface IApplianceTrafficShapingVpnExclusions
 	/// <param name="trafficShapingVpnExclusions">Traffic Shaping Vpn Exclusions</param>
 	[ApiOperationId("updateNetworkApplianceTrafficShapingVpnExclusions")]
 	[Put("/networks/{networkId}/appliance/trafficShaping/vpnExclusions")]
-	Task<TrafficShapingVpnExclusionsByNetwork> UpdateNetworkApplianceTrafficShapingVpnExclusionsAsync(
+	Task<TrafficShapingVpnExclusionsByNetworkResponse> UpdateNetworkApplianceTrafficShapingVpnExclusionsAsync(
 		string networkId,
 		[Body] TrafficShapingVpnExclusions trafficShapingVpnExclusions,
 		CancellationToken cancellationToken = default
