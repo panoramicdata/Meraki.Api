@@ -18,5 +18,5 @@ public class MqttSecurityCreateUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tls")]
-	public MqttTlsSettingCreateUpdateRequest TlsSetting { get; set; } = new();
+	public MqttTlsSettingCreateUpdateRequest? TlsSetting { get; set; }
 }

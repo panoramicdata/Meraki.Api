@@ -25,7 +25,7 @@ public class MqttBrokerCreateUpdateRequest : NamedIdentifiedItem
 	public MqttAuthentication Authentication { get; set; } = new();
 
 	/// <summary>
-	/// Security settings of the MQTT broker.
+	/// Security settings of the MQTT broker.  - API v1.45 Changelog indicated this property is deprecated but it remains documented (2024-04-15)
 	/// </summary>
 	[DataMember(Name = "security")]
 	public MqttSecurityCreateUpdateRequest Security { get; set; } = new();
