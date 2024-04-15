@@ -25,12 +25,12 @@ public class SensorAlertProfileCondition
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "direction")]
-	public string? Direction { get; set; }
+	public SensorAlertConditionDirection? Direction { get; set; }
 
 	/// <summary>
 	/// Duration
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "duration")]
-	public int? Duration { get; set; }
+	public SensorAlertConditionDuration? Duration { get; set; }
 }
