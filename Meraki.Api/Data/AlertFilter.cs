@@ -35,7 +35,7 @@ public class AlertFilters
 	/// - SensorBatteryPercentage in %  (e.g. 5)
 	/// </summary>
 	[DataMember(Name = "threshold")]
-	public long? Threshold { get; set; }
+	public int? Threshold { get; set; }
 
 	/// <summary>
 	/// The period for the alert in seconds.
@@ -43,10 +43,10 @@ public class AlertFilters
 	/// - UsageAlert (e.g. 1200)
 	/// </summary>
 	[DataMember(Name = "period")]
-	public long? PeriodSeconds { get; set; }
+	public int? PeriodSeconds { get; set; }
 
 	/// <summary>
-	/// Undocumented
+	/// Regex
 	/// </summary>
 	[DataMember(Name = "regex")]
 	public string? Regex { get; set; }
@@ -58,11 +58,62 @@ public class AlertFilters
 	public List<AlertFiltersClient>? Clients { get; set; }
 
 	/// <summary>
-	/// Undocumented
+	/// Tag
 	/// </summary>
 	[DataMember(Name = "tag")]
 	public string? Tag { get; set; }
 
-	[DataMember(Name = "min_duration")]
+	/// <summary>
+	/// Min Duration
+	/// </summary>
+	[DataMember(Name = "minDuration")]
 	public int? MinDuration { get; set; }
+
+	/// <summary>
+	/// Failure Type
+	/// </summary>
+	[DataMember(Name = "failureType")]
+	public string? FailureType { get; set; }
+
+	/// <summary>
+	/// Loopback Window (in sec) - The summary description does not match the property name but it is as documented 2024-04-15
+	/// </summary>
+	[DataMember(Name = "lookbackWindow")]
+	public int? LookbackWindow { get; set; }
+
+	/// <summary>
+	/// Name
+	/// </summary>
+	[DataMember(Name = "name")]
+	public string? Name { get; set; }
+
+	/// <summary>
+	/// Period
+	/// </summary>
+	[DataMember(Name = "period")]
+	public int? Period { get; set; }
+
+	/// <summary>
+	/// Priority
+	/// </summary>
+	[DataMember(Name = "priority")]
+	public string? Priority { get; set; }
+
+	/// <summary>
+	/// Serials
+	/// </summary>
+	[DataMember(Name = "serials")]
+	public List<string>? Serials { get; set; }
+
+	/// <summary>
+	/// SSID Number
+	/// </summary>
+	[DataMember(Name = "ssidNum")]
+	public int? SsidNum { get; set; }
+
+	/// <summary>
+	/// Conditions
+	/// </summary>
+	[DataMember(Name = "conditions")]
+	public List<AlertFiltersCondition>? Conditions { get; set; }
 }
