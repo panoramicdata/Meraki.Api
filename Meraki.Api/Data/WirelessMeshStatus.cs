@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Mesh statuses
+/// Mesh status
 /// </summary>
 [DataContract]
-public class WirelessMeshStatuses
+public class WirelessMeshStatus
 {
 	/// <summary>
 	/// Serial
