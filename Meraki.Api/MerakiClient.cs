@@ -190,6 +190,9 @@ public partial class MerakiClient : IDisposable
 					Statics = RefitFor(Appliance.Prefixes.Delegated.Statics)
 				}
 			},
+			RadioSettings = RefitFor(Appliance.RadioSettings),
+			RfProfiles = RefitFor(Appliance.RfProfiles),
+			SdwanInternetPolices = RefitFor(Appliance.SdwanInternetPolices),
 			Security = new()
 			{
 				Intrusion = RefitFor(Appliance.Security.Intrusion),
