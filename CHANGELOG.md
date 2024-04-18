@@ -1,4 +1,8 @@
 ﻿# Changelog
+## 1.45.1
+- BREAKING CHANGE : deleteNetworkGroupPolicy now requires a 'force' parameter
+- Updates for 1.45 API changes
+- Added missing member 'host' to organization cloud region.
 
 ## 1.43.34
 - SwitchPortType updated to add Stack
