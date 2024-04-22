@@ -102,7 +102,23 @@ public interface IWirelessRfProfiles
 		string? model,
 		[AliasAs("macs[]")] List<string>? macs,
 		[AliasAs("serials[]")] List<string>? serials,
-		[AliasAs("models[]")] List<string>? models.
+		[AliasAs("models[]")] List<string>? models,
+		CancellationToken cancellationToken = default
+		);
+
+	[Get("/organizations/{organizationId}/wireless/rfProfiles/assignments/byDevice")]
+	internal Task<ApiResponse<List<RfProfilesByDevice>>> GetOrganizationWirelessRfProfilesAssignmentsByDeviceApiResponseAsync(
+		string organizationId,
+		string? startingAfter,
+		[AliasAs("networkIds[]")] List<string>? networkIds,
+		[AliasAs("productTypes[]")] List<ProductType> productTypes,
+		string? name,
+		string? mac,
+		string? serial,
+		string? model,
+		[AliasAs("macs[]")] List<string>? macs,
+		[AliasAs("serials[]")] List<string>? serials,
+		[AliasAs("models[]")] List<string>? models,
 		CancellationToken cancellationToken = default
 		);
 }
