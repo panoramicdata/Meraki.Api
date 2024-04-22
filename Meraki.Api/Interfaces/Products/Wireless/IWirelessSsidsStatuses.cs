@@ -28,5 +28,4 @@ public interface IWirelessSsidsStatuses
 		int? endingBefore,
 		CancellationToken cancellationToken = default
 		);
-
 }
