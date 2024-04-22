@@ -33,7 +33,11 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 			MissingMemberHandling = MissingMemberHandling.Error,
 			Converters = [new StringEnumConverter()]
 		};
-
+		_jsonSerializerSettingsWithIgnore.Error = (object sender, Newtonsoft.Json.Serialization.ErrorEventArgs args) =>
+		{
+			//errors.Add(args.ErrorContext.Error.Message);
+			args.ErrorContext.Handled = true;
+		};
 		_serializerIgnore = new NewtonsoftJsonContentSerializer(_jsonSerializerSettingsWithIgnore);
 	}
 
