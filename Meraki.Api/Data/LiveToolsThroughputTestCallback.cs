@@ -8,7 +8,7 @@
 public class LiveToolsThroughputTestCallback
 {
 	/// <summary>
-	/// Callbackl ID
+	/// Callback ID
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "callbackId")]
