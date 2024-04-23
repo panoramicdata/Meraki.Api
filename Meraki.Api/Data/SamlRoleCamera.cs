@@ -9,14 +9,14 @@ public class SamlRoleCamera
 	/// <summary>
 	/// Camera access ability
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "access")]
-	public string Access { get; set; } = string.Empty;
+	public string? Access { get; set; }
 
 	/// <summary>
 	/// Whether or not SAML administrator has org-wide access
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "orgWide")]
-	public string? OrgWide { get; set; } = string.Empty;
+	public bool? OrgWide { get; set; }
 }
