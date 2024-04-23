@@ -2,15 +2,17 @@
 
 namespace Meraki.Api.Sections.General.LiveTools;
 
-public partial class LiveToolsSection
+public class LiveToolsSection
 {
-	internal ILiveToolsArpTable ArpTable { get; set; } = null!;
+	public ILiveToolsArpTable ArpTable { get; set; } = null!;
 
-	internal ILiveToolsCableTest CableTest { get; set; } = null!;
+	public ILiveToolsCableTest CableTest { get; set; } = null!;
 
-	internal ILiveToolsPing Ping { get; set; } = null!;
+	public ILiveToolsPing Ping { get; set; } = null!;
 
-	internal ILiveToolsPingDevice PingDevice { get; set; } = null!;
+	public ILiveToolsPingDevice PingDevice { get; set; } = null!;
 
-	internal ILiveToolsWakeOnLan WakeOnLan { get; set; } = null!;
+	public ILiveToolsWakeOnLan WakeOnLan { get; set; } = null!;
+
+	public ILiveToolsThroughputTest ThroughputTest { get; set; } = null!;
 }

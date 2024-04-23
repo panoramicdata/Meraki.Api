@@ -411,6 +411,7 @@ public partial class MerakiClient : IDisposable
 			CableTest = RefitFor(LiveTools.CableTest),
 			Ping = RefitFor(LiveTools.Ping),
 			PingDevice = RefitFor(LiveTools.PingDevice),
+			ThroughputTest = RefitFor(LiveTools.ThroughputTest),
 			WakeOnLan = RefitFor(LiveTools.WakeOnLan)
 		};
 
