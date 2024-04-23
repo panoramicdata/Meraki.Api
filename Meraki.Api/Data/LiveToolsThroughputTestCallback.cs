@@ -26,7 +26,7 @@ public class LiveToolsThroughputTestCallback
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "message")]
-	public LiveToolsThroughputTestCallbackMessage? Messsage { get; set; }
+	public LiveToolsThroughputTestCallbackMessage? Message { get; set; }
 
 	/// <summary>
 	/// Network
