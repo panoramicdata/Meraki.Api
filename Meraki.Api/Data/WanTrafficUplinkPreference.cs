@@ -3,6 +3,7 @@
 /// <summary>
 /// policies with respective traffic filters for an MX network
 /// </summary>
+[DataContract]
 public class WanTrafficUplinkPreference
 {
 	/// <summary>
