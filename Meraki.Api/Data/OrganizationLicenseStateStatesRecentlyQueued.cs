@@ -3,6 +3,7 @@
 /// <summary>
 /// An organization licence state states recently queued
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class OrganizationLicenseStateStatesRecentlyQueued
 {

@@ -3,6 +3,7 @@
 /// <summary>
 /// Aggregated license count data for Systems Manager
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class OrganizationLicenseStateSystemsManagerCounts
 {

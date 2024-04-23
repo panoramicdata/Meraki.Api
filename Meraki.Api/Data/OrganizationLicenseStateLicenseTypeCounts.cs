@@ -3,6 +3,7 @@
 /// <summary>
 /// Aggregated count data for the license type
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class OrganizationLicenseStateLicenseTypeCounts
 {

@@ -3,6 +3,7 @@
 /// <summary>
 /// Aggregated data for Systems Manager licenses (Per-device licensing only)
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class OrganizationLicenseStateSystemsManager
 {

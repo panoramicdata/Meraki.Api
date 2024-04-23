@@ -3,6 +3,7 @@
 /// <summary>
 /// Data by license type (Per-device licensing only)
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class OrganizationLicenseStateLicenseType
 {

@@ -3,6 +3,7 @@
 /// <summary>
 /// An organization licence state states unused
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class OrganizationLicenseStateStatesUnused
 {

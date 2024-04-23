@@ -3,6 +3,7 @@
 /// <summary>
 /// An organization licence state states unused active oldest activation
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class OrganizationLicenseStateStatesUnusedActiveOldestActivation
 {

@@ -3,6 +3,7 @@
 /// <summary>
 /// An organization licence state states unused soonest activation
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class OrganizationLicenseStateStatesUnusedSoonestActivation
 {

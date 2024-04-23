@@ -47,5 +47,5 @@ public class OrganizationLicenseState
 	/// Data by license type (Per-device licensing only)
 	/// </summary>
 	[DataMember(Name = "licenseTypes")]
-	public List<OrganizationLicenseStateLicenseType> LicenseTypes { get; set; } = new();
+	public List<OrganizationLicenseStateLicenseType> LicenseTypes { get; set; } = [];
 }
