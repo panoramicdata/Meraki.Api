@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
+[ApiAccessReadOnlyClass]
 [DataContract]
-
 public class ClientSearchResultRecords
 {
 	/// <summary>
@@ -105,4 +105,10 @@ public class ClientSearchResultRecords
 	/// </summary>
 	[DataMember(Name = "status")]
 	public string Status { get; set; } = string.Empty;
+
+	/// <summary>
+	/// The MAC address of the node that the device was last connected to
+	/// </summary>
+	[DataMember(Name = "recentDeviceMac")]
+	public string RecentDeviceMac { get; set; } = string.Empty;
 }

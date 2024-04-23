@@ -16,5 +16,11 @@ public enum Band
 	/// Enum Band5GHz for "5"
 	/// </summary>
 	[EnumMember(Value = "5")]
-	FiveGHz
+	FiveGHz,
+
+	/// <summary>
+	/// Enum Band6GHz for "6"
+	/// </summary>
+	[EnumMember(Value = "6")]
+	SixGHz
 }

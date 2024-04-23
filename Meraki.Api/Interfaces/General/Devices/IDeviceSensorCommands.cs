@@ -42,13 +42,14 @@ public interface IDeviceSensorCommands
 	/// Returns information about the command's execution, including the status
 	/// </summary>
 	/// <param name="serial">Serial</param>
+	/// <param name="commandId">CommandId</param>
 	/// <param name="cancellationToken"></param>
 	/// <returns>A <see cref="SensorCommand"></returns>
 	[ApiOperationId("getDeviceSensorCommand")]
-	[Get("/devices/{serial}/sensor/commands/{id}")]
+	[Get("/devices/{serial}/sensor/commands/{commandId}")]
 	Task<SensorCommand> GetDeviceSensorCommandAsync(
 		string serial,
-		string id,
+		string commandId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

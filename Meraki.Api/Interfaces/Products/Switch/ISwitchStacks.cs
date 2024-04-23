@@ -17,7 +17,7 @@ public interface ISwitchStacks
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// Create a stack
+	/// Create a switch stack
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>

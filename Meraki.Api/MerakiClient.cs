@@ -97,6 +97,8 @@ public partial class MerakiClient : IDisposable
 			{
 				Top = RefitFor(Organizations.Summary.Top)
 			},
+			SwitchPortsOverview = RefitFor(Organizations.SwitchPortsOverview),
+			Uplinks = RefitFor(Organizations.Uplinks),
 			Webhooks = new()
 			{
 				AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes),
@@ -190,6 +192,9 @@ public partial class MerakiClient : IDisposable
 					Statics = RefitFor(Appliance.Prefixes.Delegated.Statics)
 				}
 			},
+			RadioSettings = RefitFor(Appliance.RadioSettings),
+			RfProfiles = RefitFor(Appliance.RfProfiles),
+			SdwanInternetPolices = RefitFor(Appliance.SdwanInternetPolices),
 			Security = new()
 			{
 				Intrusion = RefitFor(Appliance.Security.Intrusion),
@@ -378,6 +383,7 @@ public partial class MerakiClient : IDisposable
 				IdentityPsks = RefitFor(Wireless.Ssids.IdentityPsks),
 				Schedules = RefitFor(Wireless.Ssids.Schedules),
 				Splash = RefitFor(Wireless.Ssids.Splash),
+				Statuses = RefitFor(Wireless.Ssids.Statuses),
 				TrafficShaping = RefitFor(Wireless.Ssids.TrafficShaping),
 				Vpn = RefitFor(Wireless.Ssids.Vpn)
 			},
@@ -405,6 +411,7 @@ public partial class MerakiClient : IDisposable
 			CableTest = RefitFor(LiveTools.CableTest),
 			Ping = RefitFor(LiveTools.Ping),
 			PingDevice = RefitFor(LiveTools.PingDevice),
+			ThroughputTest = RefitFor(LiveTools.ThroughputTest),
 			WakeOnLan = RefitFor(LiveTools.WakeOnLan)
 		};
 

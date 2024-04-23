@@ -12,6 +12,7 @@ public class AlertFilters
 	/// PortError: (e.g. "any port" )
 	/// PortSpeed: (e.g. "any port" )
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "selector")]
 	public string? Selector { get; set; }
 
@@ -25,6 +26,7 @@ public class AlertFilters
 	/// - CameraDown
 	/// - SensorDown
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "timeout")]
 	public int? TimeoutMinutes { get; set; }
 
@@ -34,6 +36,7 @@ public class AlertFilters
 	/// - UsageAlert in bytes (e.g. 104857600)
 	/// - SensorBatteryPercentage in %  (e.g. 5)
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "threshold")]
 	public long? Threshold { get; set; }
 
@@ -42,27 +45,84 @@ public class AlertFilters
 	/// Set for:
 	/// - UsageAlert (e.g. 1200)
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "period")]
 	public long? PeriodSeconds { get; set; }
 
 	/// <summary>
-	/// Undocumented
+	/// Regex
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "regex")]
 	public string? Regex { get; set; }
 
 	/// <summary>
 	/// Alert Filter Clients
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "clients")]
 	public List<AlertFiltersClient>? Clients { get; set; }
 
 	/// <summary>
-	/// Undocumented
+	/// Tag
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "tag")]
 	public string? Tag { get; set; }
 
-	[DataMember(Name = "min_duration")]
+	/// <summary>
+	/// Min Duration
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "minDuration")]
 	public int? MinDuration { get; set; }
+
+	/// <summary>
+	/// Failure Type
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "failureType")]
+	public string? FailureType { get; set; }
+
+	/// <summary>
+	/// Loopback Window (in sec) - The summary description does not match the property name but it is as documented 2024-04-15
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "lookbackWindow")]
+	public int? LookbackWindow { get; set; }
+
+	/// <summary>
+	/// Name
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "name")]
+	public string? Name { get; set; }
+
+	/// <summary>
+	/// Priority
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "priority")]
+	public string? Priority { get; set; }
+
+	/// <summary>
+	/// Serials
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "serials")]
+	public List<string>? Serials { get; set; }
+
+	/// <summary>
+	/// SSID Number
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "ssidNum")]
+	public int? SsidNum { get; set; }
+
+	/// <summary>
+	/// Conditions
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "conditions")]
+	public List<AlertFiltersCondition>? Conditions { get; set; }
 }

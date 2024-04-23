@@ -12,6 +12,7 @@ public partial class WirelessSsidsSection
 	public IWirelessSsidsIdentityPsks IdentityPsks { get; internal set; } = null!;
 	public IWirelessSsidsSchedules Schedules { get; internal set; } = null!;
 	public IWirelessSsidsSplash Splash { get; internal set; } = null!;
+	public IWirelessSsidsStatuses Statuses { get; internal set; } = null!;
 	public IWirelessSsidsTrafficShaping TrafficShaping { get; internal set; } = null!;
 	public IWirelessSsidsVpn Vpn { get; internal set; } = null!;
 }

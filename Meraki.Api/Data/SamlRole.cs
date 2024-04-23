@@ -21,23 +21,23 @@ public class SamlRole : IdentifiedItem
 	public string OrgAccess { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The list of tags that the SAML administrator has privleges on
+	/// The list of tags that the SAML administrator has privileges on
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tags")]
-	public List<AdminTag> Tags { get; set; } = [];
+	public List<AdminTag>? Tags { get; set; } = [];
 
 	/// <summary>
 	/// The list of networks that the SAML administrator has privileges on
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "networks")]
-	public List<SamlRoleNetwork> Networks { get; set; } = [];
+	public List<SamlRoleNetwork>? Networks { get; set; } = [];
 
 	/// <summary>
-	/// Camera - Undocumented object
+	/// Camera
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "camera")]
-	public object? Camera { get; set; }
+	public SamlRoleCamera? Camera { get; set; }
 }

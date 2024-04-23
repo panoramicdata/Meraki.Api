@@ -3,7 +3,7 @@
 public interface ICameraAnalyticsLive
 {
 	/// <summary>
-	/// Returns live state from camera of analytics zones
+	/// Returns live state from camera analytics zones
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>

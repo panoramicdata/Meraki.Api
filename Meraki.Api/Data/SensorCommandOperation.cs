@@ -13,4 +13,7 @@ public enum SensorCommandOperation
 
 	[EnumMember(Value = "enableDownstreamPower")]
 	EnableDownstreamPower,
+
+	[EnumMember(Value = "refreshData")]
+	RefreshData,
 }

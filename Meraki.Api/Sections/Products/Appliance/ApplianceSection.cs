@@ -12,6 +12,7 @@ public class ApplianceSection
 	public AppliancePrefixesSection Prefixes { get; internal set; } = new();
 	public IApplianceRadioSettings RadioSettings { get; internal set; } = null!;
 	public IApplianceRfProfiles RfProfiles { get; internal set; } = null!;
+	public IApplianceSdwanInternetPolicies SdwanInternetPolices { get; internal set; } = null!;
 	public ApplianceSecuritySection Security { get; internal set; } = new();
 	public IApplianceSettings Settings { get; internal set; } = null!;
 	public IApplianceSingleLan SingleLan { get; internal set; } = null!;

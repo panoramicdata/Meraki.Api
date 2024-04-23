@@ -198,7 +198,7 @@ public class SwitchPort : NamedItem
 	/// <summary>
 	/// Switch Port Mirror
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "mirror")]
 	public SwitchPortMirror? Mirror { get; set; }
 }

@@ -14,10 +14,10 @@ public interface IWirelessMeshStatuses
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	[Get("/networks/{networkId}/wireless/meshStatuses")]
-	Task<List<LatencyHistory>> GetNetworkWirelessMeshStatusesAsync(
+	Task<List<WirelessMeshStatus>> GetNetworkWirelessMeshStatusesAsync(
 		string networkId,
-		int? perPage = 500,
-		string? startingAfter = null,
-		string? endingBefore = null,
+		int? perPage,
+		string? startingAfter,
+		string? endingBefore,
 		CancellationToken cancellationToken = default);
 }
