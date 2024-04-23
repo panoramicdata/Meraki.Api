@@ -3,21 +3,19 @@
 /// <summary>
 /// Live Tools Throughput Test Callback Payload Organzation
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
-
-public class LiveToolsThroughputTestCallbackOrganization
+public class LiveToolsThroughputTestCallbackPayloadOrganization
 {
 	/// <summary>
 	/// id
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "id")]
 	public string? Id { get; set; }
 
 	/// <summary>
 	/// name
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "name")]
 	public string? Name { get; set; }
 }

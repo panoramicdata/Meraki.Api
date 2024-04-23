@@ -3,14 +3,13 @@
 /// <summary>
 /// Live Tools Throughput Test Callback Payload Message Result
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
-
-public class LiveToolsThroughputTestCallbackMessageResult
+public class LiveToolsThroughputTestCallbackPayloadMessageResult
 {
 	/// <summary>
 	///  Shows the speeds in (KB/s)
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "speeds")]
 	public LiveToolsThroughputTestCallbackMessageResultSpeeds? Speeds { get; set; }
 }

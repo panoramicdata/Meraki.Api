@@ -3,14 +3,14 @@
 /// <summary>
 /// Live Tools Throughput Test Callback Payload Message Request
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 
-public class LiveToolsThroughputTestCallbackMessageRequest
+public class LiveToolsThroughputTestCallbackPayloadMessageRequest
 {
 	/// <summary>
 	///  Device serial number
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "serial")]
 	public string? Serial { get; set; }
 }
