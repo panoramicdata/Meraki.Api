@@ -5,7 +5,7 @@
 /// </summary>
 [ApiAccessReadOnlyClass]
 [DataContract]
-public class LiveToolsThroughputTestCallbackMessageResultSpeeds
+public class LiveToolsThroughputTestCallbackPayloadMessageResultSpeeds
 {
 	/// <summary>
 	///  Shows the download speed from shard in (Mbps)

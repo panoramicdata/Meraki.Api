@@ -11,5 +11,5 @@ public class LiveToolsThroughputTestCallbackPayloadMessageResult
 	///  Shows the speeds in (KB/s)
 	/// </summary>
 	[DataMember(Name = "speeds")]
-	public LiveToolsThroughputTestCallbackMessageResultSpeeds? Speeds { get; set; }
+	public LiveToolsThroughputTestCallbackPayloadMessageResultSpeeds? Speeds { get; set; }
 }
