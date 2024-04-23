@@ -3,14 +3,13 @@
 /// <summary>
 /// Rf Profiles By Device Meta
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class RfProfilesByDeviceMeta
 {
 	/// <summary>
 	/// Count metadata related to this result set.
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "counts")]
 	public RfProfilesByDeviceMetaCounts Counts { get; set; } = new();
-
 }

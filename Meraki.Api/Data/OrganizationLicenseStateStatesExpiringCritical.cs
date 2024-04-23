@@ -3,6 +3,7 @@
 /// <summary>
 /// An organization licence state states expiring critical
 /// </summary>
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class OrganizationLicenseStateStatesExpiringCritical
 {

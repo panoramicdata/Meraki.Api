@@ -1,12 +1,12 @@
 ﻿namespace Meraki.Api.Data;
 
+[ApiAccessReadOnlyClass]
 [DataContract]
 public class CloudInformation
 {
 	/// <summary>
 	/// The region
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "region")]
 	public Region Region { get; set; } = new();
 }
