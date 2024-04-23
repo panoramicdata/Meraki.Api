@@ -35,7 +35,7 @@ public class AlertFilters
 	/// - SensorBatteryPercentage in %  (e.g. 5)
 	/// </summary>
 	[DataMember(Name = "threshold")]
-	public int? Threshold { get; set; }
+	public long? Threshold { get; set; }
 
 	/// <summary>
 	/// The period for the alert in seconds.
@@ -43,7 +43,7 @@ public class AlertFilters
 	/// - UsageAlert (e.g. 1200)
 	/// </summary>
 	[DataMember(Name = "period")]
-	public int? PeriodSeconds { get; set; }
+	public long? PeriodSeconds { get; set; }
 
 	/// <summary>
 	/// Regex
