@@ -88,12 +88,6 @@ public class AlertFilters
 	public string? Name { get; set; }
 
 	/// <summary>
-	/// Period
-	/// </summary>
-	[DataMember(Name = "period")]
-	public int? Period { get; set; }
-
-	/// <summary>
 	/// Priority
 	/// </summary>
 	[DataMember(Name = "priority")]
