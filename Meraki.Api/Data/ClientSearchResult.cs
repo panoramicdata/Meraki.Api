@@ -2,7 +2,6 @@
 
 [ApiAccessReadOnlyClass]
 [DataContract]
-
 public class ClientSearchResult
 {
 	/// <summary>

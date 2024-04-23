@@ -19,7 +19,7 @@ public enum Band
 	FiveGHz,
 
 	/// <summary>
-	/// Enum Band5GHz for "6"
+	/// Enum Band6GHz for "6"
 	/// </summary>
 	[EnumMember(Value = "6")]
 	SixGHz
