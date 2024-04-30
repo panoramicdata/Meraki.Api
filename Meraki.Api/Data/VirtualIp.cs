@@ -11,12 +11,12 @@ public class VirtualIp
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "ip")]
-	public string Ip { get; set; } = string.Empty;
+	public string? Ip { get; set; }
 
 	/// <summary>
 	/// The Subnet
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "subnet")]
-	public string Subnet { get; set; } = string.Empty;
+	public string? Subnet { get; set; }
 }

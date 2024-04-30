@@ -39,12 +39,12 @@ public class WarmSpare
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "wan1")]
-	public VirtualIp Wan1 { get; set; } = new();
+	public VirtualIp? Wan1 { get; set; }
 
 	/// <summary>
 	/// The WAN 2 shared IP
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "wan2")]
-	public VirtualIp Wan2 { get; set; } = new();
+	public VirtualIp? Wan2 { get; set; }
 }
