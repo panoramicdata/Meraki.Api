@@ -35,6 +35,13 @@ public class FirmwareProducts
 	public FirmwareUpgradeProduct Environmental { get; set; } = new();
 
 	/// <summary>
+	/// secureConnect
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "secureConnect")]
+	public FirmwareUpgradeProduct SecureConnect { get; set; } = new();
+
+	/// <summary>
 	/// sensor
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

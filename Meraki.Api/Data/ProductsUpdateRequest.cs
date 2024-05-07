@@ -31,6 +31,12 @@ public class ProductsUpdateRequest
 	public NetworkFirmwareUpdateRequestProduct? Environmental { get; set; }
 
 	/// <summary>
+	/// SecureConnect
+	/// </summary>
+	[DataMember(Name = "secureConnect")]
+	public NetworkFirmwareUpdateRequestProduct? SecureConnect { get; set; }
+
+	/// <summary>
 	/// Switch
 	/// </summary>
 	[DataMember(Name = "switch")]
