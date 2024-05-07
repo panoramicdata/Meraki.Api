@@ -65,6 +65,7 @@ public class RoutingInterface : NamedItem
 	/// <summary>
 	/// The OSPFv3 routing settings of the interface.
 	/// </summary>
+	[Obsolete("Removed in API v1.46")]
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ospfV3")]
 	public OspfSettings? OspfV3 { get; set; }
