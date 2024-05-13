@@ -15,7 +15,7 @@ public class OrganizationAssuranceAlertsOverviewHistoricalItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "totals")]
-	public OrganizationAssuranceAlertsOverviewHistoricalItemTotals Totals { get; set; } = [];
+	public OrganizationAssuranceAlertsOverviewHistoricalItemTotals Totals { get; set; } = new();
 
 	/// <summary>
 	/// Totals by Type
