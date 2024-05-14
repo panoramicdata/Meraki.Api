@@ -95,6 +95,7 @@ public partial class MerakiClient : IDisposable
 			},
 			SamlRoles = RefitFor(Organizations.SamlRoles),
 			Snmp = RefitFor(Organizations.Snmp),
+			Splash = RefitFor(Organizations.Splash),
 			Summary = new()
 			{
 				Top = RefitFor(Organizations.Summary.Top)
