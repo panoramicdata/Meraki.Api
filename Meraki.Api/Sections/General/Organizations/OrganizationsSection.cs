@@ -13,6 +13,10 @@ public partial class OrganizationsSection
 
 	public IOrganizationsApiRequests ApiRequests { get; internal set; } = null!;
 
+	public IOrganizationsApplianceSecurityEvents ApplianceSecurityEvents { get; internal set; } = null!
+
+	public IOrganizationsAssuranceAlerts AssuranceAlerts { get; internal set; } = null!
+
 	public IOrganizationsClients Clients { get; internal set; } = null!;
 
 	public IOrganizationsConfigTemplates ConfigTemplates { get; internal set; } = null!;

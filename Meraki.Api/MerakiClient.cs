@@ -66,6 +66,8 @@ public partial class MerakiClient : IDisposable
 				Settings = RefitFor(Organizations.AdaptivePolicy.Settings)
 			},
 			ApiRequests = RefitFor(Organizations.ApiRequests),
+			ApplianceSecurityEvents = RefitFor(Organizations.ApplianceSecurityEvents),
+			AssuranceAlerts = RefitFor(Organizations.AssuranceAlerts),
 			BrandingPolicies = new()
 			{
 				BrandingPolicies = RefitFor(Organizations.BrandingPolicies.BrandingPolicies),
