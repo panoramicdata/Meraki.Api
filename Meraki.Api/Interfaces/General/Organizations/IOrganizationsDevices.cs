@@ -146,4 +146,18 @@ public interface IOrganizationsDevices
 		[AliasAs("tags[]")] List<string>? tags = null,
 		string? tagsFilterType = null,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Lists the count for each device model.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	[ApiOperationId("getOrganizationDevicesOverviewByModel")]
+	[Get("/organizations/{organizationId}/devices/overview/byModel")]
+	Task<DevicesOverviewByModel> GetOrganizationDevicesOverviewByModelAsync(
+		string organizationId,
+		[AliasAs("models[]")] List<string>? models = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("productTypes[]")] List<string>? productTypes = null,
+		CancellationToken cancellationToken = default);
 }
