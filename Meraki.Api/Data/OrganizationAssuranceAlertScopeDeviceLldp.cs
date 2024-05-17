@@ -7,7 +7,7 @@ public class OrganizationAssuranceAlertScopeDeviceLldp
 	/// Port of affect device
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "Port")]
+	[DataMember(Name = "port")]
 	public string Port { get; set; } = string.Empty;
 
 }
