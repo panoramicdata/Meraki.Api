@@ -19,5 +19,4 @@ public class AirMarshalRules
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "items")]
 	public List<AirMarshalRulesItem> Items { get; set; } = [];
-
 }

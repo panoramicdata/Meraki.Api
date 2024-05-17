@@ -20,5 +20,4 @@ public class AirMarshalSettings
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkId")]
 	public string NetworkId { get; set; } = string.Empty;
-
 }

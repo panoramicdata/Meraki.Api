@@ -9,5 +9,4 @@ public class OrganizationAssuranceAlertScopeDeviceLldp
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "port")]
 	public string Port { get; set; } = string.Empty;
-
 }
