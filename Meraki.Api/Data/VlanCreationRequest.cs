@@ -75,13 +75,13 @@ public class VlanCreationRequest
 	/// The appliance's handling of DHCP requests on this VLAN. One of: 'Run a DHCP server', 'Relay DHCP to another server' or 'Do not respond to DHCP requests'
 	/// </summary>
 	[DataMember(Name = "dhcpHandling")]
-	public DhcpHandling? dhcpHandling { get; set; }
+	public DhcpHandling? DhcpHandling { get; set; }
 
 	/// <summary>
 	/// The term of DHCP leases if the appliance is running a DHCP server on this VLAN. One of: '30 minutes', '1 hour', '4 hours', '12 hours', '1 day' or '1 week'
 	/// </summary>
 	[DataMember(Name = "dhcpLeaseTime")]
-	public DhcpLeaseTime? dhcpLeaseTime { get; set; }
+	public DhcpLeaseTime? DhcpLeaseTime { get; set; }
 
 	/// <summary>
 	/// Use DHCP boot options specified in other properties
