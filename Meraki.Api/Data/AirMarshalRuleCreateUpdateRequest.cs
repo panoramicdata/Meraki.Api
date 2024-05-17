@@ -16,7 +16,7 @@ public class AirMarshalRuleCreateUpdateRequest
 	/// <summary>
 	/// Object describing the rule specification.
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "match")]
 	public AirMarshalRulesItemMatch? Match { get; set; }
-
 }
