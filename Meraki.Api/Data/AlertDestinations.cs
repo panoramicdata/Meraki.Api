@@ -15,7 +15,7 @@ public class AlertDestinations
 	public List<string>? Emails { get; set; }
 
 	/// <summary>
-	/// smsNumbers - Undocumented - This is an array of something so a strong possibility it will be a list of string. Not populated as of 2024-02-29
+	/// A list of phone numbers that will receive text messages about the alert. Only available for sensors status alerts.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "smsNumbers")]

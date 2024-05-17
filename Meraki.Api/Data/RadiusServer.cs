@@ -33,4 +33,11 @@ public class RadiusServer
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "secret")]
 	public string? Secret { get; set; }
+
+	/// <summary>
+	/// unique ID of the RADIUS server
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "serverId")]
+	public string? ServerId { get; set; }
 }

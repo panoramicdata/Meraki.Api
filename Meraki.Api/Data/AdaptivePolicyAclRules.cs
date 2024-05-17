@@ -33,4 +33,18 @@ public class AdaptivePolicyAclRules
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "dstPort")]
 	public string DstPort { get; set; } = string.Empty;
+
+	/// <summary>
+	/// tcpEstablished - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "tcpEstablished")]
+	public bool TcpEstablished { get; set; }
+
+	/// <summary>
+	/// log - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "log")]
+	public bool Log { get; set; }
 }

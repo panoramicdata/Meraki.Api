@@ -70,4 +70,28 @@ public class VlanCreationRequest
 	/// </summary>
 	[DataMember(Name = "mandatoryDhcp")]
 	public MandatoryDhcp? MandatoryDhcp { get; set; }
+
+	/// <summary>
+	/// The appliance's handling of DHCP requests on this VLAN. One of: 'Run a DHCP server', 'Relay DHCP to another server' or 'Do not respond to DHCP requests'
+	/// </summary>
+	[DataMember(Name = "dhcpHandling")]
+	public DhcpHandling? DhcpHandling { get; set; }
+
+	/// <summary>
+	/// The term of DHCP leases if the appliance is running a DHCP server on this VLAN. One of: '30 minutes', '1 hour', '4 hours', '12 hours', '1 day' or '1 week'
+	/// </summary>
+	[DataMember(Name = "dhcpLeaseTime")]
+	public DhcpLeaseTime? DhcpLeaseTime { get; set; }
+
+	/// <summary>
+	/// Use DHCP boot options specified in other properties
+	/// </summary>
+	[DataMember(Name = "dhcpBootOptionsEnabled")]
+	public bool? DhcpBootOptionsEnabled { get; set; }
+
+	/// <summary>
+	/// The list of DHCP options that will be included in DHCP responses. Each object in the list should have "code", "type", and "value" properties.
+	/// </summary>
+	[DataMember(Name = "dhcpOptions")]
+	public List<DhcpOption>? DhcpOptions { get; set; }
 }

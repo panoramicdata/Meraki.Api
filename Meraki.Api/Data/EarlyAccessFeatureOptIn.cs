@@ -26,4 +26,11 @@ public class EarlyAccessFeatureOptIn : IdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
 	public DateTime CreatedAt { get; set; }
+
+	/// <summary>
+	///Descriptions of the early access feature
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "optOutEligibility")]
+	public EarlyAccessFeatureOptInOptOutEligibility OptOutEligibility { get; set; } = new();
 }

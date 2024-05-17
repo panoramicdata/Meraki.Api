@@ -66,6 +66,8 @@ public partial class MerakiClient : IDisposable
 				Settings = RefitFor(Organizations.AdaptivePolicy.Settings)
 			},
 			ApiRequests = RefitFor(Organizations.ApiRequests),
+			ApplianceSecurityEvents = RefitFor(Organizations.ApplianceSecurityEvents),
+			AssuranceAlerts = RefitFor(Organizations.AssuranceAlerts),
 			BrandingPolicies = new()
 			{
 				BrandingPolicies = RefitFor(Organizations.BrandingPolicies.BrandingPolicies),
@@ -93,6 +95,7 @@ public partial class MerakiClient : IDisposable
 			},
 			SamlRoles = RefitFor(Organizations.SamlRoles),
 			Snmp = RefitFor(Organizations.Snmp),
+			Splash = RefitFor(Organizations.Splash),
 			Summary = new()
 			{
 				Top = RefitFor(Organizations.Summary.Top)
