@@ -16,6 +16,7 @@ public class AirMarshalRules
 	/// <summary>
 	/// List of rules
 	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "items")]
 	public List<AirMarshalRulesItem> Items { get; set; } = [];
 
