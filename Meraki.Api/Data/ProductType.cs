@@ -43,5 +43,8 @@ public enum ProductType
 	Phone,
 
 	[EnumMember(Value = "frontizo")]
-	Frontizo
+	Frontizo,
+
+	[EnumMember(Value = "secureConnect")]
+	SecureConnect
 }
