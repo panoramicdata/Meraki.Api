@@ -32,7 +32,7 @@ public interface IOrganizationsSummaryTop
 		string? t0 = null,
 		string? t1 = null,
 		double? timespan = null,
-		CancellationToken cancellationToken = default)
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Return metrics for organization's top 10 clients by data usage (in mb) over given time range.
