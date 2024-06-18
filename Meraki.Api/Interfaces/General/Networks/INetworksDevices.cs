@@ -18,11 +18,13 @@ public interface INetworksDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="addAtomically">Whether to claim devices atomically. If true, all devices will be claimed or none will be claimed. Default is true.</param>
 	/// <param name="claimNetworkDevices">Body for claiming a network device</param>
 	[ApiOperationId("claimNetworkDevices")]
 	[Post("/networks/{networkId}/devices/claim")]
 	Task ClaimNetworkDevicesAsync(
 		string networkId,
+		bool? addAtomically = true,
 		[Body] DeviceClaimRequest claimNetworkDevices,
 		CancellationToken cancellationToken = default);
 
