@@ -14,13 +14,14 @@ public interface IOrganizationsNetworks
 	/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 100000. Default is 1000.</param>
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+	/// <param name="cancellationToken">The Cancellation Token</param>
 	[Get("/organizations/{organizationId}/networks")]
 	Task<List<Network>> GetOrganizationNetworksAsync(
 		string organizationId,
 		string? configTemplateId = null,
 		[AliasAs("tags[]")] List<string>? tags = null,
 		string? tagsFilterType = null,
-		[AliasAs("productTypes[]")] List<ProductType>? productTypes,
+		[AliasAs("productTypes[]")] List<ProductType>? productTypes = null,
 		int? perPage = 100000,
 		string? startingAfter = null,
 		string? endingBefore = null,
@@ -33,7 +34,7 @@ public interface IOrganizationsNetworks
 		string? configTemplateId = null,
 		[AliasAs("tags[]")] List<string>? tags = null,
 		string? tagsFilterType = null,
-		[AliasAs("productTypes[]")] List<ProductType>? productTypes,
+		[AliasAs("productTypes[]")] List<ProductType>? productTypes = null,
 		string? startingAfter = null,
 		CancellationToken cancellationToken = default);
 
