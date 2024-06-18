@@ -25,4 +25,15 @@ public interface INetworkWirelessElectronicShelfLabel
 		string networkId,
 		[Body] ElectronicShelfLabelSettingsNetwork settings,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Get a list of all ESL eligible devices of a network
+	/// </summary>
+	/// <param name="networkId">Network Id</param>
+	/// <param name="cancellationToken"></param>
+	[ApiOperationId("getNetworkWirelessElectronicShelfLabelConfiguredDevices")]
+	[Get("/networks/{networkId}/wireless/electronicShelfLabel/configuredDevices")]
+	Task<List<ElectronicShelfLabelSettingsNetwork>> GetNetworkWirelessElectronicShelfLabelConfiguredDevicesAsync(
+		string networkId,
+		CancellationToken cancellationToken = default);
 }
