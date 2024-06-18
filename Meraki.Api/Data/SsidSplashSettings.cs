@@ -22,7 +22,7 @@ public class SsidSplashSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "splashTimeout")]
-	public int? SplashTimeout { get; set; }
+	public SsidSplashSettingsSplashTimeout? SplashTimeout { get; set; }
 
 	/// <summary>
 	/// How login attempts should be handled when the controller is unreachable. Can be either 'open', 'restricted', or 'default

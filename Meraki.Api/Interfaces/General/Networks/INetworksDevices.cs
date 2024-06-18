@@ -24,7 +24,7 @@ public interface INetworksDevices
 	[Post("/networks/{networkId}/devices/claim")]
 	Task ClaimNetworkDevicesAsync(
 		string networkId,
-		bool? addAtomically = true,
+		bool addAtomically,
 		[Body] DeviceClaimRequest claimNetworkDevices,
 		CancellationToken cancellationToken = default);
 
