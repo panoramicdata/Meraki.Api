@@ -133,7 +133,7 @@ public class Client : IdentifiedItem
 	/// The recent device serial
 	/// </summary>
 	[DataMember(Name = "recentDeviceSerial")]
-	public string? RecentDeviceSerial { get; set; };
+	public string? RecentDeviceSerial { get; set; }
 
 	/// <summary>
 	/// The status
