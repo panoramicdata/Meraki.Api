@@ -14,6 +14,13 @@ public class SensorAlertConditionThreshold
 	public SensorAlertConditionThresholdApparentPower? ApparentPower { get; set; }
 
 	/// <summary>
+	/// CO2 concentration threshold. One of 'concentration' or 'quality' must be provided.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "co2")]
+	public SensorAlertConditionThresholdCo2? Co2 { get; set; }
+
+	/// <summary>
 	/// Electrical current threshold. 'level' must be provided.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

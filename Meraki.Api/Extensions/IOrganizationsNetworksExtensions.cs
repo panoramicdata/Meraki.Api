@@ -16,6 +16,7 @@ public static class IOrganizationsNetworksExtensions
 		string? configTemplateId = null,
 		List<string>? tags = null,
 		string? tagsFilterType = null,
+		List<ProductType>? productTypes = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
 				(startingAfter, cancellationToken)
@@ -24,6 +25,7 @@ public static class IOrganizationsNetworksExtensions
 						configTemplateId,
 						tags,
 						tagsFilterType,
+						productTypes,
 						startingAfter,
 						cancellationToken
 					),
