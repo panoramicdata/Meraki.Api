@@ -63,4 +63,7 @@ public enum SensorMetrics
 
 	[EnumMember(Value = "remoteLockoutSwitch")]
 	RemoteLockoutSwitch,
+
+	[EnumMember(Value = "co2")]
+	Co2,
 }
