@@ -14,6 +14,17 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 	}
 
 	[Fact]
+	public async Task GetOrganizationDevicesAll_Succeeds()
+	{
+		var organizationDevices = await TestMerakiClient
+			.Organizations
+			.Devices
+			.GetOrganizationDevicesAllAsync(Configuration.TestOrganizationId, default);
+
+		_ = organizationDevices.Should().NotBeNull();
+	}
+
+	[Fact]
 	public async Task GetOrganizationDeviceStatus_Succeeds()
 	{
 		var organizationDeviceStatus = await TestMerakiClient
