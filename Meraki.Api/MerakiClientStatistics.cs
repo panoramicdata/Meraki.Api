@@ -2,22 +2,26 @@
 
 public class MerakiClientStatistics
 {
-	public IReadOnlyDictionary<int, int> StatusCodeCounts => _statusCodeCounts;
+	public IReadOnlyDictionary<int, MerakiClientStatistic> StatusCodeCounts => _statusCodeCounts;
 
-	private readonly Dictionary<int, int> _statusCodeCounts = [];
+	private readonly Dictionary<int, MerakiClientStatistic> _statusCodeCounts = [];
 
-	public int TotalRequestCount { get; internal set; }
+	public int TotalRequestCount { get; private set; }
 
-	internal void RecordStatusCode(int statusCode)
+	internal void RecordStatusCode(int statusCode, long durationMs, long delayMs)
 	{
-		if (StatusCodeCounts.TryGetValue(statusCode, out var count))
+		if (StatusCodeCounts.TryGetValue(statusCode, out var statistic))
 		{
-			_statusCodeCounts[statusCode] = count + 1;
+			statistic.Count++;
+			statistic.TotalInitialResponseDurationMs += durationMs;
+			statistic.TotalClientDelayMs += delayMs;
 		}
 		else
 		{
-			_statusCodeCounts.Add(statusCode, 1);
+			_statusCodeCounts.Add(statusCode, new(1, durationMs, delayMs));
 		}
+
+		TotalRequestCount++;
 	}
 
 	public void Reset()
@@ -25,4 +29,7 @@ public class MerakiClientStatistics
 		_statusCodeCounts.Clear();
 		TotalRequestCount = 0;
 	}
+
+	public override string ToString()
+		=> $"Total Requests: {TotalRequestCount}, Status codes: {string.Join(", ", StatusCodeCounts.Select(x => $"{x.Key}: {x.Value.Count} ({x.Value.TotalInitialResponseDurationMs:N0}ms / {x.Value.TotalClientDelayMs:N0}ms)"))}";
 }
