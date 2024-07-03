@@ -19,4 +19,10 @@ public class MerakiClientStatistics
 			_statusCodeCounts.Add(statusCode, 1);
 		}
 	}
+
+	public void Reset()
+	{
+		_statusCodeCounts.Clear();
+		TotalRequestCount = 0;
+	}
 }
