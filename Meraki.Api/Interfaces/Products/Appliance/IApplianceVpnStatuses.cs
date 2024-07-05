@@ -20,4 +20,12 @@ public interface IApplianceVpnStatuses
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		CancellationToken cancellationToken = default
 		);
+
+	[Get("/organizations/{organizationId}/appliance/vpn/statuses")]
+	internal Task<ApiResponse<List<VpnStatus>>> GetOrganizationApplianceVpnStatusesApiResponseAsync(
+		string organizationId,
+		string? startingAfter = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		CancellationToken cancellationToken = default
+		);
 }
