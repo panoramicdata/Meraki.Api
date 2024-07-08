@@ -4,7 +4,7 @@ namespace Meraki.Api.Data;
 /// Resolution of the camera.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
-public enum Mv63MResolution
+public enum MV63MResolution
 {
 	/// <summary>
 	/// Enum 1920x1080

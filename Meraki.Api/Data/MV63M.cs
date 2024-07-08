@@ -18,5 +18,5 @@ public class MV63M
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "resolution")]
-	public Mv63MResolution Resolution { get; set; }
+	public MV63MResolution Resolution { get; set; }
 }
