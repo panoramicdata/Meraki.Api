@@ -9,7 +9,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.Organizations
 			.Summary
 			.Top
-			.GetOrganizationSummaryTopSwitchesByEnergyUsageAsync("542676", null, null, null, null, null, null, "2022-10-12", "2022-10-13"); ;
+			.GetOrganizationSummaryTopSwitchesByEnergyUsageAsync("542676", "2022-10-12", "2022-10-13");
 
 		_ = result.Should().BeOfType<List<EnergyUsageSummary>>();
 		_ = result.Should().NotBeNull();
