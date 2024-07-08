@@ -9,11 +9,11 @@ public class ElectronicShelfLabelSettingsUpdate
 	/// Desired ESL channel for the device, or 'Auto' (case insensitive) to use the recommended channel
 	/// </summary>
 	[DataMember(Name = "channel")]
-	public string Channel { get; internal set; } = string.Empty;
+	public string? Channel { get; internal set; }
 
 	/// <summary>
 	/// Turn ESL features on and off for this device
 	/// </summary>
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; internal set; }
+	public bool? Enabled { get; internal set; }
 }
