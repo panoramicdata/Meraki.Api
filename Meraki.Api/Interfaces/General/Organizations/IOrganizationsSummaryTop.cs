@@ -13,6 +13,12 @@ public interface IOrganizationsSummaryTop
 	/// <param name="t0">The beginning of the timespan for the data.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
+	/// <param name="networkTag">Match result to an exact network tag</param>
+	/// <param name="deviceTag">Match result to an exact device tag</param>
+	/// <param name="networkId">Match result to an exact network id</param>
+	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
+	/// <param name="ssidName">Filter results by ssid name</param>
+	/// <param name="usageUplink">Filter results by usage uplink</param>
 	[ApiOperationId("getOrganizationSummaryTopAppliancesByUtilization")]
 	[Get("/organizations/{organizationId}/summary/top/appliances/byUtilization")]
 	Task<List<ApplianceUtilizationSummary>> GetOrganizationSummaryTopAppliancesByUtilizationAsync(
@@ -20,6 +26,12 @@ public interface IOrganizationsSummaryTop
 		string? t0 = null,
 		string? t1 = null,
 		double? timespan = null,
+		string? networkTag = null,
+		string? deviceTag = null,
+		string? networkId = null,
+		int? quantity = null,
+		string? ssidName = null,
+		string? usageUplink = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -47,6 +59,12 @@ public interface IOrganizationsSummaryTop
 	/// <param name="t0">The beginning of the timespan for the data.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
+	/// <param name="networkTag">Match result to an exact network tag</param>
+	/// <param name="deviceTag">Match result to an exact device tag</param>
+	/// <param name="networkId">Match result to an exact network id</param>
+	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
+	/// <param name="ssidName">Filter results by ssid name</param>
+	/// <param name="usageUplink">Filter results by usage uplink</param>
 	[ApiOperationId("getOrganizationSummaryTopClientsManufacturersByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/clients/manufacturers/byUsage")]
 	Task<List<ClientManufacturersSummary>> GetOrganizationSummaryTopClientsManufacturersByUsageAsync(
@@ -54,6 +72,12 @@ public interface IOrganizationsSummaryTop
 		string? t0 = null,
 		string? t1 = null,
 		double? timespan = null,
+		string? networkTag = null,
+		string? deviceTag = null,
+		string? networkId = null,
+		int? quantity = null,
+		string? ssidName = null,
+		string? usageUplink = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -64,6 +88,12 @@ public interface IOrganizationsSummaryTop
 	/// <param name="t0">The beginning of the timespan for the data.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
+	/// <param name="networkTag">Match result to an exact network tag</param>
+	/// <param name="deviceTag">Match result to an exact device tag</param>
+	/// <param name="networkId">Match result to an exact network id</param>
+	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
+	/// <param name="ssidName">Filter results by ssid name</param>
+	/// <param name="usageUplink">Filter results by usage uplink</param>
 	[ApiOperationId("getOrganizationSummaryTopDevicesByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/devices/byUsage")]
 	Task<List<DeviceUsageSummary>> GetOrganizationSummaryTopDevicesByUsageAsync(
@@ -71,6 +101,12 @@ public interface IOrganizationsSummaryTop
 		string? t0 = null,
 		string? t1 = null,
 		double? timespan = null,
+		string? networkTag = null,
+		string? deviceTag = null,
+		string? networkId = null,
+		int? quantity = null,
+		string? ssidName = null,
+		string? usageUplink = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -81,6 +117,12 @@ public interface IOrganizationsSummaryTop
 	/// <param name="t0">The beginning of the timespan for the data.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
+	/// <param name="networkTag">Match result to an exact network tag</param>
+	/// <param name="deviceTag">Match result to an exact device tag</param>
+	/// <param name="networkId">Match result to an exact network id</param>
+	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
+	/// <param name="ssidName">Filter results by ssid name</param>
+	/// <param name="usageUplink">Filter results by usage uplink</param>
 	[ApiOperationId("getOrganizationSummaryTopDevicesModelsByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/devices/models/byUsage")]
 	Task<List<DeviceModelUsageSummary>> GetOrganizationSummaryTopDevicesModelsByUsageAsync(
@@ -88,6 +130,12 @@ public interface IOrganizationsSummaryTop
 		string? t0 = null,
 		string? t1 = null,
 		double? timespan = null,
+		string? networkTag = null,
+		string? deviceTag = null,
+		string? networkId = null,
+		int? quantity = null,
+		string? ssidName = null,
+		string? usageUplink = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -98,6 +146,12 @@ public interface IOrganizationsSummaryTop
 	/// <param name="t0">The beginning of the timespan for the data.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
+	/// <param name="networkTag">Match result to an exact network tag</param>
+	/// <param name="deviceTag">Match result to an exact device tag</param>
+	/// <param name="networkId">Match result to an exact network id</param>
+	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
+	/// <param name="ssidName">Filter results by ssid name</param>
+	/// <param name="usageUplink">Filter results by usage uplink</param>
 	[ApiOperationId("getOrganizationSummaryTopSsidsByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/ssids/byUsage")]
 	Task<List<SsidUsageSummary>> GetOrganizationSummaryTopSsidsByUsageAsync(
@@ -105,6 +159,12 @@ public interface IOrganizationsSummaryTop
 		string? t0 = null,
 		string? t1 = null,
 		double? timespan = null,
+		string? networkTag = null,
+		string? deviceTag = null,
+		string? networkId = null,
+		int? quantity = null,
+		string? ssidName = null,
+		string? usageUplink = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -115,6 +175,12 @@ public interface IOrganizationsSummaryTop
 	/// <param name="t0">The beginning of the timespan for the data.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
+	/// <param name="networkTag">Match result to an exact network tag</param>
+	/// <param name="deviceTag">Match result to an exact device tag</param>
+	/// <param name="networkId">Match result to an exact network id</param>
+	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
+	/// <param name="ssidName">Filter results by ssid name</param>
+	/// <param name="usageUplink">Filter results by usage uplink</param>
 	[ApiOperationId("getOrganizationSummaryTopSwitchesByEnergyUsage")]
 	[Get("/organizations/{organizationId}/summary/top/switches/byEnergyUsage")]
 	Task<List<EnergyUsageSummary>> GetOrganizationSummaryTopSwitchesByEnergyUsageAsync(
@@ -122,5 +188,11 @@ public interface IOrganizationsSummaryTop
 		string? t0 = null,
 		string? t1 = null,
 		double? timespan = null,
+		string? networkTag = null,
+		string? deviceTag = null,
+		string? networkId = null,
+		int? quantity = null,
+		string? ssidName = null,
+		string? usageUplink = null,
 		CancellationToken cancellationToken = default);
 }

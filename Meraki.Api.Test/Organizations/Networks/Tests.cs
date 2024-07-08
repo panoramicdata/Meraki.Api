@@ -233,7 +233,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		await TestMerakiClient
 			.Networks
 			.Devices
-			.ClaimNetworkDevicesAsync(newNetwork.Id, new DeviceClaimRequest { Serials = [Configuration.TestDeviceSerial] });
+			.ClaimNetworkDevicesAsync(newNetwork.Id, true, new DeviceClaimRequest { Serials = [Configuration.TestDeviceSerial] });
 
 		// Make sure it's there.
 		var fetchedDevice = await TestMerakiClient

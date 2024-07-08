@@ -28,6 +28,13 @@ public class Radius
 	public CriticalAuth? CriticalAuth { get; set; }
 
 	/// <summary>
+	/// Object for RADIUS Cache Settings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "cache")]
+	public RadiusCache? Cache { get; set; }
+
+	/// <summary>
 	/// suspendReAuthentication
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
