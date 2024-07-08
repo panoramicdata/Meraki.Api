@@ -18,5 +18,5 @@ public class RadiusCache
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 }
