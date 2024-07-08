@@ -22,13 +22,13 @@ public interface IOrganizationBandwidthUsageHistory
 	[Get("/organizations/{organizationId}/clients/bandwidthUsageHistory")]
 	Task<List<BandwidthUsageHistory>> GetOrganizationClientsBandwidthUsageHistoryAsync(
 		string organizationId,
-		string networkTag,
-		string deviceTag,
-		string networkId,
-		string ssidName,
-		string usageUplink,
 		string t0,
 		string t1,
 		int timespan = 1,
+		string? networkTag = null,
+		string? deviceTag = null,
+		string? networkId = null,
+		string? ssidName = null,
+		string? usageUplink = null,
 		CancellationToken cancellationToken = default);
 }
