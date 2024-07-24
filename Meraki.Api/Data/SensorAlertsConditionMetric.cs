@@ -49,6 +49,12 @@ public enum SensorAlertConditionMetric
 	Noise,
 
 	/// <summary>
+	/// Co2
+	/// </summary>
+	[EnumMember(Value = "co2")]
+	Co2,
+
+	/// <summary>
 	/// indoorAirQuality
 	/// </summary>
 	[EnumMember(Value = "indoorAirQuality")]
