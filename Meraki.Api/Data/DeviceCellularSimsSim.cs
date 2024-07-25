@@ -7,6 +7,13 @@ namespace Meraki.Api.Data;
 public class DeviceCellularSimsSim
 {
 	/// <summary>
+	/// Priority of SIM slot being configured. Use a value between 1 and total number of SIMs available. The value must be unique for each SIM.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "simOrder")]
+	public int? SimOrder { get; set; }
+
+	/// <summary>
 	/// A list of Sims
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
