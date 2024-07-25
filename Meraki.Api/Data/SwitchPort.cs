@@ -182,6 +182,13 @@ public class SwitchPort : NamedItem
 	public bool? DaiTrusted { get; set; }
 
 	/// <summary>
+	/// dot3az settings for the port
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "dot3az")]
+	public SwitchPortDot3az? Dot3az { get; set; }
+
+	/// <summary>
 	/// Profile attributes
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
