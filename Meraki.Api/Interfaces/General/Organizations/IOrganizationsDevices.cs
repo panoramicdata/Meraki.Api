@@ -180,4 +180,17 @@ public interface IOrganizationsDevices
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		[AliasAs("productTypes[]")] List<string>? productTypes = null,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Updating device details (currently only used for Catalyst devices)
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="bulkDevicesUpdate">The bulk devices update request</param>
+	[ApiOperationId("bulkUpdateOrganizationDevicesDetails")]
+	[Get("/organizations/{organizationId}/devices/details/bulkUpdate")]
+	Task<BulkUpdatedDevices> BulkUpdateOrganizationDevicesDetailsAsync(
+		string organizationId,
+		[Body] BulkDevicesUpdate bulkDevicesUpdate,
+		CancellationToken cancellationToken = default);
 }
