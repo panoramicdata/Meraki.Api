@@ -122,6 +122,13 @@ public class SwitchPort : NamedItem
 	public string? PortScheduleId { get; set; }
 
 	/// <summary>
+	/// The schedule for the switch port - undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "schedule")]
+	public SwitchPortAssignedSchedule? Schedule { get; set; }
+
+	/// <summary>
 	/// The action to take when Unidirectional Link is detected (Alert only, Enforce). Default configuration is Alert only.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
