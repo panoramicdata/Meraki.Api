@@ -65,6 +65,7 @@ public interface ILicensingSubscriptions
 	[Get("/administered/licensing/subscription/subscriptions")]
 	internal Task<ApiResponse<List<LicensingSubscriptionSubscription>>> GetAdministeredLicensingSubscriptionSubscriptionsApiResponseAsync(
 		string? startingAfter,
+		string? endingBefore,
 		[AliasAs("subscriptionIds[]")] List<string>? subscriptionIds,
 		[AliasAs("organizationIds[]")] List<string>? organizationIds,
 		[AliasAs("statuses[]")] List<string>? statuses,

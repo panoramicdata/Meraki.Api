@@ -26,10 +26,11 @@ public static class IOrganizationsAssuranceExtensions
 		bool? suppressAlertsForOfflineNodes,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationAssuranceAlerts.GetOrganizationAssuranceAlertsApiResponseAsync(
 						organizationId,
 						startingAfter,
+						endingBefore,
 						sortOrder,
 						networkId,
 						severity,

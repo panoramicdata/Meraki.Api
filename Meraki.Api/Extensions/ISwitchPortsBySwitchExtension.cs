@@ -26,10 +26,11 @@ public static class ISwitchPortsBySwitchExtensions
 		List<string>? macs = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> switchPortsBySwitch.GetOrganizationSwitchPortsBySwitchApiResponseAsync(
 						organizationId,
 						startingAfter,
+						endingBefore,
 						configurationUpdatedAfter,
 						networkIds,
 						name,

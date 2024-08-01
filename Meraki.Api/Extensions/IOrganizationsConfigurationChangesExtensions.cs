@@ -22,13 +22,14 @@ public static class IOrganizationsConfigurationChangesExtensions
 		string? adminId = null,
 		CancellationToken cancellationToken = default)
 			=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationConfigurationChanges.GetOrganizationConfigurationChangesApiResponseAsync(
 					organizationId,
 					t0,
 					t1,
 					timespan,
 					startingAfter,
+					endingBefore,
 					networkId,
 					adminId,
 					cancellationToken)

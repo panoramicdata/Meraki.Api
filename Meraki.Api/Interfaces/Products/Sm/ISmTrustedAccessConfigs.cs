@@ -31,6 +31,7 @@ public interface ISmTrustedAccessConfigs
 	internal Task<ApiResponse<List<SmTrustedAccessConfig>>> GetNetworkSmTrustedAccessConfigsApiResponseAsync(
 		string networkId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 }

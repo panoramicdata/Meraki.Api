@@ -26,10 +26,11 @@ public static class IOrganizationsDevicesExtensions
 		string? tagsFilterType = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationDevices.GetDevicesStatusesApiResponseAsync(
 						organizationId,
 						startingAfter,
+						endingBefore,
 						networkIds,
 						serials,
 						statuses,
@@ -64,10 +65,11 @@ public static class IOrganizationsDevicesExtensions
 		string? tagsFilterType = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationDevices.GetDevicesProvisioningStatusesApiResponseAsync(
 						organizationId,
 						startingAfter,
+						endingBefore,
 						networkIds,
 						serials,
 						status,
@@ -118,10 +120,11 @@ public static class IOrganizationsDevicesExtensions
 		List<string>? models = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationDevices.GetOrganizationDevicesApiResponseAsync(
 						organizationId,
 						startingAfter,
+						endingBefore,
 						configurationUpdatedAfter,
 						networksIds,
 						productTypes,

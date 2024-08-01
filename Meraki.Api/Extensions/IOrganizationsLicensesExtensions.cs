@@ -18,10 +18,11 @@ public static class IOrganizationsLicensesExtensions
 		string? state = null,
 		CancellationToken cancellationToken = default)
 			=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationsLicenses.GetPagedApiResponseAsync(
 					organizationId,
 					startingAfter,
+					endingBefore,
 					deviceSerial,
 					networkId,
 					state,

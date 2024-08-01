@@ -14,10 +14,11 @@ public static class IApplianceVpnStatusesExtensions
 		List<string>? networkIds = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-			(startingAfter, cancellationToken)
+			(startingAfter, endingBefore, cancellationToken)
 			=> organizationInventoryDevices.GetOrganizationApplianceVpnStatusesApiResponseAsync(
 				organizationId,
 				startingAfter,
+				endingBefore,
 				networkIds,
 				cancellationToken
 			),

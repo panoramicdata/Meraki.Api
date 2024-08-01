@@ -24,9 +24,10 @@ public static class ILicensingSubscriptionsExtensions
 		string? endDate,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> licensingSubscriptions.GetAdministeredLicensingSubscriptionSubscriptionsApiResponseAsync(
 						startingAfter,
+						endingBefore,
 						subscriptionIds,
 						organizationIds,
 						statuses,

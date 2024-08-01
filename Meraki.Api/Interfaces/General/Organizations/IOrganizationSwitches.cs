@@ -50,6 +50,7 @@ public interface IOrganizationSwitches
 		string? t0,
 		int? timespan,
 		string? startingAfter,
+		string? endingBefore,
 		[AliasAs("networkIds[]")] List<string>? networkIds,
 		[AliasAs("portProfileIds[]")] List<string>? portProfileIds,
 		string? name,
@@ -98,6 +99,7 @@ public interface IOrganizationSwitches
 	internal Task<ApiResponse<List<SwitchPortsBySwitch>>> GetOrganizationSwitchPortsBySwitchApiResponseAsync(
 		string organizationId,
 		string? startingAfter,
+		string? endingBefore,
 		string? configurationUpdatedAfter,
 		[AliasAs("networkIds[]")] List<string>? networkIds,
 		string? name,

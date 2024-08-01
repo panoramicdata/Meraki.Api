@@ -29,6 +29,7 @@ public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 	internal Task<ApiResponse<List<TrustedServer>>> GetNetworkSwitchDhcpServerPolicyArpInspectionTrustedServersApiResponseAsync(
 		string networkId,
 		string? startingAfter,
+		string? endingBefore,
 		CancellationToken cancellationToken = default
 	);
 

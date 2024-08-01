@@ -12,10 +12,11 @@ public static class IOrganizationsPolicyObjectsExtensions
 		string organizationId,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationsPolicyObjects.GetOrganizationPolicyObjectsApiResponseAsync(
 						organizationId,
 						startingAfter,
+						endingBefore,
 						cancellationToken
 					),
 					cancellationToken

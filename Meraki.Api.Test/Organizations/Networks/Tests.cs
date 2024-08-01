@@ -512,7 +512,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 	{
 		var result = await TestMerakiClient
 			.GetAllAsync(
-				(perPage, startingAfter, cancellationToken)
+				(perPage, startingAfter, endingBefore, cancellationToken)
 				=> TestMerakiClient
 					.Organizations
 					.Networks
@@ -520,6 +520,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 						Configuration.TestOrganizationId,
 						perPage: perPage,
 						startingAfter: startingAfter,
+						endingBefore: endingBefore,
 						cancellationToken: cancellationToken
 					),
 				3,
@@ -538,13 +539,14 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 	{
 		var result = await TestMerakiClient
 			.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> TestMerakiClient
 					.Organizations
 					.Networks
 					.GetOrganizationNetworksAsync(
 						Configuration.TestOrganizationId,
 						startingAfter: startingAfter,
+						endingBefore: endingBefore,
 						cancellationToken: cancellationToken
 					),
 				CancellationToken.None

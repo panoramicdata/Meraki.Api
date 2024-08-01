@@ -110,6 +110,7 @@ public interface IWirelessRfProfiles
 	internal Task<ApiResponse<List<RfProfilesByDevice>>> GetOrganizationWirelessRfProfilesAssignmentsByDeviceApiResponseAsync(
 		string organizationId,
 		string? startingAfter,
+		string? endingBefore,
 		[AliasAs("networkIds[]")] List<string>? networkIds,
 		[AliasAs("productTypes[]")] List<ProductType> productTypes,
 		string? name,

@@ -34,13 +34,15 @@ public static class IOrganizationsApiRequestsExtensions
 		List<string>? operationIds = null,
 		CancellationToken cancellationToken = default)
 			=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(perPage, startingAfter, endingBefore, cancellationToken)
 				=> organizationsApiRequests.GetOrganizationApiRequestsApiResponseAsync(
 					organizationId,
 					t0,
 					t1,
 					timespan,
+					perPage,
 					startingAfter,
+					endingBefore,
 					adminId,
 					path,
 					method,
@@ -49,7 +51,8 @@ public static class IOrganizationsApiRequestsExtensions
 					userAgent,
 					version,
 					operationIds,
-					cancellationToken)
-				, cancellationToken
+					cancellationToken),
+				1000,
+				cancellationToken
 				);
 }

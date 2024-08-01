@@ -25,6 +25,7 @@ public interface IApplianceVpnStatuses
 	internal Task<ApiResponse<List<VpnStatus>>> GetOrganizationApplianceVpnStatusesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		CancellationToken cancellationToken = default
 		);

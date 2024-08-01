@@ -57,6 +57,7 @@ public interface IOrganizationsAssuranceAlerts
 	internal Task<ApiResponse<List<OrganizationAssuranceAlert>>> GetOrganizationAssuranceAlertsApiResponseAsync(
 		string organizationId,
 		string? startingAfter,
+		string? endingBefore,
 		string? sortOrder,
 		string? networkId,
 		string? severity,

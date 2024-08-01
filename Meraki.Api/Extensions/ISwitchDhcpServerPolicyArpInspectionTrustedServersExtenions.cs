@@ -12,10 +12,11 @@ public static class ISwitchDhcpServerPolicyArpInspectionTrustedServersExtenions
 		string networkId,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> switchDhcpServerPolicyArpInspectionTrustedServer.GetNetworkSwitchDhcpServerPolicyArpInspectionTrustedServersApiResponseAsync(
 						networkId,
 						startingAfter,
+						endingBefore,
 						cancellationToken
 					),
 					cancellationToken
