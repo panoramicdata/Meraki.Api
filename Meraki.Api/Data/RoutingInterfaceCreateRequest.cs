@@ -42,6 +42,20 @@ public class RoutingInterfaceCreateRequest : NamedItem
 	public string Subnet { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Whether this is the switch's IPv4 uplink
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "uplinkV4")]
+	public bool? UplinkV4 { get; set; }
+
+	/// <summary>
+	/// Whether this is the switch's IPv6 uplink
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "uplinkV6")]
+	public bool? UplinkV6 { get; set; }
+
+	/// <summary>
 	/// The IPv6 settings of the interface
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

@@ -108,6 +108,13 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	public string? PortScheduleId { get; set; }
 
 	/// <summary>
+	/// The schedule assigned to the port - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "schedule")]
+	public SwitchPortAssignedSchedule? Schedule { get; set; }
+
+	/// <summary>
 	/// The action to take when Unidirectional Link is detected (Alert only, Enforce). Default configuration is Alert only.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
@@ -180,6 +187,13 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "daiTrusted")]
 	public bool? DaiTrusted { get; set; }
+
+	/// <summary>
+	/// dot3az settings for the port
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "dot3az")]
+	public ConfigTemplateSwitchProfilePortDot3az? Dot3az { get; set; }
 
 	/// <summary>
 	/// Profile attributes
