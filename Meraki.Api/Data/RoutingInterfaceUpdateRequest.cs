@@ -45,14 +45,14 @@ public class RoutingInterfaceUpdateRequest : NamedItem
 	/// Whether this is the switch's IPv4 uplink
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "uplnkV4")]
+	[DataMember(Name = "uplinkV4")]
 	public bool? UplinkV4 { get; set; }
 
 	/// <summary>
 	/// Whether this is the switch's IPv6 uplink
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "uplnkV6")]
+	[DataMember(Name = "uplinkV6")]
 	public bool? UplinkV6 { get; set; }
 
 	/// <summary>

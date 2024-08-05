@@ -19,6 +19,4 @@ public class BulkDevicesUpdateDetail
 	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "value")]
 	public string Value { get; set; } = string.Empty;
-		;
-
 }
