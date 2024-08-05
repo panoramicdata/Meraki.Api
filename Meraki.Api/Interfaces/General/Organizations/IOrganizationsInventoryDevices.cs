@@ -42,6 +42,7 @@ public interface IOrganizationsInventoryDevices
 	internal Task<ApiResponse<List<InventoryDevice>>> GetOrganizationInventoryDevicesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		string? usedState = null,
 		string? search = null,
 		[AliasAs("macs[]")] List<string>? macs = null,

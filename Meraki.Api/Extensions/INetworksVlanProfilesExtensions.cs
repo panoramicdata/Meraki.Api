@@ -18,10 +18,11 @@ public static class INetworksVlanProfilesExtensions
 		List<string>? stackIds = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> vlanProfiles.GetNetworkVlanProfilesAssignmentsByDeviceApiResponseAsync(
 						networkId,
 						startingAfter,
+						endingBefore,
 						serials,
 						productTypes,
 						stackIds,

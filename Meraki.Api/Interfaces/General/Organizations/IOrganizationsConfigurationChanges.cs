@@ -39,6 +39,7 @@ public interface IOrganizationsConfigurationChanges
 		string? t1 = null,
 		double? timespan = null,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		string? networkId = null,
 		string? adminId = null,
 		CancellationToken cancellationToken = default);

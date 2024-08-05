@@ -19,7 +19,7 @@ public static class IOrganizationsNetworksExtensions
 		List<ProductType>? productTypes = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationsNetworks.GetNetworksApiResponseAsync(
 						organizationId,
 						configTemplateId,
@@ -27,6 +27,7 @@ public static class IOrganizationsNetworksExtensions
 						tagsFilterType,
 						productTypes,
 						startingAfter,
+						endingBefore,
 						cancellationToken
 					),
 					cancellationToken

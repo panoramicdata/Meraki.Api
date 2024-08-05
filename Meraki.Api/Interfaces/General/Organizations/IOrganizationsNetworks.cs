@@ -36,6 +36,7 @@ public interface IOrganizationsNetworks
 		string? tagsFilterType = null,
 		[AliasAs("productTypes[]")] List<ProductType>? productTypes = null,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>

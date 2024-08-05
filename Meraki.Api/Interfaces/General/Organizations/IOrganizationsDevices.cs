@@ -27,6 +27,7 @@ public interface IOrganizationsDevices
 	internal Task<ApiResponse<List<OrganizationDeviceStatus>>> GetDevicesStatusesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		[AliasAs("serials[]")] List<string>? serials = null,
 		[AliasAs("statuses[]")] List<string>? statuses = null,
@@ -104,6 +105,7 @@ public interface IOrganizationsDevices
 	internal Task<ApiResponse<List<OrganizationDevice>>> GetOrganizationDevicesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		string? configurationUpdatedAfter = null,
 		[AliasAs("networksIds[]")] List<string>? networksIds = null,
 		[AliasAs("productTypes[]")] List<string>? productTypes = null,
@@ -159,6 +161,7 @@ public interface IOrganizationsDevices
 	internal Task<ApiResponse<List<DeviceProvisioningStatus>>> GetDevicesProvisioningStatusesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		[AliasAs("serials[]")] List<string>? serials = null,
 		string? status = null,

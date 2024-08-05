@@ -13,10 +13,11 @@ public static class ISmTrutedAccessConfigExtensions
 		string networkId,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> smTrustedAccessConfigs.GetNetworkSmTrustedAccessConfigsApiResponseAsync(
 						networkId,
 						startingAfter,
+						endingBefore,
 						cancellationToken
 					),
 					cancellationToken

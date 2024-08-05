@@ -23,5 +23,6 @@ public interface IWirelessDeviceEthernetStatuses
 	internal Task<ApiResponse<List<WirelessDeviceEthernetStatus>>> GetOrganizationWirelessDevicesEthernetStatusesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default);
 }

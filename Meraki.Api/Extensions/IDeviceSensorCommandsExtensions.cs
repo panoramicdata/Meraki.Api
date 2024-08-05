@@ -22,7 +22,7 @@ public static class IDeviceSensorCommandsExtensions
 		string? timespan = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> deviceSensorCommands.GetDeviceSensorCommandsApiResponseAsync(
 					serial,
 					operations,
