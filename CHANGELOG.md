@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.48.4
+- Updated for 1.48 API changes
+- Adjusted "GetAll" extensions to utilise endingBefore as well as startingAfter. This currently only seemed to affect getting apiRequests.
+
 ## 1.46.1
 - Added/updated new endpoints. 
 - Some new endpoints with new paging mechanism have not had "Get All" endpoints added until the inconsistencies between the models have been confirmed as intentional by Meraki API developers.
