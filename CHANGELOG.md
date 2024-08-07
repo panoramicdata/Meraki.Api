@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.48.8
+- Updated dependencies and broken refit reference
+
 ## 1.48.4
 - Updated for 1.48 API changes
 - Adjusted "GetAll" extensions to utilise endingBefore as well as startingAfter. This currently only seemed to affect getting apiRequests.
