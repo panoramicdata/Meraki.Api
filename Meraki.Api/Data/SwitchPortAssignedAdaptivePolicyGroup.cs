@@ -1,20 +1,20 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-///A Schedule Assigned to a Port
+/// An asaptive policy group assigned to a Port
 /// </summary>
 [DataContract]
-public class SwitchPortAssignedSchedule
+public class SwitchPortAssignedAdaptivePolicyGroup
 {
 	/// <summary>
-	/// ID of the assigned schedule
+	/// The ID of the adaptive policy group.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Name of the assigned schedule
+	/// The name of the adaptive policy group.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "name")]

@@ -122,11 +122,18 @@ public class SwitchPort : NamedItem
 	public string? PortScheduleId { get; set; }
 
 	/// <summary>
-	/// The schedule for the switch port - undocumented
+	/// The port schedule data.
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "schedule")]
 	public SwitchPortAssignedSchedule? Schedule { get; set; }
+
+	/// <summary>
+	/// The adaptive policy group data of the port.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "adaptivePolicyGroup")]
+	public SwitchPortAssignedAdaptivePolicyGroup? AdaptivePolicyGroup { get; set; }
 
 	/// <summary>
 	/// The action to take when Unidirectional Link is detected (Alert only, Enforce). Default configuration is Alert only.
