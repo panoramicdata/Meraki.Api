@@ -127,6 +127,7 @@ public interface IOrganizationsAssuranceAlerts
 	/// <param name="types">Optional parameter to filter by alert type.</param>
 	/// <param name="tsStart">Optional parameter to filter by starting timestamp</param>
 	/// <param name="tsEnd">Optional parameter to filter by end timestamp</param>
+	/// <param name="category">Optional parameter to filter by category. "configuration", "connectivity", "device_health", "insights"</param>
 	/// <param name="serials">Optional parameter to filter by primary device serial</param>
 	/// <param name="deviceTypes">Optional parameter to filter by device types</param>
 	/// <param name="deviceTags">Optional parameter to filter by device tags</param>
@@ -144,6 +145,7 @@ public interface IOrganizationsAssuranceAlerts
 		[AliasAs("types[]")] List<string>? types,
 		string? tsStart,
 		string? tsEnd,
+		string? category,
 		[AliasAs("serials[]")] List<string>? serials,
 		[AliasAs("deviceTypes[]")] List<string>? deviceTypes,
 		[AliasAs("deviceTags[]")] List<string>? deviceTags,
@@ -167,6 +169,7 @@ public interface IOrganizationsAssuranceAlerts
 	/// <param name="types">Optional parameter to filter by alert type.</param>
 	/// <param name="tsStart">Optional parameter to filter by starting timestamp</param>
 	/// <param name="tsEnd">Optional parameter to filter by end timestamp</param>
+	/// <param name="category">Optional parameter to filter by category. "configuration", "connectivity", "device_health", "insights"</param>
 	/// <param name="serials">Optional parameter to filter by primary device serial</param>
 	/// <param name="deviceTypes">Optional parameter to filter by device types</param>
 	/// <param name="deviceTags">Optional parameter to filter by device tags</param>
@@ -188,6 +191,7 @@ public interface IOrganizationsAssuranceAlerts
 		[AliasAs("types[]")] List<string>? types,
 		string? tsStart,
 		string? tsEnd,
+		string? category,
 		[AliasAs("serials[]")] List<string>? serials,
 		[AliasAs("deviceTypes[]")] List<string>? deviceTypes,
 		[AliasAs("deviceTags[]")] List<string>? deviceTags,
@@ -211,6 +215,7 @@ public interface IOrganizationsAssuranceAlerts
 	/// <param name="types">Optional parameter to filter by alert type.</param>
 	/// <param name="tsStart">Optional parameter to filter by starting timestamp</param>
 	/// <param name="tsEnd">Optional parameter to filter by end timestamp</param>
+	/// <param name="category">Optional parameter to filter by category. "configuration", "connectivity", "device_health", "insights"</param>
 	/// <param name="sortBy">Optional parameter to set column to sort by.</param>"
 	/// <param name="serials">Optional parameter to filter by primary device serial</param>
 	/// <param name="deviceTypes">Optional parameter to filter by device types</param>
@@ -233,6 +238,7 @@ public interface IOrganizationsAssuranceAlerts
 		[AliasAs("types[]")] List<string>? types,
 		string? tsStart,
 		string? tsEnd,
+		string? category,
 		string? sortBy,
 		[AliasAs("serials[]")] List<string>? serials,
 		[AliasAs("deviceTypes[]")] List<string>? deviceTypes,
@@ -254,6 +260,7 @@ public interface IOrganizationsAssuranceAlerts
 	/// <param name="types">Optional parameter to filter by alert type.</param>
 	/// <param name="tsStart">Optional parameter to filter by starting timestamp</param>
 	/// <param name="tsEnd">Optional parameter to filter by end timestamp</param>
+	/// <param name="category">Optional parameter to filter by category. "configuration", "connectivity", "device_health", "insights"</param>
 	/// <param name="serials">Optional parameter to filter by primary device serial</param>
 	/// <param name="deviceTypes">Optional parameter to filter by device types</param>
 	/// <param name="cancellationToken">The cancellation token</param>
@@ -267,6 +274,7 @@ public interface IOrganizationsAssuranceAlerts
 		[AliasAs("types[]")] List<string>? types,
 		string? tsStart,
 		string? tsEnd,
+		string? category,
 		[AliasAs("serials[]")] List<string>? serials,
 		[AliasAs("deviceTypes[]")] List<string>? deviceTypes,
 		CancellationToken cancellationToken = default);
