@@ -49,6 +49,13 @@ public class ThirdPartyVpnPeer : NamedItem
 	public string? IpsecPoliciesPreset { get; set; }
 
 	/// <summary>
+	/// Local ID - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "localId")]
+	public string? LocalId { get; set; }
+
+	/// <summary>
 	/// The shared secret with the VPN peer
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
