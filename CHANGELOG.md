@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.49.1
+- Updated for 1.49 API changes
+
 ## 1.48.8
 - Updated dependencies and broken refit reference
 
