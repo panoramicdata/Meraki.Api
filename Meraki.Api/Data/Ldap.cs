@@ -25,7 +25,7 @@ public class Ldap
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "serverCaCertificate")]
-	public ServerCaCertificate ServerCaCertificate { get; set; } = new();
+	public CaCertificate ServerCaCertificate { get; set; } = new();
 
 	/// <summary>
 	/// The LDAP servers to be used for authentication.
