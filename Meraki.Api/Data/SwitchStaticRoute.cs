@@ -44,7 +44,7 @@ public class SwitchStaticRoute : NamedItem
 	/// <summary>
 	/// Optional fallback IP address for management traffic
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "managementNextHop")]
 	public string? ManagementNextHop { get; set; }
 }
