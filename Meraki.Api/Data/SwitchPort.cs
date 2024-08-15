@@ -124,14 +124,14 @@ public class SwitchPort : NamedItem
 	/// <summary>
 	/// The port schedule data.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "schedule")]
 	public SwitchPortAssignedSchedule? Schedule { get; set; }
 
 	/// <summary>
 	/// The adaptive policy group data of the port.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "adaptivePolicyGroup")]
 	public SwitchPortAssignedAdaptivePolicyGroup? AdaptivePolicyGroup { get; set; }
 

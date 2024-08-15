@@ -9,14 +9,14 @@ public class SwitchPortAssignedAdaptivePolicyGroup
 	/// <summary>
 	/// The ID of the adaptive policy group.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
 	/// The name of the adaptive policy group.
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "name")]
 	public string Name { get; set; } = string.Empty;
 }
