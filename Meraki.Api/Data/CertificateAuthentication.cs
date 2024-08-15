@@ -39,5 +39,5 @@ public class CertificateAuthentication
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "clientRootCaCertificate")]
-	public ServerCaCertificate ClientRootCaCertificate { get; set; } = new();
+	public CaCertificate ClientRootCaCertificate { get; set; } = new();
 }

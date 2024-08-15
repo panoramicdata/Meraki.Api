@@ -58,7 +58,7 @@ public interface IOrganizationsDevices
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// List the devices in an organization
+	/// List the devices in an organization that have been assigned to a network.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
