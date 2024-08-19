@@ -90,12 +90,14 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				}
 
 				_logger.LogWarning(
-					"{LogPrefix}Received \"Network is unreachable\" on attempt {AttemptCount}/{MaxAttemptCount}.",
-					logPrefix, attemptCount, _options.MaxAttemptCount
+					"{LogPrefix}Received \"Network is unreachable\" on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+					logPrefix, attemptCount, _options.MaxAttemptCount,
+					request.Method.ToString(),
+					request.RequestUri
 					);
 
-				// Wait 5 seconds and then retry
-				await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken).ConfigureAwait(false);
+				// Wait 1 seconds and then retry
+				await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken).ConfigureAwait(false);
 				continue;
 			}
 
