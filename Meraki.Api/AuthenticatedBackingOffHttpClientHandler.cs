@@ -67,7 +67,37 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 			LastRequestUri = request.RequestUri.ToString();
 
 			// Complete the action
-			var httpResponseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+			HttpResponseMessage httpResponseMessage;
+
+			try
+			{
+				httpResponseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+			}
+			catch (HttpRequestException ex) when (ex.Message.StartsWith("Network is unreachable", StringComparison.Ordinal))
+			{
+				// This is a common error that seems to occur when contacting meraki nodes, so we'll log it as a warning and retry
+
+				// Try up to the maximum retry count.
+				if (attemptCount >= _options.MaxAttemptCount)
+				{
+					_logger.LogError(
+						"{LogPrefix}Giving up retrying. Received \"Network is unreachable\" on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+						logPrefix, attemptCount, _options.MaxAttemptCount,
+						request.Method.ToString(),
+						request.RequestUri
+						);
+					throw;
+				}
+
+				_logger.LogWarning(
+					"{LogPrefix}Received \"Network is unreachable\" on attempt {AttemptCount}/{MaxAttemptCount}.",
+					logPrefix, attemptCount, _options.MaxAttemptCount
+					);
+
+				// Wait 5 seconds and then retry
+				await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken).ConfigureAwait(false);
+				continue;
+			}
 
 			_merakiClient.LastResponseHeaders = httpResponseMessage.Headers;
 
