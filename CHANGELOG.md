@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.49.7
+- Now handling 504 errors and retrying the request in the same way as 502 & 503.
+
 ## 1.49.6
 - Added undocumented Network isVirtual
 

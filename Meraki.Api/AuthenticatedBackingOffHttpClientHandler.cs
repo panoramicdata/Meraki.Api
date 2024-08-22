@@ -145,6 +145,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 						break;
 					case 502:
 					case 503:
+					case 504:
 						_logger.LogInformation(
 							"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
 							logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
