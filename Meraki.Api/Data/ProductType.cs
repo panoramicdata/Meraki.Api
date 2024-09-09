@@ -46,5 +46,8 @@ public enum ProductType
 	Frontizo,
 
 	[EnumMember(Value = "secureConnect")]
-	SecureConnect
+	SecureConnect,
+
+	[EnumMember(Value = "wirelessController")]
+	WirelessController
 }

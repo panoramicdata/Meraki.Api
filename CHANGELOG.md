@@ -1,5 +1,21 @@
 ﻿# Changelog
 
+## 1.49.9
+- Added wirelessController ProductType
+
+## 1.49.7
+- Now handling 504 errors and retrying the request in the same way as 502 & 503.
+
+## 1.49.6
+- Added undocumented Network isVirtual
+
+## 1.49.4
+- Now handling "Network unreachable" exceptions and retrying the request.
+- Now handling 503 errors and retrying the request in the same way as 502.
+
+## 1.49.1
+- Updated for 1.49 API changes
+
 ## 1.48.8
 - Updated dependencies and broken refit reference
 
