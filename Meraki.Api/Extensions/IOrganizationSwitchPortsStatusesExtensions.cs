@@ -17,7 +17,7 @@ public static class IOrganizationSwitchPortsStatusesExtensions
 	/// <param name="serial">Optional parameter to filter switchports belonging to switches by serial number. All returned switches will have a serial number that contains the search term or is an exact match.</param>
 	/// <param name="serials">Optional parameter to filter switchports belonging to switches with one or more serial numbers. All switchports returned belong to serial numbers of switches that are an exact match.</param>
 	/// <param name="configurationUpdatedAfter">Optional parameter to filter results by switches where the configuration has been updated after the given timestamp</param>
-	public static Task<List<SwitchPortsStatusesBySwitch>> GetOrganzationSwitchPortsStatusesBySwitchAllAsync(
+	public static Task<List<SwitchPortsStatusesBySwitch>> GetOrganizationSwitchPortsStatusesBySwitchAllAsync(
 		this IOrganizationSwitches organizationSwitchPortsStatusesBySwitch,
 		string organizationId,
 		string? t0,
