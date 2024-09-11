@@ -68,6 +68,7 @@ public partial class MerakiClient
 		{ "Q2MP", "MS220-48LP" },
 		{ "Q2MW", "MS250-24P" },
 		{ "Q2MY", "MX68CW-NA" },
+		{ "Q2NP", "MS220-48FP" },
 		{ "Q2NV", "MV2" },
 		{ "Q2NY", "MX68CW-WW" },
 		{ "Q2PD", "MR33" },
