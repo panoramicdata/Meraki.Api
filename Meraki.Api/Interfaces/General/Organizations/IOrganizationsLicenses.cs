@@ -52,6 +52,7 @@ public interface IOrganizationsLicenses
 	internal Task<ApiResponse<List<OrganizationLicense>>> GetPagedApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		string? deviceSerial = null,
 		string? networkId = null,
 		string? state = null,

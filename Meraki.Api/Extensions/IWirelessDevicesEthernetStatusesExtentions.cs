@@ -12,10 +12,11 @@ public static class IWirelessDevicesEthernetStatusesExtentions
 		string organizationId,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> wirelessDeviceEthernetStatuses.GetOrganizationWirelessDevicesEthernetStatusesApiResponseAsync(
 						organizationId,
 						startingAfter,
+						endingBefore,
 						cancellationToken
 					),
 					cancellationToken

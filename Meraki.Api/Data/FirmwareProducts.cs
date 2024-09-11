@@ -83,4 +83,11 @@ public class FirmwareProducts
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "switchCatalyst")]
 	public FirmwareUpgradeProduct SwitchCatalyst { get; set; } = new();
+
+	/// <summary>
+	/// wirelessController
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "wirelessController")]
+	public FirmwareUpgradeProduct WirelessController { get; set; } = new();
 }

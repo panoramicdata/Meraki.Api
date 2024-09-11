@@ -25,14 +25,13 @@ public class NetworkBluetoothSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "uuid")]
-	public string Uuid { get; set; } = string.Empty;
-
+	public string? Uuid { get; set; }
 	/// <summary>
 	/// Gets or Sets MajorMinorAssignmentMode
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "majorMinorAssignmentMode")]
-	public MajorMinorAssignmentMode MajorMinorAssignmentMode { get; set; }
+	public MajorMinorAssignmentMode? MajorMinorAssignmentMode { get; set; }
 
 	/// <summary>
 	/// The major number to be used in the beacon identifier. Only valid in 'Non-unique' mode.

@@ -40,4 +40,11 @@ public class SwitchStaticRoute : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "preferOverOspfRoutesEnabled")]
 	public bool? PreferOverOspfRoutesEnabled { get; set; }
+
+	/// <summary>
+	/// Optional fallback IP address for management traffic
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "managementNextHop")]
+	public string? ManagementNextHop { get; set; }
 }

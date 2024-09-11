@@ -32,12 +32,13 @@ public static class IOrganizationSwitchPortsStatusesExtensions
 		string? configurationUpdatedAfter,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationSwitchPortsStatusesBySwitch.GetOrganizationSwitchPortsStatusesBySwitchApiResponseAsync(
 						organizationId,
 						t0,
 						timespan,
 						startingAfter,
+						endingBefore,
 						networkIds,
 						portProfileIds,
 						name,

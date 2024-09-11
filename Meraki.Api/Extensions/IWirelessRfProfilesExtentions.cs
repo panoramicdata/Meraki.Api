@@ -31,10 +31,11 @@ public static class IWirelessRfProfilesExtensions
 		List<string>? models,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> wirelessRfProfilesAssignments.GetOrganizationWirelessRfProfilesAssignmentsByDeviceApiResponseAsync(
 						organizationId,
 						startingAfter,
+						endingBefore,
 						networkIds,
 						productTypes,
 						name,

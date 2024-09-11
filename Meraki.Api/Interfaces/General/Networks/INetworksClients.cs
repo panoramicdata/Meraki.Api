@@ -42,6 +42,27 @@ public interface INetworksClients
 		[AliasAs("recentDeviceConnections[]")] List<string>? recentDeviceConnections = null,
 		CancellationToken cancellationToken = default);
 
+	[ApiOperationId("getNetworkClients")]
+	[Get("/networks/{networkId}/clients")]
+	[QueryUriFormat(UriFormat.Unescaped)]
+	internal Task<ApiResponse<List<Client>>> GetNetworkClientsApiResponseAsync(
+		string networkId,
+		string t0 = null!,
+		double? timespan = null,
+		int? perPage = null,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? statuses = null,
+		string? ip = null,
+		string? ip6 = null,
+		string? ip6Local = null,
+		string? mac = null,
+		string? os = null,
+		string? pskGroup = null,
+		string? description = null,
+		[AliasAs("recentDeviceConnections[]")] List<string>? recentDeviceConnections = null,
+		CancellationToken cancellationToken = default);
+
 	/// <summary>
 	/// Return the client associated with the given identifier. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.
 	/// </summary>

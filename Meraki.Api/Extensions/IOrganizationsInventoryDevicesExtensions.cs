@@ -24,10 +24,11 @@ public static class IOrganizationsInventoryDevicesExtensions
 		List<ProductType>? productTypes = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-				(startingAfter, cancellationToken)
+				(startingAfter, endingBefore, cancellationToken)
 				=> organizationInventoryDevices.GetOrganizationInventoryDevicesApiResponseAsync(
 						organizationId,
 						startingAfter,
+						endingBefore,
 						usedState,
 						search,
 						macs,

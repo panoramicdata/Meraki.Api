@@ -27,6 +27,7 @@ public interface IOrganizationsDevices
 	internal Task<ApiResponse<List<OrganizationDeviceStatus>>> GetDevicesStatusesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		[AliasAs("serials[]")] List<string>? serials = null,
 		[AliasAs("statuses[]")] List<string>? statuses = null,
@@ -57,7 +58,7 @@ public interface IOrganizationsDevices
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// List the devices in an organization
+	/// List the devices in an organization that have been assigned to a network.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
@@ -104,6 +105,7 @@ public interface IOrganizationsDevices
 	internal Task<ApiResponse<List<OrganizationDevice>>> GetOrganizationDevicesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		string? configurationUpdatedAfter = null,
 		[AliasAs("networksIds[]")] List<string>? networksIds = null,
 		[AliasAs("productTypes[]")] List<string>? productTypes = null,
@@ -159,6 +161,7 @@ public interface IOrganizationsDevices
 	internal Task<ApiResponse<List<DeviceProvisioningStatus>>> GetDevicesProvisioningStatusesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		[AliasAs("serials[]")] List<string>? serials = null,
 		string? status = null,
@@ -179,5 +182,18 @@ public interface IOrganizationsDevices
 		[AliasAs("models[]")] List<string>? models = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		[AliasAs("productTypes[]")] List<string>? productTypes = null,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Updating device details (currently only used for Catalyst devices)
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="bulkDevicesUpdate">The bulk devices update request</param>
+	[ApiOperationId("bulkUpdateOrganizationDevicesDetails")]
+	[Get("/organizations/{organizationId}/devices/details/bulkUpdate")]
+	Task<BulkUpdatedDevices> BulkUpdateOrganizationDevicesDetailsAsync(
+		string organizationId,
+		[Body] BulkDevicesUpdate bulkDevicesUpdate,
 		CancellationToken cancellationToken = default);
 }

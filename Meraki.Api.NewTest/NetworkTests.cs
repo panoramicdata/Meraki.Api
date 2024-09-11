@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Meraki.Api.Data;
+using Meraki.Api.Extensions;
 using System.Net;
 using Xunit.Abstractions;
 
@@ -100,5 +101,15 @@ public class NetworkTests : MerakiClientUnitTest
 		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Networks.GetNetworkAsync(network.Id));
 		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
+	}
+
+	[Fact]
+	public async Task GetNetworkClientsAll_Succeeds()
+	{
+		TestMerakiClient.Statistics.Reset();
+		var networks = await TestMerakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(TestOrganizationId);
+		var network = networks[0];
+		var clients = await TestMerakiClient.Networks.Clients.GetNetworkClientsAllAsync(network.Id, cancellationToken: default);
+		_ = clients.Should().NotBeNull();
 	}
 }

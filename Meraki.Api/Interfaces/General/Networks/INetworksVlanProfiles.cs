@@ -104,6 +104,7 @@ public interface INetworksVlanProfiles
 	internal Task<ApiResponse<List<VlanProfileDeviceAssignment>>> GetNetworkVlanProfilesAssignmentsByDeviceApiResponseAsync(
 		string networkId,
 		string? startingAfter,
+		string? endingBefore,
 		[AliasAs("serials[]")] List<string>? serials = null,
 		[AliasAs("productTypes[]")] List<string>? productTypes = null,
 		[AliasAs("stackIds[]")] List<string>? stackIds = null,

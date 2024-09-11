@@ -39,6 +39,7 @@ public interface IOrganizationsPolicyObjects
 	internal Task<ApiResponse<List<OrganizationPolicyObject>>> GetOrganizationPolicyObjectsApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 

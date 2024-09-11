@@ -1,5 +1,28 @@
 ﻿# Changelog
 
+## 1.49.9
+- Added wirelessController ProductType
+
+## 1.49.7
+- Now handling 504 errors and retrying the request in the same way as 502 & 503.
+
+## 1.49.6
+- Added undocumented Network isVirtual
+
+## 1.49.4
+- Now handling "Network unreachable" exceptions and retrying the request.
+- Now handling 503 errors and retrying the request in the same way as 502.
+
+## 1.49.1
+- Updated for 1.49 API changes
+
+## 1.48.8
+- Updated dependencies and broken refit reference
+
+## 1.48.4
+- Updated for 1.48 API changes
+- Adjusted "GetAll" extensions to utilise endingBefore as well as startingAfter. This currently only seemed to affect getting apiRequests.
+
 ## 1.46.1
 - Added/updated new endpoints. 
 - Some new endpoints with new paging mechanism have not had "Get All" endpoints added until the inconsistencies between the models have been confirmed as intentional by Meraki API developers.

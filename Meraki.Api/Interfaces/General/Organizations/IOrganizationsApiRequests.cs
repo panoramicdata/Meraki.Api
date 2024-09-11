@@ -44,7 +44,7 @@ public interface IOrganizationsApiRequests
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// List the API requests made by an organization - This endpooint used internally for the Get All call
+	/// List the API requests made by an organization - This endpoint used internally for the Get All call
 	/// </summary>
 	[Get("/organizations/{organizationId}/apiRequests")]
 	internal Task<ApiResponse<List<ApiUsage>>> GetOrganizationApiRequestsApiResponseAsync(
@@ -52,7 +52,9 @@ public interface IOrganizationsApiRequests
 	string? t0 = null,
 	string? t1 = null,
 	double? timespan = null,
+	int? perPage = 1000,
 	string? startingAfter = null,
+	string? endingBefore = null,
 	string? adminId = null,
 	string? path = null,
 	string? method = null,

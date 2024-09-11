@@ -65,4 +65,10 @@ public class ProductsUpdateRequest
 	/// </summary>
 	[DataMember(Name = "switchCatalyst")]
 	public NetworkFirmwareUpdateRequestProduct? SwitchCatalyst { get; set; }
+
+	/// <summary>
+	/// WirelessController
+	/// </summary>
+	[DataMember(Name = "wirelessController")]
+	public NetworkFirmwareUpdateRequestProduct? WirelessController { get; set; }
 }

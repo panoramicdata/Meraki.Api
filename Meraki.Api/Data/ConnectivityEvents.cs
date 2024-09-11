@@ -25,6 +25,12 @@ public class ConnectivityEvents
 	public int Band { get; set; }
 
 	/// <summary>
+	/// Id of the packet capture triggered for the event, if any
+	/// </summary>
+	[DataMember(Name = "captureId")]
+	public string CaptureId { get; set; } = string.Empty;
+
+	/// <summary>
 	/// Ssid
 	/// </summary>
 	[DataMember(Name = "ssid")]

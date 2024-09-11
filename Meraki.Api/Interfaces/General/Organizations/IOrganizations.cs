@@ -21,7 +21,8 @@ public interface IOrganizations
 
 	[Get("/organizations")]
 	internal Task<ApiResponse<List<Organization>>> GetOrganizationsApiResponseAsync(
-		string? startingAfter = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
