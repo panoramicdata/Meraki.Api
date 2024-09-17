@@ -39,7 +39,7 @@ public interface ICellularGatewayEsims
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	[ApiOperationId("getOrganizationCellularGatewayEsimsServiceProviders")]
-	[Put("/organizations/{organizationId}/cellularGateway/esims/serviceProviders")]
+	[Get("/organizations/{organizationId}/cellularGateway/esims/serviceProviders")]
 	Task<EsimsServiceProviders> GetOrganizationCellularGatewayEsimsServiceProvidersAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default
@@ -55,6 +55,20 @@ public interface ICellularGatewayEsims
 	Task<NetworkCellularGatewayEsimsServiceProviderAccount> CreateOrganizationCellularGatewayEsimsServiceProvidersAccountAsync(
 		string organizationId,
 		[Body] NetworkCellularGatewayEsimsServiceProviderAccountCreateRequest networkCellularGatewayEsimUpdate
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Inventory of service provider accounts tied to the organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="accountIds">Optional parameter to filter the results by service provider account IDs.</param>
+	[ApiOperationId("getOrganizationCellularGatewayEsimsServiceProvidersAccounts")]
+	[Get("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts")]
+	Task<EsimsServiceProvidersAccounts> GetOrganizationCellularGatewayEsimsServiceProvidersAccountsAsync(
+		string organizationId,
+		[AliasAs("accountIds[]")] List<int> accountIds,
 		CancellationToken cancellationToken = default
 		);
 }
