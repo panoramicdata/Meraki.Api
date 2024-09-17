@@ -50,11 +50,12 @@ public interface ICellularGatewayEsims
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="networkCellularGatewayEsimCreateRequest">The creation request</param>
 	[ApiOperationId("createOrganizationCellularGatewayEsimsServiceProvidersAccount")]
 	[Post("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts")]
 	Task<NetworkCellularGatewayEsimsServiceProviderAccount> CreateOrganizationCellularGatewayEsimsServiceProvidersAccountAsync(
 		string organizationId,
-		[Body] NetworkCellularGatewayEsimsServiceProviderAccountCreateRequest networkCellularGatewayEsimUpdate
+		[Body] NetworkCellularGatewayEsimsServiceProviderAccountCreateRequest networkCellularGatewayEsimCreateRequest,
 		CancellationToken cancellationToken = default
 		);
 
@@ -69,6 +70,36 @@ public interface ICellularGatewayEsims
 	Task<EsimsServiceProvidersAccounts> GetOrganizationCellularGatewayEsimsServiceProvidersAccountsAsync(
 		string organizationId,
 		[AliasAs("accountIds[]")] List<int> accountIds,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Edit service provider account info stored in Meraki's database.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="accountId">Account ID</param>
+	/// <param name="networkCellularGatewayEsimUpdateRequest">The update request</param>
+	[ApiOperationId("createOrganizationCellularGatewayEsimsServiceProvidersAccount")]
+	[Put("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/{accountId}")]
+	Task<NetworkCellularGatewayEsimsServiceProviderAccount> UpdateOrganizationCellularGatewayEsimsServiceProvidersAccountAsync(
+		string organizationId,
+		string accountId,
+		[Body] NetworkCellularGatewayEsimsServiceProviderAccountUpdateRequest networkCellularGatewayEsimUpdateRequest,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Remove a service provider account's integration with the Dashboard.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="accountId">Account ID</param>
+	[ApiOperationId("deleteOrganizationCellularGatewayEsimsServiceProvidersAccount")]
+	[Delete("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/{accountId}")]
+	Task DeleteOrganizationCellularGatewayEsimsServiceProvidersAccountAsync(
+		string organizationId,
+		string accountId,
 		CancellationToken cancellationToken = default
 		);
 }
