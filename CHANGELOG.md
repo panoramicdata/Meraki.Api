@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## 1.49.14
+- Region support added (for China).  The default region is "Default" ("Rest of the world").
+If you want to select China, use:
+```C#
+merakiClientOptions.ApiRegion = ApiRegion.China;
+```
+
+## 1.49.11
+- Misc updates
+
 ## 1.49.9
 - Added wirelessController ProductType
 
