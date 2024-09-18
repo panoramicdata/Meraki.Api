@@ -20,6 +20,7 @@ public interface INetworksEvents
 	/// <param name="smDeviceName">The name of the Systems Manager device which the list of events will be filtered with (optional)</param>
 	/// <param name="eventDetails">The details of the event(Catalyst device only) which the list of events will be filtered with</param>
 	/// <param name="eventSeverity">The severity of the event(Catalyst device only) which the list of events will be filtered with</param>
+	/// <param name="isCatalyst">Boolean indicating that whether it is a Catalyst device. For Calatyst device, eventDetails and eventSeverity can be used to filter events.</param>
 	/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 10. (optional)</param>
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
@@ -40,6 +41,7 @@ public interface INetworksEvents
 		string smDeviceName = null!,
 		string eventDetails = null!,
 		string eventSeverity = null!,
+		bool isCatalyst = false,
 		int? perPage = 1000,
 		string startingAfter = null!,
 		string endingBefore = null!,
