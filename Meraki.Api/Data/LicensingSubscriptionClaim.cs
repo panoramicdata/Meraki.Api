@@ -42,6 +42,13 @@ public class LicensingSubscriptionClaim
 	public string Status { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Smart account status
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "smartAccountStatus")]
+	public string SmartAccountStatus { get; set; } = string.Empty;
+
+	/// <summary>
 	/// Subscription's ID
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
@@ -61,6 +68,20 @@ public class LicensingSubscriptionClaim
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "productTypes")]
 	public List<string> ProductTypes { get; set; } = [];
+
+	/// <summary>
+	/// Enterprise Agreement
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "enterpriseAgreement")]
+	public LicensingSubscriptionClaimEnterpriseAgreement EnterpriseAgreement { get; set; } = new();
+
+	/// <summary>
+	/// Smart account
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "smartAccount")]
+	public LicensingSubscriptionClaimSmartAccount SmartAccount { get; set; } = new();
 
 	/// <summary>
 	/// Numeric breakdown of network and entitlement counts

@@ -28,6 +28,13 @@ public class LicensingSubscriptionSubscription
 	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Smart account status
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "smartAccountStatus")]
+	public string SmartAccountStatus { get; set; } = string.Empty;
+
+	/// <summary>
 	/// Subscription start date
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
@@ -68,6 +75,20 @@ public class LicensingSubscriptionSubscription
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "counts")]
 	public LicensingSubscriptionClaimCounts Counts { get; set; } = new();
+
+	/// <summary>
+	/// Enterprise agreement details
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "enterpriseAgreement")]
+	public LicensingSubscriptionClaimEnterpriseAgreement EnterpriseAgreement { get; set; } = new();
+
+	/// <summary>
+	/// Smart account
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "smartAccount")]
+	public LicensingSubscriptionClaimSmartAccount SmartAccount { get; set; } = new();
 
 	/// <summary>
 	/// Entitlement info
