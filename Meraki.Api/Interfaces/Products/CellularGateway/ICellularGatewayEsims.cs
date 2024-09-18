@@ -102,4 +102,60 @@ public interface ICellularGatewayEsims
 		string accountId,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// The communication plans available for a given provider.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="accountIds">Account IDs that communication plans will be fetched for</param>
+	[ApiOperationId("getOrganizationCellularGatewayEsimsServiceProvidersAccountsCommunicationPlans")]
+	[Get("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/communicationPlans")]
+	Task<EsimsServiceProvidersAccountsCommunicationPlans> GetOrganizationCellularGatewayEsimsServiceProvidersAccountsCommunicationPlansAsync(
+		string organizationId,
+		[AliasAs("accountIds[]")] List<int> accountIds,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// The rate plans available for a given provider.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="accountIds">Account IDs that communication plans will be fetched for</param>
+	[ApiOperationId("getOrganizationCellularGatewayEsimsServiceProvidersAccountsRatePlans")]
+	[Get("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/ratePlans")]
+	Task<EsimsServiceProvidersAccountsRatePlans> GetOrganizationCellularGatewayEsimsServiceProvidersAccountsRatePlansAsync(
+		string organizationId,
+		[AliasAs("accountIds[]")] List<int> accountIds,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Swap which profile an eSIM uses.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="organizationCellularGatewayEsimSwapCreateRequest">The creation request</param>
+	[ApiOperationId("createOrganizationCellularGatewayEsimsSwap")]
+	[Post("/organizations/{organizationId}/cellularGateway/esims/swap")]
+	Task<OrganizationCellularGatewayEsimSwapStatus> CreateOrganizationCellularGatewayEsimsSwapAsync(
+		string organizationId,
+		[Body] OrganizationCellularGatewayEsimSwapCreateRequest organizationCellularGatewayEsimSwapCreateRequest,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Get the status of a profile swap.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="id">eSIM EID</param>
+	[ApiOperationId("updateOrganizationCellularGatewayEsimsSwap")]
+	[Put("/organizations/{organizationId}/cellularGateway/esims/swap/{id}")]
+	Task<OrganizationCellularGatewayEsimSwapStatus> UpdateOrganizationCellularGatewayEsimsSwapAsync(
+		string organizationId,
+		string id,
+		CancellationToken cancellationToken = default
+		);
 }
