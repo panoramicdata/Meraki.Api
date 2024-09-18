@@ -6,6 +6,13 @@
 public class MerakiClientOptions
 {
 	/// <summary>
+	/// The API Region.
+	/// Defaults to "World", which is the default region for the Meraki Dashboard API.
+	/// Only change this if you are using the China API endpoint.
+	/// </summary>
+	public ApiRegion ApiRegion { get; set; } = ApiRegion.Default;
+
+	/// <summary>
 	/// The API Node (e.g. "n72").
 	/// This is optional, but highly recommended as directly addressing the correct instance will reduce propagation delays.
 	/// If this is NOT provided, you may experience 404 errors when accessing recently-added objects.
