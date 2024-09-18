@@ -11,5 +11,5 @@ public class EsimsServiceProvidersAccountsCommunicationPlansMetaCounts
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "items")]
-	public EsimsServiceProvidersAccountsCommunicationPlansMetaCountsItem Items { get; set; } = new();
+	public EsimsServiceProvidersAccountsCommunicationPlansMetaCountsItems Items { get; set; } = new();
 }
