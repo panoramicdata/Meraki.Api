@@ -16,7 +16,7 @@ public class EsimsServiceProviders
 	/// <summary>
 	/// List Cellular Service Providers
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "items")]
 	public List<EsimsServiceProvidersItem> Items { get; set; } = new();
 
