@@ -19,5 +19,4 @@ public class EsimsServiceProviders
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "items")]
 	public List<EsimsServiceProvidersItem> Items { get; set; } = new();
-
 }
