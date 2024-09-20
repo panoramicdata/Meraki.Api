@@ -17,7 +17,7 @@ public class NetworkCellularGatewayEsimsInventory
 	/// List of eSIM Devices
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "dnsNameservers")]
+	[DataMember(Name = "items")]
 	public List<NetworkCellularGatewayEsimsInventoryItem> Items { get; set; } = [];
 
 }
