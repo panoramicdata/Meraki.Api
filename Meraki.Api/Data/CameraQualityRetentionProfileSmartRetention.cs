@@ -11,5 +11,5 @@ public class CameraQualityRetentionProfileSmartRetention
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 }

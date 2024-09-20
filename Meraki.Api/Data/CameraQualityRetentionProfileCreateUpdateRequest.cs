@@ -67,7 +67,7 @@ public class CameraQualityRetentionProfileCreateUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "smartRetention")]
-	public CameraQualityRetentionProfileSmartRetention SmartRetention { get; set; } = null!;
+	public CameraQualityRetentionProfileSmartRetention? SmartRetention { get; set; }
 
 	/// <summary>
 	/// Gets or Sets VideoSettings
