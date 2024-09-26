@@ -118,7 +118,8 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 
 					if (methodSymbol.DeclaredAccessibility == Accessibility.Public)
 					{
-						sb.AppendLine("\t" + methodSymbol.GetMethodSignature(true));
+						var methodSignature = methodSymbol.GetMethodSignature(true);
+						sb.AppendLine("\t" + methodSignature);
 						var parameters = string.Join(", ", methodSymbol.Parameters.Select(p => $"{p.Name}"));
 						sb.AppendLine($"\t\t=> {propertyDeclaredSymbol.Name}.{methodSymbol.Name}({parameters});");
 					}
