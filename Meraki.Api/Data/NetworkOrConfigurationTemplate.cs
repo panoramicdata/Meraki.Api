@@ -17,4 +17,11 @@ public abstract class NetworkOrConfigurationTemplate : NamedIdentifiedItem
 	/// </summary>
 	[ApiForeignKey(typeof(ProductType))]
 	public abstract List<ProductType> ProductTypes { get; set; }
+
+	/// <summary>
+	/// URL - Undocumented
+	/// </summary>
+	[IgnoreDataMember(Name = "url")]
+	[ApiAccess(ApiAccess.Read)]
+	public string url { get; set; } = string.Empty;
 }

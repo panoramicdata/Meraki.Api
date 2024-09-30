@@ -21,9 +21,9 @@ public class StormControl
 	public int MulticastThreshold { get; set; }
 
 	/// <summary>
-	/// Percentage (1 to 99) of total available port bandwidth for unknown unicast (dlf-destination lookup failure) traffic type. Default value 100 percent rate is to clear the configuration.
+	/// TreatTheseTrafficTypesAsOneThreshold - Undocumented
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "unknownUnicastThreshold")]
-	public int UnknownUnicastThreshold { get; set; }
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "treatTheseTrafficTypesAsOneThreshold")]
+	public List<object> TreatTheseTrafficTypesAsOneThreshold { get; set; } = [];
 }
