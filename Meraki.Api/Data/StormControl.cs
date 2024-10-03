@@ -26,4 +26,11 @@ public class StormControl
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "unknownUnicastThreshold")]
 	public int UnknownUnicastThreshold { get; set; }
+
+	/// <summary>
+	/// TreatTheseTrafficTypesAsOneThreshold - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "treatTheseTrafficTypesAsOneThreshold")]
+	public List<object> TreatTheseTrafficTypesAsOneThreshold { get; set; } = [];
 }
