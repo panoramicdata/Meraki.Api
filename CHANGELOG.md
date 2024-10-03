@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.50.3
+- Added resolution 2688x1512
+
 ## 1.50.1
 - Updated for 1.50
 
