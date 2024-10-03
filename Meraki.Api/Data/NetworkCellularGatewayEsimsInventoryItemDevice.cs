@@ -17,7 +17,7 @@ public class NetworkCellularGatewayEsimsInventoryItemDevice
 	/// Device name
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "name	")]
+	[DataMember(Name = "name")]
 	public string Name { get; set; } = string.Empty;
 
 	/// <summary>
