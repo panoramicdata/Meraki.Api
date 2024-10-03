@@ -19,4 +19,11 @@ public class LdapServer
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "host")]
 	public string Host { get; set; } = string.Empty;
+
+	/// <summary>
+	/// LDAP Server Id - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "id")]
+	public string Id { get; set; } = string.Empty;
 }
