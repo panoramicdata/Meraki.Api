@@ -43,7 +43,7 @@ public interface IOrganizationSwitches
 		string? configurationUpdatedAfter,
 		CancellationToken cancellationToken = default);
 
-	// Used by GetOrganzationSwitchPortsStatusesBySwitchAllAsync
+	// Used by GetOrganizationSwitchPortsStatusesBySwitchAllAsync
 	[Get("/organizations/{organizationId}/switch/ports/statuses/bySwitch")]
 	internal Task<ApiResponse<List<SwitchPortsStatusesBySwitch>>> GetOrganizationSwitchPortsStatusesBySwitchApiResponseAsync(
 		string organizationId,

@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Live Tools Throughput Test Callback Payload Organzation
+/// Live Tools Throughput Test Callback Payload Organization
 /// </summary>
 [ApiAccessReadOnlyClass]
 [DataContract]
