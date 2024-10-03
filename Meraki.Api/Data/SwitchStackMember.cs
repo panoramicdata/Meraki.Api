@@ -10,7 +10,7 @@ public class SwitchStackMember
 	/// Serial
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "serial	")]
+	[DataMember(Name = "serial")]
 	public string Serial { get; set; } = string.Empty;
 
 	/// <summary>
