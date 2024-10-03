@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.50.1
+- Updated for 1.50
+
 ## 1.49.14
 - Region support added (for China).  The default region is "Default" ("Rest of the world").
 If you want to select China, use:
