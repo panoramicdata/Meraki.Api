@@ -21,7 +21,7 @@ public abstract class NetworkOrConfigurationTemplate : NamedIdentifiedItem
 	/// <summary>
 	/// URL - Undocumented
 	/// </summary>
-	[IgnoreDataMember(Name = "url")]
+	[DataMember(Name = "url")]
 	[ApiAccess(ApiAccess.Read)]
-	public string url { get; set; } = string.Empty;
+	public string Url { get; set; } = string.Empty;
 }
