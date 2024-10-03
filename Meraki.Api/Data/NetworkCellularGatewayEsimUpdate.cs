@@ -10,7 +10,6 @@ public class NetworkCellularGatewayEsimUpdate
 	/// Status the eSIM will be updated to
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "meta")]
-	public string status { get; set; } = string.Empty;
-
+	[DataMember(Name = "status")]
+	public string Status { get; set; } = string.Empty;
 }
