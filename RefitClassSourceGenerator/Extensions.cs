@@ -76,9 +76,16 @@ public static class Extensions
 
 			if (parameter.HasExplicitDefaultValue)
 			{
+				var defaultValue = parameter.ExplicitDefaultValue?.ToString() ?? "default";
+
+				if (parameter.ExplicitDefaultValue is bool)
+				{
+					defaultValue = defaultValue.ToLowerInvariant();
+				}
+
 				_ = result
 					.Append(" = ")
-					.Append(parameter.ExplicitDefaultValue?.ToString() ?? "default");
+					.Append(defaultValue ?? "default");
 			}
 		}
 

@@ -301,6 +301,7 @@ public partial class MerakiClient : IDisposable
 		{
 			ConnectivityMonitoringDestinations = RefitFor(CellularGateway.ConnectivityMonitoringDestinations),
 			Dhcp = RefitFor(CellularGateway.Dhcp),
+			Esims = RefitFor(CellularGateway.Esims),
 			Lan = RefitFor(CellularGateway.Lan),
 			PortForwardingRules = RefitFor(CellularGateway.PortForwardingRules),
 			SubnetPool = RefitFor(CellularGateway.SubnetPool),

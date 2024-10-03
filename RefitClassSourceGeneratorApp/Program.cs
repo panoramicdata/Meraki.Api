@@ -3,13 +3,13 @@ using Microsoft.CodeAnalysis.CSharp;
 using RefitClassSourceGenerator;
 using System.Collections.Immutable;
 
-namespace TestConsoleApp;
+namespace RefitClassSourceGeneratorApp;
 
 static class Program
 {
 	static void Main()
 	{
-		var source =
+		const string source =
 
 			@"
 using System;
@@ -25,6 +25,7 @@ namespace Meraki.Api.Interfaces.General.Networks {
 			int thing2 = default,
 			string thing3 = default,
 			string thing4 = null,
+			bool isOk = false,
 			CancellationToken cancellationToken = default);
 
 		Task<string> UpdateNetworkAsync(
@@ -56,7 +57,7 @@ namespace Meraki.Api.Sections.General.Networks {
 			Console.WriteLine("Diagnostics:");
 			foreach (var diag in diagnostics)
 			{
-				Console.WriteLine("   " + diag.ToString());
+				Console.WriteLine("   " + diag);
 			}
 
 			Console.WriteLine();

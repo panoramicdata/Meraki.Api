@@ -9,12 +9,14 @@ public class LldpCdp
 	/// <summary>
 	/// Source mac
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "sourceMac")]
 	public string SourceMac { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Ports
+	/// Mapping of ports to lldp and/or cdp information
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ports")]
-	public Dictionary<string, Port> Ports { get; set; } = [];
+	public LldpCdpPorts Ports { get; set; } = new();
 }
