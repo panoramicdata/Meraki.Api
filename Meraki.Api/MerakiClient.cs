@@ -1,4 +1,5 @@
-﻿using Meraki.Api.Sections.General.LiveTools;
+﻿using Meraki.Api.Extensions;
+using Meraki.Api.Sections.General.LiveTools;
 using Meraki.Api.Sections.Products.Licensing;
 
 namespace Meraki.Api;
@@ -30,16 +31,13 @@ public partial class MerakiClient : IDisposable
 		_options = options;
 		_logger = logger ?? NullLogger.Instance;
 		_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), this, _logger);
+
+		var merakiDomain = options.ApiRegion.GetMerakiApiDomain()
+			?? throw new ArgumentOutOfRangeException($"Unsupported API Region {options.ApiRegion}");
+
 		_httpClient = new HttpClient(_httpClientHandler)
 		{
-			BaseAddress = new Uri(
-				options.ApiRegion switch
-				{
-					ApiRegion.Default => $"https://{options.ApiNode ?? "api"}.meraki.com/api/v1",
-					ApiRegion.China => $"https://{options.ApiNode ?? "api"}.meraki.cn/api/v1",
-					_ => throw new ArgumentOutOfRangeException($"Unsupported API Region {options.ApiRegion}")
-				}
-			),
+			BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.{merakiDomain}/api/v1"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
 		};
 		_refitSettings = new RefitSettings

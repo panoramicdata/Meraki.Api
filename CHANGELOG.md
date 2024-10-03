@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.50.4
+- Added support for Canada, India and Goverment dashboards.
+
 ## 1.50.3
 - Added resolution 2688x1512
 
