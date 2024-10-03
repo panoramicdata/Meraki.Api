@@ -63,6 +63,13 @@ public class CameraQualityRetentionProfileCreateUpdateRequest
 	public int? MaxRetentionDays { get; set; }
 
 	/// <summary>
+	/// Smart Retention records footage in two qualities and intelligently retains higher quality when motion, people or vehicles are detected.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "smartRetention")]
+	public CameraQualityRetentionProfileSmartRetention? SmartRetention { get; set; }
+
+	/// <summary>
 	/// Gets or Sets VideoSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

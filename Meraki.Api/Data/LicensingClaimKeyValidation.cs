@@ -21,6 +21,13 @@ public class LicensingClaimKeyValidation
 	public string EndDate { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Smart account status
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "smartAccountStatus")]
+	public string SmartAccountStatus { get; set; } = string.Empty;
+
+	/// <summary>
 	/// Subscription name
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
@@ -61,6 +68,20 @@ public class LicensingClaimKeyValidation
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "productTypes")]
 	public List<string> ProductTypes { get; set; } = [];
+
+	/// <summary>
+	/// Enterprise agreement details
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "enterpriseAgreement")]
+	public LicensingSubscriptionClaimEnterpriseAgreement EnterpriseAgreement { get; set; } = new();
+
+	/// <summary>
+	/// Smart account
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "smartAccount")]
+	public LicensingSubscriptionClaimSmartAccount SmartAccount { get; set; } = new();
 
 	/// <summary>
 	/// Numeric breakdown of network and entitlement counts

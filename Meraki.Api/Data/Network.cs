@@ -71,7 +71,7 @@ public class Network : NetworkOrConfigurationTemplate
 	public bool? IsBoundToConfigTemplate { get; set; }
 
 	/// <summary>
-	/// IsVirtual - undocumented
+	/// IsVirtual
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isVirtual")]

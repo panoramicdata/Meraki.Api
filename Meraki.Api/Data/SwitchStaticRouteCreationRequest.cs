@@ -31,6 +31,12 @@ public class SwitchStaticRouteCreationRequest
 	public bool? AdvertiseViaOspfEnabled { get; set; }
 
 	/// <summary>
+	/// Optional fallback IP address for management traffic
+	/// </summary>
+	[DataMember(Name = "managementNextHop")]
+	public string? ManagementNextHop { get; set; }
+
+	/// <summary>
 	/// Prefer over ospf routes enabled
 	/// </summary>
 	[DataMember(Name = "preferOverOspfRoutesEnabled")]
