@@ -40,20 +40,20 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="HtmlAgilityPack" Version="1.11.62" />
+		<PackageReference Include="HtmlAgilityPack" Version="1.11.67" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.6.139">
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.6.143">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="refit" Version="7.1.2" />
-		<PackageReference Include="Refit.Newtonsoft.Json" Version="7.1.2" />
-		<PackageReference Include="Roslynator.Analyzers" Version="4.12.4">
+		<PackageReference Include="refit" Version="7.2.1" />
+		<PackageReference Include="Refit.Newtonsoft.Json" Version="7.2.1" />
+		<PackageReference Include="Roslynator.Analyzers" Version="4.12.7">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
