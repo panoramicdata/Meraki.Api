@@ -47,4 +47,11 @@ public class SixGhzSettings
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "rxsop")]
 	public int? Rxsop { get; set; }
+
+	/// <summary>
+	/// afcEnabled - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "afcEnabled")]
+	public bool AfcEnabled { get; set; }
 }
