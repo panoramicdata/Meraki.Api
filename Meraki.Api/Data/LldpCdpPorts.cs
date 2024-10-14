@@ -7,6 +7,13 @@
 public class LldpCdpPorts
 {
 	/// <summary>
+	/// MAC address for the device
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "deviceMac")]
+	public string DeviceMac { get; set; } = string.Empty;
+
+	/// <summary>
 	/// cdp information
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
