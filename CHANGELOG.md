@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.51.6
+- Added IsRouteBased to ThirdPartyVpnPeer
+
 ## 1.51.5
 - Updated for 1.51 API changes
 

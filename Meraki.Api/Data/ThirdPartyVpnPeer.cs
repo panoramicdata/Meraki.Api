@@ -72,4 +72,11 @@ public class ThirdPartyVpnPeer : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "networkTags")]
 	public List<string>? NetworkTags { get; set; }
+
+	/// <summary>
+	/// Undocumented 2024-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "isRouteBased")]
+	public bool? IsRouteBased { get; set; }
 }
