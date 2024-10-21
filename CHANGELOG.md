@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.51.5
+- Updated for 1.51 API changes
+
 ## 1.50.4
 - Added support for Canada, India and Goverment dashboards.
 
