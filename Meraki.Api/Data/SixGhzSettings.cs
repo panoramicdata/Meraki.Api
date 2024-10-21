@@ -53,5 +53,5 @@ public class SixGhzSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "afcEnabled")]
-	public bool AfcEnabled { get; set; }
+	public bool? AfcEnabled { get; set; }
 }
