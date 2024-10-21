@@ -6,6 +6,10 @@ namespace Meraki.Api.Data;
 [DataContract]
 public class ThirdPartyVpnPeer : NamedItem
 {
+	[ApiKey]
+	[DataMember(Name = "peerId")]
+	public string? PeerId { get; set; }
+
 	/// <summary>
 	/// The public IP of the VPN peer
 	/// </summary>
