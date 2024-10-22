@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.51.12
+- Updated more MV resolutions and models
+
 ## 1.51.8
 - Added 2688x1512 to Mv63XResolution
 
