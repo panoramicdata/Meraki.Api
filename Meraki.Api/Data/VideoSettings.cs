@@ -60,14 +60,14 @@ public class VideoSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "MV73M")]
-	public Mv73X? Mv73M { get; set; }
+	public Mv73? Mv73M { get; set; }
 
 	/// <summary>
 	/// Gets or Sets MV73X
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "MV73X")]
-	public Mv73X? Mv73X { get; set; }
+	public Mv73? Mv73X { get; set; }
 
 	/// <summary>
 	/// Gets or Sets MV93
