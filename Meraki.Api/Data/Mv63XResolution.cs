@@ -19,6 +19,12 @@ public enum Mv63XResolution
 	Size2560x1440,
 
 	/// <summary>
+	/// Enum 2688x1512
+	/// </summary>
+	[EnumMember(Value = "2688x1512")]
+	Size2688x1512,
+
+	/// <summary>
 	/// Enum 3840x2160
 	/// </summary>
 	[EnumMember(Value = "3840x2160")]

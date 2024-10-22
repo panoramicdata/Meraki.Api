@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.51.8
+- Added 2688x1512 to Mv63XResolution
+
 ## 1.51.7
 - Added 2688x1512 to MV63
 
