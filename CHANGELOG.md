@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.51.7
+- Added 2688x1512 to MV63
+
 ## 1.51.6
 - Added IsRouteBased to ThirdPartyVpnPeer
 
