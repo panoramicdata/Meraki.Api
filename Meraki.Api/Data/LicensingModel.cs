@@ -8,4 +8,7 @@ public enum LicensingModel
 
 	[EnumMember(Value = "per-device")]
 	PerDevice,
+
+	[EnumMember(Value = "subscription")]
+	Subscription,
 }

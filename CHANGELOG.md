@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.51.x
+- Added subscription LicensingModel
+
 ## 1.51.12
 - Updated more MV resolutions and models
 
