@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.51.X
+- Fixed LldpCdp.Ports to be a dictionary of string to LldpCdpPort
+
 ## 1.51.15
 - Added subscription LicensingModel
 

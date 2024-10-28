@@ -18,5 +18,5 @@ public class LldpCdp
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ports")]
-	public LldpCdpPorts Ports { get; set; } = new();
+	public Dictionary<string, LldpCdpPort> Ports { get; set; } = new();
 }

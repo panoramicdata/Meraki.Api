@@ -4,7 +4,7 @@
 /// LldpCdp Ports
 /// </summary>
 [DataContract]
-public class LldpCdpPorts
+public class LldpCdpPort
 {
 	/// <summary>
 	/// MAC address for the device
