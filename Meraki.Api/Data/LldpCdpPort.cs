@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// LldpCdp Ports
+/// LldpCdp Port
 /// </summary>
 [DataContract]
 public class LldpCdpPort
