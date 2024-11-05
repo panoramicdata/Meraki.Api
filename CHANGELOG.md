@@ -1,6 +1,9 @@
 ﻿# Changelog
 
-## 1.51.X
+## 1.51.18
+- Modified MV32 to allow High quality on the profile
+
+## 1.51.17
 - Fixed LldpCdp.Ports to be a dictionary of string to LldpCdpPort
 
 ## 1.51.15

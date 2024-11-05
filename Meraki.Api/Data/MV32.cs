@@ -11,7 +11,7 @@ public class Mv32
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "quality")]
-	public StandardEnhancedQuality Quality { get; set; }
+	public StandardEnhancedHighQuality Quality { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Resolution
