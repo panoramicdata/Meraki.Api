@@ -98,7 +98,7 @@ public interface IOrganizationsAssuranceAlerts
 	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("dismissOrganizationAssuranceAlerts")]
 	[Post("/organizations/{organizationId}/assurance/alerts/dismiss")]
-	Task dismissOrganizationAssuranceAlertsAsync(
+	Task DismissOrganizationAssuranceAlertsAsync(
 		string organizationId,
 		[Body] OrganizationAssuranceAlertIds organizationAssuranceAlertsDismiss,
 		CancellationToken cancellationToken = default);
@@ -112,7 +112,7 @@ public interface IOrganizationsAssuranceAlerts
 	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("restoreOrganizationAssuranceAlerts")]
 	[Post("/organizations/{organizationId}/assurance/alerts/restore")]
-	Task restoreOrganizationAssuranceAlertsAsync(
+	Task RestoreOrganizationAssuranceAlertsAsync(
 		string organizationId,
 		[Body] OrganizationAssuranceAlertIds organizationAssuranceAlertsRestore,
 		CancellationToken cancellationToken = default);
