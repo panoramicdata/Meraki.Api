@@ -4,12 +4,8 @@ using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
 [Collection("API Collection")]
-public class OrganizationTests : MerakiClientUnitTest
+public class OrganizationTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
-	public OrganizationTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetOrganizations_Succeeds()
 	{

@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
 
-namespace RefitAnalyzer;
+namespace RefitClassSourceGenerator;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
@@ -35,9 +35,7 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 		isEnabledByDefault: true,
 		description: _removeAliasAsRule_Description);
 
-	public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(
-		_requireListParameterRule,
-		_removeAliasAsRule);
+	public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => [_requireListParameterRule, _removeAliasAsRule];
 
 	public override void Initialize(AnalysisContext context)
 	{
