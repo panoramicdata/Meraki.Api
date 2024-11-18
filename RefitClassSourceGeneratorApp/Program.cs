@@ -5,9 +5,9 @@ using System.Collections.Immutable;
 
 namespace RefitClassSourceGeneratorApp;
 
-static class Program
+internal static class Program
 {
-	static void Main()
+	private static void Main()
 	{
 		const string source =
 
