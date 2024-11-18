@@ -26,6 +26,6 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		_ = details
 			.Select(x => x.DeviceModel)
 			.Should()
-			.OnlyContain(x => x.StartsWith("M"));
+			.OnlyContain(x => x.StartsWith('M'));
 	}
 }
