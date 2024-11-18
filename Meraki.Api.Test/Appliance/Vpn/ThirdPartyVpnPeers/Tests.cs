@@ -1,4 +1,4 @@
-namespace Meraki.Api.Test.Organizations.Appliance.Vpn.ThirdPartyVpnPeers;
+namespace Meraki.Api.Test.Appliance.Vpn.ThirdPartyVpnPeers;
 
 public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {

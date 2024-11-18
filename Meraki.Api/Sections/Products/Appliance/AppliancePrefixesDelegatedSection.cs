@@ -1,6 +1,4 @@
-﻿using Meraki.Api.Interfaces.Products.Appliances;
-
-namespace Meraki.Api.Sections.Products.Appliance;
+﻿namespace Meraki.Api.Sections.Products.Appliance;
 
 public class AppliancePrefixesDelegatedSection
 {

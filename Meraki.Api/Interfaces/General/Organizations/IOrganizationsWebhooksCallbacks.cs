@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Organizations;
 
 public interface IOrganizationsWebhooksCallbacks
 

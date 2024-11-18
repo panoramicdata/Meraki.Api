@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliances;
+﻿namespace Meraki.Api.Interfaces.Products.Appliance;
 
 public interface IAppliancePrefixesDelegatedStatics
 
