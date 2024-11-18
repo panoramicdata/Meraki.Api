@@ -11,13 +11,13 @@ public class BulkDevicesUpdate
 	/// </summary>
 	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "serials")]
-	public List<string> Serials { get; set; } = new();
+	public List<string> Serials { get; set; } = [];
 
 	/// <summary>
 	/// An array of details
 	/// </summary>
 	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "details")]
-	public List<BulkDevicesUpdateDetail> Details { get; set; } = new();
+	public List<BulkDevicesUpdateDetail> Details { get; set; } = [];
 
 }

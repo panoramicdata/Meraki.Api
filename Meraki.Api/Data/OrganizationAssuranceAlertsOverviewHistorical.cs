@@ -15,5 +15,5 @@ public class OrganizationAssuranceAlertsOverviewHistorical
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "items")]
-	public List<OrganizationAssuranceAlertsOverviewHistoricalItem> Items { get; set; } = new();
+	public List<OrganizationAssuranceAlertsOverviewHistoricalItem> Items { get; set; } = [];
 }

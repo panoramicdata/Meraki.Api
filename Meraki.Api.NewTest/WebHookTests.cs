@@ -142,7 +142,7 @@ public class WebhookTests : MerakiClientUnitTest
 				Body = """
 				{"event_type":"{{alertTypeId}}","client_payload":{"text":"{{alertData}}"}}
 				""",
-				Headers = new(),
+				Headers = [],
 			};
 
 			var testCreateWebhookPayloadTemplate = await TestMerakiClient
@@ -302,7 +302,7 @@ public class WebhookTests : MerakiClientUnitTest
 				Body = """
 				{"event_type":"{{alertTypeId}}","client_payload":{"text":"{{alertData}}"}}
 				""",
-				Headers = new(),
+				Headers = [],
 			};
 
 			var testCreateWebhookPayloadTemplate = await TestMerakiClient

@@ -10,5 +10,5 @@ public class WanTrafficUplinkPreferencesUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wanTrafficUplinkPreferences")]
-	public List<WanTrafficUplinkPreference> WanTrafficUplinkPreferences { get; set; } = new();
+	public List<WanTrafficUplinkPreference> WanTrafficUplinkPreferences { get; set; } = [];
 }

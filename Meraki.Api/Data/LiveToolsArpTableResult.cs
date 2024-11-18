@@ -47,5 +47,5 @@ public class LiveToolsArpTableResult
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "entries")]
-	public List<LiveToolsArpTableResultTableEntry> Entries { get; set; } = new();
+	public List<LiveToolsArpTableResultTableEntry> Entries { get; set; } = [];
 }

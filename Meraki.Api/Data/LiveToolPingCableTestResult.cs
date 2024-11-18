@@ -46,5 +46,5 @@ public class LiveToolsCableTestResult
 	/// Results of the cable test request, one for each requested port.
 	/// </summary>
 	[DataMember(Name = "results")]
-	public List<LiveToolsCableTestResultResult> Results { get; set; } = new();
+	public List<LiveToolsCableTestResultResult> Results { get; set; } = [];
 }

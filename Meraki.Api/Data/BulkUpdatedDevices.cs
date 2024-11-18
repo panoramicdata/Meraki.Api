@@ -11,6 +11,6 @@ public class BulkUpdatedDevices
 	/// </summary>
 	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "serials")]
-	public List<string> Serials { get; set; } = new();
+	public List<string> Serials { get; set; } = [];
 
 }

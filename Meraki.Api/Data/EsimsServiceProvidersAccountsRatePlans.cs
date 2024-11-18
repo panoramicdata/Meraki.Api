@@ -11,5 +11,5 @@ public class EsimsServiceProvidersAccountsRatePlans
 	/// List of ESIMs Service Provider Accounts Rate Plans
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	public override List<EsimsServiceProvidersAccountsRatePlansItem> Items { get; set; } = new();
+	public override List<EsimsServiceProvidersAccountsRatePlansItem> Items { get; set; } = [];
 }

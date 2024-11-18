@@ -25,5 +25,5 @@ public class EsimsServiceProvidersAccountsCommunicationPlansItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "apns")]
-	public List<EsimsServiceProvidersAccountsCommunicationPlansItemApn> Apns { get; set; } = new();
+	public List<EsimsServiceProvidersAccountsCommunicationPlansItemApn> Apns { get; set; } = [];
 }

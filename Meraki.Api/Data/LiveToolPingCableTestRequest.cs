@@ -19,5 +19,5 @@ public class LiveToolsCableTestRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ports")]
-	public List<string> Ports { get; set; } = new();
+	public List<string> Ports { get; set; } = [];
 }

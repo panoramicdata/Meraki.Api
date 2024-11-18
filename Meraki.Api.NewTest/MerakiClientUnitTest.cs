@@ -40,13 +40,13 @@ public abstract class MerakiClientUnitTest
 			Name = networkName,
 			Notes = "Test notes for unit test network.",
 			TimeZone = "Europe/London",
-			ProductTypes = new() {
+			ProductTypes = [
 				ProductType.Appliance,
 				ProductType.Camera,
 				ProductType.CellularGateway,
 				ProductType.Switch,
-				ProductType.Wireless },
-			Tags = new() { "TestTag1", "TestTag2", "TestTag3" }
+				ProductType.Wireless ],
+			Tags = ["TestTag1", "TestTag2", "TestTag3"]
 		};
 
 	protected async Task<Network> CreateValidNetworkAsync(string networkName)

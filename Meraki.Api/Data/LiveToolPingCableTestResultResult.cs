@@ -40,5 +40,5 @@ public class LiveToolsCableTestResultResult
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "pairs")]
-	public List<LiveToolsCableTestResultResultPair> Pairs { get; set; } = new();
+	public List<LiveToolsCableTestResultResultPair> Pairs { get; set; } = [];
 }

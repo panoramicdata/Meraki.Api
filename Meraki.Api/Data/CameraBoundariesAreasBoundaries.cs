@@ -33,5 +33,5 @@ public class CameraBoundariesAreasBoundaries
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vertices")]
-	public List<CameraBoundariesAreasBoundariesVertex> Vertices { get; set; } = new();
+	public List<CameraBoundariesAreasBoundariesVertex> Vertices { get; set; } = [];
 }

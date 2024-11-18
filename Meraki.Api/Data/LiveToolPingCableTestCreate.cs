@@ -12,7 +12,7 @@ public class LiveToolsCableTestCreate
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ports")]
-	public List<string> Ports { get; set; } = new();
+	public List<string> Ports { get; set; } = [];
 
 	/// <summary>
 	/// Details for the callback. Please include either an httpServerId OR url and sharedSecret

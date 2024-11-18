@@ -11,5 +11,5 @@ public class OrganizationCellularGatewayEsimSwapCreateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "swaps")]
-	public List<OrganizationCellularGatewayEsimSwap> Swaps { get; set; } = new();
+	public List<OrganizationCellularGatewayEsimSwap> Swaps { get; set; } = [];
 }

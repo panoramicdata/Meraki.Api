@@ -15,5 +15,5 @@ public class OrganizationAssuranceAlertsOverviewByType
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "items")]
-	public List<OrganizationAssuranceAlertsOverviewByTypeItem> Items { get; set; } = new();
+	public List<OrganizationAssuranceAlertsOverviewByTypeItem> Items { get; set; } = [];
 }
