@@ -73,7 +73,6 @@ public class OrganizationAssuranceAlert : IdentifiedItem
 	[DataMember(Name = "network")]
 	public OrganizationAssuranceAlertNetwork Network { get; set; } = new();
 
-
 	/// <summary>
 	/// Scope of the alert (which devices and networks are affected)
 	/// </summary>
