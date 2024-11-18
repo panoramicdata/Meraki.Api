@@ -25,5 +25,5 @@ public class InsightMonitoredMediaServer : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "addressIsIp")]
-	public bool? AddressIsIp{ get; set; }
+	public bool? AddressIsIp { get; set; }
 }
