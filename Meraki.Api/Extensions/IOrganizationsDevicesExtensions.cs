@@ -86,7 +86,6 @@ public static class IOrganizationsDevicesExtensions
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="configurationUpdatedAfter">Filter results by whether or not the device's configuration has been updated after the given timestamp (optional)</param>
 	/// <param name="networksIds">Optional parameter to filter devices by network</param>
 	/// <param name="productTypes">Optional parameter to filter devices by product type. Valid types are wireless, appliance, switch, systemsManager, camera, cellularGateway, and sensor.</param>
