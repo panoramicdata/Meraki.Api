@@ -6,11 +6,11 @@ namespace Meraki.Api.Interfaces.General.Organizations;
 public interface IOrganizationsSwitchPortsOverview
 {
 	/// <summary>
-	/// Returns the counts of all active ports for the requested timespan, grouped by speed. 
-	/// An active port is a port that at any point during the timeframe is observed to be connected to a responsive device and isn't configured to be disabled. 
-	/// For a port that is observed at multiple speeds during the timeframe, it will be counted at the highest speed observed. 
-	/// The number of inactive ports, and the total number of ports are also provided. 
-	/// Only ports on switches online during the timeframe will be represented and a port is only guaranteed to be present 
+	/// Returns the counts of all active ports for the requested timespan, grouped by speed.
+	/// An active port is a port that at any point during the timeframe is observed to be connected to a responsive device and isn't configured to be disabled.
+	/// For a port that is observed at multiple speeds during the timeframe, it will be counted at the highest speed observed.
+	/// The number of inactive ports, and the total number of ports are also provided.
+	/// Only ports on switches online during the timeframe will be represented and a port is only guaranteed to be present
 	/// if its switch was online for at least 6 hours of the timeframe.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>

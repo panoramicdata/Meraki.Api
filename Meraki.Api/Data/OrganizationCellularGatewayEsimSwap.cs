@@ -1,7 +1,7 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Esims Swap 
+/// Esims Swap
 /// </summary>
 [DataContract]
 public class OrganizationCellularGatewayEsimSwap

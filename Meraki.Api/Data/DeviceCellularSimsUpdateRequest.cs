@@ -7,8 +7,8 @@ namespace Meraki.Api.Data;
 public class DeviceCellularSimsUpdateRequest
 {
 	/// <summary>
-	/// Specifies the ordering of all SIMs for an MG: primary, secondary, and not-in-use (when applicable). 
-	/// It's required for devices with 3 or more SIMs and can be used in place of 'isPrimary' for dual-SIM devices. 
+	/// Specifies the ordering of all SIMs for an MG: primary, secondary, and not-in-use (when applicable).
+	/// It's required for devices with 3 or more SIMs and can be used in place of 'isPrimary' for dual-SIM devices.
 	/// To indicate eSIM, use 'sim3'. Sim failover will occur only between primary and secondary sim slots.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

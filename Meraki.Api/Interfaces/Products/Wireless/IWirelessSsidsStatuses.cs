@@ -3,7 +3,7 @@
 public interface IWirelessSsidsStatuses
 {
 	/// <summary>
-	/// List status information of all BSSIDs in your organization 
+	/// List status information of all BSSIDs in your organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The network id</param>
