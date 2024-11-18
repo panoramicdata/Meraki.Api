@@ -6,12 +6,8 @@ using Xunit.Abstractions;
 namespace Meraki.Api.NewTest;
 
 [Collection("API Collection")]
-public class DeviceSensorCommandTests : MerakiClientUnitTest
+public class DeviceSensorCommandTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
-	public DeviceSensorCommandTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task EnableMT40Device_Succeeds()
 	{

@@ -6,12 +6,8 @@ using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
 [Collection("API Collection")]
-public class WebhookTests : MerakiClientUnitTest
+public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
-	public WebhookTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task WebhookHttpServersCrud_Succeeds()
 	{

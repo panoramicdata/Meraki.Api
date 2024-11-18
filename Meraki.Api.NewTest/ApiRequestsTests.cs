@@ -2,13 +2,9 @@
 
 namespace Meraki.Api.NewTest;
 [Collection("API Collection")]
-public class ApiRequestsTests : MerakiClientUnitTest
+public class ApiRequestsTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
 	private static readonly System.Text.Json.JsonSerializerOptions _jsonOptions = new() { WriteIndented = true };
-
-	public ApiRequestsTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
 
 	//[Fact]
 	//public async Task GetApiRequests_Succeeds()

@@ -5,12 +5,8 @@ using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
 [Collection("API Collection")]
-public class UniqueVlanTests : MerakiClientUnitTest
+public class UniqueVlanTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
-	public UniqueVlanTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task BasicCrud_Succeeds()
 	{

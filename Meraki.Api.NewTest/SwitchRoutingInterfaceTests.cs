@@ -5,12 +5,8 @@ using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
 [Collection("API Collection")]
-public class SwitchRoutingInterfaceTests : MerakiClientUnitTest
+public class SwitchRoutingInterfaceTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
-	public SwitchRoutingInterfaceTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task BasicCrud_Succeeds()
 	{

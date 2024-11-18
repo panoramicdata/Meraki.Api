@@ -2,12 +2,8 @@
 using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
-public class EarlyAccessFeatureTests : MerakiClientUnitTest
+public class EarlyAccessFeatureTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
-	public EarlyAccessFeatureTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task BasicGet_Features_Succeeds()
 	{
