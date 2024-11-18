@@ -12,5 +12,4 @@ public class OrganizationLicenseStateStatesActive
 	/// </summary>
 	[DataMember(Name = "count")]
 	public int Count { get; set; }
-
 }

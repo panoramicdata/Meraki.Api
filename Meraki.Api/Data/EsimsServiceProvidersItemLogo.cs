@@ -12,5 +12,4 @@ public class EsimsServiceProvidersItemLogo
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "logo")]
 	public string? Logo { get; set; }
-
 }

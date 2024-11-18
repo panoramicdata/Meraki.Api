@@ -19,5 +19,4 @@ public class AirMarshalSettingsByNetworkMetaCountsItems
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "total")]
 	public int Total { get; set; }
-
 }

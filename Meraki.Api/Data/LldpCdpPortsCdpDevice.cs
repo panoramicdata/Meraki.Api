@@ -12,5 +12,4 @@ public class LldpCdpPortsDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "url")]
 	public string? Url { get; set; }
-
 }

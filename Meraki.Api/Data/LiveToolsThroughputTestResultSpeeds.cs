@@ -13,5 +13,4 @@ public class LiveToolsThroughputTestResultSpeeds
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "downstream")]
 	public double Downstream { get; set; }
-
 }

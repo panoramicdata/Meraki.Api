@@ -10,5 +10,4 @@ public class DevicesOverviewByModel
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "counts")]
 	public List<DevicesOverviewByModelCount>? Counts { get; set; }
-
 }

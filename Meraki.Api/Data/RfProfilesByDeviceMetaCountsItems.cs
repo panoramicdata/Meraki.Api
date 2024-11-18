@@ -18,5 +18,4 @@ public class RfProfilesByDeviceMetaCountsItems
 	/// </summary>
 	[DataMember(Name = "total")]
 	public int Total { get; set; }
-
 }

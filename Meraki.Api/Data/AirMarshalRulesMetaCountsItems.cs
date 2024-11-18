@@ -12,6 +12,4 @@ public class AirMarshalRulesMetaCountsItems
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "total")]
 	public int Total { get; set; }
-
-
 }
