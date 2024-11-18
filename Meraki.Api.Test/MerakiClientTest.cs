@@ -101,9 +101,11 @@ public class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : IDisposabl
 			.DeleteNetworkAsync(networkId)
 ;
 
-	protected static string DnsServer => string.Join('.', new[] { 0, 1, 2, 3 }.Select(_ => 8));
+	protected static string DnsServer => string.Join('.', _sourceArray.Select(_ => 8));
 	protected static string PrivateNetworkFirst3Octets => "10.1.2";
 	protected static string SubnetMaskFirst3Octets => "255.255.255";
+
+	private static readonly int[] _sourceArray = [0, 1, 2, 3];
 
 	protected virtual void Dispose(bool disposing)
 	{
