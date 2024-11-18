@@ -21,7 +21,7 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetLatestData_Succeeds()
 	{
-		if (!_serials.Any())
+		if (_serials.Count == 0)
 		{
 			// We don't have a devices to test with
 			return;
@@ -41,7 +41,7 @@ public class Tests : MerakiClientTest
 	[Fact]
 	public async Task GetHistoricData_Succeeds()
 	{
-		if (!_serials.Any())
+		if (_serials.Count == 0)
 		{
 			// We don't have a devices to test with
 			return;
