@@ -14,5 +14,5 @@ public abstract class ItemsResponseWithMeta<T>
 	/// </summary>
 	// [ApiAccess(ApiAccess.Read)] - Defined on the concrete class
 	[DataMember(Name = "items")]
-	abstract public List<T> Items { get; set; }
+	public abstract List<T> Items { get; set; }
 }
