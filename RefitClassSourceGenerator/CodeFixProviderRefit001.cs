@@ -10,7 +10,7 @@ namespace RefitClassSourceGenerator;
 [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(CodeFixProviderRefit001)), Shared]
 public class CodeFixProviderRefit001 : CodeFixProvider
 {
-	public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create("REFIT001");
+	public sealed override ImmutableArray<string> FixableDiagnosticIds => ["REFIT001"];
 
 	public sealed override FixAllProvider GetFixAllProvider() => WellKnownFixAllProviders.BatchFixer;
 
