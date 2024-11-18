@@ -13,5 +13,4 @@ public class LiveToolsThroughputTestResult
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "speeds")]
 	public LiveToolsThroughputTestResultSpeeds Speeds { get; set; } = new();
-
 }

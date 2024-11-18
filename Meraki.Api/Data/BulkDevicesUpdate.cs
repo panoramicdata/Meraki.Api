@@ -19,5 +19,4 @@ public class BulkDevicesUpdate
 	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "details")]
 	public List<BulkDevicesUpdateDetail> Details { get; set; } = [];
-
 }

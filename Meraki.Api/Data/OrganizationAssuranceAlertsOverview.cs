@@ -9,5 +9,4 @@ public class OrganizationAssuranceAlertsOverview
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "counts")]
 	public OrganizationAssuranceAlertsOverviewCounts Counts { get; set; } = new();
-
 }

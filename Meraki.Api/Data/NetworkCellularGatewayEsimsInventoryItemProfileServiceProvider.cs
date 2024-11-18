@@ -19,5 +19,4 @@ public class NetworkCellularGatewayEsimsInventoryItemProfileServiceProvider
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "plans")]
 	public List<NetworkCellularGatewayEsimsInventoryItemProfileServiceProviderPlan> Plans { get; set; } = [];
-
 }

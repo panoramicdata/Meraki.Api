@@ -19,5 +19,4 @@ public class AirMarshalSettingsByNetwork
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "items")]
 	public List<AirMarshalSettings> Items { get; set; } = [];
-
 }

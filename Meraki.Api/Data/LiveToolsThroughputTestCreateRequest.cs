@@ -13,5 +13,4 @@ public class LiveToolsThroughputTestCreateRequest
 	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "callback")]
 	public LiveToolsThroughputTestCreateRequestCallback Callback { get; set; } = new();
-
 }

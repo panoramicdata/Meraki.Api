@@ -17,5 +17,4 @@ public class DevicesOverviewByModelCount
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "model")]
 	public string Model { get; set; } = string.Empty;
-
 }

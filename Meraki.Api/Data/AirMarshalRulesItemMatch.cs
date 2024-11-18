@@ -19,5 +19,4 @@ public class AirMarshalRulesItemMatch
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "type")]
 	public string Type { get; set; } = string.Empty;
-
 }

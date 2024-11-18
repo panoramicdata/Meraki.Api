@@ -14,5 +14,4 @@ public enum SensorAlertConditionThresholdCo2Quality
 
 	[EnumMember(Value = "poor")]
 	Poor,
-
 }

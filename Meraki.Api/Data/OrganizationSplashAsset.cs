@@ -12,5 +12,4 @@ public class OrganizationSplashAsset : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "fileData")]
 	public string FileData { get; set; } = string.Empty;
-
 }

@@ -6,5 +6,4 @@
 [DataContract]
 public class AirMarshalRulesItemNetwork : NamedIdentifiedItem
 {
-
 }

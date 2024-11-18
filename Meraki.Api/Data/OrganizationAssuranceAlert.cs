@@ -79,5 +79,4 @@ public class OrganizationAssuranceAlert : IdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "scope")]
 	public OrganizationAssuranceAlertScope Scope { get; set; } = new();
-
 }

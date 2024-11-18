@@ -12,5 +12,4 @@ public class AirMarshalSettingsByNetworkMeta
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "counts")]
 	public AirMarshalSettingsByNetworkMetaCounts Counts { get; set; } = new();
-
 }

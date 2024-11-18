@@ -12,5 +12,4 @@ public class LicensingSubscriptionClaimEnterpriseAgreement
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "suites")]
 	public List<string> Suites { get; set; } = [];
-
 }

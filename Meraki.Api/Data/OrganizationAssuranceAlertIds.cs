@@ -9,5 +9,4 @@ public class OrganizationAssuranceAlertIds
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "alertIds")]
 	public List<string> AlertIds { get; set; } = [];
-
 }

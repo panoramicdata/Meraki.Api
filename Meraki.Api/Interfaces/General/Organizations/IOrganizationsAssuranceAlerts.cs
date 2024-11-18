@@ -278,5 +278,4 @@ public interface IOrganizationsAssuranceAlerts
 		[AliasAs("serials[]")] List<string>? serials,
 		[AliasAs("deviceTypes[]")] List<string>? deviceTypes,
 		CancellationToken cancellationToken = default);
-
 }

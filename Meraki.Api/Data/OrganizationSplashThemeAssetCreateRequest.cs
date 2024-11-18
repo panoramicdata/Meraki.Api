@@ -19,5 +19,4 @@ public class OrganizationSplashThemeAssetCreateRequest
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "name")]
 	public string Name { get; set; } = string.Empty;
-
 }

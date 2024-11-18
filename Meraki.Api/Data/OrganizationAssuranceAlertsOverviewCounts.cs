@@ -16,5 +16,4 @@ public class OrganizationAssuranceAlertsOverviewCounts
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "bySeverity")]
 	public List<OrganizationAssuranceAlertsOverviewCountsBySeverity> BySeverity { get; set; } = [];
-
 }

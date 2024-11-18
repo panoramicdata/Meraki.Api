@@ -12,5 +12,4 @@ public class OrganizationSplashTheme : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "themeAssests")]
 	public List<OrganizationSplashThemeThemeAsset> ThemeAssets { get; set; } = [];
-
 }

@@ -13,5 +13,4 @@ public class LiveToolsThroughputTestRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "serial")]
 	public string Serial { get; set; } = string.Empty;
-
 }

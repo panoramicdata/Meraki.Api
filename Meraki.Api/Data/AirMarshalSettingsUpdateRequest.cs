@@ -12,5 +12,4 @@ public class AirMarshalSettingsUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "defaultPolicy")]
 	public string DefaultPolicy { get; set; } = string.Empty;
-
 }

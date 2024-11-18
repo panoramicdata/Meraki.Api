@@ -16,5 +16,4 @@ public class OrganizationAssuranceAlertsOverviewByNetworkItemSeverityCount
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "type")]
 	public string Type { get; set; } = string.Empty;
-
 }
