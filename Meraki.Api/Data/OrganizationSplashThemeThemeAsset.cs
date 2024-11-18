@@ -4,6 +4,4 @@ namespace Meraki.Api.Data;
 /// Organization Splash Theme Theme Asset
 /// </summary>
 [DataContract]
-public class OrganizationSplashThemeThemeAsset : NamedIdentifiedItem
-{
-}
+public class OrganizationSplashThemeThemeAsset : NamedIdentifiedItem;

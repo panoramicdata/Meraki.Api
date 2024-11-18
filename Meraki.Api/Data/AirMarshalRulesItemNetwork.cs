@@ -4,6 +4,4 @@
 /// Organization Air Marshal Rules Item Network
 /// </summary>
 [DataContract]
-public class AirMarshalRulesItemNetwork : NamedIdentifiedItem
-{
-}
+public class AirMarshalRulesItemNetwork : NamedIdentifiedItem;
