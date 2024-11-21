@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.51.48
+
+- Added 2880x2880 to MV93MResolution
+
 ## 1.51.47
 
 - Added 3840x2160 to MV63Resolution

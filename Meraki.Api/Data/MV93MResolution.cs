@@ -16,5 +16,11 @@ public enum MV93MResolution
 	/// Enum 1080x1080
 	/// </summary>
 	[EnumMember(Value = "1080x1080")]
-	Size1080x1080
+	Size1080x1080,
+
+	/// <summary>
+	/// Enum 2880x2880
+	/// </summary>
+	[EnumMember(Value = "2880x2880")]
+	Size2880x2880
 }
