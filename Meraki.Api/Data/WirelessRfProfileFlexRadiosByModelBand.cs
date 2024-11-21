@@ -22,5 +22,11 @@ public enum WirelessRfProfileFlexRadiosByModelBand
 	/// 6GHz
 	/// </summary>
 	[EnumMember(Value = "6")]
-	Band6Ghz
+	Band6Ghz,
+
+	/// <summary>
+	/// Undocumented disabled entry
+	/// </summary>
+	[EnumMember(Value = "disabled")]
+	Disabled
 }

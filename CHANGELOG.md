@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.51.44
+- Added disabled to WirelessRfProfileFlexRadiosByModelBand
+- Added 3840x2160 to MV13Resolution
+
 ## 1.51.18
 - Modified MV32 to allow High quality on the profile
 
