@@ -215,4 +215,11 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "module")]
 	public SwitchPortModule? Module { get; set; }
+
+	/// <summary>
+	/// Stackwise Virtual settings for the port
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "stackwiseVirtual")]
+	public SwitchPortStackwiseVirtual? StackwiseVirtual { get; set; }
 }
