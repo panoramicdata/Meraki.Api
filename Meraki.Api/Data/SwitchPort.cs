@@ -222,4 +222,11 @@ public class SwitchPort : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "mirror")]
 	public SwitchPortMirror? Mirror { get; set; }
+
+	/// <summary>
+	/// Stackwise Virtual settings for the port
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "stackwiseVirtual")]
+	public SwitchPortStackwiseVirtual? StackwiseVirtual { get; set; }
 }
