@@ -15,4 +15,45 @@ public interface IOrganizationsFloorPlansAutoLocate
 	Task<FloorPlansAutoLocateDevices> GetOrganizationFloorPlansAutoLocateDevicesAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	///	Schedule auto locate jobs for one or more floor plans in a network
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="floorPlansAutoLocateJobsRequest">The list of auto locate jobs to be scheduled. Up to 100 jobs can be provided in a request.</param>
+	[ApiOperationId("batchNetworkFloorPlansAutoLocateJobs")]
+	[Post("/networks/{networkId}/floorPlans/autoLocate/jobs/batch")]
+	Task<FloorPlansAutoLocateJobsResponse> BatchNetworkFloorPlansAutoLocateJobsAsync(
+		string networkId,
+		[Body] FloorPlansAutoLocateJobsRequest floorPlansAutoLocateJobsRequest,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	///	Cancel Network Floor Plans Auto Locate Job
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="jobId">Job ID</param>
+	[ApiOperationId("cancelNetworkFloorPlansAutoLocateJob")]
+	[Post("/networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}/cancel")]
+	Task CancelNetworkFloorPlansAutoLocateJobAsync(
+		string networkId,
+		string jobId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Update the status of a finished auto locate job to be published, and update device locations
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="jobId">Job ID</param>
+	/// <param name="floorPlansPublishAutoLocateJobRequest">The list of auto locate jobs to be scheduled. Up to 100 jobs can be provided in a request.</param>
+	[ApiOperationId("publishNetworkFloorPlansAutoLocateJob")]
+	[Post("/networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}/publish")]
+	Task<FloorPlansPublishAutoLocateJobResponse> PublishNetworkFloorPlansAutoLocateJobAsync(
+		string networkId,
+		string jobId,
+		[Body] FloorPlansPublishAutoLocateJobRequest floorPlansPublishAutoLocateJobRequest,
+		CancellationToken cancellationToken = default);
 }

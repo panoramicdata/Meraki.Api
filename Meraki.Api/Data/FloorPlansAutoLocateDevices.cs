@@ -2,10 +2,10 @@
 
 [DataContract]
 public class FloorPlansAutoLocateDevices
-	: ItemsResponseMeta<FloorPlansAutoLocateDevice>
+	: ItemsResponseWithMeta<FloorPlansAutoLocateDevice>
 {
 	/// <summary>
-	/// List Floor Plamns Auto Locate Devices
+	/// List Floor Plans Auto Locate Devices
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "items")]
