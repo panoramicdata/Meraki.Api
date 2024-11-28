@@ -71,4 +71,26 @@ public interface IOrganizationsFloorPlansAutoLocate
 		string jobId,
 		[Body] FloorPlansRecalculateAutoLocateJobRequest floorPlansRecalculateAutoLocateJobRequest,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// List the status of auto locate for each floorplan in your organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	[ApiOperationId("getOrganizationFloorPlansAutoLocateStatuses")]
+	[Post("/organizations/{organizationId}/floorPlans/autoLocate/statuses")]
+	Task<FloorPlansAutoLocateStatuses> GetOrganizationFloorPlansAutoLocateStatusesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// List the status of auto locate for each floorplan in your organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
+	[ApiOperationId("getOrganizationFloorPlansAutoLocateStatuses")]
+	[Post("/organizations/{organizationId}/floorPlans/autoLocate/statuses")]
+	Task<FloorPlansAutoLocateStatuses> GetOrganizationFloorPlansAutoLocateStatusesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
 }
