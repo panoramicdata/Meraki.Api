@@ -56,4 +56,19 @@ public interface IOrganizationsFloorPlansAutoLocate
 		string jobId,
 		[Body] FloorPlansPublishAutoLocateJobRequest floorPlansPublishAutoLocateJobRequest,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Trigger auto locate recalculation for a job, and optionally set anchors
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="jobId">Job ID</param>
+	/// <param name="floorPlansRecalculateAutoLocateJobRequest">The list of auto locate jobs to be scheduled. Up to 100 jobs can be provided in a request.</param>
+	[ApiOperationId("recalculateNetworkFloorPlansAutoLocateJob")]
+	[Post("/networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}/recalculate")]
+	Task<FloorPlansRecalculateAutoLocateJobResponse> RecalculateNetworkFloorPlansAutoLocateJobAsync(
+		string networkId,
+		string jobId,
+		[Body] FloorPlansRecalculateAutoLocateJobRequest floorPlansRecalculateAutoLocateJobRequest,
+		CancellationToken cancellationToken = default);
 }

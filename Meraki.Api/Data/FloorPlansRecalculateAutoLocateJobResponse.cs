@@ -1,13 +1,13 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Floor Plans Auto Locate Job Response
+/// Floor Plans Recalculate Auto Locate Job Response
 /// </summary>
 [DataContract]
-public class FloorPlansPublishAutoLocateJobResponse
+public class FloorPlansRecalculateAutoLocateJobResponse
 {
 	/// <summary>
-	/// Status of attempt to publish auto locate job
+	/// Status of attempt to trigger auto locate recalculation
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "success")]
