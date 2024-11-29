@@ -73,4 +73,18 @@ public interface INetworksFloorplans
 		string floorPlanId,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Update floorplan assignments for a batch of devices
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId">The network id</param>
+	/// <param name="floorPlanBatchDevicesUpdateRequest">The request body</param>
+	[ApiOperationId("batchNetworkFloorPlansDevicesUpdate\r\n")]
+	[Delete("/networks/{networkId}/floorPlans/{floorPlanId}")]
+	Task<FloorPlanBatchDevicesUpdateResponse> BatchNetworkFloorPlansDevicesUpdateAsync(
+		string networkId,
+		[Body] FloorPlanBatchDevicesUpdateRequest floorPlanBatchDevicesUpdateRequest
+		CancellationToken cancellationToken = default
+		);
 }
