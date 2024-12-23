@@ -53,7 +53,7 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="refit" Version="8.0.0" />
 		<PackageReference Include="Refit.Newtonsoft.Json" Version="8.0.0" />
-		<PackageReference Include="Roslynator.Analyzers" Version="4.12.9">
+		<PackageReference Include="Roslynator.Analyzers" Version="4.12.10">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
