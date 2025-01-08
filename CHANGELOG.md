@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.51.49
+
+- Fixed missing Organization Switches initialization
+
 ## 1.51.48
 
 - Added 2880x2880 to MV93MResolution
