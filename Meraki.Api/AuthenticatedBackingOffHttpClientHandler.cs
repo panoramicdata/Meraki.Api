@@ -137,7 +137,8 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 							retryAfterSeconds = 1;
 						}
 
-						delay = TimeSpan.FromSeconds(1.1 * retryAfterSeconds);
+						delay = CalculateBackoffDelay(attemptCount, retryAfterSeconds, _options.BackOffDelayFactor, _options.MaxBackOffDelaySeconds);
+
 						_logger.LogDebug(
 							"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
 							logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
@@ -211,4 +212,24 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 			}
 		}
 	}
+
+	/// <summary>
+	/// Calculate the back-off delay taking into account the retry-after header, the attemptcount and back-off factor and the maximum back-off delay.
+	/// Wait at least retryAfterSeconds, then back off by the backOffDelayFactor to the power of the attemptCount, but no more than maxBackOffDelay.
+	/// </summary>
+	internal static TimeSpan CalculateBackoffDelay(
+		int attemptCount,
+		int retryAfterSeconds,
+		double backOffDelayFactor,
+		int maxBackOffDelaySeconds)
+		=> TimeSpan.FromSeconds(
+			Math.Min(
+				Math.Max(
+					// Wait as long as we can based on the attemptCount
+					Math.Pow(backOffDelayFactor, attemptCount - 1),
+					retryAfterSeconds
+				),
+				// But no longer than the maximum
+				maxBackOffDelaySeconds)
+			);
 }

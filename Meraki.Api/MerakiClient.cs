@@ -103,6 +103,7 @@ public partial class MerakiClient : IDisposable
 			{
 				Top = RefitFor(Organizations.Summary.Top)
 			},
+			Switches = RefitFor(Organizations.Switches),
 			SwitchPortsOverview = RefitFor(Organizations.SwitchPortsOverview),
 			Uplinks = RefitFor(Organizations.Uplinks),
 			Webhooks = new()
