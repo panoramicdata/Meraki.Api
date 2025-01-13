@@ -86,4 +86,11 @@ public class ThirdPartyVpnPeer : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "network")]
 	public ThirdPartyVpnPeerNetwork? Network { get; set; }
+
+	/// <summary>
+	/// Undocumented 2025-01-13
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "priorityInGroup")]
+	public int? priorityInGroup { get; set; }
 }
