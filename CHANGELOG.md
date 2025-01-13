@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 1.51.51
+
+- Added BackOffDelayFactor to MerakiClientOptions, defaults to 1.0, which allows automatic exponential increased delay on 429 until the maximum MaxBackOffDelay which defaults to 30.
+The API response Retry-After will be honored up to the MaxBackOffDelay. 
+
 ## 1.51.49
 
 - Fixed missing Organization Switches initialization
