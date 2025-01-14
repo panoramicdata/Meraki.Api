@@ -5,28 +5,35 @@
 /// </summary>
 [DebuggerDisplay("{" + nameof(PortId) + "} ({" + nameof(Name) + "})")]
 [DataContract]
-public class SwitchPort : NamedItem
+public class SwitchPort
 {
+	/// <summary>
+	/// Port Name
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "name")]
+	public string? Name { get; set; }
+
 	/// <summary>
 	/// PortId
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "portId")]
-	public string PortId { get; set; } = string.Empty;
+	public string? PortId { get; set; }
 
 	/// <summary>
 	/// The list of tags of the switch port
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "tags")]
-	public List<string> Tags { get; set; } = [];
+	public List<string>? Tags { get; set; }
 
 	/// <summary>
 	/// The status of the switch port
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; set; }
+	public bool? Enabled { get; set; }
 
 	/// <summary>
 	/// For supported switches (e.g. MS420/MS425), whether or not the port has flexible stacking enabled.
@@ -40,14 +47,14 @@ public class SwitchPort : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "poeEnabled")]
-	public bool PoeEnabled { get; set; }
+	public bool? PoeEnabled { get; set; }
 
 	/// <summary>
 	/// The type of the switch port ('trunk' or 'access')
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "type")]
-	public string Type { get; set; } = string.Empty;
+	public string? Type { get; set; }
 
 	/// <summary>
 	/// The VLAN of the switch port. A null value will clear the value set for trunk ports.
@@ -76,28 +83,28 @@ public class SwitchPort : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "isolationEnabled")]
-	public bool IsolationEnabled { get; set; }
+	public bool? IsolationEnabled { get; set; }
 
 	/// <summary>
 	/// The rapid spanning tree protocol status
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "rstpEnabled")]
-	public bool RstpEnabled { get; set; }
+	public bool? RstpEnabled { get; set; }
 
 	/// <summary>
 	/// The state of the STP guard ('disabled', 'root guard', 'bpdu guard' or 'loop guard')
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "stpGuard")]
-	public string StpGuard { get; set; } = string.Empty;
+	public string? StpGuard { get; set; }
 
 	/// <summary>
 	/// The link speed for the switch port
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "linkNegotiation")]
-	public string LinkNegotiation { get; set; } = string.Empty;
+	public string? LinkNegotiation { get; set; }
 
 	/// <summary>
 	/// The number of a custom access policy to configure on the switch port. Only applicable when 'accessPolicyType' is 'Custom access policy'
