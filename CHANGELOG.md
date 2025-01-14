@@ -1,9 +1,10 @@
 ﻿# Changelog
 
-## 1.53.x
+## 1.53.9
 
 - Updated for Meraki API 1.53
 - Updated Microsoft.CodeAnalysis.CSharp.Workspaces reference
+- Updated FluentAssertions
 
 ## 1.51.51
 
