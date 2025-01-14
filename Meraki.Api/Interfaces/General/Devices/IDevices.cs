@@ -35,7 +35,7 @@ public interface IDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="blinkLeds">Body for blinking device leds</param>
-	[Obsolete("Deprecated in Meraki API v1,.53 in favour of General.LiveTools.CreateDeviceLiveToolsLedsBlink")]
+	[Obsolete("Deprecated in Meraki API v1.53 in favour of General.LiveTools.CreateDeviceLiveToolsLedsBlink")]
 	[ApiOperationId("blinkDeviceLeds")]
 	[Post("/devices/{serial}/blinkLeds")]
 	Task<BlinkLeds> BlinkDeviceLedsAsync(
