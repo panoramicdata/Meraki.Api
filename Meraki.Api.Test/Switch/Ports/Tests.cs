@@ -24,6 +24,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		var switchPort = switchPorts[0];
 		_ = switchPort.PortScheduleId.Should().NotBeNullOrEmpty();
+		_ = switchPort.PortId.Should().NotBeNullOrEmpty();
 
 		// ACT
 		switchPort.PortScheduleId = null;
