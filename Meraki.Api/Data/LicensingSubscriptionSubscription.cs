@@ -18,7 +18,14 @@ public class LicensingSubscriptionSubscription
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "endDate")]
-	public string EndDate { get; set; } = string.Empty;
+	public DateTime EndDate { get; set; }
+
+	/// <summary>
+	/// When the subscription was last changed
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "lastUpdatedAt")]
+	public DateTime LastUpdatedAt { get; set; }
 
 	/// <summary>
 	/// Subscription name
@@ -30,6 +37,7 @@ public class LicensingSubscriptionSubscription
 	/// <summary>
 	/// Smart account status
 	/// </summary>
+	[Obsolete("Removed in Merak API v 1.53")]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "smartAccountStatus")]
 	public string SmartAccountStatus { get; set; } = string.Empty;
@@ -39,7 +47,7 @@ public class LicensingSubscriptionSubscription
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "startDate")]
-	public string StartDate { get; set; } = string.Empty;
+	public DateTime StartDate { get; set; }
 
 	/// <summary>
 	/// Subscription Status
@@ -61,6 +69,13 @@ public class LicensingSubscriptionSubscription
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "webOrderId")]
 	public string WebOrderId { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Whether a renewal has been requested for the subscription
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "renewalRequested")]
+	public bool RenewalRequested { get; set; }
 
 	/// <summary>
 	/// Web order id

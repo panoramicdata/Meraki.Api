@@ -19,4 +19,11 @@ public class Subnet
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "useVpn")]
 	public bool UseVpn { get; set; }
+
+	/// <summary>
+	/// Undocumented - 2025-01-13
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "nat")]
+	public SubnetNat? Nat { get; set; }
 }
