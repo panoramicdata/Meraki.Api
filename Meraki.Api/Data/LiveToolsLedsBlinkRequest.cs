@@ -18,5 +18,4 @@ public class LiveToolsLedsBlinkRequest
 	/// </summary>
 	[DataMember(Name = "callback")]
 	public LiveToolsLedsBlinkRequestCallback? Callback { get; set; }
-
 }
