@@ -80,11 +80,11 @@ public interface INetworksFloorplans
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="floorPlanBatchDevicesUpdateRequest">The request body</param>
-	[ApiOperationId("batchNetworkFloorPlansDevicesUpdate\r\n")]
-	[Delete("/networks/{networkId}/floorPlans/{floorPlanId}")]
+	[ApiOperationId("batchNetworkFloorPlansDevicesUpdate")]
+	[Post("/networks/{networkId}/floorPlans/devices/batchUpdate")]
 	Task<FloorPlanBatchDevicesUpdateResponse> BatchNetworkFloorPlansDevicesUpdateAsync(
 		string networkId,
-		[Body] FloorPlanBatchDevicesUpdateRequest floorPlanBatchDevicesUpdateRequest
+		[Body] FloorPlanBatchDevicesUpdateRequest floorPlanBatchDevicesUpdateRequest,
 		CancellationToken cancellationToken = default
 		);
 }
