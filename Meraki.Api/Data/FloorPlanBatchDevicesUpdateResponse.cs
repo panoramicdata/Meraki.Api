@@ -12,5 +12,4 @@ public class FloorPlanBatchDevicesUpdateResponse
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "success")]
 	public bool Success { get; set; }
-
 }

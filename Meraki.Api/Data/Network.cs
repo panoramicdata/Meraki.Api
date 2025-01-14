@@ -57,13 +57,6 @@ public class Network : NetworkOrConfigurationTemplate
 	public string? EnrollmentString { get; set; }
 
 	/// <summary>
-	/// URL
-	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "url")]
-	public string? Url { get; set; }
-
-	/// <summary>
 	/// IsBoundToConfigTemplate
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]

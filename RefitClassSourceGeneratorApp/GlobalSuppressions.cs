@@ -8,6 +8,6 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage(
 	"Globalization",
 	"CA1303:Do not pass literals as localized parameters",
-	Justification = "Just used during testing",
+	Justification = "Just a generator test app",
 	Scope = "member",
-	Target = "~M:TestConsoleApp.Program.Main")]
+	Target = "~M:RefitClassSourceGeneratorApp.Program.Main")]

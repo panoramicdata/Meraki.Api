@@ -12,5 +12,4 @@ public class FloorPlansAutoLocateJobsResponseJobCompleted
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "percentage")]
 	public int Percentage { get; set; }
-
 }

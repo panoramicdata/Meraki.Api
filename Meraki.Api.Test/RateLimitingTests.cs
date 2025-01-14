@@ -45,7 +45,7 @@ public class RateLimitingTests(ITestOutputHelper iTestOutputHelper) : MerakiClie
 	}
 }
 
-public class QueryResult
+internal class QueryResult
 {
 	public long DurationMs { get; set; }
 

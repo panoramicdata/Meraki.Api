@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Meraki.Api.Test;
 
-public class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : IDisposable
+public abstract class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : IDisposable
 {
 	protected DateTimeOffset UtcNow { get; } = DateTimeOffset.UtcNow;
 
@@ -17,7 +17,7 @@ public class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : IDisposabl
 
 	private readonly ICacheLogger _logger = _iTestOutputHelper.BuildLogger();
 
-	public TestConfig Configuration { get; } = LoadConfig();
+	internal TestConfig Configuration { get; } = LoadConfig();
 
 	private static TestConfig LoadConfig()
 	{

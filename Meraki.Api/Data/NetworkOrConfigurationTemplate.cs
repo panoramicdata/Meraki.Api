@@ -23,5 +23,5 @@ public abstract class NetworkOrConfigurationTemplate : NamedIdentifiedItem
 	/// </summary>
 	[DataMember(Name = "url")]
 	[ApiAccess(ApiAccess.Read)]
-	public string Url { get; set; } = string.Empty;
+	public string? Url { get; set; }
 }

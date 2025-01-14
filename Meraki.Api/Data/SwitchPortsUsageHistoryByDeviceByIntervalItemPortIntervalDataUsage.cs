@@ -26,5 +26,4 @@ public class SwitchPortsUsageHistoryByDeviceByIntervalItemPortIntervalDataUsage
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "upstream")]
 	public double Upstream { get; set; }
-
 }

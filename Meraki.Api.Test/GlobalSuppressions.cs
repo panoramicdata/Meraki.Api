@@ -28,3 +28,9 @@ using System.Diagnostics.CodeAnalysis;
 	Scope = "namespaceanddescendants",
 	Target = "~N:Meraki.Api.Test"
 )]
+[assembly: SuppressMessage(
+	"Maintainability",
+	"CA1515:Consider making public types internal",
+	Justification = "This class needs to be public due to inheritance",
+	Scope = "type",
+	Target = "~T:Meraki.Api.Test.MerakiClientTest")]

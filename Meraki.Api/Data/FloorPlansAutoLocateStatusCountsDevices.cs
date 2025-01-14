@@ -12,5 +12,4 @@ public class FloorPlansAutoLocateStatusCountsDevices
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "total")]
 	public int Total { get; set; }
-
 }

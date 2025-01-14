@@ -12,5 +12,4 @@ public class SsidUpdateRequestRadiusRadsec
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "tlsTunnel")]
 	public SsidUpdateRequestRadiusRadsecTlsTunnel? TlsTunnel { get; set; }
-
 }

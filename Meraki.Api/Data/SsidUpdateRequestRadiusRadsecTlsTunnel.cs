@@ -12,5 +12,4 @@ public class SsidUpdateRequestRadiusRadsecTlsTunnel
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "timeout")]
 	public int? Timeout { get; set; }
-
 }
