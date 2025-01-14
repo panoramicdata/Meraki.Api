@@ -11,12 +11,12 @@ public class SwitchPortStackwiseVirtual
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isDualActiveDetector")]
-	public bool IsDualActiveDetector { get; set; }
+	public bool? IsDualActiveDetector { get; set; }
 
 	/// <summary>
 	/// For SVL devices, whether or not the port is used for StackWise Virtual Link.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isStackWiseVirtualLink")]
-	public bool IsStackWiseVirtualLink { get; set; }
+	public bool? IsStackWiseVirtualLink { get; set; }
 }
