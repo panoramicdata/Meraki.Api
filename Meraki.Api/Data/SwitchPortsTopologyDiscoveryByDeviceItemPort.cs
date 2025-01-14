@@ -10,7 +10,7 @@ public class SwitchPortsTopologyDiscoveryByDeviceItemPort
 	/// Timestamp for most recent discovery info on this port.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "latUpdatedAt")]
+	[DataMember(Name = "lastUpdatedAt")]
 	public DateTime LastUpdatedAt { get; set; }
 
 	/// <summary>
