@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 1.53.x
+
+- Updated for Meraki API 1.53
+- Updated Microsoft.CodeAnalysis.CSharp.Workspaces reference
+
 ## 1.51.51
 
 - Added BackOffDelayFactor to MerakiClientOptions, defaults to 1.0, which allows automatic exponential increased delay on 429 until the maximum MaxBackOffDelay which defaults to 30.
