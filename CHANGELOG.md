@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.53.12
+
+- Reverted FluentAssertions to 7.0.0 due to licensing change
+
 ## 1.53.11
 
 - Updated for Meraki API 1.53
