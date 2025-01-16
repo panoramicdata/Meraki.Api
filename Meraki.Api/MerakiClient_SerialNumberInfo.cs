@@ -123,6 +123,7 @@ public partial class MerakiClient
 		{ "Q3CG", "MT14" },
 		{ "Q3CH", "MT30" },
 		{ "Q3CJ", "MT40" },
+		{ "Q3CQ", "MT15" },
 		{ "Q3DA", "MS125-24" },
 		{ "Q3DB", "MS125-24P" },
 		{ "Q3EF", "MS390-48P" },
