@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.53.17
+
+- Added nullable Client to ChangeLogEntry.cs to prevent deseralization errors for configurationChanges endpoint
+
 ## 1.53.12
 
 - Reverted FluentAssertions to 7.0.0 due to licensing change
