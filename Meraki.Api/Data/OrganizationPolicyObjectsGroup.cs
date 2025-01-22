@@ -33,6 +33,7 @@ public class OrganizationPolicyObjectsGroup : NamedIdentifiedItem
 	/// </summary>
 	[DataMember(Name = "objectIds")]
 	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiForeignKey(typeof(OrganizationPolicyObject))]
 	public List<string>? ObjectIds { get; set; }
 
 	/// <summary>
