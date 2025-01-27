@@ -1,13 +1,13 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// UpdateNetworkSsidRadiusRadsecTlsTunnel - Undocumented
+/// UpdateNetworkSsidRadiusRadsecTlsTunnel
 /// </summary>
 [DataContract]
 public class SsidUpdateRequestRadiusRadsecTlsTunnel
 {
 	/// <summary>
-	/// timeout - Undocumented
+	/// The interval (in seconds) to determines how long a TLS session can remain idle for a RADSec server before it is automatically terminated
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "timeout")]

@@ -1,13 +1,13 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// UpdateNetworkSsidRadiusRadsec - Undocumented
+/// UpdateNetworkSsidRadiusRadsec
 /// </summary>
 [DataContract]
 public class SsidUpdateRequestRadiusRadsec
 {
 	/// <summary>
-	/// tlsTunnel - Undocumented
+	/// RADSec TLS tunnel settings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "tlsTunnel")]

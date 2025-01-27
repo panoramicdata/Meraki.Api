@@ -259,7 +259,7 @@ public class SsidUpdateRequest
 	public int? RadiusRadsecTlsIdleTimeout { get; set; }
 
 	/// <summary>
-	/// radiusRadsec - undocumented
+	/// The current settings for RADIUS RADSec
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusRadsec")]
