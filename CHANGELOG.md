@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.54.1
+
+- Updated for Meraki API 1.54
+
 ## 1.53.19
 
 - Added nullable Client to ChangeLogEntry.cs to prevent deseralization errors for configurationChanges endpoint
