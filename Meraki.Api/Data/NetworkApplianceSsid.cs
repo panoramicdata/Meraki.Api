@@ -70,6 +70,13 @@ public class NetworkApplianceSsid
 	public bool? Visible { get; set; }
 
 	/// <summary>
+	/// Undocumented - 2025-01-27
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "dhcpEnforcedDeauthentication")]
+	public DhcpEnforcedDeauthentication? DhcpEnforcedDeauthentication { get; set; }
+
+	/// <summary>
 	/// The RADIUS 802.1x. servers to be used for authentication
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

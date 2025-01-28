@@ -35,14 +35,14 @@ public class AdaptivePolicyAclRules
 	public string DstPort { get; set; } = string.Empty;
 
 	/// <summary>
-	/// tcpEstablished - Undocumented
+	/// If enabled, means TCP connection with this node must be established.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tcpEstablished")]
 	public bool TcpEstablished { get; set; }
 
 	/// <summary>
-	/// log - Undocumented
+	/// If enabled, when this rule is hit an entry will be logged to the event log
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "log")]
