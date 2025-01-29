@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.54.5
+
+- Reverted SwitchPort.cs changes and added overload for UpdateDeviceSwitchPortAsync to use SwitchPortUpdateRequest which allows nullable values for all properties. 
+
 ## 1.54.1
 
 - Updated for Meraki API 1.54
