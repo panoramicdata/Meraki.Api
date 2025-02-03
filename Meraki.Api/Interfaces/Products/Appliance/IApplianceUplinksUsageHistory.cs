@@ -13,7 +13,7 @@ public interface IApplianceUplinksUsageHistory
 	/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 60, 300, 600, 1800, 3600, 86400. The default is 60.</param>
 	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/uplinks/usageHistory")]
-	Task<List<UplinkStatus>> GetNetworkApplianceUplinksUsageHistoryAsync(
+	Task<List<UplinkUsageHistory>> GetNetworkApplianceUplinksUsageHistoryAsync(
 		string networkId,
 		string t0 = null!,
 		string t1 = null!,
