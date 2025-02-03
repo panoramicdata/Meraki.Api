@@ -14,7 +14,7 @@
 
 ## 1.53.19
 
-- Added nullable Client to ChangeLogEntry.cs to prevent deseralization errors for configurationChanges endpoint
+- Added nullable Client to ChangeLogEntry.cs to prevent deserialization errors for configurationChanges endpoint
 
 ## 1.53.12
 
