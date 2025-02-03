@@ -9,7 +9,7 @@
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 		<PackageIcon>Icon.png</PackageIcon>
-		<Copyright>Panoramic Data Limited 2021-2023</Copyright>
+		<Copyright>Panoramic Data Limited 2025</Copyright>
 		<PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/panoramicdata/Meraki.Api</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>

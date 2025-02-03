@@ -1,8 +1,12 @@
 ﻿# Changelog
 
+## 1.54.7
+
+- Fixes to GetNetworkApplianceUplinksUsageHistoryAsync(). Updated copyright notice.
+
 ## 1.54.5
 
-- Reverted SwitchPort.cs changes and added overload for UpdateDeviceSwitchPortAsync to use SwitchPortUpdateRequest which allows nullable values for all properties. 
+- Reverted SwitchPort.cs changes and added overload for UpdateDeviceSwitchPortAsync to use SwitchPortUpdateRequest which allows nullable values for all properties.
 
 ## 1.54.1
 
