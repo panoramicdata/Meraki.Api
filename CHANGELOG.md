@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.54.9
+
+- Added Cellular Uplink enum member
+
 ## 1.54.7
 
 - Fixes to GetNetworkApplianceUplinksUsageHistoryAsync(). Updated copyright notice.

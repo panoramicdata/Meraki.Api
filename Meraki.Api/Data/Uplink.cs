@@ -17,4 +17,10 @@ public enum Uplink
 	/// </summary>
 	[EnumMember(Value = "wan2")]
 	Wan2,
+
+	/// <summary>
+	/// Enum Cellular for "cellular"
+	/// </summary>
+	[EnumMember(Value = "cellular")]
+	Cellular,
 }
