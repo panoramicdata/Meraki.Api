@@ -18,7 +18,7 @@ public class Neighbor
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "remoteAsNumber")]
-	public int? RemoteAsNumber { get; set; }
+	public long? RemoteAsNumber { get; set; }
 
 	/// <summary>
 	/// The receive limit is the maximum number of routes that can be received from any BGP peer. The receive limit must be an integer between 0 and 4294967295. When absent, it defaults to 0.
