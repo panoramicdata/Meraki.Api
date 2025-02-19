@@ -18,7 +18,7 @@ public class VpnBgp
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "asNumber")]
-	public int? AsNumber { get; set; }
+	public long? AsNumber { get; set; }
 
 	/// <summary>
 	/// The IBGP hold timer in seconds. The IBGP hold timer must be an integer between 12 and 240. When absent, this field is not updated. If no value exists then it defaults to 240.
