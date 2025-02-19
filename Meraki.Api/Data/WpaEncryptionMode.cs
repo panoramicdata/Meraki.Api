@@ -32,6 +32,12 @@ public enum WpaEncryptionMode
 	WPA3TransitionMode,
 
 	/// <summary>
+	/// Enum WPA3192BitSecurity for "WPA3 192-bit Security"
+	/// </summary>
+	[EnumMember(Value = "WPA3 192-bit Security")]
+	WPA3192BitSecurity,
+
+	/// <summary>
 	/// Enum WPA3only for "WPA3 only"
 	/// </summary>
 	[EnumMember(Value = "WPA3 only")]
