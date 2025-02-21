@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.54.12
+
+- WPA 192-bit Security added to appliance SSID
+
 ## 1.54.9
 
 - Added Cellular Uplink enum member
