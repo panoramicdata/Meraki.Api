@@ -100,4 +100,12 @@ public class ThirdPartyVpnPeer : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "publicHostname")]
 	public string? PublicHostname { get; set; }
+
+	/// <summary>
+	/// Undocumented 2025-02-21
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "group")]
+	public ThirdPartyVpnPeerGroup? Group { get; set; }
+
 }
