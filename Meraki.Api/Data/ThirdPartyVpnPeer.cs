@@ -107,5 +107,4 @@ public class ThirdPartyVpnPeer : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "group")]
 	public ThirdPartyVpnPeerGroup? Group { get; set; }
-
 }
