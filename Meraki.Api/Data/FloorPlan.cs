@@ -50,6 +50,13 @@ public class FloorPlan
 	public string? Name { get; set; }
 
 	/// <summary>
+	/// The floor number of the floor within the building.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "floorNumber")]
+	public int? FloorNumber { get; set; }
+
+	/// <summary>
 	/// Devices
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
