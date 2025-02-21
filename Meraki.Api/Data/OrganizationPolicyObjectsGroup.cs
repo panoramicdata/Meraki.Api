@@ -17,14 +17,14 @@ public class OrganizationPolicyObjectsGroup : NamedIdentifiedItem
 	/// <summary>
 	/// Created At
 	/// </summary>
-	[DataMember(Name = "created_at")]
+	[DataMember(Name = "createdAt")]
 	[ApiAccess(ApiAccess.Read)]
 	public DateTime CreatedAt { get; set; }
 
 	/// <summary>
 	/// Updaated At
 	/// </summary>
-	[DataMember(Name = "updated_at")]
+	[DataMember(Name = "updatedAt")]
 	[ApiAccess(ApiAccess.Read)]
 	public DateTime UpdatedAt { get; set; }
 
