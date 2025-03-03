@@ -12,6 +12,7 @@ public partial class MerakiClient : IDisposable
 	private readonly MerakiClientOptions _options;
 	private readonly ILogger _logger;
 	private readonly HttpClient _httpClient;
+	private readonly HttpClient _secureConnectHttpClient;
 	private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
 
 	public string LastRequestUri => _httpClientHandler.LastRequestUri;
@@ -38,6 +39,11 @@ public partial class MerakiClient : IDisposable
 		_httpClient = new HttpClient(_httpClientHandler)
 		{
 			BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.{merakiDomain}/api/v1"),
+			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
+		};
+		_secureConnectHttpClient = new HttpClient(_httpClientHandler)
+		{
+			BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.{merakiDomain}/api/secureConnect/v1"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
 		};
 		_refitSettings = new RefitSettings
@@ -473,6 +479,9 @@ public partial class MerakiClient : IDisposable
 
 	private T RefitFor<T>(T _)
 		=> RestService.For<T>(_httpClient, _refitSettings);
+
+	private T RefitForSecureConnect<T>(T _)
+		=> RestService.For<T>(_secureConnectHttpClient, _refitSettings);
 
 	private readonly RefitSettings _refitSettings;
 
