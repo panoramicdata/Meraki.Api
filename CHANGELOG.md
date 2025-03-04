@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.54.22
+
+- Added undocumented boot_options_enabled to DhcpOptionType
+
 ## 1.54.12
 
 - WPA 192-bit Security added to appliance SSID
