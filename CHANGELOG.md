@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.54.23
+
+- Added next_server to DhcpOptionType
+
 ## 1.54.22
 
 - Added undocumented boot_options_enabled to DhcpOptionType

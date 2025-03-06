@@ -36,6 +36,13 @@ public enum DhcpOptionType
 	/// Enum BootOptionsEnabled for "boot_options_enabled" - undocumented, seen 2025-03-04
 	/// </summary>
 	[EnumMember(Value = "boot_options_enabled")]
-	BootOptionsEnabled
+	BootOptionsEnabled,
+
+	/// <summary>
+	/// Enum NextServer for "boot_options_enabled" - undocumented, seen 2025-03-06
+	/// </summary>
+	[EnumMember(Value = "next_server")]
+	NextServer
+
 #pragma warning restore CA1720 // Identifier contains type name
 }
