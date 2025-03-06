@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.54.24
+
+- Added filename to DhcpOptionType
+
 ## 1.54.23
 
 - Added next_server to DhcpOptionType
