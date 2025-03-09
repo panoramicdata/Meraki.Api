@@ -12,8 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CHANGELOG.md = CHANGELOG.md
 		CONTRIBUTING.md = CONTRIBUTING.md
 		Example.ps1 = Example.ps1
-		global.json = global.json
 		Generating Documentation.md = Generating Documentation.md
+		global.json = global.json
 		LICENSE = LICENSE
 		Meraki.Api.sln.vsspell.dic = Meraki.Api.sln.vsspell.dic
 		README.md = README.md
@@ -47,6 +47,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\docfx.json = Documentation\docfx.json
 		Documentation\index.md = Documentation\index.md
 		Documentation\toc.yml = Documentation\toc.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{5BF3AC5D-8ECE-4B2C-A46E-E7B46C75E76F}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\docs\getting-started.md = Documentation\docs\getting-started.md
+		Documentation\docs\introduction.md = Documentation\docs\introduction.md
+		Documentation\docs\meraki-community.md = Documentation\docs\meraki-community.md
+		Documentation\docs\toc.yml = Documentation\docs\toc.yml
+		Documentation\docs\user-agent.md = Documentation\docs\user-agent.md
 	EndProjectSection
 EndProject
 Global
@@ -89,6 +98,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{23327A92-08A3-4DAB-9163-F23D76723C56} = {21D39EEC-0E3D-47F2-9721-8A2B43DE1707}
+		{5BF3AC5D-8ECE-4B2C-A46E-E7B46C75E76F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F6B83CD-B4FA-4448-A6B6-2794DBDB2439}

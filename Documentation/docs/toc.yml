@@ -2,3 +2,7 @@
   href: introduction.md
 - name: Getting Started
   href: getting-started.md
+- name: Choosing a UserAgent
+  href: user-agent.md
+- name: Meraki Community
+  href: meraki-community.md

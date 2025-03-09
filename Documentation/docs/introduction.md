@@ -1,7 +1,17 @@
 # Introduction
 
-To get started, you will need to install the Meraki.Api nuget package.
-You can find the package on [Nuget](https://www.nuget.org/packages/Meraki.Api/).
+## Getting started
+
+Click on the menu link above to view each section of this documentation:
+
+* [Library documentation](docs/introduction.html)
+	- Introduction
+	- Getting started
+	- Asistance and links to external resources
+* [API Documentation](api/Meraki.Api.html)
+	- Details of classes, interfaces, methods and properties
+
+## Pre-requisites
 
 This documentation assumes basic knowledge of:
 * the Meraki API (v1)
@@ -9,4 +19,3 @@ This documentation assumes basic knowledge of:
 * .NET Core
 * Nuget
 * Visual Studio
- 
