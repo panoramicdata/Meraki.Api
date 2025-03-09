@@ -30,6 +30,25 @@ public enum DhcpOptionType
 	/// Enum Integer for "integer"
 	/// </summary>
 	[EnumMember(Value = "integer")]
-	Integer
+	Integer,
+
+	/// <summary>
+	/// Enum BootOptionsEnabled for "boot_options_enabled" - undocumented, seen 2025-03-04
+	/// </summary>
+	[EnumMember(Value = "boot_options_enabled")]
+	BootOptionsEnabled,
+
+	/// <summary>
+	/// Enum NextServer for "boot_options_enabled" - undocumented, seen 2025-03-06
+	/// </summary>
+	[EnumMember(Value = "next_server")]
+	NextServer,
+
+	/// <summary>
+	/// Enum NextServer for "filename" - undocumented, seen 2025-03-06
+	/// </summary>
+	[EnumMember(Value = "filename")]
+	Filename
+
 #pragma warning restore CA1720 // Identifier contains type name
 }
