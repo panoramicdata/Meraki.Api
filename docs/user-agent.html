@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Introduction | Meraki.Api </title>
+      <title>User-Agent string | Meraki.Api </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Introduction | Meraki.Api ">
+      <meta name="title" content="User-Agent string | Meraki.Api ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/blob/main/Documentation/docs/introduction.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/blob/main/Documentation/docs/user-agent.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,38 +85,25 @@
         </div>
 
         <article data-uid="">
-<h1 id="introduction">Introduction</h1>
+<h1 id="user-agent-string">User-Agent string</h1>
 
-<h2 id="getting-started">Getting started</h2>
-<p>Click on the menu link above to view each section of this documentation:</p>
-<ul>
-<li><a href="introduction.html">Library documentation</a>
-<ul>
-<li>Introduction</li>
-<li>Getting started</li>
-<li>Asistance and links to external resources</li>
-</ul>
-</li>
-<li><a href="../api/Meraki.Api.html">API Documentation</a>
-<ul>
-<li>Details of classes, interfaces, methods and properties</li>
-</ul>
-</li>
-</ul>
-<h2 id="pre-requisites">Pre-requisites</h2>
-<p>This documentation assumes basic knowledge of:</p>
-<ul>
-<li>the Meraki API (v1)</li>
-<li>C#</li>
-<li>.NET Core</li>
-<li>Nuget</li>
-<li>Visual Studio</li>
-</ul>
+<p>It is important to set a User-Agent string in your HTTP requests.
+This is a string that identifies the client making the request.
+It is used by the Meraki servers to identify the type of client making the request.</p>
+<p>For Meraki's full guidance, see <a href="https://developer.cisco.com/meraki/api-v1/user-agents-overview/#user-agents">here</a>.</p>
+<p>To use this in the Meraki.Api library, you can set the UserAgent property on the MerakiClient object:</p>
+<pre><code class="lang-csharp">using var client = new MerakiClient(
+	new MerakiClientOptions
+	{
+		UserAgent = &quot;ApplicationName/1.0 VendorName&quot;
+	}
+);
+</code></pre>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Documentation/docs/introduction.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Documentation/docs/user-agent.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

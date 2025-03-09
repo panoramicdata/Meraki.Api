@@ -8447,11 +8447,21 @@
   "docs/introduction.html": {
     "href": "docs/introduction.html",
     "title": "Introduction | Meraki.Api",
-    "summary": "Introduction To get started, you will need to install the Meraki.Api nuget package. You can find the package on Nuget. This documentation assumes basic knowledge of: the Meraki API (v1) C# .NET Core Nuget Visual Studio"
+    "summary": "Introduction Getting started Click on the menu link above to view each section of this documentation: Library documentation Introduction Getting started Asistance and links to external resources API Documentation Details of classes, interfaces, methods and properties Pre-requisites This documentation assumes basic knowledge of: the Meraki API (v1) C# .NET Core Nuget Visual Studio"
+  },
+  "docs/meraki-community.html": {
+    "href": "docs/meraki-community.html",
+    "title": "Meraki Community | Meraki.Api",
+    "summary": "Meraki Community Meraki have a great community of developers who are always willing to help: Meraki Community"
+  },
+  "docs/user-agent.html": {
+    "href": "docs/user-agent.html",
+    "title": "User-Agent string | Meraki.Api",
+    "summary": "User-Agent string It is important to set a User-Agent string in your HTTP requests. This is a string that identifies the client making the request. It is used by the Meraki servers to identify the type of client making the request. For Meraki's full guidance, see here. To use this in the Meraki.Api library, you can set the UserAgent property on the MerakiClient object: using var client = new MerakiClient( new MerakiClientOptions { UserAgent = \"ApplicationName/1.0 VendorName\" } );"
   },
   "index.html": {
     "href": "index.html",
     "title": "Meraki.Api | Meraki.Api",
-    "summary": "Meraki.Api This is the documentation for the Meraki.Api project. This project implements access to the v1 Meraki API. You can find the source code for this project on GitHub. An introduction to the Meraki API can be found here. An introduction to developing using the Meraki.Api nuget package can be found here."
+    "summary": "Meraki.Api This is the documentation for the Meraki.Api project. This project implements access to the v1 Meraki API. If you are new to Meraki.Api development go here. Meraki's official API documentation can be found here. You can find the source code for this project on GitHub."
   }
 }
