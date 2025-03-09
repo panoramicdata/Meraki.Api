@@ -10,7 +10,11 @@ Documentation is generated using DocFX
 dotnet tool install -g docfx
 ```
 
-2. Checkout the Meraki.Api.Docs repository into a sibling directory to the Meraki.Api repository.
+2. Checkout the Meraki.Api repository *on the gh-pages branch* into a sibling directory to the Meraki.Api repository:
+```powershell
+mkdir ..\Meraki.Api.Docs
+git clone https://github.com/panoramicdata/Meraki.Api -b gh-pages ..\Meraki.Api.Docs
+```
 
 3. Build:
 
