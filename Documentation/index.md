@@ -6,8 +6,8 @@ _layout: landing
 
 This is the documentation for the Meraki.Api project. This project implements access to the v1 Meraki API.
 
+If you are new to Meraki.Api development go [here](docs/introduction.md).
+
+Meraki's official API documentation can be found [here](https://developer.cisco.com/meraki/api-v1/).
+
 You can find the source code for this project on [GitHub](https://github.com/panoramicdata/Meraki.Api).
-
-An introduction to the Meraki API can be found [here](https://developer.cisco.com/meraki/api-v1/).
-
-An introduction to developing using the Meraki.Api nuget package can be found [here](docs/introduction.html).

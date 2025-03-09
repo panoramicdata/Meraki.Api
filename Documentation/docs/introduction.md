@@ -4,11 +4,11 @@
 
 Click on the menu link above to view each section of this documentation:
 
-* [Library documentation](docs/introduction.html)
+* [Library documentation](introduction.md)
 	- Introduction
 	- Getting started
 	- Asistance and links to external resources
-* [API Documentation](api/Meraki.Api.html)
+* [API Documentation](~/api/Meraki.Api.html)
 	- Details of classes, interfaces, methods and properties
 
 ## Pre-requisites
