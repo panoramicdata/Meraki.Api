@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class MerakiClient | Meraki.Api ">
       
-      <meta name="description" content="A Meraki Dashboard API client">
+      <meta name="description" content="A Meraki Dashboard API client. This is your starting point for all API operations. Example usage: using Meraki.Api; using System; using System.Threading.Tasks;  namespace My.Project; public static class Program {     public static async Task Main()     {         using var merakiClient = new MerakiClient(             new MerakiClientOptions             {                 ApiKey = &amp;quot;0123456789abcdef0123456789abcdef01234567&amp;quot;,                 UserAgent = &amp;quot;YourProductName/YourProductVersion YourCompanyName&amp;quot;             }         );          var organizations = await merakiClient             .Organizations             .GetOrganizationsAsync()             .ConfigureAwait(false);          var firstOrganization = organizations[0];          var devices = await merakiClient             .Organizations             .Devices             .GetOrganizationDevicesAsync(firstOrganization.Id)             .ConfigureAwait(false);          Console.WriteLine(&amp;quot;Devices:&amp;quot;);         foreach (var device in devices)         {             Console.WriteLine($&amp;quot;    - {device.Serial}: {device.Name}&amp;quot;);         }     } }">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,46 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
   <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A Meraki Dashboard API client</p>
+  <div class="markdown summary"><p>A Meraki Dashboard API client. This is your starting point for all API operations.
+Example usage:</p>
+<pre><code class="lang-csharp">using Meraki.Api;
+using System;
+using System.Threading.Tasks;
+
+namespace My.Project;
+public static class Program
+{
+    public static async Task Main()
+    {
+        using var merakiClient = new MerakiClient(
+            new MerakiClientOptions
+            {
+                ApiKey = &quot;0123456789abcdef0123456789abcdef01234567&quot;,
+                UserAgent = &quot;YourProductName/YourProductVersion YourCompanyName&quot;
+            }
+        );
+
+        var organizations = await merakiClient
+            .Organizations
+            .GetOrganizationsAsync()
+            .ConfigureAwait(false);
+
+        var firstOrganization = organizations[0];
+
+        var devices = await merakiClient
+            .Organizations
+            .Devices
+            .GetOrganizationDevicesAsync(firstOrganization.Id)
+            .ConfigureAwait(false);
+
+        Console.WriteLine(&quot;Devices:&quot;);
+        foreach (var device in devices)
+        {
+            Console.WriteLine($&quot;    - {device.Serial}: {device.Name}&quot;);
+        }
+    }
+}
+</code></pre>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -163,7 +202,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient__ctor_Meraki_Api_MerakiClientOptions_Microsoft_Extensions_Logging_ILogger_" data-uid="Meraki.Api.MerakiClient.#ctor(Meraki.Api.MerakiClientOptions,Microsoft.Extensions.Logging.ILogger)">
   MerakiClient(MerakiClientOptions, ILogger?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A Meraki portal client</p>
@@ -201,7 +240,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_ApiClientVersion" data-uid="Meraki.Api.MerakiClient.ApiClientVersion">
   ApiClientVersion
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -232,7 +271,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Appliance" data-uid="Meraki.Api.MerakiClient.Appliance">
   Appliance
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L479"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L520"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -263,7 +302,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Camera" data-uid="Meraki.Api.MerakiClient.Camera">
   Camera
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L481"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L522"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -294,7 +333,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_CellularGateway" data-uid="Meraki.Api.MerakiClient.CellularGateway">
   CellularGateway
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L483"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L524"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -325,7 +364,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Devices" data-uid="Meraki.Api.MerakiClient.Devices">
   Devices
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L485"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L526"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -356,7 +395,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Insight" data-uid="Meraki.Api.MerakiClient.Insight">
   Insight
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L487"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L528"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -387,7 +426,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_IsReadOnly" data-uid="Meraki.Api.MerakiClient.IsReadOnly">
   IsReadOnly
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L508"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L549"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Used to find out whether the client has the ReadOnly option set</p>
@@ -419,7 +458,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_LastRequestUri" data-uid="Meraki.Api.MerakiClient.LastRequestUri">
   LastRequestUri
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -450,7 +489,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_LastResponseHeaders" data-uid="Meraki.Api.MerakiClient.LastResponseHeaders">
   LastResponseHeaders
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L510"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L551"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -481,7 +520,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Licensing" data-uid="Meraki.Api.MerakiClient.Licensing">
   Licensing
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L489"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L530"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -512,7 +551,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_LiveTools" data-uid="Meraki.Api.MerakiClient.LiveTools">
   LiveTools
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L491"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L532"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -543,7 +582,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Networks" data-uid="Meraki.Api.MerakiClient.Networks">
   Networks
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L493"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L534"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -574,7 +613,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Organizations" data-uid="Meraki.Api.MerakiClient.Organizations">
   Organizations
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L495"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L536"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -605,7 +644,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Sensor" data-uid="Meraki.Api.MerakiClient.Sensor">
   Sensor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L497"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L538"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -667,7 +706,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Sm" data-uid="Meraki.Api.MerakiClient.Sm">
   Sm
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L499"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L540"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -698,7 +737,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Statistics" data-uid="Meraki.Api.MerakiClient.Statistics">
   Statistics
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -729,7 +768,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Switch" data-uid="Meraki.Api.MerakiClient.Switch">
   Switch
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L501"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L542"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -760,7 +799,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Wireless" data-uid="Meraki.Api.MerakiClient.Wireless">
   Wireless
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L503"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L544"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -795,7 +834,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Dispose" data-uid="Meraki.Api.MerakiClient.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L538"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L579"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -821,7 +860,7 @@ Class MerakiClient  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="Meraki_Api_MerakiClient_Dispose_System_Boolean_" data-uid="Meraki.Api.MerakiClient.Dispose(System.Boolean)">
   Dispose(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L521"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L562"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1110,7 +1149,7 @@ Data regularly updated from <a href="https://documentation.meraki.com/General_Ad
 
   <h3 id="Meraki_Api_MerakiClient_SetReadOnly_System_Boolean_" data-uid="Meraki.Api.MerakiClient.SetReadOnly(System.Boolean)">
   SetReadOnly(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L515"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/MerakiClient.cs/#L556"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Used to change the Options Readonly state after client is created</p>

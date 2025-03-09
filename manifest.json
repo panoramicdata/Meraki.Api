@@ -22632,7 +22632,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Meraki.Api.MerakiClient",
-      "Summary": "<p sourcefile=\"api/Meraki.Api.MerakiClient.yml\" sourcestartlinenumber=\"1\">A Meraki Dashboard API client</p>\n"
+      "Summary": "<p sourcefile=\"api/Meraki.Api.MerakiClient.yml\" sourcestartlinenumber=\"1\">A Meraki Dashboard API client. This is your starting point for all API operations.\nExample usage:</p>\n<pre><code class=\"lang-csharp\" sourcefile=\"api/Meraki.Api.MerakiClient.yml\" sourcestartlinenumber=\"4\">using Meraki.Api;\nusing System;\nusing System.Threading.Tasks;\n\nnamespace My.Project;\npublic static class Program\n{\n    public static async Task Main()\n    {\n        using var merakiClient = new MerakiClient(\n            new MerakiClientOptions\n            {\n                ApiKey = &quot;0123456789abcdef0123456789abcdef01234567&quot;,\n                UserAgent = &quot;YourProductName/YourProductVersion YourCompanyName&quot;\n            }\n        );\n\n        var organizations = await merakiClient\n            .Organizations\n            .GetOrganizationsAsync()\n            .ConfigureAwait(false);\n\n        var firstOrganization = organizations[0];\n\n        var devices = await merakiClient\n            .Organizations\n            .Devices\n            .GetOrganizationDevicesAsync(firstOrganization.Id)\n            .ConfigureAwait(false);\n\n        Console.WriteLine(&quot;Devices:&quot;);\n        foreach (var device in devices)\n        {\n            Console.WriteLine($&quot;    - {device.Serial}: {device.Name}&quot;);\n        }\n    }\n}\n</code></pre>\n"
     },
     {
       "type": "ManagedReference",
