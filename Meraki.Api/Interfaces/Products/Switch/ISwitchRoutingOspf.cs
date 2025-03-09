@@ -6,7 +6,7 @@ public interface ISwitchRoutingOspf
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getNetworkSwitchRoutingOspf")]
 	[Get("/networks/{networkId}/switch/routing/ospf")]
 	Task<RoutingOspf> GetNetworkSwitchRoutingOspfAsync(
@@ -20,7 +20,7 @@ public interface ISwitchRoutingOspf
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="routingOspf">The OSPF routing configuration to update</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("updateNetworkSwitchRoutingOspf")]
 	[Put("/networks/{networkId}/switch/routing/ospf")]
 	Task<RoutingOspf> UpdateNetworkSwitchRoutingOspfAsync(

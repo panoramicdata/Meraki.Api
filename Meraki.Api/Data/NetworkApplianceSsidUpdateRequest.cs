@@ -42,7 +42,11 @@ public class NetworkApplianceSsidUpdateRequest
 	public string? Psk { get; set; }
 
 	/// <summary>
-	/// The types of WPA encryption. ('WPA1 and WPA2', 'WPA2 only', 'WPA3 Transition Mode' or 'WPA3 only'). This param is only valid if (1) the authMode is 'psk' & the encryptionMode is 'wpa' OR (2) the authMode is '8021x-meraki' OR (3) the authMode is '8021x-radius'
+	/// The types of WPA encryption. Valid values are 'WPA1 and WPA2', 'WPA2 only', 'WPA3 Transition Mode', or 'WPA3 only'.
+	/// This parameter is only valid if:
+	/// (1) the authMode is 'psk' and the encryptionMode is 'wpa',
+	/// (2) the authMode is '8021x-meraki', or
+	/// (3) the authMode is '8021x-radius'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wpaEncryptionMode")]

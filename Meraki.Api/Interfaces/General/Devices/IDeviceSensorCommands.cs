@@ -12,8 +12,8 @@ public interface IDeviceSensorCommands
 	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 30 days from today.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 30 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 30 days. The default is 1 day.</param>
-	/// <param name="cancellationToken"></param>
-	/// <returns>A list of <see cref="SensorCommand"></returns>
+	/// <param name="cancellationToken">The cancellation token</param>
+	/// <returns>A list of <see cref="SensorCommand"/></returns>
 	[ApiOperationId("getDeviceSensorCommands")]
 	[Get("/devices/{serial}/sensor/commands")]
 	Task<List<SensorCommand>> GetDeviceSensorCommandsAsync(
@@ -43,8 +43,8 @@ public interface IDeviceSensorCommands
 	/// </summary>
 	/// <param name="serial">Serial</param>
 	/// <param name="commandId">CommandId</param>
-	/// <param name="cancellationToken"></param>
-	/// <returns>A <see cref="SensorCommand"></returns>
+	/// <param name="cancellationToken">The cancellation token</param>
+	/// <returns>A <see cref="SensorCommand"/></returns>
 	[ApiOperationId("getDeviceSensorCommand")]
 	[Get("/devices/{serial}/sensor/commands/{commandId}")]
 	Task<SensorCommand> GetDeviceSensorCommandAsync(

@@ -20,7 +20,7 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="trafficShapingCustomPerformanceClass"></param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("createNetworkApplianceTrafficShapingCustomPerformanceClass")]
 	[Post("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
 	Task<CustomPerformanceClass> CreateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(

@@ -7,7 +7,9 @@ namespace Meraki.Api.Data;
 public class AllowedRule
 {
 	/// <summary>
-	/// A rule identifier of the format meraki:intrusion/snort/GID/<gid>/SID/<sid>. gid and sid can be obtained from either https://www.snort.org/rule-docs or as ruleIds from the security events in /organization/[orgId]/securityEvents
+	/// A rule identifier in the format: meraki:intrusion/snort/GID/&lt;gid&gt;/SID/&lt;sid&gt;.
+	/// GID and SID can be found at https://www.snort.org/rule-docs
+	/// or in security events at /organization/[orgId]/securityEvents.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ruleId")]

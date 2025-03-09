@@ -5,7 +5,7 @@ public interface IDeviceWirelessElectronicShelfLabel
 	/// Return the ESL settings of a device
 	/// </summary>
 	/// <param name="serial">Serial</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getDeviceWirelessElectronicShelfLabel")]
 	[Get("/devices/{serial}/wireless/electronicShelfLabel")]
 	Task<ElectronicShelfLabelSettings> GetDeviceWirelessElectronicShelfLabelAsync(
@@ -17,7 +17,7 @@ public interface IDeviceWirelessElectronicShelfLabel
 	/// </summary>
 	/// <param name="serial">Serial</param>
 	/// <param name="settings">Update Settings</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("updateDeviceWirelessElectronicShelfLabel")]
 	[Put("/devices/{serial}/wireless/electronicShelfLabel")]
 	Task<ElectronicShelfLabelSettings> UpdateDeviceWirelessElectronicShelfLabelAsync(

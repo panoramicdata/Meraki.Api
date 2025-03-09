@@ -19,7 +19,7 @@ public interface ISwitchRoutingInterfaces
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="routingInterface"></param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("createDeviceSwitchRoutingInterface")]
 	[Post("/devices/{serial}/switch/routing/interfaces")]
 	Task<RoutingInterface> CreateDeviceSwitchRoutingInterfaceAsync(

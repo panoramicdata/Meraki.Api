@@ -34,7 +34,7 @@ public interface IApplianceWarmSpare
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="warmSpare"></param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("swapNetworkApplianceWarmSpare")]
 	[Post("/networks/{networkId}/appliance/warmSpare/swap")]
 	Task<WarmSpare> SwapNetworkApplianceWarmSpareAsync(

@@ -6,7 +6,7 @@ public interface INetworkWirelessElectronicShelfLabel
 	/// Return the ESL settings of a wireless network
 	/// </summary>
 	/// <param name="networkId">Network Id</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getNetworkWirelessElectronicShelfLabel")]
 	[Get("/networks/{networkId}/wireless/electronicShelfLabel")]
 	Task<ElectronicShelfLabelSettingsNetwork> GetNetworkWirelessElectronicShelfLabelAsync(
@@ -18,7 +18,7 @@ public interface INetworkWirelessElectronicShelfLabel
 	/// </summary>
 	/// <param name="networkId">Network Id</param>
 	/// <param name="settings">Update Settings</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("updateNetworkWirelessElectronicShelfLabel")]
 	[Put("/networks/{networkId}/wireless/electronicShelfLabel")]
 	Task<ElectronicShelfLabelSettingsNetwork> UpdateNetworkWirelessElectronicShelfLabelAsync(
@@ -30,7 +30,7 @@ public interface INetworkWirelessElectronicShelfLabel
 	/// Get a list of all ESL eligible devices of a network
 	/// </summary>
 	/// <param name="networkId">Network Id</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getNetworkWirelessElectronicShelfLabelConfiguredDevices")]
 	[Get("/networks/{networkId}/wireless/electronicShelfLabel/configuredDevices")]
 	Task<List<ElectronicShelfLabelSettingsNetwork>> GetNetworkWirelessElectronicShelfLabelConfiguredDevicesAsync(

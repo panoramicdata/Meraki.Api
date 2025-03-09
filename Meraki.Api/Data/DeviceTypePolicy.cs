@@ -7,7 +7,8 @@
 public class DeviceTypePolicy
 {
 	/// <summary>
-	/// The device type. Can be one of 'Android', 'BlackBerry', 'Chrome OS', 'iPad', 'iPhone', 'iPod', 'Mac OS X', 'Windows', 'Windows Phone', 'B&N Nook' or 'Other OS'
+	/// The device type. Possible values include 'Android', 'BlackBerry', 'Chrome OS', 'iPad', 'iPhone',
+	/// 'iPod', 'Mac OS X', 'Windows', 'Windows Phone', 'B&amp;N Nook', or 'Other OS'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "deviceType")]

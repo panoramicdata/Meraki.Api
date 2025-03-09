@@ -19,7 +19,7 @@ public interface IAppliancePorts
 	/// <summary>
 	/// List per-port VLAN settings for all ports of a MX.
 	/// </summary>
-	/// <exception cref="ApiException">Thrown when fails to make API call</experception>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	[ApiOperationId("getNetworkAppliancePorts")]
 	[Get("/networks/{networkId}/appliance/ports")]

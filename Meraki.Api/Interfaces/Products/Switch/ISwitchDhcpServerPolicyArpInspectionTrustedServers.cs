@@ -38,7 +38,7 @@ public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network ID</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[Post("/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers")]
 	Task<TrustedServer> CreateNetworkSwitchDhcpServerPolicyArpInspectionTrustedServerAsync(
 		string networkId,
@@ -52,7 +52,7 @@ public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network ID</param>
 	/// <param name="trustedServerId">The Trusted Server ID</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[Put("/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers/{trustedServerId}")]
 	Task<TrustedServer> UpdateNetworkSwitchDhcpServerPolicyArpInspectionTrustedServerAsync(
 		string networkId,

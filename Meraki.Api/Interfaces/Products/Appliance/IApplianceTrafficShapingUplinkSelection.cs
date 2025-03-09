@@ -19,7 +19,7 @@ public interface IApplianceTrafficShapingUplinkSelection
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateTrafficShapingUplinkSelection"></param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[Put("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
 	Task<UplinkSelection> UpdateNetworkApplianceTrafficShapingUplinkSelectionAsync(
 		string networkId,

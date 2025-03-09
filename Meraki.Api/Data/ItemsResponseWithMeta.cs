@@ -10,7 +10,7 @@ public abstract class ItemsResponseWithMeta<T>
 	public ItemsResponseMeta Meta { get; set; } = new();
 
 	/// <summary>
-	/// List of Items<T>
+	/// List of Items&lt;T&gt;.
 	/// </summary>
 	// [ApiAccess(ApiAccess.Read)] - Defined on the concrete class
 	[DataMember(Name = "items")]

@@ -45,7 +45,7 @@ public interface ISwitchRoutingMulticast
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="rendezvousPoint">The rendezvous point to create</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("createNetworkSwitchRoutingMulticastRendezvousPoint")]
 	[Post("/networks/{networkId}/switch/routing/multicast/rendezvousPoints")]
 	Task<RendezvousPoint> CreateNetworkSwitchRoutingMulticastRendezvousPointAsync(
@@ -73,7 +73,7 @@ public interface ISwitchRoutingMulticast
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="rendezvousPoint">The rendezvous point to update</param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("updateNetworkSwitchRoutingMulticastRendezvousPoint")]
 	[Put("/networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}")]
 	Task<RendezvousPoint> UpdateNetworkSwitchRoutingMulticastRendezvousPointAsync(

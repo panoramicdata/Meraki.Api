@@ -96,7 +96,7 @@ public interface ISwitchStacks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId"></param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getNetworkSwitchStackRoutingInterfaces")]
 	[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces")]
 	Task<List<RoutingInterface>> GetNetworkSwitchStackRoutingInterfacesAsync(
@@ -111,7 +111,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId"></param>
 	/// <param name="routingInterface"></param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("createNetworkSwitchStackRoutingInterface")]
 	[Post("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces")]
 	Task<RoutingInterface> CreateNetworkSwitchStackRoutingInterfaceAsync(
@@ -127,7 +127,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId"></param>
 	/// <param name="interfaceId"></param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getNetworkSwitchStackRoutingInterface")]
 	[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}")]
 	Task<RoutingInterface> GetNetworkSwitchStackRoutingInterfaceAsync(
@@ -144,7 +144,7 @@ public interface ISwitchStacks
 	/// <param name="switchStackId"></param>
 	/// <param name="interfaceId"></param>
 	/// <param name="routingInterface"></param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("updateNetworkSwitchStackRoutingInterface")]
 	[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}")]
 	Task<RoutingInterface> UpdateNetworkSwitchStackRoutingInterfaceAsync(
@@ -161,7 +161,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId"></param>
 	/// <param name="interfaceId"></param>
-	/// <param name="cancellationToken"></param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("deleteNetworkSwitchStackRoutingInterface")]
 	[Delete("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}")]
 	Task DeleteNetworkSwitchStackRoutingInterfaceAsync(
