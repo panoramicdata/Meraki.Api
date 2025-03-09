@@ -8,47 +8,6 @@ This is the documentation for the Meraki.Api project. This project implements ac
 
 You can find the source code for this project on [GitHub](https://github.com/panoramicdata/Meraki.Api).
 
-To get started, you will need to install the Meraki.Api nuget package.
-You can find the package on [Nuget](https://www.nuget.org/packages/Meraki.Api/).
+An introduction to the Meraki API can be found [here](https://developer.cisco.com/meraki/api-v1/).
 
-Then, you will be able to write code like this:
-
-``` C#
-using Meraki.Api;
-using System;
-using System.Threading.Tasks;
-
-namespace My.Project;
-public static class Program
-{
-	public static async Task Main()
-	{
-		using var merakiClient = new MerakiClient(
-			new MerakiClientOptions
-			{
-				ApiKey = "0123456789abcdef0123456789abcdef01234567",
-				UserAgent = "YourProductName/YourProductVersion YourCompanyName"
-			}
-		);
-
-		var organizations = await merakiClient
-			.Organizations
-			.GetOrganizationsAsync()
-			.ConfigureAwait(false);
-
-		var firstOrganization = organizations[0];
-
-		var devices = await merakiClient
-			.Organizations
-			.Devices
-			.GetOrganizationDevicesAsync(firstOrganization.Id)
-			.ConfigureAwait(false);
-
-		Console.WriteLine("Devices:");
-		foreach (var device in devices)
-		{
-			Console.WriteLine($"    - {device.Serial}: {device.Name}");
-		}
-	}
-}
-```
+An introduction to developing using the Meraki.Api nuget package can be found [here](docs/introduction.html).

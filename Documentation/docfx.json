@@ -20,7 +20,6 @@
           "**/*.{md,yml}"
         ],
         "exclude": [
-          "_site/**"
         ]
       }
     ],
@@ -31,7 +30,7 @@
         ]
       }
     ],
-    "output": "_site",
+    "output": "../../Meraki.Api.Docs",
     "template": [
       "default",
       "modern"
