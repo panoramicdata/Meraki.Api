@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ClientSearchResultRecords | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ClientSearchResultRecords | Meraki.Api ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_ClientSearchResultRecords.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.ClientSearchResultRecords%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Meraki.Api.Data.ClientSearchResultRecords">
+
+
+
+  <h1 id="Meraki_Api_Data_ClientSearchResultRecords" data-uid="Meraki.Api.Data.ClientSearchResultRecords" class="text-break">
+Class ClientSearchResultRecords  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Meraki.html">Meraki</a>.<a class="xref" href="Meraki.Api.html">Api</a>.<a class="xref" href="Meraki.Api.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class ClientSearchResultRecords</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ClientSearchResultRecords</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Cdp_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Cdp*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Cdp" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Cdp">
+  Cdp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>CDP</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;cdp&quot;)]
+public string Cdp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_ClientVpnConnections_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.ClientVpnConnections*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_ClientVpnConnections" data-uid="Meraki.Api.Data.ClientSearchResultRecords.ClientVpnConnections">
+  ClientVpnConnections
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Client vpn connections</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;clientVpnConnections&quot;)]
+public List&lt;ClientVpnConnections&gt; ClientVpnConnections { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.ClientVpnConnections.html">ClientVpnConnections</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Description_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Description*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Description" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Description</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;description&quot;)]
+public string Description { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_FirstSeen_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.FirstSeen*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_FirstSeen" data-uid="Meraki.Api.Data.ClientSearchResultRecords.FirstSeen">
+  FirstSeen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>First seen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;firstSeen&quot;)]
+public int FirstSeen { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Ip_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Ip*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Ip" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Ip">
+  Ip
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>IP</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;ip&quot;)]
+public string Ip { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Ip6_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Ip6*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Ip6" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Ip6">
+  Ip6
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>IP6</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;ip6&quot;)]
+public string Ip6 { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_LastSeen_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.LastSeen*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_LastSeen" data-uid="Meraki.Api.Data.ClientSearchResultRecords.LastSeen">
+  LastSeen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Last seen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;lastSeen&quot;)]
+public int LastSeen { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Lldp_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Lldp*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Lldp" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Lldp">
+  Lldp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lldp</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;lldp&quot;)]
+public List&lt;List&lt;string&gt;&gt; Lldp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Network_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Network*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Network" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Network">
+  Network
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;network&quot;)]
+public Network Network { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.Network.html">Network</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Os_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Os*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Os" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Os">
+  Os
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>OS</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;os&quot;)]
+public string Os { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_RecentDeviceMac_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.RecentDeviceMac*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_RecentDeviceMac" data-uid="Meraki.Api.Data.ClientSearchResultRecords.RecentDeviceMac">
+  RecentDeviceMac
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The MAC address of the node that the device was last connected to</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;recentDeviceMac&quot;)]
+public string RecentDeviceMac { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_SmInstalled_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.SmInstalled*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_SmInstalled" data-uid="Meraki.Api.Data.ClientSearchResultRecords.SmInstalled">
+  SmInstalled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>SM installed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;smInstalled&quot;)]
+public bool SmInstalled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Ssid_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Ssid*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Ssid" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Ssid">
+  Ssid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>SSID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;ssid&quot;)]
+public string Ssid { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Status_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Status*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Status" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Status">
+  Status
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Status</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;status&quot;)]
+public string Status { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Switchport_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Switchport*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Switchport" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Switchport">
+  Switchport
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Switchport</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;switchport&quot;)]
+public string Switchport { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_User_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.User*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_User" data-uid="Meraki.Api.Data.ClientSearchResultRecords.User">
+  User
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>User</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;user&quot;)]
+public string User { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_Vlan_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Vlan*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_Vlan" data-uid="Meraki.Api.Data.ClientSearchResultRecords.Vlan">
+  Vlan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>VLAN</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;vlan&quot;)]
+public string Vlan { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_ClientSearchResultRecords_WirelessCapabilities_" data-uid="Meraki.Api.Data.ClientSearchResultRecords.WirelessCapabilities*"></a>
+
+  <h3 id="Meraki_Api_Data_ClientSearchResultRecords_WirelessCapabilities" data-uid="Meraki.Api.Data.ClientSearchResultRecords.WirelessCapabilities">
+  WirelessCapabilities
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Wireless capabilities</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;wirelessCapabilities&quot;)]
+public string WirelessCapabilities { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ClientSearchResultRecords.cs/#L3" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Meraki.Api",
+    "\\Meraki.Api\\Extensions",
+    "\\Meraki.Api\\Interfaces",
+    "\\Meraki.Api\\Interfaces\\General",
+    "\\Meraki.Api\\Interfaces\\General\\Organizations"
+  ],
+  "SelectedNode": "\\Meraki.Api\\MerakiClientPager.cs",
+  "PreviewInSolutionExplorer": false
+}

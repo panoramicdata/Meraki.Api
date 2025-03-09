@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SecurityEvent | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SecurityEvent | Meraki.Api ">
+      
+      <meta name="description" content="Security event">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_SecurityEvent.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.SecurityEvent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Meraki.Api.Data.SecurityEvent">
+
+
+
+  <h1 id="Meraki_Api_Data_SecurityEvent" data-uid="Meraki.Api.Data.SecurityEvent" class="text-break">
+Class SecurityEvent  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Meraki.html">Meraki</a>.<a class="xref" href="Meraki.Api.html">Api</a>.<a class="xref" href="Meraki.Api.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Security event</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class SecurityEvent</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SecurityEvent</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Action_" data-uid="Meraki.Api.Data.SecurityEvent.Action*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Action" data-uid="Meraki.Api.Data.SecurityEvent.Action">
+  Action
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Action</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;action&quot;)]
+public string Action { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Blocked_" data-uid="Meraki.Api.Data.SecurityEvent.Blocked*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Blocked" data-uid="Meraki.Api.Data.SecurityEvent.Blocked">
+  Blocked
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Blocked</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;blocked&quot;)]
+public bool Blocked { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_CanonicalName_" data-uid="Meraki.Api.Data.SecurityEvent.CanonicalName*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_CanonicalName" data-uid="Meraki.Api.Data.SecurityEvent.CanonicalName">
+  CanonicalName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Canonical name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;canonicalName&quot;)]
+public string CanonicalName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Classification_" data-uid="Meraki.Api.Data.SecurityEvent.Classification*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Classification" data-uid="Meraki.Api.Data.SecurityEvent.Classification">
+  Classification
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Classification</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;classification&quot;)]
+public string Classification { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_ClientIp_" data-uid="Meraki.Api.Data.SecurityEvent.ClientIp*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_ClientIp" data-uid="Meraki.Api.Data.SecurityEvent.ClientIp">
+  ClientIp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Client ip</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;clientIp&quot;)]
+public string ClientIp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_ClientMac_" data-uid="Meraki.Api.Data.SecurityEvent.ClientMac*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_ClientMac" data-uid="Meraki.Api.Data.SecurityEvent.ClientMac">
+  ClientMac
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Client mac</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;clientMac&quot;)]
+public string ClientMac { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_ClientName_" data-uid="Meraki.Api.Data.SecurityEvent.ClientName*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_ClientName" data-uid="Meraki.Api.Data.SecurityEvent.ClientName">
+  ClientName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Client name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;clientName&quot;)]
+public string ClientName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_DestIp_" data-uid="Meraki.Api.Data.SecurityEvent.DestIp*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_DestIp" data-uid="Meraki.Api.Data.SecurityEvent.DestIp">
+  DestIp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Destination ip</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;destIp&quot;)]
+public string DestIp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_DestinationPort_" data-uid="Meraki.Api.Data.SecurityEvent.DestinationPort*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_DestinationPort" data-uid="Meraki.Api.Data.SecurityEvent.DestinationPort">
+  DestinationPort
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Destination port</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;destinationPort&quot;)]
+public int DestinationPort { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Disposition_" data-uid="Meraki.Api.Data.SecurityEvent.Disposition*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Disposition" data-uid="Meraki.Api.Data.SecurityEvent.Disposition">
+  Disposition
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposition</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;disposition&quot;)]
+public string Disposition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_EventType_" data-uid="Meraki.Api.Data.SecurityEvent.EventType*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_EventType" data-uid="Meraki.Api.Data.SecurityEvent.EventType">
+  EventType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;eventType&quot;)]
+public string EventType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_FileHash_" data-uid="Meraki.Api.Data.SecurityEvent.FileHash*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_FileHash" data-uid="Meraki.Api.Data.SecurityEvent.FileHash">
+  FileHash
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>File hash</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fileHash&quot;)]
+public string FileHash { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_FileSizeBytes_" data-uid="Meraki.Api.Data.SecurityEvent.FileSizeBytes*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_FileSizeBytes" data-uid="Meraki.Api.Data.SecurityEvent.FileSizeBytes">
+  FileSizeBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>File size bytes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fileSizeBytes&quot;)]
+public int FileSizeBytes { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_FileType_" data-uid="Meraki.Api.Data.SecurityEvent.FileType*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_FileType" data-uid="Meraki.Api.Data.SecurityEvent.FileType">
+  FileType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>File type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fileType&quot;)]
+public string FileType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Message_" data-uid="Meraki.Api.Data.SecurityEvent.Message*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Message" data-uid="Meraki.Api.Data.SecurityEvent.Message">
+  Message
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Message</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;message&quot;)]
+public string Message { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Priority_" data-uid="Meraki.Api.Data.SecurityEvent.Priority*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Priority" data-uid="Meraki.Api.Data.SecurityEvent.Priority">
+  Priority
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Priority&gt;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;priority&quot;)]
+public string Priority { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Protocol_" data-uid="Meraki.Api.Data.SecurityEvent.Protocol*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Protocol" data-uid="Meraki.Api.Data.SecurityEvent.Protocol">
+  Protocol
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Protocol</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;protocol&quot;)]
+public string Protocol { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_RuleId_" data-uid="Meraki.Api.Data.SecurityEvent.RuleId*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_RuleId" data-uid="Meraki.Api.Data.SecurityEvent.RuleId">
+  RuleId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rule id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;ruleId&quot;)]
+public string RuleId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_SigSource_" data-uid="Meraki.Api.Data.SecurityEvent.SigSource*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_SigSource" data-uid="Meraki.Api.Data.SecurityEvent.SigSource">
+  SigSource
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sig source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;sigSource&quot;)]
+public string SigSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Signature_" data-uid="Meraki.Api.Data.SecurityEvent.Signature*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Signature" data-uid="Meraki.Api.Data.SecurityEvent.Signature">
+  Signature
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Signature</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;signature&quot;)]
+public string Signature { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_SrcIp_" data-uid="Meraki.Api.Data.SecurityEvent.SrcIp*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_SrcIp" data-uid="Meraki.Api.Data.SecurityEvent.SrcIp">
+  SrcIp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Src ip</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;srcIp&quot;)]
+public string SrcIp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Ts_" data-uid="Meraki.Api.Data.SecurityEvent.Ts*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Ts" data-uid="Meraki.Api.Data.SecurityEvent.Ts">
+  Ts
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ts</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;ts&quot;)]
+public string Ts { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SecurityEvent_Uri_" data-uid="Meraki.Api.Data.SecurityEvent.Uri*"></a>
+
+  <h3 id="Meraki_Api_Data_SecurityEvent_Uri" data-uid="Meraki.Api.Data.SecurityEvent.Uri">
+  Uri
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>URI</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;uri&quot;)]
+public string Uri { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SecurityEvent.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

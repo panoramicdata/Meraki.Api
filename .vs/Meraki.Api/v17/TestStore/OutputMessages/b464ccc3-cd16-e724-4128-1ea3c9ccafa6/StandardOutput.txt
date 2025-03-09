@@ -1,0 +1,574 @@
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:46 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 1
+  X-Request-ID: f06e620bfa120c748900c8bdfebe6e34
+  X-Runtime: 0.039750
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Received 429 on attempt 1/5.
+Information [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Received 429 on attempt 1/5 - Waiting 1.10s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:47 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 1
+  X-Request-ID: 2a4612f2dc668d21cfdf4ba562d0529b
+  X-Runtime: 0.051143
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Received 429 on attempt 2/5.
+Information [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Received 429 on attempt 2/5 - Waiting 1.10s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:48 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 1
+  X-Request-ID: ca6bcf1e874d4c2be91eae8931dd3a87
+  X-Runtime: 0.036389
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Received 429 on attempt 3/5.
+Information [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Received 429 on attempt 3/5 - Waiting 1.10s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:50 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 2
+  X-Request-ID: bcdc45651382ed34a72915e13c37a5dc
+  X-Runtime: 0.032832
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Received 429 on attempt 4/5.
+Information [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Received 429 on attempt 4/5 - Waiting 2.20s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:52 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 2
+  X-Request-ID: 391b1ed7d10d5888caa5221895551376
+  X-Runtime: 0.056022
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Received 429 on attempt 5/5.
+Information [0]: Request 8a3347db-a343-4a8b-979d-55cfeddb1010: Giving up retrying. Returning 429 on attempt 5/5. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:52 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 2
+  X-Request-ID: 577805986c56cd7c6e22bd68aab66b96
+  X-Runtime: 0.048377
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Received 429 on attempt 1/5.
+Information [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Received 429 on attempt 1/5 - Waiting 2.20s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:54 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 2
+  X-Request-ID: d9998d34b48550ce637840e2f9633cc6
+  X-Runtime: 0.035820
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Received 429 on attempt 2/5.
+Information [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Received 429 on attempt 2/5 - Waiting 2.20s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:57 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 1
+  X-Request-ID: 140016fc5c212cc6bcf12c85fa422482
+  X-Runtime: 0.052443
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Received 429 on attempt 3/5.
+Information [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Received 429 on attempt 3/5 - Waiting 1.10s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:58 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 1
+  X-Request-ID: 3b32f3af9007211475165aede0a6c717
+  X-Runtime: 0.057210
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Received 429 on attempt 4/5.
+Information [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Received 429 on attempt 4/5 - Waiting 1.10s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Response
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:59 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Vary: Accept-Encoding
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  X-Request-ID: c8606cbcb9ee64097ad85484eddf76c2
+  X-Runtime: 0.039829
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: ResponseContent
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Debug [0]: Request 9d0ac5e9-3325-4121-893f-123eca062ca3: Received 200 on attempt 5/5.
+Critical [0]: Missing Member Response JSON:
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Trace [0]: Request 37a0ee47-85ac-4cff-956f-a6dd8e1d8dcc: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 37a0ee47-85ac-4cff-956f-a6dd8e1d8dcc: Response
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:34:59 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Vary: Accept-Encoding
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  X-Request-ID: bff7436443215d32350a48ca1f09d7d7
+  X-Runtime: 0.050669
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 37a0ee47-85ac-4cff-956f-a6dd8e1d8dcc: ResponseContent
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Critical [0]: Missing Member Response JSON:
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Trace [0]: Request 8445d03f-c758-4984-9321-e03f552e4953: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 8445d03f-c758-4984-9321-e03f552e4953: Response
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:35:00 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Vary: Accept-Encoding
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  X-Request-ID: 48599e14fdd8dff54cde38ef9982bae7
+  X-Runtime: 0.057580
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 8445d03f-c758-4984-9321-e03f552e4953: ResponseContent
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Critical [0]: Missing Member Response JSON:
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Trace [0]: Request 2e7c34c1-2a91-42b1-937a-e5aa475d94a3: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 2e7c34c1-2a91-42b1-937a-e5aa475d94a3: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:35:00 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 1
+  X-Request-ID: 24dd2b7d4674e2b18912f1ee8a0d15f2
+  X-Runtime: 0.041052
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 2e7c34c1-2a91-42b1-937a-e5aa475d94a3: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 2e7c34c1-2a91-42b1-937a-e5aa475d94a3: Received 429 on attempt 1/5.
+Information [0]: Request 2e7c34c1-2a91-42b1-937a-e5aa475d94a3: Received 429 on attempt 1/5 - Waiting 1.10s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 2e7c34c1-2a91-42b1-937a-e5aa475d94a3: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 2e7c34c1-2a91-42b1-937a-e5aa475d94a3: Response
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:35:01 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Vary: Accept-Encoding
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  X-Request-ID: 2262f2148f69b3761dfe9b4bd064943b
+  X-Runtime: 0.053711
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 2e7c34c1-2a91-42b1-937a-e5aa475d94a3: ResponseContent
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Debug [0]: Request 2e7c34c1-2a91-42b1-937a-e5aa475d94a3: Received 200 on attempt 2/5.
+Critical [0]: Missing Member Response JSON:
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Trace [0]: Request d7cad9c1-7304-4aa7-8d32-61a3c1aee87d: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request d7cad9c1-7304-4aa7-8d32-61a3c1aee87d: Response
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:35:01 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Vary: Accept-Encoding
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  X-Request-ID: 9b2507a555f5c7d073bb3ed24eb265a3
+  X-Runtime: 0.062231
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request d7cad9c1-7304-4aa7-8d32-61a3c1aee87d: ResponseContent
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Critical [0]: Missing Member Response JSON:
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Trace [0]: Request ad82e301-a6bb-4654-be6f-be6c77cf4dcc: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request ad82e301-a6bb-4654-be6f-be6c77cf4dcc: Response
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:35:01 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Vary: Accept-Encoding
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  X-Request-ID: 8426c52371b0bd653715eb35db0a4f5a
+  X-Runtime: 0.041695
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request ad82e301-a6bb-4654-be6f-be6c77cf4dcc: ResponseContent
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Critical [0]: Missing Member Response JSON:
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Trace [0]: Request 0439eb90-78b5-4439-b48e-575bbe6852e8: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 0439eb90-78b5-4439-b48e-575bbe6852e8: Response
+StatusCode: 429, ReasonPhrase: 'Too Many Requests', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:35:01 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  Retry-After: 1
+  X-Request-ID: 0bbe0f012ee6169c9a9dc974413a97a5
+  X-Runtime: 0.040323
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 0439eb90-78b5-4439-b48e-575bbe6852e8: ResponseContent
+{"errors":["API rate limit exceeded for organization"]}
+Debug [0]: Request 0439eb90-78b5-4439-b48e-575bbe6852e8: Received 429 on attempt 1/5.
+Information [0]: Request 0439eb90-78b5-4439-b48e-575bbe6852e8: Received 429 on attempt 1/5 - Waiting 1.10s. (GET - https://api.meraki.com/api/v1/organizations/370530)
+Trace [0]: Request 0439eb90-78b5-4439-b48e-575bbe6852e8: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 0439eb90-78b5-4439-b48e-575bbe6852e8: Response
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:35:03 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Vary: Accept-Encoding
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  X-Request-ID: 2ea734e04000c90d3507b8e05ead8226
+  X-Runtime: 0.067735
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 0439eb90-78b5-4439-b48e-575bbe6852e8: ResponseContent
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Debug [0]: Request 0439eb90-78b5-4439-b48e-575bbe6852e8: Received 200 on attempt 2/5.
+Critical [0]: Missing Member Response JSON:
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Trace [0]: Request a7dc4d68-273f-49f2-ab43-3130bd8df2d5: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request a7dc4d68-273f-49f2-ab43-3130bd8df2d5: Response
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:35:03 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Vary: Accept-Encoding
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  X-Request-ID: e390155f33df42ba6271e63e1654f489
+  X-Runtime: 0.124981
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request a7dc4d68-273f-49f2-ab43-3130bd8df2d5: ResponseContent
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Critical [0]: Missing Member Response JSON:
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Trace [0]: Request 2e21138d-c182-48c0-a092-10bdbff81e83: Request
+Method: GET, RequestUri: 'https://api.meraki.com/api/v1/organizations/370530', Version: 1.1, Content: <null>, Headers:
+{
+  X-Cisco-Meraki-API-Key: f4043253a685d7b7ea579c6e493b36acdba0efe8
+}
+Trace [0]: Request 2e21138d-c182-48c0-a092-10bdbff81e83: Response
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Date: Sun, 14 Apr 2024 15:35:03 GMT
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Vary: Accept-Encoding
+  X-Frame-Options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: none
+  Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+  Pragma: no-cache
+  X-Request-ID: 21d802d5370808f0cf72a82b931798a5
+  X-Runtime: 0.054691
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Type: application/json; charset=utf-8
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+}
+Trace [0]: Request 2e21138d-c182-48c0-a092-10bdbff81e83: ResponseContent
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Critical [0]: Missing Member Response JSON:
+{"id":"370530","name":"Panoramic Data","url":"https://n100.meraki.com/o/lRB3sd/manage/organization/overview","api":{"enabled":true},"licensing":{"model":"per-device"},"cloud":{"region":{"name":"Europe","host":{"name":"Europe"}}},"management":{"details":[]}}
+Trace [0]: Disposing...
+Trace [0]: Disposed

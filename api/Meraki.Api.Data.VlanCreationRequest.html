@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class VlanCreationRequest | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class VlanCreationRequest | Meraki.Api ">
+      
+      <meta name="description" content="CreateNetworkVlan">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_VlanCreationRequest.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.VlanCreationRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Meraki.Api.Data.VlanCreationRequest">
+
+
+
+  <h1 id="Meraki_Api_Data_VlanCreationRequest" data-uid="Meraki.Api.Data.VlanCreationRequest" class="text-break">
+Class VlanCreationRequest  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Meraki.html">Meraki</a>.<a class="xref" href="Meraki.Api.html">Api</a>.<a class="xref" href="Meraki.Api.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>CreateNetworkVlan</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class VlanCreationRequest</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">VlanCreationRequest</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_ApplianceIp_" data-uid="Meraki.Api.Data.VlanCreationRequest.ApplianceIp*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_ApplianceIp" data-uid="Meraki.Api.Data.VlanCreationRequest.ApplianceIp">
+  ApplianceIp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The local IP of the appliance on the VLAN</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;applianceIp&quot;)]
+public string? ApplianceIp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The local IP of the appliance on the VLAN</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_Cidr_" data-uid="Meraki.Api.Data.VlanCreationRequest.Cidr*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_Cidr" data-uid="Meraki.Api.Data.VlanCreationRequest.Cidr">
+  Cidr
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Cidr</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;cidr&quot;)]
+public string? Cidr { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_DhcpBootOptionsEnabled_" data-uid="Meraki.Api.Data.VlanCreationRequest.DhcpBootOptionsEnabled*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_DhcpBootOptionsEnabled" data-uid="Meraki.Api.Data.VlanCreationRequest.DhcpBootOptionsEnabled">
+  DhcpBootOptionsEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Use DHCP boot options specified in other properties</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;dhcpBootOptionsEnabled&quot;)]
+public bool? DhcpBootOptionsEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_DhcpHandling_" data-uid="Meraki.Api.Data.VlanCreationRequest.DhcpHandling*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_DhcpHandling" data-uid="Meraki.Api.Data.VlanCreationRequest.DhcpHandling">
+  DhcpHandling
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The appliance's handling of DHCP requests on this VLAN. One of: 'Run a DHCP server', 'Relay DHCP to another server' or 'Do not respond to DHCP requests'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;dhcpHandling&quot;)]
+public DhcpHandling? DhcpHandling { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.DhcpHandling.html">DhcpHandling</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_DhcpLeaseTime_" data-uid="Meraki.Api.Data.VlanCreationRequest.DhcpLeaseTime*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_DhcpLeaseTime" data-uid="Meraki.Api.Data.VlanCreationRequest.DhcpLeaseTime">
+  DhcpLeaseTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The term of DHCP leases if the appliance is running a DHCP server on this VLAN. One of: '30 minutes', '1 hour', '4 hours', '12 hours', '1 day' or '1 week'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;dhcpLeaseTime&quot;)]
+public DhcpLeaseTime? DhcpLeaseTime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.DhcpLeaseTime.html">DhcpLeaseTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_DhcpOptions_" data-uid="Meraki.Api.Data.VlanCreationRequest.DhcpOptions*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_DhcpOptions" data-uid="Meraki.Api.Data.VlanCreationRequest.DhcpOptions">
+  DhcpOptions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The list of DHCP options that will be included in DHCP responses. Each object in the list should have &quot;code&quot;, &quot;type&quot;, and &quot;value&quot; properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;dhcpOptions&quot;)]
+public List&lt;DhcpOption&gt;? DhcpOptions { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.DhcpOption.html">DhcpOption</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_GroupPolicyId_" data-uid="Meraki.Api.Data.VlanCreationRequest.GroupPolicyId*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_GroupPolicyId" data-uid="Meraki.Api.Data.VlanCreationRequest.GroupPolicyId">
+  GroupPolicyId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The id of the desired group policy to apply to the VLAN</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;groupPolicyId&quot;)]
+public string? GroupPolicyId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The id of the desired group policy to apply to the VLAN</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_Id_" data-uid="Meraki.Api.Data.VlanCreationRequest.Id*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_Id" data-uid="Meraki.Api.Data.VlanCreationRequest.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The VLAN ID of the new VLAN (must be between 1 and 4094)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;id&quot;)]
+public string Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The VLAN ID of the new VLAN (must be between 1 and 4094)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_Ipv6_" data-uid="Meraki.Api.Data.VlanCreationRequest.Ipv6*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_Ipv6" data-uid="Meraki.Api.Data.VlanCreationRequest.Ipv6">
+  Ipv6
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ipv6</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;ipv6&quot;)]
+public VlanIpv6? Ipv6 { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.VlanIpv6.html">VlanIpv6</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_MandatoryDhcp_" data-uid="Meraki.Api.Data.VlanCreationRequest.MandatoryDhcp*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_MandatoryDhcp" data-uid="Meraki.Api.Data.VlanCreationRequest.MandatoryDhcp">
+  MandatoryDhcp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mandatory DHCP will enforce that clients connecting to this VLAN must use the IP address assigned by the DHCP server. Clients who use a static IP address won't be able to associate. Only available on firmware versions 17.0 and above</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;mandatoryDhcp&quot;)]
+public MandatoryDhcp? MandatoryDhcp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.MandatoryDhcp.html">MandatoryDhcp</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_Mask_" data-uid="Meraki.Api.Data.VlanCreationRequest.Mask*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_Mask" data-uid="Meraki.Api.Data.VlanCreationRequest.Mask">
+  Mask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mask</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;mask&quot;)]
+public int? Mask { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_Name_" data-uid="Meraki.Api.Data.VlanCreationRequest.Name*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_Name" data-uid="Meraki.Api.Data.VlanCreationRequest.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the new VLAN</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;name&quot;)]
+public string Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the new VLAN</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_Subnet_" data-uid="Meraki.Api.Data.VlanCreationRequest.Subnet*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_Subnet" data-uid="Meraki.Api.Data.VlanCreationRequest.Subnet">
+  Subnet
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The subnet of the VLAN</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;subnet&quot;)]
+public string? Subnet { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The subnet of the VLAN</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_VlanCreationRequest_TemplateVlanType_" data-uid="Meraki.Api.Data.VlanCreationRequest.TemplateVlanType*"></a>
+
+  <h3 id="Meraki_Api_Data_VlanCreationRequest_TemplateVlanType" data-uid="Meraki.Api.Data.VlanCreationRequest.TemplateVlanType">
+  TemplateVlanType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Template VLAN Type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;templateVlanType&quot;)]
+public string? TemplateVlanType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/VlanCreationRequest.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

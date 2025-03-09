@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SwitchPort | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SwitchPort | Meraki.Api ">
+      
+      <meta name="description" content="A device switch port">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_SwitchPort.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.SwitchPort%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Meraki.Api.Data.SwitchPort">
+
+
+
+  <h1 id="Meraki_Api_Data_SwitchPort" data-uid="Meraki.Api.Data.SwitchPort" class="text-break">
+Class SwitchPort  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Meraki.html">Meraki</a>.<a class="xref" href="Meraki.Api.html">Api</a>.<a class="xref" href="Meraki.Api.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A device switch port</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class SwitchPort : NamedItem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Meraki.Api.Data.NamedItem.html">NamedItem</a></div>
+      <div><span class="xref">SwitchPort</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Meraki.Api.Data.NamedItem.html#Meraki_Api_Data_NamedItem_Name">NamedItem.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Meraki_Api_Data_SwitchPort_AccessPolicyNumber_" data-uid="Meraki.Api.Data.SwitchPort.AccessPolicyNumber*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_AccessPolicyNumber" data-uid="Meraki.Api.Data.SwitchPort.AccessPolicyNumber">
+  AccessPolicyNumber
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of a custom access policy to configure on the switch port. Only applicable when 'accessPolicyType' is 'Custom access policy'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;accessPolicyNumber&quot;)]
+public int? AccessPolicyNumber { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_AccessPolicyType_" data-uid="Meraki.Api.Data.SwitchPort.AccessPolicyType*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_AccessPolicyType" data-uid="Meraki.Api.Data.SwitchPort.AccessPolicyType">
+  AccessPolicyType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The type of the access policy of the switch port. Only applicable to access ports. Can be one of 'Open', 'Custom access policy', 'MAC allow list' or 'Sticky MAC allow list'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;accessPolicyType&quot;)]
+public string? AccessPolicyType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_AdaptivePolicyGroup_" data-uid="Meraki.Api.Data.SwitchPort.AdaptivePolicyGroup*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_AdaptivePolicyGroup" data-uid="Meraki.Api.Data.SwitchPort.AdaptivePolicyGroup">
+  AdaptivePolicyGroup
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The adaptive policy group data of the port.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;adaptivePolicyGroup&quot;)]
+public SwitchPortAssignedAdaptivePolicyGroup? AdaptivePolicyGroup { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SwitchPortAssignedAdaptivePolicyGroup.html">SwitchPortAssignedAdaptivePolicyGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_AdaptivePolicyGroupId_" data-uid="Meraki.Api.Data.SwitchPort.AdaptivePolicyGroupId*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_AdaptivePolicyGroupId" data-uid="Meraki.Api.Data.SwitchPort.AdaptivePolicyGroupId">
+  AdaptivePolicyGroupId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The adaptive policy group ID that will be used to tag traffic through this switch port. This ID must pre-exist during the configuration, else needs to be created using adaptivePolicy/groups API. Cannot be applied to a port on a switch bound to profile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;adaptivePolicyGroupId&quot;)]
+public string? AdaptivePolicyGroupId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_AllowedVlans_" data-uid="Meraki.Api.Data.SwitchPort.AllowedVlans*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_AllowedVlans" data-uid="Meraki.Api.Data.SwitchPort.AllowedVlans">
+  AllowedVlans
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The VLANs allowed on the switch port. Only applicable to trunk ports.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;allowedVlans&quot;)]
+public string? AllowedVlans { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_DaiTrusted_" data-uid="Meraki.Api.Data.SwitchPort.DaiTrusted*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_DaiTrusted" data-uid="Meraki.Api.Data.SwitchPort.DaiTrusted">
+  DaiTrusted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, ARP packets for this port will be considered trusted, and Dynamic ARP Inspection will allow the traffic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;daiTrusted&quot;)]
+public bool? DaiTrusted { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Dot3az_" data-uid="Meraki.Api.Data.SwitchPort.Dot3az*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Dot3az" data-uid="Meraki.Api.Data.SwitchPort.Dot3az">
+  Dot3az
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>dot3az settings for the port</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;dot3az&quot;)]
+public SwitchPortDot3az? Dot3az { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SwitchPortDot3az.html">SwitchPortDot3az</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Enabled_" data-uid="Meraki.Api.Data.SwitchPort.Enabled*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Enabled" data-uid="Meraki.Api.Data.SwitchPort.Enabled">
+  Enabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The status of the switch port</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;enabled&quot;)]
+public bool Enabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_FlexibleStackingEnabled_" data-uid="Meraki.Api.Data.SwitchPort.FlexibleStackingEnabled*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_FlexibleStackingEnabled" data-uid="Meraki.Api.Data.SwitchPort.FlexibleStackingEnabled">
+  FlexibleStackingEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>For supported switches (e.g. MS420/MS425), whether or not the port has flexible stacking enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;flexibleStackingEnabled&quot;)]
+public bool? FlexibleStackingEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_IsolationEnabled_" data-uid="Meraki.Api.Data.SwitchPort.IsolationEnabled*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_IsolationEnabled" data-uid="Meraki.Api.Data.SwitchPort.IsolationEnabled">
+  IsolationEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The isolation status of the switch port</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;isolationEnabled&quot;)]
+public bool IsolationEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_LinkNegotiation_" data-uid="Meraki.Api.Data.SwitchPort.LinkNegotiation*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_LinkNegotiation" data-uid="Meraki.Api.Data.SwitchPort.LinkNegotiation">
+  LinkNegotiation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The link speed for the switch port</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;linkNegotiation&quot;)]
+public string LinkNegotiation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_LinkNegotiationCapabilities_" data-uid="Meraki.Api.Data.SwitchPort.LinkNegotiationCapabilities*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_LinkNegotiationCapabilities" data-uid="Meraki.Api.Data.SwitchPort.LinkNegotiationCapabilities">
+  LinkNegotiationCapabilities
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;linkNegotiationCapabilities&quot;)]
+public List&lt;string&gt;? LinkNegotiationCapabilities { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_MacAllowList_" data-uid="Meraki.Api.Data.SwitchPort.MacAllowList*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_MacAllowList" data-uid="Meraki.Api.Data.SwitchPort.MacAllowList">
+  MacAllowList
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Only devices with MAC addresses specified in this list will have access to this port. Up to 20 MAC addresses can be defined. Only applicable when 'accessPolicyType' is 'MAC allow list'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;macAllowList&quot;)]
+public List&lt;string&gt;? MacAllowList { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Mirror_" data-uid="Meraki.Api.Data.SwitchPort.Mirror*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Mirror" data-uid="Meraki.Api.Data.SwitchPort.Mirror">
+  Mirror
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Switch Port Mirror</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;mirror&quot;)]
+public SwitchPortMirror? Mirror { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SwitchPortMirror.html">SwitchPortMirror</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Module_" data-uid="Meraki.Api.Data.SwitchPort.Module*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Module" data-uid="Meraki.Api.Data.SwitchPort.Module">
+  Module
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Switch Port Module</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;module&quot;)]
+public SwitchPortModule? Module { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SwitchPortModule.html">SwitchPortModule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_PeerSgtCapable_" data-uid="Meraki.Api.Data.SwitchPort.PeerSgtCapable*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_PeerSgtCapable" data-uid="Meraki.Api.Data.SwitchPort.PeerSgtCapable">
+  PeerSgtCapable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, Peer SGT is enabled for traffic through this switch port. Applicable to trunk port only, not access port. Cannot be applied to a port on a switch bound to profile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;peerSgtCapable&quot;)]
+public bool? PeerSgtCapable { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_PoeEnabled_" data-uid="Meraki.Api.Data.SwitchPort.PoeEnabled*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_PoeEnabled" data-uid="Meraki.Api.Data.SwitchPort.PoeEnabled">
+  PoeEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The PoE status of the switch port</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;poeEnabled&quot;)]
+public bool PoeEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_PortId_" data-uid="Meraki.Api.Data.SwitchPort.PortId*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_PortId" data-uid="Meraki.Api.Data.SwitchPort.PortId">
+  PortId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>PortId</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;portId&quot;)]
+public string PortId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_PortScheduleId_" data-uid="Meraki.Api.Data.SwitchPort.PortScheduleId*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_PortScheduleId" data-uid="Meraki.Api.Data.SwitchPort.PortScheduleId">
+  PortScheduleId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ID of the port schedule. A value of null will clear the port schedule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;portScheduleId&quot;)]
+[JsonProperty(NullValueHandling = NullValueHandling.Include)]
+public string? PortScheduleId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Profile_" data-uid="Meraki.Api.Data.SwitchPort.Profile*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Profile" data-uid="Meraki.Api.Data.SwitchPort.Profile">
+  Profile
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Profile attributes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;profile&quot;)]
+public SwitchPortProfile? Profile { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SwitchPortProfile.html">SwitchPortProfile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_RstpEnabled_" data-uid="Meraki.Api.Data.SwitchPort.RstpEnabled*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_RstpEnabled" data-uid="Meraki.Api.Data.SwitchPort.RstpEnabled">
+  RstpEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rapid spanning tree protocol status</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;rstpEnabled&quot;)]
+public bool RstpEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Schedule_" data-uid="Meraki.Api.Data.SwitchPort.Schedule*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Schedule" data-uid="Meraki.Api.Data.SwitchPort.Schedule">
+  Schedule
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The port schedule data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;schedule&quot;)]
+public SwitchPortAssignedSchedule? Schedule { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SwitchPortAssignedSchedule.html">SwitchPortAssignedSchedule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_StackwiseVirtual_" data-uid="Meraki.Api.Data.SwitchPort.StackwiseVirtual*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_StackwiseVirtual" data-uid="Meraki.Api.Data.SwitchPort.StackwiseVirtual">
+  StackwiseVirtual
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stackwise Virtual settings for the port</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;stackwiseVirtual&quot;)]
+public SwitchPortStackwiseVirtual? StackwiseVirtual { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SwitchPortStackwiseVirtual.html">SwitchPortStackwiseVirtual</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_StickyMacAllowList_" data-uid="Meraki.Api.Data.SwitchPort.StickyMacAllowList*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_StickyMacAllowList" data-uid="Meraki.Api.Data.SwitchPort.StickyMacAllowList">
+  StickyMacAllowList
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial list of MAC addresses for sticky Mac allow list. Only applicable when 'accessPolicyType' is 'Sticky MAC allow list'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;stickyMacAllowList&quot;)]
+public List&lt;string&gt;? StickyMacAllowList { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_StickyMacAllowListLimit_" data-uid="Meraki.Api.Data.SwitchPort.StickyMacAllowListLimit*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_StickyMacAllowListLimit" data-uid="Meraki.Api.Data.SwitchPort.StickyMacAllowListLimit">
+  StickyMacAllowListLimit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum number of MAC addresses for sticky MAC allow list. Only applicable when 'accessPolicyType' is 'Sticky MAC allow list'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;stickyMacAllowListLimit&quot;)]
+public int? StickyMacAllowListLimit { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_StormControlEnabled_" data-uid="Meraki.Api.Data.SwitchPort.StormControlEnabled*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_StormControlEnabled" data-uid="Meraki.Api.Data.SwitchPort.StormControlEnabled">
+  StormControlEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The storm control status of the switch port</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;stormControlEnabled&quot;)]
+public bool? StormControlEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_StpGuard_" data-uid="Meraki.Api.Data.SwitchPort.StpGuard*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_StpGuard" data-uid="Meraki.Api.Data.SwitchPort.StpGuard">
+  StpGuard
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The state of the STP guard ('disabled', 'root guard', 'bpdu guard' or 'loop guard')</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;stpGuard&quot;)]
+public string StpGuard { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Tags_" data-uid="Meraki.Api.Data.SwitchPort.Tags*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Tags" data-uid="Meraki.Api.Data.SwitchPort.Tags">
+  Tags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The list of tags of the switch port</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;tags&quot;)]
+public List&lt;string&gt; Tags { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Type_" data-uid="Meraki.Api.Data.SwitchPort.Type*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Type" data-uid="Meraki.Api.Data.SwitchPort.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The type of the switch port ('trunk' or 'access')</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;type&quot;)]
+public string Type { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Udld_" data-uid="Meraki.Api.Data.SwitchPort.Udld*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Udld" data-uid="Meraki.Api.Data.SwitchPort.Udld">
+  Udld
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The action to take when Unidirectional Link is detected (Alert only, Enforce). Default configuration is Alert only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;udld&quot;)]
+public string? Udld { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_Vlan_" data-uid="Meraki.Api.Data.SwitchPort.Vlan*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_Vlan" data-uid="Meraki.Api.Data.SwitchPort.Vlan">
+  Vlan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The VLAN of the switch port. A null value will clear the value set for trunk ports.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;vlan&quot;)]
+[JsonProperty(NullValueHandling = NullValueHandling.Include)]
+public int? Vlan { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SwitchPort_VoiceVlan_" data-uid="Meraki.Api.Data.SwitchPort.VoiceVlan*"></a>
+
+  <h3 id="Meraki_Api_Data_SwitchPort_VoiceVlan" data-uid="Meraki.Api.Data.SwitchPort.VoiceVlan">
+  VoiceVlan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The voice VLAN of the switch port. Only applicable to access ports.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;voiceVlan&quot;)]
+public int? VoiceVlan { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SwitchPort.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

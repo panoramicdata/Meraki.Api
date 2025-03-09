@@ -1,0 +1,150 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\david\\Projects\\Meraki.Api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{21D39EEC-0E3D-47F2-9721-8A2B43DE1707}|Solution Items{21D39EEC-0E3D-47F2-9721-8A2B43DE1707}|C:\\Users\\david\\Projects\\Meraki.Api\\Generating Documentation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{21D39EEC-0E3D-47F2-9721-8A2B43DE1707}|Solution Items{21D39EEC-0E3D-47F2-9721-8A2B43DE1707}|solutionrelative:Generating Documentation.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\docs\\introduction.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Documentation\\docs\\introduction.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\docs\\getting-started.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Documentation\\docs\\getting-started.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|NewFolder1{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\index.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|NewFolder1{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|solutionrelative:Documentation\\index.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21D39EEC-0E3D-47F2-9721-8A2B43DE1707}|Solution Items{21D39EEC-0E3D-47F2-9721-8A2B43DE1707}|C:\\Users\\david\\Projects\\Meraki.Api\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{21D39EEC-0E3D-47F2-9721-8A2B43DE1707}|Solution Items{21D39EEC-0E3D-47F2-9721-8A2B43DE1707}|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|NewFolder1{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\docfx.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|NewFolder1{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|solutionrelative:Documentation\\docfx.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 248,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Generating Documentation.md",
+              "DocumentMoniker": "C:\\Users\\david\\Projects\\Meraki.Api\\Generating Documentation.md",
+              "RelativeDocumentMoniker": "Generating Documentation.md",
+              "ToolTip": "C:\\Users\\david\\Projects\\Meraki.Api\\Generating Documentation.md",
+              "RelativeToolTip": "Generating Documentation.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-09T12:46:38.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "getting-started.md",
+              "DocumentMoniker": "C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\docs\\getting-started.md",
+              "RelativeDocumentMoniker": "Documentation\\docs\\getting-started.md",
+              "ToolTip": "C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\docs\\getting-started.md",
+              "RelativeToolTip": "Documentation\\docs\\getting-started.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-09T12:44:25.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "index.md",
+              "DocumentMoniker": "C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\index.md",
+              "RelativeDocumentMoniker": "Documentation\\index.md",
+              "ToolTip": "C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\index.md",
+              "RelativeToolTip": "Documentation\\index.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-09T12:41:35.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "introduction.md",
+              "DocumentMoniker": "C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\docs\\introduction.md",
+              "RelativeDocumentMoniker": "Documentation\\docs\\introduction.md",
+              "ToolTip": "C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\docs\\introduction.md",
+              "RelativeToolTip": "Documentation\\docs\\introduction.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-03-09T12:41:22.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:627940278:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:32800:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\david\\Projects\\Meraki.Api\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\david\\Projects\\Meraki.Api\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAC8BAAAAAAAAAADwv00BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001407|",
+              "WhenOpened": "2025-03-09T12:38:26.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "docfx.json",
+              "DocumentMoniker": "C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\docfx.json",
+              "RelativeDocumentMoniker": "Documentation\\docfx.json",
+              "ToolTip": "C:\\Users\\david\\Projects\\Meraki.Api\\Documentation\\docfx.json",
+              "RelativeToolTip": "Documentation\\docfx.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-09T12:37:57.387Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

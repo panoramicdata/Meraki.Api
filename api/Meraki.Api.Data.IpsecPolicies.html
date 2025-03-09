@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class IpsecPolicies | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IpsecPolicies | Meraki.Api ">
+      
+      <meta name="description" content="Custom IPSec policies for the VPN peer. If not included and a preset has not been chosen, the default preset for IPSec policies will be used.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_IpsecPolicies.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.IpsecPolicies%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Meraki.Api.Data.IpsecPolicies">
+
+
+
+  <h1 id="Meraki_Api_Data_IpsecPolicies" data-uid="Meraki.Api.Data.IpsecPolicies" class="text-break">
+Class IpsecPolicies  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Meraki.html">Meraki</a>.<a class="xref" href="Meraki.Api.html">Api</a>.<a class="xref" href="Meraki.Api.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Custom IPSec policies for the VPN peer. If not included and a preset has not been chosen, the default preset for IPSec policies will be used.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class IpsecPolicies</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">IpsecPolicies</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Meraki_Api_Data_IpsecPolicies_ChildAuthAlgorithm_" data-uid="Meraki.Api.Data.IpsecPolicies.ChildAuthAlgorithm*"></a>
+
+  <h3 id="Meraki_Api_Data_IpsecPolicies_ChildAuthAlgorithm" data-uid="Meraki.Api.Data.IpsecPolicies.ChildAuthAlgorithm">
+  ChildAuthAlgorithm
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is the authentication algorithms to be used in Phase 2. The value should be an array with one of the following algorithms: 'sha256', 'sha1', 'md5'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;childAuthAlgo&quot;)]
+public List&lt;string&gt; ChildAuthAlgorithm { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_IpsecPolicies_ChildCipherAlgorithm_" data-uid="Meraki.Api.Data.IpsecPolicies.ChildCipherAlgorithm*"></a>
+
+  <h3 id="Meraki_Api_Data_IpsecPolicies_ChildCipherAlgorithm" data-uid="Meraki.Api.Data.IpsecPolicies.ChildCipherAlgorithm">
+  ChildCipherAlgorithm
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is the cipher algorithms to be used in Phase 2. The value should be an array with one or more of the following algorithms: 'aes256', 'aes192', 'aes128', 'tripledes', 'des', 'null'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;childCipherAlgo&quot;)]
+public List&lt;string&gt; ChildCipherAlgorithm { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_IpsecPolicies_ChildLifetime_" data-uid="Meraki.Api.Data.IpsecPolicies.ChildLifetime*"></a>
+
+  <h3 id="Meraki_Api_Data_IpsecPolicies_ChildLifetime" data-uid="Meraki.Api.Data.IpsecPolicies.ChildLifetime">
+  ChildLifetime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lifetime of the Phase 2 SA in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;childLifetime&quot;)]
+public int ChildLifetime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_IpsecPolicies_ChildPfsGroup_" data-uid="Meraki.Api.Data.IpsecPolicies.ChildPfsGroup*"></a>
+
+  <h3 id="Meraki_Api_Data_IpsecPolicies_ChildPfsGroup" data-uid="Meraki.Api.Data.IpsecPolicies.ChildPfsGroup">
+  ChildPfsGroup
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is the Diffie-Hellman group to be used for Perfect Forward Secrecy in Phase 2. The value should be an array with one of the following values: 'disabled','group14', 'group5', 'group2', 'group1'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;childPfsGroup&quot;)]
+public List&lt;string&gt; ChildPfsGroup { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_IpsecPolicies_IkeAuthAlgorithm_" data-uid="Meraki.Api.Data.IpsecPolicies.IkeAuthAlgorithm*"></a>
+
+  <h3 id="Meraki_Api_Data_IpsecPolicies_IkeAuthAlgorithm" data-uid="Meraki.Api.Data.IpsecPolicies.IkeAuthAlgorithm">
+  IkeAuthAlgorithm
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is the authentication algorithm to be used in Phase 1. The value should be an array with one of the following algorithms: 'sha256', 'sha1', 'md5'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;ikeAuthAlgo&quot;)]
+public List&lt;string&gt; IkeAuthAlgorithm { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_IpsecPolicies_IkeCipherAlgorithm_" data-uid="Meraki.Api.Data.IpsecPolicies.IkeCipherAlgorithm*"></a>
+
+  <h3 id="Meraki_Api_Data_IpsecPolicies_IkeCipherAlgorithm" data-uid="Meraki.Api.Data.IpsecPolicies.IkeCipherAlgorithm">
+  IkeCipherAlgorithm
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is the cipher algorithm to be used in Phase 1. The value should be an array with one of the following algorithms: 'aes256', 'aes192', 'aes128', 'tripledes', 'des'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;ikeCipherAlgo&quot;)]
+public List&lt;string&gt; IkeCipherAlgorithm { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_IpsecPolicies_IkeDiffieHellmanGroup_" data-uid="Meraki.Api.Data.IpsecPolicies.IkeDiffieHellmanGroup*"></a>
+
+  <h3 id="Meraki_Api_Data_IpsecPolicies_IkeDiffieHellmanGroup" data-uid="Meraki.Api.Data.IpsecPolicies.IkeDiffieHellmanGroup">
+  IkeDiffieHellmanGroup
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is the Diffie-Hellman group to be used in Phase 1. The value should be an array with one of the following algorithms: 'group14', 'group5', 'group2', 'group1'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;ikeDiffieHellmanGroup&quot;)]
+public List&lt;string&gt; IkeDiffieHellmanGroup { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_IpsecPolicies_IkeLifetime_" data-uid="Meraki.Api.Data.IpsecPolicies.IkeLifetime*"></a>
+
+  <h3 id="Meraki_Api_Data_IpsecPolicies_IkeLifetime" data-uid="Meraki.Api.Data.IpsecPolicies.IkeLifetime">
+  IkeLifetime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lifetime of the Phase 1 SA in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;ikeLifetime&quot;)]
+public int IkeLifetime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_IpsecPolicies_ikePrfAlgo_" data-uid="Meraki.Api.Data.IpsecPolicies.ikePrfAlgo*"></a>
+
+  <h3 id="Meraki_Api_Data_IpsecPolicies_ikePrfAlgo" data-uid="Meraki.Api.Data.IpsecPolicies.ikePrfAlgo">
+  ikePrfAlgo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>[optional] This is the pseudo-random function to be used in IKE_SA. The value should be an array with one of the following algorithms: 'prfsha256', 'prfsha1', 'prfmd5', 'default'. The 'default' option can be used to default to the Authentication algorithm.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;ikePrfAlgo&quot;)]
+public List&lt;string&gt;? ikePrfAlgo { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Ipsecpolicies.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

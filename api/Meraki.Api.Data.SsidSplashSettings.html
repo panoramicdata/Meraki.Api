@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SsidSplashSettings | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SsidSplashSettings | Meraki.Api ">
+      
+      <meta name="description" content="Splash page settings">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_SsidSplashSettings.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.SsidSplashSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Meraki.Api.Data.SsidSplashSettings">
+
+
+
+  <h1 id="Meraki_Api_Data_SsidSplashSettings" data-uid="Meraki.Api.Data.SsidSplashSettings" class="text-break">
+Class SsidSplashSettings  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Meraki.html">Meraki</a>.<a class="xref" href="Meraki.Api.html">Api</a>.<a class="xref" href="Meraki.Api.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Splash page settings</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class SsidSplashSettings</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">SsidSplashSettings</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_AllowSimultaneousLogins_" data-uid="Meraki.Api.Data.SsidSplashSettings.AllowSimultaneousLogins*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_AllowSimultaneousLogins" data-uid="Meraki.Api.Data.SsidSplashSettings.AllowSimultaneousLogins">
+  AllowSimultaneousLogins
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether or not to allow simultaneous logins from different devices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;allowSimultaneousLogins&quot;)]
+public bool? AllowSimultaneousLogins { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_Billing_" data-uid="Meraki.Api.Data.SsidSplashSettings.Billing*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_Billing" data-uid="Meraki.Api.Data.SsidSplashSettings.Billing">
+  Billing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Details associated with billing splash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;billing&quot;)]
+public Billing? Billing { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.Billing.html">Billing</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_BlockAllTrafficBeforeSignOn_" data-uid="Meraki.Api.Data.SsidSplashSettings.BlockAllTrafficBeforeSignOn*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_BlockAllTrafficBeforeSignOn" data-uid="Meraki.Api.Data.SsidSplashSettings.BlockAllTrafficBeforeSignOn">
+  BlockAllTrafficBeforeSignOn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How restricted allowing traffic should be.If true, all traffic types are blocked until the splash page is acknowledged.If false, all non-HTTP traffic is allowed before the splash page is acknowledged</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;blockAllTrafficBeforeSignOn&quot;)]
+public bool? BlockAllTrafficBeforeSignOn { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_ControllerDisconnectBehavior_" data-uid="Meraki.Api.Data.SsidSplashSettings.ControllerDisconnectBehavior*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_ControllerDisconnectBehavior" data-uid="Meraki.Api.Data.SsidSplashSettings.ControllerDisconnectBehavior">
+  ControllerDisconnectBehavior
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How login attempts should be handled when the controller is unreachable. Can be either 'open', 'restricted', or 'default</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;controllerDisconnectionBehavior&quot;)]
+public string? ControllerDisconnectBehavior { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_GuestSponsorship_" data-uid="Meraki.Api.Data.SsidSplashSettings.GuestSponsorship*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_GuestSponsorship" data-uid="Meraki.Api.Data.SsidSplashSettings.GuestSponsorship">
+  GuestSponsorship
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Details associated with guest sponsored splash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;guestSponsorship&quot;)]
+public GuestSponsorship? GuestSponsorship { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.GuestSponsorship.html">GuestSponsorship</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_RedirectUrl_" data-uid="Meraki.Api.Data.SsidSplashSettings.RedirectUrl*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_RedirectUrl" data-uid="Meraki.Api.Data.SsidSplashSettings.RedirectUrl">
+  RedirectUrl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The custom redirect URL where the users will go after the splash page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;redirectUrl&quot;)]
+public string? RedirectUrl { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_SelfRegistration_" data-uid="Meraki.Api.Data.SsidSplashSettings.SelfRegistration*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_SelfRegistration" data-uid="Meraki.Api.Data.SsidSplashSettings.SelfRegistration">
+  SelfRegistration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Self registration settings</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;selfRegistration&quot;)]
+public SelfRegistration? SelfRegistration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SelfRegistration.html">SelfRegistration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_SplashImage_" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashImage*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_SplashImage" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashImage">
+  SplashImage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The image used in the splash page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;splashImage&quot;)]
+public SplashImage? SplashImage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SplashImage.html">SplashImage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_SplashLogo_" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashLogo*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_SplashLogo" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashLogo">
+  SplashLogo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The logo used in the splash page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;splashLogo&quot;)]
+public SplashImage? SplashLogo { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SplashImage.html">SplashImage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_SplashMethod_" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashMethod*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_SplashMethod" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashMethod">
+  SplashMethod
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;splashMethod&quot;)]
+public string? SplashMethod { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_SplashPage_" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashPage*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_SplashPage" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashPage">
+  SplashPage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Description of the type of splash page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;splashPage&quot;)]
+public string? SplashPage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_SplashPrepaidFront_" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashPrepaidFront*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_SplashPrepaidFront" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashPrepaidFront">
+  SplashPrepaidFront
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The prepaid front image used in the splash page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;splashPrepaidFront&quot;)]
+public SplashImage? SplashPrepaidFront { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SplashImage.html">SplashImage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_SplashTimeout_" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashTimeout*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_SplashTimeout" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashTimeout">
+  SplashTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Splash timeout in minutes. This will determine how often users will see the splash page.
+Permitted values = [30, 60, 120, 240, 480, 720, 1080, 1440, 2880, 5760, 7200, 10080, 20160, 43200, 86400, 129600]</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;splashTimeout&quot;)]
+public int? SplashTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_SplashUrl_" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashUrl*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_SplashUrl" data-uid="Meraki.Api.Data.SsidSplashSettings.SplashUrl">
+  SplashUrl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>[optional] The custom splash URL of the click-through splash page. Note that the URL can be configured without necessarily being used. In order to enable the custom URL, see 'useSplashUrl'</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;splashUrl&quot;)]
+public string? SplashUrl { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_SsidNumber_" data-uid="Meraki.Api.Data.SsidSplashSettings.SsidNumber*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_SsidNumber" data-uid="Meraki.Api.Data.SsidSplashSettings.SsidNumber">
+  SsidNumber
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ssid Number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;ssidNumber&quot;)]
+public int? SsidNumber { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_ThemeId_" data-uid="Meraki.Api.Data.SsidSplashSettings.ThemeId*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_ThemeId" data-uid="Meraki.Api.Data.SsidSplashSettings.ThemeId">
+  ThemeId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Theme ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;themeId&quot;)]
+public string? ThemeId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_UseRedirectUrl_" data-uid="Meraki.Api.Data.SsidSplashSettings.UseRedirectUrl*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_UseRedirectUrl" data-uid="Meraki.Api.Data.SsidSplashSettings.UseRedirectUrl">
+  UseRedirectUrl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Boolean indicating whether the user will be redirected to the custom redirect URL after the splash page. A custom redirect URL must be set if this is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;useRedirectUrl&quot;)]
+public bool? UseRedirectUrl { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_UseSplashUrl_" data-uid="Meraki.Api.Data.SsidSplashSettings.UseSplashUrl*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_UseSplashUrl" data-uid="Meraki.Api.Data.SsidSplashSettings.UseSplashUrl">
+  UseSplashUrl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>[optional] Boolean indicating whether the users will be redirected to the custom splash url. A custom splash URL must be set if this is true. Note that depending on your SSID's access control settings, it may not be possible to use the custom splash URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;useSplashUrl&quot;)]
+public bool? UseSplashUrl { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_WelcomeMessage_" data-uid="Meraki.Api.Data.SsidSplashSettings.WelcomeMessage*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_WelcomeMessage" data-uid="Meraki.Api.Data.SsidSplashSettings.WelcomeMessage">
+  WelcomeMessage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The welcome message for the users on the splash page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;welcomeMessage&quot;)]
+public string? WelcomeMessage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_SsidSplashSettings_sentryEnrollment_" data-uid="Meraki.Api.Data.SsidSplashSettings.sentryEnrollment*"></a>
+
+  <h3 id="Meraki_Api_Data_SsidSplashSettings_sentryEnrollment" data-uid="Meraki.Api.Data.SsidSplashSettings.sentryEnrollment">
+  sentryEnrollment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Systems Manager sentry enrollment splash settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadUpdate)]
+[DataMember(Name = &quot;sentryEnrollment&quot;)]
+public SentryEnrollment? sentryEnrollment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.SentryEnrollment.html">SentryEnrollment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/SsidSplashSettings.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

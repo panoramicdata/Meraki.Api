@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HelpSettings | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HelpSettings | Meraki.Api ">
+      
+      <meta name="description" content="Settings for describing the modifications to various Help page features. Each property in this object accepts one of &#39;default or inherit&#39; (do not modify functionality), &#39;hide&#39; (remove the section from Dashboard), or &#39;show&#39; (always show the section on Dashboard). Some properties in this object also accept custom HTML used to replace the section on Dashboard; see the documentation for each property to see the allowed values. Each property defaults to &#39;default or inherit&#39; when not provided.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_HelpSettings.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.HelpSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Meraki.Api.Data.HelpSettings">
+
+
+
+  <h1 id="Meraki_Api_Data_HelpSettings" data-uid="Meraki.Api.Data.HelpSettings" class="text-break">
+Class HelpSettings  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Meraki.html">Meraki</a>.<a class="xref" href="Meraki.Api.html">Api</a>.<a class="xref" href="Meraki.Api.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Settings for describing the modifications to various Help page features. Each property in this object accepts one of 'default or inherit' (do not modify functionality), 'hide' (remove the section from Dashboard), or 'show' (always show the section on Dashboard). Some properties in this object also accept custom HTML used to replace the section on Dashboard; see the documentation for each property to see the allowed values. Each property defaults to 'default or inherit' when not provided.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class HelpSettings</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">HelpSettings</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Meraki_Api_Data_HelpSettings_ApiDocsSubtab_" data-uid="Meraki.Api.Data.HelpSettings.ApiDocsSubtab*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_ApiDocsSubtab" data-uid="Meraki.Api.Data.HelpSettings.ApiDocsSubtab">
+  ApiDocsSubtab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets ApiDocsSubtab</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;apiDocsSubtab&quot;)]
+public BrandingPolicyHelpSetting? ApiDocsSubtab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_ApiDocsSubtab_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'Help -&gt; API docs' subtab where a detailed description of the Dashboard API is listed. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_CasesSubtab_" data-uid="Meraki.Api.Data.HelpSettings.CasesSubtab*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_CasesSubtab" data-uid="Meraki.Api.Data.HelpSettings.CasesSubtab">
+  CasesSubtab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets CasesSubtab</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;casesSubtab&quot;)]
+public BrandingPolicyHelpSetting? CasesSubtab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_CasesSubtab_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'Help -&gt; Cases' Dashboard subtab on which Cisco Meraki support cases for this organization can be managed. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_CiscoMerakiProductDocumentation_" data-uid="Meraki.Api.Data.HelpSettings.CiscoMerakiProductDocumentation*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_CiscoMerakiProductDocumentation" data-uid="Meraki.Api.Data.HelpSettings.CiscoMerakiProductDocumentation">
+  CiscoMerakiProductDocumentation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The 'Product Manuals' section of the 'Help -&gt; Get Help' subtab. Can be one of 'default or inherit', 'hide', 'show', or a replacement custom HTML string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;ciscoMerakiProductDocumentation&quot;)]
+public string? CiscoMerakiProductDocumentation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_CommunitySubtab_" data-uid="Meraki.Api.Data.HelpSettings.CommunitySubtab*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_CommunitySubtab" data-uid="Meraki.Api.Data.HelpSettings.CommunitySubtab">
+  CommunitySubtab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets CommunitySubtab</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;communitySubtab&quot;)]
+public BrandingPolicyHelpSetting? CommunitySubtab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_CommunitySubtab_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'Help -&gt; Community' subtab which provides a link to Meraki Community. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_DataProtectionRequestsSubtab_" data-uid="Meraki.Api.Data.HelpSettings.DataProtectionRequestsSubtab*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_DataProtectionRequestsSubtab" data-uid="Meraki.Api.Data.HelpSettings.DataProtectionRequestsSubtab">
+  DataProtectionRequestsSubtab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets DataProtectionRequestsSubtab</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;dataProtectionRequestsSubtab&quot;)]
+public BrandingPolicyHelpSetting? DataProtectionRequestsSubtab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_DataProtectionRequestsSubtab_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'Help -&gt; Data protection requests' Dashboard subtab on which requests to delete, restrict, or export end-user data can be audited. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_FirewallInfoSubtab_" data-uid="Meraki.Api.Data.HelpSettings.FirewallInfoSubtab*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_FirewallInfoSubtab" data-uid="Meraki.Api.Data.HelpSettings.FirewallInfoSubtab">
+  FirewallInfoSubtab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets FirewallInfoSubtab</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;firewallInfoSubtab&quot;)]
+public BrandingPolicyHelpSetting? FirewallInfoSubtab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_FirewallInfoSubtab_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'Help -&gt; Firewall info' subtab where necessary upstream firewall rules for communication to the Cisco Meraki cloud are listed. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_GetHelpSubtab_" data-uid="Meraki.Api.Data.HelpSettings.GetHelpSubtab*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_GetHelpSubtab" data-uid="Meraki.Api.Data.HelpSettings.GetHelpSubtab">
+  GetHelpSubtab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets GetHelpSubtab</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;getHelpSubtab&quot;)]
+public BrandingPolicyHelpSetting? GetHelpSubtab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_GetHelpSubtab_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'Help -&gt; Get Help' subtab on which Cisco Meraki KB, Product Manuals, and Support/Case Information are displayed. Note that if this subtab is hidden, branding customizations for the KB on 'Get help', Cisco Meraki product documentation, and support contact info will not be visible. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_GetHelpSubtabKnowledgeBaseSearch_" data-uid="Meraki.Api.Data.HelpSettings.GetHelpSubtabKnowledgeBaseSearch*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_GetHelpSubtabKnowledgeBaseSearch" data-uid="Meraki.Api.Data.HelpSettings.GetHelpSubtabKnowledgeBaseSearch">
+  GetHelpSubtabKnowledgeBaseSearch
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The KB search box which appears on the Help page. Can be one of 'default or inherit', 'hide', 'show', or a replacement custom HTML string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;getHelpSubtabKnowledgeBaseSearch&quot;)]
+public string? GetHelpSubtabKnowledgeBaseSearch { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_HardwareReplacementsSubtab_" data-uid="Meraki.Api.Data.HelpSettings.HardwareReplacementsSubtab*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_HardwareReplacementsSubtab" data-uid="Meraki.Api.Data.HelpSettings.HardwareReplacementsSubtab">
+  HardwareReplacementsSubtab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets HardwareReplacementsSubtab</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;hardwareReplacementsSubtab&quot;)]
+public BrandingPolicyHelpSetting? HardwareReplacementsSubtab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_HardwareReplacementsSubtab_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'Help -&gt; Replacement info' subtab where important information regarding device replacements is detailed. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_HelpTab_" data-uid="Meraki.Api.Data.HelpSettings.HelpTab*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_HelpTab" data-uid="Meraki.Api.Data.HelpSettings.HelpTab">
+  HelpTab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets HelpTab</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;helpTab&quot;)]
+public BrandingPolicyHelpSetting? HelpTab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_HelpTab_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The Help tab, under which all support information resides. If this tab is hidden, no other 'Help' branding customizations will be visible. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_HelpWidget_" data-uid="Meraki.Api.Data.HelpSettings.HelpWidget*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_HelpWidget" data-uid="Meraki.Api.Data.HelpSettings.HelpWidget">
+  HelpWidget
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets HelpWidget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;helpWidget&quot;)]
+public BrandingPolicyHelpSetting? HelpWidget { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_HelpWidget_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'Help Widget' is a support widget which provides access to live chat, documentation links, Sales contact info, and other contact avenues to reach Meraki Support.Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_NewFeaturesSubtab_" data-uid="Meraki.Api.Data.HelpSettings.NewFeaturesSubtab*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_NewFeaturesSubtab" data-uid="Meraki.Api.Data.HelpSettings.NewFeaturesSubtab">
+  NewFeaturesSubtab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets NewFeaturesSubtab</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;newFeaturesSubtab&quot;)]
+public BrandingPolicyHelpSetting? NewFeaturesSubtab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_NewFeaturesSubtab_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'Help -&gt; New features' subtab where new Dashboard features are detailed.Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_SmForums_" data-uid="Meraki.Api.Data.HelpSettings.SmForums*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_SmForums" data-uid="Meraki.Api.Data.HelpSettings.SmForums">
+  SmForums
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets SmForums</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;smForums&quot;)]
+public BrandingPolicyHelpSetting? SmForums { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_SmForums_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The 'SM Forums' subtab which links to community-based support for Cisco Meraki Systems Manager. Only configurable for organizations that contain Systems Manager networks. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_SupportContactInfo_" data-uid="Meraki.Api.Data.HelpSettings.SupportContactInfo*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_SupportContactInfo" data-uid="Meraki.Api.Data.HelpSettings.SupportContactInfo">
+  SupportContactInfo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The 'Contact Meraki Support' section of the 'Help -&gt; Get Help' subtab. Can be one of 'default or inherit', 'hide', 'show', or a replacement custom HTML string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;supportContactInfo&quot;)]
+public string? SupportContactInfo { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_HelpSettings_UniversalSearchKnowledgeBaseSearch_" data-uid="Meraki.Api.Data.HelpSettings.UniversalSearchKnowledgeBaseSearch*"></a>
+
+  <h3 id="Meraki_Api_Data_HelpSettings_UniversalSearchKnowledgeBaseSearch" data-uid="Meraki.Api.Data.HelpSettings.UniversalSearchKnowledgeBaseSearch">
+  UniversalSearchKnowledgeBaseSearch
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or Sets UniversalSearchKnowledgeBaseSearch</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;universalSearchKnowledgeBaseSearch&quot;)]
+public BrandingPolicyHelpSetting? UniversalSearchKnowledgeBaseSearch { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Data.BrandingPolicyHelpSetting.html">BrandingPolicyHelpSetting</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Data_HelpSettings_UniversalSearchKnowledgeBaseSearch_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The universal search box always visible on Dashboard will, by default, present results from the Meraki KB. This configures whether these Meraki KB results should be returned. Can be one of 'default or inherit', 'hide' or 'show'.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/HelpSettings.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
