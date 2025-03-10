@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Meraki.Api.Data;
 using Meraki.Api.Extensions;
+using Newtonsoft.Json;
 using System.Net;
 using Xunit.Abstractions;
 
@@ -107,5 +108,22 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 		var network = networks[0];
 		var clients = await TestMerakiClient.Networks.Clients.GetNetworkClientsAllAsync(network.Id, cancellationToken: default);
 		_ = clients.Should().NotBeNull();
+	}
+
+	[Fact]
+	public void Deserialize_ShouldFail_WhenZoneIdIsTooLarge()
+	{
+		// Arrange: JSON with an extremely large number for zoneId
+		var json = @"
+        {
+            ""startTs"": ""2025-03-10T08:00:00Z"",
+            ""endTs"": ""2025-03-10T10:00:00Z"",
+            ""zoneId"": 999999999999999999999999999,
+            ""entrances"": 120,
+            ""averageCount"": 15.7
+        }";
+
+		// Act & Assert: Expect a JsonSerializationException due to number overflow
+		var cameraOverview = JsonConvert.DeserializeObject<CameraOverview>(json);
 	}
 }

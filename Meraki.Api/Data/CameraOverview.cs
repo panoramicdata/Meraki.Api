@@ -1,4 +1,6 @@
-﻿namespace Meraki.Api.Data;
+﻿using System.Numerics;
+
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// Camera overview
@@ -22,7 +24,7 @@ public class CameraOverview
 	/// Zone id
 	/// </summary>
 	[DataMember(Name = "zoneId")]
-	public int ZoneId { get; set; }
+	public BigInteger ZoneId { get; set; }
 
 	/// <summary>
 	/// Entrances
