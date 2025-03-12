@@ -214,6 +214,7 @@ public partial class MerakiClient : IDisposable
 			{
 				Subnets = RefitFor(Appliance.Dhpc.Subnets)
 			},
+			DnsLocalProfiles = RefitFor(Appliance.DnsLocalProfiles),
 			Firewall = new()
 			{
 				CellularFirewallRules = RefitFor(Appliance.Firewall.CellularFirewallRules),
