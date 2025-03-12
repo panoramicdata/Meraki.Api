@@ -59,4 +59,10 @@ public class ApiUsage
 	/// </summary>
 	[DataMember(Name = "sourceIp")]
 	public string SourceIp { get; set; } = null!;
+
+	/// <summary>
+	/// Client information
+	/// </summary>
+	[DataMember(Name = "client")]
+	public ApiUsageClient Client { get; set; } = null!;
 }
