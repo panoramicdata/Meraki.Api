@@ -21,11 +21,19 @@ public class NetworkBluetoothSettings
 	public bool AdvertisingEnabled { get; set; }
 
 	/// <summary>
+	/// eslMode - Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "eslMode")]
+	public string? EslMode { get; set; }
+
+	/// <summary>
 	/// The UUID to be used in the beacon identifier.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "uuid")]
 	public string? Uuid { get; set; }
+
 	/// <summary>
 	/// Gets or Sets MajorMinorAssignmentMode
 	/// </summary>
