@@ -13,6 +13,12 @@ public class Uplinks
 	public string Interface { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Maximum Transmission Unit
+	/// </summary>
+	[DataMember(Name = "mtu")]
+	public int Mtu { get; set; }
+
+	/// <summary>
 	/// Status
 	/// </summary>
 	[DataMember(Name = "status")]
@@ -23,6 +29,18 @@ public class Uplinks
 	/// </summary>
 	[DataMember(Name = "ip")]
 	public string Ip { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Mobile Country Code
+	/// </summary>
+	[DataMember(Name = "mcc")]
+	public string Mcc { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Mobile Network Code
+	/// </summary>
+	[DataMember(Name = "mnc")]
+	public string Mnc { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Provider
@@ -47,6 +65,12 @@ public class Uplinks
 	/// </summary>
 	[DataMember(Name = "model")]
 	public string? Model { get; set; }
+
+	/// <summary>
+	/// Mobile Station Integrated Services Digital Network
+	/// </summary>
+	[DataMember(Name = "msisdn")]
+	public string? Msisdn { get; set; }
 
 	/// <summary>
 	/// Signal stat
@@ -91,6 +115,12 @@ public class Uplinks
 	public string? Iccid { get; set; }
 
 	/// <summary>
+	/// Imsi
+	/// </summary>
+	[DataMember(Name = "imsi")]
+	public string? Imsi { get; set; }
+
+	/// <summary>
 	/// Primary DNS
 	/// </summary>
 	[DataMember(Name = "primaryDns")]
@@ -107,4 +137,10 @@ public class Uplinks
 	/// </summary>
 	[DataMember(Name = "ipAssignedBy")]
 	public string? IpAssignedBy { get; set; }
+
+	/// <summary>
+	/// Roaming Status
+	/// </summary>
+	[DataMember(Name = "roaming")]
+	public UplinksRoaming? Roaming { get; set; }
 }

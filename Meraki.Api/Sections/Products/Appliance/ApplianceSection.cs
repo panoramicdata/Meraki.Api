@@ -6,6 +6,7 @@ public class ApplianceSection
 	public ApplianceClientsSection Clients { get; internal set; } = new();
 	public ApplianceContentFilteringSection ContentFiltering { get; internal set; } = new();
 	public ApplianceDhcpSection Dhpc { get; internal set; } = new();
+	public IApplianceDnsLocalProfiles DnsLocalProfiles { get; internal set; } = null!;
 	public ApplianceFirewallSection Firewall { get; internal set; } = new();
 	public IAppliancePerformance Performance { get; internal set; } = null!;
 	public IAppliancePorts Ports { get; internal set; } = null!;

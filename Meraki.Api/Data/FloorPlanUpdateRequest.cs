@@ -13,6 +13,12 @@ public class FloorPlanUpdateRequest
 	public string? Name { get; set; }
 
 	/// <summary>
+	/// The floor number of the floor within the building.
+	/// </summary>
+	[DataMember(Name = "floorNumber")]
+	public int? FloorNumber { get; set; }
+
+	/// <summary>
 	/// Gets or Sets Center
 	/// </summary>
 	[DataMember(Name = "center")]

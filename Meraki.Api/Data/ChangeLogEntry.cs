@@ -7,11 +7,11 @@
 public class ChangeLogEntry
 {
 	/// <summary>
-	/// Contains "id" and "type" but all examples show null at the moment and no info in the Meraki API docs so leaving as a nullable object for now to prevent de-serialization errors
+	/// Client information
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "client")]
-	public object? Client { get; set; }
+	public ApiUsageClient? Client { get; set; }
 
 	/// <summary>
 	/// The Timestamp

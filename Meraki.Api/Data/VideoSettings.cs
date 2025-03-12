@@ -35,6 +35,13 @@ public class VideoSettings
 	public Mv52? Mv52 { get; set; }
 
 	/// <summary>
+	/// Gets or Sets MV53X
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "MV53X")]
+	public Mv53X? Mv53X { get; set; }
+
+	/// <summary>
 	/// Gets or Sets MV63
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
