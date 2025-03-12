@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.55.5
+
+- Updated for 1.55 API changes
+
 ## 1.54.24
 
 - Added filename to DhcpOptionType
