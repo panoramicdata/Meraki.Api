@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api.Test.SerialNumberInfo;
 
-public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
+public class Tests()
 {
 	[Theory]
 #pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
