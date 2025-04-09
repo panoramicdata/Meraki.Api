@@ -228,7 +228,8 @@ public partial class MerakiClient
 		{ "Q5TX", "C9300X-24HX" },
 		{ "Q5TV", "C9300L-48T-4X" },
 		{ "Q5UA", "C9200L-24T-4X" },
-		{ "Q5UL", "C9200L-24P-4G" },
+		{ "Q5UB", "C9200L-24P-4X" },
+		{ "Q5UL", "C9200L-24P-4G" }
 	};
 
 	/// <summary>
@@ -999,7 +1000,7 @@ public partial class MerakiClient
 		var productType =
 			model is null ? null :
 			model.StartsWith("MX", StringComparison.Ordinal) || model.StartsWith("Z", StringComparison.Ordinal) ? ProductType.Appliance :
-			model.StartsWith("MS", StringComparison.Ordinal) ? ProductType.Switch :
+			model.StartsWith("MS", StringComparison.Ordinal) || model.StartsWith("C9", StringComparison.Ordinal) ? ProductType.Switch :
 			model.StartsWith("MR", StringComparison.Ordinal) || model.StartsWith("CW", StringComparison.Ordinal) ? ProductType.Wireless :
 			model.StartsWith("MV", StringComparison.Ordinal) ? ProductType.Camera :
 			model.StartsWith("MG", StringComparison.Ordinal) ? ProductType.CellularGateway :
