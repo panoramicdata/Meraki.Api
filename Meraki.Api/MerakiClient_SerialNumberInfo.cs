@@ -229,6 +229,7 @@ public partial class MerakiClient
 		{ "Q5TV", "C9300L-48T-4X" },
 		{ "Q5UA", "C9200L-24T-4X" },
 		{ "Q5UB", "C9200L-24P-4X" },
+		{ "Q5UF", "C9200L-48P-4X" },
 		{ "Q5UL", "C9200L-24P-4G" }
 	};
 
