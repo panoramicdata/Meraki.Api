@@ -1,18 +1,19 @@
 ﻿using Meraki.Api.Extensions;
 using Meraki.Api.Sections.General.LiveTools;
 using Meraki.Api.Sections.Products.Licensing;
+using Meraki.Api.Sections.SecureConnect;
 
 namespace Meraki.Api;
 
 /// <summary>
 /// A Meraki Dashboard API client. This is your starting point for all API operations.
 /// Example usage:
-/// 
+///
 /// ```csharp
 /// using Meraki.Api;
 /// using System;
 /// using System.Threading.Tasks;
-/// 
+///
 /// namespace My.Project;
 /// public static class Program
 /// {
@@ -25,20 +26,20 @@ namespace Meraki.Api;
 ///                 UserAgent = "YourProductName/YourProductVersion YourCompanyName"
 ///             }
 ///         );
-/// 
+///
 ///         var organizations = await merakiClient
 ///             .Organizations
 ///             .GetOrganizationsAsync()
 ///             .ConfigureAwait(false);
-/// 
+///
 ///         var firstOrganization = organizations[0];
-/// 
+///
 ///         var devices = await merakiClient
 ///             .Organizations
 ///             .Devices
 ///             .GetOrganizationDevicesAsync(firstOrganization.Id)
 ///             .ConfigureAwait(false);
-/// 
+///
 ///         Console.WriteLine("Devices:");
 ///         foreach (var device in devices)
 ///         {
@@ -52,7 +53,8 @@ public partial class MerakiClient : IDisposable
 {
 	private readonly MerakiClientOptions _options;
 	private readonly ILogger _logger;
-	private readonly HttpClient _httpClient;
+	private readonly HttpClient _coreHttpClient;
+	private readonly HttpClient _secureConnectHttpClient;
 	private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
 
 	public string LastRequestUri => _httpClientHandler.LastRequestUri;
@@ -76,11 +78,20 @@ public partial class MerakiClient : IDisposable
 		var merakiDomain = options.ApiRegion.GetMerakiApiDomain()
 			?? throw new ArgumentOutOfRangeException($"Unsupported API Region {options.ApiRegion}");
 
-		_httpClient = new HttpClient(_httpClientHandler)
+		// Set up the core HttpClient, this is used to communicate with most of the API
+		_coreHttpClient = new HttpClient(_httpClientHandler)
 		{
 			BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.{merakiDomain}/api/v1"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
 		};
+
+		// Set up the SecureConnect HttpClient
+		_secureConnectHttpClient = new HttpClient(_httpClientHandler)
+		{
+			BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.{merakiDomain}/api/secureConnect/v1"),
+			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
+		};
+
 		_refitSettings = new RefitSettings
 		{
 			ContentSerializer = new CustomNewtonsoftJsonContentSerializer(_options, _logger),
@@ -353,6 +364,12 @@ public partial class MerakiClient : IDisposable
 			}
 		};
 
+		SecureConnect = new()
+		{
+			Deployments = RefitSecureConnectFor(SecureConnect.Deployments),
+			Policies = RefitSecureConnectFor(SecureConnect.Policies)
+		};
+
 		Switch = new()
 		{
 			AccessControlLists = RefitFor(Switch.AccessControlLists),
@@ -514,7 +531,10 @@ public partial class MerakiClient : IDisposable
 	}
 
 	private T RefitFor<T>(T _)
-		=> RestService.For<T>(_httpClient, _refitSettings);
+		=> RestService.For<T>(_coreHttpClient, _refitSettings);
+
+	private T RefitSecureConnectFor<T>(T _)
+	=> RestService.For<T>(_secureConnectHttpClient, _refitSettings);
 
 	private readonly RefitSettings _refitSettings;
 
@@ -539,6 +559,8 @@ public partial class MerakiClient : IDisposable
 	public SensorSection Sensor { get; } = new();
 
 	public SmSection Sm { get; } = new();
+
+	public SecureConnectSection SecureConnect { get; } = new();
 
 	public SwitchSection Switch { get; } = new();
 
@@ -566,10 +588,9 @@ public partial class MerakiClient : IDisposable
 		{
 			if (disposing)
 			{
-				_logger.LogTrace("{Message}", Resources.Disposing);
-				_httpClient.Dispose();
+				_coreHttpClient.Dispose();
+				_secureConnectHttpClient.Dispose();
 				_httpClientHandler.Dispose();
-				_logger.LogTrace("{Message}", Resources.Disposed);
 			}
 
 			_disposedValue = true;
