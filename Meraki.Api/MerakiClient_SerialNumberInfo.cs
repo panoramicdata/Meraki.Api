@@ -31,6 +31,7 @@ public partial class MerakiClient
 		{ "Q2DX", "MS120-24" },
 		{ "Q2DY", "MS355-48X2" },
 		{ "Q2DZ", "VMX-M" },
+		{ "Q2ED", "MR24" },
 		{ "Q2EK", "MR84" },
 		{ "Q2EN", "MX90" },
 		{ "Q2EV", "MV12N" },
