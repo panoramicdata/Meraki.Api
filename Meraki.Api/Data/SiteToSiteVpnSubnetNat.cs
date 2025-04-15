@@ -7,7 +7,8 @@ namespace Meraki.Api.Data;
 public class SiteToSiteVpnSubnetNat
 {
 	/// <summary>
-	/// Undocumented
+	/// If enabled, VPN subnet translation can be used to translate any local subnets 
+	/// that are allowed to use the VPN into a new subnet with the same number of addresses.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isAllowed")]

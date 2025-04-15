@@ -1,13 +1,13 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// UpdateNetworkSiteToSiteVpnSubnet - Undocumented
+/// Configuration of subnet features
 /// </summary>
 [DataContract]
 public class SiteToSiteVpnSubnet
 {
 	/// <summary>
-	/// Undocumented
+	/// Configuration of NAT for subnets
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "nat")]
