@@ -11,19 +11,19 @@ public class MulticastForwardingByNetworkItemRule
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "address")]
-	public string Address { get; set; } = string.Empty;
+	public string? Address { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Forwarding rule description.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "description")]
-	public string Description { get; set; } = string.Empty;
+	public string? Description { get; set; } = string.Empty;
 
 	/// <summary>
 	/// List of VLAN IDs
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "vlanIds")]
-	public List<string> VlanIds { get; set; } = [];
+	public List<string>? VlanIds { get; set; } = [];
 }
