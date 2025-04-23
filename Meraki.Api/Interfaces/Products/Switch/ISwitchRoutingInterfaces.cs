@@ -13,8 +13,8 @@ public interface ISwitchRoutingInterfaces
 	[Get("/devices/{serial}/switch/routing/interfaces")]
 	Task<List<RoutingInterface>> GetDeviceSwitchRoutingInterfacesAsync(
 		string serial,
-		L3InterfaceMode? mode,
-		L3InterfaceProtocol? protocol,
+		L3InterfaceMode? mode = null,
+		L3InterfaceProtocol? protocol = null,
 		CancellationToken cancellationToken = default
 		);
 

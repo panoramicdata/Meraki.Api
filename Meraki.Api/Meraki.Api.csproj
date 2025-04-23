@@ -21,6 +21,7 @@
 		<Authors>Panoramic Data Limited</Authors>
 		<Company>Panoramic Data Limited</Company>
 		<NeutralLanguage>en</NeutralLanguage>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
