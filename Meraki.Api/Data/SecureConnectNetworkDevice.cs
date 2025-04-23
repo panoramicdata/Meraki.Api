@@ -1,5 +1,3 @@
-using Meraki.Api.Interfaces.General.Devices;
-
 namespace Meraki.Api.Data;
 
 /// <summary>
@@ -27,7 +25,7 @@ public class SecureConnectNetworkDevice
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "createdAt")]
-	public string CreatedAt { get; set; } = string.Empty;
+	public DateTime CreatedAt { get; set; }
 
 	/// <summary>
 	/// The unique identifier for the specific network device. Insert the identifier into the EDNS packets.
