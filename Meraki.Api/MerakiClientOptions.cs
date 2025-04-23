@@ -21,6 +21,8 @@ public class MerakiClientOptions
 
 	/// <summary>
 	/// An optional User-Agent string to attach to outgoing requests.
+	/// As per Meraki's documentation, this should be in the format of "MerakiClient/{version} {company}".
+	/// See <see href="https://developer.cisco.com/meraki/api-v1/user-agents-overview/#formatting">Meraki API User-Agent Formatting</see>.
 	/// </summary>
 	public string? UserAgent { get; set; }
 
