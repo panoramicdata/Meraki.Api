@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Meraki.Api.Interfaces.Products.Appliance;
+﻿namespace Meraki.Api.Interfaces.Products.Appliance;
 
 public interface IApplianceFirewallMulticastForwarding
 {
@@ -21,7 +19,7 @@ public interface IApplianceFirewallMulticastForwarding
 		int? perPage = null,
 		string? startingAfter = null,
 		string? endingBefore = null,
-		[AliasAs("networkIds[]")] List<string>? networkIds = [],
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		CancellationToken cancellationToken = default
 		);
 
