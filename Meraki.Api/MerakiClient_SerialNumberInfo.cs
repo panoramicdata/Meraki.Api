@@ -1002,7 +1002,7 @@ public partial class MerakiClient
 
 		var productType =
 			model is null ? null :
-			model.StartsWith("MX", StringComparison.Ordinal) || model.StartsWith("Z", StringComparison.Ordinal) ? ProductType.Appliance :
+			model.StartsWith("MX", StringComparison.Ordinal) || model.StartsWith("VMX", StringComparison.Ordinal) || model.StartsWith("Z", StringComparison.Ordinal) ? ProductType.Appliance :
 			model.StartsWith("MS", StringComparison.Ordinal) || model.StartsWith("C9", StringComparison.Ordinal) ? ProductType.Switch :
 			model.StartsWith("MR", StringComparison.Ordinal) || model.StartsWith("CW", StringComparison.Ordinal) ? ProductType.Wireless :
 			model.StartsWith("MV", StringComparison.Ordinal) ? ProductType.Camera :
