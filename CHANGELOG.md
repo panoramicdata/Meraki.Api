@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.55.7
+## 1.55.11
 
 - XML documentation is now correctly packaged
 - Added UserAgent format Meraki documentation link
