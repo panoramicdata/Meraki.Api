@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 1.55.7
+
+- XML documentation is now correctly packaged
+- Added UserAgent format Meraki documentation link
+- Fix for "ReservedIPRanges are not updated when executing UpdateDeviceSwitchRoutingInterfaceDhcpAsync" PR #292 - Kudos @LouisDMateco
+
 ## 1.55.5
 
 - Updated for 1.55 API changes
