@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.16.15
+- Updates for missing serial number/product type determination
+
 ## 1.56.13
 
 - Updated for 1.56 API changes
