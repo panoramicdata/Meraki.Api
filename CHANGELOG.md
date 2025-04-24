@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 1.56.13
+
+- Updated for 1.56 API changes
+- Updates for missing serial number/product type determination
+
 ## 1.55.11
 
 - XML documentation is now correctly packaged
