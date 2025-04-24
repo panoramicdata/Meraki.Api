@@ -260,14 +260,14 @@ public string AdminName { get; set; }</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/ChangeLogEntry.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Contains &quot;id&quot; and &quot;type&quot; but all examples show null at the moment and no info in the Meraki API docs so leaving as a nullable object for now to prevent de-serialization errors</p>
+  <div class="markdown level1 summary"><p>Client information</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
 [DataMember(Name = &quot;client&quot;)]
-public object? Client { get; set; }</code></pre>
+public ApiUsageClient? Client { get; set; }</code></pre>
   </div>
 
 
@@ -276,7 +276,7 @@ public object? Client { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dt><a class="xref" href="Meraki.Api.Data.ApiUsageClient.html">ApiUsageClient</a></dt>
     <dd></dd>
   </dl>
 

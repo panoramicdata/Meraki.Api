@@ -1146,6 +1146,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.ApiUsageClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.ApiUsageClient.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.ApiUsageClient",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.ApiUsageClient.yml\" sourcestartlinenumber=\"1\">An API usage client</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Meraki.Api.Data.ApiUsageOverview.yml",
       "output": {
         ".html": {
@@ -1185,6 +1199,34 @@
       "IsMRef": true,
       "Title": "Meraki.Api.Data.ApplianceContentFilteringResult",
       "Summary": "<p sourcefile=\"api/Meraki.Api.Data.ApplianceContentFilteringResult.yml\" sourcestartlinenumber=\"1\">The content filtering settings for your group policy</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.ApplianceDnsLocalProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.ApplianceDnsLocalProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.ApplianceDnsLocalProfile",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.ApplianceDnsLocalProfile.yml\" sourcestartlinenumber=\"1\">ApplianceDnsLocalProfile</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.ApplianceDnsLocalProfileCreateUpdateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.ApplianceDnsLocalProfileCreateUpdateRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.ApplianceDnsLocalProfileCreateUpdateRequest",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.ApplianceDnsLocalProfileCreateUpdateRequest.yml\" sourcestartlinenumber=\"1\">ApplianceDnsLocalProfileCreateUpdateRequest</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -6214,6 +6256,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.L3InterfaceMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.L3InterfaceMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.L3InterfaceMode",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.L3InterfaceMode.yml\" sourcestartlinenumber=\"1\">Optional parameter to filter L3 interfaces by mode. enum = [&quot;loopback&quot;, &quot;routed&quot;, &quot;vlan&quot;]</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.L3InterfaceProtocol.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.L3InterfaceProtocol.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.L3InterfaceProtocol",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.L3InterfaceProtocol.yml\" sourcestartlinenumber=\"1\">Optional parameter to filter L3 interfaces by protocol.enum = [&quot;ipv4&quot;, &quot;ipv6&quot;]</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Meraki.Api.Data.LanConfiguration.yml",
       "output": {
         ".html": {
@@ -8608,6 +8678,62 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.MulticastForwardingByNetwork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.MulticastForwardingByNetwork.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.MulticastForwardingByNetwork",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.MulticastForwardingByNetwork.yml\" sourcestartlinenumber=\"1\">MulticastForwardingByNetwork</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.MulticastForwardingByNetworkItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.MulticastForwardingByNetworkItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.MulticastForwardingByNetworkItem",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.MulticastForwardingByNetworkItem.yml\" sourcestartlinenumber=\"1\">MulticastForwardingByNetworkItem</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.MulticastForwardingByNetworkItemNetwork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.MulticastForwardingByNetworkItemNetwork.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.MulticastForwardingByNetworkItemNetwork",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.MulticastForwardingByNetworkItemNetwork.yml\" sourcestartlinenumber=\"1\">MulticastForwardingByNetworkItemNetwork</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.MulticastForwardingByNetworkItemRule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.MulticastForwardingByNetworkItemRule.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.MulticastForwardingByNetworkItemRule",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.MulticastForwardingByNetworkItemRule.yml\" sourcestartlinenumber=\"1\">MulticastForwardingByNetworkItemRule</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Meraki.Api.Data.MulticastRouting.yml",
       "output": {
         ".html": {
@@ -8815,6 +8941,34 @@
       "IsMRef": true,
       "Title": "Meraki.Api.Data.Mv52Resolution",
       "Summary": "<p sourcefile=\"api/Meraki.Api.Data.Mv52Resolution.yml\" sourcestartlinenumber=\"1\">Resolution of the camera. Can be one of '1280x720', '1920x1080', '2688x1512' or '3840x2160'.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.Mv53X.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.Mv53X.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.Mv53X",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.Mv53X.yml\" sourcestartlinenumber=\"1\">Quality and resolution for MV53X camera models.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.Mv53XResolution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.Mv53XResolution.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.Mv53XResolution",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.Mv53XResolution.yml\" sourcestartlinenumber=\"1\">Resolution of the camera. Can be one of '1920x1080', '2688x1512' or '3840x2160'.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -13714,7 +13868,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Meraki.Api.Data.SiteToSiteVpnSubnet",
-      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.SiteToSiteVpnSubnet.yml\" sourcestartlinenumber=\"1\">UpdateNetworkSiteToSiteVpnSubnet - Undocumented</p>\n"
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.SiteToSiteVpnSubnet.yml\" sourcestartlinenumber=\"1\">Configuration of subnet features</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -16725,6 +16879,20 @@
       "IsMRef": true,
       "Title": "Meraki.Api.Data.UplinksLossAndLatencyResponse",
       "Summary": "<p sourcefile=\"api/Meraki.Api.Data.UplinksLossAndLatencyResponse.yml\" sourcestartlinenumber=\"1\">Response</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Data.UplinksRoaming.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Data.UplinksRoaming.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Data.UplinksRoaming",
+      "Summary": "<p sourcefile=\"api/Meraki.Api.Data.UplinksRoaming.yml\" sourcestartlinenumber=\"1\">Uplinks Roaming</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -20228,6 +20396,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Interfaces.Products.Appliance.IApplianceDnsLocalProfiles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Interfaces.Products.Appliance.IApplianceDnsLocalProfiles.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Interfaces.Products.Appliance.IApplianceDnsLocalProfiles",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Meraki.Api.Interfaces.Products.Appliance.IApplianceFirewallCellularFirewallRules.yml",
       "output": {
         ".html": {
@@ -20308,6 +20490,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Meraki.Api.Interfaces.Products.Appliance.IApplianceFirewallL7FirewallRules",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Meraki.Api.Interfaces.Products.Appliance.IApplianceFirewallMulticastForwarding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Meraki.Api.Interfaces.Products.Appliance.IApplianceFirewallMulticastForwarding.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Meraki.Api.Interfaces.Products.Appliance.IApplianceFirewallMulticastForwarding",
       "Summary": null
     },
     {

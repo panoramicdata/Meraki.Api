@@ -133,6 +133,7 @@ Interface ICameraAnalyticsOverview  <a class="header-action link-secondary" titl
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Get(&quot;/devices/{serial}/camera/analytics/overview&quot;)]
+[Obsolete(&quot;This endpoint is deprecated and will be removed in a future update. Please use the new camera/analytics/overview endpoint.&quot;, false)]
 Task&lt;List&lt;CameraOverview&gt;&gt; GetDeviceCameraAnalyticsOverviewAsync(string serial, string t0 = null, string t1 = null, double? timespan = null, string objectType = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
