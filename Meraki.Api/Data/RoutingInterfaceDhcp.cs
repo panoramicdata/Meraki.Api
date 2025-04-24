@@ -73,7 +73,7 @@ public class RoutingInterfaceDhcp
 	/// Array of DHCP reserved IP assignments for the DHCP server running on the switch interface
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "ReservedIpRanges")]
+	[DataMember(Name = "reservedIpRanges")]
 	public List<ReservedIpRange>? ReservedIpRanges { get; set; }
 
 	/// <summary>
