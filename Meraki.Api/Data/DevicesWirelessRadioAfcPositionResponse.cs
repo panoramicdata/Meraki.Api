@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Response for GetDeviceWirelessRadioAfcPositionAsync
+/// Devices wireless radio AFC position response
 /// </summary>
 [DataContract]
-public class DevicesWirelessRadioAfcPositionGetResponse
+public class DevicesWirelessRadioAfcPositionResponse
 {
 	/// <summary>
 	/// Name of device
