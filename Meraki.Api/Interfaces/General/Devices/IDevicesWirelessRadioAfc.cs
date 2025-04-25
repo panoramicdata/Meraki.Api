@@ -28,4 +28,14 @@ public interface IDevicesWirelessRadioAfc
 			[Body] DevicesWirelessRadioAfcPositionPutRequest request,
 			CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Return the AFC power limits for a wireless device
+	/// </summary>
+	/// <param name="serial">The serial</param>
+	/// <param name="cancellationToken">Cancellation Token</param>
+	/// <returns></returns>
+	[Get("/devices/{serial}/wireless/radio/afc/powerLimits")]
+	Task<DevicesWirelessRadioAfcPowerLimitsResponse> GetDeviceWirelessRadioAfcPowerLimits(string serial,
+		CancellationToken cancellationToken = default);
 }
