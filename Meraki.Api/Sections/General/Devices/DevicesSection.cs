@@ -15,9 +15,7 @@ public partial class DevicesSection
 
 	public IDeviceManagementInterface ManagementInterface { get; internal set; } = null!;
 
-	public IDevicesWirelessRadioAfc WirelessRadioAfc { get; set; }
+	public DevicesWirelessSection Wireless { get; internal set; } = null!;
 
 	public IDeviceSensorCommands SensorCommands { get; internal set; } = null!;
-
-	public IDeviceWirelessAlternateManagementInterface WirelessAlternateManagementInterface { get; set; } = null!;
 }
