@@ -35,6 +35,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsNetworks Networks { get; internal set; } = null!;
 
+	public IOrganizationsNetworkDevices NewtworkDevices { get; set; }
+
 	public IOrganizationsOpenapiSpec OpenapiSpec { get; internal set; } = null!;
 
 	public IOrganizationsPolicyObjects PolicyObjects { get; internal set; } = null!;
