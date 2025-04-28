@@ -1,7 +1,9 @@
 ﻿namespace Meraki.Api.Sections.General.Devices;
 public class DevicesWirelessSection
 {
-	public DevicesWirelessRadioSection Radio { get; set; }
-
 	public IDeviceWirelessAlternateManagementInterface AlternateManagementInterface { get; internal set; } = null!;
+
+	public DevicesWirelessRadioSection Radio { get; internal set; } = null!;
+
+	public DevicesWirelessZigbeeSection Zigbee { get; internal set; } = null!;
 }
