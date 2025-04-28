@@ -1,0 +1,13 @@
+﻿namespace Meraki.Api.Data;
+
+/// <summary>
+/// Nameservers of the cluster
+/// </summary>
+public class NetworksCampusGatewayClusterNameservers
+{
+	/// <summary>
+	/// Addresses of the nameservers
+	/// </summary>
+	[DataMember(Name = "addresses")]
+	public List<string>? Addresses { get; set; } = [];
+}
