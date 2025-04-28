@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Response for the GetNetworkLocationScanningHttpServersAsync method
+/// Response for the GetNetworkLocationScanningHttpServersAsync and  UpdateNetworkLocationScanningHttpServersAsync methods
 /// </summary>
 public class NetworksLocationScanningHttpServerResponse
 {

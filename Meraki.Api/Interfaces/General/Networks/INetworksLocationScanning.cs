@@ -14,23 +14,35 @@ public interface INetworksLocationScanning
 	/// <summary>
 	/// Change scanning API settings
 	/// </summary>
-	/// <param name="networkId"></param>
-	/// <param name="networksLocationScanningResponse"></param>
+	/// <param name="networkId">The Network ID</param>
+	/// <param name="networksLocationScanningRequest"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[Put("/networks/{networkId}/locationScanning")]
 	Task<NetworksLocationScanningResponse>
 		UpdateNetworkLocationScanningAsync(string networkId,
-			[Body] NetworksLocationScanningUpdateRequest networksLocationScanningResponse,
+			[Body] NetworksLocationScanningUpdateRequest networksLocationScanningRequest,
 			CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Return list of scanning API receivers
 	/// </summary>
-	/// <param name="networkId"></param>
+	/// <param name="networkId">The Network ID</param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[Get("/networks/{networkId}/locationScanning/httpServers")]
 	Task<List<NetworksLocationScanningHttpServerResponse>> GetNetworkLocationScanningHttpServersAsync(string networkId,
 			CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Set the list of scanning API receivers. Old receivers will be removed
+	/// </summary>
+	/// <param name="networkId">\The Network ID</param>
+	/// <param name="networksLocationScanningHttpServerUpdateRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[Put("/networks/{networkId}/locationScanning/httpServers")]
+	Task<NetworksLocationScanningHttpServerResponse> UpdateNetworkLocationScanningHttpServersAsync(string networkId,
+		[Body] NetworksLocationScanningHttpServerUpdateRequest networksLocationScanningHttpServerUpdateRequest,
+		CancellationToken cancellationToken = default);
 }
