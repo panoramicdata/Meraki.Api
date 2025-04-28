@@ -23,4 +23,14 @@ public interface INetworksLocationScanning
 		UpdateNetworkLocationScanningAsync(string networkId,
 			[Body] NetworksLocationScanningUpdateRequest networksLocationScanningResponse,
 			CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Return list of scanning API receivers
+	/// </summary>
+	/// <param name="networkId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[Get("/networks/{networkId}/locationScanning/httpServers")]
+	Task<List<NetworksLocationScanningHttpServerResponse>> GetNetworkLocationScanningHttpServersAsync(string networkId,
+			CancellationToken cancellationToken = default);
 }
