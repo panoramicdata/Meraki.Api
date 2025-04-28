@@ -3,5 +3,5 @@ public class DevicesWirelessSection
 {
 	public DevicesWirelessRadioSection Radio { get; set; }
 
-	public DevicesWirelessAlternateManagementInterfaceSection AlternateManagementInterface { get; internal set; } = null!;
+	public IDeviceWirelessAlternateManagementInterface AlternateManagementInterface { get; internal set; } = null!;
 }
