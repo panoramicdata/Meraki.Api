@@ -14,6 +14,9 @@ public partial class NetworksSection
 	public INetworksFloorplans Floorplans { get; internal set; } = null!;
 	public INetworksGroupPolicies GroupPolicies { get; internal set; } = null!;
 	public NetworksHealthSection Health { get; internal set; } = new();
+
+	public INetworksLocationScanning LocationScanning { get; internal set; } = null!;
+
 	public INetworksMerakiAuthUsers MerakiAuthUsers { get; internal set; } = null!;
 	public INetworksMqttBrokers MqttBrokers { get; internal set; } = null!;
 	public INetworksNetflow Netflow { get; internal set; } = null!;
