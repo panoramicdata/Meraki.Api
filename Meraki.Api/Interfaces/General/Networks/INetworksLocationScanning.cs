@@ -10,4 +10,17 @@ public interface INetworksLocationScanning
 	[Get("/networks/{networkId}/locationScanning")]
 	Task<NetworksLocationScanningResponse> GetNetworkLocationScanningAsync(string networkId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Change scanning API settings
+	/// </summary>
+	/// <param name="networkId"></param>
+	/// <param name="networksLocationScanningResponse"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[Put("/networks/{networkId}/locationScanning")]
+	Task<NetworksLocationScanningResponse>
+		UpdateNetworkLocationScanningAsync(string networkId,
+			[Body] NetworksLocationScanningUpdateRequest networksLocationScanningResponse,
+			CancellationToken cancellationToken = default);
 }
