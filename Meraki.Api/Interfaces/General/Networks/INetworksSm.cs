@@ -2,6 +2,20 @@
 public interface INetworksSm
 {
 	/// <summary>
+	/// Install applications on a device
+	/// </summary>
+	/// <param name="networkId">The Network ID</param>
+	/// <param name="deviceId">The Device ID</param>
+	/// <param name="smInstallAppsRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns>HTTP status code with an empty object </returns>
+	[Post("/networks/{networkId}/sm/devices/{deviceId}/installApps")]
+	Task<object> InstallNetworkSmDeviceAppsAsync(string networkId,
+		string deviceId,
+		[Body] SmInstallAppsRequest smInstallAppsRequest,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Reboot a set of endpoints
 	/// </summary>
 	/// <param name="networkId">The Network ID</param>
