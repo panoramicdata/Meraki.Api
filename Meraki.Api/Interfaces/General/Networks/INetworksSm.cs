@@ -9,7 +9,19 @@ public interface INetworksSm
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[Post("/networks/{networkId}/sm/devices/reboot")]
-	Task<SmRebootResponse> RebootSmDevicesAsync(string networkId,
+	Task<SmActionResponse> RebootSmDevicesAsync(string networkId,
 		[Body] SmRebootRequest smRebootRequest,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Shutdown a set of endpoints
+	/// </summary>
+	/// <param name="networkId"></param>
+	/// <param name="smShutdownRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[Post("/networks/{networkId}/sm/devices/shutdown")]
+	Task<SmActionResponse> ShutdownNetworkSmDevicesAsync(string networkId,
+		[Body] SmShutdownRequest smShutdownRequest,
 		CancellationToken cancellationToken = default);
 }

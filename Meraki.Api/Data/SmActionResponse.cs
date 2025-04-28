@@ -1,9 +1,9 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// SmRebootResponse
+/// SmActionResponse
 /// </summary>
-public class SmRebootResponse
+public class SmActionResponse
 {
 	/// <summary>
 	/// The Meraki Ids of the set of endpoints
