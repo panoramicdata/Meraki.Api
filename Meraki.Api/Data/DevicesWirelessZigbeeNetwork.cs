@@ -3,6 +3,7 @@
 /// <summary>
 /// Network
 /// </summary>
+[DataContract]
 public class DevicesWirelessZigbeeNetwork
 {
 	/// <summary>

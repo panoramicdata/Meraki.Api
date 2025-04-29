@@ -1,4 +1,9 @@
 ﻿namespace Meraki.Api.Data;
+
+/// <summary>
+/// Response from GetDeviceWirelessZigbeeEnrollmentAsync
+/// </summary>
+[DataContract]
 public class DevicesWirelessZigbeeEnrollmentsGetResponse
 {
 	/// <summary>

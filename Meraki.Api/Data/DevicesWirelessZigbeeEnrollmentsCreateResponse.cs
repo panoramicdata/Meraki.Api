@@ -3,6 +3,7 @@
 /// <summary>
 /// Response for the enrollment create request
 /// </summary>
+[DataContract]
 public class DevicesWirelessZigbeeEnrollmentsCreateResponse
 {
 	/// <summary>

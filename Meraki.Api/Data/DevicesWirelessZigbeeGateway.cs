@@ -3,6 +3,7 @@
 /// <summary>
 /// Gateway
 /// </summary>
+[DataContract]
 public class DevicesWirelessZigbeeGateway
 {
 	/// <summary>

@@ -3,6 +3,7 @@
 /// <summary>
 /// Door Locks
 /// </summary>
+[DataContract]
 public class DevicesWirelessZigbeeDoorLocks
 {
 	/// <summary>

@@ -3,6 +3,7 @@
 /// <summary>
 /// Enrollment request parameters
 /// </summary>
+[DataContract]
 public class DevicesWirelessZigbeeEnrollmentRequest
 {
 	/// <summary>
