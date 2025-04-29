@@ -3,6 +3,7 @@
 /// <summary>
 /// Location attributes of device's AFC information
 /// </summary>
+[DataContract]
 public class DevicesWirelessRadioAfcLocation
 {
 	/// <summary>

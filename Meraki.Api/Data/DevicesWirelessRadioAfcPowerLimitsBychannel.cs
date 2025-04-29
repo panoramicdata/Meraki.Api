@@ -3,6 +3,7 @@
 /// <summary>
 /// Power limits of each 6 GHz channel
 /// </summary>
+[DataContract]
 public class DevicesWirelessRadioAfcPowerLimitsBychannel
 {
 	/// <summary>

@@ -3,6 +3,7 @@
 /// <summary>
 /// Network of device
 /// </summary>
+[DataContract]
 public class DevicesWirelessRadioAfcPositionNetwork
 {
 	/// <summary>
