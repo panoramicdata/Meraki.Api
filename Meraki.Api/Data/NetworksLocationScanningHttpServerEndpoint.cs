@@ -3,6 +3,7 @@
 /// <summary>
 /// List of location Scanning Endpoints
 /// </summary>
+[DataContract]
 public class NetworksLocationScanningHttpServerEndpoint
 {
 	/// <summary>

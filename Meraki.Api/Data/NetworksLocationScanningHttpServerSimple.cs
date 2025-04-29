@@ -3,6 +3,7 @@
 /// <summary>
 /// A HTTP Server Object
 /// </summary>
+[DataContract]
 public class NetworksLocationScanningHttpServerSimple
 {
 	/// <summary>

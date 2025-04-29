@@ -3,6 +3,7 @@
 /// <summary>
 /// Request for the UpdateNetworkLocationScanningAsync method
 /// </summary>
+[DataContract]
 public class NetworksLocationScanningUpdateRequest
 {
 	/// <summary>

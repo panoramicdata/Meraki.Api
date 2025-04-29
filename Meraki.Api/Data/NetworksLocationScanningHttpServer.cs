@@ -3,6 +3,7 @@
 /// <summary>
 /// Endpoint HTTP server information
 /// </summary>
+[DataContract]
 public class NetworksLocationScanningHttpServer
 {
 	/// <summary>

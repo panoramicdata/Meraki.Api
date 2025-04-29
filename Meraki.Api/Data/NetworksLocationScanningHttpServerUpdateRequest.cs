@@ -3,10 +3,12 @@
 /// <summary>
 /// Represents a request for the UpdateNetworkLocationScanningHttpServersAsync method
 /// </summary>
+[DataContract]
 public class NetworksLocationScanningHttpServerUpdateRequest
 {
 	/// <summary>
 	/// A set of http server configurations
 	/// </summary>
-	public NetworksLocationScanningHttpServerRequestEndpoints Endpoints { get; set; }
+	[DataMember(Name = "endpoints")]
+	public NetworksLocationScanningHttpServerRequestEndpoints? Endpoints { get; set; }
 }
