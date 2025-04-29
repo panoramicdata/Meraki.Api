@@ -3,6 +3,7 @@
 /// <summary>
 /// SmShutdownRequest
 /// </summary>
+[DataContract]
 public class SmShutdownRequest
 {
 	/// <summary>

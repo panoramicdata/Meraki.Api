@@ -3,6 +3,7 @@
 /// <summary>
 /// SmRebootRequest
 /// </summary>
+[DataContract]
 public class SmRebootRequest
 {
 	/// <summary>

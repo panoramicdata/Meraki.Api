@@ -3,6 +3,7 @@
 /// <summary>
 /// SmActionResponse
 /// </summary>
+[DataContract]
 public class SmActionResponse
 {
 	/// <summary>

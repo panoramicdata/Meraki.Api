@@ -2,6 +2,7 @@
 /// <summary>
 /// SmUninstallAppsRequest
 /// </summary>
+[DataContract]
 public class SmUninstallAppsRequest
 {
 	/// <summary>

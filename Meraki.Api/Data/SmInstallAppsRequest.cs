@@ -3,6 +3,7 @@
 /// <summary>
 /// SmInstallAppsRequest
 /// </summary>
+[DataContract]
 public class SmInstallAppsRequest
 {
 	/// <summary>
@@ -14,5 +15,6 @@ public class SmInstallAppsRequest
 	/// <summary>
 	/// Ids of applications to be installed
 	/// </summary>
+	[DataMember(Name = "appIds")]
 	public List<string> AppIds { get; set; } = [];
 }
