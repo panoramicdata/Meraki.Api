@@ -3,6 +3,7 @@
 /// <summary>
 /// Tunnel IP address of the device
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterDeviceIPAddress
 {
 	/// <summary>

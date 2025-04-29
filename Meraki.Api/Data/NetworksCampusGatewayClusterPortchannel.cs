@@ -3,6 +3,7 @@
 /// <summary>
 /// Port channel settings of the cluster
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterPortchannel
 {
 	/// <summary>

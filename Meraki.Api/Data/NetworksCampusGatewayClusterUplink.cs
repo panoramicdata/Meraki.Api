@@ -3,6 +3,7 @@
 /// <summary>
 /// An uplink setting of the device when uplink assignment mode of cluster is static
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterUplink
 {
 	/// <summary>

@@ -3,6 +3,7 @@
 /// <summary>
 /// Tunnel interface settings of the cluster: Reuse uplink or specify tunnel interface
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterTunnel
 {
 	/// <summary>
@@ -26,5 +27,6 @@ public class NetworksCampusGatewayClusterTunnel
 	/// <summary>
 	/// List of addresses of the interface
 	/// </summary>
+	[DataMember(Name = "addresses")]
 	public List<NetworksCampusGatewayClusterDeviceIPAddressWithGatewayDetailed> Addresses { get; set; } = [];
 }

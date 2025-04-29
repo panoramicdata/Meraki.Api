@@ -3,6 +3,7 @@
 /// <summary>
 /// Tunnel setting of a device when tunnel interface of cluster is specified
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterDeviceTunnel
 {
 	/// <summary>

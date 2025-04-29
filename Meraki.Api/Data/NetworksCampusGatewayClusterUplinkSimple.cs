@@ -3,6 +3,7 @@
 /// <summary>
 /// Uplink interface details if uplink is reused as tunnel
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterUplinkSimple
 {
 	/// <summary>

@@ -3,6 +3,7 @@
 /// <summary>
 /// Response from the CreateCampusGatewayClusterAsync endpoint.
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterResponse
 {
 	/// <summary>

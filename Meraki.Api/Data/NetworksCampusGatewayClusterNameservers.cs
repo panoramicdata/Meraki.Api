@@ -3,6 +3,7 @@
 /// <summary>
 /// Nameservers of the cluster
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterNameservers
 {
 	/// <summary>

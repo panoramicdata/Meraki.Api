@@ -3,6 +3,7 @@
 /// <summary>
 /// An uplink setting of the device when uplink assignment mode of cluster is static
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterUplinkDetailed
 {
 	/// <summary>
@@ -20,5 +21,6 @@ public class NetworksCampusGatewayClusterUplinkDetailed
 	/// <summary>
 	/// Addresses of the Interface
 	/// </summary>
+	[DataMember(Name = "addresses")]
 	public List<NetworksCampusGatewayClusterUplinkIPAddress> Addresses { get; set; } = [];
 }

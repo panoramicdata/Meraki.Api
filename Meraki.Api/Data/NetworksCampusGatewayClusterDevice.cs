@@ -3,6 +3,7 @@
 /// <summary>
 /// Device to be added to the cluster
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterDevice
 {
 	/// <summary>
