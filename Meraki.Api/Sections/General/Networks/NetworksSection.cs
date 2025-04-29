@@ -29,6 +29,8 @@ public partial class NetworksSection
 	public NetworksTrafficShapingSection TrafficShaping { get; internal set; } = new();
 	public INetworksSettings Settings { get; internal set; } = null!;
 	public INetworksSnmp Snmp { get; internal set; } = null!;
+
+	public NetworksSwitchSection Switch { get; set; }
 	public INetworksSplashLoginAttempts SplashLoginAttempts { get; internal set; } = null!;
 	public INetworksSyslogServers SyslogServers { get; internal set; } = null!;
 	public INetworksVlanProfiles VlanProfiles { get; internal set; } = null!;
