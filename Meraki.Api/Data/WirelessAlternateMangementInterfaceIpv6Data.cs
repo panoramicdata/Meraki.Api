@@ -3,10 +3,12 @@
 /// <summary>
 /// WirelessAlternateMangementInterfaceIpv6Request
 /// </summary>
-public class WirelessAlternateMangementInterfaceIpv6Request
+[DataContract]
+public class WirelessAlternateMangementInterfaceIpv6Data
 {
 	/// <summary>
 	/// Configured alternate management interface addresses
 	/// </summary>
+	[DataMember(Name = "addresses")]
 	public List<WirelessAlternateManagementInterfaceIpv6Address>? Addresses { get; set; }
 }

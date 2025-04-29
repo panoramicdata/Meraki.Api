@@ -10,9 +10,9 @@ public interface IDeviceWirelessAlternateManagementInterface
 	/// <param name="cancellationToken">Cancellation Token</param>
 	/// <returns></returns>
 	[Put("/devices/{serial}/wireless/alternateManagementInterface/ipv6")]
-	Task<WirelessAlternateMangementInterfaceIpv6Request> UpdateDeviceWirelessAlternateManagementInterfaceIpv6(
+	Task<WirelessAlternateMangementInterfaceIpv6Data> UpdateDeviceWirelessAlternateManagementInterfaceIpv6Async(
 		string serial,
-		[Body] WirelessAlternateMangementInterfaceIpv6Request updateDeviceWirelessAlternateManagementInterfaceIpv6,
+		[Body] WirelessAlternateMangementInterfaceIpv6Data updateDeviceWirelessAlternateManagementInterfaceIpv6,
 		CancellationToken cancellationToken = default
 		);
 }
