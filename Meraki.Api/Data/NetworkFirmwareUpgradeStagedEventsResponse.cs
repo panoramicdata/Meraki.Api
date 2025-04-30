@@ -4,7 +4,7 @@
 /// Network Firmware Upgrade Staged Events
 /// </summary>
 [DataContract]
-public class NetworkFirmwareUpgradeStagedEvents
+public class NetworkFirmwareUpgradeStagedEventsResponse
 {
 	/// <summary>
 	/// The network devices to be update

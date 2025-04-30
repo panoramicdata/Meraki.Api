@@ -36,8 +36,21 @@ public interface INetworksFirmwareUpgrades
 	/// <param name="cancellationToken">The Cancellation Token</param>
 	/// <returns></returns>
 	[Get("/networks/{networkId}/firmwareUpgrades/staged/events")]
-	Task<NetworkFirmwareUpgradeStagedEvents> GetNetworkFirmwareUpgradesStagedEventsAsync(
+	Task<NetworkFirmwareUpgradeStagedEventsResponse> GetNetworkFirmwareUpgradesStagedEventsAsync(
 		string networkId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Create a Staged Upgrade Event for a Network
+	/// </summary>
+	/// <param name="networkId">The network id</param>
+	/// <param name="createNetworkFirmwareUpgradesStagedEvents"></param>
+	/// <param name="cancellationToken">The Cancellation Token</param>
+	/// <returns></returns>
+	[Post("/networks/{networkId}/firmwareUpgrades/staged/events")]
+	Task<NetworkFirmwareUpgradeStagedEventsResponse> CreateNetworkFirmwareUpgradesStagedEventsAsync(
+		string networkId,
+		[Body] NetworkFirmwareUpgradeStagedEventsRequest createNetworkFirmwareUpgradesStagedEvents,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
