@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
-/// Network Firmware Upgrade Staged Events Request
+/// Network Firmware Upgrade Staged Events Create Request
 /// </summary>
 [DataContract]
-public class NetworkFirmwareUpgradeStagedEventsRequest
+public class NetworkFirmwareUpgradeStagedEventsCreateRequest
 {
 	/// <summary>
 	/// Version information for the switch network being upgraded
