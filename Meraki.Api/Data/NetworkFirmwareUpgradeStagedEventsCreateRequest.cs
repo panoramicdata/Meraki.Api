@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// Network Firmware Upgrade Staged Events Create Request

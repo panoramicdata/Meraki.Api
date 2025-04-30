@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// Version information for the switch network being upgraded

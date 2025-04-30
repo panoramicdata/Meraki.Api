@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// The Staged Upgrade Group containing the name and ID

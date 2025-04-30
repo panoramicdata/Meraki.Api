@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// Contains firmware upgrade version information
