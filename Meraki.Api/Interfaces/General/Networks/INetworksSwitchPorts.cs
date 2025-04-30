@@ -39,4 +39,17 @@ public interface INetworksSwitchPorts
 		string id,
 		[Body] NetworksSwitchPortsProfileUpdateRequest networksSwitchPortsProfile,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Delete a port profile from a network
+	/// </summary>
+	/// <param name="networkId">Network ID</param>
+	/// <param name="id">Id of swith port profile</param>
+	/// <param name="cancellationToken">Cancellation Token</param>
+	/// <returns></returns>
+	[Delete("/networks/{networkId}/switch/ports/profiles/{id}")]
+	Task<string> DeleteNetworkSwitchPortsProfileAsync(
+		string networkId,
+		string id,
+		CancellationToken cancellationToken = default);
 }
