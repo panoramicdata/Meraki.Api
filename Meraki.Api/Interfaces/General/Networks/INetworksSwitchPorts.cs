@@ -24,4 +24,19 @@ public interface INetworksSwitchPorts
 		string networkId,
 		[Body] NetworksSwitchPortsProfileCreateRequest networksSwitchPortsProfile,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Update a port profile in a network
+	/// </summary>
+	/// <param name="networkId">Network ID</param>
+	/// <param name="id">Id of swith port profile</param>
+	/// <param name="networksSwitchPortsProfile"></param>
+	/// <param name="cancellationToken">Cancellation Token</param>
+	/// <returns></returns>
+	[Put("/networks/{networkId}/switch/ports/profiles/{id}")]
+	Task<NetworksSwitchPortsProfile> UpdateNetworkSwitchPortsProfileAsync(
+		string networkId,
+		string id,
+		[Body] NetworksSwitchPortsProfileUpdateRequest networksSwitchPortsProfile,
+		CancellationToken cancellationToken = default);
 }
