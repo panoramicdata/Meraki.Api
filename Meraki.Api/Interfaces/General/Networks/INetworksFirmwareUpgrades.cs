@@ -102,6 +102,19 @@ public interface INetworksFirmwareUpgrades
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// Get a Staged Upgrade Group from a Network
+	/// </summary>
+	/// <param name="networkId">The network id</param>
+	/// <param name="groupId">Group ID</param>
+	/// <param name="cancellationToken">The Cancellation Token</param>
+	/// <returns></returns>
+	[Get("/networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}")]
+	Task<NetworkFirmwareUpgradesStagedGroup> GetNetworkFirmwareUpgradesStagedGroupsAsync(
+		string networkId,
+		string groupId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Create a Staged Upgrade Group for a Network
 	/// </summary>
 	/// <param name="networkId">The network id</param>
