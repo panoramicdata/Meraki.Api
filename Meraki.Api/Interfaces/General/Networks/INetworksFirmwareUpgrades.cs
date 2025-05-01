@@ -67,6 +67,16 @@ public interface INetworksFirmwareUpgrades
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// Postpone by 1 week all pending staged upgrade stages for a network
+	/// </summary>
+	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken">The Cancellation Token</param>
+	/// <returns></returns>
+	[Post("/networks/{networkId}/firmwareUpgrades/staged/events/defer")]
+	Task<NetworkFirmwareUpgradeStagedEventsDeferResponse> DeferNetworkFirmwareUpgradesStagedEventsAsync(
+		string networkId,
+		CancellationToken cancellationToken = default);
+	/// <summary>
 	/// List of Staged Upgrade Groups in a Network
 	/// </summary>
 	/// <param name="networkId">The network id</param>
