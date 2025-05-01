@@ -7,7 +7,7 @@
 public class NetworkFirmwareUpgradeStagedEventsSwitchNextUpgrade
 {
 	/// <summary>
-	/// 
+	/// Details of the version the device will upgrade to
 	/// </summary>
 	[DataMember(Name = "toVersion")]
 	public NetworkFirmwareUpgradeStagedEventsSwitchNextUpgradeToVersion? ToVersion { get; set; }

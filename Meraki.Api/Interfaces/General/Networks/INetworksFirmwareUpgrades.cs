@@ -76,6 +76,20 @@ public interface INetworksFirmwareUpgrades
 	Task<NetworkFirmwareUpgradeStagedEventsDeferResponse> DeferNetworkFirmwareUpgradesStagedEventsAsync(
 		string networkId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Rollback a Staged Upgrade Event for a Network
+	/// </summary>
+	/// <param name="networkId">The network id</param>
+	/// <param name="createNetworkFirmwareUpgradesStagedEvents"></param>
+	/// <param name="cancellationToken">The Cancellation Token</param>
+	/// <returns></returns>
+	[Post("/networks/{networkId}/firmwareUpgrades/staged/events/rollbacks")]
+	Task<NetworkFirmwareUpgradeStagedEventsRollbacksResponse> RollbacksNetworkFirmwareUpgradesStagedEventsAsync(
+		string networkId,
+		[Body] NetworkFirmwareUpgradeStagedEventsRollbacksRequest createNetworkFirmwareUpgradesStagedEvents,
+		CancellationToken cancellationToken = default);
+
 	/// <summary>
 	/// List of Staged Upgrade Groups in a Network
 	/// </summary>
