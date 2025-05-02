@@ -10,5 +10,6 @@ public class DevicesWirelessZigbeeEnrollmentRequest
 	/// Device serial number
 	/// </summary>
 	[DataMember(Name = "serial")]
+	[ApiAccess(ApiAccess.Read)]
 	public string? Serial { get; set; }
 }
