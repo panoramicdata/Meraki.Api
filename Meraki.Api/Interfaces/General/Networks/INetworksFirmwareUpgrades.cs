@@ -143,6 +143,19 @@ public interface INetworksFirmwareUpgrades
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// Delete a Staged Upgrade Group
+	/// </summary>
+	/// <param name="networkId">The network id</param>
+	/// <param name="groupId"></param>
+	/// <param name="cancellationToken">The Cancellation Token</param>
+	/// <returns></returns>
+	[Delete("/networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}")]
+	Task DeleteNetworkFirmwareUpgradesStagedGroupsAsync(
+		string networkId,
+		string groupId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Rollback a Firmware Upgrade For A Network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
