@@ -10,17 +10,20 @@ public class NetworksCampusGatewayClusterUplinkDetailed
 	/// VLAN ID of the interface
 	/// </summary>
 	[DataMember(Name = "vlan")]
+	[ApiAccess(ApiAccess.Create)]
 	public int VLan { get; set; }
 
 	/// <summary>
 	/// nterface identifier, should be set to man1
 	/// </summary>
 	[DataMember(Name = "interface")]
+	[ApiAccess(ApiAccess.Create)]
 	public string Interface { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Addresses of the Interface
 	/// </summary>
 	[DataMember(Name = "addresses")]
+	[ApiAccess(ApiAccess.Create)]
 	public List<NetworksCampusGatewayClusterUplinkIPAddress> Addresses { get; set; } = [];
 }

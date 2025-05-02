@@ -10,11 +10,13 @@ public class NetworksCampusGatewayClusterDeviceIPAddress
 	/// IP address of the interface
 	/// </summary>
 	[DataMember(Name = "address")]
+	[ApiAccess(ApiAccess.Create)]
 	public string Address { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Protocol of the Interface
 	/// </summary>
 	[DataMember(Name = "protocol")]
+	[ApiAccess(ApiAccess.Create)]
 	public NetworksCampusGatewayClusterProtocol Protocol { get; set; }
 }

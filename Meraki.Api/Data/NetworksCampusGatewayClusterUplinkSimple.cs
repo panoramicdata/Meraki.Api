@@ -10,5 +10,6 @@ public class NetworksCampusGatewayClusterUplinkSimple
 	/// Uplink interface identifier
 	/// </summary>
 	[DataMember(Name = "interface")]
+	[ApiAccess(ApiAccess.Create)]
 	public string Interface { get; set; } = string.Empty;
 }
