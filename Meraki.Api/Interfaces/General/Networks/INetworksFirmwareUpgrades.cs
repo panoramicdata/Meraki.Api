@@ -109,7 +109,7 @@ public interface INetworksFirmwareUpgrades
 	/// <param name="cancellationToken">The Cancellation Token</param>
 	/// <returns></returns>
 	[Get("/networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}")]
-	Task<NetworkFirmwareUpgradesStagedGroup> GetNetworkFirmwareUpgradesStagedGroupsAsync(
+	Task<NetworkFirmwareUpgradesStagedGroup> GetNetworkFirmwareUpgradesStagedGroupAsync(
 		string networkId,
 		string groupId,
 		CancellationToken cancellationToken = default);
