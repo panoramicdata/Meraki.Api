@@ -10,20 +10,20 @@ public class NetworksLocationScanningResponse
 	/// Validator for the push API
 	/// </summary>
 	[DataMember(Name = "validator")]
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	public string? Validator { get; set; }
 
 	/// <summary>
 	/// Whether to enable collection of location and scanning analytics
 	/// </summary>
 	[DataMember(Name = "analyticsEnabled")]
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	public bool? AnalyticsEnabled { get; set; }
 
 	/// <summary>
 	/// Whether to enable push API for scanning events. Analytiscs must be enabled to enable scanning API
 	/// </summary>
 	[DataMember(Name = "scanningApiEnabled")]
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	public bool? ScanningApiEnabled { get; set; }
 }
