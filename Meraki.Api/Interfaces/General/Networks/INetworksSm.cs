@@ -22,9 +22,8 @@ public interface INetworksSm
 	/// <param name="deviceId">The Device ID</param>
 	/// <param name="smInstallAppsRequest"></param>
 	/// <param name="cancellationToken"></param>
-	/// <returns>HTTP status code with an empty object </returns>
 	[Post("/networks/{networkId}/sm/devices/{deviceId}/uninstallApps")]
-	Task<object> UninstallNetworkSmDeviceAppsAsync(string networkId,
+	Task UninstallNetworkSmDeviceAppsAsync(string networkId,
 		string deviceId,
 		[Body] SmUninstallAppsRequest smInstallAppsRequest,
 		CancellationToken cancellationToken = default);

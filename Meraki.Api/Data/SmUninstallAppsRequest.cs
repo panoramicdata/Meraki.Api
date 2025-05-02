@@ -9,5 +9,6 @@ public class SmUninstallAppsRequest
 	/// Ids of applications to be uninstalled
 	/// </summary>
 	[DataMember(Name = "appIds")]
+	[ApiAccess(ApiAccess.Create)]
 	public List<string> AppIds { get; set; } = [];
 }
