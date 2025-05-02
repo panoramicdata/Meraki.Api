@@ -128,6 +128,21 @@ public interface INetworksFirmwareUpgrades
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// Update a Staged Upgrade Group for a network
+	/// </summary>
+	/// <param name="networkId">The network id</param>
+	/// <param name="groupId"></param>
+	/// <param name="createNetworkFirmwareUpgradesStagedGroups"></param>
+	/// <param name="cancellationToken">The Cancellation Token</param>
+	/// <returns></returns>
+	[Put("/networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}")]
+	Task<NetworkFirmwareUpgradesStagedGroupUpdateResponse> UpdateNetworkFirmwareUpgradesStagedGroupsAsync(
+		string networkId,
+		string groupId,
+		[Body] NetworkFirmwareUpgradesStagedGroupUpdateRequest createNetworkFirmwareUpgradesStagedGroups,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Rollback a Firmware Upgrade For A Network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
