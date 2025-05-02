@@ -37,7 +37,7 @@ public interface INetworksSm
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[Post("/networks/{networkId}/sm/devices/reboot")]
-	Task<SmActionResponse> RebootSmDevicesAsync(string networkId,
+	Task<SmActionResponse> RebootNetworkSmDevicesAsync(string networkId,
 		[Body] SmRebootRequest smRebootRequest,
 		CancellationToken cancellationToken = default);
 
