@@ -1,10 +1,10 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Quality and resolution for MV93X camera models.
+/// Quality and resolution for MV84X camera models.
 /// </summary>
 [DataContract]
-public class Mv93X
+public class Mv84X
 {
 	/// <summary>
 	/// Gets or Sets Quality
@@ -18,5 +18,5 @@ public class Mv93X
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "resolution")]
-	public Mv93Resolution Resolution { get; set; }
+	public Mv84xResolution Resolution { get; set; }
 }

@@ -164,6 +164,13 @@ public class SwitchPort : NamedItem
 	public List<string>? MacAllowList { get; set; }
 
 	/// <summary>
+	/// Undocumen ted 2025-05-04, observed value of null
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "macWhitelistLimit")]
+	public int? MacWhitelistLimit { get; set; }
+
+	/// <summary>
 	/// The initial list of MAC addresses for sticky Mac allow list. Only applicable when 'accessPolicyType' is 'Sticky MAC allow list'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
