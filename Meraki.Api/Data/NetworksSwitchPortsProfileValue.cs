@@ -10,13 +10,13 @@ public class NetworksSwitchPortsProfileValue
 	/// he ID of the network / associated node group
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.ReadCreate)]
 	public string? Id { get; set; }
 
 	/// <summary>
 	/// The name of network / associated node group
 	/// </summary>
 	[DataMember(Name = "name")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.ReadCreate)]
 	public string? Name { get; set; }
 }
