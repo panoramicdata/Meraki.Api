@@ -10,13 +10,13 @@ public class NetworkFirmwareUpgradesStagedGroupAssignedSwitchStack
 	/// ID of the Switch Stack
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.ReadCreate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Id { get; set; }
 
 	/// <summary>
 	/// Name of the Switch Stack
 	/// </summary>
 	[DataMember(Name = "name")]
-	[ApiAccess(ApiAccess.ReadCreate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Name { get; set; }
 }
