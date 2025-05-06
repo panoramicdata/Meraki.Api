@@ -10,13 +10,13 @@ public class NetworksCampusGatewayClusterUplink
 	/// Uplink interface name
 	/// </summary>
 	[DataMember(Name = "interface")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.CreateUpdate)]
 	public string Interface { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Uplink IP addresses of the device
 	/// </summary>
 	[DataMember(Name = "address")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.CreateUpdate)]
 	public List<NetworksCampusGatewayClusterDeviceIPAddress> Addresses { get; set; } = [];
 }

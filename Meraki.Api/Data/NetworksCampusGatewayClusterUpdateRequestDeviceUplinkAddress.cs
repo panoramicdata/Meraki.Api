@@ -10,11 +10,13 @@ public class NetworksCampusGatewayClusterUpdateRequestDeviceUplinkAddress
 	/// IP address of the interface
 	/// </summary>
 	[DataMember(Name = "address")]
+	[ApiAccess(ApiAccess.Update)]
 	public string Address { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Protocol of the interface
 	/// </summary>
 	[DataMember(Name = "protocol")]
+	[ApiAccess(ApiAccess.Update)]
 	public NetworksCampusGatewayClusterProtocol? Protocol { get; set; }
 }

@@ -10,27 +10,27 @@ public class NetworksCampusGatewayClusterIdentifiedPortchannel
 	/// VLAN Id of the port channel
 	/// </summary>
 	[DataMember(Name = "vlan")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.CreateUpdate)]
 	public int? VLan { get; set; }
 
 	/// <summary>
 	/// Allowed VLANs of the port channel
 	/// </summary>
 	[DataMember(Name = "allowedVlans")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.CreateUpdate)]
 	public string? AllowedVlans { get; set; }
 
 	/// <summary>
 	/// ID of the port channel
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.CreateUpdate)]
 	public string? Id { get; set; }
 
 	/// <summary>
 	/// Name of the port channel
 	/// </summary>
 	[DataMember(Name = "name")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.CreateUpdate)]
 	public string? Name { get; set; }
 }

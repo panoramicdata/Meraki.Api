@@ -10,5 +10,6 @@ public class NetworksCampusGatewayClusterUpdateRequestNameServers
 	/// Addresses of the namservers
 	/// </summary>
 	[DataMember(Name = "addresses")]
-	public List<string> Addresses { get; set; }
+	[ApiAccess(ApiAccess.Update)]
+	public List<string>? Addresses { get; set; }
 }
