@@ -10,11 +10,13 @@ public class NetworkFirmwareUpgradesStagedGroupAssignedDevices
 	/// Data Array of Devices containing the name and serial
 	/// </summary>
 	[DataMember(Name = "devices")]
+	[ApiAccess(ApiAccess.ReadCreate)]
 	public List<NetworkFirmwareUpgradesStagedGroupAssignedDevice>? Devices { get; set; }
 
 	/// <summary>
 	/// Data Array of Switch Stacks containing the name and id
 	/// </summary>
 	[DataMember(Name = "switchStacks")]
+	[ApiAccess(ApiAccess.ReadCreate)]
 	public List<NetworkFirmwareUpgradesStagedGroupAssignedSwitchStack>? SwitchStacks { get; set; }
 }
