@@ -10,5 +10,6 @@ public class NetworkFirmwareUpgradeStagedEventsRollbacksRequestGroup
 	/// ID of the Staged Upgrade Group
 	/// </summary>
 	[DataMember(Name = "id")]
+	[ApiAccess(ApiAccess.Create)]
 	public string Id { get; set; } = string.Empty;
 }

@@ -10,11 +10,13 @@ public class NetworkFirmwareUpgradeStagedEventsRollbacksRequestReason
 	/// Reason for the rollback
 	/// </summary>
 	[DataMember(Name = "category")]
+	[ApiAccess(ApiAccess.Create)]
 	public string Category { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Additional comment about the rollback
 	/// </summary>
 	[DataMember(Name = "comment")]
+	[ApiAccess(ApiAccess.Create)]
 	public string Comment { get; set; } = string.Empty;
 }
