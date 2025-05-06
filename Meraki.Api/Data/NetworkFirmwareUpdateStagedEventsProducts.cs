@@ -10,5 +10,6 @@ public class NetworkFirmwareUpdateStagedEventsProducts
 	/// The Switch network to be updated
 	/// </summary>
 	[DataMember(Name = "switch")]
+	[ApiAccess(ApiAccess.Create)]
 	public NetworkFirmwareUpgradeStagedEventsSwitch? Switch { get; set; }
 }
