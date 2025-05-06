@@ -10,6 +10,6 @@ public class NetworksSwitchPortsProfileSwitch
 	/// The serial of the switch
 	/// </summary>
 	[DataMember(Name = "serial")]
-	[ApiAccess(ApiAccess.ReadCreate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Serial { get; set; }
 }

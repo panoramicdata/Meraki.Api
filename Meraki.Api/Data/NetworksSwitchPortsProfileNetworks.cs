@@ -10,13 +10,13 @@ public class NetworksSwitchPortsProfileNetworks
 	/// List of Associated Networks
 	/// </summary>
 	[DataMember(Name = "values")]
-	[ApiAccess(ApiAccess.ReadCreate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public List<NetworksSwitchPortsProfileValue>? Values { get; set; }
 
 	/// <summary>
 	/// Determines whether network is included or excluded in smart port profile based on isOrganizationWide Flag.
 	/// </summary>
 	[DataMember(Name = "type")]
-	[ApiAccess(ApiAccess.ReadCreate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Type { get; set; }
 }

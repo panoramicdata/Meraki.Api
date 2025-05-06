@@ -10,6 +10,6 @@ public class NetworksSwitchPortsProfileTemplate
 	/// The ID of the node profile associated to switchport
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.ReadCreate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public int? Id { get; set; }
 }

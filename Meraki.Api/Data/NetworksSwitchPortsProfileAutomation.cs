@@ -10,13 +10,13 @@ public class NetworksSwitchPortsProfileAutomation
 	/// The ID of the associated automation
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.ReadCreate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Id { get; set; }
 
 	/// <summary>
 	/// The name of the associated automation
 	/// </summary>
 	[DataMember(Name = "name")]
-	[ApiAccess(ApiAccess.ReadCreate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Name { get; set; }
 }
