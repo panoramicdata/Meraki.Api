@@ -10,5 +10,6 @@ public class NetworkFirmwareUpgradeStagedEventsCreateRequestNextUpgradeToVersion
 	/// The version ID
 	/// </summary>
 	[DataMember(Name = "id")]
+	[ApiAccess(ApiAccess.Create)]
 	public string Id { get; set; } = string.Empty;
 }

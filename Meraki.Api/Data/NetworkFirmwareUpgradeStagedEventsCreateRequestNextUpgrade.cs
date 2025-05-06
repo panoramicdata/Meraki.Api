@@ -10,5 +10,6 @@ public class NetworkFirmwareUpgradeStagedEventsCreateRequestNextUpgrade
 	/// The version to be updated to for switch devices
 	/// </summary>
 	[DataMember(Name = "toVersion")]
+	[ApiAccess(ApiAccess.Create)]
 	public NetworkFirmwareUpgradeStagedEventsCreateRequestNextUpgradeToVersion? ToVersion { get; set; }
 }

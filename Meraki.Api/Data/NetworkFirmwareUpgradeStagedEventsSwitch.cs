@@ -10,5 +10,6 @@ public class NetworkFirmwareUpgradeStagedEventsSwitch
 	/// Details of the next firmware upgrade
 	/// </summary>
 	[DataMember(Name = "nextUpgrade")]
+	[ApiAccess(ApiAccess.Create)]
 	public NetworkFirmwareUpgradeStagedEventsSwitchNextUpgrade? NextUpgrade { get; set; }
 }
