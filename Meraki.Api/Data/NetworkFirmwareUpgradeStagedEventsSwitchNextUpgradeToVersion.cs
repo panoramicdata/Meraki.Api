@@ -10,13 +10,13 @@ public class NetworkFirmwareUpgradeStagedEventsSwitchNextUpgradeToVersion
 	/// Id of the Version being upgraded to
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Id { get; set; }
 
 	/// <summary>
 	/// Firmware version short name
 	/// </summary>
 	[DataMember(Name = "shortName")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? ShortName { get; set; }
 }
