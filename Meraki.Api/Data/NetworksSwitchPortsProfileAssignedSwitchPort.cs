@@ -10,17 +10,20 @@ public class NetworksSwitchPortsProfileAssignedSwitchPort
 	/// List of associated switchport numbers
 	/// </summary> 
 	[DataMember(Name = "portIds")]
+	[ApiAccess(ApiAccess.Create)]
 	public List<string>? PortIds { get; set; }
 
 	/// <summary>
 	/// Switch details
 	/// </summary>
 	[DataMember(Name = "switch")]
+	[ApiAccess(ApiAccess.Create)]
 	public NetworksSwitchPortsProfileSwitch? Switch { get; set; }
 
 	/// <summary>
 	/// Template details
 	/// </summary>
 	[DataMember(Name = "template")]
+	[ApiAccess(ApiAccess.Create)]
 	public NetworksSwitchPortsProfileTemplate? Template { get; set; }
 }
