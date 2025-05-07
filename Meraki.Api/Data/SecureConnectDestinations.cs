@@ -1,10 +1,10 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// SecureConnectDestinationLists
+/// SecureConnectDestinations
 /// </summary>
 [DataContract]
-public class SecureConnectDestinationLists
+public class SecureConnectDestinations
 {
 	/// <summary>
 	/// The pagination information for the response.
@@ -25,5 +25,5 @@ public class SecureConnectDestinationLists
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "data")]
-	public List<SecureConnectDestinationList> Data { get; set; } = [];
+	public List<SecureConnectDestination> Data { get; set; } = [];
 }

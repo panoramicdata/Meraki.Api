@@ -1,6 +1,3 @@
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-
 namespace Meraki.Api.Data;
 
 /// <summary>
@@ -95,5 +92,5 @@ public class SecureConnectDestinationList
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "meta")]
-	public SecureConnectDestinationListMeta Meta { get; set; }
+	public SecureConnectDestinationListMeta Meta { get; set; } = new();
 }

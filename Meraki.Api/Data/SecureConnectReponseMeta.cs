@@ -4,7 +4,7 @@ namespace Meraki.Api.Data;
 /// SecureConnectDestinationListsMeta
 /// </summary>
 [DataContract]
-public class SecureConnectDestinationListsMeta
+public class SecureConnectReponseMeta
 {
 	/// <summary>
 	/// The maximum number of items that are returned on the page.

@@ -1,10 +1,10 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// SecureConnectDestinationListsStatus
+/// SecureConnectRequestStatus
 /// </summary>
 [DataContract]
-public class SecureConnectDestinationListsStatus
+public class SecureConnectRequestStatus
 {
 	/// <summary>
 	/// The HTTP status code of the response.

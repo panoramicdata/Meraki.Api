@@ -16,4 +16,62 @@ public interface ISecureConnectPoliciesDestinationLists
 		int? page,
 		string? limit,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Create a destination list in your organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">Organization ID associated with this resource.</param>
+	/// <param name="secureConnectDestinationListCreateRequest">Destination list to create.</param>
+	/// <param name="cancellationToken">Cancellation token</param>
+	[ApiOperationId("createDestinationList")]
+	[Post("/organizations/{organizationId}/policy/destinationLists")]
+	Task<SecureConnectDestinationListResponse> CreateDestinationListAsync(
+		string organizationId,
+		[Body] SecureConnectDestinationListCreateRequest secureConnectDestinationListCreateRequest,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Update a destination list in your organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">Organization ID associated with this resource.</param>
+	/// <param name="destinationListId">The unique ID of the destination list.</param>
+	/// <param name="secureConnectDestinationListUpdateRequest">Destination list update request.</param>
+	/// <param name="cancellationToken">Cancellation token</param>
+	[ApiOperationId("updateDestinationLists")]
+	[Patch("/organizations/{organizationId}/policy/destinationLists/{destinationListId}")]
+	Task<SecureConnectDestinationListResponse> UpdateDestinationListsAsync(
+		string organizationId,
+		int destinationListId,
+		[Body] SecureConnectDestinationListUpdateRequest secureConnectDestinationListUpdateRequest,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Delete a destination list from your organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">Organization ID associated with this resource.</param>
+	/// <param name="destinationListId">The unique ID of the destination list.</param>
+	/// <param name="cancellationToken">Cancellation token</param>
+	[ApiOperationId("deleteDestinationList")]
+	[Delete("/organizations/{organizationId}/policy/destinationLists/{destinationListId}")]
+	Task DeleteDestinationListAsync(
+		string organizationId,
+		int destinationListId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Get a destination list.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">Organization ID associated with this resource.</param>
+	/// <param name="destinationListId">The unique ID of the destination list.</param>
+	/// <param name="cancellationToken">Cancellation token</param>
+	[ApiOperationId("getDestinationList")]
+	[Get("/organizations/{organizationId}/policy/destinationLists/{destinationListId}")]
+	Task<SecureConnectDestinationListResponse> GetDestinationListAsync(
+		string organizationId,
+		int destinationListId,
+		CancellationToken cancellationToken = default);
 }
