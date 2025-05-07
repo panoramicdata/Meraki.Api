@@ -10,7 +10,7 @@ public class NetworksSwitchPortsProfileValue
 	/// he ID of the network / associated node group
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? Id { get; set; }
 
 	/// <summary>

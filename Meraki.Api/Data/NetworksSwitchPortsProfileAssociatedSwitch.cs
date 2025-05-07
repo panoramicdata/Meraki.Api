@@ -10,7 +10,7 @@ public class NetworksSwitchPortsProfileAssociatedSwitch
 	/// The ID of the switch
 	/// </summary>
 	[DataMember(Name = "switchId")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public long? SwitchId { get; set; }
 
 	/// <summary>
@@ -31,13 +31,13 @@ public class NetworksSwitchPortsProfileAssociatedSwitch
 	/// The serial of the switch
 	/// </summary>
 	[DataMember(Name = "serial")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? Serial { get; set; }
 
 	/// <summary>
 	/// The model of the switch
 	/// </summary>
 	[DataMember(Name = "model")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? Model { get; set; }
 }

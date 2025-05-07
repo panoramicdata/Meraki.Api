@@ -10,28 +10,28 @@ public class NetworksSwitchPortsProfileAssociatedPort
 	/// The ID of the switchport
 	/// </summary>
 	[DataMember(Name = "portId")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? PortId { get; set; }
 
 	/// <summary>
 	/// Switchport number
 	/// </summary>
 	[DataMember(Name = "portNum")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public int? PortNum { get; set; }
 
 	/// <summary>
 	/// Switchport name - a combination of switch name with port number
 	/// </summary>
 	[DataMember(Name = "portName")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? PortName { get; set; }
 
 	/// <summary>
 	/// The serial of parent node of the switchport
 	/// </summary>
 	[DataMember(Name = "serial")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? Serial { get; set; }
 
 	/// <summary>

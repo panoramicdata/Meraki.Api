@@ -9,15 +9,16 @@ public class NetworksSwitchPortsProfile
 	/// <summary>
 	/// ID of the profile
 	/// </summary>
+	[ApiKey]
 	[DataMember(Name = "profileId")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? ProfileId { get; set; }
 
 	/// <summary>
 	/// ID of the network the profile belongs to
 	/// </summary>
 	[DataMember(Name = "networkId")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? NetworkId { get; set; }
 
 	/// <summary>

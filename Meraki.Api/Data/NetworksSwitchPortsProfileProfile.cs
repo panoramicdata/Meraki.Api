@@ -17,6 +17,6 @@ public class NetworksSwitchPortsProfileProfile
 	/// The ID of the associated port profile
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? Id { get; set; }
 }
