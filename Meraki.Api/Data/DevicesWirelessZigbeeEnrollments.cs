@@ -4,29 +4,34 @@
 /// Response for the enrollment create request
 /// </summary>
 [DataContract]
-public class DevicesWirelessZigbeeEnrollmentsCreateResponse
+public class DevicesWirelessZigbeeEnrollments
 {
 	/// <summary>
 	/// ID to check the status of your enrollment request
 	/// </summary>
+	[ApiKey]
 	[DataMember(Name = "enrollmentId")]
-	public string? EnrollmentId { get; set; }
+	[ApiAccess(ApiAccess.Read)]
+	public string EnrollmentId { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Status of the enrollment request
 	/// </summary>
 	[DataMember(Name = "status")]
-	public string? Status { get; set; }
+	[ApiAccess(ApiAccess.Read)]
+	public string Status { get; set; } = string.Empty;
 
 	/// <summary>
 	/// GET this url to check the status of your enrollment request
 	/// </summary>
 	[DataMember(Name = "url")]
-	public string? Url { get; set; }
+	[ApiAccess(ApiAccess.Read)]
+	public string Url { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Enrollment request parameters
 	/// </summary>
 	[DataMember(Name = "request")]
-	public DevicesWirelessZigbeeEnrollmentRequest? Request { get; set; }
+	[ApiAccess(ApiAccess.Read)]
+	public DevicesWirelessZigbeeEnrollmentRequest Request { get; set; } = new();
 }

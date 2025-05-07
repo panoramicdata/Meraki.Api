@@ -10,7 +10,7 @@ public class DevicesWirelessZigbeeGateway
 	/// MR Device Name
 	/// </summary>
 	[DataMember(Name = "name")]
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Name { get; set; }
 
 	/// <summary>

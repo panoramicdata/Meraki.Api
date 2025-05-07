@@ -4,11 +4,12 @@
 /// Response from GetDeviceWirelessZigbeeEnrollmentAsync
 /// </summary>
 [DataContract]
-public class DevicesWirelessZigbeeEnrollmentsGetResponse
+public class DevicesWirelessZigbeeEnrollmentsDetailed
 {
 	/// <summary>
 	/// Id to check the status of your enrollment request
 	/// </summary>
+	[ApiKey]
 	[DataMember(Name = "enrollmentId")]
 	[ApiAccess(ApiAccess.Read)]
 	public string? EnrollmentId { get; set; }

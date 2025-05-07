@@ -45,7 +45,7 @@ public class DevicesWirelessZigbeeDoorLocks
 	/// The Door lock name
 	/// </summary>
 	[DataMember(Name = "name")]
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Name { get; set; }
 
 	/// <summary>
