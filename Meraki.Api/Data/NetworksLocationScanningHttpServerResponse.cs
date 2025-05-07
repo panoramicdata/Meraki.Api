@@ -10,6 +10,6 @@ public class NetworksLocationScanningHttpServerResponse
 	/// List of location scanning endpoints
 	/// </summary>
 	[DataMember(Name = "endpoints")]
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public List<NetworksLocationScanningHttpServerEndpoint>? Endpoints { get; set; }
 }
