@@ -8,6 +8,7 @@ public interface INetworksLocationScanning
 	/// <param name="networkId">The Network ID</param>
 	/// <param name="cancellationToken">Cancellation Token</param>
 	/// <returns></returns>
+	[ApiOperationId("getNetworkLocationScanning")]
 	[Get("/networks/{networkId}/locationScanning")]
 	Task<NetworksLocationScanning> GetNetworkLocationScanningAsync(string networkId,
 		CancellationToken cancellationToken = default);
@@ -20,6 +21,7 @@ public interface INetworksLocationScanning
 	/// <param name="networksLocationScanningRequest"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
+	[ApiOperationId("updateNetworkLocationScanning")]
 	[Put("/networks/{networkId}/locationScanning")]
 	Task<NetworksLocationScanning>
 		UpdateNetworkLocationScanningAsync(string networkId,
@@ -33,6 +35,7 @@ public interface INetworksLocationScanning
 	/// <param name="networkId">The Network ID</param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
+	[ApiOperationId("getNetworkLocationScanningHttpServers")]
 	[Get("/networks/{networkId}/locationScanning/httpServers")]
 	Task<List<NetworksLocationScanningHttpServerResponse>> GetNetworkLocationScanningHttpServersAsync(string networkId,
 			CancellationToken cancellationToken = default);
@@ -45,6 +48,7 @@ public interface INetworksLocationScanning
 	/// <param name="networksLocationScanningHttpServerUpdateRequest"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
+	[ApiOperationId("updateNetworkLocationScanningHttpServers")]
 	[Put("/networks/{networkId}/locationScanning/httpServers")]
 	Task<NetworksLocationScanningHttpServerResponse> UpdateNetworkLocationScanningHttpServersAsync(string networkId,
 		[Body] NetworksLocationScanningHttpServerUpdateRequest networksLocationScanningHttpServerUpdateRequest,
