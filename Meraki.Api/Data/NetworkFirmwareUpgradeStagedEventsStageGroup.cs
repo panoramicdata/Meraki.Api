@@ -17,7 +17,7 @@ public class NetworkFirmwareUpgradeStagedEventsStageGroup
 	/// Id of the Staged Upgrade Group
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? Id { get; set; }
 
 	/// <summary>

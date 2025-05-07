@@ -10,6 +10,5 @@ public class NetworkFirmwareUpgradeStagedEventsUpdateRequestGroup
 	/// ID of the Staged Upgrade Group
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.Update)]
 	public string Id { get; set; } = string.Empty;
 }

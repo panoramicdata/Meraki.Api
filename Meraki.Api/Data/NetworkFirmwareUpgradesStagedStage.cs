@@ -10,6 +10,6 @@ public class NetworkFirmwareUpgradesStagedStage
 	/// The Staged Upgrade Group
 	/// </summary>
 	[DataMember(Name = "group")]
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public NetworkFirmwareUpgradesStagedStageGroup? Group { get; set; }
 }

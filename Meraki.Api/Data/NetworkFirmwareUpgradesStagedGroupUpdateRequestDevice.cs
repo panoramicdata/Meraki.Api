@@ -10,13 +10,11 @@ public class NetworkFirmwareUpgradesStagedGroupUpdateRequestDevice
 	/// Name of the device
 	/// </summary>
 	[DataMember(Name = "name")]
-	[ApiAccess(ApiAccess.Update)]
 	public string? Name { get; set; }
 
 	/// <summary>
 	/// Serial of the device
 	/// </summary>
 	[DataMember(Name = "serial")]
-	[ApiAccess(ApiAccess.Update)]
 	public string? Serial { get; set; }
 }

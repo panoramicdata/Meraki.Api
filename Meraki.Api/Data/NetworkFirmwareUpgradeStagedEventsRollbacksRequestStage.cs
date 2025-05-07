@@ -10,13 +10,11 @@ public class NetworkFirmwareUpgradeStagedEventsRollbacksRequestStage
 	/// The Staged Upgrade Group containing the name and ID
 	/// </summary>
 	[DataMember(Name = "group")]
-	[ApiAccess(ApiAccess.Create)]
 	public NetworkFirmwareUpgradeStagedEventsRollbacksRequestGroup? Group { get; set; }
 
 	/// <summary>
 	/// The Staged Upgrade Milestones for the specific stage
 	/// </summary>
 	[DataMember(Name = "milestones")]
-	[ApiAccess(ApiAccess.Create)]
 	public NetworkFirmwareUpgradeStagedEventsRollbacksRequestMilestones? Milestones { get; set; }
 }

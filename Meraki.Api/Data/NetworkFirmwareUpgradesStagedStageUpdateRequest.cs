@@ -10,6 +10,5 @@ public class NetworkFirmwareUpgradesStagedStageUpdateRequest
 	/// The Staged 
 	/// </summary>
 	[DataMember(Name = "_json")]
-	[ApiAccess(ApiAccess.Update)]
 	public List<NetworkFirmwareUpgradesStagedStageUpdateStagedJsonItem>? Json { get; set; }
 }

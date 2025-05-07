@@ -10,20 +10,20 @@ public class NetworkFirmwareUpgradeStagedEventsRollbacksResponse
 	/// The network devices to be updated
 	/// </summary>
 	[DataMember(Name = "products")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public NetworkFirmwareUpdateStagedEventsProducts? Products { get; set; }
 
 	/// <summary>
 	/// Reasosn for the callback
 	/// </summary>
 	[DataMember(Name = "reasons")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public List<NetworkFirmwareUpgradeStagedEventsReason>? Reasons { get; set; }
 
 	/// <summary>
 	/// The ordered stages in the network
 	/// </summary>
 	[DataMember(Name = "stages")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public List<NetworkFirmwareUpgradeStagedEventsRollbacksResponseStage>? Stages { get; set; }
 }

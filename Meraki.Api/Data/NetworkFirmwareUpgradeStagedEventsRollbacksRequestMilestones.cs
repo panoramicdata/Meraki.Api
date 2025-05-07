@@ -10,6 +10,5 @@ public class NetworkFirmwareUpgradeStagedEventsRollbacksRequestMilestones
 	/// The start time of the staged upgrade stage. (In ISO-8601 format, in the time zone of the network.)
 	/// </summary>
 	[DataMember(Name = "scheduledFor")]
-	[ApiAccess(ApiAccess.Create)]
 	public string ScheduledFor { get; set; } = string.Empty;
 }

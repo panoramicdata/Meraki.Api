@@ -10,20 +10,20 @@ public class NetworkFirmwareUpgradeStagedEventsRollbacksResponseGroup
 	/// Description of the Staged Upgrade Group
 	/// </summary>
 	[DataMember(Name = "description")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Description { get; set; }
 
 	/// <summary>
 	/// Id of the Staged Upgrade Group
 	/// </summary>
 	[DataMember(Name = "id")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.Read)]
 	public string? Id { get; set; }
 
 	/// <summary>
 	/// Name of the Staged Upgrade Group
 	/// </summary>
 	[DataMember(Name = "name")]
-	[ApiAccess(ApiAccess.Create)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Name { get; set; }
 }

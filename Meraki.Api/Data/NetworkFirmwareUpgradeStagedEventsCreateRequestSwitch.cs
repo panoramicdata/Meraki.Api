@@ -10,6 +10,5 @@ public class NetworkFirmwareUpgradeStagedEventsCreateRequestSwitch
 	/// The next upgrade version for the switch network
 	/// </summary>
 	[DataMember(Name = "nextUpgrade")]
-	[ApiAccess(ApiAccess.Create)]
 	public NetworkFirmwareUpgradeStagedEventsCreateRequestNextUpgrade? NextUpgrade { get; set; }
 }

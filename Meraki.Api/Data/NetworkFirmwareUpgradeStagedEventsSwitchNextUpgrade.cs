@@ -10,6 +10,6 @@ public class NetworkFirmwareUpgradeStagedEventsSwitchNextUpgrade
 	/// Details of the version the device will upgrade to
 	/// </summary>
 	[DataMember(Name = "toVersion")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	public NetworkFirmwareUpgradeStagedEventsSwitchNextUpgradeToVersion? ToVersion { get; set; }
 }
