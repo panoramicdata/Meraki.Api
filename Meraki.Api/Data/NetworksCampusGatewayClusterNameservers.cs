@@ -10,6 +10,6 @@ public class NetworksCampusGatewayClusterNameservers
 	/// Addresses of the nameservers
 	/// </summary>
 	[DataMember(Name = "addresses")]
-	[ApiAccess(ApiAccess.CreateUpdate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public List<string>? Addresses { get; set; } = [];
 }

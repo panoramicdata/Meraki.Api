@@ -10,21 +10,21 @@ public class NetworksCampusGatewayClusterDeviceIPAddressWithGatewayDetailed
 	/// Gateway of the interface
 	/// </summary>
 	[DataMember(Name = "gateway")]
-	[ApiAccess(ApiAccess.CreateUpdate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? Gateway { get; set; }
 
 	/// <summary>
 	/// Protocol of the interface
 	/// </summary>
 	[DataMember(Name = "protocol")]
-	[ApiAccess(ApiAccess.CreateUpdate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public NetworksCampusGatewayClusterProtocol? Protocol { get; set; }
 
 	/// <summary>
 	/// Subnet mask of the interface
 	/// </summary>
 	[DataMember(Name = "subnetMask")]
-	[ApiAccess(ApiAccess.CreateUpdate)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? SubnetMask { get; set; }
 
 }
