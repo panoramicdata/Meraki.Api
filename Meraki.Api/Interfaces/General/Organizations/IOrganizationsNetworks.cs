@@ -62,4 +62,18 @@ public interface IOrganizationsNetworks
 		string organizationId,
 		[Body] NetworkCreationRequest createOrganizationNetwork,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Move networks from one organization to another. Note that as this is an Early Access feature it may result in unexpected behavior and is best tested with non-critical networks. For more information and caveats around network move limitations see <a href = "https://documentation.meraki.com/General_Administration/Organizations_and_Networks/Network_Portability">Network Portability</a>
+	/// </summary>
+	/// <param name="organizationId"></param>
+	/// <param name="networkMoveRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createNetworkMove")]
+	[Post("/organizations/{organizationId}/networks/moves")]
+	Task<NetworkMove> CreateNetworkMoveAsync(
+		string organizationId,
+		[Body] NetworkMoveRequest networkMoveRequest,
+		CancellationToken cancellationToken = default);
 }
