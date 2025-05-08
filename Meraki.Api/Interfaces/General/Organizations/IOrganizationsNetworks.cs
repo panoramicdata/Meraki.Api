@@ -76,4 +76,16 @@ public interface IOrganizationsNetworks
 		string organizationId,
 		[Body] NetworkMoveRequest networkMoveRequest,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Return a list of network move operations in the organization
+	/// </summary>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getNetworkMoves")]
+	[Get("/organizations/{organizationId}/networks/moves")]
+	Task<List<NetworkMoveDetailed>> GetNetworkMovesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
 }
