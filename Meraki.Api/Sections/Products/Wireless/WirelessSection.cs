@@ -16,6 +16,7 @@ public class WirelessSection
 	public IWirelessFailedConnections FailedConnections { get; internal set; } = null!;
 	public IWirelessLatencyHistory LatencyHistory { get; internal set; } = null!;
 	public IWirelessLatencyStats LatencyStats { get; internal set; } = null!;
+	public IWirelessLocation Location { get; internal set; } = null!;
 	public IWirelessMeshStatuses MeshStatuses { get; internal set; } = null!;
 	public IWirelessRfProfiles RfProfiles { get; internal set; } = null!;
 	public WirelessRadioSection Radio { get; internal set; } = new();
