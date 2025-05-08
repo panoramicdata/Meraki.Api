@@ -34,5 +34,6 @@ public partial class NetworksSection
 	public INetworksSplashLoginAttempts SplashLoginAttempts { get; internal set; } = null!;
 	public INetworksSyslogServers SyslogServers { get; internal set; } = null!;
 	public INetworksVlanProfiles VlanProfiles { get; internal set; } = null!;
+	public NetworksWirelessSection Wireless { get; internal set; } = new();
 	public NetworksWebhooksSection Webhooks { get; internal set; } = new();
 }

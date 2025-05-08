@@ -1,6 +1,6 @@
-﻿namespace Meraki.Api.Interfaces.Products.Wireless;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
-public interface IWirelessLocation
+public interface INetworksWirelessLocation
 {
 	/// <summary>
 	/// Change scanning API settings
