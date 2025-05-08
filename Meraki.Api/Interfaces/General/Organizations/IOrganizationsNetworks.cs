@@ -66,6 +66,7 @@ public interface IOrganizationsNetworks
 	/// <summary>
 	/// Move networks from one organization to another. Note that as this is an Early Access feature it may result in unexpected behavior and is best tested with non-critical networks. For more information and caveats around network move limitations see <a href = "https://documentation.meraki.com/General_Administration/Organizations_and_Networks/Network_Portability">Network Portability</a>
 	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
 	/// <param name="networkMoveRequest"></param>
 	/// <param name="cancellationToken"></param>
@@ -80,12 +81,26 @@ public interface IOrganizationsNetworks
 	/// <summary>
 	/// Return a list of network move operations in the organization
 	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("getNetworkMoves")]
 	[Get("/organizations/{organizationId}/networks/moves")]
 	Task<List<NetworkMoveDetailed>> GetNetworkMovesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Return details on the specified network move operation
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getNetworkMove")]
+	[Get("/organizations/{organizationId}/networks/moves")]
+	Task<NetworkMoveDetailed> GetNetworkMoveAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
 }
