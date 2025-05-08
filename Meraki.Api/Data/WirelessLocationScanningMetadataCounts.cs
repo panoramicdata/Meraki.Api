@@ -4,12 +4,12 @@
 /// Counts relating to the paginated dataset
 /// </summary>
 [DataContract]
-public class WirelessLocationScanningByNetworkMetadataCounts
+public class WirelessLocationScanningMetadataCounts
 {
 	/// <summary>
 	/// Counts relating to the paginated items
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "items")]
-	public WirelessLocationScanningByNetworkMetadataCountsItems Items { get; set; } = new();
+	public WirelessLocationScanningMetadataCountsItems Items { get; set; } = new();
 }

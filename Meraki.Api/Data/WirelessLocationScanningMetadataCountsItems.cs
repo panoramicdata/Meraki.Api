@@ -4,7 +4,7 @@
 /// Counts relating to the paginated items
 /// </summary>
 [DataContract]
-public class WirelessLocationScanningByNetworkMetadataCountsItems
+public class WirelessLocationScanningMetadataCountsItems
 {
 	/// <summary>
 	/// The number of items in the dataset that are available on subsequent pages

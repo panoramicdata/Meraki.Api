@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Wireless Location Scanning By Network
+/// Wireless Location Scanning Receivers
 /// </summary>
 [DataContract]
-public class WirelessLocationScanningByNetwork
+public class WirelessLocationScanningReceivers
 {
 	/// <summary>
 	/// Metadata relevant to the paginated dataset
@@ -14,9 +14,9 @@ public class WirelessLocationScanningByNetwork
 	public WirelessLocationScanningMetadata Meta { get; set; } = new();
 
 	/// <summary>
-	/// Paginated list of scanning settings by network ID
+	/// Paginated list of scanning api receivers by network ID
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "items")]
-	public List<WirelessLocationScanningByNetworkItem> Items { get; set; } = [];
+	public List<WirelessReceiver> Items { get; set; } = [];
 }
