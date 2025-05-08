@@ -61,5 +61,7 @@ public partial class OrganizationsSection
 
 	public OrganizationsWebhooksSection Webhooks { get; internal set; } = new();
 
+	public OrganizationsWirelessSection Wireless { get; internal set; } = new();
+
 	public OrganizationBrandingPoliciesSection BrandingPolicies { get; internal set; } = new();
 }
