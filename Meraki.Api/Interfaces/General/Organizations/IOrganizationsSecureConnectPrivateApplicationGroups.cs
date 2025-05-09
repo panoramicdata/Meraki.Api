@@ -33,15 +33,15 @@ public interface IOrganizationsSecureConnectPrivateApplicationGroups
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
-	/// <param name="applicationGroupId"></param>
+	/// <param name="id"></param>
 	/// <param name="secureConnectPrivateAppplicationGroup"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("updateOrganizationSecureConnectPrivateApplicationGroup")]
-	[Put("/organizations/{organizationId}/secureConnect/privateApplicationGroups/{applicationGroupId}")]
+	[Put("/organizations/{organizationId}/secureConnect/privateApplicationGroups/{id}")]
 	Task<SecureConnectPrivateApplicationGroup> UpdateOrganizationSecureConnectPrivateApplicationGroupAsync(
 		string organizationId,
-		string applicationGroupId,
+		string id,
 		[Body] SecureConnectPrivateApplicationGroupUpdateRequest secureConnectPrivateAppplicationGroup,
 		CancellationToken cancellationToken = default
 		);
@@ -51,14 +51,14 @@ public interface IOrganizationsSecureConnectPrivateApplicationGroups
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
-	/// <param name="applicationGroupId"></param>
+	/// <param name="id"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationSecureConnectPrivateApplicationGroup")]
-	[Get("/organizations/{organizationId}/secureConnect/privateApplicationGroups/{applicationGroupId}")]
+	[Get("/organizations/{organizationId}/secureConnect/privateApplicationGroups/{id}")]
 	Task<SecureConnectPrivateApplicationGroup> GetOrganizationSecureConnectPrivateApplicationGroupAsync(
 		string organizationId,
-		string applicationGroupId,
+		string id,
 		CancellationToken cancellationToken = default
 		);
 
@@ -67,15 +67,15 @@ public interface IOrganizationsSecureConnectPrivateApplicationGroups
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
-	/// <param name="applicationGroupId"></param>
+	/// <param name="id"></param>
 	/// <param name="secureConnectPrivateAppplicationGroup"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("deleteOrganizationSecureConnectPrivateApplicationGroup")]
-	[Delete("/organizations/{organizationId}/secureConnect/privateApplicationGroups/{applicationGroupId}")]
+	[Delete("/organizations/{organizationId}/secureConnect/privateApplicationGroups/{id}")]
 	Task DeleteOrganizationSecureConnectPrivateApplicationGroupAsync(
 		string organizationId,
-		string applicationGroupId,
+		string id,
 		[Body] SecureConnectPrivateApplicationGroupDeleteRequest secureConnectPrivateAppplicationGroup,
 		CancellationToken cancellationToken = default
 		);
