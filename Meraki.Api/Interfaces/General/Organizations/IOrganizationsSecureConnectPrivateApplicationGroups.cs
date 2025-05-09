@@ -61,4 +61,22 @@ public interface IOrganizationsSecureConnectPrivateApplicationGroups
 		string applicationGroupId,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Deletes private application group from an Organization. Detaches application from groups before deleting
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="applicationGroupId"></param>
+	/// <param name="secureConnectPrivateAppplicationGroup"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSecureConnectPrivateApplicationGroup")]
+	[Delete("/organizations/{organizationId}/secureConnect/privateApplicationGroups/{applicationGroupId}")]
+	Task DeleteOrganizationSecureConnectPrivateApplicationGroupAsync(
+		string organizationId,
+		string applicationGroupId,
+		[Body] SecureConnectPrivateApplicationGroupDeleteRequest secureConnectPrivateAppplicationGroup,
+		CancellationToken cancellationToken = default
+		);
 }
