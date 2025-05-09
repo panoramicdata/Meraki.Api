@@ -30,4 +30,16 @@ public interface IOrganizationsSecureConnectPrivateApplications
 		[Body] SecureConnectPrivateApplicationCreateRequest secureConnectPrivateApplication,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Return the details of a specific private application
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSecureConnectPrivateApplication")]
+	[Get("/organizations/{organizationId}/secureConnect/privateApplications/{id}")]
+	Task<SecureConnectPrivateApplication> GetOrganizationSecureConnectPrivateApplicationAsync(string organizationId, string id, CancellationToken cancellationToken = default);
 }
