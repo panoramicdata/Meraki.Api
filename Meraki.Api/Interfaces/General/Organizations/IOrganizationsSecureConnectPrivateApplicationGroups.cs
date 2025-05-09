@@ -45,4 +45,20 @@ public interface IOrganizationsSecureConnectPrivateApplicationGroups
 		[Body] SecureConnectPrivateApplicationGroupUpdateRequest secureConnectPrivateAppplicationGroup,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Return the details of a specific private application group
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="applicationGroupId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSecureConnectPrivateApplicationGroup")]
+	[Get("/organizations/{organizationId}/secureConnect/privateApplicationGroups/{applicationGroupId}")]
+	Task<SecureConnectPrivateApplicationGroup> GetOrganizationSecureConnectPrivateApplicationGroupAsync(
+		string organizationId,
+		string applicationGroupId,
+		CancellationToken cancellationToken = default
+		);
 }
