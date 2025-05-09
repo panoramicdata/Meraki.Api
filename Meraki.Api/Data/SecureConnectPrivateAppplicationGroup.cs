@@ -4,7 +4,7 @@
 /// private application group for an Organization
 /// </summary>
 [DataContract]
-public class PrivateAppplicationGroup
+public class SecureConnectPrivateAppplicationGroup
 {
 	/// <summary>
 	/// Application Group resource ID, use this ID as reference for subsequent requests

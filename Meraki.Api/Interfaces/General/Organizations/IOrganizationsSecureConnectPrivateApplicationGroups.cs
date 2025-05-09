@@ -10,5 +10,5 @@ public interface IOrganizationsSecureConnectPrivateApplicationGroups
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationSecureConnectPrivateApplicationGroups")]
 	[Get("/organizations/{organizationId}/secureConnect/privateApplicationGroups")]
-	Task<PrivateAppplicationGroups> GetOrganizationSecureConnectPrivateApplicationGroupsAsync(string organizationId, CancellationToken cancellationToken = default);
+	Task<SecureConnectPrivateAppplicationGroups> GetOrganizationSecureConnectPrivateApplicationGroupsAsync(string organizationId, CancellationToken cancellationToken = default);
 }

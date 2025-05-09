@@ -4,7 +4,7 @@
 /// Meta data details about result
 /// </summary>
 [DataContract]
-public class PrivateAppplicationGroupsMetadata
+public class SecureConnectPrivateAppplicationGroupsMetadata
 {
 	/// <summary>
 	/// Total count of private application groups
