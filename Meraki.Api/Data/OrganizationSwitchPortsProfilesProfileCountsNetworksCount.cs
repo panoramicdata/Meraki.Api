@@ -4,7 +4,7 @@
 /// The number of networks associated to this profile
 /// </summary>
 [DataContract]
-public class OrganizationSwitchPortsProfilesOverviewByProfileItemCountsNetworksCount
+public class OrganizationSwitchPortsProfilesProfileCountsNetworksCount
 {
 	/// <summary>
 	/// The number of networks that are part of exclusion list

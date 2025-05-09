@@ -18,5 +18,5 @@ public class OrganizationSwitchPortsProfilesOverviewByProfile
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "items")]
-	public List<OrganizationSwitchPortsProfilesOverviewByProfileItem> Items { get; set; } = [];
+	public List<OrganizationSwitchPortsProfilesProfile> Items { get; set; } = [];
 }

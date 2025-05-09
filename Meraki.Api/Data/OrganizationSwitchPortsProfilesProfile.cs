@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Profile overview of a switch port in an organization
+/// Profile of a switch port in an organization
 /// </summary>
 [DataContract]
-public class OrganizationSwitchPortsProfilesOverviewByProfileItem
+public class OrganizationSwitchPortsProfilesProfile
 {
 	/// <summary>
 	/// RBAC -> access computed based on current user's administered networks & associated networks w.r.t switch port profiles
@@ -60,19 +60,19 @@ public class OrganizationSwitchPortsProfilesOverviewByProfileItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "counts")]
-	public OrganizationSwitchPortsProfilesOverviewByProfileItemCounts Counts { get; set; } = new();
+	public OrganizationSwitchPortsProfilesProfileCounts Counts { get; set; } = new();
 
 	/// <summary>
 	/// Network attributes
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "network")]
-	public OrganizationSwitchPortsProfilesOverviewByProfileItemNetwork Network { get; set; } = new();
+	public OrganizationSwitchPortsProfilesProfileNetwork Network { get; set; } = new();
 
 	/// <summary>
 	/// Object of Associated Networks
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "networks")]
-	public OrganizationSwitchPortsProfilesOverviewByProfileItemNetworks Networks { get; set; } = new();
+	public OrganizationSwitchPortsProfilesProfileNetworks Networks { get; set; } = new();
 }

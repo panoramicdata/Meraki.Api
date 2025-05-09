@@ -4,7 +4,7 @@
 /// Object of Associated Networks
 /// </summary>
 [DataContract]
-public class OrganizationSwitchPortsProfilesOverviewByProfileItemNetworks
+public class OrganizationSwitchPortsProfilesProfileNetworks
 {
 	/// <summary>
 	/// Determines whether network is included or excluded in smart port profile based on isOrganizationWide Flag.
@@ -18,5 +18,5 @@ public class OrganizationSwitchPortsProfilesOverviewByProfileItemNetworks
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "values")]
-	public List<OrganizationSwitchPortsProfilesOverviewByProfileItemNetworksNetwork> Values { get; set; } = [];
+	public List<OrganizationSwitchPortsProfilesProfileNetworksNetwork> Values { get; set; } = [];
 }

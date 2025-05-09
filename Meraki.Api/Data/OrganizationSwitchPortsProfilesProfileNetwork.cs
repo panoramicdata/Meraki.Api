@@ -4,7 +4,7 @@
 /// Network attributes
 /// </summary>
 [DataContract]
-public class OrganizationSwitchPortsProfilesOverviewByProfileItemNetwork
+public class OrganizationSwitchPortsProfilesProfileNetwork
 {
 	/// <summary>
 	/// The ID of the network

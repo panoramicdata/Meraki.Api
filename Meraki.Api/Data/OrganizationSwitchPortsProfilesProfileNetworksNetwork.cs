@@ -4,7 +4,7 @@
 /// An associated network
 /// </summary>
 [DataContract]
-public class OrganizationSwitchPortsProfilesOverviewByProfileItemNetworksNetwork
+public class OrganizationSwitchPortsProfilesProfileNetworksNetwork
 {
 	/// <summary>
 	/// The ID of the network / associated node group

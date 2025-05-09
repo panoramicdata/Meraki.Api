@@ -4,7 +4,7 @@
 /// Counts of switches and ports assigned to this profile
 /// </summary>
 [DataContract]
-public class OrganizationSwitchPortsProfilesOverviewByProfileItemCountsAssigned
+public class OrganizationSwitchPortsProfilesProfileCountsAssigned
 {
 	/// <summary>
 	/// The number of automations assigned to this profile
