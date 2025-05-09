@@ -111,6 +111,16 @@ public interface IOrganizationSwitches
 	);
 
 	/// <summary>
+	/// List the port profiles in an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSwitchPortsProfilesOverviewByProfile")]
+	[Get("/organizations/{organizationId}/switch/ports/profiles/overview/byProfile")]
+	Task<OrganizationSwitchPortsProfilesOverviewByProfile> GetOrganizationSwitchPortsProfilesOverviewByProfile(string organizationId, CancellationToken cancellationToken);
+	/// <summary>
 	/// List the historical usage and traffic data of switchports in an organization.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
