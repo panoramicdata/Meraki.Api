@@ -10,5 +10,21 @@ public interface IOrganizationsSecureConnectPrivateApplicationGroups
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationSecureConnectPrivateApplicationGroups")]
 	[Get("/organizations/{organizationId}/secureConnect/privateApplicationGroups")]
-	Task<SecureConnectPrivateAppplicationGroups> GetOrganizationSecureConnectPrivateApplicationGroupsAsync(string organizationId, CancellationToken cancellationToken = default);
+	Task<SecureConnectPrivateApplicationGroups> GetOrganizationSecureConnectPrivateApplicationGroupsAsync(string organizationId, CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Creates a group of private applications to apply to policy. A maximum of 300 private application groups are allowed for an organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="secureConnectPrivateAppplicationGroup"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationSecureConnectPrivateApplicationGroup")]
+	[Post("/organizations/{organizationId}/secureConnect/privateApplicationGroups")]
+	Task<SecureConnectPrivateApplicationGroup> CreateOrganizationSecureConnectPrivateApplicationGroupAsync(
+		string organizationId,
+		[Body] SecureConnectPrivateApplicationGroupCreateRequest secureConnectPrivateAppplicationGroup,
+		CancellationToken cancellationToken = default
+		);
 }
