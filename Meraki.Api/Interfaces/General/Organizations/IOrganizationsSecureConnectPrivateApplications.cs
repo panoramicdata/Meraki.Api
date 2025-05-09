@@ -56,4 +56,18 @@ public interface IOrganizationsSecureConnectPrivateApplications
 	[Put("/organizations/{organizationId}/secureConnect/privateApplications/{id}")]
 	Task<SecureConnectPrivateApplication> UpdateOrganizationSecureConnectPrivateApplicationAsync(string organizationId, string id, [Body] SecureConnectPrivateApplicationUpdateRequest secureConnectPrivateApplication, CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Deletes a specific private application. Delink the application from any application groups before deleting the app. Cascade delete application group if this is the only application in the group.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="secureConnectPrivateApplicationDeleteRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSecureConnectPrivateApplication")]
+	[Delete("/organizations/{organizationId}/secureConnect/privateApplications/{id}")]
+	Task DeleteOrganizationSecureConnectPrivateApplicationAsync(string organizationId, string id, [Body] SecureConnectPrivateApplicationDeleteRequest secureConnectPrivateApplicationDeleteRequest, CancellationToken cancellationToken = default
+		);
 }
