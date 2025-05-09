@@ -29,4 +29,19 @@ public interface IOrganizationsWirelessLocationScanning
 		string organizationId,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Add new receiver for scanning API
+	/// </summary>
+	/// <param name="organizationId"></param>
+	/// <param name="wirelessReceiverCreateRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationWirelessLocationScanningReceiver")]
+	[Post("/organizations/{organizationId}/wireless/location/scanning/receivers")]
+	Task<WirelessReceiver> CreateOrganizationWirelessLocationScanningReceiverAsync(
+		string organizationId,
+		[Body] WirelessReceiverCreateRequest wirelessReceiverCreateRequest,
+		CancellationToken cancellationToken = default
+		);
 }
