@@ -1,5 +1,4 @@
-﻿
-namespace Meraki.Api.Sections.Products.Wireless;
+﻿namespace Meraki.Api.Sections.Products.Wireless;
 
 public class WirelessSection
 {

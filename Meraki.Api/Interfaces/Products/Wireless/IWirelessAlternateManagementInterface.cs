@@ -10,6 +10,7 @@ public interface IWirelessAlternateManagementInterface
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken">Cancellation Token</param>
 	[Get("/networks/{networkId}/wireless/alternateManagementInterface")]
 	Task<WirelessAlternateManagementInterface> GetNetworkWirelessAlternateManagementInterfaceAsync(
 		string networkId,
@@ -22,6 +23,7 @@ public interface IWirelessAlternateManagementInterface
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkWirelessAlternateManagementInterface"></param>
+	/// <param name="cancellationToken">Cancellation Token</param>
 	[Put("/networks/{networkId}/wireless/alternateManagementInterface")]
 	Task<WirelessAlternateManagementInterface> UpdateNetworkWirelessAlternateManagementInterfaceAsync(
 		string networkId,

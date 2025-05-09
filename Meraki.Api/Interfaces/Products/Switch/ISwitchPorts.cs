@@ -104,4 +104,15 @@ public interface ISwitchPorts
 		string serial,
 		[Body] DeviceSwitchPortsCycleRequest deviceSwitchPortsCycleRequest,
 		CancellationToken cancellationToken = default);
+	/// <summary>
+	/// Update a port mirror
+	/// </summary>
+	/// <param name="serial">The serial number</param>
+	/// <param name="deviceSwitchPortsMirrorUpdateRequest">Body for updating switch ports mirror</param>
+	/// <returns></returns>
+	[Put("/devices/{serial}/switch/ports/mirror")]
+	Task<DeviceSwitchPortsMirrorUpdateResponse> UpdateDeviceSwitchPortsMirrorAsync(
+		string serial,
+		[Body] DeviceSwitchPortsMirrorUpdateRequest deviceSwitchPortsMirrorUpdateRequest,
+		CancellationToken cancellationToken = default);
 }
