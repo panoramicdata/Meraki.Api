@@ -4,6 +4,7 @@
 /// DeviceSwitchPortsMirrorUpdateResponse
 /// </summary>
 [DataContract]
+[ApiAccessReadOnlyClass]
 public class DeviceSwitchPortsMirrorUpdateResponse
 {
 	/// <summary>

@@ -75,5 +75,11 @@ public enum AuthMode
 	/// IPSK without RADIUS
 	/// </summary>
 	[EnumMember(Value = "ipsk-without-radius")]
-	IpskWithoutRadius
+	IpskWithoutRadius,
+
+	/// <summary>
+	/// IPSK with NAC
+	/// </summary>
+	[EnumMember(Value = "ipsk-with-nac")]
+	IpskWithNac
 }

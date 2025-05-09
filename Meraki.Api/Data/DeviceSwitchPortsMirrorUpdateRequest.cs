@@ -32,9 +32,9 @@ public class DeviceSwitchPortsMirrorUpdateRequest
 
 	/// <inheritdoc cref="DeviceSwitchPortMirrorDestination"/>
 	[DataMember(Name = "destination")]
-	public DeviceSwitchPortMirrorDestination Destination { get; set; }
+	public DeviceSwitchPortMirrorDestination Destination { get; set; } = new();
 
 	/// <inheritdoc cref="DeviceSwitchPortMirrorSource"/>
 	[DataMember(Name = "source")]
-	public DeviceSwitchPortMirrorSource Source { get; set; }
+	public DeviceSwitchPortMirrorSource Source { get; set; } = new();
 }

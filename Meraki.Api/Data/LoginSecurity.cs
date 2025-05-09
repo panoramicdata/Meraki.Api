@@ -96,4 +96,11 @@ public class LoginSecurity
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "apiAuthentication")]
 	public ApiAuthentication? ApiAuthentication { get; set; } = new();
+
+	/// <summary>
+	/// The minimum number of characters required in admins' passwords.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "minimumPasswordLength")]
+	public int? MinimumPasswordLength { get; set; }
 }

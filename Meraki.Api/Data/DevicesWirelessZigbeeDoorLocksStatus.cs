@@ -4,7 +4,7 @@
 /// The Door lock status
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
-public enum DeviceWirelessZigbeeDoorLocksStatus
+public enum DevicesWirelessZigbeeDoorLocksStatus
 {
 	/// <summary>
 	/// Offline
@@ -17,5 +17,4 @@ public enum DeviceWirelessZigbeeDoorLocksStatus
 	/// </summary>
 	[EnumMember(Value = "online")]
 	Online
-
 }

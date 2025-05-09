@@ -1,5 +1,23 @@
 ﻿# Changelog
 
+## 1.56.21
+- Added minimumPasswordLength to Organization admin security
+- Added MV84X video resolution details
+- Added NetworkType to OSPF Settings
+- Added MacWhitelistLimit to switch port
+
+## 1.56.20
+- Added ipsk-with-nac for appliance SSID security type
+
+## 1.56.19
+- Updates for missing serial number/product type determination
+
+## 1.56.18
+- Updates for missing serial number/product type determination
+
+## 1.56.17
+- Updates for missing serial number/product type determination
+
 ## 1.56.13
 
 - Updated for 1.56 API changes

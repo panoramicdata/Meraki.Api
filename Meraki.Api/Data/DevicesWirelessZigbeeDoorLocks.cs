@@ -67,7 +67,7 @@ public class DevicesWirelessZigbeeDoorLocks
 	/// </summary>
 	[DataMember(Name = "status")]
 	[ApiAccess(ApiAccess.Read)]
-	public DeviceWirelessZigbeeDoorLocksStatus? Status { get; set; }
+	public DevicesWirelessZigbeeDoorLocksStatus? Status { get; set; }
 
 	/// <summary>
 	/// Gateway this door lock is connected to
