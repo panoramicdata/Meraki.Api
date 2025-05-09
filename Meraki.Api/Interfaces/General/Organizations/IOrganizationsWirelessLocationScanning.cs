@@ -33,6 +33,7 @@ public interface IOrganizationsWirelessLocationScanning
 	/// <summary>
 	/// Add new receiver for scanning API
 	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
 	/// <param name="wirelessReceiverCreateRequest"></param>
 	/// <param name="cancellationToken"></param>
@@ -48,6 +49,7 @@ public interface IOrganizationsWirelessLocationScanning
 	/// <summary>
 	/// Change scanning API receiver settings
 	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
 	/// <param name="receiverId"></param>
 	/// <param name="wirelessReceiverCreateRequest"></param>
@@ -59,6 +61,22 @@ public interface IOrganizationsWirelessLocationScanning
 		string organizationId,
 		string receiverId,
 		[Body] WirelessReceiverUpdateRequest wirelessReceiverCreateRequest,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Delete a scanning API receiver
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="receiverId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationWirelessLocationScanningReceiver")]
+	[Delete("/organizations/{organizationId}/wireless/location/scanning/receivers/{receiverId}")]
+	Task DeleteOrganizationWirelessLocationScanningReceiverAsync(
+		string organizationId,
+		string receiverId,
 		CancellationToken cancellationToken = default
 		);
 }
