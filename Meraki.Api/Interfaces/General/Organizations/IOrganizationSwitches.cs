@@ -119,7 +119,23 @@ public interface IOrganizationSwitches
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationSwitchPortsProfiles")]
 	[Get("/organizations/{organizationId}/switch/ports/profiles")]
-	Task<List<OrganizationSwitchPortsProfilesProfile>> GetOrganizationSwitchPortsProfilesProfilesAsync(string organizationId, CancellationToken cancellationToken = default);
+	Task<List<OrganizationSwitchPortsProfilesProfile>> GetOrganizationSwitchPortsProfilesAsync(string organizationId, CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Create a port profile in an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="organizationSwitchPortsProfilesProfile"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationSwitchPortsProfile")]
+	[Post("/organizations/{organizationId}/switch/ports/profiles")]
+	Task<OrganizationSwitchPortsProfilesProfileDetailed> CreateOrganizationSwitchPortsProfilesAsync(
+		string organizationId,
+		[Body] OrganizationSwitchPortsProfilesProfileCreateRequest organizationSwitchPortsProfilesProfile,
+		CancellationToken cancellationToken = default
+		);
 
 	/// <summary>
 	/// List the port profiles in an organization
