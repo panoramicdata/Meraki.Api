@@ -28,4 +28,22 @@ public interface IWirelessZigbee
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Endpoint to update zigbee gateways
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="organizationZigbeeDeviceUpdate"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationWirelessZigbeeDevice")]
+	[Put("/organizations/{organizationId}/wireless/zigbee/devices/{id}")]
+	Task<OrganizationZigbeeDevice> UpdateOrganizationZigbeeDeviceAsync(
+		string organizationId,
+		string id,
+		[Body] OrganizationZigbeeDeviceUpdateRequest organizationZigbeeDeviceUpdate,
+		CancellationToken cancellationToken = default
+	);
 }
