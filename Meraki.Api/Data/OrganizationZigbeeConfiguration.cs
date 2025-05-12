@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Organization Zigbee
+/// Organization Zigbee Configuration
 /// </summary>
 [DataContract]
-public class OrganizationZigbee
+public class OrganizationZigbeeConfiguration
 {
 	/// <summary>
 	/// If Zigbee is enabled for the network

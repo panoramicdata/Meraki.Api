@@ -1,10 +1,30 @@
 ﻿namespace Meraki.Api.Interfaces.General.Organizations;
 public interface IWirelessZigbee
 {
+	/// <summary>
+	/// Return list of Zigbee configs
+	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
 	[ApiOperationId("getOrganizationWirelessZigbeeByNetwork")]
 	[Get("/organizations/{organizationId}/wireless/zigbee/byNetwork")]
-	Task<List<OrganizationZigbee>> GetOrganizationZigbeesByNetworkAsync(
+	Task<List<OrganizationZigbeeConfiguration>> GetOrganizationZigbeesByNetworkAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
+
+	/// <summary>
+	/// List the Zigbee MR Nodes for and organization or the supplied network(s)
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessZigbeeDevices")]
+	[Get("/organizations/{organizationId}/wireless/zigbee/devices")]
+	Task<List<OrganizationZigbeeDevice>> GetOrganizationZigbeeDevicesAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
