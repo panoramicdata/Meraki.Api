@@ -92,4 +92,22 @@ public interface IWirelessZigbee
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Endpoint to bulk update door locks params
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="organizationZigbeeDoorLockUpdateRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationWirelessZigbeeDoorLock")]
+	[Put("/organizations/{organizationId}/wireless/zigbee/doorLocks/{id}")]
+	Task<OrganizationZigbeeDoorLockDetailed> UpdateOrganizationWirelessZigbeeDoorLockAsync(
+		string organizationId,
+		string id,
+		[Body] OrganizationZigbeeDoorLockUpdateRequest organizationZigbeeDoorLockUpdateRequest,
+		CancellationToken cancellationToken = default
+	);
 }
