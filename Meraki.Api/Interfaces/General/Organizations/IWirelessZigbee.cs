@@ -62,4 +62,20 @@ public interface IWirelessZigbee
 		[Body] OrganizationZigbeeDisenrollmentRequest organizationZigbeeDisenrollmentRequest,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Return a disenrollment job
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessZigbeeDisenrollment")]
+	[Get("/organizations/{organizationId}/wireless/zigbee/disenrollments/{id}")]
+	Task<OrganizationZigbeeDisenrollmentDetailed> GetOrganizationWirelessZigbeeDisenrollmentAsync(
+		string organizationId,
+		string id,
+		CancellationToken cancellationToken = default
+	);
 }
