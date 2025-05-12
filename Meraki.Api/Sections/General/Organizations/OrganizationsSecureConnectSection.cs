@@ -4,4 +4,6 @@ public class OrganizationsSecureConnectSection
 	public IOrganizationsSecureConnectPrivateApplications PrivateApplications { get; internal set; } = null!;
 
 	public IOrganizationsSecureConnectPrivateApplicationGroups PrivateApplicationGroups { get; internal set; } = null!;
+
+	public IOrganizationsSecureConnectSites Sites { get; internal set; } = null!;
 }
