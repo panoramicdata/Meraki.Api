@@ -78,4 +78,18 @@ public interface IWirelessZigbee
 		string id,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Return the list of doorlocks for a network
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessZigbeeDoorLocks")]
+	[Get("/organizations/{organizationId}/wireless/zigbee/doorLocks")]
+	Task<List<OrganizationZigbeeDoorLockDetailed>> GetOrganizationWirelessZigbeeDoorLocksAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
