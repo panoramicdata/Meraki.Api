@@ -2,4 +2,6 @@
 public class OrganizationsWirelessSection
 {
 	public IOrganizationsWirelessLocationScanning LocationScanning { get; internal set; }
+
+	public IWirelessZigbee Zigbee { get; internal set; }
 }
