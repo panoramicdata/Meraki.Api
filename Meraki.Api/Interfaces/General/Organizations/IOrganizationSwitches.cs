@@ -172,6 +172,22 @@ public interface IOrganizationSwitches
 		);
 
 	/// <summary>
+	/// Delete a port profile from an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSwitchPortsProfile")]
+	[Delete("/organizations/{organizationId}/switch/ports/profiles/{id}")]
+	Task DeleteOrganizationSwitchPortsProfileAsync(
+		string organizationId,
+		string id,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// List the port profiles in an organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
