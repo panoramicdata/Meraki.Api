@@ -46,4 +46,20 @@ public interface IWirelessZigbee
 		[Body] OrganizationZigbeeDeviceUpdateRequest organizationZigbeeDeviceUpdate,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Enqueue a job to start disenrolling doorlocks on zigbee configured MRs
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="organizationZigbeeDisenrollmentRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationWirelessZigbeeDisenrollment")]
+	[Post("/organizations/{organizationId}/wireless/zigbee/disenrollments")]
+	Task<OrganizationZigbeeDisenrollment> CreateOrganizationWirelessZigbeeDisenrollmentAsync(
+		string organizationId,
+		[Body] OrganizationZigbeeDisenrollmentRequest organizationZigbeeDisenrollmentRequest,
+		CancellationToken cancellationToken = default
+	);
 }
