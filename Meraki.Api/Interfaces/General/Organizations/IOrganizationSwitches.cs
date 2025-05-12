@@ -202,6 +202,22 @@ public interface IOrganizationSwitches
 		);
 
 	/// <summary>
+	/// Create a port profile automation for an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="organizationSwitchPortsProfilesProfileAutomation"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationSwitchPortsProfilesAutomation")]
+	[Post("/organizations/{organizationId}/switch/ports/profiles/automations")]
+	Task<OrganizationSwitchPortsProfileAutomationItem> CreateOrganizationSwitchPortsProfilesAutomationAsync(
+		string organizationId,
+		[Body] OrganizationSwitchPortsProfileAutomationCreateRequest organizationSwitchPortsProfilesProfileAutomation,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// List the port profiles in an organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
