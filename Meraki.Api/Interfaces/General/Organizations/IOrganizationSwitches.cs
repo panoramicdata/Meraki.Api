@@ -234,6 +234,23 @@ public interface IOrganizationSwitches
 		[Body] OrganizationSwitchPortsProfileAutomationUpdateRequest organizationSwitchPortsProfilesProfileAutomation,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Delete an automation port profile from an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSwitchPortsProfilesAutomation")]
+	[Delete("/organizations/{organizationId}/switch/ports/profiles/automations/{id}")]
+	Task DeleteOrganizationSwitchPortsProfilesAutomationAsync(
+		string organizationId,
+		string id,
+		CancellationToken cancellationToken = default
+		);
+
 	/// <summary>
 	/// List the port profiles in an organization
 	/// </summary>
