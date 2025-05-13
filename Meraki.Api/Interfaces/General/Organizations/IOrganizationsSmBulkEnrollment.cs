@@ -50,4 +50,20 @@ public interface IOrganizationsSmBulkEnrollment
 		[Body] OrganizationSmBulkEnrollmentTokenUpdateRequest organizationSmBulkEnrollmentToken,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Delete a PccBulkEnrollmentToken
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="tokenId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSmBulkEnrollmentToken")]
+	[Delete("/organizations/{organizationId}/sm/bulkEnrollment/token/{tokenId}")]
+	Task DeleteOrganizationSmBulkEnrollmentTokenAsync(
+		string organizationId,
+		string tokenId,
+		CancellationToken cancellationToken = default
+		);
 }
