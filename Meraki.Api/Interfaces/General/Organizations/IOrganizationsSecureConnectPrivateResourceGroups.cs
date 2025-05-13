@@ -48,4 +48,20 @@ public interface IOrganizationsSecureConnectPrivateResourceGroups
 		SecureConnectPrivateResourceGroupUpdateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Deletes a specific private resource group.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSecureConnectPrivateResourceGroup")]
+	[Delete("/organizations/{organizationId}/secureConnect/privateResourceGroups/{id}")]
+	Task DeleteOrganizationSecureConnectPrivateResourceGroupAsync(
+		string organizationId,
+		string id,
+		CancellationToken cancellationToken = default
+	);
 }
