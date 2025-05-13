@@ -30,4 +30,18 @@ public interface IOrganizationsSecureConnectPrivateResources
 		SecureConnectPrivateResourcesCreateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Updates a specific private resource group.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationSecureConnectPrivateResource")]
+	[Put("/organizations/{organizationId}/secureConnect/privateResourceGroups/{id}")]
+	Task<SecureConnectPrivateResourcesDataItemUpdateResponse> UpdateOrganizationSecureConnectPrivateResourceAsync(string organizationId,
+		SecureConnectPrivateResourcesUpdateRequest request,
+		CancellationToken cancellationToken = default);
 }
