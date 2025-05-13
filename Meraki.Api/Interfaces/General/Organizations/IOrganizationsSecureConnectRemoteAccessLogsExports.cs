@@ -46,4 +46,18 @@ public interface IOrganizationsSecureConnectRemoteAccessLogsExports
 		SecureConnectRemoteAccessLogsExportsCreateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Redirects to the download link of the completed export.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSecureConnectRemoteAccessLogsExportsDownload")]
+	[Get("/organizations/{organizationId}/secureConnect/remoteAccessLogsExports/download")]
+	Task<SecureConnectRemoteAccessLogsExportDownload> GetOrganizationSecureConnectRemoteAccessLogsExportsDownloadAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
