@@ -10,7 +10,7 @@ public class SecureConnectSiteCreateRequest
 	/// Details for the callback. Please include either an httpServerId OR url and sharedSecret
 	/// </summary>
 	[DataMember(Name = "callback")]
-	public SecureConnectSiteCreateRequestCallback? Callback { get; set; }
+	public SecureConnectSiteCallback? Callback { get; set; }
 
 	/// <summary>
 	/// List of Meraki SD-WAN sites with the associated regions to be enrolled.

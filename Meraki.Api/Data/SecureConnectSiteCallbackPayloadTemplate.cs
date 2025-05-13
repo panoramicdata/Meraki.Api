@@ -4,7 +4,7 @@
 /// The payload template of the webhook used for the callback
 /// </summary>
 [DataContract]
-public class SecureConnectSiteCreateRequestPayloadTemplate
+public class SecureConnectSiteCallbackPayloadTemplate
 {
 	/// <summary>
 	/// The ID of the payload template. Defaults to 'wpt_00005' for the Callback (included) template.

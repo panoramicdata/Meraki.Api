@@ -11,7 +11,7 @@ public interface IOrganizationsSecureConnectSites
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationSecureConnectSites")]
 	[Get("/organizations/{organizationId}/secureConnect/sites")]
-	Task<SecureConnectSitesResponse> GetSecureConnectSitesAsync(
+	Task<SecureConnectSitesResponse> GetOrganizationSecureConnectSitesAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
@@ -26,9 +26,25 @@ public interface IOrganizationsSecureConnectSites
 	/// <returns></returns>
 	[ApiOperationId("createOrganizationSecureConnectSite")]
 	[Post("/organizations/{organizationId}/secureConnect/sites")]
-	Task<SecureConnectSiteCreateResponse> CreateSecureConnectSiteAsync(
+	Task<SecureConnectSiteCreateResponse> CreateOrganizationSecureConnectSiteAsync(
 		string organizationId,
 		[Body] SecureConnectSiteCreateRequest secureConnectSite,
+		CancellationToken cancellationToken = default
+	);
+
+	/// <summary>
+	/// Detach given sites from Secure Connect
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="secureConnectSite"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSecureConnectSite")]
+	[Delete("/organizations/{organizationId}/secureConnect/sites")]
+	Task<SecureConnectSiteDeleteResponse> DeleteOrganizationSecureConnectSiteAsync(
+		string organizationId,
+		[Body] SecureConnectSiteDeleteRequest secureConnectSite,
 		CancellationToken cancellationToken = default
 	);
 }
