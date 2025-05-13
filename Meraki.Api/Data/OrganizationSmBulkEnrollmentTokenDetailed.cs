@@ -4,7 +4,7 @@
 /// Organization Sm Bulk Enrollment Token
 /// </summary>
 [DataContract]
-public class OrganizationSmBulkEnrollmentToken
+public class OrganizationSmBulkEnrollmentTokenDetailed
 {
 	/// <summary>
 	/// The expiration date.
@@ -26,4 +26,11 @@ public class OrganizationSmBulkEnrollmentToken
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkId")]
 	public string NetworkId { get; set; } = string.Empty;
+
+	/// <summary>
+	/// The raw token the user will input into the agent.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "rawToken")]
+	public string RawToken { get; set; } = string.Empty;
 }

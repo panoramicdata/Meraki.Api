@@ -11,9 +11,25 @@ public interface IOrganizationsSmBulkEnrollment
 	/// <returns></returns>
 	[ApiOperationId("createOrganizationSmBulkEnrollmentToken")]
 	[Post("/organizations/{organizationId}/sm/bulkEnrollment/token")]
-	Task<OrganizationSmBulkEnrollmentToken> CreateOrganizationSmBulkEnrollmentTokenAsync(
+	Task<OrganizationSmBulkEnrollmentTokenDetailed> CreateOrganizationSmBulkEnrollmentTokenAsync(
 		string organizationId,
 		[Body] OrganizationSmBulkEnrollmentTokenCreateRequest organizationSmBulkEnrollmentToken,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Return a BulkEnrollmentToken
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="tokenId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSmBulkEnrollmentToken")]
+	[Get("/organizations/{organizationId}/sm/bulkEnrollment/token/{tokenId}")]
+	Task<OrganizationSmBulkEnrollmentToken> GetOrganizationSmBulkEnrollmentTokenAsync(
+		string organizationId,
+		string tokenId,
 		CancellationToken cancellationToken = default
 		);
 }
