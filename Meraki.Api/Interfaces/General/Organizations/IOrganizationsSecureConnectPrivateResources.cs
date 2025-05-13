@@ -14,4 +14,20 @@ public interface IOrganizationsSecureConnectPrivateResources
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Adds a new private resource to the organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationSecureConnectPrivateResource")]
+	[Post("/organizations/{organizationId}/secureConnect/privateResources")]
+	Task<SecureConnectPrivateResourcesDataItem> CreateOrganizationSecureConnectPrivateResourceAsync(
+		string organizationId,
+		SecureConnectPrivateResourcesCreateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
