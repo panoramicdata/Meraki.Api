@@ -30,4 +30,19 @@ public interface IOrganizationsSmAdmins
 		[Body] OrganizationSmAdminsRoleCreateRequest organizationSmAdminsRole,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Return a Limited Access Role
+	/// </summary>
+	/// <param name="organizationId"></param>
+	/// <param name="roleId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSmAdminsRole")]
+	[Get("/organizations/{organizationId}/sm/admins/roles/{roleId}")]
+	Task<OrganizationSmAdminsRole> GetOrganizationSmAdminsRoleAsync(
+		string organizationId,
+		string roleId,
+		CancellationToken cancellationToken = default
+		);
 }
