@@ -64,4 +64,20 @@ public interface IOrganizationsSmAdmins
 		[Body] OrganizationSmAdminsRoleUpdateRequest organizationSmAdminsRole,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// Delete a Limited Access Role
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="roleId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSmAdminsRole")]
+	[Delete("/organizations/{organizationId}/sm/admins/roles/{roleId}")]
+	Task DeleteOrganizationSmAdminsRoleAsync(
+		string organizationId,
+		string roleId,
+		CancellationToken cancellationToken = default
+		);
 }
