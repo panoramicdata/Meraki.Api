@@ -3,6 +3,7 @@
 /// <summary>
 /// Network of the switch
 /// </summary>
+[DataContract]
 public class DeviceSwitchPortMirrorNetwork
 {
 	/// <summary>

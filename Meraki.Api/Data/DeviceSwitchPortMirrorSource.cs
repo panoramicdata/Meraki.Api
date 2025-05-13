@@ -3,6 +3,7 @@
 /// <summary>
 /// Source ports mirror configuration
 /// </summary>
+[DataContract]
 public class DeviceSwitchPortMirrorSource
 {
 	/// <summary>

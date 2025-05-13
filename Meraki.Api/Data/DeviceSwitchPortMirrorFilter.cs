@@ -3,6 +3,7 @@
 /// <summary>
 /// Source port filter traffic based on vlans
 /// </summary>
+[DataContract]
 public class DeviceSwitchPortMirrorFilter
 {
 	/// <summary>

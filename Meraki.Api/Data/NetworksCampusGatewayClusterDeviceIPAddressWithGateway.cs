@@ -3,6 +3,7 @@
 /// <summary>
 /// Address of the interface
 /// </summary>
+[DataContract]
 public class NetworksCampusGatewayClusterDeviceIPAddressWithGateway
 {
 	/// <summary>

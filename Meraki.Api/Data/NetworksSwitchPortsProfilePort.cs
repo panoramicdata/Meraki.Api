@@ -60,14 +60,14 @@ public class NetworksSwitchPortsProfilePort
 	/// </summary>
 	[DataMember(Name = "stpGuard")]
 	[ApiAccess(ApiAccess.ReadWrite)]
-	public NetworksSwitchPortsProfilePortStpGuard? StpGuard { get; set; }
+	public StpGuard? StpGuard { get; set; }
 
 	/// <summary>
 	/// The action to take when Unidirectional Link is detected. LinkDefault configuration is Alert only.
 	/// </summary>
 	[DataMember(Name = "udld")]
 	[ApiAccess(ApiAccess.ReadWrite)]
-	public NetworksSwitchPortsProfilePortUdld? Udld { get; set; }
+	public Udld? Udld { get; set; }
 
 	/// <summary>
 	/// The number of a custom access policy to configure on the port profile. Only applicable when 'accessPolicyType' is 'Custom access policy'.

@@ -3,6 +3,7 @@
 /// <summary>
 /// Destination port module details
 /// </summary>
+[DataContract]
 public class DeviceSwitchPortsMirrorPortModule
 {
 	/// <summary>

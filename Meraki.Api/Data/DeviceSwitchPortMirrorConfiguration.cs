@@ -3,6 +3,7 @@
 /// <summary>
 /// DeviceSwitchPortMirrorConfiguration
 /// </summary>
+[DataContract]
 public class DeviceSwitchPortMirrorConfiguration
 {
 	/// <summary>

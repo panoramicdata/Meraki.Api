@@ -1,5 +1,9 @@
 ﻿namespace Meraki.Api.Data;
 
+/// <summary>
+/// Networks Switch Ports Profile Port Access Policy Number
+/// </summary>
+[JsonConverter(typeof(StringEnumConverter))]
 public enum NetworksSwitchPortsProfilePortAccessPolicyNumber
 {
 	/// <summary>

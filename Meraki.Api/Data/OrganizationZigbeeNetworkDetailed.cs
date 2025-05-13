@@ -3,6 +3,7 @@
 /// <summary>
 /// Network zigbee device is on
 /// </summary>
+[DataContract]
 public class OrganizationZigbeeNetworkDetailed
 {
 	/// <summary>
