@@ -49,6 +49,8 @@ public partial class OrganizationsSection
 
 	public OrganizationsSecureConnectSection SecureConnect { get; internal set; } = new();
 
+	public OrganizationsSmSection Sm { get; internal set; } = new();
+
 	public IOrganizationsSnmp Snmp { get; internal set; } = null!;
 
 	public IOrganizationsSplash Splash { get; internal set; } = null!;
