@@ -5,5 +5,7 @@ public class OrganizationsSecureConnectSection
 
 	public IOrganizationsSecureConnectPrivateApplicationGroups PrivateApplicationGroups { get; internal set; } = null!;
 
+	public IOrganizationsSecureConnectRemoteAccessLogsExports RemoteAccessLogsExports { get; internal set; } = null!;
+
 	public IOrganizationsSecureConnectSites Sites { get; internal set; } = null!;
 }
