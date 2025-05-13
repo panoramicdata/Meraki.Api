@@ -34,6 +34,7 @@ public interface IOrganizationsSmAdmins
 	/// <summary>
 	/// Return a Limited Access Role
 	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
 	/// <param name="roleId"></param>
 	/// <param name="cancellationToken"></param>
@@ -43,6 +44,24 @@ public interface IOrganizationsSmAdmins
 	Task<OrganizationSmAdminsRole> GetOrganizationSmAdminsRoleAsync(
 		string organizationId,
 		string roleId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Update a Limited Access Role
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="roleId"></param>
+	/// <param name="organizationSmAdminsRole"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationSmAdminsRole")]
+	[Put("/organizations/{organizationId}/sm/admins/roles/{roleId}")]
+	Task<OrganizationSmAdminsRole> UpdateOrganizationSmAdminsRoleAsync(
+		string organizationId,
+		string roleId,
+		[Body] OrganizationSmAdminsRoleUpdateRequest organizationSmAdminsRole,
 		CancellationToken cancellationToken = default
 		);
 }
