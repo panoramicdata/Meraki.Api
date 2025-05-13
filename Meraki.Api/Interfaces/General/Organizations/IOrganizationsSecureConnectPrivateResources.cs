@@ -44,4 +44,18 @@ public interface IOrganizationsSecureConnectPrivateResources
 	Task<SecureConnectPrivateResourcesDataItemUpdateResponse> UpdateOrganizationSecureConnectPrivateResourceAsync(string organizationId,
 		SecureConnectPrivateResourcesUpdateRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Deletes a specific private resource. If this is the last resource in a resource group you must remove it from that resource group before deleting.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSecureConnectPrivateResource")]
+	[Delete("/organizations/{organizationId}/secureConnect/privateResourceGroups/{id}")]
+	Task DeleteOrganizationSecureConnectPrivateResourceAsync(string organizationId,
+		string id,
+		CancellationToken cancellationToken = default);
 }
