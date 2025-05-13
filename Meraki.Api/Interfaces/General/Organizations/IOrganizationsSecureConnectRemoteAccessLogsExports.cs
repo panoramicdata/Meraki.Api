@@ -14,4 +14,20 @@ public interface IOrganizationsSecureConnectRemoteAccessLogsExports
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Creates a export for a provided timestamp interval.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationSecureConnectRemoteAccessLogsExport")]
+	[Post("/organizations/{organizationId}/secureConnect/remoteAccessLogsExports")]
+	Task<SecureConnectRemoteAccessLogsExportsResponseDataItem> CreateOrganizationSecureConnectRemoteAccessLogsExportAsync(
+		string organizationId,
+		SecureConnectRemoteAccessLogsExportsCreateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
