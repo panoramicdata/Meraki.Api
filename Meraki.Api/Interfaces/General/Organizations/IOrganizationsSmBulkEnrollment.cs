@@ -2,6 +2,20 @@
 public interface IOrganizationsSmBulkEnrollment
 {
 	/// <summary>
+	/// List all BulkEnrollmentTokens for an organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSmBulkEnrollmentTokens")]
+	[Get("/organizations/{organizationId}/sm/bulkEnrollment/tokens")]
+	Task<List<OrganizationSmBulkEnrollmentToken>> GetOrganizationSmBulkEnrollmentTokensAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// Create a PccBulkEnrollmentToken
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
