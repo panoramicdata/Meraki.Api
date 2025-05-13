@@ -40,7 +40,7 @@ public interface IOrganizationsSecureConnectPrivateResources
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("updateOrganizationSecureConnectPrivateResource")]
-	[Put("/organizations/{organizationId}/secureConnect/privateResourceGroups/{id}")]
+	[Put("/organizations/{organizationId}/secureConnect/privateResources/{id}")]
 	Task<SecureConnectPrivateResourcesDataItemUpdateResponse> UpdateOrganizationSecureConnectPrivateResourceAsync(string organizationId,
 		SecureConnectPrivateResourcesUpdateRequest request,
 		CancellationToken cancellationToken = default);
@@ -54,7 +54,7 @@ public interface IOrganizationsSecureConnectPrivateResources
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("deleteOrganizationSecureConnectPrivateResource")]
-	[Delete("/organizations/{organizationId}/secureConnect/privateResourceGroups/{id}")]
+	[Delete("/organizations/{organizationId}/secureConnect/privateResources/{id}")]
 	Task DeleteOrganizationSecureConnectPrivateResourceAsync(string organizationId,
 		string id,
 		CancellationToken cancellationToken = default);
