@@ -138,6 +138,19 @@ public interface IOrganizationsDevices
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// List Packet Captures
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationDevicesPacketCaptureCaptures")]
+	[Get("/organizations/{organizationId}/devices/packetCapture/captures")]
+	Task<OrganizationDevicesPacketCaptureCapturesResponse> GetOrganizationDevicesPacketCaptureCapturesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// List the provisioning statuses information for devices in an organization.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
