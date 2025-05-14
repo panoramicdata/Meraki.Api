@@ -1,5 +1,7 @@
 ﻿namespace Meraki.Api.Sections.General.Organizations;
 public class OrganizationsInsightSection
 {
-	public IOrganizationsInsightWebApps WebApps { get; set; }
+	public IOrganizationsInsightApplications Applications { get; internal set; }
+
+	public IOrganizationsInsightWebApps WebApps { get; internal set; }
 }
