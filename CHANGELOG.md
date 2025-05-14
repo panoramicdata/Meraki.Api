@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.56.160
+- Added many missing interface calls
+
 ## 1.56.21
 - Added minimumPasswordLength to Organization admin security
 - Added MV84X video resolution details
