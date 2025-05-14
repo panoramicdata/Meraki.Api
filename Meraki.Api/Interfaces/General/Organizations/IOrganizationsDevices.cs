@@ -151,6 +151,20 @@ public interface IOrganizationsDevices
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// Perform a packet capture on a device and store in Meraki Cloud. Only a single switch may be chosen per request, while multiple access points are allowed at once.
+	/// </summary>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationDevicesPacketCaptureCapture")]
+	[Get("/organizations/{organizationId}/devices/packetCapture/captures")]
+	Task<OrganizationDevicesPacketCaptureFile> CreateOrganizationDevicesPacketCaptureCaptureAsync(
+		string organizationId,
+		[Body] OrganizationDevicesPacketCaptureCapturesCreateRequest request,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// List the provisioning statuses information for devices in an organization.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
