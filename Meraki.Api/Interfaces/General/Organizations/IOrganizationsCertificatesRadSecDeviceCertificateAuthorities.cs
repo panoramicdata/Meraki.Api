@@ -73,4 +73,19 @@ public interface IOrganizationsCertificatesRadSecDeviceCertificateAuthorities
 		string organizationId,
 		string id,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Query for all delta certificate revocation list (CRL) for the organization's RADSEC device Certificate Authority (CA) with the given id.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationCertificatesRadSecDeviceCertificateAuthorityRevocationListDeltas")]
+	[Get("/organizations/{organizationId}/certificates/radSec/deviceCertificateAuthorities/{id}/revocationList/deltas")]
+	Task<OrganizationCertificatesRadSecDeviceCertificateAuthorityRevocationListDeltas> GetOrganizationCertificatesRadSecDeviceCertificateAuthorityRevocationListDeltasAsync(
+		string organizationId,
+		string id,
+		CancellationToken cancellationToken = default);
 }
