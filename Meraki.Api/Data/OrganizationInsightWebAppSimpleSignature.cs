@@ -4,7 +4,7 @@
 /// If custom host or port is specified, this field populates
 /// </summary>
 [DataContract]
-public class OrganizationInsightWebAppCreateResponseSignature
+public class OrganizationInsightWebAppSimpleSignature
 {
 	/// <summary>
 	/// If custom host or port is specified, this field populates

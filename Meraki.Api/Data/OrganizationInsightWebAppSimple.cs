@@ -4,7 +4,7 @@
 /// Organization Insight Web Application Create Response
 /// </summary>
 [DataContract]
-public class OrganizationInsightWebAppCreateResponse
+public class OrganizationInsightWebAppSimple
 {
 	/// <summary>
 	/// Category type for web application
@@ -39,7 +39,7 @@ public class OrganizationInsightWebAppCreateResponse
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "signature")]
-	public OrganizationInsightWebAppCreateResponseSignature Signature { get; set; } = new();
+	public OrganizationInsightWebAppSimpleSignature Signature { get; set; } = new();
 
 	/// <summary>
 	/// Default thresholds for each application
