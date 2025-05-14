@@ -49,4 +49,16 @@ public interface IOrganizationsCertificates
 	[ApiOperationId("createOrganizationCertificatesImport")]
 	[Post("/organizations/{organizationId}/certificates/import")]
 	Task<OrganizationCertificates> CreateOrganizationCertificatesImportAsync(string organizationId, OrganizationCertificatesImportRequest request, CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Download the trusted certificate by certificate id.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="certificateId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationCertificateContents")]
+	[Get("/organizations/{organizationId}/certificates/{certificateId}/contents")]
+	Task<OrganizationCertificatesContents> GetOrganizationCertificateContentsAsync(string organizationId, string certificateId, CancellationToken cancellationToken = default);
 }
