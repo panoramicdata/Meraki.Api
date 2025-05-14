@@ -17,6 +17,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsAssuranceAlerts AssuranceAlerts { get; internal set; } = null!;
 
+	public OrganizationsCertificatesSection Certificates { get; internal set; } = null!;
+
 	public IOrganizationsClients Clients { get; internal set; } = null!;
 
 	public IOrganizationsConfigTemplates ConfigTemplates { get; internal set; } = null!;
