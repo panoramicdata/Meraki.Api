@@ -37,4 +37,16 @@ public interface IOrganizationsCertificates
 	[ApiOperationId("deleteOrganizationCertificate")]
 	[Delete("/organizations/{organizationId}/certificates/{certificateId}")]
 	Task DeleteOrganizationCertificateAsync(string organizationId, string certificateId, CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Import certificate for this organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationCertificatesImport")]
+	[Post("/organizations/{organizationId}/certificates/import")]
+	Task<OrganizationCertificates> CreateOrganizationCertificatesImportAsync(string organizationId, OrganizationCertificatesImportRequest request, CancellationToken cancellationToken = default);
 }
