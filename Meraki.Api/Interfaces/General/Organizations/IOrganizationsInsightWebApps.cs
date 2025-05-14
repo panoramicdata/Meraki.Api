@@ -48,4 +48,20 @@ public interface IOrganizationsInsightWebApps
 		[Body] OrganizationInsightWebAppUpdateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Delete a custom web application by counter set rule id.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="customCounterSetRuleId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationInsightWebApp")]
+	[Delete("/organizations/{organizationId}/insight/webApps/{customCounterSetRuleId}")]
+	Task DeleteOrganizationInsightWebAppAsync(
+		string organizationId,
+		string customCounterSetRuleId,
+		CancellationToken cancellationToken = default
+	);
 }
