@@ -35,4 +35,20 @@ public interface IOrganizationsInsightApplications
 		[Body] OrganizationInsightApplicationUpdateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Delete an Insight tracked application
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="applicationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationInsightApplication")]
+	[Delete("/organizations/{organizationId}/insight/applications/{applicationId}")]
+	Task DeleteOrganizationInsightApplicationAsync(
+		string organizationId,
+		string applicationId,
+		CancellationToken cancellationToken = default
+	);
 }
