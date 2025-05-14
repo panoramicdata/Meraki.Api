@@ -26,4 +26,19 @@ public interface IOrganizationsCertificatesRadSecDeviceCertificateAuthorities
 	Task<OrganizationCertificatesRadSecDeviceCertificateAuthorities> CreateOrganizationCertificatesRadSecDeviceCertificateAuthorityAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Query for details on an organization's RADSEC device Certificate Authority (CA) with the given id. This API returns the status of the CA as well as the contents of the CA, if it's been generated.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationCertificatesRadSecDeviceCertificateAuthority")]
+	[Get("/organizations/{organizationId}/certificates/radSec/deviceCertificateAuthorities/{id}")]
+	Task<OrganizationCertificatesRadSecDeviceCertificateAuthorities> GetOrganizationCertificatesRadSecDeviceCertificateAuthorityAsync(
+		string organizationId,
+		string id,
+		CancellationToken cancellationToken = default);
 }
