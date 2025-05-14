@@ -93,7 +93,7 @@ public interface IWirelessAirMarshal
 	/// <param name="airMarshalSettingsUpdateRequest">The update request</param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("updateNetworkWirelessAirMarshalSettings")]
-	[Post("/networks/{networkId}/wireless/airMarshal/settings")]
+	[Put("/networks/{networkId}/wireless/airMarshal/settings")]
 	Task<AirMarshalSettings> UpdateNetworkWirelessAirMarshalSettingsAsync(
 		string networkId,
 		[Body] AirMarshalSettingsUpdateRequest airMarshalSettingsUpdateRequest,
