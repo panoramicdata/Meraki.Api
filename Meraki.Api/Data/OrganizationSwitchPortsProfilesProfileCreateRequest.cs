@@ -9,6 +9,7 @@ public class OrganizationSwitchPortsProfilesProfileCreateRequest
 	/// <summary>
 	/// Text describing the profile
 	/// </summary>
+	[DataMember(Name = "description")]
 	public string? Description { get; set; }
 
 	/// <summary>
