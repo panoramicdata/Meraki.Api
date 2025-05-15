@@ -14,4 +14,20 @@ public interface IOrganizationsApplianceDnsSplitProfiles
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Create a new split DNS profile
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationApplianceDnsSplitProfile")]
+	[Post("/organizations/{organizationId}/appliance/dns/split/profiles")]
+	Task<OrganizationApplianceDnsSplitProfile> CreateOrganizationApplianceDnsSplitProfileAsync(
+		string organizationId,
+		[Body] OrganizationApplianceDnsSplitProfileCreateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
