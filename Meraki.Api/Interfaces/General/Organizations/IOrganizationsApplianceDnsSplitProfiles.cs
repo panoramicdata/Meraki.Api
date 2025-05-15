@@ -78,4 +78,20 @@ public interface IOrganizationsApplianceDnsSplitProfiles
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Assign the split DNS profile to networks in the organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationApplianceDnsSplitProfilesAssignmentsBulkCreate")]
+	[Post("/organizations/{organizationId}/appliance/dns/split/profiles/assignments/bulkCreate")]
+	Task<OrganizationApplianceDnsSplitProfilesAssignmentBulkResponse> CreateOrganizationApplianceDnsSplitProfilesAssignmentsBulkCreateAsync(
+		string organizationId,
+		[Body] OrganizationApplianceDnsSplitProfilesAssignmentBulkCreateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
