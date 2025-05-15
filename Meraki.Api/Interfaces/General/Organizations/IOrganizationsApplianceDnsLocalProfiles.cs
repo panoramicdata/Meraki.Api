@@ -24,8 +24,23 @@ public interface IOrganizationsApplianceDnsLocalProfiles
 	/// <returns></returns>
 	[ApiOperationId("bulkOrganizationApplianceDnsLocalProfilesAssignmentsCreate")]
 	[Post("/organizations/{organizationId}/appliance/dns/local/profiles/assignments/bulkCreate")]
-	Task<OrganizationApplianceDnsLocalProfilesAssignmentsBulkCreateResponse> BulkCreateOrganizationApplianceDnsLocalProfilesAssignmentsAsync(
+	Task<OrganizationApplianceDnsLocalProfilesAssignmentsBulkResponse> BulkCreateOrganizationApplianceDnsLocalProfilesAssignmentsAsync(
 		string organizationId,
 		OrganizationApplianceDnsLocalProfilesAssignmentsBulkCreateRequest request,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Unassign the local DNS profile to networks in the organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationApplianceDnsLocalProfilesAssignmentsBulkDelete")]
+	[Post("/organizations/{organizationId}/appliance/dns/local/profiles/assignments/bulkDelete")]
+	Task<OrganizationApplianceDnsLocalProfilesAssignmentsBulkResponse> CreateOrganizationApplianceDnsLocalProfilesAssignmentsBulkDeleteAsync(
+		string organizationId,
+		OrganizationApplianceDnsLocalProfilesAssignmentsBulkDeleteRequest request,
 		CancellationToken cancellationToken = default);
 }

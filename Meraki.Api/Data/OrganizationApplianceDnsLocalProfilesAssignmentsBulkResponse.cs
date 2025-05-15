@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Organization Appliance Dns Local Profiles Assignments Bulk Create Response
+/// Organization Appliance Dns Local Profiles Assignments Bulk Response
 /// </summary>
 [DataContract]
-public class OrganizationApplianceDnsLocalProfilesAssignmentsBulkCreateResponse
+public class OrganizationApplianceDnsLocalProfilesAssignmentsBulkResponse
 {
 	/// <summary>
 	/// List of local DNS profile assignment
