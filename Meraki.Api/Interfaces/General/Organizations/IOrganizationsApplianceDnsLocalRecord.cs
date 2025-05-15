@@ -1,5 +1,5 @@
 ﻿namespace Meraki.Api.Interfaces.General.Organizations;
-public interface IOrganizationsApplianceDnsLocalRecords
+public interface IOrganizationsApplianceDnsLocalRecord
 {
 	/// <summary>
 	/// Fetch the DNS records used in local DNS profiles
@@ -27,5 +27,22 @@ public interface IOrganizationsApplianceDnsLocalRecords
 	Task<OrganizationApplianceDnsLocalRecordsResponse> CreateOrganizationApplianceDnsLocalRecordAsync(
 		string organizationId,
 		OrganizationApplianceDnsLocalRecordsCreateRequest request,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Updates a local DNS record
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="recordId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationApplianceDnsLocalRecord")]
+	[Put("/organizations/{organizationId}/appliance/dns/local/records/{recordId}")]
+	Task<OrganizationApplianceDnsLocalRecordsProfile> UpdateOrganizationApplianceDnsLocalRecordAsync(
+		string organizationId,
+		string recordId,
+		OrganizationApplianceDnsLocalRecordsUpdateRequest request,
 		CancellationToken cancellationToken = default);
 }
