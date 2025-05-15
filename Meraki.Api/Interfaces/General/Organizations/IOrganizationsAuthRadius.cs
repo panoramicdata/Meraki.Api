@@ -30,4 +30,20 @@ public interface IOrganizationsAuthRadius
 		[Body] OrganizationsAuthRadiusServerCreateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Return an organization-wide RADIUS server
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="serverId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationAuthRadiusServer")]
+	[Get("/organizations/{organizationId}/auth/radius/servers/{serverId}")]
+	Task<OrganizationsAuthRadiusServer> GetOrganizationsAuthRadiusServerAsync(
+		string organizationId,
+		string serverId,
+		CancellationToken cancellationToken = default
+	);
 }
