@@ -46,4 +46,22 @@ public interface IOrganizationsAuthRadius
 		string serverId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Update an organization-wide RADIUS server
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="serverId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationAuthRadiusServer")]
+	[Put("/organizations/{organizationId}/auth/radius/servers/{serverId}")]
+	Task<OrganizationsAuthRadiusServer> UpdateOrganizationAuthRadiusServerAsync(
+		string organizationId,
+		string serverId,
+		[Body] OrganizationsAuthRadiusServerUpdateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
