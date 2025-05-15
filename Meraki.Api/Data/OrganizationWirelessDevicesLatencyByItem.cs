@@ -4,7 +4,7 @@
 /// Organization Wireless Devices Latency By Client Item
 /// </summary>
 [DataContract]
-public class OrganizationWirelessDevicesLatencyByClientItem
+public class OrganizationWirelessDevicesLatencyByItem
 {
 	/// <summary>
 	/// Device
