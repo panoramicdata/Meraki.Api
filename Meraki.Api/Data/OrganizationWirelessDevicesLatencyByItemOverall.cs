@@ -4,7 +4,7 @@
 /// Overall latency metrics.
 /// </summary>
 [DataContract]
-public class OrganizationWirelessDevicesLatencyByClientItemOverall
+public class OrganizationWirelessDevicesLatencyByItemOverall
 {
 	/// <summary>
 	/// Number of MSDUs (WiFi frames).

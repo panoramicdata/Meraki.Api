@@ -4,7 +4,7 @@
 /// Network.
 /// </summary>
 [DataContract]
-public class OrganizationWirelessDevicesLatencyByClientItemNetwork
+public class OrganizationWirelessDevicesLatencyByItemNetwork
 {
 	/// <summary>
 	/// Network ID

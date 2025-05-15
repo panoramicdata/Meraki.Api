@@ -22,4 +22,15 @@ public interface IOrganizationsWirelessDevicesLatency
 	[ApiOperationId("getOrganizationWirelessDevicesLatencyByDevice")]
 	[Get("/organizations/{organizationId}/wireless/devices/latency/byDevice")]
 	Task<List<OrganizationWirelessDevicesLatencyByItem>> GetOrganizationWirelessDevicesLatenciesByDeviceAsync(string organizationId, CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Get per-network latency summaries for all wireless networks in an organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessDevicesLatencyByNetwork")]
+	[Get("/organizations/{organizationId}/wireless/devices/latency/byNetwork")]
+	Task<List<OrganizationWirelessDevicesLatencyByNetworkItem>> GetOrganizationWirelessDevicesLatenciesByNetworkAsync(string organizationId, CancellationToken cancellationToken = default);
 }

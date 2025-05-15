@@ -1,18 +1,11 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Organization Wireless Devices Latency By Client Item
+/// Organization Wireless Devices Latency By Network Item
 /// </summary>
 [DataContract]
-public class OrganizationWirelessDevicesLatencyByItem
+public class OrganizationWirelessDevicesLatencyByNetworkItem
 {
-	/// <summary>
-	/// Device
-	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "device")]
-	public OrganizationWirelessDevicesLatencyByClientItemDevice Device { get; set; } = new();
-
 	/// <summary>
 	/// Network.
 	/// </summary>
