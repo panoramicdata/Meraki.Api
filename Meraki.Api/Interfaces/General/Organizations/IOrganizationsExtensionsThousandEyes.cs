@@ -61,4 +61,20 @@ public interface IOrganizationsExtensionsThousandEyes
 		[Body] ThousandEyesNetworkUpdateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Delete a ThousandEyes agent from this network. Only valid for networks with access to Meraki Insight. Organization must have a ThousandEyes account connected to perform this action.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="networkId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationExtensionsThousandEyesNetwork")]
+	[Delete("/organizations/{organizationId}/extensions/thousandEyes/networks/{networkId}")]
+	Task DeleteOrganizationExtensionsThousandEyesNetworkAsync(
+		string organizationId,
+		string networkId,
+		CancellationToken cancellationToken = default
+	);
 }
