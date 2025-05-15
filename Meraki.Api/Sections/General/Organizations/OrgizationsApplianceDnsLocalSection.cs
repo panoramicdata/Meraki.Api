@@ -2,4 +2,6 @@
 public class OrgizationsApplianceDnsLocalSection
 {
 	public IOrganizationsApplianceDnsLocalProfiles Profiles { get; internal set; } = null!;
+
+	public IOrganizationsApplianceDnsLocalRecords Records { get; set; }
 }
