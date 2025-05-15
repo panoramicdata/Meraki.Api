@@ -64,4 +64,20 @@ public interface IOrganizationsAuthRadius
 		[Body] OrganizationsAuthRadiusServerUpdateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Delete an organization-wide RADIUS server from a organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="serverId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationAuthRadiusServer")]
+	[Delete("/organizations/{organizationId}/auth/radius/servers/{serverId}")]
+	Task DeleteOrganizationAuthRadiusServerAsync(
+		string organizationId,
+		string serverId,
+		CancellationToken cancellationToken = default
+	);
 }
