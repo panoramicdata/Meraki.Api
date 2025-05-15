@@ -94,4 +94,20 @@ public interface IOrganizationsApplianceDnsSplitProfiles
 		[Body] OrganizationApplianceDnsSplitProfilesAssignmentBulkCreateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Unassign the split DNS profile to networks in the organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationApplianceDnsSplitProfilesAssignmentsBulkDelete")]
+	[Post("/organizations/{organizationId}/appliance/dns/split/profiles/assignments/bulkDelete")]
+	Task<OrganizationApplianceDnsSplitProfilesAssignmentBulkResponse> CreateOrganizationApplianceDnsSplitProfilesAssignmentsBulkDeleteAsync(
+		string organizationId,
+		[Body] OrganizationApplianceDnsSplitProfilesAssignmentBulkDeleteRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
