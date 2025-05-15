@@ -31,6 +31,8 @@ public partial class OrganizationsSection
 
 	public OrganizationsEarlyAccessSection EarlyAccess { get; internal set; } = new();
 
+	public OrganizationsExtensionsSection Extensions { get; internal set; } = new();
+
 	public OrganizationsInsightSection Insight { get; internal set; } = new();
 
 	public IOrganizationsInventoryDevices InventoryDevices { get; internal set; } = null!;
