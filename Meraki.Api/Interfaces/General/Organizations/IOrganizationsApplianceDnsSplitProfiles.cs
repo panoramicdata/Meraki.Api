@@ -30,4 +30,22 @@ public interface IOrganizationsApplianceDnsSplitProfiles
 		[Body] OrganizationApplianceDnsSplitProfileCreateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Update a split DNS profile
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="profileId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationApplianceDnsSplitProfile")]
+	[Put("/organizations/{organizationId}/appliance/dns/split/profiles/{profileId}")]
+	Task<OrganizationApplianceDnsSplitProfile> UpdateOrganizationApplianceDnsSplitProfileAsync(
+		string organizationId,
+		string profileId,
+		[Body] OrganizationApplianceDnsSplitProfileUpdateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
