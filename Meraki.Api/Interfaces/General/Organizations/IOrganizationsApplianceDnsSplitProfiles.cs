@@ -64,4 +64,18 @@ public interface IOrganizationsApplianceDnsSplitProfiles
 		string profileId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Fetch the split DNS profile assignments in the organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationApplianceDnsSplitProfilesAssignments")]
+	[Get("/organizations/{organizationId}/appliance/dns/split/profiles/assignments")]
+	Task<OrganizationApplianceDnsSplitProfilesAssignmentResponse> GetOrganizationApplianceDnsSplitProfilesAssignmentsAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
