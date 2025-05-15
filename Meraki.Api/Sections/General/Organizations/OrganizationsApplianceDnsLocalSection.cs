@@ -1,5 +1,5 @@
 ﻿namespace Meraki.Api.Sections.General.Organizations;
-public class OrgizationsApplianceDnsLocalSection
+public class OrganizationsApplianceDnsLocalSection
 {
 	public IOrganizationsApplianceDnsLocalProfiles Profiles { get; internal set; } = null!;
 
