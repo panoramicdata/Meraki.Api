@@ -77,4 +77,22 @@ public interface IOrganizationsExtensionsThousandEyes
 		string networkId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Create a ThousandEyes test based on a provided test template. Only valid for networks with access to Meraki Insight. Organization must have a ThousandEyes account connected to perform this action.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="networkId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationExtensionsThousandEyesTest")]
+	[Post("/organizations/{organizationId}/extensions/thousandEyes/networks/{networkId}/tests")]
+	Task<ThousandEyesNetworkCreateTestResponse> CreateOrganizationExtensionsThousandEyesTestAsync(
+		string organizationId,
+		string networkId,
+		[Body] ThousandEyesNetworkTestCreateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
