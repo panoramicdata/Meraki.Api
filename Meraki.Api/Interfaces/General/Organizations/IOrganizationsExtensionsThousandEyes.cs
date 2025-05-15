@@ -14,4 +14,16 @@ public interface IOrganizationsExtensionsThousandEyes
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Add a ThousandEyes agent for this network. Only valid for networks with access to Meraki Insight. Organization must have a ThousandEyes account connected to perform this action.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationExtensionsThousandEyesNetwork")]
+	[Get("/organizations/{organizationId}/extensions/thousandEyes/networks")]
+	Task<ThousandEyesNetwork> CreateOrganizationExtensionsThousandEyesNetworkAsync(string organizationId, [Body] ThousandEyesNetworkCreateRequest request, CancellationToken cancellationToken = default);
 }
