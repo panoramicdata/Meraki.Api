@@ -80,4 +80,18 @@ public interface IOrganizationsAuthRadius
 		string serverId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Return list of network and policies that organization-wide RADIUS servers are bing used
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationAuthRadiusServersAssignments")]
+	[Get("/organizations/{organizationId}/auth/radius/servers/assignments")]
+	Task<List<OrganizationsAuthRadiusServerAssignmentsResponse>> GetOrganizationAuthRadiusServersAssignmentsAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
