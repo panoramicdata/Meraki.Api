@@ -45,4 +45,19 @@ public interface IOrganizationsApplianceDnsLocalRecord
 		string recordId,
 		OrganizationApplianceDnsLocalRecordsUpdateRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Deletes a local DNS record
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="recordId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationApplianceDnsLocalRecord")]
+	[Delete("/organizations/{organizationId}/appliance/dns/local/records/{recordId}")]
+	Task DeleteOrganizationApplianceDnsLocalRecordAsync(
+		string organizationId,
+		string recordId,
+		CancellationToken cancellationToken = default);
 }
