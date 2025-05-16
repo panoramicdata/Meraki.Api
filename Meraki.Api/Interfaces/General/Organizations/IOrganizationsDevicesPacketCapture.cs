@@ -58,4 +58,19 @@ public interface IOrganizationsDevicesPacketCapture
 		string organizationId,
 		[Body] List<OrganizationDevicesPacketCaptureCapturesBulkCreateRequest> request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// BulkDelete packet captures from cloud
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("bulkOrganizationDevicesPacketCaptureCapturesDelete")]
+	[Post("/organizations/{organizationId}/devices/packetCapture/captures/bulkDelete")]
+	Task BulkOrganizationDevicesPacketCaptureCapturesDeleteAsync(
+		string organizationId,
+		[Body] OrganizationDevicesPacketCaptureCapturesBulkDeleteRequest request,
+		CancellationToken cancellationToken = default);
 }
