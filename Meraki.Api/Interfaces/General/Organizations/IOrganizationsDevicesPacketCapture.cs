@@ -167,4 +167,19 @@ public interface IOrganizationsDevicesPacketCapture
 		string scheduleId,
 		[Body] OrganizationDevicesPacketCaptureScheduleDeleteRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Delete packet capture schedules
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("bulkOrganizationDevicesPacketCaptureSchedulesDelete")]
+	[Post("/organizations/{organizationId}/devices/packetCapture/schedules/bulkDelete")]
+	Task BulkOrganizationDevicesPacketCaptureSchedulesDeleteAsync(
+		string organizationId,
+		[Body] OrganizationDevicesPacketCaptureSchedulesBulkDeleteRequest request,
+		CancellationToken cancellationToken = default);
 }
