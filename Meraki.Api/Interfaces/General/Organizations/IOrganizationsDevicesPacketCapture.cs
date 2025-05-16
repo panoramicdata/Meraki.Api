@@ -182,4 +182,19 @@ public interface IOrganizationsDevicesPacketCapture
 		string organizationId,
 		[Body] OrganizationDevicesPacketCaptureSchedulesBulkDeleteRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Bulk update priorities of pcap schedules
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("reorderOrganizationDevicesPacketCaptureSchedules")]
+	[Post("/organizations/{organizationId}/devices/packetCapture/schedules/reorder")]
+	Task<OrganizationDevicesPacketCaptureSchedulesReorderResponse> ReorderOrganizationDevicesPacketCaptureSchedulesAsync(
+		string organizationId,
+		[Body] OrganizationDevicesPacketCaptureSchedulesReorderRequest request,
+		CancellationToken cancellationToken = default);
 }
