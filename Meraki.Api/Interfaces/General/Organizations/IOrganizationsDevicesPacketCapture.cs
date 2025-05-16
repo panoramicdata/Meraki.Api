@@ -73,4 +73,19 @@ public interface IOrganizationsDevicesPacketCapture
 		string organizationId,
 		[Body] OrganizationDevicesPacketCaptureCapturesBulkDeleteRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Get presigned download URL for given packet capture id
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="captureId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("generateOrganizationDevicesPacketCaptureCaptureDownloadUrl")]
+	[Post("/organizations/{organizationId}/devices/packetCapture/captures/{captureId}/downloadUrl/generate")]
+	Task<OrganizationDevicesPacketCaptureCaptureDownloadUrl> GenerateOrganizationDevicesPacketCaptureCaptureDownloadUrlAsync(
+		string organizationId,
+		string captureId,
+		CancellationToken cancellationToken = default);
 }
