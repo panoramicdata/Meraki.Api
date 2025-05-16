@@ -118,4 +118,19 @@ public interface IOrganizationsDevicesPacketCapture
 	Task<OrganizationDevicesPacketCaptureSchedulesResponse> GetOrganizationDevicesPacketCaptureSchedulesAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Create a schedule for packet capture
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationDevicesPacketCaptureSchedule")]
+	[Post("/organizations/{organizationId}/devices/packetCapture/schedules")]
+	Task<OrganizationDevicesPacketCaptureSchedule> CreateOrganizationDevicesPacketCaptureScheduleAsync(
+		string organizationId,
+		[Body] OrganizationDevicesPacketCaptureScheduleCreateRequest request,
+		CancellationToken cancellationToken = default);
 }
