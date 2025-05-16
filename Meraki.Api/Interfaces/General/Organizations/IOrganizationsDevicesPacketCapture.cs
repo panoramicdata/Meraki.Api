@@ -150,4 +150,21 @@ public interface IOrganizationsDevicesPacketCapture
 		string scheduleId,
 		[Body] OrganizationDevicesPacketCaptureScheduleUpdateRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Delete schedule from cloud
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="scheduleId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationDevicesPacketCaptureSchedule")]
+	[Delete("/organizations/{organizationId}/devices/packetCapture/schedules/{scheduleId}")]
+	Task DeleteOrganizationDevicesPacketCaptureScheduleAsync(
+		string organizationId,
+		string scheduleId,
+		[Body] OrganizationDevicesPacketCaptureScheduleDeleteRequest request,
+		CancellationToken cancellationToken = default);
 }
