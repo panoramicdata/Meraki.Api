@@ -3,6 +3,17 @@
 public interface IOrganizationsDevices
 {
 	/// <summary>
+	/// Returns the history of device boots in reverse chronological order (most recent first). Currently supported for MS devices only.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationDevicesBootsHistory")]
+	[Get("/organizations/{organizationId}/devices/boots/history")]
+	Task<List<OrganizationDeviceBootHistoryItem>> GetOrganizationDevicesBootsHistoryAsync(string organizationId, CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// List the status of every Meraki device in the organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
