@@ -4,7 +4,7 @@
 /// Device details
 /// </summary>
 [DataContract]
-public class OrganizationDevicesPacketCaptureScheduleCreateRequestDevice
+public class OrganizationDevicesPacketCaptureScheduleUpdateCreateRequestDevice
 {
 	/// <summary>
 	/// Interface to capture

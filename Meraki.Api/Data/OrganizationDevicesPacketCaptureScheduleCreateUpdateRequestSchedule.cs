@@ -4,7 +4,7 @@
 /// Schedule detail
 /// </summary>
 [DataContract]
-public class OrganizationDevicesPacketCaptureScheduleCreateRequestSchedule
+public class OrganizationDevicesPacketCaptureScheduleCreateUpdateRequestSchedule
 {
 	/// <summary>
 	/// Cardinality of the schedule frequency, ex. 1 = every day, 2 = every other day (when frequency = day)

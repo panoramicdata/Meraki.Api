@@ -133,4 +133,21 @@ public interface IOrganizationsDevicesPacketCapture
 		string organizationId,
 		[Body] OrganizationDevicesPacketCaptureScheduleCreateRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Update a schedule for packet capture
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="scheduleId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationDevicesPacketCaptureSchedule")]
+	[Put("/organizations/{organizationId}/devices/packetCapture/schedules/{scheduleId}")]
+	Task<OrganizationDevicesPacketCaptureSchedule> UpdateOrganizationDevicesPacketCaptureScheduleAsync(
+		string organizationId,
+		string scheduleId,
+		[Body] OrganizationDevicesPacketCaptureScheduleUpdateRequest request,
+		CancellationToken cancellationToken = default);
 }

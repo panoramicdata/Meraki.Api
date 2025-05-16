@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Organization devices packet capture schedule create request
+/// Organization Devices Packet Capture Schedule Update Request
 /// </summary>
 [DataContract]
-public class OrganizationDevicesPacketCaptureScheduleCreateRequest
+public class OrganizationDevicesPacketCaptureScheduleUpdateRequest
 {
 	/// <summary>
 	/// Duration of the capture in seconds
@@ -47,3 +47,4 @@ public class OrganizationDevicesPacketCaptureScheduleCreateRequest
 	/// </summary>
 	[DataMember(Name = "devices")]
 	public List<OrganizationDevicesPacketCaptureScheduleUpdateCreateRequestDevice> Devices { get; set; } = [];
+}

@@ -73,8 +73,8 @@ public class OrganizationDevicesPacketCaptureSchedule
 	/// Time of updation of scheduled packet capture
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "updatedId")]
-	public string UpdatedId { get; set; } = string.Empty;
+	[DataMember(Name = "updatedAt")]
+	public string UpdatedAt { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Whether the packet capture schedule is enabled
