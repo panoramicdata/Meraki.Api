@@ -27,7 +27,7 @@ public partial class OrganizationsSection
 
 	public IOrganizationsConfigurationChanges ConfigurationChanges { get; internal set; } = null!;
 
-	public IOrganizationsDevices Devices { get; internal set; } = null!;
+	public OrganizationsDeviceSection Devices { get; internal set; } = null!;
 
 	public OrganizationsEarlyAccessSection EarlyAccess { get; internal set; } = new();
 
