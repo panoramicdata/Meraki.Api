@@ -105,4 +105,17 @@ public interface IOrganizationsDevicesPacketCapture
 		string captureId,
 		[Body] OrganizationDevicesPacketCaptureCapturesStopRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// List the Packet Capture Schedules
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationDevicesPacketCaptureSchedules")]
+	[Get("/organizations/{organizationId}/devices/packetCapture/schedules")]
+	Task<OrganizationDevicesPacketCaptureSchedulesResponse> GetOrganizationDevicesPacketCaptureSchedulesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
 }
