@@ -88,4 +88,21 @@ public interface IOrganizationsDevicesPacketCapture
 		string organizationId,
 		string captureId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Stop a specific packet capture (not supported for Catalyst devices)
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="captureId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("stopOrganizationDevicesPacketCaptureCapture")]
+	[Post("/organizations/{organizationId}/devices/packetCapture/captures/{captureId}/stop")]
+	Task<OrganizationDevicesPacketCaptureFile> StopOrganizationDevicesPacketCaptureCaptureAsync(
+		string organizationId,
+		string captureId,
+		[Body] OrganizationDevicesPacketCaptureCapturesStopRequest request,
+		CancellationToken cancellationToken = default);
 }
