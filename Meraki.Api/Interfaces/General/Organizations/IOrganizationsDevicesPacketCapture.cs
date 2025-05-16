@@ -23,7 +23,7 @@ public interface IOrganizationsDevicesPacketCapture
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("createOrganizationDevicesPacketCaptureCapture")]
-	[Get("/organizations/{organizationId}/devices/packetCapture/captures")]
+	[Post("/organizations/{organizationId}/devices/packetCapture/captures")]
 	Task<OrganizationDevicesPacketCaptureFile> CreateOrganizationDevicesPacketCaptureCaptureAsync(
 		string organizationId,
 		[Body] OrganizationDevicesPacketCaptureCapturesCreateRequest request,
@@ -42,5 +42,20 @@ public interface IOrganizationsDevicesPacketCapture
 	Task DeleteOrganizationDevicesPacketCaptureCaptureAsync(
 		string organizationId,
 		string captureId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Perform a packet capture on multiple devices and store in Meraki Cloud.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("bulkOrganizationDevicesPacketCaptureCapturesCreate")]
+	[Post("/organizations/{organizationId}/devices/packetCapture/captures/bulkCreate")]
+	Task<OrganizationDevicesPacketCaptureCapturesBulkCreateResponse> BulkOrganizationDevicesPacketCaptureCapturesCreateAsync(
+		string organizationId,
+		[Body] List<OrganizationDevicesPacketCaptureCapturesBulkCreateRequest> request,
 		CancellationToken cancellationToken = default);
 }
