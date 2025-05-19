@@ -203,7 +203,7 @@ public interface IOrganizationsDevices
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="bulkDevicesUpdate">The bulk devices update request</param>
 	[ApiOperationId("bulkUpdateOrganizationDevicesDetails")]
-	[Get("/organizations/{organizationId}/devices/details/bulkUpdate")]
+	[Post("/organizations/{organizationId}/devices/details/bulkUpdate")]
 	Task<BulkUpdatedDevices> BulkUpdateOrganizationDevicesDetailsAsync(
 		string organizationId,
 		[Body] BulkDevicesUpdate bulkDevicesUpdate,
