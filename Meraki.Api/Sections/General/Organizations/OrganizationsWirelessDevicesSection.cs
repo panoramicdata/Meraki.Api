@@ -3,4 +3,6 @@
 public class OrganizationsWirelessDevicesSection
 {
 	public IOrganizationsWirelessDevicesLatency Latency { get; internal set; } = null!;
+
+	public IOrganizationsWirelessDevicesRadsec Radsec { get; internal set; } = null!;
 }
