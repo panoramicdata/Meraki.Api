@@ -14,4 +14,20 @@ public interface IOrganizationsSaseConnectivity
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Get details of a site in this organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSaseConnectivitySite")]
+	[Get("/organizations/{organizationId}/sase/connectivity/sites/{id}")]
+	Task<OrganizationsSaseConnectivityEnrollableNetwork> GetOrganizationSaseConnectivitySiteAsync(
+		string organizationId,
+		string id,
+		CancellationToken cancellationToken = default
+	);
 }
