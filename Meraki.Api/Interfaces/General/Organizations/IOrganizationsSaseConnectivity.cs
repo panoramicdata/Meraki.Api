@@ -46,4 +46,20 @@ public interface IOrganizationsSaseConnectivity
 		[Body] OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Detach sites in this organization from Secure Access. This will remove the sites from Secure Access.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSaseConnectivitySitesBulkDetach")]
+	[Delete("/organizations/{organizationId}/sase/connectivity/sites/bulkDetach")]
+	Task<OrganizationsSaseConnectivityEnrollableNetworkBulkDetachResponse> DeleteOrganizationSaseConnectivitySitesBulkDetachAsync(
+		string organizationId,
+		[Body] OrganizationsSaseConnectivityEnrollableNetworkBulkDetachRequest request,
+		CancellationToken cancellationToken = default
+	);
 }

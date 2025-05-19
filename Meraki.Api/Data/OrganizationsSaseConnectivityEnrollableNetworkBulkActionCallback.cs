@@ -4,7 +4,7 @@
 /// Details for the callback. Please include either an httpServerId OR url and sharedSecret
 /// </summary>
 [DataContract]
-public class OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollCallback
+public class OrganizationsSaseConnectivityEnrollableNetworkBulkActionCallback
 {
 	/// <summary>
 	/// A shared secret that will be included in the requests sent to the callback URL. It can be used to verify that the request was sent by Meraki. If using this field, please also specify an url.
@@ -22,11 +22,11 @@ public class OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollCallback
 	/// The webhook receiver used for the callback webhook.
 	/// </summary>
 	[DataMember(Name = "httpServer")]
-	public OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollCallbackHttpServer? HttpServer { get; set; }
+	public OrganizationsSaseConnectivityEnrollableNetworkBulkActionCallbackHttpServer? HttpServer { get; set; }
 
 	/// <summary>
 	/// The payload template of the webhook used for the callback
 	/// </summary>
 	[DataMember(Name = "payloadTemplate")]
-	public OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollCallbackPayloadTemplate? PayloadTemplate { get; set; }
+	public OrganizationsSaseConnectivityEnrollableNetworkBulkActionCallbackPayloadTemplate? PayloadTemplate { get; set; }
 }

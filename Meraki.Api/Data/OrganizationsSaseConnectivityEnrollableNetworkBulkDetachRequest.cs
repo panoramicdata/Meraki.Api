@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Organizations Sase Connectivity Enrollable Network Bulk Enroll Request
+/// Organizations Sase Connectivity Enrollable Network Bulk Detach Request
 /// </summary>
 [DataContract]
-public class OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollRequest
+public class OrganizationsSaseConnectivityEnrollableNetworkBulkDetachRequest
 {
 	/// <summary>
 	/// Details for the callback. Please include either an httpServerId OR url and sharedSecret
@@ -13,8 +13,8 @@ public class OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollRequest
 	public OrganizationsSaseConnectivityEnrollableNetworkBulkActionCallback? Callback { get; set; }
 
 	/// <summary>
-	/// List of Meraki SD-WAN sites with the associated regions to be enrolled.
+	/// List of Secure Access sites to be detached.
 	/// </summary>
 	[DataMember(Name = "merakiEnrollments")]
-	public List<OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollMerakiEnrollment>? MerakiEnrollments { get; set; }
+	public List<OrganizationsSaseConnectivityEnrollableNetworkBulkDetachMerakiEnrollment>? MerakiEnrollments { get; set; }
 }
