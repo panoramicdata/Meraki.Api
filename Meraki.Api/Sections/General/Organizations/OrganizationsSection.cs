@@ -51,6 +51,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsPolicyObjectsGroups PolicyObjectGroups { get; internal set; } = null!;
 
+	public OrganizationsSaseSection Sase { get; internal set; } = new();
+
 	public OrganizationsSamlSection Saml { get; internal set; } = new();
 
 	public IOrganizationsSamlRoles SamlRoles { get; internal set; } = null!;
