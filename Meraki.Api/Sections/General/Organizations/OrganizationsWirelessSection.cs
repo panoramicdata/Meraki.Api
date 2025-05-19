@@ -6,4 +6,6 @@ public class OrganizationsWirelessSection
 	public IWirelessZigbee Zigbee { get; internal set; } = null!;
 
 	public OrganizationsWirelessDevicesSection Devices { get; internal set; } = new();
+
+	public OrganizationsWirelessSsidsSection Ssids { get; internal set; } = new();
 }
