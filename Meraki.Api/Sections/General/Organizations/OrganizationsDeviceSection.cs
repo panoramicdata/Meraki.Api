@@ -2,7 +2,7 @@
 public partial class OrganizationsDeviceSection
 {
 	[RefitPromoteCalls]
-	public IOrganizationsDevices Devices { get; internal set; } = null!;
+	internal IOrganizationsDevices Devices { get; set; } = null!;
 
 	public IOrganizationsDevicesPacketCapture PacketCapture { get; internal set; } = null!;
 

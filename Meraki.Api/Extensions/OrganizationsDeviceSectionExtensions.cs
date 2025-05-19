@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api.Extensions;
 
-public static class IOrganizationsDevicesExtensions
+public static class OrganizationsDeviceSectionExtensions
 {
 	/// <summary>
 	/// List the status of every Meraki device in the organization
@@ -15,7 +15,7 @@ public static class IOrganizationsDevicesExtensions
 	/// <param name="tags">An optional parameter to filter devices by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return devices which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
 	public static Task<List<OrganizationDeviceStatus>> GetOrganizationDevicesStatusesAllAsync(
-		this IOrganizationsDevices organizationDevices,
+		this OrganizationsDeviceSection organizationDevices,
 		string organizationId,
 		List<string>? networkIds = null,
 		List<string>? serials = null,
@@ -27,7 +27,7 @@ public static class IOrganizationsDevicesExtensions
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
 				(startingAfter, endingBefore, cancellationToken)
-				=> organizationDevices.GetDevicesStatusesApiResponseAsync(
+				=> organizationDevices.Devices.GetDevicesStatusesApiResponseAsync(
 						organizationId,
 						startingAfter,
 						endingBefore,
@@ -55,7 +55,7 @@ public static class IOrganizationsDevicesExtensions
 	/// <param name="tags">An optional parameter to filter devices by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return devices which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
 	public static Task<List<DeviceProvisioningStatus>> GetOrganizationDevicesProvisioningStatusesAllAsync(
-		this IOrganizationsDevices organizationDevices,
+		this OrganizationsDeviceSection organizationDevices,
 		string organizationId,
 		List<string>? networkIds = null,
 		List<string>? serials = null,
@@ -66,7 +66,7 @@ public static class IOrganizationsDevicesExtensions
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
 				(startingAfter, endingBefore, cancellationToken)
-				=> organizationDevices.GetDevicesProvisioningStatusesApiResponseAsync(
+				=> organizationDevices.Devices.GetDevicesProvisioningStatusesApiResponseAsync(
 						organizationId,
 						startingAfter,
 						endingBefore,
@@ -101,7 +101,7 @@ public static class IOrganizationsDevicesExtensions
 	/// <param name="sensorAlertProfileIds">Optional parameter to filter devices by the alert profiles that are bound to them. Only applies to sensor devices.</param>
 	/// <param name="models">Optional parameter to filter devices by one or more models. All returned devices will have a model that is an exact match</param>
 	public static Task<List<OrganizationDevice>> GetOrganizationDevicesAllAsync(
-		this IOrganizationsDevices organizationDevices,
+		this OrganizationsDeviceSection organizationDevices,
 		string organizationId,
 		string configurationUpdatedAfter = null!,
 		List<string>? networksIds = null,
@@ -120,7 +120,7 @@ public static class IOrganizationsDevicesExtensions
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
 				(startingAfter, endingBefore, cancellationToken)
-				=> organizationDevices.GetOrganizationDevicesApiResponseAsync(
+				=> organizationDevices.Devices.GetOrganizationDevicesApiResponseAsync(
 						organizationId,
 						startingAfter,
 						endingBefore,

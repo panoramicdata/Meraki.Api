@@ -47,3 +47,4 @@ public class OrganizationDevicesPacketCaptureScheduleCreateRequest
 	/// </summary>
 	[DataMember(Name = "devices")]
 	public List<OrganizationDevicesPacketCaptureScheduleUpdateCreateRequestDevice> Devices { get; set; } = [];
+}
