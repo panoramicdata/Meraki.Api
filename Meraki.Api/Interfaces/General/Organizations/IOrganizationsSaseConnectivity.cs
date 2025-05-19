@@ -30,4 +30,20 @@ public interface IOrganizationsSaseConnectivity
 		string id,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Enroll sites in this organization to Secure Access. For an organization, a maximum of 4000 sites can be enrolled if they are in spoke mode or a maximum of 10 sites can be enrolled in hub mode.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationSaseConnectivitySitesBulkEnroll")]
+	[Post("/organizations/{organizationId}/sase/connectivity/sites/bulkEnroll")]
+	Task<OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollResponse> CreateOrganizationSaseConnectivitySitesBulkEnrollAsync(
+		string organizationId,
+		[Body] OrganizationsSaseConnectivityEnrollableNetworkBulkEnrollRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
