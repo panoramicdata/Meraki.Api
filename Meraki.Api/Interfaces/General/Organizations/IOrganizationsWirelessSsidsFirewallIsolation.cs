@@ -52,4 +52,20 @@ public interface IOrganizationsWirelessSsidsFirewallIsolation
 		[Body] OrganizationsWirelessSsidsFirewallAllowListUpdateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Destroy isolation allow list MAC entry for this organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="entryId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationWirelessSsidsFirewallIsolationAllowlistEntry")]
+	[Delete("/organizations/{organizationId}/wireless/ssids/firewall/isolation/allowlist/entries/{entryId}")]
+	Task DeleteOrganizationWirelessSsidsFirewallIsolationAllowlistEntryAsync(
+		string organizationId,
+		string entryId,
+		CancellationToken cancellationToken = default
+	);
 }
