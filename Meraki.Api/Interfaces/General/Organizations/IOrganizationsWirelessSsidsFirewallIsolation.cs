@@ -16,4 +16,22 @@ public interface IOrganizationsWirelessSsidsFirewallIsolation
 		string ssid,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Create isolation allow list MAC entry for this organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="ssid"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationWirelessSsidsFirewallIsolationAllowlistEntry")]
+	[Post("/organizations/{organizationId}/wireless/ssids/firewall/isolation/allowlist/entries")]
+	Task<OrganizationsWirelessSsidsFirewallAllowListEntry> CreateOrganizationWirelessSsidsFirewallIsolationAllowlistEntryAsync(
+		string organizationId,
+		string ssid,
+		[Body] OrganizationsWirelessSsidsFirewallAllowListCreateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
