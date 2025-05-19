@@ -23,7 +23,7 @@ public class OrganizationWirelessDevicesRadsecCertificateAuthority
 	/// <summary>
 	/// The status of the Certificate Authority - one of "generating", "untrusted" or "trusted"
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "status")]
 	public AuthorityStatus Status { get; set; } = AuthorityStatus.Generating;
 }
