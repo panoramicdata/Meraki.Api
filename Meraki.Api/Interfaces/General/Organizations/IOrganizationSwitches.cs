@@ -292,6 +292,7 @@ public interface IOrganizationSwitches
 	/// <summary>
 	/// Delete Network and Smart Port profile association for a specific profile
 	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
 	/// <param name="assignmentId"></param>
 	/// <param name="cancellationToken"></param>
@@ -301,6 +302,22 @@ public interface IOrganizationSwitches
 	Task DeleteOrganizationSwitchPortsProfilesNetworksAssignment(
 		string organizationId,
 		string assignmentId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Batch Create Network and Smart Ports Profile associations for a specific profile
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="OrganizationSwitchPortsProfilesNetworksAssignmentsbatchCreateRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("batchOrganizationSwitchPortsProfilesNetworksAssignmentsCreate")]
+	[Post("/organizations/{organizationId}/switch/ports/profiles/networks/assignments/batchCreate")]
+	Task<OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateResponse> BatchOrganizationSwitchPortsProfilesNetworksAssignmentsCreate(
+		string organizationId,
+		[Body] OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateRequest OrganizationSwitchPortsProfilesNetworksAssignmentsbatchCreateRequest,
 		CancellationToken cancellationToken = default
 		);
 
