@@ -57,4 +57,21 @@ public interface IOrganizationsWirelessRadio
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Recalculates automatically assigned channels for every AP within specified the specified network(s). Note: This could cause a brief loss in connectivity for wireless clients.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("recalculateOrganizationWirelessRadioAutoRfChannels")]
+	[Post("/organizations/{organizationId}/wireless/radio/autoRf/channels/recalculate")]
+	Task<
+		OrganizationsWirelessRadioAutoRfChannelsRecalculateResponse> RecalculateOrganizationWirelessRadioAutoRfChannelsAsync(
+			string organizationId,
+			[Body] OrganizationsWirelessRadioAutoRfChannelsRecalculateRequest? request = null,
+			CancellationToken cancellationToken = default
+		);
 }
