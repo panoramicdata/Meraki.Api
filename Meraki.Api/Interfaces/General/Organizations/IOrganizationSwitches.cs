@@ -261,6 +261,18 @@ public interface IOrganizationSwitches
 	[ApiOperationId("getOrganizationSwitchPortsProfilesOverviewByProfile")]
 	[Get("/organizations/{organizationId}/switch/ports/profiles/overview/byProfile")]
 	Task<OrganizationSwitchPortsProfilesOverviewByProfile> GetOrganizationSwitchPortsProfilesOverviewByProfile(string organizationId, CancellationToken cancellationToken);
+
+	/// <summary>
+	/// Fetch all Network - Smart Port Profile associations for an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSwitchPortsProfilesNetworksAssignments")]
+	[Get("/organizations/{organizationId}/switch/ports/profiles/networks/assignments")]
+	Task<OrganizationSwitchPortsProfilesNetworksAssignments> GetOrganizationSwitchPortsProfilesNetworksAssignments(string organizationId, CancellationToken cancellationToken = default);
+
 	/// <summary>
 	/// List the historical usage and traffic data of switchports in an organization.
 	/// </summary>
