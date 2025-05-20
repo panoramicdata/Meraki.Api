@@ -290,6 +290,21 @@ public interface IOrganizationSwitches
 		);
 
 	/// <summary>
+	/// Delete Network and Smart Port profile association for a specific profile
+	/// </summary>
+	/// <param name="organizationId"></param>
+	/// <param name="assignmentId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("deleteOrganizationSwitchPortsProfilesNetworksAssignment")]
+	[Delete("/organizations/{organizationId}/switch/ports/profiles/networks/assignments/{assignmentId}")]
+	Task DeleteOrganizationSwitchPortsProfilesNetworksAssignment(
+		string organizationId,
+		string assignmentId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// List the historical usage and traffic data of switchports in an organization.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
