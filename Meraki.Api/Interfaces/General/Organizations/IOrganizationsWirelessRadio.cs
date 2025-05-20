@@ -29,4 +29,18 @@ public interface IOrganizationsWirelessRadio
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// List the AutoRF settings of an organization by network
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessRadioAutoRfByNetwork")]
+	[Get("/organizations/{organizationId}/wireless/radio/autoRf/byNetwork")]
+	Task<List<OrganizationsWirelessRadioAutoRfByNetworkItem>> GetOrganizationWirelessRadioAutoRfByNetworkAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
