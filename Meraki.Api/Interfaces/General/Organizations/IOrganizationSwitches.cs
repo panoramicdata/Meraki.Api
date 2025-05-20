@@ -274,6 +274,22 @@ public interface IOrganizationSwitches
 	Task<OrganizationSwitchPortsProfilesNetworksAssignments> GetOrganizationSwitchPortsProfilesNetworksAssignments(string organizationId, CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// Create Network and Smart Ports Profile association for a specific profile
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="organizationSwitchPortsProfilesNetworksAssignment"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationSwitchPortsProfilesNetworksAssignment")]
+	[Post("/organizations/{organizationId}/switch/ports/profiles/networks/assignments")]
+	Task<OrganizationSwitchPortsProfilesNetworksAssignment> CreateOrganizationSwitchPortsProfilesNetworksAssignment(
+		string organizationId,
+		[Body] OrganizationSwitchPortsProfilesNetworksAssignmentCreateRequest organizationSwitchPortsProfilesNetworksAssignment,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// List the historical usage and traffic data of switchports in an organization.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
