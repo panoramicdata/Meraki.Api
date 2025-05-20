@@ -4,7 +4,7 @@
 /// Network of device
 /// </summary>
 [DataContract]
-public class OrganizationsWirelessRadioAfcPositionByDeviceNetwork
+public class OrganizationsWirelessRadioAfcByDeviceNetwork
 {
 	/// <summary>
 	/// Network ID

@@ -39,5 +39,5 @@ public class OrganizationsWirelessRadioAfcPositionByDeviceItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "network")]
-	public OrganizationsWirelessRadioAfcPositionByDeviceNetwork Network { get; set; } = new();
+	public OrganizationsWirelessRadioAfcByDeviceNetwork Network { get; set; } = new();
 }
