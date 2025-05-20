@@ -43,4 +43,18 @@ public interface IOrganizationsWirelessRadio
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// List the channel planning activities of an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessRadioAutoRfChannelsPlanningActivities")]
+	[Get("/organizations/{organizationId}/wireless/radio/autoRf/channels/planning/activities")]
+	Task<List<OrganizationsWirelessRadioAutoRfChannelsPlanningActivity>> GetOrganizationWirelessRadioAutoRfChannelsPlanningActivitiesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
