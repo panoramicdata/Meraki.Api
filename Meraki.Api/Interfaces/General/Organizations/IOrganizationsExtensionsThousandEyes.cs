@@ -104,8 +104,8 @@ public interface IOrganizationsExtensionsThousandEyes
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationExtensionsThousandEyesNetworksSupported")]
-	[Get("/organizations/{organizationId}/extensions/thousandEyes/networks")]
-	Task<List<ThousandEyesNetwork>> GetOrganizationExtensionsThousandEyesNetworksSupportedAsync(
+	[Get("/organizations/{organizationId}/extensions/thousandEyes/networks/supported")]
+	Task<List<ThousandEyesNetworkSupported>> GetOrganizationExtensionsThousandEyesNetworksSupportedAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
