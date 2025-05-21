@@ -4,11 +4,11 @@
 /// ThousandEyes Network Test Create Request
 /// </summary>
 [DataContract]
-public class ThousandEyesNetworkTestCreateRequest
+public class ThousandEyesTestCreateRequest
 {
 	/// <summary>
 	/// An array of tests to be created
 	/// </summary>
 	[DataMember(Name = "tests")]
-	public List<ThousandEyesNetworkTest>? Tests { get; set; }
+	public List<ThousandEyesTest>? Tests { get; set; }
 }

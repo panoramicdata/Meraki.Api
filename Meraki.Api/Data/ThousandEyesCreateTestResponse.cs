@@ -4,7 +4,7 @@
 /// ThousandEyes Network Create Test Response
 /// </summary>
 [DataContract]
-public class ThousandEyesNetworkCreateTestResponse
+public class ThousandEyesCreateTestResponse
 {
 	/// <summary>
 	/// Status of PCC background job

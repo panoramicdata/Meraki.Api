@@ -88,11 +88,11 @@ public interface IOrganizationsExtensionsThousandEyes
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("createOrganizationExtensionsThousandEyesTest")]
-	[Post("/organizations/{organizationId}/extensions/thousandEyes/networks/{networkId}/tests")]
-	Task<ThousandEyesNetworkCreateTestResponse> CreateOrganizationExtensionsThousandEyesTestAsync(
+	[Post("/organizations/{organizationId}/extensions/thousandEyes/tests")]
+	Task<ThousandEyesCreateTestResponse> CreateOrganizationExtensionsThousandEyesTestAsync(
 		string organizationId,
 		string networkId,
-		[Body] ThousandEyesNetworkTestCreateRequest request,
+		[Body] ThousandEyesTestCreateRequest request,
 		CancellationToken cancellationToken = default
 	);
 

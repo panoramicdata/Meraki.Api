@@ -4,7 +4,7 @@
 /// Thousand Eye test template object, maximun size: 1000
 /// </summary>
 [DataContract]
-public class ThousandEyesNetworkTestTemplate
+public class ThousandEyesTestTemplate
 {
 	/// <summary>
 	/// Template Id
@@ -16,5 +16,5 @@ public class ThousandEyesNetworkTestTemplate
 	/// Optional object containing customizable value for tenant
 	/// </summary>
 	[DataMember(Name = "userInputs")]
-	public ThousandEyesNetworkTestTemplateUserInputs? UserInputs { get; set; }
+	public ThousandEyesTestTemplateUserInputs? UserInputs { get; set; }
 }

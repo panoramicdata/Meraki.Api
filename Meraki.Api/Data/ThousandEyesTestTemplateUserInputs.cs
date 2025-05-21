@@ -4,7 +4,7 @@
 /// Optional object containing customizable value for tenant
 /// </summary>
 [DataContract]
-public class ThousandEyesNetworkTestTemplateUserInputs
+public class ThousandEyesTestTemplateUserInputs
 {
 	/// <summary>
 	/// Tenant value

@@ -22,5 +22,5 @@ public class ThousandEyesNetworkCreateRequest
 	/// An array of tests to be created
 	/// </summary>
 	[DataMember(Name = "tests")]
-	public List<ThousandEyesNetworkTest>? Tests { get; set; }
+	public List<ThousandEyesTest>? Tests { get; set; }
 }

@@ -4,7 +4,7 @@
 /// Network
 /// </summary>
 [DataContract]
-public class ThousandEyesNetworkTestNetwork
+public class ThousandEyesTestNetwork
 {
 	/// <summary>
 	/// Network Id e.g. N_12345
