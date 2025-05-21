@@ -322,6 +322,22 @@ public interface IOrganizationSwitches
 		);
 
 	/// <summary>
+	/// Bulk delete Network and Smart Port Profile associations
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="organizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("bulkOrganizationSwitchPortsProfilesNetworksAssignmentsDelete")]
+	[Post("/organizations/{organizationId}/switch/ports/profiles/networks/assignments/bulkDelete")]
+	Task BulkOrganizationSwitchPortsProfilesNetworksAssignmentsDeleteAsync(
+		string organizationId,
+		[Body] OrganizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest organizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// List the historical usage and traffic data of switchports in an organization.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
