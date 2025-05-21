@@ -9,7 +9,7 @@ public interface IOrganizationsApplianceDnsLocalProfiles
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationApplianceDnsLocalProfilesAssignments")]
-	[Get("/organizations/{organizationId}/appliance/dns/localProfiles/assignments")]
+	[Get("/organizations/{organizationId}/appliance/dns/local/profiles/assignments")]
 	Task<OrganizationApplianceDnsLocalProfilesAssignmentsResponse> GetOrganizationApplianceDnsLocalProfilesAssignmentsAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
