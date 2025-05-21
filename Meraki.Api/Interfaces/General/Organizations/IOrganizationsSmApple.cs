@@ -16,4 +16,20 @@ public interface IOrganizationsSmApple
 		[Body] OrganizationsCloudEnrollmentSyncJobCreateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Retrieve the status of an ADE sync job
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="syncJobId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSmAppleCloudEnrollmentSyncJob")]
+	[Get("/organizations/{organizationId}/sm/apple/cloudEnrollment/syncJobs/{syncJobId}")]
+	Task<OrganizationsCloudEnrollmentSyncJob> GetOrganizationSmAppleCloudEnrollmentSyncJobAsync(
+		string organizationId,
+		string syncJobId,
+		CancellationToken cancellationToken = default
+	);
 }
