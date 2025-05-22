@@ -1,25 +1,11 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Organization Wireless Devices Channel Utilization
+/// Organization Wireless Devices Channel Utilization By Network Item
 /// </summary>
 [DataContract]
-public class OrganizationWirelessDevicesChannelUtilization
+public class OrganizationWirelessDevicesChannelUtilizationByNetworkItem
 {
-	/// <summary>
-	/// The MAC address of the device.
-	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "mac")]
-	public string Mac { get; set; } = string.Empty;
-
-	/// <summary>
-	/// The serial number for the device.
-	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "serial")]
-	public string Serial { get; set; } = string.Empty;
-
 	/// <summary>
 	/// Network for the given utilization metrics.
 	/// </summary>
@@ -30,7 +16,7 @@ public class OrganizationWirelessDevicesChannelUtilization
 	/// <summary>
 	/// Channel utilization broken down by band.
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "byBand")]
 	public List<OrganizationWirelessDevicesChannelUtilizationByBandItem> ByBand { get; set; } = [];
 }
