@@ -79,5 +79,7 @@ public partial class OrganizationsSection
 
 	public OrganizationsWirelessSection Wireless { get; internal set; } = new();
 
+	public OrganizationsWirelessControllerSection WirelessController { get; internal set; } = new();
+
 	public OrganizationBrandingPoliciesSection BrandingPolicies { get; internal set; } = new();
 }
