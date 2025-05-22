@@ -28,4 +28,18 @@ public interface IOrganizationsWirelessControllerDevicesInterfacesL2
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// List wireless LAN controller layer 2 interfaces history usage in an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessControllerDevicesInterfacesL2UsageHistoryByInterval")]
+	[Get("/organizations/{organizationId}/wirelessController/devices/interfaces/l2/usage/history/byInterval")]
+	Task<OrganizationWirelessControllerDevicesInterfacesL2UsageHistoryByIntervalGetResponse> GetOrganizationWirelessControllerDevicesInterfacesL2UsageHistoryByIntervalAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
