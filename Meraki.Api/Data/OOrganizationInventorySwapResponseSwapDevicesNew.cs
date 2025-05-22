@@ -4,7 +4,7 @@
 /// The device that will have settings cloned to
 /// </summary>
 [DataContract]
-public class OrganizationInventorySwapCreateResponseSwapDevicesNew
+public class OOrganizationInventorySwapResponseSwapDevicesNew
 {
 	/// <summary>
 	/// MAC address of the device

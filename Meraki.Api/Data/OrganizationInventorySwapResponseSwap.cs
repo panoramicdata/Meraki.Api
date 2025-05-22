@@ -4,7 +4,7 @@
 /// A Recent Swap Request and their Status
 /// </summary>
 [DataContract]
-public class OrganizationInventorySwapCreateResponseSwap
+public class OrganizationInventorySwapResponseSwap
 {
 	/// <summary>
 	/// An action to perform on the devices.old object after swap is complete. enum = ["release from organization inventory", "remove from network"]
@@ -52,5 +52,5 @@ public class OrganizationInventorySwapCreateResponseSwap
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "devices")]
-	public OrganizationInventorySwapCreateResponseSwapDevices Devices { get; set; } = new();
+	public OrganizationInventorySwapResponseSwapDevices Devices { get; set; } = new();
 }

@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Organization Inventory Swap Create Response
+/// Organization Inventory Swap Response
 /// </summary>
 [DataContract]
-public class OrganizationInventorySwapCreateResponse
+public class OrganizationInventorySwapResponse
 {
 	/// <summary>
 	/// The ID of the job that was used to create all of the device swaps.
@@ -18,5 +18,5 @@ public class OrganizationInventorySwapCreateResponse
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "swaps")]
-	public List<OrganizationInventorySwapCreateResponseSwap> Swaps { get; set; } = [];
+	public List<OrganizationInventorySwapResponseSwap> Swaps { get; set; } = [];
 }

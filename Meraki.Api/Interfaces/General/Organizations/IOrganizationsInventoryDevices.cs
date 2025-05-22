@@ -101,8 +101,23 @@ public interface IOrganizationsInventoryDevices
 	/// <returns></returns>
 	[ApiOperationId("createOrganizationInventoryDevicesSwapsBulk")]
 	[Post("/organizations/{organizationId}/inventory/devices/swaps/bulk")]
-	Task<OrganizationInventorySwapCreateResponse> CreateOrganizationInventoryDevicesSwapsBulkAsync(
+	Task<OrganizationInventorySwapResponse> CreateOrganizationInventoryDevicesSwapsBulkAsync(
 		string organizationId,
 		[Body] OrganizationInventorySwapCreateRequest request,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// List of device swaps for a given request ID ({id}).
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationInventoryDevicesSwapsBulk")]
+	[Get("/organizations/{organizationId}/inventory/devices/swaps/bulk/{id}")]
+	Task<OrganizationInventorySwapResponse> GetOrganizaitonInventoryDevicesSwapsBulkAsync(
+		string organizationId,
+		string id,
 		CancellationToken cancellationToken = default);
 }

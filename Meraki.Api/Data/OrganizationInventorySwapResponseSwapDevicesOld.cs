@@ -4,7 +4,7 @@
 /// The device that will be cloned
 /// </summary>
 [DataContract]
-public class OrganizationInventorySwapCreateResponseSwapDevicesOld
+public class OrganizationInventorySwapResponseSwapDevicesOld
 {
 	/// <summary>
 	/// MAC address of the device
