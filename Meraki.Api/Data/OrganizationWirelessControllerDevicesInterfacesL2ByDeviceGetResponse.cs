@@ -11,7 +11,7 @@ public class OrganizationWirelessControllerDevicesInterfacesL2ByDeviceGetRespons
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "meta")]
-	public OrganizationWirelessControllerDevicesInterfacesL2ByDeviceGetResponseMetadata Meta { get; set; } = new();
+	public OrganizationWirelessControllerDevicesInterfacesL2GetResponseMetadata Meta { get; set; } = new();
 
 	/// <summary>
 	/// Wireless LAN controller L2 interfaces

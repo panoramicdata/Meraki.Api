@@ -4,12 +4,12 @@
 /// Counts relating to the paginated dataset
 /// </summary>
 [DataContract]
-public class OrganizationWirelessControllerDevicesInterfacesL2ByDeviceGetResponseMetadataCounts
+public class OrganizationWirelessControllerDevicesInterfacesL2GetResponseMetadataCounts
 {
 	/// <summary>
 	/// Counts relating to the paginated items
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "items")]
-	public OrganizationWirelessControllerDevicesInterfacesL2ByDeviceGetResponseMetadataCountsItems Items { get; set; } = new();
+	public OrganizationWirelessControllerDevicesInterfacesL2GetResponseMetadataCountsItems Items { get; set; } = new();
 }
