@@ -37,4 +37,17 @@ public interface IOrganizationsWirelessDevicesChannelUtilization
 	[ApiOperationId("getOrganizationWirelessDevicesChannelUtilizationHistoryByDeviceByInterval")]
 	[Get("/organizations/{organizationId}/wireless/devices/channelUtilization/history/byDevice/byInterval")]
 	Task<List<OrganizationWirelessDevicesChannelUtilizationHistoryByDeviceByIntervalItem>> GetOrganizationWirelessDevicesChannelUtilizationHistoryByDeviceByIntervalAsync(string orgnanizationId, string networkId, string interval, CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Get a time-series of average channel utilization for all bands
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="orgnanizationId"></param>
+	/// <param name="networkId"></param>
+	/// <param name="interval"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessDevicesChannelUtilizationHistoryByNetworkByInterval")]
+	[Get("/organizations/{organizationId}/wireless/devices/channelUtilization/history/byNetwork/byInterval")]
+	Task<List<OrganizationWirelessDevicesChannelUtilizationHistoryByNetworkByIntervalItem>> GetOrganizationWirelessDevicesChannelUtilizationHistoryByNetworkByIntervalAsync(string orgnanizationId, string networkId, string interval, CancellationToken cancellationToken = default);
 }
