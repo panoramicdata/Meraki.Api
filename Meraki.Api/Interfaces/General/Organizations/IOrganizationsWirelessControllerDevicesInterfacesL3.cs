@@ -27,4 +27,17 @@ public interface IOrganizationsWirelessControllerDevicesInterfacesL3
 	Task<OrganizationWirelessControllerDevicesInterfacesL3StatusesChangeHistoryByDeviceResponse> GetOrganizationWirelessControllerDevicesInterfacesL3StatusesChangeHistoryByDeviceResponseAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// List wireless LAN controller layer 3 interfaces history usage in an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessControllerDevicesInterfacesL3UsageHistoryByInterval")]
+	[Get("/organizations/{organizationId}/wirelessController/devices/interfaces/l3/usage/history/byInterval")]
+	Task<OrganizationWirelessControllerDevicesInterfacesL3UsageHistoryByIntervalResponse> GetOrganizationWirelessControllerDevicesInterfacesL3UsageHistoryByIntervalResponseAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
 }
