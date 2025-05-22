@@ -33,6 +33,8 @@ public partial class OrganizationsSection
 
 	public OrganizationsExtensionsSection Extensions { get; internal set; } = new();
 
+	public IOrganizationsFirmware Firmware { get; internal set; } = null!;
+
 	public OrganizationsInsightSection Insight { get; internal set; } = new();
 
 	public IOrganizationsInventoryDevices InventoryDevices { get; internal set; } = null!;
