@@ -275,6 +275,7 @@ public partial class MerakiClient : IDisposable
 				InboundFirewallRules = RefitFor(Appliance.Firewall.InboundFirewallRules),
 				L3FirewallRules = RefitFor(Appliance.Firewall.L3FirewallRules),
 				L7FirewallRules = RefitFor(Appliance.Firewall.L7FirewallRules),
+				MulticastForwarding = RefitFor(Appliance.Firewall.MulticastForwarding),
 				OneToManyNatRules = RefitFor(Appliance.Firewall.OneToManyNatRules),
 				OneToOneNatRules = RefitFor(Appliance.Firewall.OneToOneNatRules),
 				PortForwardingRules = RefitFor(Appliance.Firewall.PortForwardingRules),

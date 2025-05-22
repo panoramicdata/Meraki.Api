@@ -147,101 +147,109 @@ public static class SheetOutput
 	/// <exception cref="InvalidDataException"></exception>
 	private static string CheckSchemaProperties(OpenApiSchema apiSchema, Type? modelType, string responseSchemaPath = "")
 	{
-		// Start out assuming we have nothing to report
-		var result = string.Empty;
-
-		// Check for writable properties without DataMember attribute set
-		var modelPropertiesWithoutDataMembers = modelType?
-			.GetProperties()
-			.Where(modelProperty =>
-			{
-				var dataMemberAttribute = modelProperty.GetCustomAttribute<DataMemberAttribute>();
-				return modelProperty.CanWrite && dataMemberAttribute is null;
-			})
-			.ToList();
-		if (modelPropertiesWithoutDataMembers?.Count > 0)
+		try
 		{
-			result += $" Found writable properties without DataMember: {string.Join(", ", modelPropertiesWithoutDataMembers.Select(p => p.Name))}";
-			// Don't do anything else
-			return result;
-		}
+			// Start out assuming we have nothing to report
+			var result = string.Empty;
 
-		// Get all the writable properties from the responseModel and put them in a Dictionary indexed by DataMember name
-		var props = modelType?.GetProperties();
-		var modelProperties = props?
-			.Where(modelProperty => modelProperty.CanWrite)
-			.ToDictionary(
-				modelProperty =>
+			// Check for writable properties without DataMember attribute set
+			var modelPropertiesWithoutDataMembers = modelType?
+				.GetProperties()
+				.Where(modelProperty =>
 				{
 					var dataMemberAttribute = modelProperty.GetCustomAttribute<DataMemberAttribute>();
-					return dataMemberAttribute is not null
-						? dataMemberAttribute.Name!
-						: throw new InvalidDataException($"Expected property {modelProperty.Name} to have DataMember attribute with a name set");
-				},
-				modelProperty => modelProperty
-			) ?? [];
-
-		// Loop through the properties in the schema and check if they exist in the responseModel
-		// Deconstruct each Dictionary entry Key and Value into two variables
-		foreach ((var schemaPropertyName, var schemaProperty) in apiSchema.Properties)
-		{
-			// Can we find a modelProperty matching on the schema property name
-			if (modelProperties.TryGetValue(schemaPropertyName, out var modelProperty))
+					return modelProperty.CanWrite && dataMemberAttribute is null;
+				})
+				.ToList();
+			if (modelPropertiesWithoutDataMembers?.Count > 0)
 			{
-				// YES - Do we have sub properties?
-				if (schemaProperty.Properties.Count > 0)
-				{
-					// YES - check those too
-					result += CheckSchemaProperties(
-						schemaProperty,
-						modelProperty.PropertyType,
-						responseSchemaPath + (responseSchemaPath != string.Empty ? "." : string.Empty) + schemaPropertyName
-					);
-				}
-
-				// TODO - See if the modelProperty has any sub properties as this might be different from the schema
+				result += $" Found writable properties without DataMember: {string.Join(", ", modelPropertiesWithoutDataMembers.Select(p => p.Name))}";
+				// Don't do anything else
+				return result;
 			}
-			else
+
+			// Get all the writable properties from the responseModel and put them in a Dictionary indexed by DataMember name
+
+			var props = modelType?.GetProperties();
+			var modelProperties = props?
+				.Where(modelProperty => modelProperty.CanWrite)
+				.ToDictionary(
+					modelProperty =>
+					{
+						var dataMemberAttribute = modelProperty.GetCustomAttribute<DataMemberAttribute>();
+						return dataMemberAttribute is not null
+							? dataMemberAttribute.Name!
+							: throw new InvalidDataException($"Expected property {modelProperty.Name} to have DataMember attribute with a name set");
+					},
+					modelProperty => modelProperty
+				) ?? [];
+
+			// Loop through the properties in the schema and check if they exist in the responseModel
+			// Deconstruct each Dictionary entry Key and Value into two variables
+			foreach ((var schemaPropertyName, var schemaProperty) in apiSchema.Properties)
 			{
-				// NO - we have a schema property that's not on the model
-				if (result != string.Empty)
+				// Can we find a modelProperty matching on the schema property name
+				if (modelProperties.TryGetValue(schemaPropertyName, out var modelProperty))
 				{
-					result += "\n";
-				}
+					// YES - Do we have sub properties?
+					if (schemaProperty.Properties.Count > 0)
+					{
+						// YES - check those too
+						result += CheckSchemaProperties(
+							schemaProperty,
+							modelProperty.PropertyType,
+							responseSchemaPath + (responseSchemaPath != string.Empty ? "." : string.Empty) + schemaPropertyName
+						);
+					}
 
-				result += $"Missing schema property '{responseSchemaPath}{(responseSchemaPath != string.Empty ? "." : string.Empty)}{schemaPropertyName}' ({schemaProperty.Type})";
+					// TODO - See if the modelProperty has any sub properties as this might be different from the schema
+				}
+				else
+				{
+					// NO - we have a schema property that's not on the model
+					if (result != string.Empty)
+					{
+						result += "\n";
+					}
+
+					result += $"Missing schema property '{responseSchemaPath}{(responseSchemaPath != string.Empty ? "." : string.Empty)}{schemaPropertyName}' ({schemaProperty.Type})";
+				}
 			}
+
+			// TODO - report on any extra model properties that are not on the schema
+			//foreach (var property in responseModel.GetProperties().Where(p => p.CanWrite))
+			//{
+			//	var dataMember = property.GetCustomAttribute<DataMemberAttribute>();
+			//	var dataMemberName = dataMember is not null
+			//		? dataMember.Name!
+			//		: throw new InvalidDataException("Expected property to have a DataMember with a name set");
+
+			//	// Do we have a matching property?
+			//	if (responseSchema.Properties.TryGetValue(dataMemberName, out var matchingSchemaProperty))
+			//	{
+			//		// Yes - Do we have sub properties?
+			//		if (matchingSchemaProperty.Properties.Count > 0)
+			//		{
+			//			// Yes - check those too
+			//			result += CheckSchemaProperties(
+			//				matchingSchemaProperty,
+			//				property.GetType(),
+			//				responseSchemaPath + "." + dataMemberName
+			//			);
+			//		}
+			//	}
+			//	else
+			//	{
+			//		// No - we have an extra model property that's not on the schema
+			//		result += "Extra model property";
+			//	}
+			//}
+			return result;
 		}
-
-		// TODO - report on any extra model properties that are not on the schema
-		//foreach (var property in responseModel.GetProperties().Where(p => p.CanWrite))
-		//{
-		//	var dataMember = property.GetCustomAttribute<DataMemberAttribute>();
-		//	var dataMemberName = dataMember is not null
-		//		? dataMember.Name!
-		//		: throw new InvalidDataException("Expected property to have a DataMember with a name set");
-
-		//	// Do we have a matching property?
-		//	if (responseSchema.Properties.TryGetValue(dataMemberName, out var matchingSchemaProperty))
-		//	{
-		//		// Yes - Do we have sub properties?
-		//		if (matchingSchemaProperty.Properties.Count > 0)
-		//		{
-		//			// Yes - check those too
-		//			result += CheckSchemaProperties(
-		//				matchingSchemaProperty,
-		//				property.GetType(),
-		//				responseSchemaPath + "." + dataMemberName
-		//			);
-		//		}
-		//	}
-		//	else
-		//	{
-		//		// No - we have an extra model property that's not on the schema
-		//		result += "Extra model property";
-		//	}
-		//}
-		return result;
+		catch (Exception ex)
+		{
+			throw;
+		}
 	}
 
 	internal static List<ImplementationWithoutEndpoint> GetRemainingInterfaces(Dictionary<string, List<MethodDetails>> implementedEndpoints)

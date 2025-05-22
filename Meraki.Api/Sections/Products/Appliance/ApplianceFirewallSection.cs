@@ -8,6 +8,7 @@ public class ApplianceFirewallSection
 	public IApplianceFirewallInboundFirewallRules InboundFirewallRules { get; internal set; } = null!;
 	public IApplianceFirewallL3FirewallRules L3FirewallRules { get; internal set; } = null!;
 	public IApplianceFirewallL7FirewallRules L7FirewallRules { get; internal set; } = null!;
+	public IApplianceFirewallMulticastForwarding MulticastForwarding { get; internal set; } = null!;
 	public IApplianceFirewallOneToManyNatRules OneToManyNatRules { get; internal set; } = null!;
 	public IApplianceFirewallOneToOneNatRules OneToOneNatRules { get; internal set; } = null!;
 	public IApplianceFirewallPortForwardingRules PortForwardingRules { get; internal set; } = null!;

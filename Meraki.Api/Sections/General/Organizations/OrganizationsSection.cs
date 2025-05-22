@@ -35,6 +35,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsNetworks Networks { get; internal set; } = null!;
 
+	public IOrganizationsNetworkDevices NewtworkDevices { get; set; }
+
 	public IOrganizationsOpenapiSpec OpenapiSpec { get; internal set; } = null!;
 
 	public IOrganizationsPolicyObjects PolicyObjects { get; internal set; } = null!;
@@ -44,6 +46,10 @@ public partial class OrganizationsSection
 	public OrganizationsSamlSection Saml { get; internal set; } = new();
 
 	public IOrganizationsSamlRoles SamlRoles { get; internal set; } = null!;
+
+	public OrganizationsSecureConnectSection SecureConnect { get; internal set; } = new();
+
+	public OrganizationsSmSection Sm { get; internal set; } = new();
 
 	public IOrganizationsSnmp Snmp { get; internal set; } = null!;
 
@@ -58,6 +64,8 @@ public partial class OrganizationsSection
 	public IOrganizationsUplinks Uplinks { get; internal set; } = null!;
 
 	public OrganizationsWebhooksSection Webhooks { get; internal set; } = new();
+
+	public OrganizationsWirelessSection Wireless { get; internal set; } = new();
 
 	public OrganizationBrandingPoliciesSection BrandingPolicies { get; internal set; } = new();
 }

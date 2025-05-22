@@ -31,6 +31,7 @@ public class SyslogServer
 	/// <summary>
 	/// Encryption settings for the syslog server
 	/// </summary>
+	[Obsolete("Deleted as at API v1.56")]
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "encryption")]
 	public SyslogServerEncryption? Encryption { get; set; }

@@ -28,7 +28,7 @@ public class SiteToSiteVpn
 	public List<Subnet> Subnets { get; set; } = [];
 
 	/// <summary>
-	/// Undocumented 2025-01-13
+	/// Configuration of subnet features
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "subnet")]

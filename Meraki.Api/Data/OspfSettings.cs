@@ -26,4 +26,11 @@ public class OspfSettings
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "isPassiveEnabled")]
 	public bool IsPassiveEnabled { get; set; }
+
+	/// <summary>
+	/// OSPF Settings - Undocumented 2025-05-04, observed value of "broadcast"
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "networkType")]
+	public string? NetworkType { get; set; }
 }

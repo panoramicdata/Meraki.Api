@@ -12,6 +12,6 @@ public class NetworkClientOverview
 	/// <summary>
 	/// Usages
 	/// </summary>
-	[DataMember(Name = "counts")]
+	[DataMember(Name = "usages")]
 	public NetworkClientOverviewUsages Usages { get; set; } = new();
 }

@@ -1,7 +1,7 @@
 namespace Meraki.Api.Data;
 
 /// <summary>
-/// Quality and resolution for MV63X camera models.
+/// Quality and resolution for MV93X camera models.
 /// </summary>
 [DataContract]
 public class Mv93X
