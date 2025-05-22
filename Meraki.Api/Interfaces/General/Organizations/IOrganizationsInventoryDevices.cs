@@ -90,4 +90,19 @@ public interface IOrganizationsInventoryDevices
 		string organizationId,
 		[Body] OrganizationInventoryReleaseRequest organizationInventoryReleaseRequest,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Swap the devices identified by devices.old with a devices.new, then perform the :afterAction on the devices.old.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationInventoryDevicesSwapsBulk")]
+	[Post("/organizations/{organizationId}/inventory/devices/swaps/bulk")]
+	Task<OrganizationInventorySwapCreateResponse> CreateOrganizationInventoryDevicesSwapsBulkAsync(
+		string organizationId,
+		[Body] OrganizationInventorySwapCreateRequest request,
+		CancellationToken cancellationToken = default);
 }
