@@ -8,6 +8,8 @@ public partial class OrganizationsDeviceSection
 
 	public IOrganizationsDevicesPacketCapture PacketCapture { get; internal set; } = null!;
 
+	public IOrganizationsDevicesPower Power { get; internal set; } = null!;
+
 	public IOrganizationsDevicesSignalQuality SignalQuality { get; internal set; } = null!;
 
 }
