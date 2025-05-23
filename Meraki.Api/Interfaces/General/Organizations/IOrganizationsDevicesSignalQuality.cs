@@ -29,4 +29,18 @@ public interface IOrganizationsDevicesSignalQuality
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Get average signal quality for all networks in the organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessDevicesSignalQualityByNetwork")]
+	[Get("/organizations/{organizationId}/wireless/devices/signalQuality/byNetwork")]
+	Task<List<OrganizationWirelessDevicesSignalQualityByNetworkItem>> GetOrganizationWirelessDevicesSignalQualityByNetworkAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
