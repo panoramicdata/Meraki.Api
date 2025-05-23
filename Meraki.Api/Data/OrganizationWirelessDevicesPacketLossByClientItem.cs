@@ -4,7 +4,7 @@
 /// Organization Wireless Devices Packet Loss Item
 /// </summary>
 [DataContract]
-public class OrganizationWirelessDevicesPacketLossItem
+public class OrganizationWirelessDevicesPacketLossByClientItem
 {
 	/// <summary>
 	/// Client
