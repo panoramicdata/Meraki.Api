@@ -27,4 +27,17 @@ public interface IOrganizationsWirelessDevicesPacketLoss
 	Task<List<OrganizationWirelessDevicesPacketLossByDeviceItem>> GetOrganizationWirelessDevicesPacketLossByDeviceAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Get average packet loss for the given timespan for all networks in the organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWirelessDevicesPacketLossByNetwork")]
+	[Get("/organizations/{organizationId}/wireless/devices/packetLoss/byNetwork")]
+	Task<List<OrganizationWirelessDevicesPacketLossByNetworkItem>> GetOrganizationWirelessDevicesPacketLossByNetworkAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
 }
