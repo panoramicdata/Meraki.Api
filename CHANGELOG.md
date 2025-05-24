@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.56.162
+- Updated OpenRoamingCertificateId to support larger values
+
 ## 1.56.160
 - Added many missing interface calls
 
