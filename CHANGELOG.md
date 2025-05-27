@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.56.164
+- Added GetModelType handling for CPSC-HUB as CiscoSecureConnect
+
 ## 1.56.162
 - Updated OpenRoamingCertificateId to support larger values
 
