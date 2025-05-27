@@ -4,6 +4,8 @@ public partial class OrganizationsWirelessControllerSection
 	[RefitPromoteCalls]
 	internal IOrganizationsWirelessController WirelessController { get; set; } = null!;
 
+	public OrganizationsWirelessControllerClientsSection Clients { get; internal set; } = new();
+
 	public OrganizationsWirelessControllerDevicesSection Devices { get; internal set; } = new();
 
 	public IOrganizationsWirelessControllerAvailabilities Availabilities { get; internal set; } = null!;
