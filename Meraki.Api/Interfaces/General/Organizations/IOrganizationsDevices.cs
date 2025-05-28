@@ -15,6 +15,19 @@ public interface IOrganizationsDevices
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// List the availability history information for devices in an organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationDevicesAvailabilitiesChangeHistory")]
+	[Get("/organizations/{organizationId}/devices/availabilities/changeHistory")]
+	Task<List<OrganizationDevicesAvailabilitiesChangeEvent>> GetOrganizationDevicesAvailabilitiesChangeHistoryAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Returns the history of device boots in reverse chronological order (most recent first). Currently supported for MS devices only.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
