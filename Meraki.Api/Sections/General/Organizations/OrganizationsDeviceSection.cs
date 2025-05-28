@@ -10,6 +10,8 @@ public partial class OrganizationsDeviceSection
 
 	public IOrganizationsDevicesPower Power { get; internal set; } = null!;
 
+	public OrganizationsDevicesPowerModulesSection PowerModules { get; set; } = new();
+
 	public IOrganizationsDevicesSignalQuality SignalQuality { get; internal set; } = null!;
 
 	public IOrganizationsDevicesSystem System { get; internal set; } = null!;
