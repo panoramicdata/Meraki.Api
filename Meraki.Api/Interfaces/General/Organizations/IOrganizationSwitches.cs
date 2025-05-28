@@ -17,6 +17,20 @@ public interface IOrganizationSwitches
 	Task<OrganizationSwitchDevicesSystemQueuesHistoryBySwitchByInterval> GetOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByIntervalAsync(string organizationId, CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// List the number of clients for all switchports with at least one online client in an organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSwitchPortsClientsOverviewByDevice")]
+	[Get("/organizations/{organizationId}/switch/ports/clients/overview/byDevice")]
+	Task<OrganizationSwitchPortsClientsOverviewByDevice> GetOrganizationSwitchPortsClientsOverviewByDeviceAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// List the switchports in an organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
