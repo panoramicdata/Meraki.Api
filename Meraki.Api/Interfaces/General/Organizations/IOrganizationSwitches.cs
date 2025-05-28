@@ -4,8 +4,18 @@ namespace Meraki.Api.Interfaces.General.Organizations;
 /// List the switchports in an organization
 /// </summary>
 public interface IOrganizationSwitches
-
 {
+	/// <summary>
+	/// Return a historical record of packet transmission and loss, broken down by protocol, for insight into switch device health.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByInterval")]
+	[Get("/organizations/{organizationId}/switch/devices/system/queues/history/bySwitch/byInterval")]
+	Task<OrganizationSwitchDevicesSystemQueuesHistoryBySwitchByInterval> GetOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByIntervalAsync(string organizationId, CancellationToken cancellationToken = default);
+
 	/// <summary>
 	/// List the switchports in an organization
 	/// </summary>
