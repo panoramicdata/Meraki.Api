@@ -3,6 +3,18 @@
 public interface IOrganizationsDevices
 {
 	/// <summary>
+	/// List the availability information for devices in an organization. The data returned by this endpoint is updated every 5 minutes.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationDevicesAvailabilities")]
+	[Get("/organizations/{organizationId}/devices/availabilities")]
+	Task<List<OrganizationsDevicesAvailability>> GetOrganizationsDevicesAvailabilitiesAsync(string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Returns the history of device boots in reverse chronological order (most recent first). Currently supported for MS devices only.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
