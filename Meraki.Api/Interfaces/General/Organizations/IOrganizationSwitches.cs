@@ -444,6 +444,17 @@ public interface IOrganizationSwitches
 		);
 
 	/// <summary>
+	/// Return time-series digital optical monitoring (DOM) readings for ports on each DOM-enabled switch in an organization, in addition to thresholds for each relevant Small Form Factor Pluggable (SFP) module.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSwitchPortsTransceiversReadingsHistoryBySwitch")]
+	[Get("/organizations/{organizationId}/switch/ports/transceivers/readings/history/bySwitch")]
+	Task<OrganizationSwitchPortsTransceiversReadingsHistoryBySwitch> GetOrganizationSwitchPortsTransceiversReadingsHistoryBySwitchAsync(string organizationId, CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// List most recently seen LLDP/CDP discovery and topology information per switch port in an organization.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
