@@ -59,6 +59,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsSamlRoles SamlRoles { get; internal set; } = null!;
 
+	public IOrganizationsSensor Sensor { get; internal set; } = null;
+
 	public OrganizationsSecureConnectSection SecureConnect { get; internal set; } = new();
 
 	public OrganizationsSmSection Sm { get; internal set; } = new();
