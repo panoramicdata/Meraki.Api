@@ -442,4 +442,15 @@ public interface IOrganizationSwitches
 		[AliasAs("serials[]")] List<string>? serials,
 		CancellationToken cancellationToken = default
 		);
+
+	/// <summary>
+	/// List most recently seen LLDP/CDP discovery and topology information per switch port in an organization.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSwitchPortsTopologyDiscoveryByDevice")]
+	[Get("/organizations/{organizationId}/switch/ports/topology/discovery/byDevice")]
+	Task<OrganizationSwitchPortsTopologyDiscoveryByDevice> GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync(string organizationId, CancellationToken cancellationToken = default);
 }
