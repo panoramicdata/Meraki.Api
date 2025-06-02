@@ -14,4 +14,17 @@ public interface INetworksWirelessClients
 	Task<List<WirelessClientHealthScore>> GetNetworkWirelessClientsHealthScoresAsync(
 		string networkId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Return counts of distinct wireless clients connecting to a network over time
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getNetworkWirelessClientsOnboardingHistory")]
+	[Get("/networks/{networkId}/wireless/clients/onboardingHistory")]
+	Task<List<WirelessClientOnboardingHistory>> GetNetworkWirelessClientsOnboardingHistoryAsync(
+		string networkId,
+		CancellationToken cancellationToken = default);
 }
