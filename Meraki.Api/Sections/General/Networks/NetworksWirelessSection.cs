@@ -2,4 +2,6 @@
 public class NetworksWirelessSection
 {
 	public INetworksWirelessLocation Location { get; internal set; }
+
+	public INetworksWirelessClients Clients { get; internal set; } = null!;
 }
