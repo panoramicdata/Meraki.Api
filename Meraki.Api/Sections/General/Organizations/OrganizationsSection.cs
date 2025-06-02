@@ -71,6 +71,8 @@ public partial class OrganizationsSection
 
 	public OrganizationsSummarySection Summary { get; internal set; } = new();
 
+	public IOrganizationsSupport Support { get; internal set; } = null!;
+
 	public IOrganizationSwitches Switches { get; internal set; } = null!;
 
 	public IOrganizationsSwitchPortsOverview SwitchPortsOverview { get; internal set; } = null!;
