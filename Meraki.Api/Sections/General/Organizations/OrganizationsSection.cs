@@ -15,7 +15,7 @@ public partial class OrganizationsSection
 
 	public IOrganizationsApplianceSecurityEvents ApplianceSecurityEvents { get; internal set; } = null!;
 
-	public OrganizationsApplianceDnsSection Dns { get; set; }
+	public OrganizationsApplianceSection Appliance { get; internal set; } = new();
 
 	public IOrganizationsAssuranceAlerts AssuranceAlerts { get; internal set; } = null!;
 
