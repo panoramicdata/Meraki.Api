@@ -165,6 +165,19 @@ public interface IOrganizationsSummaryTop
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// List the client and status overview information for the networks in an organization. Usage is measured in kilobytes and from the last seven days.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSummaryTopNetworksByStatus")]
+	[Get("/organizations/{organizationId}/summary/top/networks/byStatus")]
+	Task<List<NetworkStatusSummary>> GetOrganizationSummaryTopNetworksByStatusAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Return metrics for organization's top 10 ssids by data usage over given time range. Default unit is megabytes.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
