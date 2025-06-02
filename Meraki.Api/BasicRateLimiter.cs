@@ -34,39 +34,56 @@ public class BasicRateLimiter : IRateLimiter
 		_window = window;
 	}
 
+	SemaphoreSlim _semaphore = new(1, 1);
+
 	/// <summary>
-	///	The web request is ignored by this rate limiter, but the method is still required by the interface.
+	///	Apply rate limiting
 	/// </summary>
-	/// <param name="httpRequestMessage"></param>
+	/// <param name="httpRequestMessage">The request - ignored for this basic rate limiter</param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	public async Task ApplyRateLimitingAsync(
 		HttpRequestMessage httpRequestMessage,
 		CancellationToken cancellationToken)
 	{
-		var now = DateTimeOffset.UtcNow;
-		var windowStart = now - _window;
+		// Lock to ensure thread safety when peeking and then removing timestamps to determine the duration
+		await _semaphore.WaitAsync(cancellationToken).ConfigureAwait(false);
 
-		// Remove timestamps outside the current window
-		while (_requestTimestamps.TryPeek(out var timestamp) && timestamp < windowStart)
+		// Lock this whole section so that any other threads trying to access this method will wait until this one is done
+		try
 		{
-			_ = _requestTimestamps.TryDequeue(out _);
-		}
+			var now = DateTimeOffset.UtcNow;
+			var windowStart = now - _window;
 
-		if (_requestTimestamps.Count >= _maxCalls)
-		{
-			if (_requestTimestamps.TryPeek(out var firstTimestamp) && firstTimestamp + _window > now)
+			// Remove any timestamps outside the current window
+			while (_requestTimestamps.TryPeek(out var timestamp) && timestamp < windowStart)
 			{
-				var waitTime = firstTimestamp + _window - now;
-				if (waitTime > TimeSpan.Zero)
-				{
-					await Task.Delay(waitTime, cancellationToken);
-				}
+				_ = _requestTimestamps.TryDequeue(out _);
 			}
-			// After waiting, remove the oldest timestamp (now outside the window)
-			_ = _requestTimestamps.TryDequeue(out _);
-		}
+			// Any timestamps that are older than the current window start have been removed from the queue
 
-		_requestTimestamps.Enqueue(DateTimeOffset.UtcNow);
+			// Have we reached the maximum number of calls?
+			if (_requestTimestamps.Count >= _maxCalls)
+			{
+				// YES - We need to wait until the first timestamp is outside the window
+
+				// Look at the first timestamp in the queue and calculate the wait time
+				// (It's possible that the queue is empty here due to another thread having removed entries)
+				_ = _requestTimestamps.TryPeek(out var firstTimestamp);
+
+				// Delay until the first timestamp is outside the window
+				// Note: This delay will cause this thread, and any others waiting for the semaphore to be released, to wait until the first timestamp is outside the window
+				await Task.Delay(firstTimestamp + _window - now, cancellationToken);
+
+				// We don't remove anything from the queue here as waiting should result in the first timestamp being outside the window and being cleaned out above.
+			}
+
+			// We either waited successfully or the queue was not full, so we can add the current timestamp
+			_requestTimestamps.Enqueue(DateTimeOffset.UtcNow);
+		}
+		finally
+		{
+			_ = _semaphore.Release();
+		}
 	}
 }

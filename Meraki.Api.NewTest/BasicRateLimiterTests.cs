@@ -36,13 +36,7 @@ public class BasicRateLimiterTests
 		var elapsed = DateTimeOffset.UtcNow - start;
 
 		Assert.True(elapsed >= TimeSpan.FromMilliseconds(450), $"Elapsed: {elapsed.TotalMilliseconds}ms");
-	}
-
-	[Fact]
-	public void ThrowsOnInvalidConstructorArguments()
-	{
-		Assert.Throws<ArgumentOutOfRangeException>(() => new BasicRateLimiter(0, TimeSpan.FromSeconds(1)));
-		Assert.Throws<ArgumentOutOfRangeException>(() => new BasicRateLimiter(1, TimeSpan.Zero));
+		Assert.True(elapsed <= TimeSpan.FromMilliseconds(550), $"Elapsed: {elapsed.TotalMilliseconds}ms");
 	}
 
 	[Fact]
@@ -65,5 +59,15 @@ public class BasicRateLimiterTests
 		var elapsed = DateTimeOffset.UtcNow - start;
 
 		Assert.True(elapsed >= TimeSpan.FromMilliseconds(300), $"Elapsed: {elapsed.TotalMilliseconds}ms");
+		// The logic check here is that we waited at least 300ms for call 3 to happen and then 4 should happen shortly after as
+		// the rate limiter removes the expired timestamps prior to the window
+		Assert.True(elapsed < TimeSpan.FromMilliseconds(325), $"Elapsed: {elapsed.TotalMilliseconds}ms");
+	}
+
+	[Fact]
+	public void ThrowsOnInvalidConstructorArguments()
+	{
+		_ = Assert.Throws<ArgumentOutOfRangeException>(() => new BasicRateLimiter(0, TimeSpan.FromSeconds(1)));
+		_ = Assert.Throws<ArgumentOutOfRangeException>(() => new BasicRateLimiter(1, TimeSpan.Zero));
 	}
 }
