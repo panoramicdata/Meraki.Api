@@ -23,6 +23,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsClients Clients { get; internal set; } = null!;
 
+	public OrganizationsCloudSection Cloud { get; internal set; } = new();
+
 	public IOrganizationsConfigTemplates ConfigTemplates { get; internal set; } = null!;
 
 	public IOrganizationsConfigurationChanges ConfigurationChanges { get; internal set; } = null!;
@@ -86,4 +88,9 @@ public partial class OrganizationsSection
 	public OrganizationsWirelessControllerSection WirelessController { get; internal set; } = new();
 
 	public OrganizationBrandingPoliciesSection BrandingPolicies { get; internal set; } = new();
+}
+
+public class OrganizationsCloudSection
+{
+	public IOrganizationsCloudConnectivity Connectivity { get; internal set; } = null!;
 }
