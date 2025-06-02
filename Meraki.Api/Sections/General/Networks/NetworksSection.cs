@@ -22,6 +22,8 @@ public partial class NetworksSection
 	public INetworksNetflow Netflow { get; internal set; } = null!;
 	public NetworksPiiSection Pii { get; internal set; } = new();
 
+	public NetworksSensorSection Sensor { get; internal set; } = new();
+
 	public INetworksSm Sm { get; internal set; } = null!;
 
 	public INetworksTraffic Traffic { get; internal set; } = null!;
