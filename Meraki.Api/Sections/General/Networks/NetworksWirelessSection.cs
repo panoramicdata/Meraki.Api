@@ -1,7 +1,9 @@
 ﻿namespace Meraki.Api.Sections.General.Networks;
 public class NetworksWirelessSection
 {
-	public INetworksWirelessLocation Location { get; internal set; }
-
 	public INetworksWirelessClients Clients { get; internal set; } = null!;
+
+	public INetworksWirelessDevices Devices { get; internal set; } = null!;
+
+	public INetworksWirelessLocation Location { get; internal set; }
 }
