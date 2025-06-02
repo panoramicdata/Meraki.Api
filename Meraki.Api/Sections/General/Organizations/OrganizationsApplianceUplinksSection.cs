@@ -2,5 +2,5 @@
 
 public class OrganizationsApplianceUplinksSection
 {
-	public IOrganizationsApplianceUplinksUsage Usage { get; internal set; } = new();
+	public IOrganizationsApplianceUplinksUsage Usage { get; internal set; } = null!;
 }

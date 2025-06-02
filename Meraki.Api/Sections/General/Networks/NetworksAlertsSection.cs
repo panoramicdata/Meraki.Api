@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api.Sections.General.Networks;
 
-public class NetworksAlertsSection
+public partial class NetworksAlertsSection
 {
 	[RefitPromoteCalls]
 	internal INetworksAlerts NetworksAlerts { get; set; } = null!;
