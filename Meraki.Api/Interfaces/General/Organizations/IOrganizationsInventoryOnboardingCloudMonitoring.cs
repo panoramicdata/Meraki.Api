@@ -15,4 +15,16 @@ public interface IOrganizationsInventoryOnboardingCloudMonitoring
 		string organizationId,
 		[Body] OrganizationsInventoryOnboardingCloudMonitoringExportEventCreateRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Check the status of a committed Import operation
+	/// </summary>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationInventoryOnboardingCloudMonitoringImports")]
+	[Get("/organizations/{organizationId}/inventory/onboarding/cloudMonitoring/imports")]
+	Task<List<OrganizationsInventoryOnboardingCloudMonitoringImport>> GetOrganizationInventoryOnboardingCloudMonitoringImportsAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
 }
