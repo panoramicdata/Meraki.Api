@@ -43,4 +43,17 @@ public interface IOrganizationsInventoryOnboardingCloudMonitoring
 		string organizationId,
 		[Body] OrganizationsInventoryOnboardingCloudMonitoringImportCreateRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Returns list of networks eligible for adding cloud monitored device
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationInventoryOnboardingCloudMonitoringNetworks")]
+	[Get("/organizations/{organizationId}/inventory/onboarding/cloudMonitoring/networks")]
+	Task<OrganizationInventoryOnboardingCloudMonitoringNetworks> GetOrganizationInventoryOnboardingCloudMonitoringNetworksAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
 }
