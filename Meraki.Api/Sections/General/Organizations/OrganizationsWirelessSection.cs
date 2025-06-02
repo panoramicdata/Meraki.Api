@@ -3,7 +3,9 @@ public class OrganizationsWirelessSection
 {
 	public IOrganizationsWirelessLocationScanning LocationScanning { get; internal set; } = null!;
 
-	public IWirelessZigbee Zigbee { get; internal set; } = null!;
+	public IOrganizationsWirelessZigbee Zigbee { get; internal set; } = null!;
+
+	public IOrganizationsWirelessClients Clients { get; internal set; } = null!;
 
 	public OrganizationsWirelessDevicesSection Devices { get; internal set; } = new();
 

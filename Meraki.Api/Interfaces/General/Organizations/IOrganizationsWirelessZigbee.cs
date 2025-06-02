@@ -1,5 +1,5 @@
 ﻿namespace Meraki.Api.Interfaces.General.Organizations;
-public interface IWirelessZigbee
+public interface IOrganizationsWirelessZigbee
 {
 	/// <summary>
 	/// Return list of Zigbee configs
