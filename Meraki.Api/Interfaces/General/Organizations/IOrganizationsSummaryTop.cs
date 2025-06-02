@@ -48,6 +48,19 @@ public interface IOrganizationsSummaryTop
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// Return the top application categories sorted by data usage over given time range. Default unit is megabytes.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSummaryTopApplicationsCategoriesByUsage")]
+	[Get("/organizations/{organizationId}/summary/top/applications/categories/byUsage")]
+	Task<List<ApplicationCategoryUsageSummary>> GetOrganizationSummaryTopApplicationsCategoriesByUsageAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Return metrics for organization's top 10 clients by data usage (in mb) over given time range.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
