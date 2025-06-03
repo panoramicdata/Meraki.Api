@@ -26,6 +26,21 @@ public interface IOrganizationsLicenses
 		string organizationId,
 		CancellationToken cancellationToken = default);
 
+	/// <summary>
+	/// Moves a license to a different organization (coterm only)
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="organizationLicensingCotermLicenseMoveRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("moveOrganizationLicensingCotermLicenses")]
+	[Post("/organizations/{organizationId}/licensing/coterm/licenses/move")]
+	Task<OrganizationLicensingCotermLicenseMoveResponse> MoveOrganizationLicensingCotermLicensesAsync(
+		string organizationId,
+		[Body] OrganizationLicensingCotermLicenseMoveRequest organizationLicensingCotermLicenseMoveRequest,
+		CancellationToken cancellationToken = default);
+
 
 	/// <summary>
 	/// Display a license
