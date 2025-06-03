@@ -56,4 +56,19 @@ public interface IOrganizationsInventoryOnboardingCloudMonitoring
 	Task<OrganizationInventoryOnboardingCloudMonitoringNetworks> GetOrganizationInventoryOnboardingCloudMonitoringNetworksAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Initiates or updates an import session. An import ID will be generated and used when you are ready to commit the import.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationInventoryOnboardingCloudMonitoringPrepare")]
+	[Post("/organizations/{organizationId}/inventory/onboarding/cloudMonitoring/prepare")]
+	Task<List<OrganizationInventoryOnboardingCloudMonitoringPrepareItem>> CreateOrganizationInventoryOnboardingCloudMonitoringPrepareAsync(
+		string organizationId,
+		[Body] OrganizationInventoryOnboardingCloudMonitoringPrepareCreateRequest request,
+		CancellationToken cancellationToken = default);
 }
