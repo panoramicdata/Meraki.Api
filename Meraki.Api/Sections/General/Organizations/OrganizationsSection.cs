@@ -56,6 +56,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsOpenapiSpec OpenapiSpec { get; internal set; } = null!;
 
+	public OrganizationsPoliciesSection Policies { get; set; } = new();
+
 	public IOrganizationsPolicyObjects PolicyObjects { get; internal set; } = null!;
 
 	public IOrganizationsPolicyObjectsGroups PolicyObjectGroups { get; internal set; } = null!;
@@ -93,9 +95,4 @@ public partial class OrganizationsSection
 	public OrganizationsWirelessControllerSection WirelessController { get; internal set; } = new();
 
 	public OrganizationBrandingPoliciesSection BrandingPolicies { get; internal set; } = new();
-}
-
-public class OrganizationsCloudSection
-{
-	public IOrganizationsCloudConnectivity Connectivity { get; internal set; } = null!;
 }
