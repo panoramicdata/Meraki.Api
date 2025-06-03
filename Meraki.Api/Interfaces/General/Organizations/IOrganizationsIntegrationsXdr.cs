@@ -14,4 +14,20 @@ public interface IOrganizationsIntegrationsXdr
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Disable XDR on networks
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("disableOrganizationIntegrationsXdrNetworks")]
+	[Post("/organizations/{organizationId}/integrations/xdr/networks/disable")]
+	Task<OrganizationIntegrationsXdrNetworksDisableResponse> DisableOrganizationIntegrationsXdrNetworksAsync(
+		string organizationId,
+		[Body] OrganizationIntegrationsXdrNetworksDisableRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
