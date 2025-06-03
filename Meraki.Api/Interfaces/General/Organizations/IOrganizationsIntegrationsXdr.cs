@@ -30,4 +30,20 @@ public interface IOrganizationsIntegrationsXdr
 		[Body] OrganizationIntegrationsXdrNetworksDisableRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Enable XDR on networks
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("enableOrganizationIntegrationsXdrNetworks")]
+	[Post("/organizations/{organizationId}/integrations/xdr/networks/enable")]
+	Task<OrganizationIntegrationsXdrNetworksEnableResponse> EnableOrganizationIntegrationsXdrNetworksAsync(
+		string organizationId,
+		[Body] OrganizationIntegrationsXdrNetworksEnableRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
