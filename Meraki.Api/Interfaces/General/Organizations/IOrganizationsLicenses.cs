@@ -14,6 +14,20 @@ public interface IOrganizationsLicenses
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// List the licenses in a coterm organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationLicensingCotermLicenses")]
+	[Get("/organizations/{organizationId}/licensing/coterm/licenses")]
+	Task<List<OrganizationLicensingCotermLicense>> GetOrganizationLicensingCotermLicensesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+
+	/// <summary>
 	/// Display a license
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
