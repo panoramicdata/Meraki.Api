@@ -1,7 +1,10 @@
 ﻿namespace Meraki.Api.Sections.General.Organizations;
-public class OrganizationsInsightSection
+public partial class OrganizationsInsightSection
 {
-	public IOrganizationsInsightApplications Applications { get; internal set; }
+	[RefitPromoteCalls]
+	internal IOrganizationsInsight Insight { get; set; } = null!;
 
-	public IOrganizationsInsightWebApps WebApps { get; internal set; }
+	public IOrganizationsInsightApplications Applications { get; internal set; } = null!;
+
+	public IOrganizationsInsightWebApps WebApps { get; internal set; } = null!;
 }
