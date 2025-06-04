@@ -9,5 +9,7 @@ public class NetworksWirelessSection
 
 	public INetworksWirelessOpportunisticPcap OpportunisticPcap { get; internal set; } = null!;
 
+	public INetworksWirelessRadio Radio { get; internal set; } = null!;
+
 	public INetworksWirelessZigbee Zigbee { get; internal set; } = null!;
 }
