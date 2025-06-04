@@ -1,10 +1,10 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Network Umbrella Account Disconnect Response
+/// Network Umbrella Account Exclude Domains Response
 /// </summary>
 [DataContract]
-public class NetworkUmbrellaAccountDisconnectResponse
+public class NetworkUmbrellaAccountActionResponse
 {
 	/// <summary>
 	/// Success message

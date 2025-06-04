@@ -26,7 +26,7 @@ public interface INetworksApplianceUmbrella
 	/// <returns></returns>
 	[ApiOperationId("disconnectNetworkApplianceUmbrellaAccount")]
 	[Delete("/networks/{networkId}/appliance/umbrella/account/disconnect")]
-	Task<NetworkUmbrellaAccountDisconnectResponse> DisconnectNetworkApplianceUmbrellaAccountAsync(
+	Task<NetworkUmbrellaAccountActionResponse> DisconnectNetworkApplianceUmbrellaAccountAsync(
 		string networkId,
 		CancellationToken cancellationToken = default
 	);
@@ -40,7 +40,7 @@ public interface INetworksApplianceUmbrella
 	/// <returns></returns>
 	[ApiOperationId("disableNetworkApplianceUmbrellaProtection")]
 	[Delete("/networks/{networkId}/appliance/umbrella/disableProtection")]
-	Task<NetworkUmbrellaAccountDisableProtectionResponse> DisableNetworkApplianceUmbrellaProtectionAsync(
+	Task<NetworkUmbrellaAccountActionResponse> DisableNetworkApplianceUmbrellaProtectionAsync(
 		string networkId,
 		CancellationToken cancellationToken = default
 	);
@@ -54,8 +54,24 @@ public interface INetworksApplianceUmbrella
 	/// <returns></returns>
 	[ApiOperationId("enableNetworkApplianceUmbrellaProtection")]
 	[Post("/networks/{networkId}/appliance/umbrella/enableProtection")]
-	Task<NetworkUmbrellaAccountEnableProtectionResponse> EnableNetworkApplianceUmbrellaProtectionAsync(
+	Task<NetworkUmbrellaAccountActionResponse> EnableNetworkApplianceUmbrellaProtectionAsync(
 		string networkId,
+		CancellationToken cancellationToken = default
+	);
+
+	/// <summary>
+	/// Specify one or more domain names to be excluded from being routed to Cisco Umbrella.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("excludeNetworkApplianceUmbrellaDomains")]
+	[Post("/networks/{networkId}/appliance/umbrella/excludeDomains")]
+	Task<NetworkUmbrellaAccountActionResponse> ExcludeNetworkApplianceUmbrellaDomainsAsync(
+		string networkId,
+		[Body] NetworkUmbrellaAccountExcludeDomainsRequest request,
 		CancellationToken cancellationToken = default
 	);
 }
