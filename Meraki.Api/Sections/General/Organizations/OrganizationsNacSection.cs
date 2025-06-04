@@ -2,5 +2,7 @@
 
 public class OrganizationsNacSection
 {
-	public IOrganizationsNacAuthorization Authorization { get; set; } = null!;
+	public IOrganizationsNacAuthorization Authorization { get; internal set; } = null!;
+
+	public IOrganizationsNacSessions Sessions { get; internal set; } = null!;
 }
