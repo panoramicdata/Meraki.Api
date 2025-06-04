@@ -6,4 +6,6 @@ public class NetworksWirelessSection
 	public INetworksWirelessDevices Devices { get; internal set; } = null!;
 
 	public INetworksWirelessLocation Location { get; internal set; }
+
+	public INetworksWirelessOpportunisticPcap OpportunisticPcap { get; internal set; } = null!;
 }
