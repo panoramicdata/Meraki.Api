@@ -7,4 +7,6 @@ public class OrganizationsApplianceSection
 	public IOrganizationsApplianceSdwan Sdwan { get; internal set; } = null!;
 
 	public OrganizationsApplianceUplinksSection Uplinks { get; internal set; } = new();
+
+	public IOrganizationsApplianceVlans Vlans { get; internal set; } = null!;
 }
