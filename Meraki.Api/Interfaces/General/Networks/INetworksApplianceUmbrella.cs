@@ -74,4 +74,20 @@ public interface INetworksApplianceUmbrella
 		[Body] NetworkUmbrellaAccountExcludeDomainsRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Update umbrella policies applied to MX network.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("policiesNetworkApplianceUmbrella")]
+	[Put("/networks/{networkId}/appliance/umbrella/policies")]
+	Task<NetworkUmbrellaAccountActionResponse> PoliciesNetworkApplianceUmbrellaAsync(
+		string networkId,
+		[Body] NetworkUmbrellaAccountPoliciesRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
