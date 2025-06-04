@@ -44,4 +44,18 @@ public interface INetworksApplianceUmbrella
 		string networkId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Enable umbrella protection for an MX network
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("enableNetworkApplianceUmbrellaProtection")]
+	[Post("/networks/{networkId}/appliance/umbrella/enableProtection")]
+	Task<NetworkUmbrellaAccountEnableProtectionResponse> EnableNetworkApplianceUmbrellaProtectionAsync(
+		string networkId,
+		CancellationToken cancellationToken = default
+	);
 }
