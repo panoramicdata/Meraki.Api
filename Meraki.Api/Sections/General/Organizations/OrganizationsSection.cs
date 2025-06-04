@@ -54,6 +54,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsLoginSecurity LoginSecurity { get; internal set; } = null!;
 
+	public OrganizationsNacSection Nac { get; internal set; } = new();
+
 	public IOrganizationsNetworks Networks { get; internal set; } = null!;
 
 	public IOrganizationsNetworkDevices NewtworkDevices { get; set; }
