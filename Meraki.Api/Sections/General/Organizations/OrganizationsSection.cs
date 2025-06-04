@@ -19,6 +19,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsAssuranceAlerts AssuranceAlerts { get; internal set; } = null!;
 
+	public OrganizationsCameraSection Camera { get; internal set; } = new();
+
 	public OrganizationsCertificatesSection Certificates { get; internal set; } = null!;
 
 	public IOrganizationsClients Clients { get; internal set; } = null!;
