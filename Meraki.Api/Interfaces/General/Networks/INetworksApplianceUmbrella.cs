@@ -16,4 +16,18 @@ public interface INetworksApplianceUmbrella
 		[Body] NetworkUmbrellaAccountConnectRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Disconnect Umbrella account from this network
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="networkId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("disconnectNetworkApplianceUmbrellaAccount")]
+	[Delete("/networks/{networkId}/appliance/umbrella/account/disconnect")]
+	Task<NetworkUmbrellaAccountDisconnectResponse> DisconnectNetworkApplianceUmbrellaAccountAsync(
+		string networkId,
+		CancellationToken cancellationToken = default
+	);
 }
