@@ -1,4 +1,6 @@
-﻿namespace Meraki.Api;
+﻿using Meraki.Api.Interfaces;
+
+namespace Meraki.Api;
 
 /// <summary>
 /// MerakiClient options
@@ -68,6 +70,12 @@ public class MerakiClientOptions
 	/// The LogLevel at which response JSON will be logged when missing members are encountered. Defaults to None.
 	/// </summary>
 	public LogLevel JsonMissingMemberResponseLogLevel { get; set; } = LogLevel.None;
+
+	/// <summary>
+	/// A rate limiter to apply to all requests made by this client.
+	/// This can be shared th other clients to ensure that the rate limit is respected across multiple clients.
+	/// </summary>
+	public IRateLimiter? RateLimiter { get; set; }
 
 	/// <summary>
 	/// This gets called when JsonMissingMemberHandling is not Ignore and a missing member occurs

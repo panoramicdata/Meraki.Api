@@ -6,7 +6,10 @@ public static class DeviceExtensions
 	{
 		var deviceModelUpper = device.Model?.ToUpperInvariant();
 
-		return deviceModelUpper == "UMB-SIG"
+		return deviceModelUpper == "CPSC-HUB"
+				? ModelType.CiscoSecureConnect
+				:
+				deviceModelUpper == "UMB-SIG"
 				? ModelType.Appliance
 				: deviceModelUpper?.Length >= 2
 					? deviceModelUpper.Substring(0, 2) switch
