@@ -8,4 +8,6 @@ public class NetworksWirelessSection
 	public INetworksWirelessLocation Location { get; internal set; }
 
 	public INetworksWirelessOpportunisticPcap OpportunisticPcap { get; internal set; } = null!;
+
+	public INetworksWirelessZigbee Zigbee { get; internal set; } = null!;
 }
