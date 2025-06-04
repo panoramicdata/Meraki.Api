@@ -5,6 +5,9 @@ public partial class NetworksSection
 	[RefitPromoteCalls]
 	internal INetworks Networks { get; set; } = null!;
 	public NetworksAlertsSection Alerts { get; internal set; } = new();
+
+	public NetworksApplianceSection Appliance { get; internal set; } = new();
+
 	public INetworksBluetoothClients BluetoothClients { get; internal set; } = null!;
 	public INetworksCampusGateway CampusGateway { get; internal set; } = null!;
 	public NetworksClientsSection Clients { get; internal set; } = new();
