@@ -82,6 +82,8 @@ public partial class OrganizationsSection
 
 	public IOrganizationsSnmp Snmp { get; internal set; } = null!;
 
+	public OrganizationsSpacesSection Spaces { get; set; } = new();
+
 	public IOrganizationsSplash Splash { get; internal set; } = null!;
 
 	public OrganizationsSummarySection Summary { get; internal set; } = new();
