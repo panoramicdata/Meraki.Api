@@ -28,13 +28,6 @@ public class LldpCdpPortsCdp
 	public string? Model { get; set; }
 
 	/// <summary>
-	/// Name for the device
-	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "name")]
-	public string? Name { get; set; }
-
-	/// <summary>
 	/// ID for the port
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
@@ -54,4 +47,32 @@ public class LldpCdpPortsCdp
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "version")]
 	public string? Version { get; set; }
+
+	/// <summary>
+	/// Platform
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "platform")]
+	public string? Platform { get; set; }
+
+	/// <summary>
+	/// Native VLAN
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "nativeVlan")]
+	public int? NativeVlan { get; set; }
+
+	/// <summary>
+	/// VTP management domain
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vtpManagementDomain")]
+	public string? VtpManagementDomain { get; set; }
+
+	/// <summary>
+	/// Capabilities
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "capabilities")]
+	public string? Capabilities { get; set; }
 }

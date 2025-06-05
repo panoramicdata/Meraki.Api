@@ -40,6 +40,7 @@ public class DeviceGetModelTypeTests
 	[InlineData("XXXX", ModelType.Unknown)]
 	[InlineData("XXXXX", ModelType.Unknown)]
 	[InlineData("XXXXXX", ModelType.Unknown)]
+	[InlineData("CPSC-HUB", ModelType.CiscoSecureConnect)]
 #pragma warning restore CS3016 // Arrays as attribute arguments is not CLS-compliant
 	public void DeviceGetModelType_ReturnsExpectedType(string model, ModelType expected)
 	{

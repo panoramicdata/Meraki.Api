@@ -21,6 +21,7 @@ public partial class MerakiClient
 		{ "Q2BX", "MS120-8LP" },
 		{ "Q2BY", "MS355-24X2" },
 		{ "Q2BZ", "VMX-S" },
+		{ "Q2CD", "MR12" },
 		{ "Q2CK", "MR66" },
 		{ "Q2CN", "MX60W" },
 		{ "Q2CW", "MS425-16" },
@@ -176,6 +177,7 @@ public partial class MerakiClient
 		{ "Q3LR", "MS130-24P" },
 		{ "Q3LS", "MS130-24X" },
 		{ "Q3LV", "MS130-48X" },
+		{ "Q3LW", "MS130-8P-I" },
 
 		{ "Q4AA", "MS120-8" },
 		{ "Q4AB", "MS120-8LP" },

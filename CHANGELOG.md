@@ -1,5 +1,20 @@
 ﻿# Changelog
 
+## 1.56.165
+- Added an optional IRateLimiter to the MerakiClientOptions, which can be shared between multiple MerakiClients. The interface contains a single call 	public Task ApplyRateLimitingAsync(
+		HttpRequestMessage httpRequestMessage,
+		CancellationToken cancellationToken);
+- Added a BasicRateLimiter implementation which will limit the number of requests per given timespan - the HttpRequestMessage is ignored.
+
+## 1.56.164
+- Added GetModelType handling for CPSC-HUB as CiscoSecureConnect
+
+## 1.56.162
+- Updated OpenRoamingCertificateId to support larger values
+
+## 1.56.160
+- Added many missing interface calls
+
 ## 1.56.21
 - Added minimumPasswordLength to Organization admin security
 - Added MV84X video resolution details

@@ -18,7 +18,7 @@ public class SsidRadiusServer
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "openRoamingCertificateId")]
-	public int? OpenRoamingCertificateId { get; set; }
+	public long? OpenRoamingCertificateId { get; set; }
 
 	/// <summary>
 	/// Public IP address of the RADIUS server
