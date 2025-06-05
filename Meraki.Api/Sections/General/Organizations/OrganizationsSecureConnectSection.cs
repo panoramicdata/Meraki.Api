@@ -11,6 +11,8 @@ public class OrganizationsSecureConnectSection
 
 	public IOrganizationsSecureConnectPublicApplications PublicApplications { get; internal set; } = null!;
 
+	public IOrganizationsSecureConnectRegions Regions { get; internal set; } = null!;
+
 	public IOrganizationsSecureConnectRemoteAccessLog RemoteAccessLog { get; internal set; } = null!;
 
 	public IOrganizationsSecureConnectRemoteAccessLogsExports RemoteAccessLogsExports { get; internal set; } = null!;
