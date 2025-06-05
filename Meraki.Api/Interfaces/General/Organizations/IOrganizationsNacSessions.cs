@@ -15,4 +15,20 @@ public interface IOrganizationsNacSessions
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Return the details of selected NAC Sessions
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="sessionId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationNacSessionDetails")]
+	[Get("/organizations/{organizationId}/nac/sessions/{sessionId}/details")]
+	Task<OrganizationsNacSessionDetails> GetOrganizationsNacSessionsDetailsAsync(
+		string organizationId,
+		string sessionId,
+		CancellationToken cancellationToken = default
+	);
 }
