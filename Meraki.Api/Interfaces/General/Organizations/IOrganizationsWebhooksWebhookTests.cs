@@ -16,4 +16,20 @@ public interface IOrganizationsWebhooksWebhookTests
 		[Body] OrganizationWebhookTestCreateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Return the status of a webhook test for an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="webhookTestId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationWebhooksWebhookTest")]
+	[Get("/organizations/{organizationId}/webhooks/webhookTests/{webhookTestId}")]
+	Task<OrganizationWebhookTest> GetOrganizationWebhooksWebhookTestAsync(
+		string organizationId,
+		string webhookTestId,
+		CancellationToken cancellationToken = default
+	);
 }
