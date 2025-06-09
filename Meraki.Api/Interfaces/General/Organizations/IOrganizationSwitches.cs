@@ -17,6 +17,20 @@ public interface IOrganizationSwitches
 	Task<OrganizationSwitchDevicesSystemQueuesHistoryBySwitchByInterval> GetOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByIntervalAsync(string organizationId, CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// List the port mirror configurations in an organization by stack
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSwitchStacksPortsMirrorsByStack")]
+	[Get("/organizations/{organizationId}/switch/stacks/ports/mirrors/byStack")]
+	Task<List<OrganizationSwitchPortsMirrorsByStackResponseItem>> GetOrganizationSwitchStacksPortsMirrorsByStackAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// List the port mirror configurations in an organization by switch
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
