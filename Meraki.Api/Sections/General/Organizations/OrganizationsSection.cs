@@ -23,6 +23,9 @@ public partial class OrganizationsSection
 
 	public OrganizationsCameraSection Camera { get; internal set; } = new();
 
+	public OrganizationsCampusGateway CampusGateway { get; internal set; } = new();
+
+
 	public OrganizationsCertificatesSection Certificates { get; internal set; } = null!;
 
 	public IOrganizationsClients Clients { get; internal set; } = null!;
