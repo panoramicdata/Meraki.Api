@@ -32,7 +32,7 @@ public partial class OrganizationsSection
 
 	public OrganizationsCloudSection Cloud { get; internal set; } = new();
 
-	public IOrganizationsConfigTemplates ConfigTemplates { get; internal set; } = null!;
+	public OrganizationsConfigTemplatesSection ConfigTemplates { get; internal set; } = null!;
 
 	public IOrganizationsConfigurationChanges ConfigurationChanges { get; internal set; } = null!;
 
