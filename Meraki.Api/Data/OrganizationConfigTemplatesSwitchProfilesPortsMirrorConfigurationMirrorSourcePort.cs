@@ -4,7 +4,7 @@
 /// source port config detail
 /// </summary>
 [DataContract]
-public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorSourcePort
+public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorSourcePort
 {
 	/// <summary>
 	/// Source switch profile port number
@@ -18,5 +18,5 @@ public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfil
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "module")]
-	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorSourcePortModule Module { get; set; } = new();
+	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorSourcePortModule Module { get; set; } = new();
 }

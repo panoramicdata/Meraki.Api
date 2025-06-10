@@ -4,7 +4,7 @@
 /// Source Port filter traffic based on vlans
 /// </summary>
 [DataContract]
-public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorSourceFilter
+public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorSourceFilter
 {
 	/// <summary>
 	/// Comma-separated VLAN IDs or ID ranges

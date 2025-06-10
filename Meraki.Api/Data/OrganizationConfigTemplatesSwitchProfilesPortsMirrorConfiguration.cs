@@ -4,7 +4,7 @@
 /// Port Mirror configuration
 /// </summary>
 [DataContract]
-public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItem
+public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfiguration
 {
 	/// <summary>
 	/// Id of switch profile
@@ -25,12 +25,12 @@ public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfil
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "configTemplate")]
-	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemConfigTemplate ConfigTemplate { get; set; } = new();
+	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationConfigTemplate ConfigTemplate { get; set; } = new();
 
 	/// <summary>
 	/// Switch port mirror configurations
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "mirror")]
-	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirror Mirror { get; set; } = new();
+	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirror Mirror { get; set; } = new();
 }

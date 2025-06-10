@@ -4,7 +4,7 @@
 /// Switch port mirror configurations
 /// </summary>
 [DataContract]
-public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirror
+public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirror
 {
 	/// <summary>
 	/// My pretty comment
@@ -32,12 +32,12 @@ public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfil
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "destination")]
-	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorDestination Destination { get; set; } = new();
+	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorDestination Destination { get; set; } = new();
 
 	/// <summary>
 	/// Source ports mirror configuration
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "source")]
-	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorSource Source { get; set; } = new();
+	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorSource Source { get; set; } = new();
 }

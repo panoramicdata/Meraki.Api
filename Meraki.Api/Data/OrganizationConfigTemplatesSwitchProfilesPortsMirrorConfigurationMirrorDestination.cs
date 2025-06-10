@@ -4,7 +4,7 @@
 /// Destination port mirror configuration
 /// </summary>
 [DataContract]
-public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorDestination
+public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorDestination
 {
 	/// <summary>
 	/// Transit or destination vlan only for RSPAN
@@ -18,5 +18,5 @@ public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfil
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "port")]
-	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorDestinationPort Port { get; set; } = new();
+	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorDestinationPort Port { get; set; } = new();
 }

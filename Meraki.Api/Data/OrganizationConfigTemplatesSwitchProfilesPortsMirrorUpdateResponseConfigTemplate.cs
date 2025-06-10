@@ -4,7 +4,7 @@
 /// Config template of the switch profile
 /// </summary>
 [DataContract]
-public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemConfigTemplate
+public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorUpdateResponseConfigTemplate
 {
 	/// <summary>
 	/// ID of config template
@@ -16,7 +16,7 @@ public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfil
 	/// <summary>
 	/// The name of the config template
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "name")]
 	public string Name { get; set; } = string.Empty;
 }

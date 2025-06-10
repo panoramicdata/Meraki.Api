@@ -14,4 +14,24 @@ public interface IOrganizationsConfigTemplatesSwitchProfilesPortsMirrors
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Update a port mirror
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="configTemplateId"></param>
+	/// <param name="profileId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationConfigTemplateSwitchProfilePortsMirror")]
+	[Put("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/mirror")]
+	Task<OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfiguration> UpdateOrganizationConfigTemplateSwitchProfilePortsMirrorAsync(
+		string organizationId,
+		string configTemplateId,
+		string profileId,
+		[Body] OrganizationConfigTemplatesSwitchProfilesPortsMirrorUpdateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }

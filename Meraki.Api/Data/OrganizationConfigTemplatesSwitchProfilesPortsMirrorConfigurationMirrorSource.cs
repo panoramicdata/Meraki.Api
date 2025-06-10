@@ -4,19 +4,19 @@
 /// Source ports mirror configuration
 /// </summary>
 [DataContract]
-public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorSource
+public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorSource
 {
 	/// <summary>
 	/// Source Port filter traffic based on vlans
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "filter")]
-	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorSourceFilter Filter { get; set; } = new();
+	public OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorSourceFilter Filter { get; set; } = new();
 
 	/// <summary>
 	/// Array of all source ports config details
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ports")]
-	public List<OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItemMirrorSourcePort> Ports { get; set; } = [];
+	public List<OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfigurationMirrorSourcePort> Ports { get; set; } = [];
 }

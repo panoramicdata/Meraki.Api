@@ -18,6 +18,6 @@ public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfil
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "items")]
-	public List<OrganizationConfigTemplatesSwitchProfilesPortsMirrorsBySwitchProfileResponseItem> Items { get; set; } = [];
+	public List<OrganizationConfigTemplatesSwitchProfilesPortsMirrorConfiguration> Items { get; set; } = [];
 
 }
