@@ -16,6 +16,8 @@ public partial class OrganizationsDeviceSection
 
 	public OrganizationsDevicesSystemSection System { get; internal set; } = null!;
 
+	public OrganizationsDevicesSyslogSection Syslog { get; internal set; } = new();
+
 	public OrganizationsDevicesUplinksSection Uplinks { get; internal set; } = new();
 
 	public IOrganizationsDevicesWirelessControllers WirelessControllers { get; internal set; } = null!;

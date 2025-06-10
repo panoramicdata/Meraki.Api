@@ -48,7 +48,6 @@ public partial class OrganizationsSection
 
 	public OrganizationsIntegrationsSection Integrations { get; internal set; } = new();
 
-
 	public OrganizationsInventorySection Inventory { get; internal set; } = new();
 
 	public IOrganizationsInventoryDevices InventoryDevices { get; internal set; } = null!;
