@@ -197,4 +197,21 @@ public interface IOrganizationsDevicesPacketCapture
 		string organizationId,
 		[Body] OrganizationDevicesPacketCaptureSchedulesReorderRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Enqueues a task for a specific packet capture. This endpoint has a sustained rate limit of one request every 60 seconds.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="packetId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("tasksOrganizationDevicesPacketCapture")]
+	[Post("/organizations/{organizationId}/devices/packetCaptures/{packetId}/tasks")]
+	Task<OrganizationDevicesPacketCaptureTask> CreateOrganizationDevicesPacketCaptureTaskAsync(
+		string organizationId,
+		string packetId,
+		[Body] OrganizationDevicesPacketCaptureTaskCreateRequest request,
+		CancellationToken cancellationToken = default);
 }
