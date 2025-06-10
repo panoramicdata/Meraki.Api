@@ -9,5 +9,7 @@ public class OrganizationsWirelessSection
 
 	public OrganizationsWirelessDevicesSection Devices { get; internal set; } = new();
 
+	public IOrganizationsWirelessOpportunisticPcap OpportunisticPcap { get; internal set; } = null!;
+
 	public OrganizationsWirelessSsidsSection Ssids { get; internal set; } = new();
 }
