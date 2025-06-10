@@ -214,4 +214,21 @@ public interface IOrganizationsDevicesPacketCapture
 		string packetId,
 		[Body] OrganizationDevicesPacketCaptureTaskCreateRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Retrieves packet capture analysis result for a specific packet capture task.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="packetId"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationDevicesPacketCaptureTask")]
+	[Get("/organizations/{organizationId}/devices/packetCaptures/{packetId}/tasks/{id}")]
+	Task<OrganizationDevicesPacketCaptureTaskDetailed> GetOrganizationDevicesPacketCaptureTaskAsync(
+		string organizationId,
+		string packetId,
+		string id,
+		CancellationToken cancellationToken = default);
 }
