@@ -68,7 +68,7 @@ public interface INetworksApplianceUmbrella
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("excludeNetworkApplianceUmbrellaDomains")]
-	[Post("/networks/{networkId}/appliance/umbrella/excludeDomains")]
+	[Put("/networks/{networkId}/appliance/umbrella/excludeDomains")]
 	Task<NetworkUmbrellaAccountActionResponse> ExcludeNetworkApplianceUmbrellaDomainsAsync(
 		string networkId,
 		[Body] NetworkUmbrellaAccountExcludeDomainsRequest request,
