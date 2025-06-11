@@ -6,4 +6,6 @@ public partial class AdministeredIdentitiesMeSection
 {
 	[RefitPromoteCalls]
 	internal IAdministeredIdentitiesMe Me { get; set; } = null!;
+
+	public AdministeredIdentitiesMeApiSection Api { get; internal set; } = new();
 }
