@@ -10,6 +10,8 @@ public class LiveToolsSection
 
 	public ILiveToolsCableTest CableTest { get; set; } = null!;
 
+	public ILiveToolsCyclePort CyclePort { get; set; } = null!;
+
 	public ILiveToolsPing Ping { get; set; } = null!;
 
 	public ILiveToolsPingDevice PingDevice { get; set; } = null!;
