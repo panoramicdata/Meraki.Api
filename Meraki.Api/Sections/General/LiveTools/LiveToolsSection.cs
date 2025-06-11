@@ -18,6 +18,8 @@ public class LiveToolsSection
 
 	public ILiveToolsPingDevice PingDevice { get; set; } = null!;
 
+	public ILiveToolsSpeedTest SpeedTest { get; set; } = null!
+
 	public ILiveToolsTraceRoute TraceRoute { get; set; } = null!;
 
 	public ILiveToolsWakeOnLan WakeOnLan { get; set; } = null!;
