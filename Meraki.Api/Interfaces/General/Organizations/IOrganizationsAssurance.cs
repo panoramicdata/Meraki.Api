@@ -14,4 +14,18 @@ public interface IOrganizationsAssurance
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Return a list of Category Types
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationAssuranceAlertsTaxonomyCategories")]
+	[Get("/organizations/{organizationId}/assurance/alerts/taxonomy/categories")]
+	Task<List<OrganizationAssuranceAlertsTaxonomyCategory>> GetOrganizationAssuranceAlertsTaxonomyCategoriesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
