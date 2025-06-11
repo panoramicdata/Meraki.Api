@@ -16,4 +16,19 @@ public interface ILiveToolsCyclePort
 		string serial,
 		[Body] DeviceLiveToolsCyclePortCreateRequest request,
 		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Return a cycle port live tool job.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="serial"></param>
+	/// <param name="id"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getDeviceLiveToolsCyclePort")]
+	[Get("/devices/{serial}/liveTools/cyclePort/{id}")]
+	Task<DeviceLiveToolsCyclePortGetResponse> GetDeviceLiveToolsCyclePortAsync(
+		string serial,
+		string id,
+		CancellationToken cancellationToken = default);
 }
