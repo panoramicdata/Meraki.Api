@@ -18,5 +18,5 @@ public class OrganizationWirelessDevicesRadsecCertificatesAuthorities
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "items")]
-	public List<OrganizationWirelessDevicesRadsecCertificatesAuthoritiesItem> Items { get; set; } = [];
+	public List<OrganizationWirelessDevicesRadsecCertificatesAuthority> Items { get; set; } = [];
 }

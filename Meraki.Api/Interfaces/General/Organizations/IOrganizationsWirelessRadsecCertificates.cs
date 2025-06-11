@@ -15,4 +15,20 @@ public interface IOrganizationsWirelessRadsecCertificates
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Update an organization's RADSEC device Certificate Authority (CA) state. Note this CA is generated and controlled by Meraki. Call this endpoint to update the state to "trusted", at which point Meraki will generate device certificates. "trusted" means the CA is placed on your RADSEC server(s) and devices establishing a secure connection using certs signed by this CA will pass verification.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("updateOrganizationWirelessDevicesRadsecCertificatesAuthorities")]
+	[Put("/organizations/{organizationId}/wireless/devices/radsec/certificates/authorities")]
+	Task<OrganizationWirelessDevicesRadsecCertificatesAuthority> UpdateOrganizationWirelessDevicesRadsecCertificatesAuthoritiesAsync(
+		string organizationId,
+		[Body] OrganizationWirelessDevicesRadsecCertificatesAuthorityUpdateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }

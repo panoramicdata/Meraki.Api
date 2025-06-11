@@ -4,7 +4,7 @@
 /// Certificate Authority
 /// </summary>
 [DataContract]
-public class OrganizationWirelessDevicesRadsecCertificatesAuthoritiesItem
+public class OrganizationWirelessDevicesRadsecCertificatesAuthority
 {
 	/// <summary>
 	/// The ID of the Certificate Authority
