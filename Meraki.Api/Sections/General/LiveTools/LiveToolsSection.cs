@@ -14,6 +14,8 @@ public class LiveToolsSection
 
 	public ILiveToolsDhcpLeases DhcpLeases { get; set; } = null!;
 
+	public ILiveToolsMulticastRouting MulticastRouting { get; set; } = null!;
+
 	public ILiveToolsPing Ping { get; set; } = null!;
 
 	public ILiveToolsPingDevice PingDevice { get; set; } = null!;
