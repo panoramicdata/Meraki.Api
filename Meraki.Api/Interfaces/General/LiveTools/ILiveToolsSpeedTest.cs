@@ -17,4 +17,20 @@ public interface ILiveToolsSpeedTest
 		string id,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Enqueue a job to execute a speed test from a device
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="serial"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createDeviceLiveToolsSpeedTest")]
+	[Post("/devices/{serial}/liveTools/speedTest")]
+	Task<DeviceLiveToolsSpeedTestCreateResponse> CreateDeviceLiveToolsSpeedTestAsync(
+		string serial,
+		[Body] DeviceLiveToolsSpeedTestCreateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
