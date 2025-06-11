@@ -1,4 +1,6 @@
-﻿namespace Meraki.Api.Sections.General.Administered;
+﻿using Meraki.Api.Interfaces.General.Administered;
+
+namespace Meraki.Api.Sections.General.Administered;
 
 public class AdministeredLicensingSubscriptionNetworksSection
 {
