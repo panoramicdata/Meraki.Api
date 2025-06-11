@@ -11,9 +11,25 @@ public interface ILiveToolsAclHitCount
 	/// <returns></returns>
 	[ApiOperationId("createDeviceLiveToolsAclHitCount")]
 	[Post("/devices/{serial}/liveTools/aclHitCount")]
-	Task<LiveToolsAclHitCount> CreateDeviceLiveToolsAclHitCountAsync(
+	Task<LiveToolsAclHitCountPostResponse> CreateDeviceLiveToolsAclHitCountAsync(
 		string serial,
 		[Body] LiveToolsAclHitCountCreate request,
+		CancellationToken cancellationToken = default
+	);
+
+	/// <summary>
+	/// Return an ACL hit count live tool job.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="serial"></param>
+	/// <param name="aclHitCountId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getDeviceLiveToolsAclHitCount")]
+	[Get("/devices/{serial}/liveTools/aclHitCount/{aclHitCountId}")]
+	Task<LiveToolsAclHitCountGetResponse> GetDeviceLiveToolsAclHitCountAsync(
+		string serial,
+		string aclHitCountId,
 		CancellationToken cancellationToken = default
 	);
 }
