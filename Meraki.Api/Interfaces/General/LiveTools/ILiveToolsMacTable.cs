@@ -16,4 +16,20 @@ public interface ILiveToolsMacTable
 		string macTableId,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Enqueue a job to request the MAC table from the device. Switches currently support this feature. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="serial"></param>
+	/// <param name="request"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createDeviceLiveToolsMacTable")]
+	[Post("/devices/{serial}/liveTools/macTable")]
+	Task<DeviceLiveToolsMacTableCreateResponse> CreateDeviceLiveToolsMacTableAsync(
+		string serial,
+		[Body] DeviceLiveToolsMacTableCreateRequest request,
+		CancellationToken cancellationToken = default
+	);
 }
