@@ -18,8 +18,9 @@ public class LiveToolsSection
 
 	public ILiveToolsPingDevice PingDevice { get; set; } = null!;
 
-	public ILiveToolsRoutingTable RoutingTable { get; set; } = null!;
+	public ILiveToolsOspfNeighbors OspfNeighbors { get; set; } = null!;
 
+	public ILiveToolsRoutingTable RoutingTable { get; set; } = null!;
 
 	public ILiveToolsSpeedTest SpeedTest { get; set; } = null!;
 
