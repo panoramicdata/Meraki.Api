@@ -4,6 +4,8 @@ namespace Meraki.Api.Sections.General.LiveTools;
 
 public class LiveToolsSection
 {
+	public ILiveToolsAclHitCount AclHitCount { get; set; } = null!;
+
 	public ILiveToolsArpTable ArpTable { get; set; } = null!;
 
 	public ILiveToolsCableTest CableTest { get; set; } = null!;
