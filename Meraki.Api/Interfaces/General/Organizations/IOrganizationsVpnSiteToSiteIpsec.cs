@@ -23,7 +23,7 @@ public interface IOrganizationsVpnSiteToSiteIpsec
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("updateOrganizationApplianceVpnSiteToSiteIpsecPeersSlas")]
-	[Put("updateOrganizationApplianceVpnSiteToSiteIpsecPeersSlas")]
+	[Put("/organizations/{organizationId}/appliance/vpn/siteToSite/ipsec/peers/slas")]
 	Task<OrganizationApplianceVpnSiteToSiteIpsecPeersSlas> UpdateOrganizationApplianceVpnSiteToSiteIpsecPeersSlasAsync(
 		[Body] OrganizationApplianceVpnSiteToSiteIpsecPeersSlasUpdateRequest request,
 		CancellationToken cancellationToken = default
