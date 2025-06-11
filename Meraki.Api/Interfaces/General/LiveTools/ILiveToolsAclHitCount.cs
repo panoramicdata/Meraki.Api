@@ -21,15 +21,15 @@ public interface ILiveToolsAclHitCount
 	/// Return an ACL hit count live tool job.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="id"></param>
 	/// <param name="serial"></param>
-	/// <param name="aclHitCountId"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("getDeviceLiveToolsAclHitCount")]
-	[Get("/devices/{serial}/liveTools/aclHitCount/{aclHitCountId}")]
+	[Get("/devices/{serial}/liveTools/aclHitCount/{id}")]
 	Task<LiveToolsAclHitCountGetResponse> GetDeviceLiveToolsAclHitCountAsync(
+		string id,
 		string serial,
-		string aclHitCountId,
 		CancellationToken cancellationToken = default
 	);
 }
