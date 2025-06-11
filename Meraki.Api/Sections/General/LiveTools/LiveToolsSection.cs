@@ -14,6 +14,8 @@ public class LiveToolsSection
 
 	public ILiveToolsDhcpLeases DhcpLeases { get; set; } = null!;
 
+	public ILiveToolsLeds Leds { get; set; } = null!;
+
 	public ILiveToolsMacTable MacTable { get; set; } = null!;
 
 	public ILiveToolsMulticastRouting MulticastRouting { get; set; } = null!;

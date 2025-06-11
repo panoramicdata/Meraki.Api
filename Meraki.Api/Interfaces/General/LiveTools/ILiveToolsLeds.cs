@@ -22,7 +22,7 @@ public interface ILiveToolsLeds
 	/// <param name="serial">The serial number</param>
 	/// <param name="ledsBlinkId">Leds blink ID</param>
 	[ApiOperationId("getDeviceLiveToolsLedsBlink")]
-	[Get("/devices/{serial}/liveTools/leds/blink/{ledsBlinkId}}")]
+	[Get("/devices/{serial}/liveTools/leds/blink/{ledsBlinkId}")]
 	Task<LiveToolsLedsBlink> GetDeviceLiveToolsLedsBlinkAsync(
 		string serial,
 		string ledsBlinkId,
