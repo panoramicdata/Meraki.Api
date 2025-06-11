@@ -3,4 +3,6 @@
 public class AdministeredSection
 {
 	public AdministeredIdentitiesSection Identities { get; internal set; } = new();
+
+	public AdministeredLicensingSection Licensing { get; internal set; } = new();
 }
