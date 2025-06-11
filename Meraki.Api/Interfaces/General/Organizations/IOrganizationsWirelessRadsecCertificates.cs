@@ -31,4 +31,18 @@ public interface IOrganizationsWirelessRadsecCertificates
 		[Body] OrganizationWirelessDevicesRadsecCertificatesAuthorityUpdateRequest request,
 		CancellationToken cancellationToken = default
 	);
+
+	/// <summary>
+	/// Create an organization's RADSEC device Certificate Authority (CA). Call this endpoint when turning on RADSEC in the firmware for the first time. Calling this endpoint starts an asynchronous process to generate the CA; call GET afterwards to retrieve the contents of the CA. Note this CA is generated and controlled by Meraki. Subsequent calls will not generate a new CA.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("createOrganizationWirelessDevicesRadsecCertificatesAuthority")]
+	[Post("/organizations/{organizationId}/wireless/devices/radsec/certificates/authorities")]
+	Task<OrganizationWirelessDevicesRadsecCertificatesAuthority> CreateOrganizationWirelessDevicesRadsecCertificatesAuthorityAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default
+	);
 }
