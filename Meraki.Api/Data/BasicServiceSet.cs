@@ -34,7 +34,7 @@ public class BasicServiceSet
 	/// BSSID
 	/// </summary>
 	[DataMember(Name = "bssid")]
-	public string Bssid { get; set; } = string.Empty;
+	public BasicServiceSetBssid Bssid { get; set; } = n21();
 
 	/// <summary>
 	/// Channel
