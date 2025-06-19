@@ -9,6 +9,12 @@ public class OrganizationsSecureConnectSection
 
 	public IOrganizationsSecureConnectPrivateResourceGroups PrivateResourceGroups { get; internal set; } = null!;
 
+	public IOrganizationsSecureConnectPublicApplications PublicApplications { get; internal set; } = null!;
+
+	public IOrganizationsSecureConnectRegions Regions { get; internal set; } = null!;
+
+	public IOrganizationsSecureConnectRemoteAccessLog RemoteAccessLog { get; internal set; } = null!;
+
 	public IOrganizationsSecureConnectRemoteAccessLogsExports RemoteAccessLogsExports { get; internal set; } = null!;
 
 	public IOrganizationsSecureConnectSites Sites { get; internal set; } = null!;

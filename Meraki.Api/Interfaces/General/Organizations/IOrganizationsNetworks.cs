@@ -96,11 +96,13 @@ public interface IOrganizationsNetworks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
+	/// <param name="networkMoveId"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("getNetworkMove")]
-	[Get("/organizations/{organizationId}/networks/moves")]
+	[Get("/organizations/{organizationId}/networks/moves/{networkMoveId}")]
 	Task<NetworkMoveDetailed> GetNetworkMoveAsync(
 		string organizationId,
+		string networkMoveId,
 		CancellationToken cancellationToken = default);
 }
