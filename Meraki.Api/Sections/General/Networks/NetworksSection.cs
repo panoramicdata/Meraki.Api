@@ -30,7 +30,7 @@ public partial class NetworksSection
 	public INetworksSettings Settings { get; internal set; } = null!;
 	public INetworksSnmp Snmp { get; internal set; } = null!;
 
-	public NetworksSwitchSection Switch { get; set; }
+	public NetworksSwitchSection Switch { get; set; } = null!;
 	public INetworksSplashLoginAttempts SplashLoginAttempts { get; internal set; } = null!;
 	public INetworksSyslogServers SyslogServers { get; internal set; } = null!;
 	public INetworksVlanProfiles VlanProfiles { get; internal set; } = null!;
