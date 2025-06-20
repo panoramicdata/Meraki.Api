@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.56.189
+- Fixed Bssid field type for BasicServiceSet for Wireless Device Status
+- Fixed Client.AdaptivePolicyGroup to be a nullable string
+
 ## 1.56.165
 - Added an optional IRateLimiter to the MerakiClientOptions, which can be shared between multiple MerakiClients. The interface contains a single call 	public Task ApplyRateLimitingAsync(
 		HttpRequestMessage httpRequestMessage,
