@@ -1,5 +1,10 @@
 ﻿namespace Meraki.Api.Interfaces.SecureConnect.Deployments;
-
+/// <summary>
+/// Defines a contract for managing network devices within Secure Connect deployments.
+/// </summary>
+/// <remarks>This interface provides methods for performing CRUD operations on network devices,  as well as
+/// retrieving associated policies. Each method interacts with the Secure Connect API  and requires an organization ID
+/// to scope the operations.</remarks>
 public interface ISecureConnectDeploymentsNetworkDevices
 {
 	/// <summary>
@@ -11,7 +16,7 @@ public interface ISecureConnectDeploymentsNetworkDevices
 	[ApiOperationId("getAllNetworkDevices")]
 	[Get("/organizations/{organizationId}/networkDevices")]
 	Task<List<SecureConnectNetworkDevice>> GetAllNetworkDevicesAsync(
-		string organizationId,
+		long organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -24,8 +29,8 @@ public interface ISecureConnectDeploymentsNetworkDevices
 	[ApiOperationId("getNetworkDevice")]
 	[Get("/organizations/{organizationId}/networkDevices/{originId}")]
 	Task<SecureConnectNetworkDevice> GetNetworkDeviceAsync(
-		string organizationId,
-		int originId,
+		long organizationId,
+		long originId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -38,7 +43,7 @@ public interface ISecureConnectDeploymentsNetworkDevices
 	[ApiOperationId("createNetworkDevice")]
 	[Post("/organizations/{organizationId}/networkDevices")]
 	Task<SecureConnectNetworkDevice> CreateNetworkDeviceAsync(
-		string organizationId,
+		long organizationId,
 		[Body] SecureConnectNetworkDeviceCreateRequest secureConnectNetworkDeviceCreateRequest,
 		CancellationToken cancellationToken = default);
 
@@ -53,8 +58,8 @@ public interface ISecureConnectDeploymentsNetworkDevices
 	[ApiOperationId("updateNetworkDevice")]
 	[Patch("/organizations/{organizationId}/networkDevices/{originId}")]
 	Task<SecureConnectNetworkDevice> UpdateNetworkDeviceAsync(
-		string organizationId,
-		int originId,
+		long organizationId,
+		long originId,
 		[Body] SecureConnectNetworkDeviceUpdateRequest secureConnectNetworkDeviceUpdateRequest,
 		CancellationToken cancellationToken = default);
 
@@ -68,8 +73,8 @@ public interface ISecureConnectDeploymentsNetworkDevices
 	[ApiOperationId("deleteNetworkDevice")]
 	[Delete("/organizations/{organizationId}/networkDevices/{originId}")]
 	Task DeleteNetworkDeviceAsync(
-		string organizationId,
-		int originId,
+		long organizationId,
+		long originId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -82,7 +87,7 @@ public interface ISecureConnectDeploymentsNetworkDevices
 	[ApiOperationId("listNetworkDevicePolicies")]
 	[Get("/organizations/{organizationId}/networkDevices/{originId}/policies")]
 	Task<List<SecureConnectDevicePolicy>> ListNetworkDevicePoliciesAsync(
-		string organizationId,
-		int originId,
+		long organizationId,
+		long originId,
 		CancellationToken cancellationToken = default);
 }
