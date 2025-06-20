@@ -175,7 +175,7 @@ public class Client : IdentifiedItem
 	/// The adaptivePolicyGroup
 	/// </summary>
 	[DataMember(Name = "adaptivePolicyGroup")]
-	public object? AdaptivePolicyGroup { get; set; }
+	public string? AdaptivePolicyGroup { get; set; }
 
 	[DataMember(Name = "usage")]
 	public UsageInKb Usage { get; set; } = new();
