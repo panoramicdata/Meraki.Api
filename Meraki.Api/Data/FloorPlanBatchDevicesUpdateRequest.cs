@@ -10,6 +10,6 @@ public class FloorPlanBatchDevicesUpdateRequest
 	/// List of floorplan assignments to update. Up to 100 floor plan assignments can be provided in a request.
 	/// </summary>
 	[DataMember(Name = "assignments")]
-	public List<FloorPlanBatchDevicesUpdateRequestAssignment> Assignments { get; set; } = new();
+	public List<FloorPlanBatchDevicesUpdateRequestAssignment> Assignments { get; set; } = [];
 
 }
