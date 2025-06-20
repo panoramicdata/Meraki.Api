@@ -37,6 +37,17 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 		}
 		// The API Key is set
 
+		// Apply rate limiting if we have a rate limiter
+		if (_options.RateLimiter is not null)
+		{
+			await _options
+				.RateLimiter
+				.ApplyRateLimitingAsync(
+					request,
+					cancellationToken)
+				.ConfigureAwait(false);
+		}
+
 		var logPrefix = $"Request {Guid.NewGuid()}: ";
 
 		// Add the request headers

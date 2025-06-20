@@ -104,7 +104,13 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 	public async Task GetNetworkClientsAll_Succeeds()
 	{
 		TestMerakiClient.Statistics.Reset();
-		var networks = await TestMerakiClient.Organizations.Networks.GetOrganizationNetworksAllAsync(TestOrganizationId);
+		var networks = await TestMerakiClient
+			.Organizations
+			.Networks
+			.GetOrganizationNetworksAllAsync(
+				TestOrganizationId,
+				default
+			);
 		var network = networks[0];
 		var clients = await TestMerakiClient.Networks.Clients.GetNetworkClientsAllAsync(network.Id, cancellationToken: default);
 		_ = clients.Should().NotBeNull();

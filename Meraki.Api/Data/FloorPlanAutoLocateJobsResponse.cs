@@ -11,5 +11,5 @@ public class FloorPlansAutoLocateJobsResponse
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "jobs")]
-	public List<FloorPlansAutoLocateJobsResponseJob> Jobs { get; set; } = new();
+	public List<FloorPlansAutoLocateJobsResponseJob> Jobs { get; set; } = [];
 }
