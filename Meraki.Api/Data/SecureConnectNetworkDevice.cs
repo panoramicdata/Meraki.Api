@@ -11,7 +11,7 @@ public class SecureConnectNetworkDevice
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "organizationId")]
-	public int organizationId { get; set; }
+	public int OrganizationId { get; set; }
 
 	/// <summary>
 	/// The unique global identifier for this traffic source (origin). Use the origin ID to manage the device.The origin ID is not used by the device.
