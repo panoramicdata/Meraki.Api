@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.56.189
+## 1.56.187
 - Fixed Bssid field type for BasicServiceSet for Wireless Device Status
 - Fixed Client.AdaptivePolicyGroup to be a nullable string
 
