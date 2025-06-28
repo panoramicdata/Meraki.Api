@@ -11,4 +11,6 @@ public class OrganizationsWebhooksSection
 	public IOrganizationsWebhooksHttpServers HttpServers { get; internal set; } = null!;
 
 	public IOrganizationsWebhooksCallbacks Callbacks { get; internal set; } = null!;
+
+	public IOrganizationsWebhooksWebhookTests WebhookTests { get; internal set; } = null!;
 }

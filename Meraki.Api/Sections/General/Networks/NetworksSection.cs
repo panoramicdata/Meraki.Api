@@ -5,6 +5,9 @@ public partial class NetworksSection
 	[RefitPromoteCalls]
 	internal INetworks Networks { get; set; } = null!;
 	public NetworksAlertsSection Alerts { get; internal set; } = new();
+
+	public NetworksApplianceSection Appliance { get; internal set; } = new();
+
 	public INetworksBluetoothClients BluetoothClients { get; internal set; } = null!;
 	public INetworksCampusGateway CampusGateway { get; internal set; } = null!;
 	public NetworksClientsSection Clients { get; internal set; } = new();
@@ -21,6 +24,10 @@ public partial class NetworksSection
 	public INetworksMqttBrokers MqttBrokers { get; internal set; } = null!;
 	public INetworksNetflow Netflow { get; internal set; } = null!;
 	public NetworksPiiSection Pii { get; internal set; } = new();
+
+	public INetworksPolicies Policies { get; internal set; } = null!;
+
+	public NetworksSensorSection Sensor { get; internal set; } = new();
 
 	public INetworksSm Sm { get; internal set; } = null!;
 
