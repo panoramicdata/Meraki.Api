@@ -7,7 +7,7 @@
 public class NetworksSwitchStackPortsMirrorUpdateRequest
 {
 	/// <summary>
-	/// My pretty comment
+	/// My pretty comment (Actually from the documentation!)
 	/// </summary>
 	[DataMember(Name = "comment")]
 	public string? Comment { get; set; }
