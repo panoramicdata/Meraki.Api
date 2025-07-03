@@ -22,17 +22,17 @@ public class LossPercentageSummary
 	/// Average loss percentage
 	/// </summary>
 	[DataMember(Name = "avgLossPercentage")]
-	public int AvgLossPercentage { get; set; }
+	public double AvgLossPercentage { get; set; }
 
 	/// <summary>
 	/// Minimum loss percentage
 	/// </summary>
 	[DataMember(Name = "minLossPercentage")]
-	public int MinLossPercentage { get; set; }
+	public double MinLossPercentage { get; set; }
 
 	/// <summary>
 	/// Maximum loss percentage
 	/// </summary>
 	[DataMember(Name = "maxLossPercentage")]
-	public int MaxLossPercentage { get; set; }
+	public double MaxLossPercentage { get; set; }
 }
