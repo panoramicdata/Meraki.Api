@@ -11,7 +11,7 @@ public class OrganizationApplianceDnsSplitProfilesAssignmentResponseMetadataCoun
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "remaining")]
-	public string Remaining { get; set; } = string.Empty;
+	public int Remaining { get; set; }
 
 	/// <summary>
 	/// The total number of items in the dataset
