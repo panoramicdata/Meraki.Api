@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// Psec configuration data
+/// IPsec configuration data
 /// </summary>
 [DataContract]
 public class OrganizationApplianceVpnSiteToSiteIpsecPeersSlasItemIpsec
