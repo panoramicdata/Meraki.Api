@@ -28,7 +28,7 @@ public class OrganizationApplianceVpnSiteToSiteIpsecPeersSlasItem
 	public string Uri { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Psec configuration data
+	/// IPsec configuration data
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ipsec")]
