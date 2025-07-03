@@ -25,7 +25,7 @@ public class OrganizationApplianceSdwanInternetPoliciesPreferenceTrafficFilterVa
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "cidr")]
-	public string Cidr { get; set; }
+	public string Cidr { get; set; } = string.Empty;
 
 	/// <summary>
 	/// E.g.: "any", "0" (also means "any"), "8080", "1-1024"
