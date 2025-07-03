@@ -53,5 +53,5 @@ public class FloorPlansAutoLocateStatusJob
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "errors")]
-	public List<FloorPlansAutoLocateJobsResponseJobError> Errors { get; set; } = new();
+	public List<FloorPlansAutoLocateJobsResponseJobError> Errors { get; set; } = [];
 }

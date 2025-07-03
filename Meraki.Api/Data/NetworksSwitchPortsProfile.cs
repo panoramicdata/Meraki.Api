@@ -36,7 +36,7 @@ public class NetworksSwitchPortsProfile
 	public string? Description { get; set; }
 
 	/// <summary>
-	/// Space-seperated list of tags
+	/// Space-separated list of tags
 	/// </summary>
 	[DataMember(Name = "tags")]
 	[ApiAccess(ApiAccess.ReadWrite)]
@@ -106,7 +106,7 @@ public class NetworksSwitchPortsProfile
 	public List<NetworksSwitchPortsProfileAutomation>? Automations { get; set; }
 
 	/// <summary>
-	/// RBAC -> access computed based on current user's administered networks & associated networks w.r.t switch port profiles
+	/// RBAC -&gt; access computed based on current user's administered networks &amp; associated networks w.r.t switch port profiles
 	/// </summary>
 	[DataMember(Name = "access")]
 	[ApiAccess(ApiAccess.ReadWrite)]

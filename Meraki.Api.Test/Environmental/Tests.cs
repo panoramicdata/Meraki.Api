@@ -6,7 +6,7 @@ public class Tests : MerakiClientTest
 
 	public Tests(ITestOutputHelper iTestOutputHelper) : base(iTestOutputHelper)
 	{
-		_serials = new List<string>
+		_serials = [.. new List<string>
 		{
 			Configuration.TestMt10Serial ?? string.Empty,
 			Configuration.TestMt14Serial ?? string.Empty,
@@ -14,8 +14,7 @@ public class Tests : MerakiClientTest
 			Configuration.TestMt30Serial ?? string.Empty,
 			Configuration.TestMt40Serial ?? string.Empty,
 		}
-		.Where(x => x.Length > 0)
-		.ToList();
+		.Where(x => x.Length > 0)];
 	}
 
 	[Fact]

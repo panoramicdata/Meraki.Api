@@ -10,5 +10,5 @@ public class FloorPlansAutoLocateJobsRequest
 	/// The list of auto locate jobs to be scheduled. Up to 100 jobs can be provided in a request.
 	/// </summary>
 	[DataMember(Name = "jobs")]
-	public List<FloorPlansAutoLocateJobsRequestJob> Jobs { get; set; } = new();
+	public List<FloorPlansAutoLocateJobsRequestJob> Jobs { get; set; } = [];
 }
