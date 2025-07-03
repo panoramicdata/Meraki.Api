@@ -11,21 +11,21 @@ public class OrganizationApplianceSdwanInternetPoliciesPreferenceTrafficFilterVa
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "host")]
-	public int Host { get; set; }
+	public long Host { get; set; }
 
 	/// <summary>
 	/// VLAN ID of the configured VLAN in the Meraki network. Cannot be used in combination with the "cidr" property and is currently only available under a template network.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "vlan")]
-	public int Vlan { get; set; }
+	public long Vlan { get; set; }
 
 	/// <summary>
 	/// CIDR format address (e.g."192.168.10.1", which is the same as "192.168.10.1/32"), or "any". Cannot be used in combination with the "vlan" property
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "cidr")]
-	public int Cidr { get; set; }
+	public string Cidr { get; set; }
 
 	/// <summary>
 	/// E.g.: "any", "0" (also means "any"), "8080", "1-1024"
