@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Meraki.Api.Extensions;
 using Microsoft.Extensions.Logging;
+using System.Globalization;
 using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
@@ -8,6 +9,43 @@ namespace Meraki.Api.NewTest;
 [Collection("API Collection")]
 public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
+	[Fact]
+	public async Task GetOrganizationApplianceVpnStatsAllAsync_BetweenT0AndT1_Succeeds()
+	{
+		TestMerakiClient.Statistics.Reset();
+
+		var utcNow = DateTime.UtcNow;
+		var vpnStatsLastHour = await TestMerakiClient
+			.Appliance
+			.Vpn
+			.Stats
+			.GetOrganizationApplianceVpnStatsAllAsync(
+				TestOrganizationId,
+				t0: utcNow.AddHours(-1).ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
+				t1: utcNow.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
+				cancellationToken: default);
+		_ = vpnStatsLastHour.Should().NotBeEmpty();
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+	}
+
+	[Fact]
+	public async Task GetOrganizationApplianceVpnStatsAllAsync_WithTimespan_Succeeds()
+	{
+		TestMerakiClient.Statistics.Reset();
+		var vpnStatsLastDay = await TestMerakiClient
+			.Appliance
+			.Vpn
+			.Stats
+			.GetOrganizationApplianceVpnStatsAllAsync(
+				TestOrganizationId,
+				timespan: 24 * 60 * 60, // 24 hours in seconds
+				cancellationToken: default);
+		_ = vpnStatsLastDay.Should().NotBeEmpty();
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+	}
+
 	[Fact]
 	public async Task GetOrganizationApplianceVpnStatsAllAsync_Succeeds()
 	{

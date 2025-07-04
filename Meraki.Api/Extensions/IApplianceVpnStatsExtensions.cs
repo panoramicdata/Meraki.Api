@@ -36,17 +36,20 @@ public static class IApplianceVpnStatsExtensions
 		List<string>? networkIds = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllAsync(
-			(startingAfter, endingBefore, cancellationToken)
-			=> applianceVpnStats.GetOrganizationApplianceVpnStatsApiResponseAsync(
-				organizationId,
-				startingAfter: startingAfter,
-				endingBefore: endingBefore,
-				networkIds: networkIds,
-				t0: t0,
-				t1: t1,
-				timespan: timespan,
-				cancellationToken: cancellationToken
-			),
-			cancellationToken
-		);
+				(startingAfter, endingBefore, t0, t1, timespan, cancellationToken)
+				=> applianceVpnStats.GetOrganizationApplianceVpnStatsApiResponseAsync(
+					organizationId,
+					startingAfter: startingAfter,
+					endingBefore: endingBefore,
+					networkIds: networkIds,
+					t0: t0,
+					t1: t1,
+					timespan: timespan,
+					cancellationToken: cancellationToken
+				),
+				t0,
+				t1,
+				timespan,
+				cancellationToken
+			);
 }
