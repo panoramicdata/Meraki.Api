@@ -177,6 +177,70 @@ public partial class MerakiClient
 
 	public static async Task<List<T>> GetAllAsync<T>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
+		Func<string?, string?, string?, string?, double?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
+#pragma warning restore CS3001 // Argument type is not CLS-compliant
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
+		CancellationToken cancellationToken = default)
+	{
+		var allEntries = new List<T>();
+		var finished = false;
+		string? startingAfter = null;
+		string? endingBefore = null;
+		while (!finished)
+		{
+			var pageResponse = await
+				pageFactoryAsync(startingAfter, endingBefore, t0, t1, timespan, cancellationToken).ConfigureAwait(false);
+
+			// Refit traps exceptions into Error when using ApiResponse
+			if (pageResponse.Error is not null)
+			{
+				throw pageResponse.Error;
+			}
+
+			allEntries.AddRange(pageResponse.Content);
+
+			// Check the Link response header
+			if (pageResponse.Headers is not null && pageResponse.Headers.TryGetValues("Link", out var linkHeaders))
+			{
+				// We found a Link header
+				var linkHeader = linkHeaders.FirstOrDefault();
+				if (linkHeader != null)
+				{
+					var links = linkHeader.Split(',');
+					var nextLink = links.SingleOrDefault(link => link.Contains("rel=next"));
+					if (nextLink != null)
+					{
+						var nextLinkComponents = nextLink.Split(';');
+						if (nextLinkComponents.Length == 2)
+						{
+							// Get the url component and remove the < > wrapper
+							var nextLinkUrl = nextLinkComponents[0].Trim().TrimStart('<').TrimEnd('>');
+							var myUri = new Uri(nextLinkUrl);
+							var nameValueCollection = HttpUtility.ParseQueryString(myUri.Query);
+							// try and get the startingAfter value, otherwise the endingBefore value
+							startingAfter = nameValueCollection.Get("startingAfter");
+							if (startingAfter is null)
+							{
+								endingBefore = nameValueCollection.Get("endingBefore");
+							}
+
+							continue;
+						}
+					}
+				}
+			}
+
+			// There was no Link header so we're finished
+			finished = true;
+		}
+
+		return allEntries;
+	}
+
+	public static async Task<List<T>> GetAllAsync<T>(
+#pragma warning disable CS3001 // Argument type is not CLS-compliant
 	Func<int?, string?, string?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
 	int perPage,
