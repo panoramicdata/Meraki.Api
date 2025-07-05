@@ -7,7 +7,7 @@
 public class OrganizationSwitchPortsProfilesProfileDetailed
 {
 	/// <summary>
-	/// RBAC -> access computed based on current user's administered networks & associated networks w.r.t switch port profiles
+	/// RBAC -> access computed based on current user's administered networks and associated networks w.r.t switch port profiles
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "access")]

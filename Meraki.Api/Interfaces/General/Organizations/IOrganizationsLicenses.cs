@@ -14,6 +14,35 @@ public interface IOrganizationsLicenses
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// List the licenses in a coterm organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationLicensingCotermLicenses")]
+	[Get("/organizations/{organizationId}/licensing/coterm/licenses")]
+	Task<List<OrganizationLicensingCotermLicense>> GetOrganizationLicensingCotermLicensesAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Moves a license to a different organization (coterm only)
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="organizationLicensingCotermLicenseMoveRequest"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("moveOrganizationLicensingCotermLicenses")]
+	[Post("/organizations/{organizationId}/licensing/coterm/licenses/move")]
+	Task<OrganizationLicensingCotermLicenseMoveResponse> MoveOrganizationLicensingCotermLicensesAsync(
+		string organizationId,
+		[Body] OrganizationLicensingCotermLicenseMoveRequest organizationLicensingCotermLicenseMoveRequest,
+		CancellationToken cancellationToken = default);
+
+
+	/// <summary>
 	/// Display a license
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>

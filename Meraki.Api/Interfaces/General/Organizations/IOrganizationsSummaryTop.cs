@@ -35,6 +35,32 @@ public interface IOrganizationsSummaryTop
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// Return the top applications sorted by data usage over given time range. Default unit is megabytes.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSummaryTopApplicationsByUsage")]
+	[Get("/organizations/{organizationId}/summary/top/applications/byUsage")]
+	Task<List<ApplicationUsageSummary>> GetOrganizationSummaryTopApplicationsByUsageAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Return the top application categories sorted by data usage over given time range. Default unit is megabytes.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSummaryTopApplicationsCategoriesByUsage")]
+	[Get("/organizations/{organizationId}/summary/top/applications/categories/byUsage")]
+	Task<List<ApplicationCategoryUsageSummary>> GetOrganizationSummaryTopApplicationsCategoriesByUsageAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Return metrics for organization's top 10 clients by data usage (in mb) over given time range.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -136,6 +162,19 @@ public interface IOrganizationsSummaryTop
 		int? quantity = null,
 		string? ssidName = null,
 		string? usageUplink = null,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// List the client and status overview information for the networks in an organization. Usage is measured in kilobytes and from the last seven days.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSummaryTopNetworksByStatus")]
+	[Get("/organizations/{organizationId}/summary/top/networks/byStatus")]
+	Task<List<NetworkStatusSummary>> GetOrganizationSummaryTopNetworksByStatusAsync(
+		string organizationId,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
