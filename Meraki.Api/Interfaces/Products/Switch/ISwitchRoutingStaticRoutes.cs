@@ -6,6 +6,7 @@ public interface ISwitchRoutingStaticRoutes
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceSwitchRoutingStaticRoutes")]
 	[Get("/devices/{serial}/switch/routing/staticRoutes")]
 	Task<List<SwitchStaticRoute>> GetDeviceSwitchRoutingStaticRoutesAsync(
@@ -19,6 +20,7 @@ public interface ISwitchRoutingStaticRoutes
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="staticRouteId">The static route id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceSwitchRoutingStaticRoute")]
 	[Get("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
 	Task<SwitchStaticRoute> GetDeviceSwitchRoutingStaticRouteAsync(
@@ -47,6 +49,7 @@ public interface ISwitchRoutingStaticRoutes
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="staticRouteId"></param>
 	/// <param name="switchStaticRoute">The switch static route to update</param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("updateDeviceSwitchRoutingStaticRoute")]
@@ -64,6 +67,7 @@ public interface ISwitchRoutingStaticRoutes
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="staticRouteId">The static route id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteDeviceSwitchRoutingStaticRoute")]
 	[Delete("/devices/{serial}/switch/routing/staticRoutes/{staticRouteId}")]
 	Task DeleteDeviceSwitchRoutingStaticRouteAsync(

@@ -10,6 +10,7 @@ public interface ICellularGatewayLan
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/cellularGateway/lan")]
 	Task<CellularGatewayLan> GetDeviceCellularGatewayLanAsync(
 		string serial,
@@ -21,6 +22,7 @@ public interface ICellularGatewayLan
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="cellularGatewaySettings">Body for updating LAN settings</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/devices/{serial}/cellularGateway/lan")]
 	Task<CellularGatewayLan> UpdateDeviceCellularGatewayLanAsync(
 		string serial,

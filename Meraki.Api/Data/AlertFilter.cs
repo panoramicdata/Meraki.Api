@@ -1,5 +1,8 @@
 ﻿namespace Meraki.Api.Data;
 
+/// <summary>
+/// Represents the set of filters and configuration options for customizing alert behavior in the Meraki API.
+/// </summary>
 [DataContract]
 public class AlertFilters
 {

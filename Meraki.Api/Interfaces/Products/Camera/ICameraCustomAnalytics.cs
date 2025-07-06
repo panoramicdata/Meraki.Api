@@ -7,6 +7,7 @@ public interface ICameraCustomAnalytics
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/camera/customAnalytics")]
 	Task<List<CameraCustomAnalytics>> GetDeviceCameraCustomAnalyticsAsync(
 		string serial,
@@ -19,6 +20,7 @@ public interface ICameraCustomAnalytics
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="cameraCustomAnalyticsUpdate">Body for updating camera custom analytics</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/devices/{serial}/camera/customAnalytics")]
 	Task<List<CameraCustomAnalytics>> UpdateDeviceCameraCustomAnalyticsAsync(
 		string serial,

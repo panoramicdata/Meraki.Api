@@ -18,6 +18,7 @@ public interface ISmDevices
 	/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.</param>
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/sm/devices")]
 	Task<List<SmDevice>> GetNetworkSmDevicesAsync(
 		string networkId,
@@ -38,6 +39,7 @@ public interface ISmDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="checkinNetworkSmDevices">Body for check-in of device</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/devices/checkin")]
 	Task<SmDevicesCheckinRequest> CheckinNetworkSmDevicesAsync(
 		string networkId,
@@ -51,6 +53,7 @@ public interface ISmDevices
 	/// <exception cref="Refit.ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId"></param>
 	/// <param name="lockNetworkSmDevices">Body for locking a set of devices</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/devices/lock")]
 	Task<SmDevicesCheckinRequest> LockNetworkSmDevicesAsync(
 		string networkId,
@@ -63,6 +66,8 @@ public interface ISmDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="modifyNetworkSmDevicesTags"></param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/devices/modifyTags")]
 	Task<List<SmDevicesCheckinRequest>> ModifyNetworkSmDevicesTagsAsync(
 		string networkId,
@@ -76,6 +81,7 @@ public interface ISmDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="moveNetworkSmDevices">Body for moving devices</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/devices/move")]
 	Task<MoveNetworkSmDevicesRequest> MoveNetworkSmDevicesAsync(
 		string networkId,
@@ -89,6 +95,7 @@ public interface ISmDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="wipeNetworkSmDevices">Body for wiping a device</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/devices/wipe")]
 	Task<WipeNetworkSmDeviceRequest> WipeNetworkSmDevicesAsync(
 		string networkId,
@@ -101,6 +108,7 @@ public interface ISmDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="deviceId">The device id</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/devices/{deviceId}/refreshDetails")]
 	Task RefreshNetworkSmDeviceDetailsAsync(
 		string networkId,
@@ -114,6 +122,7 @@ public interface ISmDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="deviceId">The device id</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/devices/{deviceId}/unenroll")]
 	Task<ActionResponse> UnenrollNetworkSmDeviceAsync(
 		string networkId,

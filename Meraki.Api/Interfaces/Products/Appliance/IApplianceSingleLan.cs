@@ -7,6 +7,7 @@ public interface IApplianceSingleLan
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceSingleLan")]
 	[Get("/networks/{networkId}/appliance/singleLan")]
 	Task<LanConfiguration> GetNetworkApplianceSingleLanAsync(
@@ -20,6 +21,7 @@ public interface IApplianceSingleLan
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkApplianceSingleLan">Body for updating a single LAN config</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceSingleLan")]
 	[Put("/networks/{networkId}/appliance/singleLan")]
 	Task<LanConfiguration> UpdateNetworkApplianceSingleLanAsync(

@@ -10,6 +10,7 @@ public interface INetworksMerakiAuthUsers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkMerakiAuthUsers")]
 	[Get("/networks/{networkId}/merakiAuthUsers")]
 	Task<List<MerakiAuthUser>> GetNetworkMerakiAuthUsersAsync(
@@ -23,6 +24,7 @@ public interface INetworksMerakiAuthUsers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="merakiAuthUser">Body for authorizing a meraki user</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkMerakiAuthUser")]
 	[Post("/networks/{networkId}/merakiAuthUsers")]
 	Task<MerakiAuthUser> CreateNetworkMerakiAuthUserAsync(
@@ -37,6 +39,7 @@ public interface INetworksMerakiAuthUsers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="merakiAuthUserId">The meraki user id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkMerakiAuthUser")]
 	[Get("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 	Task<MerakiAuthUser> GetNetworkMerakiAuthUserAsync(
@@ -52,6 +55,7 @@ public interface INetworksMerakiAuthUsers
 	/// <param name="networkId">The network id</param>
 	/// <param name="merakiAuthUserId">The meraki user id</param>
 	/// <param name="delete">If the ID supplied is for a splash guest or client VPN user, and that user is not authorized for any other networks in the organization, then also delete the user. 802.1X RADIUS users are always deleted regardless of this optional attribute.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkMerakiAuthUser")]
 	[Delete("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 	Task DeleteNetworkMerakiAuthUserAsync(
@@ -69,6 +73,7 @@ public interface INetworksMerakiAuthUsers
 	/// <param name="networkId">The network id</param>
 	/// <param name="merakiAuthUserId">The meraki user id</param>
 	/// <param name="merakiAuthUser">Body for updating a user</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkMerakiAuthUser")]
 	[Put("/networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}")]
 	Task<MerakiAuthUser> UpdateNetworkMerakiAuthUserAsync(

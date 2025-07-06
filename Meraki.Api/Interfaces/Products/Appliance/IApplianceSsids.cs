@@ -8,6 +8,7 @@ public interface IApplianceSsids
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The number of the SSID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceSsid")]
 	[Get("/networks/{networkId}/appliance/ssids/{number}")]
 	Task<NetworkApplianceSsid> GetNetworkApplianceSsidAsync(
@@ -21,6 +22,7 @@ public interface IApplianceSsids
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceSsids")]
 	[Get("/networks/{networkId}/appliance/ssids")]
 	Task<List<NetworkApplianceSsid>> GetNetworkApplianceSsidsAsync(
@@ -35,6 +37,7 @@ public interface IApplianceSsids
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The number of the SSID</param>
 	/// <param name="networkApplianceSsidUpdateRequest">The body for updating an SSID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceSsid")]
 	[Put("/networks/{networkId}/appliance/ssids/{number}")]
 	Task<NetworkApplianceSsid> UpdateNetworkApplianceSsidAsync(

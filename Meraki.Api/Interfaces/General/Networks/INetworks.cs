@@ -7,6 +7,7 @@ public interface INetworks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	/// <returns>Task of Object</returns>
 	[ApiOperationId("getNetwork")]
 	[Get("/networks/{networkId}")]
@@ -20,6 +21,7 @@ public interface INetworks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="networkUpdateRequest">Body for updating a network</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetwork")]
 	[Put("/networks/{networkId}")]
 	Task<Network> UpdateNetworkAsync(
@@ -33,6 +35,7 @@ public interface INetworks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetwork")]
 	[Delete("/networks/{networkId}")]
 	Task DeleteNetworkAsync(
@@ -45,6 +48,7 @@ public interface INetworks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="configurationTemplateBindRequest">Body for binding a network</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("bindNetwork")]
 	[Post("/networks/{networkId}/bind")]
 	Task BindNetworkAsync(
@@ -57,6 +61,7 @@ public interface INetworks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("splitNetwork")]
 	[Post("/networks/{networkId}/split")]
 	Task<SplitNetworkResponse> SplitNetworkAsync(
@@ -69,6 +74,7 @@ public interface INetworks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="RetainConfigs">Optional boolean to retain all the current configs given by the template.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("unbindNetwork")]
 	[Post("/networks/{networkId}/unbind")]
 	Task<Network> UnbindNetworkAsync(

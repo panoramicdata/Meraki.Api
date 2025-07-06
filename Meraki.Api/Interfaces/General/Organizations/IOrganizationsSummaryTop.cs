@@ -19,6 +19,7 @@ public interface IOrganizationsSummaryTop
 	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
 	/// <param name="ssidName">Filter results by ssid name</param>
 	/// <param name="usageUplink">Filter results by usage uplink</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSummaryTopAppliancesByUtilization")]
 	[Get("/organizations/{organizationId}/summary/top/appliances/byUtilization")]
 	Task<List<ApplianceUtilizationSummary>> GetOrganizationSummaryTopAppliancesByUtilizationAsync(
@@ -35,6 +36,32 @@ public interface IOrganizationsSummaryTop
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// Return the top applications sorted by data usage over given time range. Default unit is megabytes.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSummaryTopApplicationsByUsage")]
+	[Get("/organizations/{organizationId}/summary/top/applications/byUsage")]
+	Task<List<ApplicationUsageSummary>> GetOrganizationSummaryTopApplicationsByUsageAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
+	/// Return the top application categories sorted by data usage over given time range. Default unit is megabytes.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSummaryTopApplicationsCategoriesByUsage")]
+	[Get("/organizations/{organizationId}/summary/top/applications/categories/byUsage")]
+	Task<List<ApplicationCategoryUsageSummary>> GetOrganizationSummaryTopApplicationsCategoriesByUsageAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Return metrics for organization's top 10 clients by data usage (in mb) over given time range.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -42,6 +69,7 @@ public interface IOrganizationsSummaryTop
 	/// <param name="t0">The beginning of the timespan for the data.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSummaryTopClientsByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/clients/byUsage")]
 	Task<List<ClientUsageSummary>> GetOrganizationSummaryTopClientsByUsageAsync(
@@ -65,6 +93,7 @@ public interface IOrganizationsSummaryTop
 	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
 	/// <param name="ssidName">Filter results by ssid name</param>
 	/// <param name="usageUplink">Filter results by usage uplink</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSummaryTopClientsManufacturersByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/clients/manufacturers/byUsage")]
 	Task<List<ClientManufacturersSummary>> GetOrganizationSummaryTopClientsManufacturersByUsageAsync(
@@ -94,6 +123,7 @@ public interface IOrganizationsSummaryTop
 	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
 	/// <param name="ssidName">Filter results by ssid name</param>
 	/// <param name="usageUplink">Filter results by usage uplink</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSummaryTopDevicesByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/devices/byUsage")]
 	Task<List<DeviceUsageSummary>> GetOrganizationSummaryTopDevicesByUsageAsync(
@@ -123,6 +153,7 @@ public interface IOrganizationsSummaryTop
 	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
 	/// <param name="ssidName">Filter results by ssid name</param>
 	/// <param name="usageUplink">Filter results by usage uplink</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSummaryTopDevicesModelsByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/devices/models/byUsage")]
 	Task<List<DeviceModelUsageSummary>> GetOrganizationSummaryTopDevicesModelsByUsageAsync(
@@ -139,6 +170,19 @@ public interface IOrganizationsSummaryTop
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
+	/// List the client and status overview information for the networks in an organization. Usage is measured in kilobytes and from the last seven days.
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSummaryTopNetworksByStatus")]
+	[Get("/organizations/{organizationId}/summary/top/networks/byStatus")]
+	Task<List<NetworkStatusSummary>> GetOrganizationSummaryTopNetworksByStatusAsync(
+		string organizationId,
+		CancellationToken cancellationToken = default);
+
+	/// <summary>
 	/// Return metrics for organization's top 10 ssids by data usage over given time range. Default unit is megabytes.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
@@ -152,6 +196,7 @@ public interface IOrganizationsSummaryTop
 	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
 	/// <param name="ssidName">Filter results by ssid name</param>
 	/// <param name="usageUplink">Filter results by usage uplink</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSummaryTopSsidsByUsage")]
 	[Get("/organizations/{organizationId}/summary/top/ssids/byUsage")]
 	Task<List<SsidUsageSummary>> GetOrganizationSummaryTopSsidsByUsageAsync(
@@ -181,6 +226,7 @@ public interface IOrganizationsSummaryTop
 	/// <param name="quantity">Set number of desired results to return. Default is 10.</param>
 	/// <param name="ssidName">Filter results by ssid name</param>
 	/// <param name="usageUplink">Filter results by usage uplink</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSummaryTopSwitchesByEnergyUsage")]
 	[Get("/organizations/{organizationId}/summary/top/switches/byEnergyUsage")]
 	Task<List<EnergyUsageSummary>> GetOrganizationSummaryTopSwitchesByEnergyUsageAsync(

@@ -83,6 +83,7 @@ public interface IOrganizationsPolicyObjectsGroups
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="policyObjectGroupId">The policy object id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/organizations/{organizationId}/policyObjects/groups/{policyObjectGroupId}")]
 	[ApiOperationId("deleteOrganizationPolicyObjectsGroup")]
 	Task DeleteOrganizationPolicyObjectsGroupAsync(

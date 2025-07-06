@@ -7,6 +7,7 @@ public interface ISmProfiles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/sm/profiles")]
 	Task<List<SmProfile>> GetNetworkSmProfilesAsync(
 		string networkId,

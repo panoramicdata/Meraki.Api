@@ -7,6 +7,7 @@ public interface INetworksSyslogServers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/syslogServers")]
 	Task<SyslogServers> GetNetworkSyslogServersAsync(
 		string networkId,
@@ -19,6 +20,7 @@ public interface INetworksSyslogServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="syslogServers"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/syslogServers")]
 	Task<SyslogServers> UpdateNetworkSyslogServersAsync(
 		string networkId,

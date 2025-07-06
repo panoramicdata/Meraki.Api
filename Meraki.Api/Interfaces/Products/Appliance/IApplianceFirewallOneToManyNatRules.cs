@@ -7,6 +7,7 @@ public interface IApplianceFirewallOneToManyNatRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceFirewallOneToManyNatRules")]
 	[Get("/networks/{networkId}/appliance/firewall/oneToManyNatRules")]
 	Task<OneToManyNatRules> GetNetworkApplianceFirewallOneToManyNatRulesAsync(
@@ -20,6 +21,7 @@ public interface IApplianceFirewallOneToManyNatRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="oneToManyNatRules">Body for updating mapping rules</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceFirewallOneToManyNatRules")]
 	[Put("/networks/{networkId}/appliance/firewall/oneToManyNatRules")]
 	Task<OneToManyNatRules> UpdateNetworkApplianceFirewallOneToManyNatRulesAsync(

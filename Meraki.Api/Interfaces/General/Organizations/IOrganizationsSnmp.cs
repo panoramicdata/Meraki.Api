@@ -7,6 +7,7 @@ public interface IOrganizationsSnmp
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/snmp")]
 	Task<OrganizationSnmp> GetOrganizationSnmpAsync(
 		string organizationId,
@@ -19,10 +20,25 @@ public interface IOrganizationsSnmp
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="updateOrganizationSnmp"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/snmp")]
 	Task<OrganizationSnmp> UpdateOrganizationSnmpAsync(
 		string organizationId,
 		[Body] OrganizationSnmpUpdateRequest updateOrganizationSnmp,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
+	/// Retrieve the SNMP trap configuration for the networks in an organization
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
+	[ApiOperationId("getOrganizationSnmpTrapsByNetwork")]
+	[Get("/organizations/{organizationId}/snmp/traps/byNetwork")]
+	Task<List<OrganizationSnmpTrapByNetwork>> GetOrganizationSnmpTrapByNetworksAsync(
+		string organizationId,
 		CancellationToken cancellationToken = default
 		);
 }

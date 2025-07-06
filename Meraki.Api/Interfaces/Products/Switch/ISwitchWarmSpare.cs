@@ -10,6 +10,7 @@ public interface ISwitchWarmSpare
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceSwitchWarmSpare")]
 	[Get("/devices/{serial}/switch/warmSpare")]
 	Task<SwitchWarmSpare> GetDeviceSwitchWarmSpareAsync(
@@ -23,6 +24,7 @@ public interface ISwitchWarmSpare
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="updateDeviceSwitchWarmSpare"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceSwitchWarmSpare")]
 	[Put("/devices/{serial}/switch/warmSpare")]
 	Task<SwitchWarmSpare> UpdateDeviceSwitchWarmSpareAsync(

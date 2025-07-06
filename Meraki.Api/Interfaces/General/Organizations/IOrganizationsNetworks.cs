@@ -45,6 +45,7 @@ public interface IOrganizationsNetworks
 	/// <exception cref="ApiException">Thrown when fails to make API cg</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="combineOrganizationNetworks">Body for combining networks</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/networks/combine")]
 	Task<CombineNetworkResponse> CombineOrganizationNetworksAsync(
 		string organizationId,
@@ -57,6 +58,7 @@ public interface IOrganizationsNetworks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationNetwork">Body for creating a network</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/networks")]
 	Task<Network> CreateOrganizationNetworkAsync(
 		string organizationId,
@@ -96,11 +98,13 @@ public interface IOrganizationsNetworks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
+	/// <param name="networkMoveId"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("getNetworkMove")]
-	[Get("/organizations/{organizationId}/networks/moves")]
+	[Get("/organizations/{organizationId}/networks/moves/{networkMoveId}")]
 	Task<NetworkMoveDetailed> GetNetworkMoveAsync(
 		string organizationId,
+		string networkMoveId,
 		CancellationToken cancellationToken = default);
 }

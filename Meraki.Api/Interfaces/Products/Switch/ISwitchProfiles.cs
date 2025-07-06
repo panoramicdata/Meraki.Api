@@ -11,6 +11,7 @@ public interface ISwitchProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="configTemplateId">The configuration id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles")]
 	Task<List<SwitchProfile>> GetOrganizationConfigTemplateSwitchProfilesAsync(
 		string organizationId,
@@ -24,6 +25,7 @@ public interface ISwitchProfiles
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="configTemplateId">The configuration id</param>
 	/// <param name="profileId">The profile id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports")]
 	Task<List<ConfigTemplateSwitchProfilePort>> GetOrganizationConfigTemplateSwitchProfilePortsAsync(
 		string organizationId,
@@ -40,6 +42,7 @@ public interface ISwitchProfiles
 	/// <param name="configTemplateId">The configuration id</param>
 	/// <param name="profileId">The profile id</param>
 	/// <param name="portId">The port id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}")]
 	Task<ConfigTemplateSwitchProfilePort> GetOrganizationConfigTemplateSwitchProfilePortAsync(
 		string organizationId,
@@ -58,6 +61,7 @@ public interface ISwitchProfiles
 	/// <param name="profileId">The profile id</param>
 	/// <param name="portId">The port id</param>
 	/// <param name="updateOrganizationConfigTemplateSwitchProfilePort"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}")]
 	Task<ConfigTemplateSwitchProfilePort> UpdateOrganizationConfigTemplateSwitchProfilePortAsync(
 		string organizationId,

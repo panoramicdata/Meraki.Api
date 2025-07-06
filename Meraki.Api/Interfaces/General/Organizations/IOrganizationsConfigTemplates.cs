@@ -7,6 +7,7 @@ public interface IOrganizationsConfigTemplates
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/configTemplates")]
 	Task<List<ConfigurationTemplate>> GetOrganizationConfigTemplatesAsync(
 		string organizationId,
@@ -18,6 +19,7 @@ public interface IOrganizationsConfigTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="configTemplateId">The config template id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
 	Task<ConfigurationTemplate> GetOrganizationConfigTemplateAsync(
 		string organizationId,
@@ -30,6 +32,7 @@ public interface IOrganizationsConfigTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="configTemplateId">The config template id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
 	Task DeleteOrganizationConfigTemplateAsync(
 		string organizationId,
@@ -43,6 +46,7 @@ public interface IOrganizationsConfigTemplates
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="configTemplateId">The config template id</param>
 	/// <param name="updateOrganizationConfigTemplate">Body for updating an organization's config template</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/configTemplates/{configTemplateId}")]
 	Task<ConfigurationTemplate> UpdateOrganizationConfigTemplateAsync(
 		string organizationId,
@@ -56,6 +60,7 @@ public interface IOrganizationsConfigTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationConfigTemplate">The config template data</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/configTemplates")]
 	Task<ConfigurationTemplate> CreateOrganizationConfigTemplateAsync(
 		string organizationId,

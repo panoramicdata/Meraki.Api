@@ -13,6 +13,7 @@ public interface INetworksPiiSmDevicesForKey
 	/// <param name="serial">The serial of a Systems Manager device (optional)</param>
 	/// <param name="imei">The IMEI of a Systems Manager device (optional)</param>
 	/// <param name="bluetoothMac">The MAC of a Bluetooth client (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkPiiSmDevicesForKey")]
 	[Get("/networks/{networkId}/pii/smDevicesForKey")]
 	Task<PiiSmKeys> GetNetworkPiiSmDevicesForKeyAsync(

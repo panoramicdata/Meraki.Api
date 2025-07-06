@@ -8,6 +8,7 @@ public interface IOrganizationsSplash
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSplashAsset")]
 	[Get("/organizations/{organizationId}/splash/assets/{id}")]
 	Task<OrganizationSplashAsset> GetOrganizationSplashAssetAsync(
@@ -22,6 +23,7 @@ public interface IOrganizationsSplash
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteOrganizationSplashAsset")]
 	[Delete("/organizations/{organizationId}/splash/assets/{id}")]
 	Task DeleteOrganizationSplashAssetAsync(
@@ -35,6 +37,7 @@ public interface IOrganizationsSplash
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSplashThemes")]
 	[Get("/organizations/{organizationId}/splash/themes")]
 	Task<List<OrganizationSplashTheme>> GetOrganizationSplashThemesAsync(

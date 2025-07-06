@@ -10,6 +10,7 @@ public interface ICellularGatewayDhcp
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/cellularGateway/dhcp")]
 	Task<NetworkCellularGatewayDhcp> GetNetworkCellularGatewayDhcpAsync(
 		string networkId,
@@ -22,6 +23,7 @@ public interface ICellularGatewayDhcp
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkCellularGatewaySettingsDhcp">Body for updating DHCP settings</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/cellularGateway/dhcp")]
 	Task<NetworkCellularGatewayDhcp> UpdateNetworkCellularGatewayDhcpAsync(
 		string networkId,

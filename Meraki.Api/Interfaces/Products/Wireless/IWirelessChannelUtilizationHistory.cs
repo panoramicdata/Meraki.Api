@@ -16,6 +16,7 @@ public interface IWirelessChannelUtilizationHistory
 	/// <param name="deviceSerial">Filter results by device to return AP channel utilization metrics for the queried device; either :band or :clientId must be jointly specified.</param>
 	/// <param name="apTag">Filter results by AP tag to return AP channel utilization metrics for devices labeled with the given tag; either :clientId or :deviceSerial must be jointly specified.</param>
 	/// <param name="band">Filter results by band (either '2.4' or '5').</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/channelUtilizationHistory")]
 	Task<List<ChannelUtilizationHistory>> GetNetworkWirelessChannelUtilizationHistoryAsync(
 		string networkId,

@@ -10,6 +10,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkWebhooksPayloadTemplates")]
 	[Get("/networks/{networkId}/webhooks/payloadTemplates")]
 	Task<List<PayloadTemplate>> GetNetworkWebhooksPayloadTemplatesAsync(
@@ -22,6 +23,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="webhookPayloadTemplate">Payload Template</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkWebhooksPayloadTemplate")]
 	[Post("/networks/{networkId}/webhooks/payloadTemplates")]
 	Task<PayloadTemplate> CreateNetworkWebhooksPayloadTemplateAsync(
@@ -35,6 +37,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkWebhooksPayloadTemplate")]
 	[Get("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task<PayloadTemplate> GetNetworkWebhooksPayloadTemplateAsync(
@@ -48,6 +51,8 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
+	/// <param name="webhookPayloadTemplate"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkWebhooksPayloadTemplate")]
 	[Put("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task<PayloadTemplate> UpdateNetworkWebhooksPayloadTemplateAsync(
@@ -62,6 +67,7 @@ public interface INetworksWebhooksPayloadTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkWebhooksPayloadTemplate")]
 	[Delete("/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task DeleteNetworkWebhooksPayloadTemplateAsync

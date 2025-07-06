@@ -7,6 +7,7 @@ public interface IOrganizationsBrandingPolicies
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/brandingPolicies")]
 	Task<List<BrandingPolicy>> GetOrganizationBrandingPoliciesAsync(
 		string organizationId,
@@ -19,6 +20,7 @@ public interface IOrganizationsBrandingPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="brandingPolicyId">The branding policy id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 	Task<BrandingPolicy> GetOrganizationBrandingPolicyAsync(
 		string organizationId,
@@ -32,6 +34,7 @@ public interface IOrganizationsBrandingPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="brandingPolicy">Body for creating an organization's branding policy</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/brandingPolicies")]
 	Task<BrandingPolicy> CreateOrganizationBrandingPolicyAsync(
 		string organizationId,
@@ -46,6 +49,7 @@ public interface IOrganizationsBrandingPolicies
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="brandingPolicyId"></param>
 	/// <param name="brandingPolicy">Body for updating an organization's branding policy</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 	Task<BrandingPolicy> UpdateOrganizationBrandingPolicyAsync(
 		string organizationId,
@@ -60,6 +64,7 @@ public interface IOrganizationsBrandingPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="brandingPolicyId">The branding policy id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/organizations/{organizationId}/brandingPolicies/{brandingPolicyId}")]
 	Task DeleteOrganizationBrandingPolicyAsync(
 		string organizationId,

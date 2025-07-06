@@ -10,6 +10,7 @@ public interface IOrganizationsAdmins
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/admins")]
 	Task<List<Admin>> GetOrganizationAdminsAsync(
 		string organizationId,
@@ -21,6 +22,7 @@ public interface IOrganizationsAdmins
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationAdmin">Body for creating organization admin</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/admins")]
 	Task<Admin> CreateOrganizationAdminAsync(
 		string organizationId,
@@ -33,6 +35,7 @@ public interface IOrganizationsAdmins
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="adminId">The admin id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/organizations/{organizationId}/admins/{adminId}")]
 	Task DeleteOrganizationAdminAsync(
 		string organizationId,
@@ -46,6 +49,7 @@ public interface IOrganizationsAdmins
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="adminId">The admin id</param>
 	/// <param name="adminUpdateRequest">Body for updating admin</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/admins/{adminId}")]
 	Task<Admin> UpdateOrganizationAdminAsync(
 		string organizationId,

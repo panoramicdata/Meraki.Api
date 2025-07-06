@@ -8,6 +8,7 @@ public interface ICameraAnalyticsRecent
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/camera/analytics/recent")]
 	Task<List<CameraOverview>> GetDeviceCameraAnalyticsRecentAsync(
 		string serial,

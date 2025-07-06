@@ -10,6 +10,7 @@ public interface ICameraQualityAndRetentionProfiles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkCameraQualityRetentionProfiles")]
 	[Get("/networks/{networkId}/camera/qualityRetentionProfiles")]
 	Task<List<CameraQualityRetentionProfile>> GetNetworkCameraQualityRetentionProfilesAsync(
@@ -22,6 +23,7 @@ public interface ICameraQualityAndRetentionProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="qualityRetentionProfileId">The quality retention profile id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkCameraQualityRetentionProfile")]
 	[Get("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 	Task<CameraQualityRetentionProfile> GetNetworkCameraQualityRetentionProfileAsync(
@@ -35,6 +37,7 @@ public interface ICameraQualityAndRetentionProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkCameraQualityRetentionProfile">Body for creating quality retention profile</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkCameraQualityRetentionProfile")]
 	[Post("/networks/{networkId}/camera/qualityRetentionProfiles")]
 	Task<CameraQualityRetentionProfile> CreateNetworkCameraQualityRetentionProfileAsync(
@@ -49,6 +52,7 @@ public interface ICameraQualityAndRetentionProfiles
 	/// <param name="networkId">The network id</param>
 	/// <param name="qualityRetentionProfileId">The quality retention profile id</param>
 	/// <param name="updateNetworkCameraQualityRetentionProfile">Body for updating quality retention profile</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkCameraQualityRetentionProfile")]
 	[Put("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 	Task<CameraQualityRetentionProfile> UpdateNetworkCameraQualityRetentionProfileAsync(
@@ -63,6 +67,7 @@ public interface ICameraQualityAndRetentionProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="qualityRetentionProfileId">The quality retention profile id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkCameraQualityRetentionProfile")]
 	[Delete("/networks/{networkId}/camera/qualityRetentionProfiles/{qualityRetentionProfileId}")]
 	Task DeleteNetworkCameraQualityRetentionProfileAsync(

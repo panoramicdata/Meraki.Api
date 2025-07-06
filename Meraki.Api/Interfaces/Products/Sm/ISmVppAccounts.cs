@@ -10,6 +10,7 @@ public interface ISmVppAccounts
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/sm/vppAccounts")]
 	Task<List<SmVppAccount>> GetOrganizationSmVppAccountsAsync(
 		string organizationId,
@@ -21,6 +22,7 @@ public interface ISmVppAccounts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="vppAccountId">The VPP account id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/sm/vppAccounts/{vppAccountId}")]
 	Task<SmVppAccount> GetOrganizationSmVppAccountAsync(
 		string organizationId,

@@ -11,6 +11,7 @@ public interface ISmDevicesFields
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkSmDeviceFields">Body for modifying a device</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/sm/devices/fields")]
 	Task<List<SmDevice>> UpdateNetworkSmDevicesFieldsAsync(
 		string networkId,

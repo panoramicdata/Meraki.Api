@@ -35,7 +35,8 @@ public interface IApplianceDnsLocalProfiles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
-	/// <param name="profileId">The profile id</param>"
+	/// <param name="profileId">The profile id</param>
+	/// <param name="dnsLocalProfileUpdateRequest"></param>"
 	/// <param name="cancellationToken">Token to cancel the request.</param>
 	[ApiOperationId("updateOrganizationApplianceDnsLocalProfile")]
 	[Put("/organizations/{organizationId}/appliance/dns/local/profiles/{profileId}")]

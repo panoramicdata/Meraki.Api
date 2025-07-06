@@ -58,6 +58,7 @@ public interface IDeviceSensorCommands
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="createDeviceSensorCommand">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createDeviceSensorCommand")]
 	[Post("/devices/{serial}/sensor/commands")]
 	Task<SensorCommand> CreateDeviceSensorCommandAsync(

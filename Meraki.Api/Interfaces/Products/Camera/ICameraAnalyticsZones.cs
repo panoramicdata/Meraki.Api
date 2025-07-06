@@ -13,6 +13,7 @@ public interface ICameraAnalyticsZones
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 14 hours. The default is 1 hour. (optional)</param>
 	/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 60. The default is 60. (optional)</param>
 	/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/camera/analytics/zones/{zoneId}/history")]
 	Task<List<CameraZoneHistory>> GetDeviceCameraAnalyticsZoneHistoryAsync(
 		string serial,
@@ -30,6 +31,7 @@ public interface ICameraAnalyticsZones
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/camera/analytics/zones")]
 	Task<List<CameraZone>> GetDeviceCameraAnalyticsZonesAsync(
 		string serial,

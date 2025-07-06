@@ -7,6 +7,7 @@ public interface IOrganizationsAdaptivePolicySettings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/adaptivePolicy/settings")]
 	Task<AdaptivePolicySettings> GetOrganizationAdaptivePolicySettingsAsync(
 		string organizationId,
@@ -17,6 +18,8 @@ public interface IOrganizationsAdaptivePolicySettings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="adaptivePolicySettings"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/adaptivePolicy/settings")]
 	Task<AdaptivePolicySettings> UpdateOrganizationAdaptivePolicySettingsAsync(
 		string organizationId,

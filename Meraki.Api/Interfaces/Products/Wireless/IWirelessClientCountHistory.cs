@@ -19,6 +19,7 @@ public interface IWirelessClientCountHistory
 	/// <param name="apTag">Filter results by AP tag.</param>
 	/// <param name="band">Filter results by band (either '2.4' or '5').</param>
 	/// <param name="ssid">Filter results by SSID number.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/clientCountHistory")]
 	Task<List<ClientCountHistory>> GetNetworkWirelessClientCountHistoryAsync(
 		string networkId,

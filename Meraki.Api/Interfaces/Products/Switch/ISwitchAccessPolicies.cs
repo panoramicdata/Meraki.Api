@@ -10,6 +10,7 @@ public interface ISwitchAccessPolicies
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchAccessPolicies")]
 	[Get("/networks/{networkId}/switch/accessPolicies")]
 	Task<List<AccessPolicy>> GetNetworkSwitchAccessPoliciesAsync(
@@ -23,6 +24,7 @@ public interface ISwitchAccessPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkSwitchAccessPolicy">Body for creating network switch access policy</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkSwitchAccessPolicy")]
 	[Post("/networks/{networkId}/switch/accessPolicies")]
 	Task<AccessPolicy> CreateNetworkSwitchAccessPolicyAsync(
@@ -37,6 +39,7 @@ public interface ISwitchAccessPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="accessPolicyNumber">The access policy number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchAccessPolicy")]
 	[Get("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
 	Task<AccessPolicy> GetNetworkSwitchAccessPolicyAsync(
@@ -52,6 +55,7 @@ public interface ISwitchAccessPolicies
 	/// <param name="networkId">The network id</param>
 	/// <param name="accessPolicyNumber">The access policy number</param>
 	/// <param name="updateNetworkSwitchAccessPolicy">Body for updating network switch access policy</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchAccessPolicy")]
 	[Put("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
 	Task<AccessPolicy> UpdateNetworkSwitchAccessPolicyAsync(
@@ -67,6 +71,7 @@ public interface ISwitchAccessPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="accessPolicyNumber">The access policy number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkSwitchAccessPolicy")]
 	[Delete("/networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}")]
 	Task DeleteNetworkSwitchAccessPolicyAsync(

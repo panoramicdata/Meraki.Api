@@ -7,6 +7,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/adaptivePolicy/acls")]
 	Task<List<AdaptivePolicyAcl>> GetOrganizationAdaptivePolicyAclsAsync(
 		string organizationId,
@@ -18,6 +19,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="acls">Body for creating an ACL</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/adaptivePolicy/acls")]
 	Task<List<AdaptivePolicyAcl>> CreateOrganizationAdaptivePolicyAclAsync(
 		string organizationId,
@@ -30,6 +32,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="aclId">The ACL id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/adaptivePolicy/acls/{aclId}")]
 	Task<AdaptivePolicyAcl> GetOrganizationAdaptivePolicyAclAsync(
 		string organizationId,
@@ -43,6 +46,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="aclId">The ACL id</param>
 	/// <param name="acls">Body for returning ACL information</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/adaptivePolicy/acls/{aclId}")]
 	Task<AdaptivePolicyAcl> UpdateOrganizationAdaptivePolicyAclAsync(
 		string organizationId,
@@ -56,6 +60,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="aclId">The ACL id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/organizations/{organizationId}/adaptivePolicy/acls/{aclId}")]
 	Task DeleteOrganizationAdaptivePolicyAclAsync(
 		string organizationId,

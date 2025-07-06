@@ -11,6 +11,7 @@ public interface ISmTargetGroups
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkSmTargetGroup">Body for adding target group</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/targetGroups")]
 	Task<SmTargetGroup> CreateNetworkSmTargetGroupAsync(
 		string networkId,
@@ -24,6 +25,7 @@ public interface ISmTargetGroups
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="targetGroupId">The target group id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 	Task DeleteNetworkSmTargetGroupAsync(
 		string networkId,
@@ -38,6 +40,7 @@ public interface ISmTargetGroups
 	/// <param name="networkId">The network id</param>
 	/// <param name="targetGroupId">The target group id</param>
 	/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 	Task<SmTargetGroup> GetNetworkSmTargetGroupAsync(
 		string networkId,
@@ -52,6 +55,7 @@ public interface ISmTargetGroups
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="withDetails">Boolean indicating if the ids of the devices or users scoped by the target group should be included in the response (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/sm/targetGroups")]
 	Task<List<SmTargetGroup>> GetNetworkSmTargetGroupsAsync(
 		string networkId,
@@ -66,6 +70,7 @@ public interface ISmTargetGroups
 	/// <param name="networkId">The network id</param>
 	/// <param name="targetGroupId">The target group id</param>
 	/// <param name="updateNetworkSmTargetGroup">Body for updating a target group</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/sm/targetGroups/{targetGroupId}")]
 	Task<SmTargetGroup> UpdateNetworkSmTargetGroupAsync(
 		string networkId,

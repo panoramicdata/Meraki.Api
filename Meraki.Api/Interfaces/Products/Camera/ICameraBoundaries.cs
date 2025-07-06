@@ -8,6 +8,7 @@ public interface ICameraBoundaries
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="serials">A list of serial numbers. The returned cameras will be filtered to only include these serials.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/camera/boundaries/areas/byDevice")]
 	Task<List<CameraBoundariesAreas>> GetOrganizationCameraBoundariesAreasByDeviceAsync(
 		string organizationId,
@@ -21,6 +22,7 @@ public interface ICameraBoundaries
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="serials">A list of serial numbers. The returned cameras will be filtered to only include these serials.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/camera/boundaries/lines/byDevice")]
 	Task<List<CameraBoundariesLines>> GetOrganizationCameraBoundariesLinesByDeviceAsync(
 		string organizationId,

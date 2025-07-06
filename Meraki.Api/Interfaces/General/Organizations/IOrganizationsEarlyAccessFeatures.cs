@@ -17,6 +17,7 @@ public interface IOrganizationsEarlyAccessFeatures
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellation"></param>
 	[ApiOperationId("getOrganizationEarlyAccessFeaturesOptIns")]
 	[Get("/organizations/{organizationId}/earlyAccess/features/optIns")]
 	Task<List<EarlyAccessFeatureOptIn>> GetOrganizationEarlyAccessFeaturesOptInsAsync(
@@ -28,6 +29,8 @@ public interface IOrganizationsEarlyAccessFeatures
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="earlyAccessFeatureOptInCreateRequest"></param>
+	/// <param name="cancellation"></param>
 	[ApiOperationId("createOrganizationEarlyAccessFeaturesOptIn")]
 	[Post("/organizations/{organizationId}/earlyAccess/features/optIns")]
 	Task<EarlyAccessFeatureOptIn> CreateOrganizationEarlyAccessFeaturesOptInAsync(
@@ -41,6 +44,7 @@ public interface IOrganizationsEarlyAccessFeatures
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="optInId">The opt in id</param>
+	/// <param name="cancellation"></param>
 	[ApiOperationId("getOrganizationEarlyAccessFeaturesOptIn")]
 	[Get("/organizations/{organizationId}/earlyAccess/features/optIns/{optInId}")]
 	Task<EarlyAccessFeatureOptIn> GetOrganizationEarlyAccessFeaturesOptInAsync(
@@ -53,6 +57,9 @@ public interface IOrganizationsEarlyAccessFeatures
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="optInId"></param>
+	/// <param name="earlyAccessFeatureOptInUpdateRequest"></param>
+	/// <param name="cancellation"></param>
 	[ApiOperationId("updateOrganizationEarlyAccessFeaturesOptIn")]
 	[Put("/organizations/{organizationId}/earlyAccess/features/optIns/{optInId}")]
 	Task<EarlyAccessFeatureOptIn> UpdateOrganizationEarlyAccessFeaturesOptInAsync(
@@ -67,6 +74,7 @@ public interface IOrganizationsEarlyAccessFeatures
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="optInId">The Opt In Id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteOrganizationEarlyAccessFeaturesOptIn")]
 	[Delete("/organizations/{organizationId}/earlyAccess/features/optIns/{optInId}")]
 	Task DeleteOrganizationEarlyAccessFeaturesOptInAsync(

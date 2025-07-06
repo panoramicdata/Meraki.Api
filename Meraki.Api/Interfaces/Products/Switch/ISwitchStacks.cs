@@ -10,6 +10,7 @@ public interface ISwitchStacks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchStacks")]
 	[Get("/networks/{networkId}/switch/stacks")]
 	Task<List<SwitchStack>> GetNetworkSwitchStacksAsync(
@@ -22,6 +23,7 @@ public interface ISwitchStacks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkSwitchStack"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkSwitchStack")]
 	[Post("/networks/{networkId}/switch/stacks")]
 	Task<SwitchStack> CreateNetworkSwitchStackAsync(
@@ -36,6 +38,7 @@ public interface ISwitchStacks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId">The switch stack id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchStack")]
 	[Get("/networks/{networkId}/switch/stacks/{switchStackId}")]
 	Task<SwitchStack> GetNetworkSwitchStackAsync(
@@ -50,6 +53,7 @@ public interface ISwitchStacks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId">The switch stack id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkSwitchStack")]
 	[Delete("/networks/{networkId}/switch/stacks/{switchStackId}")]
 	Task DeleteNetworkSwitchStackAsync(
@@ -65,6 +69,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId">The switch stack id</param>
 	/// <param name="addNetworkSwitchStack"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("addNetworkSwitchStack")]
 	[Post("/networks/{networkId}/switch/stacks/{switchStackId}/add")]
 	Task<SwitchStack> AddNetworkSwitchStackAsync(
@@ -81,6 +86,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId">The switch stack id</param>
 	/// <param name="removeNetworkSwitchStack"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("removeNetworkSwitchStack")]
 	[Post("/networks/{networkId}/switch/stacks/{switchStackId}/remove")]
 	Task<SwitchStack> RemoveNetworkSwitchStackAsync(
@@ -177,6 +183,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId">The switch stack id</param>
 	/// <param name="interfaceId">The interface id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchStackRoutingInterfaceDhcp")]
 	[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}/dhcp")]
 	Task<RoutingInterfaceDhcp> GetNetworkSwitchStackRoutingInterfaceDhcpAsync(
@@ -193,6 +200,7 @@ public interface ISwitchStacks
 	/// <param name="switchStackId">The switch stack id</param>
 	/// <param name="interfaceId">The interface id</param>
 	/// <param name="routingInterfaceDhcp"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchStackRoutingInterfaceDhcp")]
 	[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}/dhcp")]
 	Task<RoutingInterfaceDhcp> UpdateNetworkSwitchStackRoutingInterfaceDhcpAsync(
@@ -208,6 +216,7 @@ public interface ISwitchStacks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId">The switch stack id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchStackRoutingStaticRoutes")]
 	[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes")]
 	Task<List<SwitchStaticRoute>> GetNetworkSwitchStackRoutingStaticRoutesAsync(
@@ -222,6 +231,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId">The switch stack id</param>
 	/// <param name="createNetworkSwitchStackRoutingStaticRoute"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkSwitchStackRoutingStaticRoute")]
 	[Post("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes")]
 	Task<SwitchStaticRoute> CreateNetworkSwitchStackRoutingStaticRouteAsync(
@@ -238,6 +248,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId">The switch stack id</param>
 	/// <param name="staticRouteId">The static route id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchStackRoutingStaticRoute")]
 	[Get("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
 	Task<SwitchStaticRoute> GetNetworkSwitchStackRoutingStaticRouteAsync(
@@ -255,6 +266,7 @@ public interface ISwitchStacks
 	/// <param name="switchStackId">The switch stack id</param>
 	/// <param name="staticRouteId">The static route id</param>
 	/// <param name="updateNetworkSwitchStackRoutingStaticRoute"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchStackRoutingStaticRoute")]
 	[Put("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
 	Task<SwitchStaticRoute> UpdateNetworkSwitchStackRoutingStaticRouteAsync(
@@ -272,6 +284,7 @@ public interface ISwitchStacks
 	/// <param name="networkId">The network id</param>
 	/// <param name="switchStackId">The switch stack id</param>
 	/// <param name="staticRouteId">The static route id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkSwitchStackRoutingStaticRoute")]
 	[Delete("/networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}")]
 	Task DeleteNetworkSwitchStackRoutingStaticRouteAsync(

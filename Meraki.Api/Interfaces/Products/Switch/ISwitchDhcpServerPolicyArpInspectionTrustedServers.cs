@@ -13,6 +13,7 @@ public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 	/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.</param>
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers")]
 	Task<List<TrustedServer>> GetNetworkSwitchDhcpServerPolicyArpInspectionTrustedServersAsync(
 		string networkId,
@@ -38,6 +39,7 @@ public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network ID</param>
+	/// <param name="trustedServer"></param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	[Post("/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers")]
 	Task<TrustedServer> CreateNetworkSwitchDhcpServerPolicyArpInspectionTrustedServerAsync(
@@ -52,6 +54,7 @@ public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network ID</param>
 	/// <param name="trustedServerId">The Trusted Server ID</param>
+	/// <param name="trustedServer"></param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	[Put("/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers/{trustedServerId}")]
 	Task<TrustedServer> UpdateNetworkSwitchDhcpServerPolicyArpInspectionTrustedServerAsync(
@@ -67,6 +70,7 @@ public interface ISwitchDhcpServerPolicyArpInspectionTrustedServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="trustedServerId">The trusted server</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers/{trustedServerId}")]
 	Task DeleteNetworkSwitchDhcpServerPolicyArpInspectionTrustedServerAsync(
 		string networkId,

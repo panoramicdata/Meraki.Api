@@ -7,6 +7,7 @@ public interface IApplianceFirewallPortForwardingRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceFirewallPortForwardingRules")]
 	[Get("/networks/{networkId}/appliance/firewall/portForwardingRules")]
 	Task<PortForwardingRules> GetNetworkApplianceFirewallPortForwardingRulesAsync(
@@ -20,6 +21,7 @@ public interface IApplianceFirewallPortForwardingRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkPortForwardingRules">Body for updating port forwarding rules</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceFirewallPortForwardingRules")]
 	[Put("/networks/{networkId}/appliance/firewall/portForwardingRules")]
 	Task<PortForwardingRules> UpdateNetworkApplianceFirewallPortForwardingRulesAsync(

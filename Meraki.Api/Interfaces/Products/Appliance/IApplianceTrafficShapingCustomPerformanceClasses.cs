@@ -7,6 +7,7 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceTrafficShapingCustomPerformanceClasses")]
 	[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses")]
 	Task<List<CustomPerformanceClass>> GetNetworkApplianceTrafficShapingCustomPerformanceClassesAsync(
@@ -35,6 +36,7 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="customPerformanceClassId">The custom performance class id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceTrafficShapingCustomPerformanceClass")]
 	[Get("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
 	Task<CustomPerformanceClass> GetNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
@@ -50,6 +52,7 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	/// <param name="networkId">The network id</param>
 	/// <param name="customPerformanceClassId">The custom performance class id</param>
 	/// <param name="trafficShapingCustomPerformanceClass"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceTrafficShapingCustomPerformanceClass")]
 	[Put("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
 	Task<CustomPerformanceClass> UpdateNetworkApplianceTrafficShapingCustomPerformanceClassAsync(
@@ -65,6 +68,7 @@ public interface IApplianceTrafficShapingCustomPerformanceClasses
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="customPerformanceClassId">The custom performance class id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkApplianceTrafficShapingCustomPerformanceClass")]
 	[Delete("/networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}")]
 	Task DeleteNetworkApplianceTrafficShapingCustomPerformanceClassAsync(

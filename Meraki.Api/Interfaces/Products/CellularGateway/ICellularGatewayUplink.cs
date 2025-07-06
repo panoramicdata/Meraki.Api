@@ -10,6 +10,7 @@ public interface ICellularGatewayUplink
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/cellularGateway/uplink")]
 	Task<NetworkCellularGatewayUplink> GetNetworkCellularGatewayUplinkAsync(
 		string networkId,
@@ -22,6 +23,7 @@ public interface ICellularGatewayUplink
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkCellularGatewaySettingsUplink">Body for updating uplink settings</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/cellularGateway/uplink")]
 	Task<NetworkCellularGatewayUplink> UpdateNetworkCellularGatewayUplinkAsync(
 		string networkId,

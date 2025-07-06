@@ -7,7 +7,7 @@ namespace Meraki.Api;
 /// This rate limiter can be used by any number of clients to limit the number of requests
 /// It uses a simple in-memory queue to track request timestamps and enforces a limit on the number of requests per specified time window.
 /// </summary>
-public class BasicRateLimiter : IRateLimiter
+public class BasicRateLimiter : IRateLimiter, IDisposable
 {
 	private readonly int _maxCalls;
 	private readonly TimeSpan _window;
@@ -34,7 +34,7 @@ public class BasicRateLimiter : IRateLimiter
 		_window = window;
 	}
 
-	SemaphoreSlim _semaphore = new(1, 1);
+	readonly SemaphoreSlim _semaphore = new(1, 1);
 
 	/// <summary>
 	///	Apply rate limiting
@@ -85,5 +85,12 @@ public class BasicRateLimiter : IRateLimiter
 		{
 			_ = _semaphore.Release();
 		}
+	}
+
+	/// <inheritdoc/>
+	public void Dispose()
+	{
+		((IDisposable)_semaphore).Dispose();
+		GC.SuppressFinalize(this);
 	}
 }
