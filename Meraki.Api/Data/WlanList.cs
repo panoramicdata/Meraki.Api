@@ -1,5 +1,8 @@
 ﻿namespace Meraki.Api.Data;
 
+/// <summary>
+/// Represents a list of WLANs with their creation date, identifier, and XML data.
+/// </summary>
 [ApiAccessReadOnlyClass]
 [DataContract]
 public class WlanList

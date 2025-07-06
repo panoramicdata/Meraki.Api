@@ -2,6 +2,10 @@
 using PanoramicData.SheetMagic;
 
 namespace Meraki.ApiChecker.Extensions;
+
+/// <summary>
+/// Provides extension methods for EndpointSet to add endpoint information to a MagicSpreadsheet workbook.
+/// </summary>
 internal static class EndpointExtensions
 {
 	internal static void AddToWorkbook(this EndpointSet endpointSet, MagicSpreadsheet workbook, string setName)
