@@ -7,7 +7,7 @@
 public class NetworksSwitchStackPortsMirrorUpdateRequestSourcePort
 {
 	/// <summary>
-	/// Source port involve in port mirroring
+	/// Source port involved in port mirroring
 	/// </summary>
 	[DataMember(Name = "number")]
 	public int? Number { get; set; }

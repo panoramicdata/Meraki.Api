@@ -22,17 +22,17 @@ public class MosSummary
 	/// Average mos
 	/// </summary>
 	[DataMember(Name = "avgMos")]
-	public int AvgMos { get; set; }
+	public double AvgMos { get; set; }
 
 	/// <summary>
 	/// Minimum mos
 	/// </summary>
 	[DataMember(Name = "minMos")]
-	public int MinMos { get; set; }
+	public double MinMos { get; set; }
 
 	/// <summary>
 	/// Maximum mos
 	/// </summary>
 	[DataMember(Name = "maxMos")]
-	public int MaxMos { get; set; }
+	public double MaxMos { get; set; }
 }
