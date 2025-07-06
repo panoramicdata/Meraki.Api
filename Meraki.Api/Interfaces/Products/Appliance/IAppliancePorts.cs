@@ -8,6 +8,7 @@ public interface IAppliancePorts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="portId">The appliance port id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkAppliancePort")]
 	[Get("/networks/{networkId}/appliance/ports/{portId}")]
 	Task<AppliancePort> GetNetworkAppliancePortAsync(
@@ -21,6 +22,7 @@ public interface IAppliancePorts
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkAppliancePorts")]
 	[Get("/networks/{networkId}/appliance/ports")]
 	Task<List<AppliancePort>> GetNetworkAppliancePortsAsync(
@@ -35,6 +37,7 @@ public interface IAppliancePorts
 	/// <param name="networkId">The network id</param>
 	/// <param name="portId">The appliance port id</param>
 	/// <param name="appliancePort">Body for updating the per-port VLAN settings</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkAppliancePorts")]
 	[Put("/networks/{networkId}/appliance/ports/{portId}")]
 	Task<AppliancePort> UpdateNetworkAppliancePortAsync(

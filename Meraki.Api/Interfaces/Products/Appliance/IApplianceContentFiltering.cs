@@ -7,6 +7,7 @@ public interface IApplianceContentFiltering
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceContentFiltering")]
 	[Get("/networks/{networkId}/appliance/contentFiltering")]
 	Task<ApplianceContentFilteringResult> GetNetworkApplianceContentFilteringAsync(
@@ -20,6 +21,7 @@ public interface IApplianceContentFiltering
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="networkContentFilteringUpdateRequest">Body for updating content filtering settings</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceContentFiltering")]
 	[Put("/networks/{networkId}/appliance/contentFiltering")]
 	Task<ApplianceContentFilteringResult> UpdateNetworkApplianceContentFilteringAsync(

@@ -15,6 +15,7 @@ public interface IWirelessLatencyStats
 	/// <param name="vlan">Filter results by VLAN (optional)</param>
 	/// <param name="apTag">Filter results by AP Tag (optional)</param>
 	/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/wireless/latencyStats")]
 	Task<NetworkDeviceLatencyStats> GetDeviceWirelessLatencyStatsAsync(
 		string serial,
@@ -41,6 +42,7 @@ public interface IWirelessLatencyStats
 	/// <param name="vlan">Filter results by VLAN (optional)</param>
 	/// <param name="apTag">Filter results by AP Tag (optional)</param>
 	/// <param name="fields">Partial selection: If present, this call will return only the selected fields of [\&quot;rawDistribution\&quot;, \&quot;avg\&quot;]. All fields will be returned by default. Selected fields must be entered as a comma separated string. (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/latencyStats")]
 	Task<LatencyStats> GetNetworkWirelessLatencyStatsAsync(
 		string networkId,

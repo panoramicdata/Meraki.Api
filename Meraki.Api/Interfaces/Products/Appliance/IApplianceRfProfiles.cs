@@ -7,6 +7,7 @@ public interface IApplianceRfProfiles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceRfProfiles")]
 	[Get("/networks/{networkId}/appliance/rfProfiles")]
 	Task<NetworkApplianceRfProfiles> GetNetworkApplianceRfProfiles(
@@ -20,6 +21,7 @@ public interface IApplianceRfProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="rfProfileId">Rf profile ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceRfProfile")]
 	[Get("/networks/{networkId}/appliance/rfProfiles/{rfProfileId}")]
 	Task<NetworkApplianceRfProfile> GetNetworkApplianceRfProfile(
@@ -34,6 +36,7 @@ public interface IApplianceRfProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="networkApplianceRfProfileCreateUpdate">The RF Propfile update request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkApplianceRfProfile")]
 	[Post("/networks/{networkId}/appliance/rfProfiles")]
 	Task<NetworkApplianceRfProfile> CreateNetworkApplianceRfProfile(
@@ -49,6 +52,7 @@ public interface IApplianceRfProfiles
 	/// <param name="networkId">The network id</param>
 	/// <param name="rfProfileId">Rf Profile ID</param>
 	/// <param name="networkApplianceRfProfileCreateUpdate">The RF Propfile update request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceRfProfile")]
 	[Put("/networks/{networkId}/appliance/rfProfiles/{rfProfileId}")]
 	Task<NetworkApplianceRfProfile> UpdateNetworkApplianceRfProfile(
@@ -63,6 +67,7 @@ public interface IApplianceRfProfiles
 	/// </summary>
 	/// <param name="networkId">The network id</param>
 	/// <param name="rfProfileId">The rf Profile id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/networks/{networkId}/appliance/rfProfiles/{rfProfileId}")]
 	Task DeleteNetworkApplianceRfProfile(
 		string networkId,

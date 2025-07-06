@@ -8,6 +8,7 @@ public interface ILiveToolsCableTest
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="createDeviceLiveToolsCableTest">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createDeviceLiveToolsCableTest")]
 	[Post("/devices/{serial}/liveTools/cableTest")]
 	Task<LiveToolsCableTest> CreateDeviceLiveToolsCableTestAsync(
@@ -21,6 +22,7 @@ public interface ILiveToolsCableTest
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="id">The cable test id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceLiveToolsCableTest")]
 	[Get("/devices/{serial}/liveTools/cableTest/{id}")]
 	Task<LiveToolsCableTestResult> GetDeviceLiveToolsCableTestAsync(

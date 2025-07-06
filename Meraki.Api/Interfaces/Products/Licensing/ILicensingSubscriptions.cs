@@ -10,6 +10,7 @@ public interface ILicensingSubscriptions
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="licensingSubscriptionClaimRequest">The subscription to be claimed</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("claimAdministeredLicensingSubscriptionSubscriptions")]
 	[Post("/administered/licensing/subscription/subscriptions/claim")]
 	Task<LicensingSubscriptionClaim> ClaimAdministeredLicensingSubscriptionSubscriptionsAsync(
@@ -23,6 +24,7 @@ public interface ILicensingSubscriptions
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="subscriptionId">Subscription ID</param>
 	/// <param name="licensingSubscriptionBindRequest">The subscription to be claimed</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("bindAdministeredLicensingSubscriptionSubscription")]
 	[Post("/administered/licensing/subscription/subscriptions/{subscriptionId}/bind")]
 	Task<LicensingSubscriptionBindings> BindAdministeredLicensingSubscriptionSubscriptionAsync(
@@ -44,6 +46,7 @@ public interface ILicensingSubscriptions
 	/// <param name="productTypes">List of product types that returned subscriptions need to have entitlements for.</param>
 	/// <param name="startDate">Filter subscriptions by start date, ISO 8601 format. To filter with a range of dates, use 'startDate[]=?' in the request. Accepted options include lt, gt, lte, gte.</param>
 	/// <param name="endDate">Filter subscriptions by end date, ISO 8601 format. To filter with a range of dates, use 'endDate[]=?' in the request. Accepted options include lt, gt, lte, gte.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getAdministeredLicensingSubscriptionSubscriptions")]
 	[Get("/administered/licensing/subscription/subscriptions")]
 	Task<List<LicensingSubscriptionSubscription>> GetAdministeredLicensingSubscriptionSubscriptionsAsync(
@@ -80,6 +83,7 @@ public interface ILicensingSubscriptions
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="licensingClaimKeyValidationRequest">The Claim Key validation request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("validateAdministeredLicensingSubscriptionSubscriptionsClaimKey")]
 	[Post("/administered/licensing/subscription/subscriptions/claimKey/validate")]
 	Task<LicensingClaimKeyValidation> ValidateAdministeredLicensingSubscriptionSubscriptionsClaimKey(

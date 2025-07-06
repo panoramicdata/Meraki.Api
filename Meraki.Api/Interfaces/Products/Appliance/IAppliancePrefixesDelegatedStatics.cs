@@ -8,6 +8,7 @@ public interface IAppliancePrefixesDelegatedStatics
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkAppliancePrefixesDelegatedStatics")]
 	[Get("/networks/{networkId}/appliance/prefixes/delegated/statics")]
 	Task<List<NetworkAppliancePrefixesDelegatedStatic>> GetNetworkAppliancePrefixesDelegatedStaticsAsync(
@@ -20,6 +21,7 @@ public interface IAppliancePrefixesDelegatedStatics
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="staticDelegatedPrefixId">ID of the static delegate prefix</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkAppliancePrefixesDelegatedStatic")]
 	[Get("/networks/{networkId}/appliance/prefixes/delegated/statics/{staticDelegatedPrefixId}")]
 	Task<NetworkAppliancePrefixesDelegatedStatic> GetNetworkAppliancePrefixesDelegatedStaticAsync(
@@ -33,6 +35,7 @@ public interface IAppliancePrefixesDelegatedStatics
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="networkAppliancePrefixesDelegatedStaticCreateRequest">The body for the create request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkAppliancePrefixesDelegatedStatic")]
 	[Post("/networks/{networkId}/appliance/prefixes/delegated/statics")]
 	Task<NetworkAppliancePrefixesDelegatedStatic> CreateNetworkAppliancePrefixesDelegatedStaticAsync(
@@ -47,6 +50,7 @@ public interface IAppliancePrefixesDelegatedStatics
 	/// <param name="networkId">The network id</param>
 	/// <param name="staticDelegatedPrefixId">The static sdelegated prefix id</param>
 	/// <param name="networkAppliancePrefixedsDelegatedStaticUpdateRequest">Body for the update request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkAppliancePrefixesDelegatedStatic")]
 	[Put("/networks/{networkId}/appliance/prefixes/delegated/statics/{staticDelegatedPrefixId}")]
 	Task<NetworkAppliancePrefixesDelegatedStatic> UpdateNetworkAppliancePrefixesDelegatedStaticAsync(
@@ -61,6 +65,7 @@ public interface IAppliancePrefixesDelegatedStatics
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="staticDelegatedPrefixId">The static sdelegated prefix id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkAppliancePrefixesDelegatedStatic")]
 	[Delete("/networks/{networkId}/appliance/prefixes/delegated/statics/{staticDelegatedPrefixId}")]
 	Task DeleteNetworkAppliancePrefixesDelegatedStaticAsync(

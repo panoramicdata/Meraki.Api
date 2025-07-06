@@ -8,6 +8,7 @@ public interface ISmDevicesBypassActivationLockAttempts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkSmBypassActivationLockAttempt">Body for bypassing a lock attempt</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/bypassActivationLockAttempts")]
 	Task<SmBypassActivationLockAttempt> CreateNetworkSmBypassActivationLockAttemptAsync(
 		string networkId,
@@ -21,6 +22,7 @@ public interface ISmDevicesBypassActivationLockAttempts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="attemptId">The attempt id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/sm/bypassActivationLockAttempts/{attemptId}")]
 	Task<SmBypassActivationLockAttempt> GetNetworkSmBypassActivationLockAttemptAsync(
 		string networkId,

@@ -10,6 +10,7 @@ public interface IInsightMonitoredMediaServers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/insight/monitoredMediaServers")]
 	Task<List<InsightMonitoredMediaServer>> GetOrganizationInsightMonitoredMediaServersAsync(
 		string organizationId,
@@ -22,6 +23,7 @@ public interface IInsightMonitoredMediaServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationInsightMonitoredMediaServer">Body for adding a media server</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/insight/monitoredMediaServers")]
 	Task<InsightMonitoredMediaServer> CreateOrganizationInsightMonitoredMediaServerAsync(
 		string organizationId,
@@ -35,6 +37,7 @@ public interface IInsightMonitoredMediaServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="monitoredMediaServerId">The monitored media server id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 	Task<InsightMonitoredMediaServer> GetOrganizationInsightMonitoredMediaServerAsync(
 		string organizationId,
@@ -49,6 +52,7 @@ public interface IInsightMonitoredMediaServers
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="monitoredMediaServerId">The monitored media server id</param>
 	/// <param name="updateOrganizationInsightMonitoredMediaServer">Body for updating a monitored media server</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 	Task<InsightMonitoredMediaServer> UpdateOrganizationInsightMonitoredMediaServerAsync(
 		string organizationId,
@@ -63,6 +67,7 @@ public interface IInsightMonitoredMediaServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="monitoredMediaServerId">The monitored media server id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}")]
 	Task DeleteOrganizationInsightMonitoredMediaServerAsync(
 		string organizationId,

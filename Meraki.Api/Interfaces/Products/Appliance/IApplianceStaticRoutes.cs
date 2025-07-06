@@ -8,6 +8,7 @@ public interface IApplianceStaticRoutes
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="staticRouteId">The static route id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceStaticRoute")]
 	[Get("/networks/{networkId}/appliance/staticRoutes/{staticRouteId}")]
 	Task<StaticRoute> GetNetworkApplianceStaticRouteAsync(
@@ -21,6 +22,7 @@ public interface IApplianceStaticRoutes
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceStaticRoutes")]
 	[Get("/networks/{networkId}/appliance/staticRoutes")]
 	Task<List<StaticRoute>> GetNetworkApplianceStaticRoutesAsync(
@@ -34,6 +36,7 @@ public interface IApplianceStaticRoutes
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkStaticRoute">Body for adding a static route</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkApplianceStaticRoute")]
 	[Post("/networks/{networkId}/appliance/staticRoutes")]
 	Task<StaticRoute> CreateNetworkApplianceStaticRouteAsync(
@@ -49,6 +52,7 @@ public interface IApplianceStaticRoutes
 	/// <param name="networkId">The network id</param>
 	/// <param name="staticRouteId">The static route id</param>
 	/// <param name="updateNetworkStaticRoute">Body for updating a static route</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceStaticRoute")]
 	[Put("/networks/{networkId}/appliance/staticRoutes/{staticRouteId}")]
 	Task<StaticRoute> UpdateNetworkApplianceStaticRouteAsync(
@@ -63,6 +67,7 @@ public interface IApplianceStaticRoutes
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="staticRouteId">The static route id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkApplianceStaticRoute")]
 	[Delete("/networks/{networkId}/appliance/staticRoutes/{staticRouteId}")]
 	Task DeleteNetworkApplianceStaticRouteAsync(

@@ -11,6 +11,7 @@ public interface ICameraAnalyticsOverview
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 7 days after t0. (optional)</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 7 days. The default is 1 hour. (optional)</param>
 	/// <param name="objectType">[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]. (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/camera/analytics/overview")]
 	[Obsolete("This endpoint is deprecated and will be removed in a future update. Please use the new camera/analytics/overview endpoint.", false)]
 	Task<List<CameraOverview>> GetDeviceCameraAnalyticsOverviewAsync(

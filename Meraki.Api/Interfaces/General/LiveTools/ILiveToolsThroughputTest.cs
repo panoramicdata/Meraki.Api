@@ -8,6 +8,7 @@ public interface ILiveToolsThroughputTest
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="createDeviceLiveToolsThroughputTest">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createDeviceLiveToolsThroughputTest")]
 	[Post("/devices/{serial}/liveTools/throughputTest")]
 	Task<LiveToolsThroughputTestCreateResponse> CreateDeviceLiveToolsThroughputTestAsync(
@@ -21,6 +22,7 @@ public interface ILiveToolsThroughputTest
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="throughputTestId">Throughput test ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceLiveToolsThroughputTest")]
 	[Get("/devices/{serial}/liveTools/throughputTest/{throughputTestId}")]
 	Task<LiveToolsThroughputTest> GetDeviceLiveToolsThroughputTestAsync(

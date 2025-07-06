@@ -10,6 +10,7 @@ public interface IWirelessSettings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/settings")]
 	Task<WirelessSettings> GetNetworkWirelessSettingsAsync(
 		string networkId,
@@ -21,6 +22,7 @@ public interface IWirelessSettings
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkWirelessSettings"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/wireless/settings")]
 	Task<WirelessSettings> UpdateNetworkWirelessSettingsAsync(
 		string networkId,

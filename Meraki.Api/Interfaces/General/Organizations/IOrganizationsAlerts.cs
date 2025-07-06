@@ -10,6 +10,7 @@ public interface IOrganizationsAlerts
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationAlertsProfiles")]
 	[Get("/organizations/{organizationId}/alerts/profiles")]
 	Task<List<OrganizationAlertProfile>> GetOrganizationAlertsProfilesAsync(
@@ -22,6 +23,7 @@ public interface IOrganizationsAlerts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createRequest">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createOrganizationAlertsProfile")]
 	[Post("/organizations/{organizationId}/alerts/profiles")]
 	Task<OrganizationAlertProfile> CreateOrganizationAlertsProfileAsync(
@@ -36,6 +38,7 @@ public interface IOrganizationsAlerts
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="alertConfigId">The alert config id</param>
 	/// <param name="updateRequest">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateOrganizationAlertsProfile")]
 	[Put("/organizations/{organizationId}/alerts/profiles/{alertConfigId}")]
 	Task<OrganizationAlertProfile> UpdateOrganizationAlertsProfileAsync(
@@ -50,6 +53,7 @@ public interface IOrganizationsAlerts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="alertConfigId">The alert config id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteOrganizationAlertsProfile")]
 	[Delete("/organizations/{organizationId}/alerts/profiles/{alertConfigId}")]
 	Task DeleteOrganizationAlertsProfileAsync(

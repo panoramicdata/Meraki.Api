@@ -10,6 +10,7 @@ public interface ISwitchAccessControlLists
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchAccessControlLists")]
 	[Get("/networks/{networkId}/switch/accessControlLists")]
 	Task<SwitchAccessControlListRules> GetNetworkSwitchAccessControlListsAsync(
@@ -23,6 +24,7 @@ public interface ISwitchAccessControlLists
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkSwitchAccessControlLists"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchAccessControlLists")]
 	[Put("/networks/{networkId}/switch/accessControlLists")]
 	Task<SwitchAccessControlListRules> UpdateNetworkSwitchAccessControlListsAsync(

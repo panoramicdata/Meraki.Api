@@ -6,8 +6,10 @@ public static class IApplianceTrafficShapingVpnExclusionsExtensions
 	/// Display all VPN exclusion rules for MX networks.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="applianceTrafficShapingVpnExclusions">ApplianceTrafficShapingVpnExclusions</param>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
+	/// <param name="cancellationToken"></param>
 	public static Task<TrafficShapingVpnExclusionsByNetworkResponse> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkAllAsync(
 		this IApplianceTrafficShapingVpnExclusions applianceTrafficShapingVpnExclusions,
 		string organizationId,

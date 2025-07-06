@@ -10,6 +10,7 @@ public interface INetworksFloorplans
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkFloorPlans")]
 	[Get("/networks/{networkId}/floorPlans")]
 	Task<List<FloorPlan>> GetNetworkFloorPlansAsync(
@@ -23,6 +24,7 @@ public interface INetworksFloorplans
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkFloorPlan">Body for uploading a network floor plan</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkFloorPlan")]
 	[Post("/networks/{networkId}/floorPlans")]
 	Task<FloorPlan> CreateNetworkFloorPlanAsync(
@@ -37,6 +39,7 @@ public interface INetworksFloorplans
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="floorPlanId">The floor plan id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkFloorPlan")]
 	[Get("/networks/{networkId}/floorPlans/{floorPlanId}")]
 	Task<FloorPlan> GetNetworkFloorPlanAsync(
@@ -52,6 +55,7 @@ public interface INetworksFloorplans
 	/// <param name="networkId">The network id</param>
 	/// <param name="floorPlanId">The floor plan id</param>
 	/// <param name="updateNetworkFloorPlan">Body for updating a network floor plan</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkFloorPlan")]
 	[Put("/networks/{networkId}/floorPlans/{floorPlanId}")]
 	Task<FloorPlan> UpdateNetworkFloorPlanAsync(
@@ -66,6 +70,7 @@ public interface INetworksFloorplans
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="floorPlanId">The floor plan id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkFloorPlan")]
 	[Delete("/networks/{networkId}/floorPlans/{floorPlanId}")]
 	Task DeleteNetworkFloorPlanAsync(
@@ -80,6 +85,7 @@ public interface INetworksFloorplans
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="floorPlanBatchDevicesUpdateRequest">The request body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("batchNetworkFloorPlansDevicesUpdate")]
 	[Post("/networks/{networkId}/floorPlans/devices/batchUpdate")]
 	Task<FloorPlanBatchDevicesUpdateResponse> BatchNetworkFloorPlansDevicesUpdateAsync(

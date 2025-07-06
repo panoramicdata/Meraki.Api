@@ -8,6 +8,7 @@ public interface ICameraRoles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">Organization ID</param>
 	/// <param name="cameraRole">Camera Role</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createOrganizationCameraRole")]
 	[Post("/organizations/{organizationId}/camera/roles")]
 	Task<CameraRole> CreateOrganizationCameraRoleAsync(
@@ -21,6 +22,7 @@ public interface ICameraRoles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">Organization ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationCameraRoles")]
 	[Get("/organizations/{organizationId}/camera/roles")]
 	Task<List<CameraRole>> GetOrganizationCameraRolesAsync(
@@ -34,6 +36,7 @@ public interface ICameraRoles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">Organization ID</param>
 	/// <param name="roleId">Role ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationCameraRole")]
 	[Get("/organizations/{organizationId}/camera/roles/{roleId}")]
 	Task<CameraRole> GetOrganizationCameraRoleAsync(
@@ -47,7 +50,9 @@ public interface ICameraRoles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">Organization ID</param>
+	/// <param name="roleId"></param>
 	/// <param name="cameraRole">Camera Role</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateOrganizationCameraRole")]
 	[Put("/organizations/{organizationId}/camera/roles/{roleId}")]
 	Task<CameraRole> UpdateOrganizationCameraRoleAsync(
@@ -63,6 +68,7 @@ public interface ICameraRoles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="roleId">The role id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteOrganizationCameraRole")]
 	[Delete("/organizations/{organizationId}/camera/roles/{roleId}")]
 	Task DeleteOrganizationCameraRoleAsync(

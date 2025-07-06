@@ -8,6 +8,7 @@ public interface IWirelessSsidsTrafficShaping
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules")]
 	Task<SsidTrafficShapingRules> GetNetworkWirelessSsidTrafficShapingRulesAsync(
 		string networkId,
@@ -22,6 +23,7 @@ public interface IWirelessSsidsTrafficShaping
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="updateNetworkSsidTrafficShaping"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules")]
 	Task<SsidTrafficShapingRules> UpdateNetworkWirelessSsidTrafficShapingRulesAsync(
 		string networkId,

@@ -7,6 +7,7 @@ public interface IApplianceTrafficShaping
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceTrafficShaping")]
 	[Get("/networks/{networkId}/appliance/trafficShaping")]
 	Task<TrafficShaping> GetNetworkApplianceTrafficShapingAsync(
@@ -20,6 +21,7 @@ public interface IApplianceTrafficShaping
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="trafficShaping"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceTrafficShaping")]
 	[Put("/networks/{networkId}/appliance/trafficShaping")]
 	Task<TrafficShaping> UpdateNetworkApplianceTrafficShapingAsync(

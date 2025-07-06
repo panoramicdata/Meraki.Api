@@ -10,6 +10,7 @@ public interface IInsightApplication
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/insight/applications")]
 	Task<List<InsightApplication>> GetOrganizationInsightApplicationsAsync(
 		string organizationId,

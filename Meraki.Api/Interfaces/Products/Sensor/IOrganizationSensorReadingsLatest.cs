@@ -13,6 +13,7 @@ public interface IOrganizationSensorReadingsLatest
 	/// <param name="networkIds">Optional parameter to filter readings by network.</param>
 	/// <param name="serials">Optional parameter to filter readings by sensor.</param>
 	/// <param name="metrics">Types of sensor readings to retrieve. If no metrics are supplied, all available types of readings will be retrieved. Allowed values are temperature, humidity, water, door, tvoc, pm25, noise, indoorAirQuality, button, battery, downstreamPower, power, current, voltage, frequency and eco2.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/sensor/readings/latest")]
 	Task<List<SensorReadingLatest>> GetOrganizationSensorReadingsLatestAsync(
 		string organizationId,

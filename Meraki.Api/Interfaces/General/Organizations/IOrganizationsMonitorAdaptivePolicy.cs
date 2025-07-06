@@ -7,6 +7,7 @@ public interface IOrganizationMonitorAdaptivePolicy
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationAdaptivePolicyOverview")]
 	[Get("/organizations/{organizationId}/adaptivePolicy/overview")]
 	Task<OrganizationAdaptivePolicyOverview> GetOrganizationAdaptivePolicyOverviewAsync(

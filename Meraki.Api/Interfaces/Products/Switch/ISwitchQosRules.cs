@@ -10,6 +10,7 @@ public interface ISwitchQosRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchQosRules")]
 	[Get("/networks/{networkId}/switch/qosRules")]
 	Task<List<QosRule>> GetNetworkSwitchQosRulesAsync(
@@ -23,6 +24,7 @@ public interface ISwitchQosRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="qosRuleId">The quality of service rule id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchQosRule")]
 	[Get("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 	Task<QosRule> GetNetworkSwitchQosRuleAsync(
@@ -37,6 +39,7 @@ public interface ISwitchQosRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkSwitchSettingsQosRule"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkSwitchQosRule")]
 	[Post("/networks/{networkId}/switch/qosRules")]
 	Task<QosRule> CreateNetworkSwitchQosRuleAsync(
@@ -52,6 +55,7 @@ public interface ISwitchQosRules
 	/// <param name="networkId">The network id</param>
 	/// <param name="qosRuleId"></param>
 	/// <param name="updateNetworkSwitchSettingsQosRule"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchQosRule")]
 	[Put("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 	Task<QosRule> UpdateNetworkSwitchQosRuleAsync(
@@ -67,6 +71,7 @@ public interface ISwitchQosRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="qosRuleId">The quality of service rule id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkSwitchQosRule")]
 	[Delete("/networks/{networkId}/switch/qosRules/{qosRuleId}")]
 	Task DeleteNetworkSwitchQosRuleAsync(
@@ -80,6 +85,7 @@ public interface ISwitchQosRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchQosRulesOrder")]
 	[Get("/networks/{networkId}/switch/qosRules/order")]
 	Task<QosRulesOrder> GetNetworkSwitchQosRulesOrderAsync(
@@ -93,6 +99,7 @@ public interface ISwitchQosRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="qosRulesOrder"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchQosRulesOrder")]
 	[Put("/networks/{networkId}/switch/qosRules/order")]
 	Task<QosRulesOrder> UpdateNetworkSwitchQosRulesOrderAsync(

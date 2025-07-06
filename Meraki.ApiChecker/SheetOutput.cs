@@ -246,7 +246,7 @@ public static class SheetOutput
 			//}
 			return result;
 		}
-		catch (Exception ex)
+		catch (Exception)
 		{
 			throw;
 		}

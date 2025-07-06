@@ -7,6 +7,7 @@ public interface IApplianceFirewallL7FirewallRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceFirewallL7FirewallRules")]
 	[Get("/networks/{networkId}/appliance/firewall/l7FirewallRules")]
 	Task<Layer7FirewallRules> GetNetworkApplianceFirewallL7FirewallRulesAsync(
@@ -20,6 +21,7 @@ public interface IApplianceFirewallL7FirewallRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="layer7FirewallRules">Body for updating firewall rules</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceFirewallL7FirewallRules")]
 	[Put("/networks/{networkId}/appliance/firewall/l7FirewallRules")]
 	Task<Layer7FirewallRules> UpdateNetworkApplianceFirewallL7FirewallRulesAsync(
@@ -33,6 +35,7 @@ public interface IApplianceFirewallL7FirewallRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceFirewallL7FirewallRulesApplicationCategories")]
 	[Get("/networks/{networkId}/appliance/firewall/l7FirewallRules/applicationCategories")]
 	Task<Layer7ApplicationCategories> GetNetworkApplianceFirewallL7FirewallRulesApplicationCategoriesAsync(

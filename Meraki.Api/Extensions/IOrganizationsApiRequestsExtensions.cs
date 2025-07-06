@@ -6,6 +6,7 @@ public static class IOrganizationsApiRequestsExtensions
 	/// List the API requests made by an organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationsApiRequests"></param>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0. (optional)</param>
@@ -18,6 +19,7 @@ public static class IOrganizationsApiRequestsExtensions
 	/// <param name="userAgent">Filter the results by the user agent string of the API request</param>
 	/// <param name="version">Filter the results by the API version of the API request</param>
 	/// <param name="operationIds">Filter the results by one or more operation IDs for the API request</param>
+	/// <param name="cancellationToken"></param>
 	public static Task<List<ApiUsage>> GetOrganizationApiRequestsAllAsync(
 		this IOrganizationsApiRequests organizationsApiRequests,
 		string organizationId,

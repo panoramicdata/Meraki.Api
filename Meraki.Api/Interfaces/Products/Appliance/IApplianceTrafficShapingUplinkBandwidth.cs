@@ -9,6 +9,7 @@ public interface IApplianceTrafficShapingUplinkBandwidth
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/trafficShaping/uplinkBandwidth")]
 	Task<UplinkBandwidth> GetNetworkApplianceTrafficShapingUplinkBandwidthAsync(
 		string networkId,
@@ -21,6 +22,7 @@ public interface IApplianceTrafficShapingUplinkBandwidth
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateTrafficShapingUplinkBandwidth"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/appliance/trafficShaping/uplinkBandwidth")]
 	Task<UplinkBandwidth> UpdateNetworkApplianceTrafficShapingUplinkBandwidthAsync(
 		string networkId,

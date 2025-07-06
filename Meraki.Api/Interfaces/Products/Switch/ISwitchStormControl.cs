@@ -10,6 +10,7 @@ public interface ISwitchStormControl
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchStormControl")]
 	[Get("/networks/{networkId}/switch/stormControl")]
 	Task<StormControl> GetNetworkSwitchStormControlAsync(
@@ -23,6 +24,7 @@ public interface ISwitchStormControl
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkSwitchSettingsStormControl"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchStormControl")]
 	[Put("/networks/{networkId}/switch/stormControl")]
 	Task<StormControl> UpdateNetworkSwitchStormControlAsync(

@@ -6,6 +6,7 @@ public static class OrganizationsDeviceSectionExtensions
 	/// List the status of every Meraki device in the organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationDevices"></param>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="networkIds">Optional parameter to filter devices by network ids.</param>
 	/// <param name="serials">Optional parameter to filter devices by serials.</param>
@@ -14,6 +15,7 @@ public static class OrganizationsDeviceSectionExtensions
 	/// <param name="models">Optional parameter to filter devices by models.</param>
 	/// <param name="tags">An optional parameter to filter devices by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return devices which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
+	/// <param name="cancellationToken"></param>
 	public static Task<List<OrganizationDeviceStatus>> GetOrganizationDevicesStatusesAllAsync(
 		this OrganizationsDeviceSection organizationDevices,
 		string organizationId,
@@ -47,6 +49,7 @@ public static class OrganizationsDeviceSectionExtensions
 	/// List the provisioning status of every Meraki device in the organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationDevices"></param>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="networkIds">Optional parameter to filter devices by network ids.</param>
 	/// <param name="serials">Optional parameter to filter devices by serials.</param>
@@ -54,6 +57,7 @@ public static class OrganizationsDeviceSectionExtensions
 	/// <param name="productTypes">An optional parameter to filter device statuses by product type. Valid types are wireless, appliance, switch, systemsManager, camera, cellularGateway, and sensor.</param>
 	/// <param name="tags">An optional parameter to filter devices by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return devices which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
+	/// <param name="cancellationToken"></param>
 	public static Task<List<DeviceProvisioningStatus>> GetOrganizationDevicesProvisioningStatusesAllAsync(
 		this OrganizationsDeviceSection organizationDevices,
 		string organizationId,
@@ -85,6 +89,7 @@ public static class OrganizationsDeviceSectionExtensions
 	/// List all devices in an organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationDevices"></param>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="configurationUpdatedAfter">Filter results by whether or not the device's configuration has been updated after the given timestamp (optional)</param>
 	/// <param name="networksIds">Optional parameter to filter devices by network</param>
@@ -100,6 +105,7 @@ public static class OrganizationsDeviceSectionExtensions
 	/// <param name="sensorMetrics">Optional parameter to filter devices by the metrics that they provide. Only applies to sensor devices</param>
 	/// <param name="sensorAlertProfileIds">Optional parameter to filter devices by the alert profiles that are bound to them. Only applies to sensor devices.</param>
 	/// <param name="models">Optional parameter to filter devices by one or more models. All returned devices will have a model that is an exact match</param>
+	/// <param name="cancellationToken"></param>
 	public static Task<List<OrganizationDevice>> GetOrganizationDevicesAllAsync(
 		this OrganizationsDeviceSection organizationDevices,
 		string organizationId,

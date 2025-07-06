@@ -7,6 +7,7 @@ public interface IOrganizationsLoginSecurity
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/loginSecurity")]
 	Task<LoginSecurity> GetOrganizationLoginSecurityAsync(
 		string organizationId,
@@ -18,6 +19,7 @@ public interface IOrganizationsLoginSecurity
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="updateOrganizationLoginSecurity">Body for updating login settings</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/loginSecurity")]
 	Task<LoginSecurity> UpdateOrganizationLoginSecurityAsync(
 		string organizationId,

@@ -8,6 +8,7 @@ public interface ISmDevicesSecurityCenters
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="deviceId">The device id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/sm/devices/{deviceId}/securityCenters")]
 	Task<List<SecurityCenter>> GetNetworkSmDeviceSecurityCentersAsync(
 		string networkId,

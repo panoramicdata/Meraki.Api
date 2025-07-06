@@ -7,6 +7,7 @@ public interface IOrganizationSensorRelationships
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The device serial</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceSensorRelationships")]
 	[Get("/devices/{serial}/sensor/relationships")]
 	Task<List<SensorRelationship>> GetDeviceSensorRelationshipsAsync(
@@ -19,6 +20,7 @@ public interface IOrganizationSensorRelationships
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSensorRelationships")]
 	[Get("/networks/{networkId}/sensor/relationships")]
 	Task<List<NetworkSensorRelationship>> GetNetworkSensorRelationshipsAsync(
@@ -32,6 +34,7 @@ public interface IOrganizationSensorRelationships
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The device serial</param>
 	/// <param name="sensorRelationshipUpdateRequest">Body for updating a sensor role</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceSensorRelationships")]
 	[Put("/devices/{serial}/sensor/relationships")]
 	Task<SensorRelationship> UpdateDeviceSensorRelationshipsAsync(

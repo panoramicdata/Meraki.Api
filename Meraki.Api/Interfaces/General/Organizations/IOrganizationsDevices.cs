@@ -43,6 +43,17 @@ public interface IOrganizationsDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="perPage"></param>
+	/// <param name="startingAfter"></param>
+	/// <param name="endingBefore"></param>
+	/// <param name="networkIds"></param>
+	/// <param name="serials"></param>
+	/// <param name="statuses"></param>
+	/// <param name="productTypes"></param>
+	/// <param name="models"></param>
+	/// <param name="tags"></param>
+	/// <param name="tagsFilterType"></param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/devices/statuses")]
 	Task<List<OrganizationDeviceStatus>> GetOrganizationDevicesStatusesAsync(
 		string organizationId,
@@ -83,6 +94,7 @@ public interface IOrganizationsDevices
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 5 minutes. The default is 5 minutes. (optional)</param>
 	/// <param name="uplink">Optional filter for a specific WAN uplink. Valid uplinks are wan1, wan2, cellular. Default will return all uplinks. (optional)</param>
 	/// <param name="ip">Optional filter for a specific destination IP. Default will return all destination IPs. (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/devices/uplinksLossAndLatency")]
 	Task<List<UplinksLossAndLatencyResponse>> GetOrganizationDevicesUplinksLossAndLatencyAsync(
 		string organizationId,
@@ -115,6 +127,7 @@ public interface IOrganizationsDevices
 	/// <param name="sensorMetrics">Optional parameter to filter devices by the metrics that they provide. Only applies to sensor devices</param>
 	/// <param name="sensorAlertProfileIds">Optional parameter to filter devices by the alert profiles that are bound to them. Only applies to sensor devices.</param>
 	/// <param name="models">Optional parameter to filter devices by one or more models. All returned devices will have a model that is an exact match</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/devices")]
 	Task<List<OrganizationDevice>> GetOrganizationDevicesAsync(
 		string organizationId,
@@ -165,6 +178,7 @@ public interface IOrganizationsDevices
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="productTypes">An optional parameter to filter device statuses by product type. Valid types are wireless, appliance, switch, systemsManager, camera, cellularGateway, and sensor.</param>
 	/// <param name="networkIds">An optional parameter to filter device statuses by network.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationDevicesStatusesOverview")]
 	[Get("/organizations/{organizationId}/devices/statuses/overview")]
 	Task<DeviceStatusOverview> GetOrganizationDevicesStatusesOverviewAsync(
@@ -179,6 +193,16 @@ public interface IOrganizationsDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="perPage"></param>
+	/// <param name="startingAfter"></param>
+	/// <param name="endingBefore"></param>
+	/// <param name="networkIds"></param>
+	/// <param name="productTypes"></param>
+	/// <param name="serials"></param>
+	/// <param name="status"></param>
+	/// <param name="tags"></param>
+	/// <param name="tagsFilterType"></param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/devices/provisioning/statuses")]
 	Task<List<DeviceProvisioningStatus>> GetOrganizationDevicesProvisioningStatusesAsync(
 		string organizationId,
@@ -212,6 +236,10 @@ public interface IOrganizationsDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="models"></param>
+	/// <param name="networkIds"></param>
+	/// <param name="productTypes"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationDevicesOverviewByModel")]
 	[Get("/organizations/{organizationId}/devices/overview/byModel")]
 	Task<DevicesOverviewByModel> GetOrganizationDevicesOverviewByModelAsync(
@@ -227,6 +255,7 @@ public interface IOrganizationsDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="bulkDevicesUpdate">The bulk devices update request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("bulkUpdateOrganizationDevicesDetails")]
 	[Post("/organizations/{organizationId}/devices/details/bulkUpdate")]
 	Task<BulkUpdatedDevices> BulkUpdateOrganizationDevicesDetailsAsync(

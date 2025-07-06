@@ -6,6 +6,7 @@ public static class IOrganizationSwitchPortsStatusesExtensions
 	/// List the switchports in an organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationSwitchPortsStatusesBySwitch"></param>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
@@ -17,6 +18,7 @@ public static class IOrganizationSwitchPortsStatusesExtensions
 	/// <param name="serial">Optional parameter to filter switchports belonging to switches by serial number. All returned switches will have a serial number that contains the search term or is an exact match.</param>
 	/// <param name="serials">Optional parameter to filter switchports belonging to switches with one or more serial numbers. All switchports returned belong to serial numbers of switches that are an exact match.</param>
 	/// <param name="configurationUpdatedAfter">Optional parameter to filter results by switches where the configuration has been updated after the given timestamp</param>
+	/// <param name="cancellationToken"></param>
 	public static Task<List<SwitchPortsStatusesBySwitch>> GetOrganizationSwitchPortsStatusesBySwitchAllAsync(
 		this IOrganizationSwitches organizationSwitchPortsStatusesBySwitch,
 		string organizationId,

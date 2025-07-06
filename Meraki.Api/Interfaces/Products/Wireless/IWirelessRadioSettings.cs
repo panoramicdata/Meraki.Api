@@ -10,6 +10,7 @@ public interface IWirelessRadioSettings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/wireless/radio/settings")]
 	Task<WirelessRadioSettings> GetDeviceWirelessRadioSettingsAsync(
 		string serial,
@@ -22,6 +23,7 @@ public interface IWirelessRadioSettings
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="updateNetworkDeviceWirelessRadioSettings">Body for updating radio settings</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/devices/{serial}/wireless/radio/settings")]
 	Task<WirelessRadioSettings> UpdateDeviceWirelessRadioSettingsAsync(
 		string serial,

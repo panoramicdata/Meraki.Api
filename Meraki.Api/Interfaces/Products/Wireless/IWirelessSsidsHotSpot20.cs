@@ -8,6 +8,7 @@ public interface IWirelessSsidsHotSpot20
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
 	Task<Hotspot20> GetNetworkWirelessSsidHotspot20Async(
 		string networkId,
@@ -22,6 +23,7 @@ public interface IWirelessSsidsHotSpot20
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="hotspot20"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/hotspot20")]
 	Task<Hotspot20> UpdateNetworkWirelessSsidHotspot20Async(
 		string networkId,

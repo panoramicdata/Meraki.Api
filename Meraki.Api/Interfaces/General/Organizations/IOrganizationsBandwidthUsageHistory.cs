@@ -18,6 +18,7 @@ public interface IOrganizationBandwidthUsageHistory
 	/// <param name="networkId">Match result to an exact network id</param>
 	/// <param name="ssidName">Filter results by ssid name</param>
 	/// <param name="usageUplink">Filter results by usage uplink</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationClientsBandwidthUsageHistory")]
 	[Get("/organizations/{organizationId}/clients/bandwidthUsageHistory")]
 	Task<List<BandwidthUsageHistory>> GetOrganizationClientsBandwidthUsageHistoryAsync(

@@ -10,6 +10,7 @@ public interface ISwitchAlternateManagementInterface
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchAlternateManagementInterface")]
 	[Get("/networks/{networkId}/switch/alternateManagementInterface")]
 	Task<AlternateManagementInterface> GetNetworkSwitchAlternateManagementInterfaceAsync(
@@ -23,6 +24,7 @@ public interface ISwitchAlternateManagementInterface
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="alternateManagementInterface">Body for updating network switch alternate management interface</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchAlternateManagementInterface")]
 	[Put("/networks/{networkId}/switch/alternateManagementInterface")]
 	Task<AlternateManagementInterface> UpdateNetworkSwitchAlternateManagementInterfaceAsync(

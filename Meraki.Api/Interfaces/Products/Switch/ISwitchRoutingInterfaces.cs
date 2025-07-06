@@ -39,6 +39,7 @@ public interface ISwitchRoutingInterfaces
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="interfaceId">The interface id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceSwitchRoutingInterface")]
 	[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 	Task<RoutingInterface> GetDeviceSwitchRoutingInterfaceAsync(
@@ -54,6 +55,7 @@ public interface ISwitchRoutingInterfaces
 	/// <param name="serial">The serial number</param>
 	/// <param name="interfaceId">The interface id</param>
 	/// <param name="updateRoutingInterface">Body for returning an interface</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceSwitchRoutingInterface")]
 	[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 	Task<RoutingInterface> UpdateDeviceSwitchRoutingInterfaceAsync(
@@ -69,6 +71,7 @@ public interface ISwitchRoutingInterfaces
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="interfaceId">The interface id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteDeviceSwitchRoutingInterface")]
 	[Delete("/devices/{serial}/switch/routing/interfaces/{interfaceId}")]
 	Task DeleteDeviceSwitchRoutingInterfaceAsync(
@@ -83,6 +86,7 @@ public interface ISwitchRoutingInterfaces
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="interfaceId">The interface id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceSwitchRoutingInterfaceDhcp")]
 	[Get("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
 	Task<RoutingInterfaceDhcp> GetDeviceSwitchRoutingInterfaceDhcpAsync(
@@ -98,6 +102,7 @@ public interface ISwitchRoutingInterfaces
 	/// <param name="serial">The serial number</param>
 	/// <param name="interfaceId">The interface id</param>
 	/// <param name="updateDeviceSwitchRoutingInterfaceDhcp">Body for updating an interface</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceSwitchRoutingInterfaceDhcp")]
 	[Put("/devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp")]
 	Task<RoutingInterfaceDhcp> UpdateDeviceSwitchRoutingInterfaceDhcpAsync(

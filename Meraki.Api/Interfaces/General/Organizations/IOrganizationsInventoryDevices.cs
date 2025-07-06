@@ -16,9 +16,11 @@ public interface IOrganizationsInventoryDevices
 	/// <param name="networkIds">Search for devices in inventory based on network ids.</param>
 	/// <param name="serials">Search for devices in inventory based on serials.</param>
 	/// <param name="models">Search for devices in inventory based on model.</param>
+	/// <param name="orderNumbers"></param>
 	/// <param name="tags">An optional parameter to filter devices by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return devices which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
 	/// <param name="productTypes">Optional parameter to filter devices by product type. Valid types are wireless, appliance, switch, systemsManager, camera, cellularGateway, and sensor.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/inventory/devices")]
 	Task<List<InventoryDevice>> GetOrganizationInventoryDevicesAsync(
 		string organizationId,
@@ -61,6 +63,7 @@ public interface IOrganizationsInventoryDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/inventory/devices/{serial}")]
 	Task<InventoryDevice> GetOrganizationInventoryDeviceAsync(
 		string organizationId,
@@ -73,6 +76,7 @@ public interface IOrganizationsInventoryDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="organizationInventoryClaimRequest">Body for making an inventory claim request</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/inventory/claim")]
 	Task<OrganizationInventoryClaimResponse> ClaimIntoOrganizationInventoryAsync(
 		string organizationId,
@@ -85,6 +89,7 @@ public interface IOrganizationsInventoryDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="organizationInventoryReleaseRequest">Body for making an inventory release request</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/inventory/release")]
 	Task<OrganizationInventoryReleaseResponse> ReleaseFromOrganizationInventoryAsync(
 		string organizationId,

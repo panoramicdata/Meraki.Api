@@ -7,6 +7,7 @@ public interface INetworksGroupPolicies
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkGroupPolicies")]
 	[Get("/networks/{networkId}/groupPolicies")]
 	Task<List<GroupPolicy>> GetNetworkGroupPoliciesAsync(
@@ -20,6 +21,7 @@ public interface INetworksGroupPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkGroupPolicy">Body for creating a network group policy</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkGroupPolicy")]
 	[Post("/networks/{networkId}/groupPolicies")]
 	Task<GroupPolicy> CreateNetworkGroupPolicyAsync(
@@ -34,6 +36,7 @@ public interface INetworksGroupPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="groupPolicyId">The group policy id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkGroupPolicy")]
 	[Get("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 	Task<GroupPolicy> GetNetworkGroupPolicyAsync(
@@ -49,6 +52,7 @@ public interface INetworksGroupPolicies
 	/// <param name="networkId">The network id</param>
 	/// <param name="groupPolicyId"></param>
 	/// <param name="updateNetworkGroupPolicy">Body for updating a network group policy</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkGroupPolicy")]
 	[Put("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 	Task<GroupPolicy> UpdateNetworkGroupPolicyAsync(
@@ -64,6 +68,7 @@ public interface INetworksGroupPolicies
 	/// <param name="networkId">The network id</param>
 	/// <param name="groupPolicyId">The group policy id</param>
 	/// <param name="force">If true, the system deletes the GP even if there are active clients using the GP. After deletion, active clients that were assigned to that Group Policy will be left without any policy applied. Default is false.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkGroupPolicy")]
 	[Delete("/networks/{networkId}/groupPolicies/{groupPolicyId}")]
 	Task DeleteNetworkGroupPolicyAsync(

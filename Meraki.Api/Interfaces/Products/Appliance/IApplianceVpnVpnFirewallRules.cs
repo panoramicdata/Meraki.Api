@@ -7,6 +7,7 @@ public interface IApplianceVpnVpnFirewallRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationApplianceVpnVpnFirewallRules")]
 	[Get("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
 	Task<VpnFirewallRules> GetOrganizationApplianceVpnVpnFirewallRulesAsync(
@@ -20,6 +21,7 @@ public interface IApplianceVpnVpnFirewallRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="vpnFirewallRules">Body for updating firewall rules</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateOrganizationApplianceVpnVpnFirewallRules")]
 	[Put("/organizations/{organizationId}/appliance/vpn/vpnFirewallRules")]
 	Task<VpnFirewallRules> UpdateOrganizationApplianceVpnVpnFirewallRulesAsync(

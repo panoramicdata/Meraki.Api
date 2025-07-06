@@ -7,6 +7,7 @@ public interface IApplianceWarmSpare
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceWarmSpare")]
 	[Get("/networks/{networkId}/appliance/warmSpare")]
 	Task<WarmSpare> GetNetworkApplianceWarmSpareAsync(
@@ -20,6 +21,7 @@ public interface IApplianceWarmSpare
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateWarmSpare">Body for updating warm spare settings</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceWarmSpare")]
 	[Put("/networks/{networkId}/appliance/warmSpare")]
 	Task<WarmSpare> UpdateNetworkApplianceWarmSpareAsync(

@@ -7,6 +7,9 @@ public interface ICameraOnbording
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="serials"></param>
+	/// <param name="networkIds"></param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/camera/onboarding/statuses")]
 	Task<List<OnboardingStatus>> GetOrganizationCameraOnboardingStatusesAsync(
 		string organizationId,
@@ -20,6 +23,8 @@ public interface ICameraOnbording
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="unboardingStatusUpdateRequest"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/camera/onboarding/statuses")]
 	Task<ActionResponse> UpdateOrganizationCameraOnboardingStatusesAsync(
 		string organizationId,

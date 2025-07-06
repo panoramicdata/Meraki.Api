@@ -8,6 +8,7 @@ public interface ISmUsersDeviceProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="userId">The user id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/sm/users/{userId}/deviceProfiles")]
 	Task<List<DeviceProfile>> GetNetworkSmUserDeviceProfilesAsync(
 		string networkId,

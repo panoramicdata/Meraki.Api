@@ -21,6 +21,7 @@ public interface INetworksClients
 	/// <param name="pskGroup">Filters clients based on partial or full match for the iPSK name field.</param>
 	/// <param name="description">Filters clients based on a partial or full match for the description field.</param>
 	/// <param name="recentDeviceConnections">Filters clients based on recent connection type. Can be one of 'Wired' or 'Wireless'.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkClients")]
 	[Get("/networks/{networkId}/clients")]
 	[QueryUriFormat(UriFormat.Unescaped)]
@@ -69,6 +70,7 @@ public interface INetworksClients
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="clientId">The client id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkClient")]
 	[Get("/networks/{networkId}/clients/{clientId}")]
 	[QueryUriFormat(UriFormat.Unescaped)]
@@ -83,6 +85,7 @@ public interface INetworksClients
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="clientProvisionRequest">Body for provisioning a client</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("provisionNetworkClients")]
 	[Post("/networks/{networkId}/clients/provision")]
 	Task<ClientProvisionRequest> ProvisionNetworkClientsAsync(

@@ -11,6 +11,7 @@ public interface ICamera
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="generateNetworkCameraSnapshot">Body for generating network camera snapshot</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/devices/{serial}/camera/generateSnapshot")]
 	Task<CameraSnapshot> GenerateDeviceCameraSnapshotAsync(
 		string serial,

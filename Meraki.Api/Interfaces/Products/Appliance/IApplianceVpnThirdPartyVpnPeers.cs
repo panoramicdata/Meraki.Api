@@ -7,6 +7,7 @@ public interface IApplianceVpnThirdPartyVpnPeers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationApplianceVpnThirdPartyVPNPeers")]
 	[Get("/organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers")]
 	Task<ThirdPartyVpnPeers> GetOrganizationApplianceVpnThirdPartyVPNPeersAsync(
@@ -18,6 +19,8 @@ public interface IApplianceVpnThirdPartyVpnPeers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="peerList"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationApplianceVpnThirdPartyVPNPeers")]
 	[Put("/organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers")]
 	Task<ThirdPartyVpnPeers> UpdateOrganizationApplianceVpnThirdPartyVPNPeersAsync(

@@ -7,6 +7,7 @@ public interface ICameraWirelessProfiles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceCameraWirelessProfiles")]
 	[Get("/devices/{serial}/camera/wirelessProfiles")]
 	Task<CameraWirelessProfiles> GetDeviceCameraWirelessProfilesAsync(
@@ -20,6 +21,7 @@ public interface ICameraWirelessProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="updateDeviceCameraWirelessProfiles">Body for updating camera wireless profiles</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceCameraWirelessProfiles")]
 	[Put("/devices/{serial}/camera/wirelessProfiles")]
 	Task<CameraWirelessProfiles> UpdateDeviceCameraWirelessProfilesAsync(
@@ -33,6 +35,7 @@ public interface ICameraWirelessProfiles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkCameraWirelessProfiles")]
 	[Get("/networks/{networkId}/camera/wirelessProfiles")]
 	Task<List<NetworkCameraWirelessProfile>> GetNetworkCameraWirelessProfilesAsync(
@@ -46,6 +49,7 @@ public interface ICameraWirelessProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="wirelessProfileId">The wireless profile id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkCameraWirelessProfile")]
 	[Get("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
 	Task<NetworkCameraWirelessProfile> GetNetworkCameraWirelessProfileAsync(
@@ -61,6 +65,7 @@ public interface ICameraWirelessProfiles
 	/// <param name="networkId">The network id</param>
 	/// <param name="wirelessProfileId">The wireless profile id</param>
 	/// <param name="updateNetworkCameraWirelessProfile">Body for updating camera wireless profile</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkCameraWirelessProfile")]
 	[Put("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
 	Task<NetworkCameraWirelessProfile> UpdateNetworkCameraWirelessProfileAsync(
@@ -76,6 +81,7 @@ public interface ICameraWirelessProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkCameraWirelessProfile">Body for creating camera wireless profile</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkCameraWirelessProfile")]
 	[Post("/networks/{networkId}/camera/wirelessProfiles")]
 	Task<NetworkCameraWirelessProfile> CreateNetworkCameraWirelessProfileAsync(
@@ -90,6 +96,7 @@ public interface ICameraWirelessProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="wirelessProfileId">The wireless profile id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkCameraWirelessProfile")]
 	[Delete("/networks/{networkId}/camera/wirelessProfiles/{wirelessProfileId}")]
 	Task DeleteNetworkCameraWirelessProfileAsync(

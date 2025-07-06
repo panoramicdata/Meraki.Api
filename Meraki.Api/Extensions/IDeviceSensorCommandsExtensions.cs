@@ -4,6 +4,7 @@ public static class IDeviceSensorCommandsExtensions
 	/// <summary>
 	/// Returns a historical log of all commands.
 	/// </summary>
+	/// <param name="deviceSensorCommands"></param>
 	/// <param name="serial">Serial.</param>
 	/// <param name="operations">Optional parameter to filter commands by operation.</param>
 	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 30 days from today.</param>

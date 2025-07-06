@@ -13,6 +13,7 @@ public interface IApplianceUplinkStatuses
 	/// <param name="networkIds">A list of network IDs. The returned devices will be filtered to only include these networks.</param>
 	/// <param name="serials">A list of serial numbers. The returned devices will be filtered to only include these serials.</param>
 	/// <param name="iccids">A list of ICCIDs. The returned devices will be filtered to only include these ICCIDs.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/appliance/uplink/statuses")]
 	Task<List<UplinkStatus>> GetOrganizationApplianceUplinkStatusesAsync(
 		string organizationId,

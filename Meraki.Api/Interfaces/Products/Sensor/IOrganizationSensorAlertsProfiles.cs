@@ -8,6 +8,7 @@ public interface IOrganizationSensorAlertsProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="id">The profile id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSensorAlertsProfile")]
 	[Get("/networks/{networkId}/sensor/alerts/profiles/{id}")]
 	Task<SensorAlertsProfile> GetNetworkSensorAlertsProfileAsync(
@@ -21,6 +22,7 @@ public interface IOrganizationSensorAlertsProfiles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSensorAlertsProfiles")]
 	[Get("/networks/{networkId}/sensor/alerts/profiles")]
 	Task<List<SensorAlertsProfile>> GetNetworkSensorAlertsProfilesAsync(
@@ -34,6 +36,7 @@ public interface IOrganizationSensorAlertsProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="sensorAlertsProfileCreateRequest">Body for creating a sensor alert profile</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkSensorAlertsProfile")]
 	[Post("/networks/{networkId}/sensor/alerts/profiles")]
 	Task<SensorAlertsProfile> CreateNetworkSensorAlertsProfileAsync(
@@ -49,6 +52,7 @@ public interface IOrganizationSensorAlertsProfiles
 	/// <param name="networkId">The network id</param>
 	/// <param name="id">The sensor alert profile id</param>
 	/// <param name="sensorAlertsProfileUpdateRequest">Body for updating a sensor alert profile</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSensorAlertsProfile")]
 	[Put("/networks/{networkId}/sensor/alerts/profiles/{id}")]
 	Task<SensorAlertsProfile> UpdateNetworkSensorAlertsProfileAsync(
@@ -64,6 +68,7 @@ public interface IOrganizationSensorAlertsProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="id">The sensor alerts profile id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkSensorAlertsProfile")]
 	[Delete("/networks/{networkId}/sensor/alerts/profiles/{id}")]
 	Task DeleteNetworkSensorAlertsProfileAsync(

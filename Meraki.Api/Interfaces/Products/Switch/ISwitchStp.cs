@@ -10,6 +10,7 @@ public interface ISwitchStp
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/switch/stp")]
 	Task<SwitchSettingsStp> GetNetworkSwitchStpAsync(
 		string networkId,
@@ -22,6 +23,7 @@ public interface ISwitchStp
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkSwitchSettingsStp"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/switch/stp")]
 	Task<SwitchSettingsStp> UpdateNetworkSwitchStpAsync(
 		string networkId,

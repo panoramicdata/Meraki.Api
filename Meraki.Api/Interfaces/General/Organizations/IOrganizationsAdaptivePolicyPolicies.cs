@@ -7,6 +7,7 @@ public interface IOrganizationsAdaptivePolicyPolicies
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationAdaptivePolicyPolicies")]
 	[Get("/organizations/{organizationId}/adaptivePolicy/policies")]
 	Task<List<AdaptivePolicyPolicies>> GetOrganizationAdaptivePolicyPoliciesAsync(
@@ -19,6 +20,7 @@ public interface IOrganizationsAdaptivePolicyPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationAdaptivePolicyPolicy">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createOrganizationAdaptivePolicyPolicy")]
 	[Post("/organizations/{organizationId}/adaptivePolicy/policies")]
 	Task<AdaptivePolicyPolicies> CreateOrganizationAdaptivePolicyPolicyAsync(
@@ -32,6 +34,7 @@ public interface IOrganizationsAdaptivePolicyPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">The adaptive policy id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationAdaptivePolicyPolicy")]
 	[Get("/organizations/{organizationId}/adaptivePolicy/policies/{id}")]
 	Task<AdaptivePolicyPolicies> GetOrganizationAdaptivePolicyPolicyAsync(
@@ -46,6 +49,7 @@ public interface IOrganizationsAdaptivePolicyPolicies
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">The adaptive policy id</param>
 	/// <param name="updateOrganizationAdaptivePolicyPolicy">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateOrganizationAdaptivePolicyPolicy")]
 	[Put("/organizations/{organizationId}/adaptivePolicy/policies/{id}")]
 	Task<AdaptivePolicyPolicies> UpdateOrganizationAdaptivePolicyPolicyAsync(
@@ -60,6 +64,7 @@ public interface IOrganizationsAdaptivePolicyPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">The adaptive policy id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteOrganizationAdaptivePolicyPolicy")]
 	[Delete("/organizations/{organizationId}/adaptivePolicy/policies/{id}")]
 	Task DeleteOrganizationAdaptivePolicyPolicyAsync(

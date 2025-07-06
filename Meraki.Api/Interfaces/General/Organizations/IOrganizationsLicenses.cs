@@ -7,6 +7,8 @@ public interface IOrganizationsLicenses
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="licenseSeatsAssignmentRequest"></param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/licenses/assignSeats")]
 	Task<AssignSeatsResponse> AssignOrganizationLicensesSeatsAsync(
 		string organizationId,
@@ -48,6 +50,7 @@ public interface IOrganizationsLicenses
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="licenseId">The license id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/licenses/{licenseId}")]
 	Task<OrganizationLicense> GetOrganizationLicenseAsync(
 		string organizationId,
@@ -65,6 +68,7 @@ public interface IOrganizationsLicenses
 	/// <param name="deviceSerial">Filter the licenses to those assigned to a particular device (optional)</param>
 	/// <param name="networkId">Filter the licenses to those assigned in a particular network (optional)</param>
 	/// <param name="state">Filter the licenses to those in a particular state. Can be one of 'active', 'expired', 'expiring', 'unused', 'unusedActive' or 'recentlyQueued' (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/licenses")]
 	Task<List<OrganizationLicense>> GetOrganizationLicensesAsync(
 		string organizationId,
@@ -93,6 +97,7 @@ public interface IOrganizationsLicenses
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="licenseMoveRequest">Body for moving a license</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/licenses/move")]
 	Task<LicenseMoveRequest> MoveOrganizationLicensesAsync(
 		string organizationId,
@@ -105,6 +110,7 @@ public interface IOrganizationsLicenses
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="licenseSeatsMoveRequest">Body for moving SM seats</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/licenses/moveSeats")]
 	Task<LicenseSeatsMoveRequest> MoveOrganizationLicensesSeatsAsync(
 		string organizationId,
@@ -117,6 +123,7 @@ public interface IOrganizationsLicenses
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="licenseSeatsRenewalRequest">Body for renewing SM seats</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/licenses/renewSeats")]
 	Task<AssignSeatsResponse> RenewOrganizationLicensesSeatsAsync(
 		string organizationId,
@@ -130,6 +137,7 @@ public interface IOrganizationsLicenses
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="licenseId">The license id</param>
 	/// <param name="updateOrganizationLicense">Body for updating a license</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/licenses/{licenseId}")]
 	Task<OrganizationLicense> UpdateOrganizationLicenseAsync(
 		string organizationId,
@@ -142,6 +150,7 @@ public interface IOrganizationsLicenses
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/licenses/overview")]
 	Task<OrganizationLicenseState> GetOrganizationLicensesOverviewAsync(
 		string organizationId,

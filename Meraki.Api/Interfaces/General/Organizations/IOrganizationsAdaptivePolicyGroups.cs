@@ -10,6 +10,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationAdaptivePolicyGroups")]
 	[Get("/organizations/{organizationId}/adaptivePolicy/groups")]
 	Task<List<AdaptivePolicyGroup>> GetOrganizationAdaptivePolicyGroupsAsync(
@@ -22,6 +23,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="createOrganizationAdaptivePolicyGroup">New adaptive policy group</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createOrganizationAdaptivePolicyGroup")]
 	[Post("/organizations/{organizationId}/adaptivePolicy/groups")]
 	Task<AdaptivePolicyGroup> CreateOrganizationAdaptivePolicyGroupAsync(
@@ -35,6 +37,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">The group id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationAdaptivePolicyGroup")]
 	[Get("/organizations/{organizationId}/adaptivePolicy/groups/{id}")]
 	Task<AdaptivePolicyGroup> GetOrganizationAdaptivePolicyGroupAsync(
@@ -48,6 +51,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">The group id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteOrganizationAdaptivePolicyGroup")]
 	[Delete("/organizations/{organizationId}/adaptivePolicy/groups/{id}")]
 	Task DeleteOrganizationAdaptivePolicyGroupAsync(
@@ -63,6 +67,7 @@ public interface IOrganizationsAdaptivePolicyGroups
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">The group id</param>
 	/// <param name="updateOrganizationAdaptivePolicyGroup">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateOrganizationAdaptivePolicyGroup")]
 	[Put("/organizations/{organizationId}/adaptivePolicy/groups/{id}")]
 	Task<AdaptivePolicyGroup> UpdateOrganizationAdaptivePolicyGroupAsync(

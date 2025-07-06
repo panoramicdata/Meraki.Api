@@ -8,6 +8,7 @@ public interface IWirelessSsidsVpn
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/vpn")]
 	Task<VpnSettings> GetNetworkWirelessSsidVpnAsync(
 		string networkId,
@@ -22,6 +23,7 @@ public interface IWirelessSsidsVpn
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="updateNetworkWirelessSsidVpn"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/vpn")]
 	Task<VpnSettings> UpdateNetworkWirelessSsidVpnAsync(
 		string networkId,

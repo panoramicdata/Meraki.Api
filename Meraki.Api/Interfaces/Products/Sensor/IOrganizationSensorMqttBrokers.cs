@@ -8,6 +8,7 @@ public interface IOrganizationSensorMqttBrokers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="mqttBrokerId">The broker id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSensorMqttBroker")]
 	[Get("/networks/{networkId}/sensor/mqttBrokers/{mqttBrokerId}")]
 	Task<SensorMqttBroker> GetNetworkSensorMqttBrokerAsync(
@@ -21,6 +22,7 @@ public interface IOrganizationSensorMqttBrokers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSensorMqttBrokers")]
 	[Get("/networks/{networkId}/sensor/mqttBrokers")]
 	Task<List<SensorMqttBroker>> GetNetworkSensorMqttBrokersAsync(
@@ -35,6 +37,7 @@ public interface IOrganizationSensorMqttBrokers
 	/// <param name="networkId">The network id</param>
 	/// <param name="mqttBrokerId">The broker id</param>
 	/// <param name="sensorMqttUpdate">Body for updating a SensorMqttBroker</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSensorMqttBroker")]
 	[Put("/networks/{networkId}/sensor/mqttBrokers/{mqttBrokerId}")]
 	Task<SensorMqttBroker> UpdateNetworkSensorMqttBrokerAsync(

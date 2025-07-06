@@ -10,6 +10,7 @@ public interface ICellularGatewayEsims
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationCellularGatewayEsimsInventory")]
 	[Get("/organizations/{organizationId}/cellularGateway/esims/inventory")]
 	Task<NetworkCellularGatewayEsimsInventory> GetOrganizationCellularGatewayEsimsInventoryAsync(
@@ -24,6 +25,7 @@ public interface ICellularGatewayEsims
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">The eSim Id</param>
 	/// <param name="networkCellularGatewayEsimUpdate">The eSim update body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateOrganizationCellularGatewayEsimsInventory")]
 	[Put("/organizations/{organizationId}/cellularGateway/esims/inventory/{id}")]
 	Task<NetworkCellularGatewayEsimsInventoryItem> UpdateOrganizationCellularGatewayEsimsInventoryAsync(
@@ -38,6 +40,7 @@ public interface ICellularGatewayEsims
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationCellularGatewayEsimsServiceProviders")]
 	[Get("/organizations/{organizationId}/cellularGateway/esims/serviceProviders")]
 	Task<EsimsServiceProviders> GetOrganizationCellularGatewayEsimsServiceProvidersAsync(
@@ -51,6 +54,7 @@ public interface ICellularGatewayEsims
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="networkCellularGatewayEsimCreateRequest">The creation request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createOrganizationCellularGatewayEsimsServiceProvidersAccount")]
 	[Post("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts")]
 	Task<NetworkCellularGatewayEsimsServiceProviderAccount> CreateOrganizationCellularGatewayEsimsServiceProvidersAccountAsync(
@@ -65,6 +69,7 @@ public interface ICellularGatewayEsims
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="accountIds">Optional parameter to filter the results by service provider account IDs.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationCellularGatewayEsimsServiceProvidersAccounts")]
 	[Get("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts")]
 	Task<EsimsServiceProvidersAccounts> GetOrganizationCellularGatewayEsimsServiceProvidersAccountsAsync(
@@ -80,6 +85,7 @@ public interface ICellularGatewayEsims
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="accountId">Account ID</param>
 	/// <param name="networkCellularGatewayEsimUpdateRequest">The update request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createOrganizationCellularGatewayEsimsServiceProvidersAccount")]
 	[Put("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/{accountId}")]
 	Task<NetworkCellularGatewayEsimsServiceProviderAccount> UpdateOrganizationCellularGatewayEsimsServiceProvidersAccountAsync(
@@ -95,6 +101,7 @@ public interface ICellularGatewayEsims
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="accountId">Account ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteOrganizationCellularGatewayEsimsServiceProvidersAccount")]
 	[Delete("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/{accountId}")]
 	Task DeleteOrganizationCellularGatewayEsimsServiceProvidersAccountAsync(
@@ -109,6 +116,7 @@ public interface ICellularGatewayEsims
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="accountIds">Account IDs that communication plans will be fetched for</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationCellularGatewayEsimsServiceProvidersAccountsCommunicationPlans")]
 	[Get("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/communicationPlans")]
 	Task<EsimsServiceProvidersAccountsCommunicationPlans> GetOrganizationCellularGatewayEsimsServiceProvidersAccountsCommunicationPlansAsync(
@@ -123,6 +131,7 @@ public interface ICellularGatewayEsims
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="accountIds">Account IDs that communication plans will be fetched for</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationCellularGatewayEsimsServiceProvidersAccountsRatePlans")]
 	[Get("/organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/ratePlans")]
 	Task<EsimsServiceProvidersAccountsRatePlans> GetOrganizationCellularGatewayEsimsServiceProvidersAccountsRatePlansAsync(
@@ -137,6 +146,7 @@ public interface ICellularGatewayEsims
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="organizationCellularGatewayEsimSwapCreateRequest">The creation request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createOrganizationCellularGatewayEsimsSwap")]
 	[Post("/organizations/{organizationId}/cellularGateway/esims/swap")]
 	Task<OrganizationCellularGatewayEsimSwapStatus> CreateOrganizationCellularGatewayEsimsSwapAsync(
@@ -151,6 +161,7 @@ public interface ICellularGatewayEsims
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="id">eSIM EID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateOrganizationCellularGatewayEsimsSwap")]
 	[Put("/organizations/{organizationId}/cellularGateway/esims/swap/{id}")]
 	Task<OrganizationCellularGatewayEsimSwapStatus> UpdateOrganizationCellularGatewayEsimsSwapAsync(
