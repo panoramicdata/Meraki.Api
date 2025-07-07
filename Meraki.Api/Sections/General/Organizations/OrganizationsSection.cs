@@ -67,7 +67,7 @@ public partial class OrganizationsSection
 	/// <summary>
 	/// Section for certificate management.
 	/// </summary>
-	public OrganizationsCertificatesSection Certificates { get; internal set; } = null!;
+	public OrganizationsCertificatesSection Certificates { get; internal set; } = new();
 
 	/// <summary>
 	/// Interface for client search and details.
@@ -82,7 +82,7 @@ public partial class OrganizationsSection
 	/// <summary>
 	/// Section for configuration templates.
 	/// </summary>
-	public OrganizationsConfigTemplatesSection ConfigTemplates { get; internal set; } = null!;
+	public OrganizationsConfigTemplatesSection ConfigTemplates { get; internal set; } = new();
 
 	/// <summary>
 	/// Interface for configuration change logs.
@@ -92,7 +92,7 @@ public partial class OrganizationsSection
 	/// <summary>
 	/// Section for device management.
 	/// </summary>
-	public OrganizationsDeviceSection Devices { get; internal set; } = null!;
+	public OrganizationsDeviceSection Devices { get; internal set; } = new();
 
 	/// <summary>
 	/// Section for early access features.

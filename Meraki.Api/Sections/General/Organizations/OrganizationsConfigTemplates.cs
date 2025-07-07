@@ -5,5 +5,5 @@ public partial class OrganizationsConfigTemplatesSection
 	[RefitPromoteCalls]
 	internal IOrganizationsConfigTemplates ConfigTemplates { get; set; }
 
-	public OrganizationsConfigTemplatesSwitchSection Switch { get; set; }
+	public OrganizationsConfigTemplatesSwitchSection Switch { get; set; } = new();
 }
