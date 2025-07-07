@@ -14,7 +14,7 @@ public partial class OrganizationsDeviceSection
 
 	public IOrganizationsDevicesSignalQuality SignalQuality { get; internal set; } = null!;
 
-	public OrganizationsDevicesSystemSection System { get; internal set; } = null!;
+	public OrganizationsDevicesSystemSection System { get; internal set; } = new();
 
 	public OrganizationsDevicesSyslogSection Syslog { get; internal set; } = new();
 
