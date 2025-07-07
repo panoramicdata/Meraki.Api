@@ -7,4 +7,8 @@ public class TestConfig
 	public string SwitchSerial { get; set; } = string.Empty;
 
 	public string Mt40DeviceSerial { get; set; } = string.Empty;
+
+	public string WirelessDeviceSerial1 { get; set; } = string.Empty;
+
+	public string WirelessDeviceSerial2 { get; set; } = string.Empty;
 }

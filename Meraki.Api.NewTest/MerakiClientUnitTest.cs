@@ -11,6 +11,8 @@ public abstract class MerakiClientUnitTest
 
 	protected string TestMt40DeviceSerial { get; }
 
+	protected TestConfig TestConfig { get; }
+
 #pragma warning disable CS3003 // Type is not CLS-compliant
 	protected ICacheLogger Logger { get; }
 #pragma warning restore CS3003 // Type is not CLS-compliant
@@ -30,6 +32,7 @@ public abstract class MerakiClientUnitTest
 		TestOrganizationId = testConfig.OrganizationId;
 		TestSwitchSerial = testConfig.SwitchSerial;
 		TestMt40DeviceSerial = testConfig.Mt40DeviceSerial;
+		TestConfig = testConfig;
 		Logger = testOutputHelper.BuildLogger();
 		TestMerakiClient = new MerakiClient(merakiClientOptions, Logger);
 	}
