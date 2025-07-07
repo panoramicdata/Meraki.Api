@@ -7,12 +7,12 @@ namespace Meraki.Api;
 /// <summary>
 /// A Meraki Dashboard API client. This is your starting point for all API operations.
 /// Example usage:
-/// 
+///
 /// ```csharp
 /// using Meraki.Api;
 /// using System;
 /// using System.Threading.Tasks;
-/// 
+///
 /// namespace My.Project;
 /// public static class Program
 /// {
@@ -25,20 +25,20 @@ namespace Meraki.Api;
 ///                 UserAgent = "YourProductName/YourProductVersion YourCompanyName"
 ///             }
 ///         );
-/// 
+///
 ///         var organizations = await merakiClient
 ///             .Organizations
 ///             .GetOrganizationsAsync()
 ///             .ConfigureAwait(false);
-/// 
+///
 ///         var firstOrganization = organizations[0];
-/// 
+///
 ///         var devices = await merakiClient
 ///             .Organizations
 ///             .Devices
 ///             .GetOrganizationDevicesAsync(firstOrganization.Id)
 ///             .ConfigureAwait(false);
-/// 
+///
 ///         Console.WriteLine("Devices:");
 ///         foreach (var device in devices)
 ///         {
@@ -515,8 +515,10 @@ public partial class MerakiClient : IDisposable
 		};
 	}
 
-	private T RefitFor<T>(T _)
-		=> RestService.For<T>(_httpClient, _refitSettings);
+	private T RefitFor<T>(T _) =>
+		typeof(T).IsInterface
+			? RestService.For<T>(_httpClient, _refitSettings)
+			: throw new ArgumentException($"Type {typeof(T).Name} must be an interface", nameof(_));
 
 	private readonly RefitSettings _refitSettings;
 
