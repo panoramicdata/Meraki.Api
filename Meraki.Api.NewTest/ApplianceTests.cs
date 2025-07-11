@@ -61,4 +61,25 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
+
+	[Fact]
+	public async Task GetDeviceLldpCdpAsync_Succeeds()
+	{
+		TestMerakiClient.Statistics.Reset();
+		var lldpCdp = await TestMerakiClient
+			.Devices
+			.LldpCdp
+			.GetDeviceLldpCdpAsync(
+				TestApplianceSerial,
+				timespan: 24 * 60 * 60, // 24 hours in seconds
+				cancellationToken: default);
+		_ = lldpCdp.Should().NotBeNull();
+		_ = lldpCdp.Ports.Should().NotBeEmpty();
+		_ = lldpCdp.Ports.Keys.Should().Contain("wan0");
+		_ = lldpCdp.PortsFixed.Should().NotBeEmpty();
+		_ = lldpCdp.PortsFixed.Keys.Should().NotContain("wan0");
+
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+	}
 }
