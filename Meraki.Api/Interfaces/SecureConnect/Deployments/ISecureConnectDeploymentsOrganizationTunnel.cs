@@ -81,8 +81,8 @@ public interface ISecureConnectDeploymentsOrganizationTunnel
 	Task<List<SecureConnectTunnelPolicy>> GetTunnelPoliciesAsync(
 		long organizationId,
 		int id,
-		string type,
-		int limit,
-		int page,
+		string? type,
+		int? limit,
+		int? page,
 		CancellationToken cancellationToken = default);
 }
