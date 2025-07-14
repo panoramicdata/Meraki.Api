@@ -12,7 +12,7 @@ public interface ISecureConnectPoliciesDestinationLists
 	[ApiOperationId("getDestinationLists")]
 	[Get("/organizations/{organizationId}/policy/destinationLists")]
 	Task<SecureConnectDestinationLists> GetDestinationListsAsync(
-		string organizationId,
+		long organizationId,
 		int? page,
 		string? limit,
 		CancellationToken cancellationToken = default);
@@ -27,7 +27,7 @@ public interface ISecureConnectPoliciesDestinationLists
 	[ApiOperationId("createDestinationList")]
 	[Post("/organizations/{organizationId}/policy/destinationLists")]
 	Task<SecureConnectDestinationListResponse> CreateDestinationListAsync(
-		string organizationId,
+		long organizationId,
 		[Body] SecureConnectDestinationListCreateRequest secureConnectDestinationListCreateRequest,
 		CancellationToken cancellationToken = default);
 
@@ -42,7 +42,7 @@ public interface ISecureConnectPoliciesDestinationLists
 	[ApiOperationId("updateDestinationLists")]
 	[Patch("/organizations/{organizationId}/policy/destinationLists/{destinationListId}")]
 	Task<SecureConnectDestinationListResponse> UpdateDestinationListsAsync(
-		string organizationId,
+		long organizationId,
 		int destinationListId,
 		[Body] SecureConnectDestinationListUpdateRequest secureConnectDestinationListUpdateRequest,
 		CancellationToken cancellationToken = default);
@@ -57,7 +57,7 @@ public interface ISecureConnectPoliciesDestinationLists
 	[ApiOperationId("deleteDestinationList")]
 	[Delete("/organizations/{organizationId}/policy/destinationLists/{destinationListId}")]
 	Task DeleteDestinationListAsync(
-		string organizationId,
+		long organizationId,
 		int destinationListId,
 		CancellationToken cancellationToken = default);
 
@@ -71,7 +71,7 @@ public interface ISecureConnectPoliciesDestinationLists
 	[ApiOperationId("getDestinationList")]
 	[Get("/organizations/{organizationId}/policy/destinationLists/{destinationListId}")]
 	Task<SecureConnectDestinationListResponse> GetDestinationListAsync(
-		string organizationId,
+		long organizationId,
 		int destinationListId,
 		CancellationToken cancellationToken = default);
 }
