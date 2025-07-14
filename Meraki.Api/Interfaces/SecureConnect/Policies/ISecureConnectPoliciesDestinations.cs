@@ -14,7 +14,7 @@ public interface ISecureConnectPoliciesDestinations
 	[ApiOperationId("getDestinations")]
 	[Get("/organizations/{organizationId}/policy/destinationLists/{destinationListId}/destinations")]
 	Task<SecureConnectDestinations> GetDestinationsAsync(
-		string organizationId,
+		long organizationId,
 		int destinationListId,
 		int page,
 		int limit,
@@ -31,7 +31,7 @@ public interface ISecureConnectPoliciesDestinations
 	[ApiOperationId("createDestinations")]
 	[Post("/organizations/{organizationId}/policy/destinationLists/{destinationListId}/destinations")]
 	Task<SecureConnectionDestinationsResponse> CreateDestinationsAsync(
-		string organizationId,
+		long organizationId,
 		int destinationListId,
 		[Body] SecureConnectionDestinationCreateRequest SecureConnectionDestinationCreateRequest,
 		CancellationToken cancellationToken = default);
@@ -47,7 +47,7 @@ public interface ISecureConnectPoliciesDestinations
 	[ApiOperationId("deleteDestinations")]
 	[Delete("/organizations/{organizationId}/policy/destinationLists/{destinationListId}/destinations/remove")]
 	Task<SecureConnectionDestinationsResponse> DeleteDestinationsAsync(
-		string organizationId,
+		long organizationId,
 		int destinationListId,
 		[Body] List<int> SecureConnectionDestinationsDeleteRequest,
 		CancellationToken cancellationToken = default);
