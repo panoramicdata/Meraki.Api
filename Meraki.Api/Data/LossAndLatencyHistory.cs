@@ -9,13 +9,13 @@ public class LossAndLatencyHistory
 	/// <summary>
 	/// Start time
 	/// </summary>
-	[DataMember(Name = "startTime")]
+	[DataMember(Name = "startTs")]
 	public DateTime StartTime { get; set; }
 
 	/// <summary>
 	/// End time
 	/// </summary>
-	[DataMember(Name = "endTime")]
+	[DataMember(Name = "endTs")]
 	public DateTime EndTime { get; set; }
 
 	/// <summary>

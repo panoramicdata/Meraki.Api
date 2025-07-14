@@ -82,4 +82,28 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
+
+	[Fact]
+	public async Task GetDeviceLossAndLatencyHistory_Succeeds()
+	{
+		var utcNow = DateTime.UtcNow;
+		var startDateTime = utcNow.Date.AddHours(utcNow.Hour - 2);
+		var endDateTime = startDateTime.AddHours(1);
+
+		TestMerakiClient.Statistics.Reset();
+		var lossAndLatencyHistory = await TestMerakiClient
+			.Devices
+			.LossAndLatencyHistory
+			.GetDeviceLossAndLatencyHistoryAsync(
+				TestApplianceSerial,
+				"8.8.8.8",
+				startDateTime.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
+				endDateTime.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
+				null,
+				3600, // 1 hour in seconds,"
+				cancellationToken: default);
+		_ = lossAndLatencyHistory.Should().NotBeNullOrEmpty();
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+	}
 }
