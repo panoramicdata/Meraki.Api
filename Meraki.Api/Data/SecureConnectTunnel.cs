@@ -12,7 +12,7 @@ public class SecureConnectTunnel
 	[ApiKey]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "id")]
-	public int? Id { get; set; }
+	public int Id { get; set; }
 
 	/// <summary>
 	/// Site Origin ID to associate with the tunnel
