@@ -15,7 +15,7 @@ public interface ISecureConnectDeploymentsOrganizationTunnel
 	[ApiOperationId("listTunnels")]
 	[Get("/organizations/{organizationId}/tunnels")]
 	Task<List<SecureConnectTunnel>> ListTunnelsAsync(
-		int organizationId,
+		long organizationId,
 		bool? includeState,
 		int? limit,
 		string? startKey,
@@ -32,7 +32,7 @@ public interface ISecureConnectDeploymentsOrganizationTunnel
 	[ApiOperationId("addTunnel")]
 	[Post("/organizations/{organizationId}/tunnels")]
 	Task<SecureConnectTunnel> AddTunnelAsync(
-		int organizationId,
+		long organizationId,
 		[Body] SecureConnectTunnelCreateRequest secureConnectTunnelCreateRequest,
 		CancellationToken cancellationToken = default);
 
@@ -46,7 +46,7 @@ public interface ISecureConnectDeploymentsOrganizationTunnel
 	[ApiOperationId("getTunnel")]
 	[Get("/organizations/{organizationId}/tunnels/{id}")]
 	Task<SecureConnectTunnel> GetTunnelAsync(
-		int organizationId,
+		long organizationId,
 		int id,
 		CancellationToken cancellationToken = default);
 
@@ -61,7 +61,7 @@ public interface ISecureConnectDeploymentsOrganizationTunnel
 	[ApiOperationId("deleteTunnel")]
 	[Delete("/organizations/{organizationId}/tunnels/{id}")]
 	Task DeleteTunnelAsync(
-		int organizationId,
+		long organizationId,
 		int id,
 		[Body] SecureConnectTunnelDeleteRequest? secureConnectTunnelDeleteRequest,
 		CancellationToken cancellationToken = default);
@@ -79,7 +79,7 @@ public interface ISecureConnectDeploymentsOrganizationTunnel
 	[ApiOperationId("getTunnelPolicies")]
 	[Get("/organizations/{organizationId}/tunnels/{id}/policies")]
 	Task<List<SecureConnectTunnelPolicy>> GetTunnelPoliciesAsync(
-		int organizationId,
+		long organizationId,
 		int id,
 		string type,
 		int limit,
