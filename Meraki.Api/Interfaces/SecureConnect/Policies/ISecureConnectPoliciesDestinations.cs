@@ -16,8 +16,8 @@ public interface ISecureConnectPoliciesDestinations
 	Task<SecureConnectDestinations> GetDestinationsAsync(
 		long organizationId,
 		int destinationListId,
-		int page,
-		int limit,
+		int? page,
+		int? limit,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
