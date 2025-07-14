@@ -1,5 +1,27 @@
 ﻿# Changelog
 
+## 1.56.438
+ - Fixed StartTime and EndTime json member name in LossAndLatencyHistory.
+
+## 1.56.436
+- Fixed LossAndLatencyHistory StartTime and EndTime field type
+
+## 1.56.433
+- Added various missing interfaces and models to improve coverage
+
+## 1.56.195
+- Fixed GetOrganizationApplianceVpnStatsAllAsync to allow retrieving all items when specify t0 & t1 or timespan
+- 
+## 1.56.193
+- Added extension method GetOrganizationApplianceVpnStatsAllAsync
+- Fixed VpnPeers stats property types
+
+## 1.56.191
+- Added missing SerialNumber/Models
+- 
+## 1.56.190
+- Fixed PerfScore property type for Device Appliance Performance
+
 ## 1.56.187
 - Fixed Bssid field type for BasicServiceSet for Wireless Device Status
 - Fixed Client.AdaptivePolicyGroup to be a nullable string
