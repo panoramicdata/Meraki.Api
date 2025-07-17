@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.56.443
+- Added ability to swap warm spare
+
 ## 1.56.438
  - Fixed StartTime and EndTime json member name in LossAndLatencyHistory.
 
