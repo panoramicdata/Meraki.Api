@@ -12,7 +12,6 @@ public enum FilterInterface
 	[EnumMember(Value = "")]
 	Wan1,
 
-
 	/// <summary>
 	/// Wan2
 	/// </summary>

@@ -12,7 +12,6 @@ public class OrganizationConfigTemplatesSwitchProfilesPortsMirrorUpdateRequestDe
 	[DataMember(Name = "vlan")]
 	public string? Vlan { get; set; }
 
-
 	/// <summary>
 	/// Destination port config details
 	/// </summary>

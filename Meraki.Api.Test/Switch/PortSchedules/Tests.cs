@@ -8,7 +8,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var switchPortSchedules = await TestMerakiClient
 			.Switch
 			.PortSchedules
-			.GetNetworkSwitchPortSchedulesAsync(Configuration.TestNetworkId);
+			.GetNetworkSwitchPortSchedulesAsync(Configuration.TestNetworkId, cancellationToken: CancellationToken);
 
 		_ = switchPortSchedules.Should().NotBeNull();
 	}

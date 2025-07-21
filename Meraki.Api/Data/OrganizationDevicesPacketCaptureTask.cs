@@ -1,6 +1,5 @@
 ﻿namespace Meraki.Api.Data;
 
-
 /// <summary>
 /// Organization Devices Packet Capture Task
 /// </summary>

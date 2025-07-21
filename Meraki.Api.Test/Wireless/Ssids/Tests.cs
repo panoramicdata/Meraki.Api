@@ -10,7 +10,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Wireless
 			.Ssids
-			.GetNetworkWirelessSsidsAsync(network.Id);
+			.GetNetworkWirelessSsidsAsync(network.Id, CancellationToken);
 
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();

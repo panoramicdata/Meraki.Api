@@ -8,7 +8,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Organizations
 			.ApiRequests
-			.GetOrganizationApiRequestsAsync(Configuration.TestOrganizationId);
+			.GetOrganizationApiRequestsAsync(Configuration.TestOrganizationId, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<ApiUsage>>();
 		_ = result.Should().NotBeNullOrEmpty();
 	}
@@ -19,7 +19,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Organizations
 			.ApiRequests
-			.GetOrganizationApiRequestsOverviewAsync(Configuration.TestOrganizationId);
+			.GetOrganizationApiRequestsOverviewAsync(Configuration.TestOrganizationId, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<ApiUsageOverview>();
 		_ = result.Should().NotBeNull();
 		_ = result.ResponseCodeCounts.Should().NotBeNull();
@@ -32,7 +32,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Organizations
 			.ApiRequests
-			.GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync(Configuration.TestOrganizationId);
+			.GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync(Configuration.TestOrganizationId, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<ApiRequestsOverview>>();
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();

@@ -34,7 +34,7 @@ public class BluetoothClient : NamedIdentifiedItem
 	/// When it was last seen in seconds since the Epoch
 	/// </summary>
 	[DataMember(Name = "lastSeen")]
-	public int LastSeenTimestampSeeconds { get; set; }
+	public int LastSeenTimestampSeconds { get; set; }
 
 	/// <summary>
 	/// The seen-by device MAC address

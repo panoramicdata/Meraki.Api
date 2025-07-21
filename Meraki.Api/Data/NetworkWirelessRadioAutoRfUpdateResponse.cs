@@ -1,6 +1,5 @@
 ﻿namespace Meraki.Api.Data;
 
-
 /// <summary>
 /// Network Wireless Radio Auto RF Update Response
 /// </summary>

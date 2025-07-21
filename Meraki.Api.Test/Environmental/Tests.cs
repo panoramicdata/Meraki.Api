@@ -30,7 +30,7 @@ public class Tests : MerakiClientTest
 			.Sensor
 			.Readings
 			.Latest
-			.GetOrganizationSensorReadingsLatestAsync(Configuration.TestOrganizationId, perPage: 10, serials: _serials);
+			.GetOrganizationSensorReadingsLatestAsync(Configuration.TestOrganizationId, perPage: 10, serials: _serials, cancellationToken: CancellationToken);
 
 		_ = deviceLatestReadings
 			.Should()
@@ -50,7 +50,11 @@ public class Tests : MerakiClientTest
 			.Sensor
 			.Readings
 			.History
-			.GetOrganizationSensorReadingsHistoryAsync(Configuration.TestOrganizationId, perPage: 10, serials: _serials);
+			.GetOrganizationSensorReadingsHistoryAsync(
+				Configuration.TestOrganizationId,
+				perPage: 10,
+				serials: _serials,
+				cancellationToken: CancellationToken);
 
 		_ = deviceLatestReadings
 			.Should()

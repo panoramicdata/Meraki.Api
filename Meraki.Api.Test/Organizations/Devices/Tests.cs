@@ -8,7 +8,8 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var organizationDevices = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId);
+			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId,
+					cancellationToken: CancellationToken);
 
 		_ = organizationDevices.Should().NotBeNull();
 	}
@@ -19,7 +20,8 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var organizationDevices = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesAllAsync(Configuration.TestOrganizationId);
+			.GetOrganizationDevicesAllAsync(Configuration.TestOrganizationId,
+					cancellationToken: CancellationToken);
 
 		_ = organizationDevices.Should().NotBeNull();
 	}
@@ -30,7 +32,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var organizationDeviceStatus = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesStatusesAsync(Configuration.TestOrganizationId);
+			.GetOrganizationDevicesStatusesAsync(
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
 
 		_ = organizationDeviceStatus.Should().NotBeNull();
 	}
@@ -41,7 +45,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesStatusesAllAsync(Configuration.TestOrganizationId);
+			.GetOrganizationDevicesStatusesAllAsync(
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}

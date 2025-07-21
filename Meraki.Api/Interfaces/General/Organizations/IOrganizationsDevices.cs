@@ -187,7 +187,6 @@ public interface IOrganizationsDevices
 		[AliasAs("networkIds[]")] List<string>? networkIds,
 		CancellationToken cancellationToken = default);
 
-
 	/// <summary>
 	/// List the provisioning statuses information for devices in an organization.
 	/// </summary>

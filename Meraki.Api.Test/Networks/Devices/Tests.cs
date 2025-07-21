@@ -10,7 +10,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(network.Id);
+			.GetNetworkDevicesAsync(network.Id, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<Device>>();
 		_ = result.Should().NotBeNull();
 	}
@@ -21,7 +21,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var devices = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId);
+			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId, cancellationToken: CancellationToken);
 
 		_ = devices
 			.Should()
@@ -33,7 +33,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		var device = await TestMerakiClient
 			.Devices
-			.GetDeviceAsync(deviceSerial);
+			.GetDeviceAsync(deviceSerial, cancellationToken: CancellationToken);
 		_ = device.Should().NotBeNull();
 
 		_ = device.Serial.Should().Equals(deviceSerial);
@@ -46,7 +46,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var devices = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId);
+			.GetNetworkDevicesAsync(Configuration.TestCameraNetworkId, cancellationToken: CancellationToken);
 
 		_ = devices
 			.Should()

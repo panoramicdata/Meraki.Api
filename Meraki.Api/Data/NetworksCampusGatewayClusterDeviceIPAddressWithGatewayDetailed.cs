@@ -26,5 +26,4 @@ public class NetworksCampusGatewayClusterDeviceIPAddressWithGatewayDetailed
 	[DataMember(Name = "subnetMask")]
 	[ApiAccess(ApiAccess.ReadWrite)]
 	public string? SubnetMask { get; set; }
-
 }

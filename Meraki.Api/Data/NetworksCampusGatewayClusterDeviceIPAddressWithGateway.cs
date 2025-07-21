@@ -17,5 +17,4 @@ public class NetworksCampusGatewayClusterDeviceIPAddressWithGateway
 	/// </summary>
 	[DataMember(Name = "protocol")]
 	public NetworksCampusGatewayClusterProtocol Protocol { get; set; }
-
 }

@@ -8,7 +8,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Organizations
 			.Admins
-			.GetOrganizationAdminsAsync(Configuration.TestOrganizationId);
+			.GetOrganizationAdminsAsync(Configuration.TestOrganizationId, CancellationToken);
 		_ = result.Should().BeOfType<List<Admin>>();
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
