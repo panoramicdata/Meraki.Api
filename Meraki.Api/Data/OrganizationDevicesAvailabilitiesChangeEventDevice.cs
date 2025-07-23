@@ -4,6 +4,7 @@
 /// Device information
 /// </summary>
 [DataContract]
+[DebuggerDisplay("{Name} ({Model} {Serial})")]
 public class OrganizationDevicesAvailabilitiesChangeEventDevice
 {
 	/// <summary>
@@ -33,4 +34,11 @@ public class OrganizationDevicesAvailabilitiesChangeEventDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "serial")]
 	public string Serial { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Device tags
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "tags")]
+	public List<string> Tags { get; set; } = [];
 }

@@ -4,6 +4,7 @@
 /// 
 /// </summary>
 [DataContract]
+[DebuggerDisplay("{Name} = {Value}")]
 public class OrganizationDevicesAvailabilitiesChangeEventDetail
 {
 	/// <summary>

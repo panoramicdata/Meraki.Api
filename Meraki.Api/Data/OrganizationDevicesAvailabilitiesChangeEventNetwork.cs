@@ -4,6 +4,7 @@
 /// Network information
 /// </summary>
 [DataContract]
+[DebuggerDisplay("{Name} ({Id})")]
 public class OrganizationDevicesAvailabilitiesChangeEventNetwork
 {
 	/// <summary>

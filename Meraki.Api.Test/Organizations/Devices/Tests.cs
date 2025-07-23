@@ -51,4 +51,29 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}
+
+	[Fact]
+	public async Task GetOrganizationDeviceAvailabilitiesChangeHistory_Succeeds()
+	{
+		var utcNow = DateTimeOffset.UtcNow;
+
+		var result = await TestMerakiClient
+			.Organizations
+			.Devices
+			.GetOrganizationDevicesAvailabilitiesChangeHistoryAsync(
+				Configuration.TestOrganizationId,
+				t0: utcNow.AddDays(-1).ToMerakiT0T1String(),
+				t1: utcNow.ToMerakiT0T1String(),
+				cancellationToken: CancellationToken);
+
+		_ = result.Should().NotBeNull();
+
+		foreach (var changeEvent in result)
+		{
+			_ = changeEvent.Network.Should().NotBeNull();
+			_ = changeEvent.Device.Should().NotBeNull();
+			_ = changeEvent.Device.Serial.Should().NotBeNullOrEmpty();
+			_ = changeEvent.Category.Should().NotBeNullOrEmpty();
+		}
+	}
 }
