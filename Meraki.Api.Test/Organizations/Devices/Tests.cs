@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace Meraki.Api.Test.Organizations.Devices;
 
 public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
@@ -57,13 +59,14 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 	{
 		var utcNow = DateTimeOffset.UtcNow;
 
+		var t0 = utcNow.AddMinutes(-1).ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture);
+
 		var result = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesAvailabilitiesChangeHistoryAsync(
+			.GetOrganizationDevicesAvailabilitiesChangeHistoryAllAsync(
 				Configuration.TestOrganizationId,
-				t0: utcNow.AddDays(-1).ToMerakiT0T1String(),
-				t1: utcNow.ToMerakiT0T1String(),
+				t0: t0,
 				cancellationToken: CancellationToken);
 
 		_ = result.Should().NotBeNull();

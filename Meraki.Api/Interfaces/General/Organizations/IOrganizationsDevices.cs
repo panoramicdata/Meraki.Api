@@ -1,5 +1,8 @@
 ﻿namespace Meraki.Api.Interfaces.General.Organizations;
 
+/// <summary>
+/// Organization Devices API Interface
+/// </summary>
 public interface IOrganizationsDevices
 {
 	/// <summary>
@@ -25,11 +28,31 @@ public interface IOrganizationsDevices
 	/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100.</param>
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+	/// <param name="serials">Optional parameter to filter device availabilities history by device serial numbers</param>
+	/// <param name="productTypes">Optional parameter to filter device availabilities history by device product types</param>
+	/// <param name="networkIds">Optional parameter to filter device availabilities history by network IDs</param>
+	/// <param name="statuses">Optional parameter to filter device availabilities history by device statuses enum = ["alerting", "dormant", "offline", "online"]</param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationDevicesAvailabilitiesChangeHistory")]
 	[Get("/organizations/{organizationId}/devices/availabilities/changeHistory")]
 	Task<List<OrganizationDevicesAvailabilitiesChangeEvent>> GetOrganizationDevicesAvailabilitiesChangeHistoryAsync(
+		string organizationId,
+		int? perPage = 1000,
+		string? t0 = null,
+		string? t1 = null,
+		int? timespan = null,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("productTypes[]")] List<string>? productTypes = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("statuses[]")] List<string>? statuses = null,
+		CancellationToken cancellationToken = default);
+
+	[ApiOperationId("getOrganizationDevicesAvailabilitiesChangeHistory")]
+	[Get("/organizations/{organizationId}/devices/availabilities/changeHistory")]
+	internal Task<ApiResponse<List<OrganizationDevicesAvailabilitiesChangeEvent>>> GetOrganizationDevicesAvailabilitiesChangeHistoryApiResponseAsync(
 		string organizationId,
 		int? perPage = 1000,
 		string? t0 = null,
