@@ -68,6 +68,23 @@ public interface ISwitchPorts
 		);
 
 	/// <summary>
+	/// Update a switch port
+	/// </summary>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="serial">The serial number</param>
+	/// <param name="portId">The port id</param>
+	/// <param name="switchPortUpdateRequest">The switch port update request</param>
+	/// <param name="cancellationToken"></param>
+	[ApiOperationId("updateDeviceSwitchPort")]
+	[Put("/devices/{serial}/switch/ports/{portId}")]
+	internal Task<SwitchPort> InternalUpdateDeviceSwitchPortSetPortScheduleIdAsync(
+		string serial,
+		string portId,
+		[Body] SwitchPortUpdatePortScheduleIdRequest switchPortUpdateRequest,
+		CancellationToken cancellationToken = default
+		);
+
+	/// <summary>
 	/// Return the status for all the ports of a switch
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
