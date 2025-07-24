@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.56.449
+- Added UpdateDeviceSwitchPortSetVlanAsync to allow setting the VLAN on a switch port.
+- Added UpdateDeviceSwitchPortSetPortScheduleIdAsync to allow setting the PortScheduleId on a switch port.
+
 ## 1.56.443
 - Added ability to swap warm spare
 
