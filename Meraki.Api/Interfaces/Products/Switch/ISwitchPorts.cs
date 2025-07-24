@@ -68,7 +68,7 @@ public interface ISwitchPorts
 		);
 
 	/// <summary>
-	/// Update a switch port
+	/// Update a switch port Port Schedule Id
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
@@ -81,6 +81,15 @@ public interface ISwitchPorts
 		string serial,
 		string portId,
 		[Body] SwitchPortUpdatePortScheduleIdRequest switchPortUpdateRequest,
+		CancellationToken cancellationToken = default
+		);
+
+	[ApiOperationId("updateDeviceSwitchPort")]
+	[Put("/devices/{serial}/switch/ports/{portId}")]
+	internal Task<SwitchPort> InternalUpdateDeviceSwitchPortSetVlanAsync(
+		string serial,
+		string portId,
+		[Body] SwitchPortUpdateVlanRequest switchPortUpdateRequest,
 		CancellationToken cancellationToken = default
 		);
 

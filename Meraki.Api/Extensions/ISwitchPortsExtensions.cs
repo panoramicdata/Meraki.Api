@@ -36,4 +36,34 @@ public static class ISwitchPortsExtensions
 				},
 				cancellationToken
 			);
+
+	/// <summary>
+	/// Updates the VLAN setting for a specified switch port on a device asynchronously.
+	/// </summary>
+	/// <remarks>This method allows you to change the VLAN configuration of a specific port on a network switch
+	/// device. The operation is performed asynchronously and can be cancelled using the provided <paramref
+	/// name="cancellationToken"/>.</remarks>
+	/// <param name="switchPorts">The interface for managing switch ports.</param>
+	/// <param name="serial">The serial number of the device containing the switch port.</param>
+	/// <param name="portId">The identifier of the switch port to update.</param>
+	/// <param name="vlan">The VLAN ID to set for the switch port. Can be null to remove the VLAN setting.</param>
+	/// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+	/// <returns>A task that represents the asynchronous operation. The task result contains the updated <see cref="SwitchPort"/>
+	/// object.</returns>
+	public static Task<SwitchPort> UpdateDeviceSwitchPortSetVlanAsync(
+		this ISwitchPorts switchPorts,
+		string serial,
+		string portId,
+		int? vlan,
+		CancellationToken cancellationToken = default
+		)
+		=> switchPorts.InternalUpdateDeviceSwitchPortSetVlanAsync(
+				serial,
+				portId,
+				new SwitchPortUpdateVlanRequest
+				{
+					Vlan = vlan
+				},
+				cancellationToken
+			);
 }

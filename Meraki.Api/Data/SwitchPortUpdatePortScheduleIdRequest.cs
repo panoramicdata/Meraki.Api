@@ -1,7 +1,7 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// A device switch port update request
+/// A device switch port update request to change the PortSchedule ID.
 /// </summary>
 [DataContract]
 public class SwitchPortUpdatePortScheduleIdRequest
