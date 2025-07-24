@@ -21,8 +21,8 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 			.Stats
 			.GetOrganizationApplianceVpnStatsAllAsync(
 				TestOrganizationId,
-				t0: utcNow.AddHours(-1).ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
-				t1: utcNow.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
+				t0: utcNow.AddHours(-1).ToMerakiT0T1String(),
+				t1: utcNow.ToMerakiT0T1String(),
 				cancellationToken: default);
 		_ = vpnStatsLastHour.Should().NotBeEmpty();
 		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);

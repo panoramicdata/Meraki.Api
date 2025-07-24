@@ -10,7 +10,8 @@ public class DeviceStatusesTests(ITestOutputHelper iTestOutputHelper) : MerakiCl
 			.Devices
 			.GetOrganizationDevicesStatusesAllAsync(
 				Configuration.TestOrganizationId,
-				networkIds: ["L_603482350067654439"]
+				networkIds: ["L_603482350067654439"],
+				cancellationToken: CancellationToken
 				);
 		_ = result.Should().BeOfType<List<OrganizationDeviceStatus>>();
 		_ = result.Should().NotBeNull();

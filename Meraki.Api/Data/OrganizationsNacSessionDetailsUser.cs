@@ -20,7 +20,6 @@ public class OrganizationsNacSessionDetailsUser
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
 
-
 	/// <summary>
 	/// User IDP
 	/// </summary>

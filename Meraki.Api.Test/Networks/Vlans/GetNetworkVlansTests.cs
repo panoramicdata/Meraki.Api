@@ -9,7 +9,7 @@ public class GetNetworkVlansTests(ITestOutputHelper iTestOutputHelper) : MerakiC
 		var result = await TestMerakiClient
 			.Appliance
 			.Vlans
-			.GetNetworkApplianceVlansAsync(network.Id);
+			.GetNetworkApplianceVlansAsync(network.Id, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<Vlan>>();
 		_ = result.Should().NotBeNull();
 	}

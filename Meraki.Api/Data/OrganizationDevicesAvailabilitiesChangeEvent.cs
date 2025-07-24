@@ -4,6 +4,7 @@
 /// Organization Devices Availabilities Change History Item
 /// </summary>
 [DataContract]
+[DebuggerDisplay("{Category}: {Device.Name} ({Device.Model} {Device.Serial}) - {Network.Name} ({Network.Id})")]
 public class OrganizationDevicesAvailabilitiesChangeEvent
 {
 	/// <summary>
@@ -33,4 +34,11 @@ public class OrganizationDevicesAvailabilitiesChangeEvent
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "network")]
 	public OrganizationDevicesAvailabilitiesChangeEventNetwork Network { get; set; } = new();
+
+	/// <summary>
+	/// Category information
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "category")]
+	public string Category { get; set; } = string.Empty;
 }

@@ -27,7 +27,6 @@ public interface IOrganizationsExtensionsThousandEyes
 	[Post("/organizations/{organizationId}/extensions/thousandEyes/networks")]
 	Task<ThousandEyesNetwork> CreateOrganizationExtensionsThousandEyesNetworkAsync(string organizationId, [Body] ThousandEyesNetworkCreateRequest request, CancellationToken cancellationToken = default);
 
-
 	/// <summary>
 	/// List the ThousandEyes agent configuration under this network. Only valid for networks with access to Meraki Insight. Organization must have a ThousandEyes account connected to perform this action.
 	/// </summary>

@@ -81,7 +81,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Organizations
 			.ConfigurationChanges
-			.GetOrganizationConfigurationChangesAsync(Configuration.TestOrganizationId);
+			.GetOrganizationConfigurationChangesAsync(
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<ChangeLogEntry>>();
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();

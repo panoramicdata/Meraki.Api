@@ -9,7 +9,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var acls = await TestMerakiClient
 			.Switch
 			.AccessControlLists
-			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id);
+			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id, cancellationToken: CancellationToken);
 		_ = acls.Should().NotBeNull();
 		_ = acls.Rules.Should().NotBeNullOrEmpty();
 	}
@@ -21,7 +21,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var acls = await TestMerakiClient
 			.Switch
 			.AccessControlLists
-			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id);
+			.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id, cancellationToken: CancellationToken);
 		_ = acls.Should().NotBeNull();
 		_ = acls.Rules.Should().NotBeNullOrEmpty();
 	}
@@ -37,7 +37,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			var acls = await TestMerakiClient
 				.Switch
 				.AccessControlLists
-				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id);
+				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id, cancellationToken: CancellationToken);
 			_ = acls.Should().NotBeNull();
 			_ = acls.Rules.Should().ContainSingle();
 			_ = acls.Rules[0].Comment.Should().Be("Default rule");
@@ -83,14 +83,14 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 							denySsh,
 							allowHttp
 						]
-					}
+					}, cancellationToken: CancellationToken
 				);
 
 			// Get the rules and check they're both there
 			acls = await TestMerakiClient
 				.Switch
 				.AccessControlLists
-				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id);
+				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id, cancellationToken: CancellationToken);
 
 			// We should have 2 rules now
 			_ = acls.Should().NotBeNull();

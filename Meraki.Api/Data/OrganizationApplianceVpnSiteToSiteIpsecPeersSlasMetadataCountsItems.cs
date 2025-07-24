@@ -13,7 +13,6 @@ public class OrganizationApplianceVpnSiteToSiteIpsecPeersSlasMetadataCountsItems
 	[DataMember(Name = "remaining")]
 	public int Remaining { get; set; }
 
-
 	/// <summary>
 	/// The total number of items in the dataset
 	/// </summary>

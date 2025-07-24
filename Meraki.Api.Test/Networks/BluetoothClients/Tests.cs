@@ -11,7 +11,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Networks
 			.BluetoothClients
-			.GetNetworkBluetoothClientsAsync(network.Id)
+			.GetNetworkBluetoothClientsAsync(network.Id, cancellationToken: CancellationToken)
 ;
 		_ = result.Should().BeOfType<List<BluetoothClient>>();
 		_ = result.Should().NotBeNull();

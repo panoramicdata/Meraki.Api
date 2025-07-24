@@ -17,5 +17,4 @@ public class AdministeredLicensingSubscriptionNetworksFeatureTiersUpdateRequestI
 	/// </summary>
 	[DataMember(Name = "productType")]
 	public ProductType ProductType { get; set; }
-
 }

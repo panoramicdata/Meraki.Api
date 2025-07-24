@@ -8,7 +8,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var devices = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(Configuration.TestNetworkId);
+			.GetNetworkDevicesAsync(Configuration.TestNetworkId, CancellationToken);
 
 		_ = devices
 			.Should()
@@ -18,7 +18,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		var device = await TestMerakiClient
 			.Devices
-			.GetDeviceAsync(deviceSerial);
+			.GetDeviceAsync(deviceSerial, CancellationToken);
 
 		_ = device.Should().NotBeNull();
 		_ = device.Serial.Should().Equals(deviceSerial);
@@ -31,7 +31,8 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				.Devices
 				.UpdateDeviceAsync(
 					device.Serial,
-					device
+					device,
+					CancellationToken
 				);
 		}
 		//Device now has blank address
@@ -42,7 +43,8 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.Devices
 			.UpdateDeviceAsync(
 				device.Serial,
-				device
+				device,
+				CancellationToken
 			);
 
 		_ = updatedDevice.Should().NotBeNull();
@@ -54,7 +56,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var deviceStatuses = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesStatusesAsync(Configuration.TestOrganizationId);
+			.GetOrganizationDevicesStatusesAsync(
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
 
 		_ = deviceStatuses
 			.Should()
@@ -71,7 +75,8 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				{
 					Duration = 10,
 					Period = 500
-				});
+				},
+				CancellationToken);
 
 		_ = outcome
 			.Should()
@@ -85,7 +90,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var devices = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(Configuration.TestNetworkId);
+			.GetNetworkDevicesAsync(Configuration.TestNetworkId, CancellationToken);
 
 		_ = devices
 			.Should()
@@ -99,7 +104,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var deviceManagementInterfaceSettings = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.GetDeviceManagementInterfaceAsync(deviceSerial);
+			.GetDeviceManagementInterfaceAsync(deviceSerial, CancellationToken);
 
 		_ = deviceManagementInterfaceSettings
 			.Should()

@@ -43,7 +43,6 @@ public interface IOrganizationsLicenses
 		[Body] OrganizationLicensingCotermLicenseMoveRequest organizationLicensingCotermLicenseMoveRequest,
 		CancellationToken cancellationToken = default);
 
-
 	/// <summary>
 	/// Display a license
 	/// </summary>

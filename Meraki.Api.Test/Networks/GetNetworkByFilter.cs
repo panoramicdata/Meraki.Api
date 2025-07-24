@@ -7,7 +7,8 @@ public class GetNetworkByFilter(ITestOutputHelper iTestOutputHelper) : MerakiCli
 		var networks = await TestMerakiClient
 			.Organizations.Networks.GetOrganizationNetworksAllAsync(
 			Configuration.TestOrganizationId,
-			tags: ["123", "network_level"]);
+			tags: ["123", "network_level"],
+			cancellationToken: CancellationToken);
 
 		_ = networks.Should().NotBeEmpty();
 	}

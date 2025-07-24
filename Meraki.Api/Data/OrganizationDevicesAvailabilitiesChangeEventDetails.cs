@@ -4,6 +4,7 @@
 /// Details about the status changes
 /// </summary>
 [DataContract]
+[DebuggerDisplay("{New.Count} new, {Old.Count} old")]
 public class OrganizationDevicesAvailabilitiesChangeEventDetails
 {
 	/// <summary>
