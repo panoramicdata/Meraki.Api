@@ -238,7 +238,7 @@ public partial class MerakiClient
 		{ "Q5JC", "C9300X-12Y" },
 		{ "Q5JD", "C9300X-24Y" },
 		{ "Q5JG", "C9300L-24P-4X" },
-		{ "Q5JM", "C9300X-48HXN" }
+		{ "Q5JM", "C9300X-48HXN" },
 		{ "Q5JQ", "C9300X-48TX" },
 		{ "Q5KA", "C9300-24P" },
 		{ "Q5KB", "C9300-24T" },
