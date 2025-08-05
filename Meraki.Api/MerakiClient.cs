@@ -583,8 +583,6 @@ public partial class MerakiClient : IDisposable
 		typeof(T).IsInterface
 			? RestService.For<T>(_httpClient, _refitSettings)
 			: throw new ArgumentException($"Type {typeof(T).Name} must be an interface", nameof(_));
-	private T RefitFor<T>(T _)
-		=> RestService.For<T>(_coreHttpClient, _refitSettings);
 
 	private T RefitSecureConnectFor<T>(T _)
 	=> RestService.For<T>(_secureConnectHttpClient, _refitSettings);
