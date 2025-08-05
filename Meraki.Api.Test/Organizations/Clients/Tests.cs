@@ -8,7 +8,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var organizationClientSearch = await TestMerakiClient
 			.Organizations
 			.Clients
-			.GetOrganizationClientsSearchAsync(Configuration.TestOrganizationId, Configuration.TestMac);
+			.GetOrganizationClientsSearchAsync(Configuration.TestOrganizationId, Configuration.TestMac, cancellationToken: CancellationToken);
 
 		_ = organizationClientSearch.Should().NotBeNull();
 	}

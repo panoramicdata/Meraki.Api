@@ -8,6 +8,7 @@ public interface ILiveToolsPing
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="createDeviceLiveToolsPing">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createDeviceLiveToolsPing")]
 	[Post("/devices/{serial}/liveTools/ping")]
 	Task<LiveToolsPing> CreateDeviceLiveToolsPingAsync(
@@ -21,6 +22,7 @@ public interface ILiveToolsPing
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="id">The device id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceLiveToolsPing")]
 	[Get("/devices/{serial}/liveTools/ping/{id}")]
 	Task<LiveToolsPing> GetDeviceLiveToolsPingAsync(

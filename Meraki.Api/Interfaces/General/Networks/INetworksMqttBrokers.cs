@@ -10,6 +10,7 @@ public interface INetworksMqttBrokers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkMqttBrokers")]
 	[Get("/networks/{networkId}/mqttBrokers")]
 	Task<List<MqttBroker>> GetNetworkMqttBrokersAsync(
@@ -22,6 +23,7 @@ public interface INetworksMqttBrokers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkMqttBroker">Body for adding an MQTT broker</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkMqttBroker")]
 	[Post("/networks/{networkId}/mqttBrokers")]
 	Task<MqttBroker> CreateNetworkMqttBrokerAsync(
@@ -35,6 +37,7 @@ public interface INetworksMqttBrokers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="mqttBrokerId">The MQTT broker id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkMqttBroker")]
 	[Get("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
 	Task<MqttBroker> GetNetworkMqttBrokerAsync(
@@ -49,6 +52,7 @@ public interface INetworksMqttBrokers
 	/// <param name="networkId">The network id</param>
 	/// <param name="mqttBrokerId">The MQTT broker id</param>
 	/// <param name="updateNetworkMqttBroker">Body for updating an MQTT broker</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkMqttBroker")]
 	[Put("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
 	Task<MqttBroker> UpdateNetworkMqttBrokerAsync(
@@ -63,6 +67,7 @@ public interface INetworksMqttBrokers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="mqttBrokerId">The MQTT broker id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkMqttBroker")]
 	[Delete("/networks/{networkId}/mqttBrokers/{mqttBrokerId}")]
 	Task DeleteNetworkMqttBrokerAsync(

@@ -13,6 +13,7 @@ public interface IOrganizationsClientOverview
 	/// <param name="t0">The beginning of the timespan for the data.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationClientsOverview")]
 	[Get("/organizations/{organizationId}/clients/overview")]
 	Task<ClientOverview> GetOrganizationClientsOverviewAsync(

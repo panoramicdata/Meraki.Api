@@ -7,6 +7,7 @@ public interface IApplianceFirewallInboundFirewallRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
 	Task<InboundFirewallRules> GetNetworkApplianceFirewallInboundFirewallRulesAsync(
 		string networkId,
@@ -19,6 +20,7 @@ public interface IApplianceFirewallInboundFirewallRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="inboundFirewallRules">Body for updating inbound firewall rules</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/appliance/firewall/inboundFirewallRules")]
 	Task<InboundFirewallRules> UpdateNetworkApplianceFirewallInboundFirewallRulesAsync(
 		string networkId,

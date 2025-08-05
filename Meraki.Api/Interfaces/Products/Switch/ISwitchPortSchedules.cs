@@ -9,6 +9,7 @@ public interface ISwitchPortSchedules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchPortSchedules")]
 	[Get("/networks/{networkId}/switch/portSchedules")]
 	Task<List<SwitchPortSchedule>> GetNetworkSwitchPortSchedulesAsync(
@@ -22,6 +23,7 @@ public interface ISwitchPortSchedules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkSwitchPortSchedule"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkSwitchPortSchedules")]
 	[Post("/networks/{networkId}/switch/portSchedules")]
 	Task<SwitchPortSchedule> CreateNetworkSwitchPortScheduleAsync(
@@ -37,6 +39,7 @@ public interface ISwitchPortSchedules
 	/// <param name="networkId">The network id</param>
 	/// <param name="portScheduleId">The port schedule id</param>
 	/// <param name="updateNetworkSwitchPortSchedule"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchPortSchedules")]
 	[Put("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
 	Task<SwitchPortSchedule> UpdateNetworkSwitchPortScheduleAsync(
@@ -52,6 +55,7 @@ public interface ISwitchPortSchedules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="portScheduleId">The port schedule id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkSwitchPortSchedules")]
 	[Delete("/networks/{networkId}/switch/portSchedules/{portScheduleId}")]
 	Task DeleteNetworkSwitchPortScheduleAsync(

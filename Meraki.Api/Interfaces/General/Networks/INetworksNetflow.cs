@@ -7,6 +7,7 @@ public interface INetworksNetflow
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkNetflow")]
 	[Get("/networks/{networkId}/netflow")]
 	Task<Netflow> GetNetworkNetflowAsync(
@@ -20,6 +21,7 @@ public interface INetworksNetflow
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="netflow">Body for updating netflow traffic</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkNetflow")]
 	[Put("/networks/{networkId}/netflow")]
 	Task<Netflow> UpdateNetworkNetflowAsync(

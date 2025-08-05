@@ -10,5 +10,5 @@ public class Performance
 	/// Performance score
 	/// </summary>
 	[DataMember(Name = "perfScore")]
-	public int PerfScore { get; set; }
+	public double PerfScore { get; set; }
 }

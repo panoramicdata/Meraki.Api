@@ -7,6 +7,7 @@ public interface ICameraVideo
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceCameraVideoSettings")]
 	[Get("/devices/{serial}/camera/video/settings")]
 	Task<CameraVideo> GetDeviceCameraVideoSettingsAsync(
@@ -19,6 +20,7 @@ public interface ICameraVideo
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial id</param>
 	/// <param name="cameraVideoSetting">Body for updating device camera video setting</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceCameraVideoSettings")]
 	[Put("/devices/{serial}/camera/video/settings")]
 	Task<CameraVideo> UpdateDeviceCameraVideoSettingsAsync(

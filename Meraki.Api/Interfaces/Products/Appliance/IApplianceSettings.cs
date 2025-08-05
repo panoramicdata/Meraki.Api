@@ -7,6 +7,7 @@ public interface IApplianceSettings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceSettings")]
 	[Get("/networks/{networkId}/appliance/settings")]
 	Task<ApplianceSettings> GetNetworkApplianceSettingsAsync(
@@ -19,6 +20,8 @@ public interface IApplianceSettings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="applianceSettings"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceSettings")]
 	[Put("/networks/{networkId}/appliance/settings")]
 	Task<ApplianceSettings> UpdateNetworkApplianceSettingsAsync(

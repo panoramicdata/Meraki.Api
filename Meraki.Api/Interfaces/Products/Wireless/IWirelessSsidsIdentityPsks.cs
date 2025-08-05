@@ -8,6 +8,7 @@ public interface IWirelessSsidsIdentityPsks
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
 	Task<List<IdentityPsk>> GetNetworkWirelessSsidIdentityPsksAsync(
 		string networkId,
@@ -22,6 +23,7 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="createNetworkWirelessSsidIdentityPsk"></param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/wireless/ssids/{number}/identityPsks")]
 	Task<IdentityPsk> CreateNetworkWirelessSsidIdentityPskAsync(
 		string networkId,
@@ -37,6 +39,7 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="identityPskId">The identity psk id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
 	Task<IdentityPsk> GetNetworkWirelessSsidIdentityPskAsync(
 		string networkId,
@@ -53,6 +56,7 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="number">The SSID number</param>
 	/// <param name="identityPskId">The identity psk id</param>
 	/// <param name="updateNetworkWirelessSsidIdentityPsk"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
 	Task<IdentityPsk> UpdateNetworkWirelessSsidIdentityPskAsync(
 		string networkId,
@@ -69,6 +73,7 @@ public interface IWirelessSsidsIdentityPsks
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="identityPskId">The identity psk id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}")]
 	Task DeleteNetworkWirelessSsidIdentityPskAsync(
 		string networkId,

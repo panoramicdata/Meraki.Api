@@ -10,6 +10,7 @@ public interface INetworksPiiRequests
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkPiiRequests")]
 	[Get("/networks/{networkId}/pii/requests")]
 	Task<List<PiiRequest>> GetNetworkPiiRequestsAsync(
@@ -23,6 +24,7 @@ public interface INetworksPiiRequests
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="piiRequest">Body for creating a PII request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkPiiRequest")]
 	[Post("/networks/{networkId}/pii/requests")]
 	Task<PiiRequest> CreateNetworkPiiRequestAsync(
@@ -37,6 +39,7 @@ public interface INetworksPiiRequests
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="requestId">The request id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkPiiRequest")]
 	[Get("/networks/{networkId}/pii/requests/{requestId}")]
 	Task<PiiRequest> GetNetworkPiiRequestAsync(
@@ -51,6 +54,7 @@ public interface INetworksPiiRequests
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="requestId">The request id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkPiiRequest")]
 	[Delete("/networks/{networkId}/pii/requests/{requestId}")]
 	Task DeleteNetworkPiiRequestAsync(

@@ -7,6 +7,7 @@ public interface IApplianceFirewallCellularFirewallRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/firewall/cellularFirewallRules")]
 	Task<CellularFirewallRules> GetNetworkApplianceFirewallCellularFirewallRulesAsync(
 		string networkId,
@@ -19,6 +20,7 @@ public interface IApplianceFirewallCellularFirewallRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="mxCellularFirewallRules">Body for updating network cellular firewall rules</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/appliance/firewall/cellularFirewallRules")]
 	Task<CellularFirewallRules> UpdateNetworkApplianceFirewallCellularFirewallRulesAsync(
 		string networkId,

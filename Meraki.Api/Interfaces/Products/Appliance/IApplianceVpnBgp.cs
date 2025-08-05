@@ -7,6 +7,7 @@ public interface IApplianceVpnBgp
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/vpn/bgp")]
 	Task<VpnBgp> GetNetworkApplianceVpnBgpAsync(
 		string networkId,
@@ -19,6 +20,7 @@ public interface IApplianceVpnBgp
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateVpnBgp"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/appliance/vpn/bgp")]
 	Task<VpnBgp> UpdateNetworkApplianceVpnBgpAsync(
 		string networkId,

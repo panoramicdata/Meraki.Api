@@ -8,7 +8,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Organizations
 			.InventoryDevices
-			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId);
+			.GetOrganizationInventoryDevicesAsync(
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}
@@ -19,7 +21,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Organizations
 			.InventoryDevices
-			.GetOrganizationInventoryDevicesAllAsync(Configuration.TestOrganizationId);
+			.GetOrganizationInventoryDevicesAllAsync(
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}

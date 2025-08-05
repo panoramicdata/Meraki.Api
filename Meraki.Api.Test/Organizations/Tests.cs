@@ -10,7 +10,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 	{
 		var result = await TestMerakiClient
 			.Organizations
-			.GetOrganizationsAsync();
+			.GetOrganizationsAsync(cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<Organization>>();
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
@@ -32,7 +32,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		{
 			var result = await TestMerakiClient
 				.Organizations
-				.GetOrganizationAsync(Configuration.TestOrganizationId);
+				.GetOrganizationAsync(
+					Configuration.TestOrganizationId,
+					CancellationToken);
 			ValidateOrganisation(result);
 		}
 		finally
@@ -50,7 +52,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		// Check to see if the organization already exists and bomb out if it does
 		var existingOrganizations = await TestMerakiClient
 			.Organizations
-			.GetOrganizationsAsync();
+			.GetOrganizationsAsync(cancellationToken: CancellationToken);
 		if (existingOrganizations.Any(o => o.Name == initialOrganizationName))
 		{
 			throw new ConfigurationException($"Test Organization {initialOrganizationName} already exists");
@@ -59,39 +61,41 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		// Create
 		var createdOrganization = await TestMerakiClient
 			.Organizations
-			.CreateOrganizationAsync(new OrganizationCreateRequest { Name = initialOrganizationName });
+			.CreateOrganizationAsync(
+				new OrganizationCreateRequest { Name = initialOrganizationName },
+				cancellationToken: CancellationToken);
 		CheckOrganization(createdOrganization, initialOrganizationName);
 
 		// wait to allow the organization to be created properly
-		await Task.Delay(TimeSpan.FromSeconds(5));
+		await Task.Delay(TimeSpan.FromSeconds(5), CancellationToken);
 
 		// Read
 		var refetchedOrganization = await TestMerakiClient
 			.Organizations
-			.GetOrganizationAsync(createdOrganization.Id);
+			.GetOrganizationAsync(createdOrganization.Id, cancellationToken: CancellationToken);
 		CheckOrganization(refetchedOrganization, initialOrganizationName, createdOrganization.Id);
 
 		// Update
 		const string newOrganizationName = "TestOrganizationNewName";
 		var updatedOrganization = await TestMerakiClient
 			.Organizations
-			.UpdateOrganizationAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName });
+			.UpdateOrganizationAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName }, cancellationToken: CancellationToken);
 		CheckOrganization(updatedOrganization, newOrganizationName, createdOrganization.Id);
 
-		await Task.Delay(TimeSpan.FromSeconds(5));
+		await Task.Delay(TimeSpan.FromSeconds(5), CancellationToken);
 
 		// Delete
 		await TestMerakiClient
 			.Organizations
-			.DeleteOrganizationAsync(createdOrganization.Id);
+			.DeleteOrganizationAsync(createdOrganization.Id, CancellationToken);
 
-		await Task.Delay(TimeSpan.FromSeconds(5));
+		await Task.Delay(TimeSpan.FromSeconds(5), CancellationToken);
 
 		// It should be gone now
 		Func<Task> act = async ()
 			=> _ = await TestMerakiClient
 				.Organizations
-				.GetOrganizationAsync(createdOrganization.Id);
+				.GetOrganizationAsync(createdOrganization.Id, CancellationToken);
 		_ = await act
 			.Should()
 			.ThrowAsync<ApiException>();

@@ -11,5 +11,5 @@ public class OrganizationManagement
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "details")]
-	public List<object> Details { get; set; } = [];
+	public List<OrganizationManagementDetails> Details { get; set; } = [];
 }

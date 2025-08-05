@@ -7,6 +7,7 @@ public interface IDeviceManagementInterface
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceManagementInterface")]
 	[Get("/devices/{serial}/managementInterface")]
 	Task<DeviceManagementInterfaceSettings> GetDeviceManagementInterfaceAsync(
@@ -19,6 +20,7 @@ public interface IDeviceManagementInterface
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="managementInterfaceSettingsUpdateDto">Body for updating management interface settings</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceManagementInterface")]
 	[Put("/devices/{serial}/managementInterface")]
 	Task<DeviceManagementInterfaceSettings> UpdateDeviceManagementInterfaceAsync(

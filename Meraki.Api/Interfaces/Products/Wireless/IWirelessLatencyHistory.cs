@@ -18,6 +18,7 @@ public interface IWirelessLatencyHistory
 	/// <param name="band">Filter results by band (either '2.4' or '5').</param>
 	/// <param name="ssid">Filter results by SSID number.</param>
 	/// <param name="accessCategory">Filter by access category.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/latencyHistory")]
 	Task<List<LatencyHistory>> GetNetworkWirelessLatencyHistoryAsync(
 		string networkId,

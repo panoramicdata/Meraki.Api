@@ -7,6 +7,7 @@ public interface IApplianceFirewallSettings
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/firewall/settings")]
 	Task<ApplianceFirewallSettings> GetNetworkApplianceFirewallSettingsAsync(
 		string networkId,
@@ -19,6 +20,7 @@ public interface IApplianceFirewallSettings
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="applianceFirewallSettingsUpdateRequest">Body for updating the appliance firewall settings</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/appliance/firewall/settings")]
 	Task<ApplianceFirewallSettings> UpdateNetworkApplianceFirewallSettingsAsync(
 		string networkId,

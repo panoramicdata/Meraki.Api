@@ -14,6 +14,7 @@ public interface IWirelessClientsConnectionStats
 	/// <param name="ssid">Filter results by SSID (optional)</param>
 	/// <param name="vlan">Filter results by VLAN (optional)</param>
 	/// <param name="apTag">Filter results by AP Tag (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/clients/connectionStats")]
 	Task<List<NetworkClientConnectionStats>> GetNetworkWirelessClientsConnectionStatsAsync(
 		string networkId,
@@ -39,6 +40,7 @@ public interface IWirelessClientsConnectionStats
 	/// <param name="ssid">Filter results by SSID (optional)</param>
 	/// <param name="vlan">Filter results by VLAN (optional)</param>
 	/// <param name="apTag">Filter results by AP Tag (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/clients/{clientId}/connectionStats")]
 	Task<NetworkClientConnectionStats> GetNetworkWirelessClientConnectionStatsAsync(
 		string networkId,

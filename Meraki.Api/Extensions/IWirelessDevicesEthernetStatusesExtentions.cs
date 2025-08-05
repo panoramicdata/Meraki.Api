@@ -6,7 +6,9 @@ public static class IWirelessDevicesEthernetStatusesExtentions
 	/// Get all power statuses for wireless devices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="wirelessDeviceEthernetStatuses"></param>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	public static Task<List<WirelessDeviceEthernetStatus>> GetOrganizationWirelessDevicesEthernetStatusesAllAsync(
 		this IWirelessDeviceEthernetStatuses wirelessDeviceEthernetStatuses,
 		string organizationId,

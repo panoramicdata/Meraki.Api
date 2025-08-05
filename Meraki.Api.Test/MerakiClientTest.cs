@@ -1,6 +1,7 @@
-﻿using Divergic.Logging.Xunit;
-using Meraki.Api.Exceptions;
+﻿using Meraki.Api.Exceptions;
 using Meraki.Api.Test.Config;
+using Meraki.Api.Test.Logging;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace Meraki.Api.Test;
@@ -15,9 +16,13 @@ public abstract class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : I
 
 	private bool _disposedValue;
 
-	private readonly ICacheLogger _logger = _iTestOutputHelper.BuildLogger();
+	private readonly ILogger _logger = new LoggerFactory()
+			.AddXUnit(_iTestOutputHelper)
+			.CreateLogger<MerakiClientTest>();
 
 	internal TestConfig Configuration { get; } = LoadConfig();
+
+	protected CancellationToken CancellationToken { get; } = TestContext.Current.CancellationToken;
 
 	private static TestConfig LoadConfig()
 	{
@@ -114,7 +119,6 @@ public abstract class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : I
 			if (disposing)
 			{
 				_merakiClient?.Dispose();
-				_logger?.Dispose();
 			}
 
 			_disposedValue = true;

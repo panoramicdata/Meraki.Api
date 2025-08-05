@@ -66,4 +66,7 @@ public enum SensorMetrics
 
 	[EnumMember(Value = "co2")]
 	Co2,
+
+	[EnumMember(Value = "rawTemperature")]
+	RawTemperature,
 }

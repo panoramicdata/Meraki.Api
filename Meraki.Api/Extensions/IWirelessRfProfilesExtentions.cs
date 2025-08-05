@@ -6,6 +6,7 @@ public static class IWirelessRfProfilesExtensions
 	/// List all the non-basic RF profiles for this network.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call.</exception>
+	/// <param name="wirelessRfProfilesAssignments"></param>
 	/// <param name="organizationId">Organization ID.</param>
 	/// <param name="networkIds">Optional parameter to filter devices by network.</param>
 	/// <param name="productTypes">Optional parameter to filter devices by product type. Valid types are wireless, appliance, switch, systemsManager, camera, cellularGateway, and sensor.</param>

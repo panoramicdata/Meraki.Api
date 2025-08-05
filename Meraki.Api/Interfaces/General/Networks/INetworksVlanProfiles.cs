@@ -9,6 +9,7 @@ public interface INetworksVlanProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="vlanProfileCreateRequest">The vlan profile creation request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkVlanProfile")]
 	[Post("/networks/{networkId}/vlanProfiles")]
 	Task<VlanProfile> CreateNetworkVlanProfileAsync(
@@ -22,6 +23,7 @@ public interface INetworksVlanProfiles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkVlanProfiles")]
 	[Get("/networks/{networkId}/vlanProfiles")]
 	Task<List<VlanProfile>> GetNetworkVlanProfilesAsync(
@@ -35,6 +37,7 @@ public interface INetworksVlanProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="iname">The iname for the Vlan profile</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkVlanProfile")]
 	[Get("/networks/{networkId}/vlanProfiles/{iname}")]
 	Task<VlanProfile> GetNetworkVlanProfileAsync(
@@ -50,6 +53,7 @@ public interface INetworksVlanProfiles
 	/// <param name="networkId">The network id</param>
 	/// <param name="iname">The iname for the Vlan profile</param>
 	/// <param name="vlanProfileUpdateRequest">The vlan profile update request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkVlanProfile")]
 	[Put("/networks/{networkId}/vlanProfiles/{iname}")]
 	Task<VlanProfile> UpdateNetworkVlanProfileAsync(
@@ -65,6 +69,7 @@ public interface INetworksVlanProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="vlanProfileReassignmentRequest">The vlan profile reassignment request</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("reassignNetworkVlanProfilesAssignments")]
 	[Post("/networks/{networkId}/vlanProfiles/assignments/reassign")]
 	Task<VlanProfileAssignment> ReassignNetworkVlanProfilesAssignmentsAsync(
@@ -84,6 +89,7 @@ public interface INetworksVlanProfiles
 	/// <param name="serials">Optional parameter to filter devices by serials. All devices returned belong to serial numbers that are an exact match.</param>
 	/// <param name="productTypes">Optional parameter to filter devices by product types.</param>
 	/// <param name="stackIds">Optional parameter to filter devices by Switch Stack ids.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkVlanProfilesAssignmentsByDevice")]
 	[Get("/networks/{networkId}/vlanProfiles/assignments/byDevice")]
 	Task<List<VlanProfileDeviceAssignment>> GetNetworkVlanProfilesAssignmentsByDeviceAsync(
@@ -117,6 +123,7 @@ public interface INetworksVlanProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="iname">The iname for the Vlan profile to delete</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkVlanProfile")]
 	[Delete("/networks/{networkId}/vlanProfiles/{iname}")]
 	Task DeleteNetworkVlanProfileAsync(

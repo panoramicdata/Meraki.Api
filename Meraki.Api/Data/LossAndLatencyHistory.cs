@@ -9,14 +9,14 @@ public class LossAndLatencyHistory
 	/// <summary>
 	/// Start time
 	/// </summary>
-	[DataMember(Name = "startTime")]
-	public string StartTime { get; set; } = string.Empty;
+	[DataMember(Name = "startTs")]
+	public DateTime StartTime { get; set; }
 
 	/// <summary>
 	/// End time
 	/// </summary>
-	[DataMember(Name = "endTime")]
-	public string EndTime { get; set; } = string.Empty;
+	[DataMember(Name = "endTs")]
+	public DateTime EndTime { get; set; }
 
 	/// <summary>
 	/// Loss percentage

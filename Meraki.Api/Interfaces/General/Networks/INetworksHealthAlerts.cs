@@ -7,6 +7,7 @@ public interface INetworksHealthAlerts
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkHealthAlerts")]
 	[Get("/networks/{networkId}/health/alerts")]
 	Task<List<HealthAlert>> GetNetworkHealthAlertsAsync(

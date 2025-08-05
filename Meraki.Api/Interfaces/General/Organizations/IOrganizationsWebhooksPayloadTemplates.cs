@@ -10,6 +10,7 @@ public interface IOrganizationsWebhooksPayloadTemplates
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/webhooks/payloadTemplates")]
 	Task<List<PayloadTemplate>> GetOrganizationWebhooksPayloadTemplatesAsync(
 		string organizationId,
@@ -21,6 +22,7 @@ public interface IOrganizationsWebhooksPayloadTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="payloadTemplate">The Payload Template</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/webhooks/payloadTemplates")]
 	Task<PayloadTemplate> CreateOrganizationWebhooksPayloadTemplatesAsync(
 		string organizationId,
@@ -33,6 +35,7 @@ public interface IOrganizationsWebhooksPayloadTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task<List<PayloadTemplate>> GetOrganizationWebhooksPayloadTemplateAsync(
 		string organizationId,
@@ -45,6 +48,8 @@ public interface IOrganizationsWebhooksPayloadTemplates
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="payloadTemplateId">The payload template id</param>
+	/// <param name="webhookPayloadTemplate"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateOrganizationWebhooksPayloadTemplate")]
 	[Put("/organizations/{organizationId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task<PayloadTemplate> UpdateOrganizationWebhooksPayloadTemplateAsync(
@@ -58,6 +63,8 @@ public interface IOrganizationsWebhooksPayloadTemplates
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="payloadTemplateId"></param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/organizations/{organizationId}/webhooks/payloadTemplates/{payloadTemplateId}")]
 	Task DeleteOrganizationWebhooksPayloadTemplateAsync(
 		string organizationId,

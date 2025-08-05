@@ -16,6 +16,7 @@ public interface IWirelessFailedConnections
 	/// <param name="apTag">Filter results by AP Tag (optional)</param>
 	/// <param name="serial">Filter by AP (optional)</param>
 	/// <param name="clientId">Filter by client MAC (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/failedConnections")]
 	Task<List<FailedConnection>> GetNetworkWirelessFailedConnectionsAsync(
 		string networkId,

@@ -7,6 +7,7 @@ public interface IApplianceTrafficShapingUplinkSelection
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/trafficShaping/uplinkSelection")]
 	Task<UplinkSelection> GetNetworkApplianceTrafficShapingUplinkSelectionAsync(
 		string networkId,

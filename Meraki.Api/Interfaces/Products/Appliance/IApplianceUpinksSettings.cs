@@ -6,6 +6,7 @@ public interface IApplianceUplinksSettings
 	/// Return the uplink settings for an MX appliance
 	/// </summary>
 	/// <param name="serial">The MX Device Sertial Number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceApplianceUplinksSettings")]
 	[Get("/devices/{serial}/appliance/uplinks/settings")]
 	Task<DeviceApplianceUplinkSettings> GetDeviceApplianceUplinksSettingsAsync(
@@ -17,6 +18,7 @@ public interface IApplianceUplinksSettings
 	/// </summary>
 	/// <param name="serial">The MX Device Sertial Number</param>
 	/// <param name="deviceApplianceUplinkSettingsUpdateRequest">Update request body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceApplianceUplinksSettings")]
 	[Put("/devices/{serial}/appliance/uplinks/settings")]
 	Task<DeviceApplianceUplinkSettings> UpdateDeviceApplianceUplinksSettingsAsync(

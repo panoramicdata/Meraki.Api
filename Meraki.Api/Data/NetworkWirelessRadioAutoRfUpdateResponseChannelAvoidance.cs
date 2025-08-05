@@ -1,0 +1,15 @@
+﻿namespace Meraki.Api.Data;
+
+/// <summary>
+/// Channel avoidance settings
+/// </summary>
+[DataContract]
+public class NetworkWirelessRadioAutoRfUpdateResponseChannelAvoidance
+{
+	/// <summary>
+	/// Toggle for enabling or disabling channel avoidance in a network
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "enabled")]
+	public bool Enabled { get; set; }
+}

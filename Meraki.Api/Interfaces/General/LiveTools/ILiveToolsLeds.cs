@@ -8,6 +8,7 @@ public interface ILiveToolsLeds
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="createDeviceLiveToolsLedsBlink">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createDeviceLiveToolsLedsBlink")]
 	[Post("/devices/{serial}/liveTools/leds/blink")]
 	Task<LiveToolsLedsBlink> CreateDeviceLiveToolsLedsBlinkAsync(
@@ -21,8 +22,9 @@ public interface ILiveToolsLeds
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="ledsBlinkId">Leds blink ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceLiveToolsLedsBlink")]
-	[Get("/devices/{serial}/liveTools/leds/blink/{ledsBlinkId}}")]
+	[Get("/devices/{serial}/liveTools/leds/blink/{ledsBlinkId}")]
 	Task<LiveToolsLedsBlink> GetDeviceLiveToolsLedsBlinkAsync(
 		string serial,
 		string ledsBlinkId,

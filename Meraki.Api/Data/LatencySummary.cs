@@ -21,17 +21,17 @@ public class LatencySummary
 	/// Average latency ms
 	/// </summary>
 	[DataMember(Name = "avgLatencyMs")]
-	public int AvgLatencyMs { get; set; }
+	public double AvgLatencyMs { get; set; }
 
 	/// <summary>
 	/// Minimum latency ms
 	/// </summary>
 	[DataMember(Name = "minLatencyMs")]
-	public int MinLatencyMs { get; set; }
+	public double MinLatencyMs { get; set; }
 
 	/// <summary>
 	/// Maximum latency ms
 	/// </summary>
 	[DataMember(Name = "maxLatencyMs")]
-	public int MaxLatencyMs { get; set; }
+	public double MaxLatencyMs { get; set; }
 }

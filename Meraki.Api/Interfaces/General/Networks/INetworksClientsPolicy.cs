@@ -8,6 +8,7 @@ public interface INetworksClientsPolicy
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="clientId">The client id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkClientPolicy")]
 	[Get("/networks/{networkId}/clients/{clientId}/policy")]
 	Task<ClientPolicyUpdateRequest> GetNetworkClientPolicyAsync(
@@ -22,6 +23,7 @@ public interface INetworksClientsPolicy
 	/// <param name="networkId">The network id</param>
 	/// <param name="clientId">The client id</param>
 	/// <param name="clientPolicyUpdateRequest">Body for updating client policy</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkClientPolicy")]
 	[Put("/networks/{networkId}/clients/{clientId}/policy")]
 	Task<ClientPolicyUpdateRequest> UpdateNetworkClientPolicyAsync(

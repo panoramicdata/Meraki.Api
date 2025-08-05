@@ -10,6 +10,7 @@ public interface ISmApnsCert
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/sm/apnsCert")]
 	Task<ApnsCert> GetOrganizationSmApnsCertAsync(
 		string organizationId,

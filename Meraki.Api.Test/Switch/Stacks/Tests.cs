@@ -10,7 +10,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var switchStacks = await TestMerakiClient
 			.Switch
 			.Stacks
-			.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, default);
+			.GetNetworkSwitchStacksAsync(Configuration.TestCameraNetworkId, CancellationToken);
 
 		_ = switchStacks.Should().NotBeNull();
 	}

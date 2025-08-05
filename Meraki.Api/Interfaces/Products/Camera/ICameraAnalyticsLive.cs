@@ -7,6 +7,7 @@ public interface ICameraAnalyticsLive
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/camera/analytics/live")]
 	Task<CameraLive> GetDeviceCameraAnalyticsLiveAsync(
 		string serial,

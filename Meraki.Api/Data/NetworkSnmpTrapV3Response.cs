@@ -11,5 +11,4 @@ public class NetworkSnmpTrapV3Response
 	/// </summary>
 	[DataMember(Name = "users")]
 	public List<NetworkSnmpTrapV3ResponseUser>? Users { get; set; }
-
 }

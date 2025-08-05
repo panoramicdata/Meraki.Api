@@ -8,6 +8,7 @@ public interface IWirelessSsidsFirewall
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/firewall/l7FirewallRules")]
 	Task<SsidLayer7FirewallRules> GetNetworkWirelessSsidFirewallL7FirewallRulesAsync(
 		string networkId,
@@ -22,6 +23,7 @@ public interface IWirelessSsidsFirewall
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="updateNetworkWirelessSsidFirewallL7FirewallRules">Body for updating L7 Firewall rules</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/firewall/l7FirewallRules")]
 	Task<SsidLayer7FirewallRules> UpdateNetworkWirelessSsidFirewallL7FirewallRulesAsync(
 		string networkId,
@@ -36,6 +38,7 @@ public interface IWirelessSsidsFirewall
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/firewall/l3FirewallRules")]
 	Task<SsidLayer3FirewallRules> GetNetworkWirelessSsidFirewallL3FirewallRulesAsync(
 		string networkId,
@@ -50,6 +53,7 @@ public interface IWirelessSsidsFirewall
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="updateNetworkSsidL3FirewallRules">Body for updating L3 firewall rules</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/firewall/l3FirewallRules")]
 	Task<SsidLayer3FirewallRules> UpdateNetworkWirelessSsidFirewallL3FirewallRulesAsync(
 		string networkId,

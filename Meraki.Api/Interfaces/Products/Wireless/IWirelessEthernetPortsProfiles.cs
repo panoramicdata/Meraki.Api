@@ -8,6 +8,7 @@ public interface IWirelessEthernetPortsProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="wirelessEthernetPortsProfileCreateRequest">The request body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkWirelessEthernetPortsProfile")]
 	[Post("/networks/{networkId}/wireless/ethernet/ports/profiles")]
 	Task<WirelessEthernetPortsProfile> CreateNetworkWirelessEthernetPortsProfileAsync(
@@ -21,6 +22,7 @@ public interface IWirelessEthernetPortsProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="wirelessEthernetPortsProfileAssign">The request body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("assignNetworkWirelessEthernetPortsProfiles")]
 	[Post("/networks/{networkId}/wireless/ethernet/ports/profiles/assign")]
 	Task<WirelessEthernetPortsProfileAssign> AssignNetworkWirelessEthernetPortsProfilesAsync(
@@ -34,6 +36,7 @@ public interface IWirelessEthernetPortsProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="wirelessEthernetPortsProfileSetDefault">The request body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("setNetworkWirelessEthernetPortsProfilesDefault")]
 	[Post("/networks/{networkId}/wireless/ethernet/ports/profiles/setDefault")]
 	Task<WirelessEthernetPortsProfileSetDefault> SetNetworkWirelessEthernetPortsProfilesDefaultAsync(
@@ -46,6 +49,7 @@ public interface IWirelessEthernetPortsProfiles
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkWirelessEthernetPortsProfiles")]
 	[Get("/networks/{networkId}/wireless/ethernet/ports/profiles")]
 	Task<List<WirelessEthernetPortsProfile>> GetNetworkWirelessEthernetPortsProfilesAsync(
@@ -58,6 +62,7 @@ public interface IWirelessEthernetPortsProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="profileId">The profile id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkWirelessEthernetPortsProfile")]
 	[Get("/networks/{networkId}/wireless/ethernet/ports/profiles/{profileId}")]
 	Task<WirelessEthernetPortsProfile> GetNetworkWirelessEthernetPortsProfileAsync(
@@ -72,6 +77,7 @@ public interface IWirelessEthernetPortsProfiles
 	/// <param name="networkId">The network id</param>
 	/// <param name="profileId">The profile id</param>
 	/// <param name="wirelessEthernetPortsProfileUpdateRequest">The request body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkWirelessEthernetPortsProfile")]
 	[Put("/networks/{networkId}/wireless/ethernet/ports/profiles/{profileId}")]
 	Task<WirelessEthernetPortsProfile> UpdateNetworkWirelessEthernetPortsProfileAsync(
@@ -86,6 +92,7 @@ public interface IWirelessEthernetPortsProfiles
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="profileId">The profile id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkWirelessEthernetPortsProfile")]
 	[Delete("/networks/{networkId}/wireless/ethernet/ports/profiles/{profileId}")]
 	Task DeleteNetworkWirelessEthernetPortsProfileAsync

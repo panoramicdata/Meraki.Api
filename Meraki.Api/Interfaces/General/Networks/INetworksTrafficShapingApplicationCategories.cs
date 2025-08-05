@@ -7,6 +7,7 @@ public interface INetworksTrafficShapingApplicationCategories
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/trafficShaping/applicationCategories")]
 	Task<Layer7ApplicationCategories> GetNetworkTrafficShapingApplicationCategoriesAsync(
 		string networkId,

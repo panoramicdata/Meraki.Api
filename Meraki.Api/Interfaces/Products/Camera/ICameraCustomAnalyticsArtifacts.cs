@@ -7,6 +7,7 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization Id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/camera/customAnalytics/artifacts")]
 	Task<List<CameraCustomAnalyticsArtifact>> GetOrganizationCameraCustomAnalyticsArtifactsAsync(
 		string organizationId,
@@ -20,6 +21,7 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="cameraCustomAnalyticsArtifactCreateRequest">Body for updating camera custom analytics</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/camera/customAnalytics/artifacts")]
 	Task<CameraCustomAnalyticsArtifactCreateResponse> CreateOrganizationCameraCustomAnalyticsArtifactAsync(
 		string serial,
@@ -33,6 +35,7 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization Id</param>
 	/// <param name="artifactId">The artifact Id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/camera/customAnalytics/artifacts/{artifactId}")]
 	Task<CameraCustomAnalyticsArtifact> GetOrganizationCameraCustomAnalyticsArtifactAsync(
 		string organizationId,
@@ -46,6 +49,7 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="artifactId">The artifact id</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/organizations/{organizationId}/camera/customAnalytics/artifacts/{artifactId}")]
 	Task DeleteOrganizationCameraCustomAnalyticsArtifactAsync(
 		string organizationId,

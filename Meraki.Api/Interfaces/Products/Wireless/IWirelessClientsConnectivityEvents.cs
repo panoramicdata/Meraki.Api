@@ -20,6 +20,7 @@ public interface IWirelessClientsConnectivityEvents
 	/// <param name="band">Filter results by band (either '2.4' or '5').</param>
 	/// <param name="ssidNumber">An SSID number to include. If not specified, events for all SSIDs will be returned.</param>
 	/// <param name="deviceSerial">Filter results by an AP's serial number.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/clients/{clientId}/connectivityEvents")]
 	Task<List<ConnectivityEvents>> GetNetworkWirelessClientConnectivityEventsAsync(
 		string networkId,

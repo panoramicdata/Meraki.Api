@@ -11,7 +11,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.Networks
 			.Webhooks
 			.PayloadTemplates
-			.GetNetworkWebhooksPayloadTemplatesAsync(network.Id);
+			.GetNetworkWebhooksPayloadTemplatesAsync(network.Id, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<PayloadTemplate>>();
 		_ = result.Should().NotBeNull();
 	}

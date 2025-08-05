@@ -7,6 +7,7 @@ public interface IApplianceSecurityIntrusion
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/appliance/security/intrusion")]
 	Task<OrganizationSecurityIntrusion> GetOrganizationApplianceSecurityIntrusionAsync(
 		string organizationId,
@@ -19,6 +20,7 @@ public interface IApplianceSecurityIntrusion
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="securityIntrusion">Body for updating security intrusion settings</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/appliance/security/intrusion")]
 	Task<OrganizationSecurityIntrusion> UpdateOrganizationApplianceSecurityIntrusionAsync(
 		string organizationId,
@@ -31,6 +33,7 @@ public interface IApplianceSecurityIntrusion
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceSecurityIntrusion")]
 	[Get("/networks/{networkId}/appliance/security/intrusion")]
 	Task<NetworkApplianceSecurityIntrusion> GetNetworkApplianceSecurityIntrusionAsync(
@@ -44,6 +47,7 @@ public interface IApplianceSecurityIntrusion
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="networkSecurityIntrusion">Body for updating security intrusion settings</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceSecurityIntrusion")]
 	[Put("/networks/{networkId}/appliance/security/intrusion")]
 	Task<NetworkApplianceSecurityIntrusion> UpdateNetworkApplianceSecurityIntrusionAsync(

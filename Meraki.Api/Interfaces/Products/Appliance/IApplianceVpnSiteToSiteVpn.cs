@@ -7,6 +7,7 @@ public interface IApplianceVpnSiteToSiteVpn
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceVpnSiteToSiteVpn")]
 	[Get("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 	Task<SiteToSiteVpn> GetNetworkApplianceVpnSiteToSiteVpnAsync(
@@ -20,6 +21,7 @@ public interface IApplianceVpnSiteToSiteVpn
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="siteToSiteVpn">Body for updating VPN settings</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceVpnSiteToSiteVpn")]
 	[Put("/networks/{networkId}/appliance/vpn/siteToSiteVpn")]
 	Task<SiteToSiteVpn> UpdateNetworkApplianceVpnSiteToSiteVpnAsync(

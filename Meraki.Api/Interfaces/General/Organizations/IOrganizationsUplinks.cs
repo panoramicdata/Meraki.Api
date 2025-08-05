@@ -10,6 +10,13 @@ public interface IOrganizationsUplinks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="perPage"></param>
+	/// <param name="startingAfter"></param>
+	/// <param name="endingBefore"></param>
+	/// <param name="networkIds"></param>
+	/// <param name="serials"></param>
+	/// <param name="iccids"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationUplinksStatuses")]
 	[Get("/organizations/{organizationId}/uplinks/statuses")]
 	Task<List<UplinkStatus>> GetOrganizationUplinksStatusesAsync(

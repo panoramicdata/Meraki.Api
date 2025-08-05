@@ -10,7 +10,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Wireless
 			.Ssids
-			.GetNetworkWirelessSsidsAsync(network.Id);
+			.GetNetworkWirelessSsidsAsync(network.Id, cancellationToken: CancellationToken);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}
@@ -23,7 +23,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Networks
 			.Devices
-			.GetNetworkDevicesAsync(network.Id);
+			.GetNetworkDevicesAsync(network.Id, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<Device>>();
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
@@ -48,12 +48,13 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 					ProductTypes = [ProductType.Wireless],
 					Tags = [],
 					TimeZone = "Europe/London"
-				});
+				},
+				cancellationToken: CancellationToken);
 
 		// And delete it again
 		await TestMerakiClient
 			.Networks
-			.DeleteNetworkAsync(newNetwork.Id);
+			.DeleteNetworkAsync(newNetwork.Id, cancellationToken: CancellationToken);
 	}
 
 	[Fact]
@@ -127,7 +128,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var devices = await TestMerakiClient
 			.Organizations
 			.InventoryDevices
-			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId);
+			.GetOrganizationInventoryDevicesAsync(Configuration.TestOrganizationId, cancellationToken: CancellationToken);
 		var device = devices.SingleOrDefault(d => d.Serial == Configuration.TestDeviceSerial);
 		_ = device.Should().NotBeNull();
 
@@ -146,14 +147,14 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				Tags = [],
 				TimeZone = "Europe/London",
 				ProductTypes = [ProductType.Wireless]
-			});
+			}, cancellationToken: CancellationToken);
 
 		_ = newNetwork.Should().NotBeNull();
 
 		// Re-fetch the network
 		var refetchedNetwork = await TestMerakiClient
 			.Networks
-			.GetNetworkAsync(newNetwork.Id);
+			.GetNetworkAsync(newNetwork.Id, cancellationToken: CancellationToken);
 
 		_ = newNetwork.Name.Should().Be(refetchedNetwork.Name);
 
@@ -161,7 +162,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var configurationTemplates = await TestMerakiClient
 			.Organizations
 			.ConfigTemplates
-			.GetOrganizationConfigTemplatesAsync(Configuration.TestOrganizationId);
+			.GetOrganizationConfigTemplatesAsync(Configuration.TestOrganizationId, cancellationToken: CancellationToken);
 		_ = configurationTemplates.Should().NotBeNull();
 		_ = configurationTemplates.Should().NotBeEmpty();
 		var configurationTemplate = configurationTemplates[0];
@@ -173,13 +174,13 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				{
 					ConfigurationTemplateId = configurationTemplate.Id,
 					AutoBind = true
-				});
+				}, cancellationToken: CancellationToken);
 
 		// Get all VLANs - should be the default one
 		var initialVlans = await TestMerakiClient
 			.Appliance
 			.Vlans
-			.GetNetworkApplianceVlansAsync(newNetwork.Id);
+			.GetNetworkApplianceVlansAsync(newNetwork.Id, cancellationToken: CancellationToken);
 		_ = initialVlans.Should().NotBeNull();
 
 		var vlan10 = initialVlans.SingleOrDefault(v => v.Id == "10");
@@ -203,19 +204,20 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 							End = $"{PrivateNetworkFirst3Octets}.131"
 						}
 				]
-			});
+			},
+			cancellationToken: CancellationToken);
 		_ = updatedVlan.Should().NotBeNull();
 
 		//--- Claim/Remove device
 		await TestMerakiClient
 			.Networks
 			.Devices
-			.ClaimNetworkDevicesAsync(newNetwork.Id, true, new DeviceClaimRequest { Serials = [Configuration.TestDeviceSerial] });
+			.ClaimNetworkDevicesAsync(newNetwork.Id, true, new DeviceClaimRequest { Serials = [Configuration.TestDeviceSerial] }, cancellationToken: CancellationToken);
 
 		// Make sure it's there.
 		var fetchedDevice = await TestMerakiClient
 			.Devices
-			.GetDeviceAsync(newNetwork.Id);
+			.GetDeviceAsync(newNetwork.Id, cancellationToken: CancellationToken);
 		_ = fetchedDevice.Should().BeOfType<Device>();
 		_ = fetchedDevice.Should().NotBeNull();
 
@@ -236,19 +238,19 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		fetchedDevice.Address = new string('x', Device.MaxAddressLength);
 		_ = await TestMerakiClient
 			.Devices
-			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice);
+			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice, cancellationToken: CancellationToken);
 
 		//// Setting the address should succeed
 		fetchedDevice.Address = "45 Heywood Avenue,\nMaidenhead,\nSL6 3JA";
 		_ = await TestMerakiClient
 			.Devices
-			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice);
+			.UpdateDeviceAsync(fetchedDevice.Serial, fetchedDevice, cancellationToken: CancellationToken);
 
 		//// Get the management interface settings
 		var wanSpecs = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial!);
+			.GetDeviceManagementInterfaceAsync(fetchedDevice.Serial!, cancellationToken: CancellationToken);
 		_ = wanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 		_ = wanSpecs.Should().NotBeNull();
 
@@ -284,7 +286,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 					Vlan = newDeviceManagementInterfaceSettings.Wan1.Vlan,
 					WanEnabledStatus = newDeviceManagementInterfaceSettings.Wan1.WanEnabledStatus,
 				}
-			});
+			}, cancellationToken: CancellationToken);
 		_ = updatedWanSpecs.Should().BeOfType<DeviceManagementInterfaceSettings>();
 		_ = updatedWanSpecs.Should().NotBeNull();
 
@@ -292,7 +294,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var wanSpecsRefetch = await TestMerakiClient
 			.Devices
 			.ManagementInterface
-			.GetDeviceManagementInterfaceAsync(newNetwork.Id);
+			.GetDeviceManagementInterfaceAsync(newNetwork.Id, cancellationToken: CancellationToken);
 		_ = wanSpecsRefetch.Should().NotBeNull();
 		_ = wanSpecsRefetch.Wan1.Should().NotBeNull();
 		_ = wanSpecsRefetch.Wan1!.StaticDns.Should().NotBeNull();
@@ -304,7 +306,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var allOrganizationDevices = await TestMerakiClient
 			.Organizations
 			.Devices
-			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId);
+			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId, cancellationToken: CancellationToken);
 		_ = allOrganizationDevices.Should().NotBeNull();
 		_ = allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();
 
@@ -314,19 +316,19 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		_ = await TestMerakiClient
 			.Networks
-			.UnbindNetworkAsync(newNetwork.Id);
+			.UnbindNetworkAsync(newNetwork.Id, cancellationToken: CancellationToken);
 
 		//--- Delete the network
 
 		// Delete the network
 		await TestMerakiClient
 			.Networks
-			.DeleteNetworkAsync(newNetwork.Id);
+			.DeleteNetworkAsync(newNetwork.Id, cancellationToken: CancellationToken);
 
 		action = async ()
 			=> _ = await TestMerakiClient
 				.Networks
-				.GetNetworkAsync(newNetwork.Id);
+				.GetNetworkAsync(newNetwork.Id, cancellationToken: CancellationToken);
 
 		_ = await action
 			.Should()
@@ -341,7 +343,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Networks
 			.Clients
-			.GetNetworkClientsAsync(network.Id);
+			.GetNetworkClientsAsync(network.Id, cancellationToken: CancellationToken);
 		_ = result.Should().NotBeNull();
 		_ = result.Should().NotBeEmpty();
 	}
@@ -354,7 +356,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Networks
 			.BluetoothClients
-			.GetNetworkBluetoothClientsAsync(network.Id);
+			.GetNetworkBluetoothClientsAsync(network.Id, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<BluetoothClient>>();
 		_ = result.Should().NotBeNull();
 	}
@@ -368,7 +370,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var originalResult = await TestMerakiClient
 			.Wireless
 			.Settings
-			.GetNetworkWirelessSettingsAsync(network.Id);
+			.GetNetworkWirelessSettingsAsync(network.Id, cancellationToken: CancellationToken);
 		_ = originalResult.Should().BeOfType<WirelessSettings>();
 		_ = originalResult.Should().NotBeNull();
 
@@ -382,7 +384,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				LedLightsOn = originalResult.LedLightsOn,
 				LocationAnalyticsEnabled = originalResult.LocationAnalyticsEnabled,
 				MeshingEnabled = originalResult.MeshingEnabled,
-			});
+			}, cancellationToken: CancellationToken);
 		_ = newResult.Should().BeOfType<WirelessSettings>();
 		_ = newResult.Should().NotBeNull();
 
@@ -400,7 +402,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			// Get a snapshot from the camera
 			var newResult = await TestMerakiClient
 				.Camera
-				.GenerateDeviceCameraSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true });
+				.GenerateDeviceCameraSnapshotAsync(Configuration.TestCameraSerial, new CameraSnapshotRequest { Fullframe = true }, cancellationToken: CancellationToken);
 			_ = newResult.Should().NotBeNull();
 		}
 	}
@@ -414,7 +416,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var newResult = await TestMerakiClient
 		.Camera
 		.VideoLink
-		.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!);
+		.GetDeviceCameraVideoLinkAsync(Configuration.TestCameraNetworkId, Configuration.TestCameraSerial!, cancellationToken: CancellationToken);
 		_ = newResult.Should().NotBeNull();
 	}
 
@@ -449,7 +451,8 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 							Tags = [],
 							TimeZone = "Europe/London",
 							Notes = $"Created at {DateTime.UtcNow:u} during unit testing, OK to delete"
-						}
+						},
+						CancellationToken
 					)
 				);
 			_ = exception.Message.Should().Be("The client options have been configured to only allow read actions");

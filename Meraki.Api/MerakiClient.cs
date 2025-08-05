@@ -130,8 +130,55 @@ public partial class MerakiClient : IDisposable
 			},
 			Clients = RefitFor(Organizations.Clients),
 			ConfigurationChanges = RefitFor(Organizations.ConfigurationChanges),
-			ConfigTemplates = RefitFor(Organizations.ConfigTemplates),
-			Devices = RefitFor(Organizations.Devices),
+			ConfigTemplates = new()
+			{
+				ConfigTemplates = RefitFor(Organizations.ConfigTemplates.ConfigTemplates),
+				Switch = new()
+				{
+					Profiles = new()
+					{
+						Ports = new()
+						{
+							Mirrors = RefitFor(Organizations.ConfigTemplates.Switch.Profiles.Ports.Mirrors)
+						}
+					}
+				}
+			},
+			Devices = new()
+			{
+				Devices = RefitFor(Organizations.Devices.Devices),
+				Controller = RefitFor(Organizations.Devices.Controller),
+				PacketCapture = RefitFor(Organizations.Devices.PacketCapture),
+				Power = RefitFor(Organizations.Devices.Power),
+				PowerModules = new()
+				{
+					Statuses = RefitFor(Organizations.Devices.PowerModules.Statuses)
+				},
+				SignalQuality = RefitFor(Organizations.Devices.SignalQuality),
+				System = new()
+				{
+					System = RefitFor(Organizations.Devices.System.System),
+					Memory = new()
+					{
+						Usage = new()
+						{
+							History = RefitFor(Organizations.Devices.System.Memory.Usage.History),
+						}
+					}
+				},
+				Syslog = new()
+				{
+					Servers = new()
+					{
+						Roles = RefitFor(Organizations.Devices.Syslog.Servers.Roles),
+					}
+				},
+				Uplinks = new()
+				{
+					Addresses = RefitFor(Organizations.Devices.Uplinks.Addresses),
+				},
+				WirelessControllers = RefitFor(Organizations.Devices.WirelessControllers)
+			},
 			EarlyAccess = new()
 			{
 				Features = RefitFor(Organizations.EarlyAccess.Features)
@@ -532,6 +579,10 @@ public partial class MerakiClient : IDisposable
 		};
 	}
 
+	private T RefitFor<T>(T _) =>
+		typeof(T).IsInterface
+			? RestService.For<T>(_httpClient, _refitSettings)
+			: throw new ArgumentException($"Type {typeof(T).Name} must be an interface", nameof(_));
 	private T RefitFor<T>(T _)
 		=> RestService.For<T>(_coreHttpClient, _refitSettings);
 

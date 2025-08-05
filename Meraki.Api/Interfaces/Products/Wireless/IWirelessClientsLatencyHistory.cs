@@ -12,6 +12,7 @@ public interface IWirelessClientsLatencyHistory
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 791 days after t0. (optional)</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 791 days. The default is 1 day. (optional)</param>
 	/// <param name="resolution">The time resolution in seconds for returned data. The valid resolutions are: 86400. The default is 86400. (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/clients/{clientId}/latencyHistory")]
 	Task<List<ClientLatencyHistory>> GetNetworkWirelessClientLatencyHistoryAsync(
 		string networkId,

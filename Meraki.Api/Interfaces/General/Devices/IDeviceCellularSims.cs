@@ -7,6 +7,7 @@ public interface IDeviceCellularSims
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceCellularSims")]
 	[Get("/devices/{serial}/cellular/sims")]
 	Task<DeviceCellularSims> GetDeviceCellularSimsAsync(
@@ -19,6 +20,7 @@ public interface IDeviceCellularSims
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="deviceCellularSimsUpdateRequest">Body for updating</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceCellularSims")]
 	[Put("/devices/{serial}/cellular/sims")]
 	Task<DeviceCellularSims> UpdateDeviceCellularSimsAsync(

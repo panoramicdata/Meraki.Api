@@ -18,7 +18,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				Configuration.TestNetworkId,
 				Configuration.TestMac,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 		_ = stats.Mac.Should().NotBeNullOrEmpty();
@@ -36,7 +36,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetNetworkWirelessClientsLatencyStatsAsync(
 				Configuration.TestNetworkId,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 		_ = (stats.FirstOrDefault()?.Mac.Should().NotBeNullOrEmpty());
@@ -53,7 +53,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetDeviceWirelessLatencyStatsAsync(
 				Configuration.TestDeviceSerial,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 		_ = stats.Serial.Should().NotBeNullOrEmpty();
@@ -70,7 +70,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetNetworkWirelessLatencyStatsAsync(
 				Configuration.TestNetworkId,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 		_ = stats.BackgroundTraffic.Should().NotBeNull();
@@ -87,7 +87,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetNetworkWirelessLatencyStatsAsync(
 				Configuration.TestNetworkId,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 	}
@@ -106,7 +106,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				Configuration.TestNetworkId,
 				Configuration.TestMac,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 		_ = stats.Mac.Should().NotBeNullOrEmpty();
@@ -124,7 +124,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetNetworkWirelessClientsConnectionStatsAsync(
 				Configuration.TestNetworkId,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 		_ = (stats.FirstOrDefault()?.Mac.Should().NotBeNullOrEmpty());
@@ -143,7 +143,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetNetworkWirelessDevicesConnectionStatsAsync(
 				Configuration.TestNetworkId,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 	}
@@ -160,7 +160,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetNetworkWirelessDevicesConnectionStatsAsync(
 				Configuration.TestNetworkId,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 		_ = (stats.FirstOrDefault()?.Serial.Should().NotBeNullOrEmpty());
@@ -177,7 +177,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetNetworkWirelessConnectionStatsAsync(
 				Configuration.TestNetworkId,
 				timespan: _timespan,
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 
 		_ = stats.Should().NotBeNull();
 	}

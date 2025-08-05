@@ -11,6 +11,7 @@ public interface IApplianceTrafficShapingVpnExclusions
 	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
 	/// <param name="networkIds">Optional parameter to filter the results by network IDs</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationApplianceTrafficShapingVpnExclusionsByNetwork")]
 	[Get("/organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork")]
 	Task<TrafficShapingVpnExclusionsByNetworkResponse> GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkAsync(
@@ -44,6 +45,7 @@ public interface IApplianceTrafficShapingVpnExclusions
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="trafficShapingVpnExclusions">Traffic Shaping Vpn Exclusions</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceTrafficShapingVpnExclusions")]
 	[Put("/networks/{networkId}/appliance/trafficShaping/vpnExclusions")]
 	Task<TrafficShapingVpnExclusionsByNetworkResponse> UpdateNetworkApplianceTrafficShapingVpnExclusionsAsync(

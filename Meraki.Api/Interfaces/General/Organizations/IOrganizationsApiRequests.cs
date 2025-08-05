@@ -24,6 +24,7 @@ public interface IOrganizationsApiRequests
 	/// <param name="userAgent">Filter the results by the user agent string of the API request</param>
 	/// <param name="version">Filter the results by the API version of the API request</param>
 	/// <param name="operationIds">Filter the results by one or more operation IDs for the API request</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/apiRequests")]
 	Task<List<ApiUsage>> GetOrganizationApiRequestsAsync(
 		string organizationId,
@@ -73,6 +74,7 @@ public interface IOrganizationsApiRequests
 	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0. (optional)</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 31 days. (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/apiRequests/overview")]
 	Task<ApiUsageOverview> GetOrganizationApiRequestsOverviewAsync(
 		string organizationId,
@@ -95,6 +97,7 @@ public interface IOrganizationsApiRequests
 	/// <param name="sourceIps">Filter by source IP that made the API request</param>
 	/// <param name="adminIds">Filter by admin ID of user that made the API request</param>
 	/// <param name="userAgent">Filter by user agent string for API request. This will filter by a complete or partial match.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/apiRequests/overview/responseCodes/byInterval")]
 	Task<List<ApiRequestsOverview>> GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync(
 		string organizationId,

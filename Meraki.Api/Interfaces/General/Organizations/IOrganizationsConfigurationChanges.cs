@@ -18,6 +18,7 @@ public interface IOrganizationsConfigurationChanges
 	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)</param>
 	/// <param name="networkId">Filters on the given network (optional)</param>
 	/// <param name="adminId">Filters on the given Admin (optional)</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/configurationChanges")]
 	Task<List<ChangeLogEntry>> GetOrganizationConfigurationChangesAsync(
 		string organizationId,

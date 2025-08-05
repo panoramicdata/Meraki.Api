@@ -7,6 +7,7 @@ public interface IOrganizationsSaml
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/saml")]
 	Task<Saml> GetOrganizationSamlAsync(
 		string organizationId,
@@ -19,6 +20,7 @@ public interface IOrganizationsSaml
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="updateOrganizationSaml">Body for updating SAML SSO enabled settings</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/organizations/{organizationId}/saml")]
 	Task<Saml> UpdateOrganizationSamlAsync(
 		string organizationId,

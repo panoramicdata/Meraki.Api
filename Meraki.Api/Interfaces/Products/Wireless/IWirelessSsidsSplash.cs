@@ -9,6 +9,7 @@ public interface IWirelessSsidsSplash
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
 	/// <param name="updateNetworkWirelessSsidSplashSettings"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
 	Task<SsidSplashSettings> UpdateNetworkWirelessSsidSplashSettingsAsync(
 		string networkId,
@@ -23,6 +24,7 @@ public interface IWirelessSsidsSplash
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/splash/settings")]
 	Task<SsidSplashSettings> GetNetworkWirelessSsidSplashSettingsAsync(
 		string networkId,

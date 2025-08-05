@@ -10,7 +10,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Networks
 			.Clients
-			.GetNetworkClientsAsync(network.Id);
+			.GetNetworkClientsAsync(network.Id, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<Client>>();
 		_ = result.Should().NotBeNull();
 	}
@@ -27,7 +27,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Networks
 			.Clients
-			.GetNetworkClientAsync(network.Id, Configuration.TestMac);
+			.GetNetworkClientAsync(network.Id, Configuration.TestMac, cancellationToken: CancellationToken);
 		_ = result.Should().BeOfType<List<Client>>();
 		_ = result.Should().NotBeNull();
 	}

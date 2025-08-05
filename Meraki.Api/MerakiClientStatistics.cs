@@ -1,33 +1,36 @@
-﻿namespace Meraki.Api;
+﻿using System.Collections.Concurrent;
+
+namespace Meraki.Api;
 
 public class MerakiClientStatistics
 {
 	public IReadOnlyDictionary<int, MerakiClientStatistic> StatusCodeCounts => _statusCodeCounts;
 
-	private readonly Dictionary<int, MerakiClientStatistic> _statusCodeCounts = [];
+	private readonly ConcurrentDictionary<int, MerakiClientStatistic> _statusCodeCounts = new();
 
-	public int TotalRequestCount { get; private set; }
+	private int _totalRequestCount;
+	public int TotalRequestCount => _totalRequestCount;
 
 	internal void RecordStatusCode(int statusCode, long durationMs, long delayMs)
 	{
-		if (StatusCodeCounts.TryGetValue(statusCode, out var statistic))
-		{
-			statistic.Count++;
-			statistic.TotalInitialResponseDurationMs += durationMs;
-			statistic.TotalClientDelayMs += delayMs;
-		}
-		else
-		{
-			_statusCodeCounts.Add(statusCode, new(1, durationMs, delayMs));
-		}
+		_statusCodeCounts.AddOrUpdate(
+			statusCode,
+			_ => new MerakiClientStatistic(1, durationMs, delayMs),
+			(_, stat) =>
+			{
+				stat.Count++;
+				stat.TotalInitialResponseDurationMs += durationMs;
+				stat.TotalClientDelayMs += delayMs;
+				return stat;
+			});
 
-		TotalRequestCount++;
+		Interlocked.Increment(ref _totalRequestCount);
 	}
 
 	public void Reset()
 	{
 		_statusCodeCounts.Clear();
-		TotalRequestCount = 0;
+		Interlocked.Exchange(ref _totalRequestCount, 0);
 	}
 
 	public override string ToString()

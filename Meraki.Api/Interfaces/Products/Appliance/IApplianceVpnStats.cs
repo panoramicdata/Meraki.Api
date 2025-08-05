@@ -14,10 +14,23 @@ public interface IApplianceVpnStats
 	/// <param name="t0">The beginning of the timespan for the data. The maximum lookback period is 31 days from today.</param>
 	/// <param name="t1">The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</param>
 	/// <param name="timespan">The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/appliance/vpn/stats")]
 	Task<List<VpnStats>> GetOrganizationApplianceVpnStatsAsync(
 		string organizationId,
 		int? perPage = 300,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
+		CancellationToken cancellationToken = default
+		);
+
+	[Get("/organizations/{organizationId}/appliance/vpn/stats")]
+	internal Task<ApiResponse<List<VpnStats>>> GetOrganizationApplianceVpnStatsApiResponseAsync(
+		string organizationId,
 		string? startingAfter = null,
 		string? endingBefore = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,

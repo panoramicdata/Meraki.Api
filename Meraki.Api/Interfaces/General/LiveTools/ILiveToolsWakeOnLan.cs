@@ -8,6 +8,7 @@ public interface ILiveToolsWakeOnLan
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="createDeviceLiveToolsWakeOnLan">Body</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createDeviceLiveToolsWakeOnLan")]
 	[Post("/devices/{serial}/liveTools/wakeOnLan")]
 	Task<LiveToolsWakeOnLan> CreateDeviceLiveToolsWakeOnLanAsync(
@@ -21,6 +22,7 @@ public interface ILiveToolsWakeOnLan
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="wakeOnLanId">Wake on lan ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceLiveToolsWakeOnLan")]
 	[Get("/devices/{serial}/liveTools/wakeOnLan/{wakeOnLanId}")]
 	Task<LiveToolsWakeOnLanResult> GetDeviceLiveToolsWakeOnLanAsync(

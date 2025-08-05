@@ -10,6 +10,7 @@ public interface IOrganizationsFloorPlansAutoLocate
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationFloorPlansAutoLocateDevices")]
 	[Get("/organizations/{organizationId}/floorPlans/autoLocate/devices")]
 	Task<FloorPlansAutoLocateDevices> GetOrganizationFloorPlansAutoLocateDevicesAsync(
@@ -22,6 +23,7 @@ public interface IOrganizationsFloorPlansAutoLocate
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="floorPlansAutoLocateJobsRequest">The list of auto locate jobs to be scheduled. Up to 100 jobs can be provided in a request.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("batchNetworkFloorPlansAutoLocateJobs")]
 	[Post("/networks/{networkId}/floorPlans/autoLocate/jobs/batch")]
 	Task<FloorPlansAutoLocateJobsResponse> BatchNetworkFloorPlansAutoLocateJobsAsync(
@@ -35,6 +37,7 @@ public interface IOrganizationsFloorPlansAutoLocate
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="jobId">Job ID</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("cancelNetworkFloorPlansAutoLocateJob")]
 	[Post("/networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}/cancel")]
 	Task CancelNetworkFloorPlansAutoLocateJobAsync(
@@ -49,6 +52,7 @@ public interface IOrganizationsFloorPlansAutoLocate
 	/// <param name="networkId">The network id</param>
 	/// <param name="jobId">Job ID</param>
 	/// <param name="floorPlansPublishAutoLocateJobRequest">The list of auto locate jobs to be scheduled. Up to 100 jobs can be provided in a request.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("publishNetworkFloorPlansAutoLocateJob")]
 	[Post("/networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}/publish")]
 	Task<FloorPlansPublishAutoLocateJobResponse> PublishNetworkFloorPlansAutoLocateJobAsync(
@@ -64,6 +68,7 @@ public interface IOrganizationsFloorPlansAutoLocate
 	/// <param name="networkId">The network id</param>
 	/// <param name="jobId">Job ID</param>
 	/// <param name="floorPlansRecalculateAutoLocateJobRequest">The list of auto locate jobs to be scheduled. Up to 100 jobs can be provided in a request.</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("recalculateNetworkFloorPlansAutoLocateJob")]
 	[Post("/networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}/recalculate")]
 	Task<FloorPlansRecalculateAutoLocateJobResponse> RecalculateNetworkFloorPlansAutoLocateJobAsync(
@@ -77,6 +82,7 @@ public interface IOrganizationsFloorPlansAutoLocate
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationFloorPlansAutoLocateStatuses")]
 	[Get("/organizations/{organizationId}/floorPlans/autoLocate/statuses")]
 	Task<FloorPlansAutoLocateStatuses> GetOrganizationFloorPlansAutoLocateStatusesAsync(

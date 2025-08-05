@@ -8,6 +8,7 @@ public interface INetworksClientsSplashAuthorizationStatus
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="clientId">The client id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkClientSplashAuthorizationStatus")]
 	[Get("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
 	Task<ClientSplashAuthorizationStatusUpdateRequest> GetNetworkClientSplashAuthorizationStatusAsync(
@@ -22,6 +23,7 @@ public interface INetworksClientsSplashAuthorizationStatus
 	/// <param name="networkId">The network id</param>
 	/// <param name="clientId">The client id</param>
 	/// <param name="updateNetworkClientSplashAuthorizationStatus">Body for updating client's splash authorization</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkClientSplashAuthorizationStatus")]
 	[Put("/networks/{networkId}/clients/{clientId}/splashAuthorizationStatus")]
 	Task<ClientSplashAuthorizationStatusUpdateRequest> UpdateNetworkClientSplashAuthorizationStatusAsync(

@@ -10,6 +10,7 @@ public interface ISwitchLinkAggregations
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchLinkAggregations")]
 	[Get("/networks/{networkId}/switch/linkAggregations")]
 	Task<List<SwitchLinkAggregation>> GetNetworkSwitchLinkAggregationsAsync(
@@ -23,6 +24,7 @@ public interface ISwitchLinkAggregations
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="createNetworkSwitchLinkAggregation">Body for creating a link aggregation group</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("createNetworkSwitchLinkAggregation")]
 	[Post("/networks/{networkId}/switch/linkAggregations")]
 	Task<SwitchLinkAggregation> CreateNetworkSwitchLinkAggregationAsync(
@@ -37,6 +39,7 @@ public interface ISwitchLinkAggregations
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="linkAggregationId">The link aggregation id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("deleteNetworkSwitchLinkAggregation")]
 	[Delete("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
 	Task DeleteNetworkSwitchLinkAggregationAsync(
@@ -52,6 +55,7 @@ public interface ISwitchLinkAggregations
 	/// <param name="networkId">The network id</param>
 	/// <param name="linkAggregationId">The link aggregation id</param>
 	/// <param name="updateNetworkSwitchLinkAggregation">Body for updating a link aggregation group</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchLinkAggregation")]
 	[Put("/networks/{networkId}/switch/linkAggregations/{linkAggregationId}")]
 	Task<SwitchLinkAggregation> UpdateNetworkSwitchLinkAggregationAsync(

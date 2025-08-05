@@ -9,6 +9,7 @@ public interface INetworksWebhooksHttpServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServerId">The id of a HTTP server</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 	Task<WebhookHttpServer> GetNetworkWebhooksHttpServerAsync(
 		string networkId,
@@ -21,6 +22,7 @@ public interface INetworksWebhooksHttpServers
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/webhooks/httpServers")]
 	Task<List<WebhookHttpServer>> GetNetworkWebhooksHttpServersAsync(
 		string networkId,
@@ -33,6 +35,7 @@ public interface INetworksWebhooksHttpServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServer">Body for creating a network HTTP server</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/webhooks/httpServers")]
 	Task<WebhookHttpServer> CreateNetworkWebhooksHttpServerAsync(
 		string networkId,
@@ -47,6 +50,7 @@ public interface INetworksWebhooksHttpServers
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServerId">The id of a HTTP server</param>
 	/// <param name="httpServer">Body for updating a network HTTP server</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 	Task<WebhookHttpServer> UpdateNetworkWebhooksHttpServerAsync(
 		string networkId,
@@ -61,6 +65,7 @@ public interface INetworksWebhooksHttpServers
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="httpServerId">The id of a HTTP server</param>
+	/// <param name="cancellationToken"></param>
 	[Delete("/networks/{networkId}/webhooks/httpServers/{httpServerId}")]
 	Task DeleteNetworkWebhooksHttpServerAsync(
 		string networkId,

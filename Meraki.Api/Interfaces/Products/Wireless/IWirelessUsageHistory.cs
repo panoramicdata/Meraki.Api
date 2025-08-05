@@ -17,6 +17,7 @@ public interface IWirelessUsageHistory
 	/// <param name="apTag">Filter results by AP tag; either :clientId or :deviceSerial must be jointly specified.</param>
 	/// <param name="band">Filter results by band (either '2.4' or '5').</param>
 	/// <param name="ssid">Filter results by SSID number.</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/usageHistory")]
 	Task<List<UsageHistory>> GetNetworkWirelessUsageHistoryAsync(
 		string networkId,

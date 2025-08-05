@@ -8,6 +8,7 @@ public interface ISwitchDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
 	/// <param name="cloneOrganizationSwitchDevices">Body for cloning an organization's switch devices</param>
+	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/switch/devices/clone")]
 	Task<CloneOrganizationSwitchDevices> CloneOrganizationSwitchDevicesAsync(
 		string organizationId,

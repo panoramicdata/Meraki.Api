@@ -10,6 +10,7 @@ public interface ISwitchDhcpServerPolicy
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkSwitchDhcpServerPolicy")]
 	[Get("/networks/{networkId}/switch/dhcpServerPolicy")]
 	Task<DhcpServerPolicy> GetNetworkSwitchDhcpServerPolicyAsync(
@@ -23,6 +24,7 @@ public interface ISwitchDhcpServerPolicy
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkSwitchSettingsDhcpServerPolicy"></param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkSwitchDhcpServerPolicy")]
 	[Put("/networks/{networkId}/switch/dhcpServerPolicy")]
 	Task<DhcpServerPolicy> UpdateNetworkSwitchDhcpServerPolicyAsync(

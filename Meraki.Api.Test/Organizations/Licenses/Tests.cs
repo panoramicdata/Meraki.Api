@@ -8,7 +8,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var result = await TestMerakiClient
 			.Organizations
 			.Licenses
-			.GetOrganizationLicensesOverviewAsync(Configuration.TestOrganizationId);
+			.GetOrganizationLicensesOverviewAsync(
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
 
 		_ = result.Should().NotBeNull();
 	}
@@ -25,7 +27,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var licenses = await TestMerakiClient
 			.Organizations
 			.Licenses
-			.GetOrganizationLicensesAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing);
+			.GetOrganizationLicensesAsync(
+				Configuration.TestOrganizationIdSupportingPerDeviceLicensing,
+				cancellationToken: CancellationToken);
 
 		_ = licenses.Should().NotBeNull();
 	}
@@ -45,7 +49,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var organizationDeviceLicenses = await TestMerakiClient
 			.Organizations
 			.Licenses
-			.GetOrganizationLicensesAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing);
+			.GetOrganizationLicensesAsync(
+				Configuration.TestOrganizationIdSupportingPerDeviceLicensing,
+				cancellationToken: CancellationToken);
 
 		_ = organizationDeviceLicenses.Should().NotBeNullOrEmpty();
 		var license = organizationDeviceLicenses[0];
@@ -53,7 +59,10 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var organizationDeviceLicense = await TestMerakiClient
 			.Organizations
 			.Licenses
-			.GetOrganizationLicenseAsync(Configuration.TestOrganizationIdSupportingPerDeviceLicensing, license.Id);
+			.GetOrganizationLicenseAsync(
+				Configuration.TestOrganizationIdSupportingPerDeviceLicensing,
+				license.Id,
+				CancellationToken);
 
 		_ = organizationDeviceLicense.Should().NotBeNull();
 	}

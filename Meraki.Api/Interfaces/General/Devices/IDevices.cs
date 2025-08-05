@@ -10,6 +10,7 @@ public interface IDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDevice")]
 	[Get("/devices/{serial}")]
 	Task<Device> GetDeviceAsync(
@@ -22,6 +23,7 @@ public interface IDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="device">Body for updating a device</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDevice")]
 	[Put("/devices/{serial}")]
 	Task<Device> UpdateDeviceAsync(
@@ -35,6 +37,7 @@ public interface IDevices
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="blinkLeds">Body for blinking device leds</param>
+	/// <param name="cancellationToken"></param>
 	[Obsolete("Deprecated in Meraki API v1.53 in favour of General.LiveTools.CreateDeviceLiveToolsLedsBlink")]
 	[ApiOperationId("blinkDeviceLeds")]
 	[Post("/devices/{serial}/blinkLeds")]
@@ -48,6 +51,7 @@ public interface IDevices
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[ApiOperationId("rebootDevice")]
 	[Post("/devices/{serial}/reboot")]
 	Task<ActionResponse> RebootDeviceAsync(

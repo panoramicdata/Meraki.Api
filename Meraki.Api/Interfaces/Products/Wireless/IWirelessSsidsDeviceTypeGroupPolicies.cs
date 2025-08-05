@@ -8,6 +8,7 @@ public interface IWirelessSsidsDeviceTypeGroupPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
 	Task<DeviceTypeGroupPolicies> GetNetworkWirelessSsidDeviceTypeGroupPoliciesAsync(
 		string networkId,
@@ -21,6 +22,8 @@ public interface IWirelessSsidsDeviceTypeGroupPolicies
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="number">The SSID number</param>
+	/// <param name="updateNetworkWirelessSsidDeviceTypeGroupPolicies"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies")]
 	Task<DeviceTypeGroupPolicies> UpdateNetworkWirelessSsidDeviceTypeGroupPoliciesAsync(
 		string networkId,

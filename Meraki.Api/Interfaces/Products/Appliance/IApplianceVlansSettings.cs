@@ -6,6 +6,7 @@ public interface IApplianceVlansSettings
 	/// Returns the enabled status of VLANs for the network
 	/// </summary>
 	/// <param name="networkId">The network id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/vlans/settings")]
 	Task<VlansEnabledState> GetNetworkApplianceVlansSettingsAsync(
 		string networkId,
@@ -17,6 +18,7 @@ public interface IApplianceVlansSettings
 	/// </summary>
 	/// <param name="networkId">The network id</param>
 	/// <param name="updateNetworkVlansEnabledState"></param>
+	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/appliance/vlans/settings")]
 	Task<VlansEnabledState> UpdateNetworkApplianceVlansSettingsAsync(
 		string networkId,

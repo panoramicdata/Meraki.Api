@@ -10,6 +10,7 @@ public interface ICellularGatewayPortForwardingRules
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/cellularGateway/portForwardingRules")]
 	Task<CellularGatewayPortForwardingRules> GetDeviceCellularGatewayPortForwardingRulesAsync(
 		string serial,
@@ -22,6 +23,7 @@ public interface ICellularGatewayPortForwardingRules
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="updateDeviceCellularGatewaySettingsPortForwardingRules">Body for updating port forwarding rules</param>
+	/// <param name="cancellationToken"></param>
 	[Put("/devices/{serial}/cellularGateway/portForwardingRules")]
 	Task<CellularGatewayPortForwardingRules> UpdateDeviceCellularGatewayPortForwardingRulesAsync(
 		string serial,
