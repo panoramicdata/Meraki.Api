@@ -196,6 +196,18 @@ public partial class MerakiClient : IDisposable
 				Idp = RefitFor(Organizations.Saml.Idp)
 			},
 			SamlRoles = RefitFor(Organizations.SamlRoles),
+			SecureConnect = new()
+			{
+				PrivateApplicationGroups = RefitFor(Organizations.SecureConnect.PrivateApplicationGroups),
+				PrivateApplications = RefitFor(Organizations.SecureConnect.PrivateApplications),
+				PrivateResourceGroups = RefitFor(Organizations.SecureConnect.PrivateResourceGroups),
+				PrivateResources = RefitFor(Organizations.SecureConnect.PrivateResources),
+				PublicApplications = RefitFor(Organizations.SecureConnect.PublicApplications),
+				Regions = RefitFor(Organizations.SecureConnect.Regions),
+				RemoteAccessLog = RefitFor(Organizations.SecureConnect.RemoteAccessLog),
+				RemoteAccessLogsExports = RefitFor(Organizations.SecureConnect.RemoteAccessLogsExports),
+				Sites = RefitFor(Organizations.SecureConnect.Sites)
+			},
 			Snmp = RefitFor(Organizations.Snmp),
 			Splash = RefitFor(Organizations.Splash),
 			Summary = new()

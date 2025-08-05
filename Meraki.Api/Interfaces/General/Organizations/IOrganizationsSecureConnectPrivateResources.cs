@@ -36,12 +36,15 @@ public interface IOrganizationsSecureConnectPrivateResources
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId"></param>
+	/// <param name="id"></param>
 	/// <param name="request"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("updateOrganizationSecureConnectPrivateResource")]
 	[Put("/organizations/{organizationId}/secureConnect/privateResources/{id}")]
-	Task<SecureConnectPrivateResourcesDataItemUpdateResponse> UpdateOrganizationSecureConnectPrivateResourceAsync(string organizationId,
+	Task<SecureConnectPrivateResourcesDataItemUpdateResponse> UpdateOrganizationSecureConnectPrivateResourceAsync(
+		string organizationId,
+		string id,
 		SecureConnectPrivateResourcesUpdateRequest request,
 		CancellationToken cancellationToken = default);
 
@@ -55,7 +58,8 @@ public interface IOrganizationsSecureConnectPrivateResources
 	/// <returns></returns>
 	[ApiOperationId("deleteOrganizationSecureConnectPrivateResource")]
 	[Delete("/organizations/{organizationId}/secureConnect/privateResources/{id}")]
-	Task DeleteOrganizationSecureConnectPrivateResourceAsync(string organizationId,
+	Task DeleteOrganizationSecureConnectPrivateResourceAsync(
+		string organizationId,
 		string id,
 		CancellationToken cancellationToken = default);
 }
