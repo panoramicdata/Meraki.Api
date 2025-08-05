@@ -416,10 +416,10 @@ public partial class MerakiClient : IDisposable
 		{
 			Deployments = new()
 			{
-				DataCenter = RefitSecureConnectFor(SecureConnect.Deployments.DataCenter),
+				//DataCenter = RefitSecureConnectFor(SecureConnect.Deployments.DataCenter),
 				NetworkDevices = RefitSecureConnectFor(SecureConnect.Deployments.NetworkDevices),
 				OrganizationTunnel = RefitSecureConnectFor(SecureConnect.Deployments.OrganizationTunnel),
-				Policy = RefitSecureConnectFor(SecureConnect.Deployments.Policy)
+				//Policy = RefitSecureConnectFor(SecureConnect.Deployments.Policy)
 			},
 			Policies = new()
 			{
