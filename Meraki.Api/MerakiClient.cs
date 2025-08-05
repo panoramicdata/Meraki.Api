@@ -414,8 +414,18 @@ public partial class MerakiClient : IDisposable
 
 		SecureConnect = new()
 		{
-			Deployments = RefitSecureConnectFor(SecureConnect.Deployments),
-			Policies = RefitSecureConnectFor(SecureConnect.Policies)
+			Deployments = new()
+			{
+				DataCenter = RefitSecureConnectFor(SecureConnect.Deployments.DataCenter),
+				NetworkDevices = RefitSecureConnectFor(SecureConnect.Deployments.NetworkDevices),
+				OrganizationTunnel = RefitSecureConnectFor(SecureConnect.Deployments.OrganizationTunnel),
+				Policy = RefitSecureConnectFor(SecureConnect.Deployments.Policy)
+			},
+			Policies = new()
+			{
+				DestinationLists = RefitSecureConnectFor(SecureConnect.Policies.DestinationLists),
+				Destinations = RefitSecureConnectFor(SecureConnect.Policies.Destinations)
+			}
 		};
 
 		Switch = new()
