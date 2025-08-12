@@ -73,13 +73,13 @@ public interface INetworks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="RetainConfigs">Optional boolean to retain all the current configs given by the template.</param>
+	/// <param name="retainConfigs">Optional boolean to retain all the current configs given by the template.</param>
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("unbindNetwork")]
 	[Post("/networks/{networkId}/unbind")]
 	Task<Network> UnbindNetworkAsync(
 		string networkId,
-		bool? RetainConfigs = null,
+		[Body] bool? retainConfigs = null,
 		CancellationToken cancellationToken = default
 		);
 }
