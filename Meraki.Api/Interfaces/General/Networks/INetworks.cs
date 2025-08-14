@@ -73,7 +73,7 @@ public interface INetworks
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
-	/// <param name="configurationTemplateUnbindRequest">Optional body for unbinding from a template.</param>
+	/// <param name="configurationTemplateUnbindRequest">Body for unbinding from a template.</param>
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("unbindNetwork")]
 	[Post("/networks/{networkId}/unbind")]
