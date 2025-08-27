@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.56.454
+- BREAKING CHANGE: Removed support for Shard-direct API access, as this will cease to work due to a change being applied by Meraki in September 2025.
+
 ## 1.56.449
 - Added UpdateDeviceSwitchPortSetVlanAsync to allow setting the VLAN on a switch port.
 - Added UpdateDeviceSwitchPortSetPortScheduleIdAsync to allow setting the PortScheduleId on a switch port.
