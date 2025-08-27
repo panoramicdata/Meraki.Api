@@ -78,7 +78,7 @@ public partial class MerakiClient : IDisposable
 
 		_httpClient = new HttpClient(_httpClientHandler)
 		{
-			BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.{merakiDomain}/api/v1"),
+			BaseAddress = new Uri($"https://api.{merakiDomain}/api/v1"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
 		};
 		_refitSettings = new RefitSettings
