@@ -6,7 +6,7 @@ namespace Meraki.Api.Interfaces.Products.Wireless;
 public interface IWirelessRadioSettings
 {
 	/// <summary>
-	/// Return the radio settings of a device
+	/// Return the manually configured radio settings overrides of a device, which take precedence over RF profiles.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
@@ -18,7 +18,7 @@ public interface IWirelessRadioSettings
 		);
 
 	/// <summary>
-	/// Update the radio settings of a device
+	/// Update the radio settings overrides of a device, which take precedence over RF profiles.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
