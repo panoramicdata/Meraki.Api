@@ -6,6 +6,20 @@
 [DataContract]
 public class SensorAlertsProfileUpdateRequest : NamedIdentifiedItem
 {
+	///<summary>
+	/// Include dashboard link to sensor in messages (default: true).
+	/// </summary>
+	[ApiKey]
+	[DataMember(Name = "includeSensorUrl")]
+	public bool? IncludeSensorUrl { get; set; }
+
+	///<summary>
+	/// A custom message that will appear in email and text message alerts.
+	/// </summary>
+	[ApiKey]
+	[DataMember(Name = "message")]
+	public string? Message { get; set; }
+
 	/// <summary>
 	/// List of device serials assigned to this sensor profile
 	/// </summary>

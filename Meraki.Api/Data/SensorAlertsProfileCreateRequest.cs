@@ -13,6 +13,20 @@ public class SensorAlertsProfileCreateRequest : NamedIdentifiedItem
 	[DataMember(Name = "serials")]
 	public List<string>? Serials { get; set; }
 
+	///<summary>
+	/// Include dashboard link to sensor in messages (default: true).
+	/// </summary>
+	[ApiKey]
+	[DataMember(Name = "includeSensorUrl")]
+	public bool? IncludeSensorUrl { get; set; }
+
+	///<summary>
+	/// A custom message that will appear in email and text message alerts.
+	/// </summary>
+	[ApiKey]
+	[DataMember(Name = "message")]
+	public string? Message { get; set; }
+
 	/// <summary>
 	/// Sensor alerts profile recipients
 	/// </summary>
