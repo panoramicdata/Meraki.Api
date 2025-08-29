@@ -78,6 +78,13 @@ public class AccessPolicy
 	public string? RadiusGroupAttribute { get; set; }
 
 	/// <summary>
+	/// This is a readonly flag, indicating whether the access policy was under has_guest_port_bouncing NFO
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "enforceRadiusMonitoring")]
+	public bool? EnforceRadiusMonitoring { get; set; }
+
+	/// <summary>
 	/// Choose the Host Mode for the access policy.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
