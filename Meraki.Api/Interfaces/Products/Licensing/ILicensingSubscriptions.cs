@@ -75,6 +75,7 @@ public interface ILicensingSubscriptions
 		[AliasAs("organizationIds[]")] List<string>? organizationIds,
 		[AliasAs("statuses[]")] List<string>? statuses,
 		[AliasAs("productTypes[]")] List<string>? productTypes,
+		[AliasAs("skus[]")] List<string>? skus,
 		string? startDate,
 		string? endDate,
 		CancellationToken cancellationToken = default
