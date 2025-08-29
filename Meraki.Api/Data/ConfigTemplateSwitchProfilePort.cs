@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Data;
+﻿using System;
+using System.Diagnostics;
+
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// Switch profile port
@@ -12,6 +15,14 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "accessPolicyNumber")]
 	public int? AccessPolicyNumber { get; set; }
+
+	/// <summary>
+	/// The maximum number of MAC addresses for regular MAC allow list. Only applicable when 'accessPolicyType' is 'MAC allow list'.
+	/// Note: Config only supported on verions greater than ms18 only for classic switches.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "macWhitelistLimit")]
+	public int? MacWhitelistLimit { get; set; }
 
 	/// <summary>
 	/// Port Id
