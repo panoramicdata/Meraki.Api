@@ -10,12 +10,19 @@ public class ElectronicShelfLabelSettingsNetwork
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "enabled")]
-	public bool Enabled { get; internal set; }
+	public bool? Enabled { get; internal set; }
 
 	/// <summary>
 	/// Desired ESL hostname of the network
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "hostname")]
-	public string Hostname { get; internal set; } = string.Empty;
+	public string? Hostname { get; internal set; } = string.Empty;
+
+	/// <summary>
+	/// Electronic shelf label mode of the network. Valid options are 'Bluetooth', 'high frequency'
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "mode")]
+	public ElectronicShelfLabelSettingsNetworkMode? Mode { get; internal set; }
 }
