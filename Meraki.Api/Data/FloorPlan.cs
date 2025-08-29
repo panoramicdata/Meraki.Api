@@ -54,7 +54,7 @@ public class FloorPlan
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "floorNumber")]
-	public int? FloorNumber { get; set; }
+	public double? FloorNumber { get; set; }
 
 	/// <summary>
 	/// Devices
