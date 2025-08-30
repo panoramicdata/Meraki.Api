@@ -18,6 +18,13 @@ public class OrganizationAssuranceAlertScope
 	public List<string> Peers { get; set; } = [];
 
 	/// <summary>
+	/// Other affected items by the alert
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "others")]
+	public List<string> Others { get; set; } = [];
+
+	/// <summary>
 	/// Description of affected devices
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
