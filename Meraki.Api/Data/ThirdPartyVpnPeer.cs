@@ -1,4 +1,6 @@
+using Refit;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace Meraki.Api.Data;
 
@@ -79,23 +81,23 @@ public class ThirdPartyVpnPeer : NamedItem
 	public List<string>? NetworkTags { get; set; }
 
 	/// <summary>
-	/// Undocumented 2024-10-21
+	/// [optional] If true, the VPN peer is route-based. If not included, the default is false. Supported only for MX 19.1 and above.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "isRouteBased")]
 	public bool? IsRouteBased { get; set; }
 
 	/// <summary>
-	/// Undocumented 2024-10-22
+	/// [optional] A list of network Names.Supported only for MX 19.1 and above.The order of items matches the order of IDs.
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "network")]
 	public ThirdPartyVpnPeerNetwork? Network { get; set; }
 
 	/// <summary>
-	/// Undocumented 2025-01-13
+	/// [optional] Represents the order of peer inside a group
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "priorityInGroup")]
 	public int? priorityInGroup { get; set; }
 
@@ -107,9 +109,9 @@ public class ThirdPartyVpnPeer : NamedItem
 	public string? PublicHostname { get; set; }
 
 	/// <summary>
-	/// Undocumented 2025-02-21
+	/// [optional] Contains the mapping between primary tunnel and backup tunnels.
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
+	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "group")]
 	public ThirdPartyVpnPeerGroup? Group { get; set; }
 
@@ -119,4 +121,11 @@ public class ThirdPartyVpnPeer : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "slaPolicy")]
 	public ThirdPartyVpnPeerSlaPolicy? SlaPolicy { get; set; }
+
+	/// <summary>
+	/// [optional] The BGP neighbor configuration for the VPN peer. Supported only for MX 19.1 and above.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "ebgpNeighbor")]
+	public ThirdPartyVpnPeerEbgpNeighbor? EbgpNeighbor { get; set; }
 }
