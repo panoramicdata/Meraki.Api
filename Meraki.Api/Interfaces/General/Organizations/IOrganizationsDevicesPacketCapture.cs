@@ -5,13 +5,41 @@ public interface IOrganizationsDevicesPacketCapture
 	/// List Packet Captures
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId"></param>
+	/// <param name="organizationId">Organization ID</param>
+	/// <param name="captureIds">Return the packet captures of the specified capture ids</param>
+	/// <param name="networkIds">Return the packet captures of the specified network(s)</param>
+	/// <param name="serials">Return the packet captures of the specified device(s)</param>
+	/// <param name="process">Return the packet captures of the specified process</param>
+	/// <param name="captureStatus">Return the packet captures of the specified capture status</param>
+	/// <param name="name">Return the packet captures matching the specified name</param>
+	/// <param name="clientMac">Return the packet captures matching the specified client macs</param>
+	/// <param name="notes">Return the packet captures matching the specified notes</param>
+	/// <param name="deviceName">Return the packet captures matching the specified device name</param>
+	/// <param name="adminName">Return the packet captures matching the admin name</param>
+	/// <param name="perPage">The number of entries per page returned. Acceptable range is 3 - 100. Default is 10.</param>
+	/// <param name="startingAfter">A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+	/// <param name="endingBefore">A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.</param>
+	/// <param name="sortOrder">Sorted order of entries. Order options are 'ascending' and 'descending'. Default is 'descending'. enum = ["ascending", "descending"]</param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationDevicesPacketCaptureCaptures")]
 	[Get("/organizations/{organizationId}/devices/packetCapture/captures")]
 	Task<OrganizationDevicesPacketCaptureCapturesResponse> GetOrganizationDevicesPacketCaptureCapturesAsync(
 		string organizationId,
+		[AliasAs("captureIds[]")] List<string>? captureIds = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("process[]")] List<string>? process = null,
+		[AliasAs("captureStatus[]")] List<string>? captureStatus = null,
+		[AliasAs("name[]")] List<string>? name = null,
+		[AliasAs("clientMac[]")] List<string>? clientMac = null,
+		string? notes = null,
+		string? deviceName = null,
+		string? adminName = null,
+		int? perPage = 10,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? sortOrder = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
