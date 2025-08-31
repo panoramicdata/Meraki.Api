@@ -7,6 +7,13 @@
 public class AccessPolicy
 {
 	/// <summary>
+	/// Security Group Tag ID for guest group policy
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "guestSgtId")]
+	public int? GuestSgtId { get; set; }
+
+	/// <summary>
 	/// Access policy number
 	/// </summary>
 	[ApiKey]
@@ -97,6 +104,13 @@ public class AccessPolicy
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "accessPolicyType")]
 	public string? AccessPolicyType { get; set; }
+
+	/// <summary>
+	/// Group policy Number for guest group policy
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "guestGroupPolicyId")]
+	public string? GuestGroupPolicyId { get; set; }
 
 	/// <summary>
 	/// Enabling this option will make switches execute 802.1X and MAC-bypass authentication simultaneously so that clients authenticate faster. Only required when accessPolicyType is 'Hybrid Authentication.

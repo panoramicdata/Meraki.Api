@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Meraki.Api.Data;
 
 /// <summary>
@@ -6,6 +8,9 @@ namespace Meraki.Api.Data;
 [DataContract]
 public class ThirdPartyVpnPeer : NamedItem
 {
+	/// <summary>
+	///	The ID of the IPsec peer
+	/// </summary>
 	[ApiKey]
 	[DataMember(Name = "peerId")]
 	public string? PeerId { get; set; }
@@ -107,4 +112,11 @@ public class ThirdPartyVpnPeer : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "group")]
 	public ThirdPartyVpnPeerGroup? Group { get; set; }
+
+	/// <summary>
+	/// [optional] Information about the SLA policy to be applied to the peer
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "slaPolicy")]
+	public ThirdPartyVpnPeerSlaPolicy? SlaPolicy { get; set; }
 }
