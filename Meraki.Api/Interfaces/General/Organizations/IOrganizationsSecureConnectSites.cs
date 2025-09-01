@@ -11,10 +11,24 @@ public interface IOrganizationsSecureConnectSites
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationSecureConnectSites")]
 	[Get("/organizations/{organizationId}/secureConnect/sites")]
-	Task<SecureConnectSitesResponse> GetOrganizationSecureConnectSitesAsync(
+	Task<List<SecureConnectSite>> GetOrganizationSecureConnectSitesAsync(
 		string organizationId,
+		int? perPage = 10,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		// TODO RH Two further properties to be implemented
 		CancellationToken cancellationToken = default
 	);
+
+	[ApiOperationId("getOrganizationSecureConnectSites")]
+	[Get("/organizations/{organizationId}/secureConnect/sites")]
+	internal Task<ApiResponse<List<SecureConnectSite>>> GetOrganizationSecureConnectSitesApiResponseAsync(
+		string organizationId,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		// TODO RH Two further properties to be implemented
+		CancellationToken cancellationToken = default
+		);
 
 	/// <summary>
 	/// Enroll sites in this organization to Secure Connect. For an organization, a maximum of 4000 sites can be enrolled if they are in spoke mode or a maximum of 10 sites can be enrolled in hub mode.
