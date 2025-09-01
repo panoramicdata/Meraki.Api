@@ -1,6 +1,7 @@
 ﻿# Changelog
 
-## 1.57.###
+## 1.57.1
+- Added initial Secure Connect endpoints
 - Fixing retainConfigs parameter on UnbindNetworkAsync to be set in body.
 
 ## 1.56.454
