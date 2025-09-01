@@ -88,7 +88,7 @@ public partial class MerakiClient : IDisposable
 		// Set up the SecureConnect HttpClient
 		_secureConnectHttpClient = new HttpClient(_httpClientHandler)
 		{
-			BaseAddress = new Uri($"https://{options.ApiNode ?? "api"}.{merakiDomain}/api/secureConnect/v1"),
+			BaseAddress = new Uri($"https://api.{merakiDomain}/api/secureConnect/v1"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
 		};
 
