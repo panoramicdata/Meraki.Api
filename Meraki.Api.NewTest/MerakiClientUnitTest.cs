@@ -29,7 +29,6 @@ public abstract class MerakiClientUnitTest
 		var merakiClientOptions = new MerakiClientOptions
 		{
 			ApiKey = testConfig.ApiKey,
-			ApiNode = testConfig.ApiNode
 		};
 		TestOrganizationId = testConfig.OrganizationId;
 		TestSwitchSerial = testConfig.SwitchSerial;

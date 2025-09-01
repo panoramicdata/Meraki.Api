@@ -16,9 +16,10 @@ public class MerakiClientOptions
 
 	/// <summary>
 	/// The API Node (e.g. "n72").
-	/// This is optional, but highly recommended as directly addressing the correct instance will reduce propagation delays.
-	/// If this is NOT provided, you may experience 404 errors when accessing recently-added objects.
+	/// Shard-direct API access will cease to work in September 2025, so this property CANNOT be used.
+	/// This is a breaking change.
 	/// </summary>
+	[Obsolete("Shard-direct API access will cease to work in September 2025.  This is a breaking change.  Do not use this property.", true)]
 	public string? ApiNode { get; set; }
 
 	/// <summary>
@@ -84,12 +85,6 @@ public class MerakiClientOptions
 
 	public void Validate()
 	{
-		// ApiNode
-		if (ApiNode != null && string.IsNullOrWhiteSpace(ApiNode))
-		{
-			throw new ConfigurationException($"Missing {nameof(ApiNode)}.  If not required, set {nameof(ApiNode)} to null.");
-		}
-
 		// ApiKey
 		if (string.IsNullOrWhiteSpace(ApiKey))
 		{
