@@ -11,7 +11,7 @@ public interface IOrganizationsSecureConnectSites
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationSecureConnectSites")]
 	[Get("/organizations/{organizationId}/secureConnect/sites")]
-	Task<List<SecureConnectSite>> GetOrganizationSecureConnectSitesAsync(
+	Task<ApiResponse<SecureConnectSitesResponse>> GetOrganizationSecureConnectSitesAsync(
 		string organizationId,
 		int? perPage = 10,
 		string? startingAfter = null,
@@ -22,7 +22,7 @@ public interface IOrganizationsSecureConnectSites
 
 	[ApiOperationId("getOrganizationSecureConnectSites")]
 	[Get("/organizations/{organizationId}/secureConnect/sites")]
-	internal Task<ApiResponse<List<SecureConnectSite>>> GetOrganizationSecureConnectSitesApiResponseAsync(
+	internal Task<ApiResponse<SecureConnectSitesResponse>> GetOrganizationSecureConnectSitesApiResponseAsync(
 		string organizationId,
 		string? startingAfter = null,
 		string? endingBefore = null,
