@@ -18,7 +18,7 @@ public class UplinkSelection
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "defaultUplink")]
-	public Uplink? DefaultUplink { get; set; }
+	public string? DefaultUplink { get; set; }
 
 	/// <summary>
 	/// Toggle for enabling or disabling load balancing
