@@ -14,9 +14,8 @@ public class SamlRoleUpdateRequest
 	public string Role { get; set; } = null!;
 
 	/// <summary>
-	/// The privilege of the SAML administrator on the organization
+	/// The privilege of the SAML administrator on the organization. Can be one of 'none', 'read-only', 'full' or 'enterprise' or a custom role in the format custom-role:ID:NAME.
 	/// </summary>
-	/// <value>The privilege of the SAML administrator on the organization</value>
 	[DataMember(Name = "orgAccess")]
 	public string OrgAccess { get; set; } = null!;
 
