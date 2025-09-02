@@ -49,7 +49,7 @@ public class SensorAlertsProfile : NamedItem
 	public SensorAlertsProfileSchedule? Schedule { get; set; }
 
 	/// <summary>
-	/// Sensor alert conditions
+	/// List of conditions that will cause the profile to send an alert.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "conditions")]
