@@ -63,6 +63,27 @@ public class Neighbor
 	public int? EbgpMultihop { get; set; }
 
 	/// <summary>
+	/// Multi-exit Discriminator (MED) metric associated with routes received from the neighbor
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "multiExitDiscriminator")]
+	public int? MultiExitDiscriminator { get; set; }
+
+	/// <summary>
+	/// Values to prepend to the AS_PATH BGP Attribute associated with routes received from the neighbor
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "pathPrepend")]
+	public List<int>? PathPrepend { get; set; }
+
+	/// <summary>
+	/// Local weight for routes received from the neighbor
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "weight")]
+	public int? Weight { get; set; }
+
+	/// <summary>
 	/// Information regarding IPv6 address of the neighbor, Required if ip is not present.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
