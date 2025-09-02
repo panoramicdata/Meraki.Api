@@ -49,7 +49,7 @@ public class CriticalAuth
 	public int? VoiceSgtId { get; set; }
 
 	/// <summary>
-	/// Enable to suspend port bounce when RADIUS servers are unreachable
+	/// Disable port bounce when RADIUS servers are unreachable
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "suspendPortBounce")]
