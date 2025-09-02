@@ -14,7 +14,7 @@ public class UplinkSelection
 	public bool? ActiveActiveAutoVpnEnabled { get; set; }
 
 	/// <summary>
-	/// The default uplink. Must be one of: 'wan1' or 'wan2'
+	/// The default uplink. Must be a WAN interface 'wanX'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "defaultUplink")]
