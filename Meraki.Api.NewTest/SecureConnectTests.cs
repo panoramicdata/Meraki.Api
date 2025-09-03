@@ -1,29 +1,49 @@
 ﻿using FluentAssertions;
 using Meraki.Api.Extensions;
 using Microsoft.Extensions.Logging;
-using System.Globalization;
 using Xunit.Abstractions;
-
 namespace Meraki.Api.NewTest;
 
 [Collection("API Collection")]
 public class SecureConnectTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
 	[Fact]
-	public async Task GetOrganizationSecureConnectSitesAllAsync_BetweenT0AndT1_Succeeds()
+	public async Task GetOrganizationSecureConnectSitesAllAsync_Succeeds()
 	{
 		TestMerakiClient.Statistics.Reset();
 
-		var utcNow = DateTime.UtcNow;
-		var secureConnectOrgSites = await TestMerakiClient
+		// Get the sites with different page sizes
+
+		var secureConnectOrgSites100 = await TestMerakiClient
+			.Organizations
+			.SecureConnect
+			.Sites
+			.GetOrganizationSecureConnectSitesAllAsync(
+				TestOrganizationId,
+				pageSize: 100,
+				cancellationToken: default);
+
+		var secureConnectOrgSites1000 = await TestMerakiClient
+			.Organizations
+			.SecureConnect
+			.Sites
 			.GetOrganizationSecureConnectSitesAllAsync(
 				TestOrganizationId,
 				cancellationToken: default);
-		
-		// The site IDs should all be distinct
-		_ = secureConnectOrgSites.Select(s => s.Id).Distinct().Count().Should().Be(secureConnectOrgSites.Count);
+
+		// Get the distinct site ids
+		var secureConnectOrgSites100Distinct = new HashSet<string>(secureConnectOrgSites100.Select(s => s.Id));
+		var secureConnectOrgSites1000Distinct = new HashSet<string>(secureConnectOrgSites1000.Select(s => s.Id));
+
+		// The distinct count should match the original list in each case
+		_ = secureConnectOrgSites100Distinct.Count.Should().Be(secureConnectOrgSites100.Count);
+		_ = secureConnectOrgSites1000Distinct.Count.Should().Be(secureConnectOrgSites1000.Count);
+
+		// The two lists should match
+		_ = secureConnectOrgSites100Distinct.Should().BeEquivalentTo(secureConnectOrgSites1000Distinct);
 
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+		Logger.LogInformation("Count: {Count}", secureConnectOrgSites100Distinct.Count);
 	}
 	/*
 	[Fact]
