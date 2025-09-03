@@ -33,4 +33,11 @@ public class VlanProfile : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlanNames")]
 	public List<VlanProfileVlanName>? VlanNames { get; set; }
+
+	/// <summary>
+	/// Undocumented - likely a comma-separated string of active VLAN IDs - value 'all' observed
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "activeVlans")]
+	public string? ActiveVlans { get; set; }
 }

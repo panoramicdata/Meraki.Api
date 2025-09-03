@@ -72,6 +72,13 @@ public class SwitchPort : NamedItem
 	public string? AllowedVlans { get; set; }
 
 	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "activeVlans")]
+	public string? ActiveVlans { get; set; }
+
+	/// <summary>
 	/// The isolation status of the switch port
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
