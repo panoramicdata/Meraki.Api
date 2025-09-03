@@ -338,7 +338,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		_ = await TestMerakiClient
 			.Networks
-			.UnbindNetworkAsync(newNetwork.Id, cancellationToken: CancellationToken);
+			.UnbindNetworkAsync(newNetwork.Id, new ConfigurationTemplateUnbindRequest(), cancellationToken: CancellationToken);
 
 		//--- Delete the network
 

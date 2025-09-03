@@ -1,6 +1,7 @@
 ﻿using Meraki.Api.Extensions;
 using Meraki.Api.Sections.General.LiveTools;
 using Meraki.Api.Sections.Products.Licensing;
+using Meraki.Api.Sections.SecureConnect;
 
 namespace Meraki.Api;
 
@@ -52,7 +53,8 @@ public partial class MerakiClient : IDisposable
 {
 	private readonly MerakiClientOptions _options;
 	private readonly ILogger _logger;
-	private readonly HttpClient _httpClient;
+	private readonly HttpClient _coreHttpClient;
+	private readonly HttpClient _secureConnectHttpClient;
 	private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
 
 	public string LastRequestUri => _httpClientHandler.LastRequestUri;
@@ -76,11 +78,20 @@ public partial class MerakiClient : IDisposable
 		var merakiDomain = options.ApiRegion.GetMerakiApiDomain()
 			?? throw new ArgumentOutOfRangeException($"Unsupported API Region {options.ApiRegion}");
 
-		_httpClient = new HttpClient(_httpClientHandler)
+		// Set up the core HttpClient, this is used to communicate with most of the API
+		_coreHttpClient = new HttpClient(_httpClientHandler)
 		{
 			BaseAddress = new Uri($"https://api.{merakiDomain}/api/v1"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
 		};
+
+		// Set up the SecureConnect HttpClient
+		_secureConnectHttpClient = new HttpClient(_httpClientHandler)
+		{
+			BaseAddress = new Uri($"https://api.{merakiDomain}/api/secureConnect/v1"),
+			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
+		};
+
 		_refitSettings = new RefitSettings
 		{
 			ContentSerializer = new CustomNewtonsoftJsonContentSerializer(_options, _logger),
@@ -185,6 +196,18 @@ public partial class MerakiClient : IDisposable
 				Idp = RefitFor(Organizations.Saml.Idp)
 			},
 			SamlRoles = RefitFor(Organizations.SamlRoles),
+			SecureConnect = new()
+			{
+				PrivateApplicationGroups = RefitFor(Organizations.SecureConnect.PrivateApplicationGroups),
+				PrivateApplications = RefitFor(Organizations.SecureConnect.PrivateApplications),
+				PrivateResourceGroups = RefitFor(Organizations.SecureConnect.PrivateResourceGroups),
+				PrivateResources = RefitFor(Organizations.SecureConnect.PrivateResources),
+				PublicApplications = RefitFor(Organizations.SecureConnect.PublicApplications),
+				Regions = RefitFor(Organizations.SecureConnect.Regions),
+				RemoteAccessLog = RefitFor(Organizations.SecureConnect.RemoteAccessLog),
+				RemoteAccessLogsExports = RefitFor(Organizations.SecureConnect.RemoteAccessLogsExports),
+				Sites = RefitFor(Organizations.SecureConnect.Sites)
+			},
 			Snmp = RefitFor(Organizations.Snmp),
 			Splash = RefitFor(Organizations.Splash),
 			Summary = new()
@@ -401,6 +424,22 @@ public partial class MerakiClient : IDisposable
 			}
 		};
 
+		SecureConnect = new()
+		{
+			Deployments = new()
+			{
+				//DataCenter = RefitSecureConnectFor(SecureConnect.Deployments.DataCenter),
+				NetworkDevices = RefitSecureConnectFor(SecureConnect.Deployments.NetworkDevices),
+				OrganizationTunnel = RefitSecureConnectFor(SecureConnect.Deployments.OrganizationTunnel),
+				//Policy = RefitSecureConnectFor(SecureConnect.Deployments.Policy)
+			},
+			Policies = new()
+			{
+				DestinationLists = RefitSecureConnectFor(SecureConnect.Policies.DestinationLists),
+				Destinations = RefitSecureConnectFor(SecureConnect.Policies.Destinations)
+			}
+		};
+
 		Switch = new()
 		{
 			AccessControlLists = RefitFor(Switch.AccessControlLists),
@@ -564,8 +603,11 @@ public partial class MerakiClient : IDisposable
 
 	private T RefitFor<T>(T _) =>
 		typeof(T).IsInterface
-			? RestService.For<T>(_httpClient, _refitSettings)
+			? RestService.For<T>(_coreHttpClient, _refitSettings)
 			: throw new ArgumentException($"Type {typeof(T).Name} must be an interface", nameof(_));
+
+	private T RefitSecureConnectFor<T>(T _)
+	=> RestService.For<T>(_secureConnectHttpClient, _refitSettings);
 
 	private readonly RefitSettings _refitSettings;
 
@@ -590,6 +632,8 @@ public partial class MerakiClient : IDisposable
 	public SensorSection Sensor { get; } = new();
 
 	public SmSection Sm { get; } = new();
+
+	public SecureConnectSection SecureConnect { get; } = new();
 
 	public SwitchSection Switch { get; } = new();
 
@@ -617,10 +661,9 @@ public partial class MerakiClient : IDisposable
 		{
 			if (disposing)
 			{
-				_logger.LogTrace("{Message}", Resources.Disposing);
-				_httpClient.Dispose();
+				_coreHttpClient.Dispose();
+				_secureConnectHttpClient.Dispose();
 				_httpClientHandler.Dispose();
-				_logger.LogTrace("{Message}", Resources.Disposed);
 			}
 
 			_disposedValue = true;

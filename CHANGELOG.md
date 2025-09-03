@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.57.6
+- Added initial Secure Connect endpoints
+- Fixing retainConfigs parameter on UnbindNetworkAsync to be set in body.
+
 ## 1.56.454
 - BREAKING CHANGE: Removed support for Shard-direct API access, as this will cease to work due to a change being applied by Meraki in September 2025.
 

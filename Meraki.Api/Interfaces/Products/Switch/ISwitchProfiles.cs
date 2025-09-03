@@ -19,7 +19,7 @@ public interface ISwitchProfiles
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// Return all the templates of a switch profile
+	/// Return all the ports of a switch template
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
