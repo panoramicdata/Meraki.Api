@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.57.9
+- Added GetAllFromResponsePropertyAsync extension method to handle responses with meta/data, e.g. SecureConnect.
+
 ## 1.57.6
 - Added initial Secure Connect endpoints
 - Fixing retainConfigs parameter on UnbindNetworkAsync to be set in body.
