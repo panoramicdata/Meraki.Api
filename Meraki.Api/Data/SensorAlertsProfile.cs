@@ -13,6 +13,20 @@ public class SensorAlertsProfile : NamedItem
 	[DataMember(Name = "profileId")]
 	public string ProfileId { get; set; } = string.Empty;
 
+	///<summary>
+	/// Include dashboard link to sensor in messages (default: true).
+	/// </summary>
+	[ApiKey]
+	[DataMember(Name = "includeSensorUrl")]
+	public bool IncludeSensorUrl { get; set; }
+
+	///<summary>
+	/// A custom message that will appear in email and text message alerts.
+	/// </summary>
+	[ApiKey]
+	[DataMember(Name = "message")]
+	public string Message { get; set; } = string.Empty;
+
 	/// <summary>
 	/// List of device serials assigned to this sensor profile
 	/// </summary>
@@ -35,7 +49,7 @@ public class SensorAlertsProfile : NamedItem
 	public SensorAlertsProfileSchedule? Schedule { get; set; }
 
 	/// <summary>
-	/// Sensor alert conditions
+	/// List of conditions that will cause the profile to send an alert.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "conditions")]

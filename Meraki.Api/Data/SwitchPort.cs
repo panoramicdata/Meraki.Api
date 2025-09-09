@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Data;
+﻿using System;
+using System.Diagnostics;
+
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// A device switch port
@@ -171,7 +174,7 @@ public class SwitchPort : NamedItem
 	public List<string>? MacAllowList { get; set; }
 
 	/// <summary>
-	/// Undocumen ted 2025-05-04, observed value of null
+	/// The maximum number of MAC addresses for regular MAC allow list. Only applicable when 'accessPolicyType' is 'MAC allow list'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "macWhitelistLimit")]

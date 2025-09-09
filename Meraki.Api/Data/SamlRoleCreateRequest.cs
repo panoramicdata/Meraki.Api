@@ -13,7 +13,7 @@ public class SamlRoleCreateRequest
 	public string Role { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The privilege of the SAML administrator on the organization
+	/// The privilege of the SAML administrator on the organization. Can be one of 'none', 'read-only', 'full' or 'enterprise' or a custom role in the format custom-role:ID:NAME.
 	/// </summary>
 	[DataMember(Name = "orgAccess")]
 	public string OrgAccess { get; set; } = string.Empty;

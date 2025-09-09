@@ -44,6 +44,7 @@ public interface ILicensingSubscriptions
 	/// <param name="organizationIds">Organizations to get associated subscriptions for</param>
 	/// <param name="statuses">List of statuses that returned subscriptions can have</param>
 	/// <param name="productTypes">List of product types that returned subscriptions need to have entitlements for.</param>
+	/// <param name="skus">List of SKUs that returned subscriptions need to have entitlements for.</param>
 	/// <param name="startDate">Filter subscriptions by start date, ISO 8601 format. To filter with a range of dates, use 'startDate[]=?' in the request. Accepted options include lt, gt, lte, gte.</param>
 	/// <param name="endDate">Filter subscriptions by end date, ISO 8601 format. To filter with a range of dates, use 'endDate[]=?' in the request. Accepted options include lt, gt, lte, gte.</param>
 	/// <param name="cancellationToken"></param>
@@ -57,6 +58,7 @@ public interface ILicensingSubscriptions
 		[AliasAs("organizationIds[]")] List<string> organizationIds = null!,
 		[AliasAs("statuses[]")] List<string> statuses = null!,
 		[AliasAs("productTypes[]")] List<string> productTypes = null!,
+		[AliasAs("skus[]")] List<string> skus = null!,
 		string startDate = null!,
 		string endDate = null!,
 		CancellationToken cancellationToken = default
@@ -73,6 +75,7 @@ public interface ILicensingSubscriptions
 		[AliasAs("organizationIds[]")] List<string>? organizationIds,
 		[AliasAs("statuses[]")] List<string>? statuses,
 		[AliasAs("productTypes[]")] List<string>? productTypes,
+		[AliasAs("skus[]")] List<string>? skus,
 		string? startDate,
 		string? endDate,
 		CancellationToken cancellationToken = default

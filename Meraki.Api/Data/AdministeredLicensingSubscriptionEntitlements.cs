@@ -47,4 +47,11 @@ public class AdministeredLicensingSubscriptionEntitlements
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isAddOn")]
 	public bool IsAddOn { get; set; }
+
+	/// <summary>
+	/// Whether or not the entitlement is granted for free
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "isFree")]
+	public bool IsFree { get; set; }
 }

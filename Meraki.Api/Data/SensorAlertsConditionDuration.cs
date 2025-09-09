@@ -67,6 +67,12 @@ public enum SensorAlertConditionDuration
 	Seconds3600,
 
 	/// <summary>
+	/// 1.5 Hours
+	/// </summary>
+	[EnumMember(Value = "5400")]
+	Seconds5400,
+
+	/// <summary>
 	/// 2 Hours
 	/// </summary>
 	[EnumMember(Value = "7200")]

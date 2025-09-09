@@ -21,7 +21,35 @@ public class CriticalAuth
 	public int? VoiceVlanId { get; set; }
 
 	/// <summary>
-	/// Enable to suspend port bounce when RADIUS servers are unreachable
+	/// Group policy Number for data VLAN
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "voiceGroupPolicyId")]
+	public int? VoiceGroupPolicyId { get; set; }
+
+	/// <summary>
+	/// Group policy Number for voice VLAN
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "dataGroupPolicyId")]
+	public int? DataGroupPolicyId { get; set; }
+
+	/// <summary>
+	/// Security Group Tag ID for data VLAN
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "dataSgtId")]
+	public int? DataSgtId { get; set; }
+
+	/// <summary>
+	/// Security Group Tag ID for data VLAN
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "voiceSgtId")]
+	public int? VoiceSgtId { get; set; }
+
+	/// <summary>
+	/// Disable port bounce when RADIUS servers are unreachable
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "suspendPortBounce")]

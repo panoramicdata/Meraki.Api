@@ -19,4 +19,11 @@ public class RendezvousPointCreateUpdateRequest
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "multicastGroup")]
 	public string? MulticastGroup { get; set; }
+
+	/// <summary>
+	/// The VRF with PIM enabled L3 interface
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "vrf")]
+	public RendezvousPointVrf? Vrf { get; set; }
 }

@@ -34,5 +34,23 @@ public enum AccessPrivilege
 	/// Enum switchport - Not documented but apparently coming back in live data
 	/// </summary>
 	[EnumMember(Value = "switchport")]
-	Switchport
+	Switchport,
+
+	/// <summary>
+	/// Enum for "ssid-admin"
+	/// </summary>
+	[EnumMember(Value = "ssid-admin")]
+	Ssidadmin,
+
+	/// <summary>
+	/// Enum for "port-tags"
+	/// </summary>
+	[EnumMember(Value = "port-tags")]
+	Porttags,
+
+	/// <summary>
+	/// Enum for "custom-role"
+	/// </summary>
+	[EnumMember(Value = "custom-role")]
+	Customrole
 }

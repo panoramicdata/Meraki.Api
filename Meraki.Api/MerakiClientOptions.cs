@@ -35,9 +35,9 @@ public class MerakiClientOptions
 	public string ApiKey { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Allow overriding the HttpClient Timeout - defaults to 300 seconds
+	/// Allow overriding the HttpClient Timeout - defaults to 600 seconds
 	/// </summary>
-	public int HttpClientTimeoutSeconds { get; set; } = 300;
+	public int HttpClientTimeoutSeconds { get; set; } = 600;
 
 	/// <summary>
 	/// When a 429 HttpStatus code is sent, the back-off duration doubles on each attempt.
@@ -55,7 +55,7 @@ public class MerakiClientOptions
 	/// <summary>
 	/// When retrying
 	/// </summary>
-	public int MaxAttemptCount { get; set; } = 5;
+	public int MaxAttemptCount { get; set; } = 100;
 
 	/// <summary>
 	/// When true, only GETs are permitted

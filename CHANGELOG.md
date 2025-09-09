@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 1.61.1
+- Updated for 1.61 API changes.
+- Increased default timeout to 600s to accommodate longer running requests.
+- Increased default MaxAttempts to 100 to accommodate more retries due to per-IP rate limiting on api.meraki.com
+
 ## 1.57.9
 - Added GetAllFromResponsePropertyAsync extension method to handle responses with meta/data, e.g. SecureConnect.
 

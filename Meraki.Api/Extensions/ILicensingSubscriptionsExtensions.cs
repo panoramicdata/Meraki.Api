@@ -22,6 +22,7 @@ public static class ILicensingSubscriptionsExtensions
 		List<string>? organizationIds,
 		List<string>? statuses,
 		List<string>? productTypes,
+		List<string>? skus,
 		string? startDate,
 		string? endDate,
 		CancellationToken cancellationToken = default)
@@ -34,6 +35,7 @@ public static class ILicensingSubscriptionsExtensions
 						organizationIds,
 						statuses,
 						productTypes,
+						skus,
 						startDate,
 						endDate,
 						cancellationToken

@@ -17,7 +17,7 @@ public class FloorPlanCreationRequest
 	/// The floor number of the floor within the building.
 	/// </summary>
 	[DataMember(Name = "floorNumber")]
-	public int? FloorNumber { get; set; }
+	public double? FloorNumber { get; set; }
 
 	/// <summary>
 	/// Gets or Sets Center

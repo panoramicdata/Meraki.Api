@@ -77,6 +77,13 @@ public class SsidUpdateRequest
 	public int? VlanId { get; set; }
 
 	/// <summary>
+	/// Adaptive policy group ID this SSID is assigned to.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "adaptivePolicyGroupId")]
+	public string? AdaptivePolicyGroupId { get; set; }
+
+	/// <summary>
 	/// The association control method for the SSID ('open', 'psk', 'open-with-radius', '8021x-meraki', '8021x-radius', '8021x-google', '8021x-localradius', 'ipsk-with-radius' or 'ipsk-without-radius')
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

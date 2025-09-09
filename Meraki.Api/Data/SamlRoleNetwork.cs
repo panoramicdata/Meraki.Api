@@ -14,7 +14,7 @@ public class SamlRoleNetwork
 	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
-	/// The privilege of the SAML administrator on the network. Can be one of 'full', 'read-only', 'guest-ambassador' or 'monitor-only'
+	/// The privilege of the SAML administrator on the network. Can be one of 'full', 'read-only', 'guest-ambassador', 'monitor-only', 'ssid-admin', 'port-tags' or 'custom-role'
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "access")]
