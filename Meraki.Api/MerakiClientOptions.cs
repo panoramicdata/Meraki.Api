@@ -83,6 +83,10 @@ public class MerakiClientOptions
 	/// </summary>
 	public Action<Type, JsonSerializationException, string>? JsonMissingMemberAction { get; set; }
 
+	/// <summary>
+	/// Validates the configuration
+	/// </summary>
+	/// <exception cref="ConfigurationException"></exception>
 	public void Validate()
 	{
 		// ApiKey

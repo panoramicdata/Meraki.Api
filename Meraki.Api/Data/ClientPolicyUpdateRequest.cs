@@ -32,5 +32,5 @@ public class ClientPolicyUpdateRequest
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "policiesBySsid")]
-	public ClientPolicyPolicyBySsid PoliciesBySsid { get; set; } = new[];
+	public ClientPolicyPolicyBySsid PoliciesBySsid { get; set; } = new();
 }

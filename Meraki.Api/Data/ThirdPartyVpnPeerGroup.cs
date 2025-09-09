@@ -7,20 +7,13 @@ namespace Meraki.Api.Data;
 public class ThirdPartyVpnPeerGroup
 {
 	/// <summary>
-	/// [optional] Represents the ordering of primary and backup tunnels group. 
-	/// primary and backup tunnels are grouped by this number. 
+	/// [optional] Represents the ordering of primary and backup tunnels group.
+	/// primary and backup tunnels are grouped by this number.
 	/// Peers containing same group number belongs to same group.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "number")]
 	public int? Number { get; set; }
-
-	/// <summary>
-	/// [optional] Both primary and backup tunnels are active.
-	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "activeActiveTunnel")]
-	public bool? ActiveActiveTunnel { get; set; }
 
 	/// <summary>
 	/// [optional] Contains the failover configuration for the group.
