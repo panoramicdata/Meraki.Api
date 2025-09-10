@@ -1,4 +1,4 @@
-﻿global using FluentAssertions;
+﻿global using AwesomeAssertions;
 global using Meraki.Api.Data;
 global using Meraki.Api.Extensions;
 global using Refit;
