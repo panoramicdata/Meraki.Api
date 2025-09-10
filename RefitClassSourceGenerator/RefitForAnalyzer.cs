@@ -12,21 +12,21 @@ public class RefitForAnalyzer : DiagnosticAnalyzer
 {
 	public const string DiagnosticId = "REFIT003";
 
-	private static readonly LocalizableString Title = "RefitFor parameter must be an interface";
-	private static readonly LocalizableString MessageFormat = "The type '{0}' passed to RefitFor must be an interface";
-	private static readonly LocalizableString Description = "RefitFor should only be used with interface types.";
+	private static readonly LocalizableString _title = "RefitFor parameter must be an interface";
+	private static readonly LocalizableString _messageFormat = "The type '{0}' passed to RefitFor must be an interface";
+	private static readonly LocalizableString _description = "RefitFor should only be used with interface types.";
 	private const string Category = "Refit";
 
-	private static readonly DiagnosticDescriptor Rule = new(
+	private static readonly DiagnosticDescriptor _rule = new(
 		DiagnosticId,
-		Title,
-		MessageFormat,
+		_title,
+		_messageFormat,
 		Category,
 		DiagnosticSeverity.Error,
 		isEnabledByDefault: true,
-		description: Description);
+		description: _description);
 
-	public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => [Rule];
+	public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => [_rule];
 
 	public override void Initialize(AnalysisContext context)
 	{
@@ -66,7 +66,7 @@ public class RefitForAnalyzer : DiagnosticAnalyzer
 		if (typeArgument.TypeKind != TypeKind.Interface)
 		{
 			var diagnostic = Diagnostic.Create(
-				Rule,
+				_rule,
 				invocationExpr.GetLocation(),
 				typeArgument.Name);
 			context.ReportDiagnostic(diagnostic);
