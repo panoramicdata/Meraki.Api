@@ -17,6 +17,7 @@ auth
 bgp
 bindable
 bitrate
+BLE
 bluetooth
 bpdu
 Bpduguard
@@ -156,6 +157,7 @@ udp
 unassign
 uplink
 uplinks
+URI
 Url
 urls
 username

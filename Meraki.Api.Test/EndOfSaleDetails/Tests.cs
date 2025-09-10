@@ -1,4 +1,5 @@
 ﻿namespace Meraki.Api.Test.EndOfSaleDetails;
+
 public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
 	[Fact]

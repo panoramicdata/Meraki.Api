@@ -1,5 +1,8 @@
 ﻿namespace Meraki.Api.Data;
 
+/// <summary>
+/// Floor Plans Auto Locate Devices
+/// </summary>
 [DataContract]
 public class FloorPlansAutoLocateDevices
 	: ItemsResponseWithMeta<FloorPlansAutoLocateDevice>

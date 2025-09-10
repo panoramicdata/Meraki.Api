@@ -1,4 +1,8 @@
 ﻿namespace Meraki.Api.Sections.Products.Sensor;
+
+/// <summary>
+/// Section for sensor-related operations.
+/// </summary>
 public class SensorSection
 {
 	public SensorAlertsSection Alerts { get; set; } = new();
