@@ -19,7 +19,7 @@ public class RateLimitingTests(ITestOutputHelper iTestOutputHelper) : MerakiClie
 				stopwatch.Restart();
 				var result = await TestMerakiClient
 				.Organizations
-				.GetOrganizationAsync(Configuration.TestOrganizationId);
+				.GetOrganizationAsync(Configuration.TestOrganizationId, CancellationToken);
 				_ = result.Should().BeOfType<Organization>();
 			}
 			catch (ApiException apiException)
