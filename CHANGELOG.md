@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.61.11
+- Nuget package updates
+
 ## 1.61.1
 - Updated for 1.61 API changes.
 - Increased default timeout to 600s to accommodate longer running requests.
