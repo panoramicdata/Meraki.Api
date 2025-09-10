@@ -207,6 +207,7 @@ public partial class MerakiClient
 		{ "Q4DN", "MS125-24P" },
 		{ "Q4DR", "MS125-48LP" },
 		{ "Q4DT", "MS125-48FP" },
+		{ "Q4DQ", "MS125-48LP" },
 		{ "Q4EB", "MV23X" },
 		{ "Q4ED", "MV73X" },
 		{ "Q4EE", "MV13" },
