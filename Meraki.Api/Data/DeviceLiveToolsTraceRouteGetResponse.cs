@@ -46,5 +46,5 @@ public class DeviceLiveToolsTraceRouteGetResponse
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "results")]
-	public List<DeviceLiveToolsTraceRouteGetResponseResult> Results { get; set; } = new();
+	public List<DeviceLiveToolsTraceRouteGetResponseResult> Results { get; set; } = [];
 }
