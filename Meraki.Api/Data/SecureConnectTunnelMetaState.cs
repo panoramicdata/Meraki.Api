@@ -1,6 +1,3 @@
-using System;
-using System.Net;
-
 namespace Meraki.Api.Data;
 
 /// <summary>
@@ -78,7 +75,6 @@ public class SecureConnectTunnelMetaState
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "peerPort")]
 	public string PeerPort { get; set; } = string.Empty;
-
 
 	/// <summary>
 	/// The high-level tunnel status: 
