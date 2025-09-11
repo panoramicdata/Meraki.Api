@@ -82,4 +82,11 @@ public class RoutingInterfaceDhcp
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "fixedIpAssignments")]
 	public List<FixedIpAssignment>? FixedIpAssignments { get; set; }
+
+	/// <summary>
+	/// Undocumented - assumed to be a comma separated list
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "dhcpDefaultRouterIps")]
+	public object? DhcpDefaultRouterIps { get; set; }
 }
