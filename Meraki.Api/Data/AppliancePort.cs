@@ -62,4 +62,11 @@ public class AppliancePort
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "peerSgtCapable")]
 	public bool? PeerSgtCapable { get; set; }
+
+	/// <summary>
+	/// Undocumented property - always observed as null
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "adaptivePolicyGroupId")]
+	public object? AdaptivePolicyGroupId { get; set; }
 }
