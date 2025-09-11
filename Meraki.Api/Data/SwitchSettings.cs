@@ -40,4 +40,11 @@ public class SwitchSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "macBlocklist")]
 	public MacBlockListSettings? MacBlockList { get; set; }
+
+	/// <summary>
+	/// Undocumented uacSettings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "uacSettings")]
+	public SwitchSettingsUacSettings? UacSettings { get; set; }
 }
