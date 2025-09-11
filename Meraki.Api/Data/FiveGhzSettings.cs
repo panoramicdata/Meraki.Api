@@ -47,4 +47,11 @@ public class FiveGhzSettings
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "rxsop")]
 	public int? Rxsop { get; set; }
+
+	/// <summary>
+	/// Undocumented setting
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "channelPuncturing")]
+	public FiveGhzChannelPuncturingSettings? ChannelPuncturing { get; set; }
 }
