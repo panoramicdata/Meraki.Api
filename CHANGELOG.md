@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.61.x
+- Updates for missing members and endpoints
+
 ## 1.61.11
 - Nuget package updates
 
