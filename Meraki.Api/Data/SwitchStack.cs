@@ -28,4 +28,11 @@ public class SwitchStack : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "members")]
 	public List<SwitchStackMember> Members { get; set; } = [];
+
+	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "virtualMac")]
+	public string? VirtualMac { get; set; }
 }
