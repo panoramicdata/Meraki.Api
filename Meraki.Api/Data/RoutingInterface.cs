@@ -83,4 +83,11 @@ public class RoutingInterface : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ospfV3")]
 	public OspfSettings? OspfV3 { get; set; }
+
+	/// <summary>
+	/// The mode enum = ["loopback", "routed", "vlan"]
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "mode")]
+	public string? Mode { get; set; }
 }
