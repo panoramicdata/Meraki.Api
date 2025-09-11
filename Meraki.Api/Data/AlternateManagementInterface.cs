@@ -10,8 +10,8 @@ public class AlternateManagementInterface
 	/// Alternate management VLAN, must be between 1 and 4094
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "vlan")]
-	public int Vlan { get; set; }
+	[DataMember(Name = "vlanId")]
+	public int VlanId { get; set; }
 
 	/// <summary>
 	/// Boolean value to enable or disable AMI configuration. If enabled, VLAN and protocols must be set
