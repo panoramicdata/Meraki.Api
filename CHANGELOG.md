@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.61.23
+- Fixed issue with type for NetworkApplianceSsidUpdateRequest
+
 ## 1.61.22
 - Updates for missing members and endpoints
 - Improved handling when the Meraki API hangs by offering an inner timeout/retry mechanism, controlled by MerakiClientOptions.HttpClientInnerTimeoutSeconds.  By default, this value is set to 25.
