@@ -30,6 +30,12 @@ public abstract class MerakiClientUnitTest
 		{
 			ApiKey = testConfig.ApiKey,
 		};
+
+		if (testConfig.HttpClientInnerTimeoutSeconds.HasValue)
+		{
+			merakiClientOptions.HttpClientInnerTimeoutSeconds = testConfig.HttpClientInnerTimeoutSeconds.Value;
+		}
+
 		TestOrganizationId = testConfig.OrganizationId;
 		TestSwitchSerial = testConfig.SwitchSerial;
 		TestApplianceSerial = testConfig.ApplianceSerial;

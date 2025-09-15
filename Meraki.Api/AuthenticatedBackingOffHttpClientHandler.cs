@@ -80,9 +80,44 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 			// Complete the action
 			HttpResponseMessage httpResponseMessage;
 
+			// Create a new CancellationToken derived from the original, but with a timeout
+			using var timeoutCancellationSource = new CancellationTokenSource(TimeSpan.FromSeconds(_options.HttpClientInnerTimeoutSeconds));
+			var timeoutToken = timeoutCancellationSource.Token;
+
 			try
 			{
-				httpResponseMessage = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+				httpResponseMessage = await base
+					.SendAsync(request, timeoutToken)
+					.ConfigureAwait(false);
+			}
+			// Catch any timeouts from the new cancellationToken
+			catch (OperationCanceledException) when (timeoutToken.IsCancellationRequested && !cancellationToken.IsCancellationRequested)
+			{
+				// This was a timeout from our timeout token, not the original cancellation token
+				// So we'll treat this as a timeout and retry
+				if (attemptCount >= _options.MaxAttemptCount)
+				{
+					_logger.LogError(
+						"{LogPrefix}Giving up retrying. Timed out on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+						logPrefix, attemptCount, _options.MaxAttemptCount,
+						request.Method.ToString(),
+						request.RequestUri
+						);
+					throw new TimeoutException($"The request timed out after multiple attempts ({_options.MaxAttemptCount}).");
+				}
+
+				_logger.LogWarning(
+					"{LogPrefix}Timed out after {TimeoutSeconds:N1} seconds on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+					logPrefix,
+					_options.HttpClientInnerTimeoutSeconds,
+					attemptCount,
+					_options.MaxAttemptCount,
+					request.Method.ToString(),
+					request.RequestUri
+					);
+
+				// Retry immediately
+				continue;
 			}
 			catch (HttpRequestException ex) when (ex.Message.StartsWith("Network is unreachable", StringComparison.Ordinal))
 			{
@@ -109,6 +144,36 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 
 				// Wait 1 seconds and then retry
 				await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken).ConfigureAwait(false);
+				continue;
+			}
+			catch (HttpRequestException ex) when (
+				ex.Message.IndexOf("Connection reset by peer", StringComparison.OrdinalIgnoreCase) >= 0 ||
+				ex.Message.IndexOf("Unable to read data from the transport connection", StringComparison.OrdinalIgnoreCase) >= 0)
+			{
+				// This is a common error that occurs when the remote server (Meraki API) abruptly closes the TCP connection
+				// This can happen due to network issues, load balancing, or server-side connection limits
+
+				// Try up to the maximum retry count.
+				if (attemptCount >= _options.MaxAttemptCount)
+				{
+					_logger.LogError(
+						"{LogPrefix}Giving up retrying. Received \"Connection reset by peer\" on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+						logPrefix, attemptCount, _options.MaxAttemptCount,
+						request.Method.ToString(),
+						request.RequestUri
+						);
+					throw;
+				}
+
+				_logger.LogWarning(
+					"{LogPrefix}Received \"Connection reset by peer\" on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+					logPrefix, attemptCount, _options.MaxAttemptCount,
+					request.Method.ToString(),
+					request.RequestUri
+					);
+
+				// Wait 2 seconds and then retry (slightly longer delay for connection resets)
+				await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken).ConfigureAwait(false);
 				continue;
 			}
 

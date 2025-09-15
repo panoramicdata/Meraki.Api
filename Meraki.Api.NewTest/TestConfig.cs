@@ -12,4 +12,6 @@ public class TestConfig
 	public string WirelessDeviceSerial1 { get; set; } = string.Empty;
 
 	public string WirelessDeviceSerial2 { get; set; } = string.Empty;
+
+	public double? HttpClientInnerTimeoutSeconds { get; set; }
 }

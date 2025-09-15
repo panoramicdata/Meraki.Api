@@ -84,6 +84,11 @@ public class MerakiClientOptions
 	public Action<Type, JsonSerializationException, string>? JsonMissingMemberAction { get; set; }
 
 	/// <summary>
+	/// The inner HttpClient timeout in seconds.  This is used to set the Timeout on the inner HttpClient used to make requests.
+	/// </summary>
+	public double HttpClientInnerTimeoutSeconds { get; set; } = 25;
+
+	/// <summary>
 	/// Validates the configuration
 	/// </summary>
 	/// <exception cref="ConfigurationException"></exception>
@@ -99,6 +104,11 @@ public class MerakiClientOptions
 		if (MaxBackOffDelaySeconds < 0)
 		{
 			throw new ConfigurationException($"{nameof(MaxBackOffDelaySeconds)} should not be less than zero.");
+		}
+
+		if (HttpClientInnerTimeoutSeconds < 0)
+		{
+			throw new ConfigurationException($"{nameof(HttpClientInnerTimeoutSeconds)} should not be less than zero.");
 		}
 	}
 }
