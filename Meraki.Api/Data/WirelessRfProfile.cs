@@ -26,4 +26,11 @@ public class WirelessRfProfile : WirelessRfProfileCreateUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "afcEnabled")]
 	public bool? AfcEnabled { get; set; }
+
+	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "antennas")]
+	public object? Antennas { get; set; }
 }

@@ -167,4 +167,11 @@ public class AccessPolicy
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "counts")]
 	public AccessPolicyCounts? Counts { get; set; }
+
+	/// <summary>
+	/// Undocumented maxSessions
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "maxSessions")]
+	public object? MaxSessions { get; set; }
 }

@@ -47,4 +47,11 @@ public class SwitchSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "uacSettings")]
 	public SwitchSettingsUacSettings? UacSettings { get; set; }
+
+	/// <summary>
+	/// Undocumented uacAutomaticFailback
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "uacAutomaticFailback")]
+	public SwitchSettingsUacAutomaticFailback? UacAutomaticFailback { get; set; }
 }
