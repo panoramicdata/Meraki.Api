@@ -40,4 +40,11 @@ public class NetworkApplianceSsidRadiusServer
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "caCertificate")]
 	public object? CaCertificate { get; set; }
+
+	/// <summary>
+	/// RADIUS client shared secret
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "secret")]
+	public string? Secret { get; set; }
 }
