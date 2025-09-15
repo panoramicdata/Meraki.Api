@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.61.25
+- Fixed issue with Radius Server list for NetworkApplianceSsidUpdateRequest
+
 ## 1.61.23
 - Fixed issue with type for NetworkApplianceSsidUpdateRequest
 
