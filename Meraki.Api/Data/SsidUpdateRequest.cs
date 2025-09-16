@@ -460,4 +460,15 @@ public class SsidUpdateRequest
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "namedVlans")]
 	public SsidNamedVlans? NamedVlans { get; set; }
+
+	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "wifiPersonalNetworkEnabled")]
+	public object? WifiPersonalNetworkEnabled { get; set; }
+
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "radiusDataCarrierDetect")]
+	public SsidRadiusDataCarrierDetect? RadiusDataCarrierDetect { get; set; }
 }

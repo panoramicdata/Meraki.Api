@@ -56,4 +56,11 @@ public class WirelessSettings
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "regulatoryDomain")]
 	public WirelessSettingsRegulatoryDomain RegulatoryDomain { get; set; } = new();
+
+	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "predownloadFirmware")]
+	public bool? PredownloadFirmware { get; set; }
 }

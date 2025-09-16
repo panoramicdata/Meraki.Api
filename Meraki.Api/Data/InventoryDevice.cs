@@ -98,4 +98,11 @@ public class InventoryDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "details")]
 	public List<DeviceDetail>? Details { get; set; }
+
+	/// <summary>
+	/// Born As
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "bornAs")]
+	public string? BornAs { get; set; }
 }

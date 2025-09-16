@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.61.29
+- Added missing members
+
 ## 1.61.26
 - Added missing members
 

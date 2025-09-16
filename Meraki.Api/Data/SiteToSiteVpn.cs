@@ -14,6 +14,13 @@ public class SiteToSiteVpn
 	public SiteToSiteVpnMode Mode { get; set; }
 
 	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "peerSgtCapable")]
+	public bool? PeerSgtCapable { get; set; }
+
+	/// <summary>
 	/// The list of VPN hubs, in order of preference. In spoke mode, at least 1 hub is required.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

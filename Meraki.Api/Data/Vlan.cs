@@ -161,4 +161,11 @@ public class Vlan : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "vpnNatSubnet")]
 	public string? VpnNatSubnet { get; set; }
+
+	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "adaptivePolicyGroupId")]
+	public object? AdaptivePolicyGroupId { get; set; }
 }

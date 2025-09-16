@@ -89,4 +89,11 @@ public class RoutingInterfaceDhcp
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dhcpDefaultRouterIps")]
 	public object? DhcpDefaultRouterIps { get; set; }
+
+	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "dhcpDomainName")]
+	public string? DhcpDomainName { get; set; }
 }

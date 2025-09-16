@@ -53,14 +53,21 @@ public class RoutingInterface : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "uplinkV4")]
-	public bool UplinkV4 { get; set; }
+	public bool? UplinkV4 { get; set; }
 
 	/// <summary>
 	/// Whether this is the switch's IPv6 uplink
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "uplinkV6")]
-	public bool UplinkV6 { get; set; }
+	public bool? UplinkV6 { get; set; }
+
+	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "candidateUplinkV4")]
+	public bool? CandidateUplinkV4 { get; set; }
 
 	/// <summary>
 	/// The IPv6 settings of the interface
