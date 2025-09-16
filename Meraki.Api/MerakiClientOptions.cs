@@ -55,7 +55,7 @@ public class MerakiClientOptions
 	/// <summary>
 	/// When retrying
 	/// </summary>
-	public int MaxAttemptCount { get; set; } = 100;
+	public int MaxAttemptCount { get; set; } = 500;
 
 	/// <summary>
 	/// When true, only GETs are permitted
@@ -85,6 +85,7 @@ public class MerakiClientOptions
 
 	/// <summary>
 	/// The inner HttpClient timeout in seconds.  This is used to set the Timeout on the inner HttpClient used to make requests.
+	/// Increase this if you are making requests that take a long time to complete.
 	/// </summary>
 	public double HttpClientInnerTimeoutSeconds { get; set; } = 25;
 
