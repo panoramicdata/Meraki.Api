@@ -98,8 +98,11 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				if (attemptCount >= _options.MaxAttemptCount)
 				{
 					_logger.LogError(
-						"{LogPrefix}Giving up retrying. Timed out on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
-						logPrefix, attemptCount, _options.MaxAttemptCount,
+						"{LogPrefix}Giving up retrying. Timed out after {TimeoutSeconds:N1} seconds on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+						logPrefix,
+						_options.HttpClientInnerTimeoutSeconds,
+						attemptCount,
+						_options.MaxAttemptCount,
 						request.Method.ToString(),
 						request.RequestUri
 						);
