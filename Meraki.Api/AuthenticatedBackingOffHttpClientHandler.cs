@@ -151,9 +151,9 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken).ConfigureAwait(false);
 				continue;
 			}
-			catch (Exception ex) when (
-				ex.Message.IndexOf("Connection reset by peer", StringComparison.OrdinalIgnoreCase) >= 0 ||
-				ex.Message.IndexOf("Unable to read data from the transport connection", StringComparison.OrdinalIgnoreCase) >= 0)
+			catch (HttpRequestException ex) when (
+				ex.Message.IndexOf("An error occurred while sending the request", StringComparison.OrdinalIgnoreCase) >= 0 ||
+				ex.InnerException?.Message.IndexOf("Connection reset by peer", StringComparison.OrdinalIgnoreCase) >= 0)
 			{
 				// This is a common error that occurs when the remote server (Meraki API) abruptly closes the TCP connection
 				// This can happen due to network issues, load balancing, or server-side connection limits
