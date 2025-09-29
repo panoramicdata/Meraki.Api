@@ -47,4 +47,11 @@ public class SwitchStaticRoute : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "managementNextHop")]
 	public string? ManagementNextHop { get; set; }
+
+	/// <summary>
+	/// VRF settings. Included on networks with IOS XE 17.18 or higher
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "vrf")]
+	public SwitchStaticRouteVrf? Vrf { get; set; }
 }
