@@ -7,22 +7,23 @@ public interface IDevicesWirelessZigbeeEnrollments
 	/// </summary>
 	/// <param name="serial"></param>
 	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
 	[ApiOperationId("createDeviceWirelessZigbeeEnrollment")]
 	[Post("/devices/{serial}/wireless/zigbee/enrollments")]
-	Task<DevicesWirelessZigbeeEnrollments> CreateDeviceWirelessZigbeeEnrollmentAsync(string serial,
+	Task<DevicesWirelessZigbeeEnrollments> CreateDeviceWirelessZigbeeEnrollmentAsync(
+		string serial,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
-	/// Return an enrollment job
+	/// Return an enrollment
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="serial"></param>
-	/// <param name="id"></param>
+	/// <param name="serial">Serial</param>
+	/// <param name="enrollmentId">Enrollment ID</param>
 	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
 	[ApiOperationId("getDeviceWirelessZigbeeEnrollment")]
-	[Get("/devices/{serial}/wireless/zigbee/enrollments/{id}")]
-	Task<DevicesWirelessZigbeeEnrollmentsDetailed> GetDeviceWirelessZigbeeEnrollmentAsync(string serial,
-	string id, CancellationToken cancellationToken = default);
+	[Get("/devices/{serial}/wireless/zigbee/enrollments/{enriollmentId}")]
+	Task<DevicesWirelessZigbeeEnrollmentsDetailed> GetDeviceWirelessZigbeeEnrollmentAsync(
+		string serial,
+		string enrollmentId, 
+		CancellationToken cancellationToken = default);
 }

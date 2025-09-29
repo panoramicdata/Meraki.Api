@@ -9,7 +9,6 @@ public interface INetworksWirelessZigbee
 	/// <param name="networkId"></param>
 	/// <param name="request"></param>
 	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
 	[ApiOperationId("updateNetworkWirelessZigbee")]
 	[Put("/networks/{networkId}/wireless/zigbee")]
 	Task<NetworkWirelessZigbeeUpdateResponse> UpdateNetworkWirelessZigbeeAsync(

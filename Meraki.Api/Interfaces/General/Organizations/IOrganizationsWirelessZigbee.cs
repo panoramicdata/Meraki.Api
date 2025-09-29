@@ -5,9 +5,8 @@ public interface IOrganizationsWirelessZigbee
 	/// Return list of Zigbee configs
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId"></param>
-	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
+	/// <param name="organizationId">Organization ID</param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getOrganizationWirelessZigbeeByNetwork")]
 	[Get("/organizations/{organizationId}/wireless/zigbee/byNetwork")]
 	Task<List<OrganizationZigbeeConfiguration>> GetOrganizationZigbeesByNetworkAsync(
@@ -19,9 +18,8 @@ public interface IOrganizationsWirelessZigbee
 	/// List the Zigbee MR Nodes for and organization or the supplied network(s)
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId"></param>
-	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
+	/// <param name="organizationId">Organization ID</param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getOrganizationWirelessZigbeeDevices")]
 	[Get("/organizations/{organizationId}/wireless/zigbee/devices")]
 	Task<List<OrganizationZigbeeDevice>> GetOrganizationZigbeeDevicesAsync(
@@ -33,11 +31,10 @@ public interface IOrganizationsWirelessZigbee
 	/// Endpoint to update zigbee gateways
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId"></param>
-	/// <param name="id"></param>
-	/// <param name="organizationZigbeeDeviceUpdate"></param>
-	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
+	/// <param name="organizationId">Organization ID</param>
+	/// <param name="id">ID</param>
+	/// <param name="organizationZigbeeDeviceUpdate">The request body</param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("updateOrganizationWirelessZigbeeDevice")]
 	[Put("/organizations/{organizationId}/wireless/zigbee/devices/{id}")]
 	Task<OrganizationZigbeeDevice> UpdateOrganizationZigbeeDeviceAsync(
@@ -51,10 +48,9 @@ public interface IOrganizationsWirelessZigbee
 	/// Enqueue a job to start disenrolling doorlocks on zigbee configured MRs
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId"></param>
-	/// <param name="organizationZigbeeDisenrollmentRequest"></param>
-	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
+	/// <param name="organizationId">Organization ID</param>
+	/// <param name="organizationZigbeeDisenrollmentRequest">The request body</param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("createOrganizationWirelessZigbeeDisenrollment")]
 	[Post("/organizations/{organizationId}/wireless/zigbee/disenrollments")]
 	Task<OrganizationZigbeeDisenrollment> CreateOrganizationWirelessZigbeeDisenrollmentAsync(
@@ -67,15 +63,14 @@ public interface IOrganizationsWirelessZigbee
 	/// Return a disenrollment job
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId"></param>
-	/// <param name="id"></param>
-	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
+	/// <param name="organizationId">Organization ID</param>
+	/// <param name="disenrollmentId">Disenrollment ID</param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getOrganizationWirelessZigbeeDisenrollment")]
-	[Get("/organizations/{organizationId}/wireless/zigbee/disenrollments/{id}")]
+	[Get("/organizations/{organizationId}/wireless/zigbee/disenrollments/{disenrollmentId}")]
 	Task<OrganizationZigbeeDisenrollmentDetailed> GetOrganizationWirelessZigbeeDisenrollmentAsync(
 		string organizationId,
-		string id,
+		string disenrollmentId,
 		CancellationToken cancellationToken = default
 	);
 
@@ -83,9 +78,8 @@ public interface IOrganizationsWirelessZigbee
 	/// Return the list of doorlocks for a network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId"></param>
-	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
+	/// <param name="organizationId">Organizartion ID</param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getOrganizationWirelessZigbeeDoorLocks")]
 	[Get("/organizations/{organizationId}/wireless/zigbee/doorLocks")]
 	Task<List<OrganizationZigbeeDoorLockDetailed>> GetOrganizationWirelessZigbeeDoorLocksAsync(
@@ -97,16 +91,15 @@ public interface IOrganizationsWirelessZigbee
 	/// Endpoint to bulk update door locks params
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId"></param>
-	/// <param name="id"></param>
-	/// <param name="organizationZigbeeDoorLockUpdateRequest"></param>
-	/// <param name="cancellationToken"></param>
-	/// <returns></returns>
+	/// <param name="organizationId">Organizartion ID</param>
+	/// <param name="doorlockId">Door Lock ID</param>
+	/// <param name="organizationZigbeeDoorLockUpdateRequest">The update request</param>
+	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("updateOrganizationWirelessZigbeeDoorLock")]
-	[Put("/organizations/{organizationId}/wireless/zigbee/doorLocks/{id}")]
+	[Put("/organizations/{organizationId}/wireless/zigbee/doorLocks/{doorlockId}")]
 	Task<OrganizationZigbeeDoorLockDetailed> UpdateOrganizationWirelessZigbeeDoorLockAsync(
 		string organizationId,
-		string id,
+		string doorlockId,
 		[Body] OrganizationZigbeeDoorLockUpdateRequest organizationZigbeeDoorLockUpdateRequest,
 		CancellationToken cancellationToken = default
 	);
