@@ -392,6 +392,13 @@ public class SsidUpdateRequest
 	public Ldap? Ldap { get; set; }
 
 	/// <summary>
+	/// The current configuration for Local Authentication Fallback. Enables the Access Point (AP) to store client authentication data for a specified duration that can be adjusted as needed.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "localAuthFallback")]
+	public SsidUpdateRequestLocalAuthFallback? LocalAuthFallback { get; set; }
+
+	/// <summary>
 	/// The current setting for Local Authentication, a built-in RADIUS server on the access point. Only valid if authMode is '8021x-localradius'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
