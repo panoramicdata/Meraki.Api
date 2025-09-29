@@ -7,6 +7,13 @@
 public class FirmwareUpgradeProduct
 {
 	/// <summary>
+	/// Whether or not an upgraded firmware version is available
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "isUpgradeAvailable")]
+	public bool IsUpgradeAvailable { get; set; }
+
+	/// <summary>
 	/// Current version
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]

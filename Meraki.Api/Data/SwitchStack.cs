@@ -18,6 +18,7 @@ public class SwitchStack : NamedIdentifiedItem
 	/// <summary>
 	/// IsMonitorOnly - Undocumented
 	/// </summary>
+	[Obsolete("This property is deprecated from API v1.61")]
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "isMonitorOnly")]
 	public bool IsMonitorOnly { get; set; }
@@ -25,6 +26,7 @@ public class SwitchStack : NamedIdentifiedItem
 	/// <summary>
 	/// Members - Undocumented
 	/// </summary>
+	[Obsolete("This property is deprecated from API v1.61")]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "members")]
 	public List<SwitchStackMember> Members { get; set; } = [];
@@ -35,4 +37,11 @@ public class SwitchStack : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "virtualMac")]
 	public string? VirtualMac { get; set; }
+
+	/// <summary>
+	/// ID of the workflow
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "workflowId")]
+	public string? WorkflowId { get; set; }
 }
