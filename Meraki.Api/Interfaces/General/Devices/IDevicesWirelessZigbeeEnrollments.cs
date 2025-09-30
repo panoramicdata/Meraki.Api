@@ -21,7 +21,7 @@ public interface IDevicesWirelessZigbeeEnrollments
 	/// <param name="enrollmentId">Enrollment ID</param>
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceWirelessZigbeeEnrollment")]
-	[Get("/devices/{serial}/wireless/zigbee/enrollments/{enriollmentId}")]
+	[Get("/devices/{serial}/wireless/zigbee/enrollments/{enrollmentId}")]
 	Task<DevicesWirelessZigbeeEnrollmentsDetailed> GetDeviceWirelessZigbeeEnrollmentAsync(
 		string serial,
 		string enrollmentId, 
