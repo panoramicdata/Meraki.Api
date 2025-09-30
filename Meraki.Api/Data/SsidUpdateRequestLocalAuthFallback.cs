@@ -1,4 +1,4 @@
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// SsidUpdateRequestLocalAuthFallback
