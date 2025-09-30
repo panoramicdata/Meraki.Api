@@ -201,6 +201,9 @@ public class SwitchPort : NamedItem
 	[DataMember(Name = "stormControlEnabled")]
 	public bool? StormControlEnabled { get; set; }
 
+	/// <summary>
+	/// Available link speeds for the switch port.
+	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "linkNegotiationCapabilities")]
 	public List<string>? LinkNegotiationCapabilities { get; set; }
@@ -218,6 +221,13 @@ public class SwitchPort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dot3az")]
 	public SwitchPortDot3az? Dot3az { get; set; }
+
+	/// <summary>
+	/// High speed port enablement settings for C9500-32QC
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "highSpeed")]
+	public SwitchPortHighSpeed? HighSpeed { get; set; }
 
 	/// <summary>
 	/// Profile attributes
