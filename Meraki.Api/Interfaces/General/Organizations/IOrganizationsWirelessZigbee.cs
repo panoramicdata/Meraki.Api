@@ -91,7 +91,7 @@ public interface IOrganizationsWirelessZigbee
 	/// Endpoint to bulk update door locks params
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId">Organizartion ID</param>
+	/// <param name="organizationId">Organization ID</param>
 	/// <param name="doorlockId">Door Lock ID</param>
 	/// <param name="organizationZigbeeDoorLockUpdateRequest">The update request</param>
 	/// <param name="cancellationToken">The cancellation token</param>
