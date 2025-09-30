@@ -78,7 +78,7 @@ public interface IOrganizationsWirelessZigbee
 	/// Return the list of doorlocks for a network
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="organizationId">Organizartion ID</param>
+	/// <param name="organizationId">Organization ID</param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	[ApiOperationId("getOrganizationWirelessZigbeeDoorLocks")]
 	[Get("/organizations/{organizationId}/wireless/zigbee/doorLocks")]
