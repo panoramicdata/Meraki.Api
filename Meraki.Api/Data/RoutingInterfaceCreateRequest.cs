@@ -42,6 +42,20 @@ public class RoutingInterfaceCreateRequest : NamedItem
 	public string Subnet { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Switch Port ID when in Routed mode (CS 17.18 or higher required)
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "switchPortId")]
+	public string? SwitchPortId { get; set; }
+
+	/// <summary>
+	/// The loopback settings of the interface. Documentation incomplete 2025-09-29
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "loopback")]
+	public object? Loopback { get; set; }
+
+	/// <summary>
 	/// Whether this is the switch's IPv4 uplink
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
@@ -56,6 +70,14 @@ public class RoutingInterfaceCreateRequest : NamedItem
 	public bool? UplinkV6 { get; set; }
 
 	/// <summary>
+	/// L3 Interface mode, can be one of 'vlan', 'routed' or 'loopback'. Default is 'vlan'. CS 17.18 or higher is required for 'routed' mode.
+	/// enum = ["loopback", "routed", "vlan"]
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "mode")]
+	public string? Mode { get; set; }
+
+	/// <summary>
 	/// The IPv6 settings of the interface
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
@@ -68,4 +90,10 @@ public class RoutingInterfaceCreateRequest : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ospfSettings")]
 	public OspfSettings? OspfSettings { get; set; }
+
+	/// <summary>
+	/// VRF settings. Included on networks with IOS XE 17.18 or higher
+	/// </summary>
+	[DataMember(Name = "vrf")]
+	public RoutingInterfaceVrf? Vrf { get; set; }
 }

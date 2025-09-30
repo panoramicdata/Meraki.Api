@@ -28,6 +28,20 @@ public class RoutingInterfaceUpdateRequest : NamedItem
 	public string? InterfaceIp { get; set; }
 
 	/// <summary>
+	/// Switch Port ID when in Routed mode (CS 17.18 or higher required)
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "switchPortId")]
+	public string? SwitchPortId { get; set; }
+
+	/// <summary>
+	/// The loopback settings of the interface. Documentation incomplete 2025-09-29
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "loopback")]
+	public object? Loopback { get; set; }
+
+	/// <summary>
 	/// Enable multicast support if, multicast routing between VLANs is required. Options are, 'disabled', 'enabled' or 'IGMP snooping querier'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
@@ -68,4 +82,10 @@ public class RoutingInterfaceUpdateRequest : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "ospfSettings")]
 	public OspfSettings? OspfSettings { get; set; }
+
+	/// <summary>
+	/// VRF settings. Included on networks with IOS XE 17.18 or higher
+	/// </summary>
+	[DataMember(Name = "vrf")]
+	public RoutingInterfaceVrf? Vrf { get; set; }
 }

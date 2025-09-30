@@ -66,6 +66,9 @@ public class SensorReadingHistoric
 	[DataMember(Name = "powerFactor")]
 	public SensorMetricPowerFactor? PowerFactor { get; set; }
 
+	[DataMember(Name = "rawTemperature")]
+	public SensorMetricRawTemperature? RawTemperature { get; set; }
+
 	[DataMember(Name = "realPower")]
 	public SensorMetricRealPower? RealPower { get; set; }
 
