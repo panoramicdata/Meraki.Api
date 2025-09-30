@@ -32,9 +32,9 @@ public class SwitchStack : NamedIdentifiedItem
 	public List<SwitchStackMember> Members { get; set; } = [];
 
 	/// <summary>
-	/// Undocumented
+	/// The virtual MAC address of the switch stack
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "virtualMac")]
 	public string? VirtualMac { get; set; }
 

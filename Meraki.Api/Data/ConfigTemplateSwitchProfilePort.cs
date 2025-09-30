@@ -207,6 +207,13 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	public ConfigTemplateSwitchProfilePortDot3az? Dot3az { get; set; }
 
 	/// <summary>
+	/// High speed port enablement settings for C9500-32QC
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "highSpeed")]
+	public SwitchPortHighSpeed? HighSpeed { get; set; }
+
+	/// <summary>
 	/// Profile attributes
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
