@@ -83,7 +83,7 @@ namespace Meraki.Api.Sections.General.Networks {
 
 		var compilation = CSharpCompilation.Create("foo", [syntaxTree], references, new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
-		ISourceGenerator generator = new RefitClassGenerator();
+		IIncrementalGenerator generator = new RefitClassGenerator();
 
 		var driver = CSharpGeneratorDriver.Create(generator);
 		_ = driver.RunGeneratorsAndUpdateCompilation(compilation, out var outputCompilation, out var generateDiagnostics);
