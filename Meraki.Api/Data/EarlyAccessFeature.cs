@@ -47,4 +47,11 @@ public class EarlyAccessFeature : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "supportLink")]
 	public string SupportLink { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Link to the privacy policy for this early access feature
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "privacyLink")]
+	public string PrivacyLink { get; set; } = string.Empty;
 }

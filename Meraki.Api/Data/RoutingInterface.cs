@@ -14,6 +14,13 @@ public class RoutingInterface : NamedItem
 	public string InterfaceId { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Device Serial
+	/// </summary>
+	[ApiKey]
+	[DataMember(Name = "serial")]
+	public string Serial { get; set; } = string.Empty;
+
+	/// <summary>
 	/// The VLAN this routed interface is on. VLAN must be between 1 and 4094.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
@@ -47,6 +54,20 @@ public class RoutingInterface : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "subnet")]
 	public string? Subnet { get; set; }
+
+	/// <summary>
+	/// Switch Port ID when in Routed mode (CS 17.18 or higher required).
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "switchPortId")]
+	public string? SwitchPortId { get; set; }
+
+	/// <summary>
+	/// The loopback settings of the interface. Documentation incomplete 2025-09-29
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "loopback")]
+	public object? Loopback { get; set; }
 
 	/// <summary>
 	/// Whether this is the switch's IPv4 uplink
@@ -97,4 +118,11 @@ public class RoutingInterface : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "mode")]
 	public string? Mode { get; set; }
+
+	/// <summary>
+	/// VRF settings. Included on networks with IOS XE 17.18 or higher
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "vrf")]
+	public RoutingInterfaceVrf? Vrf { get; set; }
 }

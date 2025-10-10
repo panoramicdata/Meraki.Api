@@ -42,9 +42,8 @@ public class SsidLayer3FirewallRule
 	public string DestinationCidr { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Undocumented IP Version - Observed values so far: 'ipv4'
-	/// Firewall rules created before the implementation of the ipVer property would have been ipv4 but are returned as null by the API
-	/// Sending null is interpreted as ipv4 AND ipv6 so this property is now not nullable to avoid ambiguity
+	/// IP version to which this rule applies (must be one of 'both', 'ipv4' or 'ipv6'). Defaults to 'both' if not specified.
+	/// enum = ["both", "ipv4", "ipv6"]
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ipVer")]
