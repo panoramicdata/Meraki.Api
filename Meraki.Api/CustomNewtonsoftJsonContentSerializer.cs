@@ -57,7 +57,8 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 		catch (JsonSerializationException ex)
 		{
-			_logger.LogWarning(ex, "{Message}", ex.Message);
+			_logger.LogWarning(ex, "JsonSerializationException: {Message}", ex.Message);
+			_logger.LogWarning("JsonSerializationException occurred: {Message}", ex.Message);
 
 			if (_options.JsonMissingMemberResponseLogLevel != LogLevel.None)
 			{
@@ -71,7 +72,7 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 		catch (JsonReaderException ex)
 		{
-			_logger.LogWarning("{Message} - Invalid JSON: {Json}", ex.Message, sourceJson);
+			_logger.LogWarning("JsonReaderException: {Message} - Invalid JSON: {Json}", ex.Message, sourceJson);
 			throw;
 		}
 	}
@@ -99,7 +100,7 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 		catch (JsonReaderException ex)
 		{
-			_logger.LogWarning("{Message} - Invalid JSON: {Json}", ex.Message, sourceJson);
+			_logger.LogWarning("JsonReaderException: {Message} - Invalid JSON: {Json}", ex.Message, sourceJson);
 			throw;
 		}
 	}
