@@ -130,7 +130,6 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				if (attemptCount >= _options.MaxAttemptCount)
 				{
 					_logger.LogError(
-						ex,
 						"{LogPrefix}Giving up retrying. Received \"Network is unreachable\" on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
 						logPrefix, attemptCount, _options.MaxAttemptCount,
 						request.Method.ToString(),
@@ -140,7 +139,6 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				}
 
 				_logger.LogWarning(
-					ex,
 					"{LogPrefix}Received \"Network is unreachable\" on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
 					logPrefix, attemptCount, _options.MaxAttemptCount,
 					request.Method.ToString(),
@@ -172,7 +170,6 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				}
 
 				_logger.LogWarning(
-					ex,
 					"{LogPrefix}Received \"Connection reset by peer\" on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
 					logPrefix, attemptCount, _options.MaxAttemptCount,
 					request.Method.ToString(),
