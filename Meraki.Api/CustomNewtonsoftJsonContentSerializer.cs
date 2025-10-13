@@ -57,7 +57,7 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 		catch (JsonSerializationException ex)
 		{
-			_logger.LogWarning("JsonSerializationException occurred: {Message}", ex.Message);
+			_logger.LogWarning(ex, "JsonSerializationException: {Message}", ex.Message);
 
 			if (_options.JsonMissingMemberResponseLogLevel != LogLevel.None)
 			{
