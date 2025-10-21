@@ -125,4 +125,25 @@ public class RoutingInterface : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vrf")]
 	public RoutingInterfaceVrf? Vrf { get; set; }
+
+	/// <summary>
+	/// Switch fabric ID - Undocumented added 2025-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "switchFabricId")]
+	public string? SwitchFabricId { get; set; }
+
+	/// <summary>
+	/// Static IPv4 primary DNS server - Undocumented added 2025-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "staticV4Dns1")]
+	public string? StaticV4Dns1 { get; set; }
+
+	/// <summary>
+	/// Static IPv4 secondary DNS server - Undocumented added 2025-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "staticV4Dns2")]
+	public string? StaticV4Dns2 { get; set; }
 }

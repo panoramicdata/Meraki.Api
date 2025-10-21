@@ -1,5 +1,19 @@
 ﻿# Changelog
 
+## 1.62.13
+- Added missing JSON members identified from API responses:
+  - **StatusPageAuthentication**: Added `passwordSet` property (bool, read-only) to indicate if a password has been set
+  - **SwitchSettings**: Added `uplinkSelection` property with nested models for failback settings and candidate uplink selection
+  - **InventoryDevice**: Added End-of-Life (EOL) properties: `eoxStatus`, `endOfSaleAt`, and `endOfSupportAt`
+  - **GroupPolicySecurityGroupTag**: Added `value` property (int) for security group tag value
+  - **RoutingInterface**: Added `switchFabricId`, `staticV4Dns1`, and `staticV4Dns2` properties for advanced routing configurations
+  - **NetworkBluetoothSettings**: Added `transmit` property with nested models for power, interval, and advertised settings
+  - **DeviceBluetoothSettings**: Added `transmit` property with nested models for device-specific Bluetooth beacon configuration
+- Created new nested model classes following hierarchy naming convention:
+  - `SwitchSettingsUplinkSelection` and `SwitchSettingsUplinkSelectionFailback`
+  - `NetworkBluetoothSettingsTransmit` and `NetworkBluetoothSettingsTransmitAdvertised`
+  - `DeviceBluetoothSettingsTransmit` and `DeviceBluetoothSettingsTransmitAdvertised`
+
 ## 1.61.29
 - Added missing members
 

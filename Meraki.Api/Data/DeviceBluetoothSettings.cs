@@ -26,4 +26,11 @@ public class DeviceBluetoothSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "minor")]
 	public int? Minor { get; set; }
+
+	/// <summary>
+	/// Bluetooth transmit settings - Undocumented added 2025-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "transmit")]
+	public DeviceBluetoothSettingsTransmit? Transmit { get; set; }
 }

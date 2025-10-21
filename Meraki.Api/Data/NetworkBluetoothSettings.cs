@@ -61,4 +61,11 @@ public class NetworkBluetoothSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "eslEnabled")]
 	public bool? EslEnabled { get; set; }
+
+	/// <summary>
+	/// Bluetooth transmit settings - Undocumented added 2025-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "transmit")]
+	public NetworkBluetoothSettingsTransmit? Transmit { get; set; }
 }

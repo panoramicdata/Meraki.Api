@@ -27,4 +27,11 @@ public class StatusPageAuthentication
 	[DataMember(Name = "password")]
 	// [JsonProperty(NullValueHandling = NullValueHandling.Include)] - not using this so that we don't accidentally clear passwords
 	public string? Password { get; set; }
+
+	/// <summary>
+	/// Undocumented - Assumed to indicate whether a password has been set. Read-only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "passwordSet")]
+	public bool? PasswordSet { get; set; }
 }

@@ -105,4 +105,25 @@ public class InventoryDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "bornAs")]
 	public string? BornAs { get; set; }
+
+	/// <summary>
+	/// End of life status - Undocumented added 2025-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "eoxStatus")]
+	public string? EoxStatus { get; set; }
+
+	/// <summary>
+	/// End of sale date - Undocumented added 2025-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "endOfSaleAt")]
+	public DateTime? EndOfSaleAt { get; set; }
+
+	/// <summary>
+	/// End of support date - Undocumented added 2025-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "endOfSupportAt")]
+	public DateTime? EndOfSupportAt { get; set; }
 }

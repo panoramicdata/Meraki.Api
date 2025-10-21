@@ -58,4 +58,11 @@ public class SwitchSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "uacCandidateUplink")]
 	public SwitchSettingsUacCandidateUplink? UacCandidateUplink { get; set; }
+
+	/// <summary>
+	/// Uplink selection settings - Undocumented added 2025-10-21
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "uplinkSelection")]
+	public SwitchSettingsUplinkSelection? UplinkSelection { get; set; }
 }
