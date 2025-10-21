@@ -1,5 +1,30 @@
 ﻿# Changelog
 
+## 1.63.0
+- Updated for Meraki API v1.63.0
+- Added new wireless MQTT settings endpoints for organizations:
+  - **GET** `/organizations/{organizationId}/wireless/mqtt/settings` - Return MQTT settings for networks
+  - **PUT** `/organizations/{organizationId}/wireless/mqtt/settings` - Add new broker config for wireless MQTT
+- Added new data models for wireless MQTT settings:
+  - `OrganizationWirelessMqttSettings` - Main settings model with network, mqtt, ble, and wifi properties
+  - `OrganizationWirelessMqttSettingsNetwork` - Network information
+  - `OrganizationWirelessMqttSettingsMqtt` - MQTT configuration including topic, message fields, publishing settings, and broker
+  - `OrganizationWirelessMqttSettingsMqttPublishing` - Publishing frequency and QoS settings
+  - `OrganizationWirelessMqttSettingsMqttBroker` - Broker reference information
+  - `OrganizationWirelessMqttSettingsBle` - BLE settings including type, flush, allow lists, and hysteresis
+  - `OrganizationWirelessMqttSettingsBleFlush` - BLE flush frequency settings
+  - `OrganizationWirelessMqttSettingsBleAllowLists` - BLE UUID and MAC allow lists
+  - `OrganizationWirelessMqttSettingsBleHysteresis` - BLE hysteresis threshold settings
+  - `OrganizationWirelessMqttSettingsWifi` - Wi-Fi settings including type, flush, allow lists, and hysteresis
+  - `OrganizationWirelessMqttSettingsWifiFlush` - Wi-Fi flush frequency settings
+  - `OrganizationWirelessMqttSettingsWifiAllowLists` - Wi-Fi MAC allow lists
+  - `OrganizationWirelessMqttSettingsWifiHysteresis` - Wi-Fi hysteresis threshold settings
+  - `OrganizationWirelessMqttSettingsResponse` - Paginated response wrapper
+  - `OrganizationWirelessMqttSettingsUpdateRequest` - Request model for updating settings
+- Added `IOrganizationsWirelessMqtt` interface with GET and PUT methods
+- Added `Mqtt` property to `OrganizationsWirelessSection`
+- Added `GetOrganizationWirelessMqttSettingsAllAsync` extension method for automatic pagination
+
 ## 1.62.13
 - Added missing JSON members identified from API responses:
   - **StatusPageAuthentication**: Added `passwordSet` property (bool, read-only) to indicate if a password has been set
