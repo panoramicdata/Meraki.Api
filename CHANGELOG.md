@@ -1,7 +1,7 @@
 ﻿# Changelog
 
-## 1.63.0
-- Updated for Meraki API v1.63.0
+## 1.63.3
+- Updated for Meraki API v1.63
 - Added new wireless MQTT settings endpoints for organizations:
   - **GET** `/organizations/{organizationId}/wireless/mqtt/settings` - Return MQTT settings for networks
   - **PUT** `/organizations/{organizationId}/wireless/mqtt/settings` - Add new broker config for wireless MQTT
