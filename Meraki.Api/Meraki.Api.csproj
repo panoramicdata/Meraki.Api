@@ -41,13 +41,13 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="HtmlAgilityPack" Version="1.12.2" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.9" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.7.115">
+		<PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.10" />
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.8.118">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 		<PackageReference Include="refit" Version="8.0.0" />
 		<PackageReference Include="Refit.Newtonsoft.Json" Version="8.0.0" />
 	</ItemGroup>

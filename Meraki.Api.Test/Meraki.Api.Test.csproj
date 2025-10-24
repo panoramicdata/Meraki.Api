@@ -14,16 +14,16 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AwesomeAssertions" Version="9.1.0" />
-		<PackageReference Include="AwesomeAssertions.Analyzers" Version="9.0.3">
+		<PackageReference Include="AwesomeAssertions" Version="9.2.1" />
+		<PackageReference Include="AwesomeAssertions.Analyzers" Version="9.0.8">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 		<PackageReference Include="PanoramicData.SheetMagic" Version="3.0.106" />
-		<PackageReference Include="System.Text.Json" Version="9.0.9" />
-		<PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
+		<PackageReference Include="System.Text.Json" Version="9.0.10" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
@@ -31,7 +31,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="xunit.v3" Version="3.0.1" />
+		<PackageReference Include="xunit.v3" Version="3.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>

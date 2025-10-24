@@ -6,6 +6,9 @@
 [DataContract]
 public class Network : NetworkOrConfigurationTemplate
 {
+	/// <summary>
+	/// Specifies the maximum allowed length, in characters, for a name value.
+	/// </summary>
 	public const int MaxNameLength = 38;
 
 	/// <summary>
