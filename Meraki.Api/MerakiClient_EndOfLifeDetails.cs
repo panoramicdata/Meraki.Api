@@ -92,6 +92,9 @@ public partial class MerakiClient
 	/// <returns>True if successfully parsed, otherwise false.</returns>
 	private static bool TryGetDate(HtmlNode htmlNode, out DateTimeOffset dateTimeOffset)
 	{
+		// Initialize the out parameter
+		dateTimeOffset = default;
+
 		// Decode the HTML
 		var text = WebUtility.HtmlDecode(htmlNode.InnerText);
 		if (DateTime.TryParseExact(

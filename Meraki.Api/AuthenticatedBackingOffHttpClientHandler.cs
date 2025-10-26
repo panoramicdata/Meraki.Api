@@ -200,7 +200,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 			// Only record the time we spent processing the request/response
 			_durationStopWatch.Stop();
 
-			TimeSpan delay;
+			TimeSpan delay = TimeSpan.Zero;
 			// As long as we were not given a back-off request then we'll return the response and any further StatusCode handling is up to the caller
 			var statusCodeInt = (int)httpResponseMessage.StatusCode;
 
