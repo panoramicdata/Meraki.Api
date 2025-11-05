@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## Unreleased
+## 1.63.8
 - Fixed deserialization error for Bonjour forwarding services by adding missing `Chromecast` enum value to `BonjourService`
 - Updated `BonjourForwardingRule` documentation to include `Chromecast` in the list of available services
 
