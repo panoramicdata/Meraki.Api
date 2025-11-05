@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## Unreleased
+- Fixed deserialization error for Bonjour forwarding services by adding missing `Chromecast` enum value to `BonjourService`
+- Updated `BonjourForwardingRule` documentation to include `Chromecast` in the list of available services
+
 ## 1.63.3
 - Updated for Meraki API v1.63
 - Added new wireless MQTT settings endpoints for organizations:

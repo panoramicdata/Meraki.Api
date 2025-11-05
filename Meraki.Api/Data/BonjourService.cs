@@ -31,6 +31,12 @@ public enum BonjourService
 	BitTorrent,
 
 	/// <summary>
+	/// Enum Chromecast for "Chromecast"
+	/// </summary>
+	[EnumMember(Value = "Chromecast")]
+	Chromecast,
+
+	/// <summary>
 	/// Enum FTP for "FTP"
 	/// </summary>
 	[EnumMember(Value = "FTP")]
