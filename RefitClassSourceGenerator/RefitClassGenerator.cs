@@ -12,13 +12,49 @@ using System.Diagnostics;
 
 namespace RefitClassSourceGenerator;
 
+/// <summary>
+/// Incremental source generator that promotes methods from Refit interfaces to containing classes
+/// </summary>
 [Generator]
-public class RefitClassGenerator : ISourceGenerator
+public class RefitClassGenerator : IIncrementalGenerator
 {
-	public void Initialize(GeneratorInitializationContext context)
-		=> context.RegisterForSyntaxNotifications(() => new RefitPromoteReceiver());
+	public void Initialize(IncrementalGeneratorInitializationContext context)
+	{
+		// Find all properties with the RefitPromoteCalls attribute
+		var propertiesProvider = context.SyntaxProvider
+			.CreateSyntaxProvider(
+				predicate: static (node, _) => node is PropertyDeclarationSyntax p && p.AttributeLists.Count > 0,
+				transform: static (ctx, _) => GetPropertyIfEligible(ctx))
+			.Where(static p => p is not null);
 
-	public void Execute(GeneratorExecutionContext context)
+		// Combine with compilation
+		var compilationAndProperties = context.CompilationProvider.Combine(propertiesProvider.Collect());
+
+		// Generate source for each property
+		context.RegisterSourceOutput(compilationAndProperties, static (spc, source) => Execute(source.Left, source.Right!, spc));
+	}
+
+	private static PropertyDeclarationSyntax? GetPropertyIfEligible(GeneratorSyntaxContext context)
+	{
+		var propertyDeclaration = (PropertyDeclarationSyntax)context.Node;
+
+		// Check if the property has the RefitPromoteCalls attribute
+		foreach (var attributeList in propertyDeclaration.AttributeLists)
+		{
+			foreach (var attribute in attributeList.Attributes)
+			{
+				var attributeName = attribute.Name.NormalizeWhitespace().ToFullString();
+				if (attributeName is "RefitPromoteCalls" or "RefitPromoteCallsAttribute")
+				{
+					return propertyDeclaration;
+				}
+			}
+		}
+
+		return null;
+	}
+
+	private static void Execute(Compilation compilation, ImmutableArray<PropertyDeclarationSyntax?> properties, SourceProductionContext context)
 	{
 		try
 		{
@@ -28,19 +64,16 @@ public class RefitClassGenerator : ISourceGenerator
 				//Debugger.Launch();
 			}
 #endif
-			if (context.SyntaxReceiver is not RefitPromoteReceiver receiver)
+			foreach (var property in properties)
 			{
-				throw new InvalidOperationException("Wrong type of receiver.");
-			}
+				if (property is null)
+				{
+					continue;
+				}
 
-			var propertiesToPromote = receiver.PropertiesToPromote;
-
-			foreach (var property in propertiesToPromote)
-			{
-				var semanticModel = context.Compilation.GetSemanticModel(property.SyntaxTree);
+				var semanticModel = compilation.GetSemanticModel(property.SyntaxTree);
 
 				// Find the type of the property as this is what we want to copy properties from
-				// Need to get the symbol
 				var propertyDeclaredSymbol = semanticModel.GetDeclaredSymbol(property);
 
 				if (propertyDeclaredSymbol is null)
@@ -54,15 +87,15 @@ public class RefitClassGenerator : ISourceGenerator
 								$"Could not find the property {property.ToFullString()}",
 								"Error",
 								DiagnosticSeverity.Error,
-								true), Location.None
-							)
-						);
+								true),
+							Location.None));
 					continue;
 				}
 
 				var propertyTypeName = propertyDeclaredSymbol.Type.ToDisplayString();
-				var propertyInterfaceSymbols = GetMatchingInterfacesInSolution(context.Compilation, propertyTypeName);
-				if (propertyInterfaceSymbols is null)
+				var propertyInterfaceSymbols = GetMatchingInterfacesInSolution(compilation, propertyTypeName);
+
+				if (propertyInterfaceSymbols.Length == 0)
 				{
 					// Report an error message that we couldn't find the interface
 					context.ReportDiagnostic(
@@ -73,13 +106,12 @@ public class RefitClassGenerator : ISourceGenerator
 								$"Could not find the interface {propertyTypeName}",
 								"Error",
 								DiagnosticSeverity.Error,
-								true), Location.None
-							)
-						);
+								true),
+							Location.None));
 					continue;
 				}
 
-				if (propertyInterfaceSymbols.Count != 1)
+				if (propertyInterfaceSymbols.Length != 1)
 				{
 					// Report an error message that we found other than 1 interface
 					context.ReportDiagnostic(
@@ -87,19 +119,23 @@ public class RefitClassGenerator : ISourceGenerator
 							new DiagnosticDescriptor(
 								"RCG004",
 								"Ambiguous interface reference",
-								$"Found {propertyInterfaceSymbols.Count} interface symbols for {propertyTypeName}",
+								$"Found {propertyInterfaceSymbols.Length} interface symbols for {propertyTypeName}",
 								"Error",
 								DiagnosticSeverity.Error,
-								true), Location.None
-							)
-						);
+								true),
+							Location.None));
 					continue;
 				}
 
 				var propertyInterfaceSymbol = propertyInterfaceSymbols[0];
 
 				// Get all the methods on the interface
-				var interfaceMethodSymbols = propertyInterfaceSymbol?.GetMembers().OfType<IMethodSymbol>().ToList() ?? throw new Exception("Missing members");
+				var interfaceMethodSymbols = propertyInterfaceSymbol?.GetMembers().OfType<IMethodSymbol>().ToList();
+				if (interfaceMethodSymbols is null || interfaceMethodSymbols.Count == 0)
+				{
+					continue;
+				}
+
 				var sb = new StringBuilder(@$"
 // <auto-generated />
 namespace {propertyDeclaredSymbol.ContainingType.ContainingNamespace};
@@ -118,6 +154,9 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 
 					if (methodSymbol.DeclaredAccessibility == Accessibility.Public)
 					{
+						// Add XML documentation comment
+						sb.AppendLine("\t/// <inheritdoc />");
+
 						var methodSignature = methodSymbol.GetMethodSignature(true);
 						sb.AppendLine("\t" + methodSignature);
 						var parameters = string.Join(", ", methodSymbol.Parameters.Select(p => $"{p.Name}"));
@@ -146,41 +185,28 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 				//Debugger.Launch();
 			}
 #endif
-			context.ReportDiagnostic(Diagnostic.Create(new DiagnosticDescriptor("RCG001", "Error", ex.Message, "Error", DiagnosticSeverity.Error, true), Location.None));
+			context.ReportDiagnostic(
+				Diagnostic.Create(
+					new DiagnosticDescriptor(
+						"RCG001",
+						"Error",
+						ex.Message,
+						"Error",
+						DiagnosticSeverity.Error,
+						true),
+					Location.None));
 		}
 	}
 
-	public static IImmutableList<INamedTypeSymbol?> GetMatchingInterfacesInSolution(Compilation compilation, string name)
-		=> compilation.SyntaxTrees.Select(syntaxTree => compilation.GetSemanticModel(syntaxTree))
-			.SelectMany(
-				semanticModel => semanticModel
-					.SyntaxTree
-					.GetRoot()
+	private static ImmutableArray<INamedTypeSymbol?> GetMatchingInterfacesInSolution(Compilation compilation, string name)
+		=> [.. compilation.SyntaxTrees
+			.SelectMany(syntaxTree =>
+			{
+				var semanticModel = compilation.GetSemanticModel(syntaxTree);
+				return semanticModel.SyntaxTree.GetRoot()
 					.DescendantNodes()
 					.OfType<InterfaceDeclarationSyntax>()
-					.Select(interfaceDeclarationSyntax => semanticModel.GetDeclaredSymbol(interfaceDeclarationSyntax)))
-			.Where(symbol => symbol != null && name == symbol.ToDisplayString())
-			.ToImmutableList();
-
-	public static IImmutableList<string> GetInterfaceNamesInSolution(Compilation compilation)
-		=> compilation.SyntaxTrees.Select(syntaxTree => compilation.GetSemanticModel(syntaxTree))
-			.SelectMany(
-				semanticModel => semanticModel
-					.SyntaxTree
-					.GetRoot()
-					.DescendantNodes()
-					.OfType<InterfaceDeclarationSyntax>()
-					.Select(interfaceDeclarationSyntax => semanticModel.GetDeclaredSymbol(interfaceDeclarationSyntax)))
-			.Where(s => s is not null)
-			.Select(s => s!.ToDisplayString())
-			.ToImmutableList();
-
-	public static string GetNamespaceFrom(SyntaxNode s)
-		=> s.Parent switch
-		{
-			NamespaceDeclarationSyntax namespaceDeclarationSyntax => namespaceDeclarationSyntax.Name.ToString(),
-			FileScopedNamespaceDeclarationSyntax namespaceDeclarationSyntax => namespaceDeclarationSyntax.Name.ToString(),
-			null => string.Empty, // or whatever you want to do
-			_ => GetNamespaceFrom(s.Parent)
-		};
+					.Select(interfaceDeclarationSyntax => semanticModel.GetDeclaredSymbol(interfaceDeclarationSyntax));
+			})
+			.Where(symbol => symbol != null && name == symbol.ToDisplayString())];
 }
