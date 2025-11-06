@@ -1,8 +1,4 @@
-﻿using FluentAssertions;
-using Meraki.Api.Extensions;
-using Xunit.Abstractions;
-
-namespace Meraki.Api.NewTest;
+﻿namespace Meraki.Api.NewTest;
 
 [Collection("API Collection")]
 public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)

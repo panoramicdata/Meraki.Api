@@ -1,8 +1,4 @@
-﻿using FluentAssertions;
-using Meraki.Api.Data;
-using Xunit.Abstractions;
-
-namespace Meraki.Api.NewTest;
+﻿namespace Meraki.Api.NewTest;
 
 [Collection("API Collection")]
 public class UplinkUsageTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)

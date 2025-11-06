@@ -1,6 +1,3 @@
-using System;
-using System.Net;
-
 namespace Meraki.Api.Data;
 
 /// <summary>

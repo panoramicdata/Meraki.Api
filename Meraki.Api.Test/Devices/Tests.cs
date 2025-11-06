@@ -21,7 +21,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetDeviceAsync(deviceSerial, CancellationToken);
 
 		_ = device.Should().NotBeNull();
-		_ = device.Serial.Should().Equals(deviceSerial);
+		_ = device.Serial.Should().Be(deviceSerial);
 		_ = device.Firmware.Should().NotBeNull();
 
 		if (!string.IsNullOrEmpty(device.Address))
@@ -94,9 +94,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		_ = devices
 			.Should()
-			.NotBeNull()
-			.And
-			.NotBeEmpty();
+			.NotBeNullOrEmpty();
 
 		var deviceSerial = devices[0].Serial
 			?? throw new InvalidDataException("Expected serial number");

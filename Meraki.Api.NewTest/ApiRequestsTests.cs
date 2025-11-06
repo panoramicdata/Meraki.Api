@@ -1,6 +1,4 @@
-﻿using Xunit.Abstractions;
-
-namespace Meraki.Api.NewTest;
+﻿namespace Meraki.Api.NewTest;
 [Collection("API Collection")]
 public class ApiRequestsTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {

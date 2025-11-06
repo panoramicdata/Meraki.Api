@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-
-namespace Meraki.Api.NewTest;
+﻿namespace Meraki.Api.NewTest;
 
 public class BackoffDelaysTests
 {

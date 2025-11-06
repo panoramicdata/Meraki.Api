@@ -1,5 +1,3 @@
-using Meraki.Api.Data;
-
 namespace Meraki.Api.Extensions;
 
 /// <summary>

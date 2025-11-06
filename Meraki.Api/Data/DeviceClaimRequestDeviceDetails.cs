@@ -1,5 +1,3 @@
-using Meraki.Api.Interfaces.General.Devices;
-
 namespace Meraki.Api.Data;
 
 /// <summary>

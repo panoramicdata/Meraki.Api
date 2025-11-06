@@ -1,7 +1,5 @@
 ﻿using Divergic.Logging.Xunit;
-using Meraki.Api.Data;
 using Newtonsoft.Json;
-using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
 public abstract class MerakiClientUnitTest

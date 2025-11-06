@@ -1,9 +1,7 @@
-using FluentAssertions;
-using Meraki.Api.Data;
 using System.Net;
-using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
+
 [Collection("API Collection")]
 public class UniqueVlanTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {

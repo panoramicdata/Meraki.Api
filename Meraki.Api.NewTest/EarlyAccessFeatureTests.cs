@@ -1,7 +1,5 @@
-﻿using FluentAssertions;
-using Xunit.Abstractions;
+﻿namespace Meraki.Api.NewTest;
 
-namespace Meraki.Api.NewTest;
 public class EarlyAccessFeatureTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {
 	[Fact]

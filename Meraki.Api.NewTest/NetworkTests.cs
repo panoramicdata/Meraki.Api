@@ -1,11 +1,8 @@
-using FluentAssertions;
-using Meraki.Api.Data;
-using Meraki.Api.Extensions;
 using Newtonsoft.Json;
 using System.Net;
-using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
+
 [Collection("API Collection")]
 public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {

@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-using Microsoft.Extensions.Logging;
-using Xunit.Abstractions;
+﻿using Microsoft.Extensions.Logging;
 
 namespace Meraki.Api.NewTest;
 
@@ -28,7 +26,7 @@ public class WirelessStatusTests(ITestOutputHelper testOutputHelper) : MerakiCli
 			_ = wirelessStatus.Should().NotBeNull();
 		}
 
-		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
 }

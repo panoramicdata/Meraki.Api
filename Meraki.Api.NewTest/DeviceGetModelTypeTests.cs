@@ -1,7 +1,5 @@
-﻿using Meraki.Api.Data;
-using Meraki.Api.Extensions;
+﻿namespace Meraki.Api.NewTest;
 
-namespace Meraki.Api.NewTest;
 public class DeviceGetModelTypeTests
 {
 	[Theory]

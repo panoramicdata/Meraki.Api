@@ -25,9 +25,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		_ = devices
 			.Should()
-			.NotBeNull()
-			.And
-			.NotBeEmpty();
+			.NotBeNullOrEmpty();
 
 		var deviceSerial = devices[0].Serial;
 
@@ -36,7 +34,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetDeviceAsync(deviceSerial, cancellationToken: CancellationToken);
 		_ = device.Should().NotBeNull();
 
-		_ = device.Serial.Should().Equals(deviceSerial);
+		_ = device.Serial.Should().Be(deviceSerial);
 		_ = device.Firmware.Should().NotBeNull();
 	}
 
@@ -50,9 +48,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		_ = devices
 			.Should()
-			.NotBeNull()
-			.And
-			.NotBeEmpty();
+			.NotBeNullOrEmpty();
 
 		_ = devices.TrueForAll(d => d.GetModelType() == ModelType.Camera);
 	}

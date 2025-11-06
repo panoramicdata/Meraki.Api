@@ -298,7 +298,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		_ = wanSpecsRefetch.Should().NotBeNull();
 		_ = wanSpecsRefetch.Wan1.Should().NotBeNull();
 		_ = wanSpecsRefetch.Wan1!.StaticDns.Should().NotBeNull();
-		_ = wanSpecsRefetch.Wan1.StaticDns.Should().HaveCount(1);
+		_ = wanSpecsRefetch.Wan1.StaticDns.Should().ContainSingle();
 		_ = wanSpecsRefetch.Wan1.StaticDns.Should().NotBeNull();
 		_ = wanSpecsRefetch.Wan1.StaticDns![0].Should().BeEquivalentTo(DnsServer);
 
@@ -308,7 +308,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.Devices
 			.GetOrganizationDevicesAsync(Configuration.TestOrganizationId, cancellationToken: CancellationToken);
 		_ = allOrganizationDevices.Should().NotBeNull();
-		_ = allOrganizationDevices.Any(d => d.Serial == Configuration.TestDeviceSerial).Should().BeTrue();
+		_ = allOrganizationDevices.Should().Contain(d => d.Serial == Configuration.TestDeviceSerial);
 
 		// ----------
 		// Create complete - now undo everything

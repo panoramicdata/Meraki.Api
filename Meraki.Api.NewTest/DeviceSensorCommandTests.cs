@@ -1,9 +1,4 @@
-﻿using FluentAssertions;
-using Meraki.Api.Data;
-using Meraki.Api.Extensions;
-using Xunit.Abstractions;
-
-namespace Meraki.Api.NewTest;
+﻿namespace Meraki.Api.NewTest;
 
 [Collection("API Collection")]
 public class DeviceSensorCommandTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)

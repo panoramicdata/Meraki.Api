@@ -1,10 +1,8 @@
-using FluentAssertions;
-using Meraki.Api.Data;
 using Microsoft.Extensions.Logging;
 using System.Net;
-using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
+
 [Collection("API Collection")]
 public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
 {

@@ -1,8 +1,5 @@
-﻿using FluentAssertions;
-using Meraki.Api.Extensions;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using System.Globalization;
-using Xunit.Abstractions;
 
 namespace Meraki.Api.NewTest;
 
@@ -25,7 +22,7 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 				t1: utcNow.ToMerakiT0T1String(),
 				cancellationToken: default);
 		_ = vpnStatsLastHour.Should().NotBeEmpty();
-		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
 
@@ -42,7 +39,7 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 				timespan: 24 * 60 * 60, // 24 hours in seconds
 				cancellationToken: default);
 		_ = vpnStatsLastDay.Should().NotBeEmpty();
-		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
 
@@ -58,7 +55,7 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 				TestOrganizationId,
 				cancellationToken: default);
 		_ = vpnStats.Should().NotBeEmpty();
-		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
 
@@ -79,7 +76,7 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 		_ = lldpCdp.PortsFixed.Should().NotBeEmpty();
 		_ = lldpCdp.PortsFixed.Keys.Should().NotContain("wan0");
 
-		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
 
@@ -103,7 +100,7 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 				3600, // 1 hour in seconds,"
 				cancellationToken: default);
 		_ = lossAndLatencyHistory.Should().NotBeNullOrEmpty();
-		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
 }

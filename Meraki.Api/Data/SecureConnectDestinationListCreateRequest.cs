@@ -1,6 +1,3 @@
-using static System.Net.WebRequestMethods;
-using System;
-
 namespace Meraki.Api.Data;
 
 /// <summary>

@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-using Microsoft.Extensions.Logging;
-using Xunit.Abstractions;
+﻿using Microsoft.Extensions.Logging;
 
 namespace Meraki.Api.NewTest;
 [Collection("API Collection")]
@@ -12,7 +10,7 @@ public class OrganizationTests(ITestOutputHelper testOutputHelper) : MerakiClien
 		TestMerakiClient.Statistics.Reset();
 		var organizations = await TestMerakiClient.Organizations.GetOrganizationsAsync(default);
 		_ = organizations.Should().NotBeEmpty();
-		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
 
@@ -29,7 +27,7 @@ public class OrganizationTests(ITestOutputHelper testOutputHelper) : MerakiClien
 				perPage: 100,
 				cancellationToken: default);
 		_ = packetLoss.Should().NotBeEmpty();
-		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BeGreaterThan(0);
+		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
 		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
 	}
 }

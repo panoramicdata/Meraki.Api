@@ -1,7 +1,3 @@
-using Refit;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-
 namespace Meraki.Api.Data;
 
 /// <summary>
