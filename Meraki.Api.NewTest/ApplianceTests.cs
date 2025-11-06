@@ -27,7 +27,7 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 	}
 
 	[Fact]
-	public async Task GetOrganizationApplianceVpnStatsAllAsync_WithTimespan_Succeeds()
+	public async Task GetOrganizationApplianceVpnStatsAllAsync_WithTimeSpan_Succeeds()
 	{
 		TestMerakiClient.Statistics.Reset();
 		var vpnStatsLastDay = await TestMerakiClient

@@ -17,7 +17,7 @@ public class BasicRateLimiterTests
 		}
 
 		var elapsed = DateTimeOffset.UtcNow - start;
-		(elapsed < TimeSpan.FromMilliseconds(100)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
+		_ = (elapsed < TimeSpan.FromMilliseconds(100)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
 	}
 
 	[Fact]
@@ -35,8 +35,8 @@ public class BasicRateLimiterTests
 		await limiter.ApplyRateLimitingAsync(dummyRequest, cts.Token); // Should delay ~500ms
 		var elapsed = DateTimeOffset.UtcNow - start;
 
-		(elapsed >= TimeSpan.FromMilliseconds(450)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
-		(elapsed <= TimeSpan.FromMilliseconds(550)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
+		_ = (elapsed >= TimeSpan.FromMilliseconds(450)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
+		_ = (elapsed <= TimeSpan.FromMilliseconds(550)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
 	}
 
 	[Fact]
@@ -58,10 +58,10 @@ public class BasicRateLimiterTests
 		await Task.WhenAll(tasks);
 		var elapsed = DateTimeOffset.UtcNow - start;
 
-		(elapsed >= TimeSpan.FromMilliseconds(300)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
+		_ = (elapsed >= TimeSpan.FromMilliseconds(300)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
 		// The logic check here is that we waited at least 300ms for call 3 to happen and then 4 should happen shortly after as
 		// the rate limiter removes the expired timestamps prior to the window
-		(elapsed < TimeSpan.FromMilliseconds(325)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
+		_ = (elapsed < TimeSpan.FromMilliseconds(325)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
 	}
 
 	[Fact]

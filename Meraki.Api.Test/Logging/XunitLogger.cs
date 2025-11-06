@@ -4,7 +4,7 @@ namespace Meraki.Api.Test.Logging;
 
 public class XunitLogger(ITestOutputHelper output, string categoryName) : ILogger
 {
-	public IDisposable BeginScope<TState>(TState state) => null!;
+	public IDisposable BeginScope<TState>(TState state) where TState : notnull => NoOpDisposable.Instance;
 
 	public bool IsEnabled(LogLevel logLevel) => true;
 
@@ -15,5 +15,12 @@ public class XunitLogger(ITestOutputHelper output, string categoryName) : ILogge
 		{
 			output.WriteLine(exception.ToString());
 		}
+	}
+
+	private sealed class NoOpDisposable : IDisposable
+	{
+		public static readonly NoOpDisposable Instance = new();
+		private NoOpDisposable() { }
+		public void Dispose() { }
 	}
 }

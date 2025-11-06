@@ -117,14 +117,15 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 	public void Deserialize_ShouldFail_WhenZoneIdIsTooLarge()
 	{
 		// Arrange: JSON with an extremely large number for zoneId
-		var json = @"
-        {
-            ""startTs"": ""2025-03-10T08:00:00Z"",
-            ""endTs"": ""2025-03-10T10:00:00Z"",
-            ""zoneId"": 999999999999999999999999999,
-            ""entrances"": 120,
-            ""averageCount"": 15.7
-        }";
+		var json = """
+			{
+			    "startTs": "2025-03-10T08:00:00Z",
+			    "endTs": "2025-03-10T10:00:00Z",
+			    "zoneId": 999999999999999999999999999,
+			    "entrances": 120,
+			    "averageCount": 15.7
+			}
+			""";
 
 		// Act & Assert: Expect a JsonSerializationException due to number overflow
 		var cameraOverview = JsonConvert.DeserializeObject<CameraOverview>(json);

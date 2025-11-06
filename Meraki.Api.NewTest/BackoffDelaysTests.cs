@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api.NewTest;
 
-public class BackoffDelaysTests
+public class BackOffDelaysTests
 {
 	[Theory]
 #pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
