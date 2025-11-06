@@ -8,7 +8,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var switchPorts = await TestMerakiClient
 			.Switch
 			.Ports
-			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial, CancellationToken);
+			.GetDeviceSwitchPortsAsync(
+				Configuration.TestDeviceSerial,
+				cancellationToken: CancellationToken);
 
 		_ = switchPorts.Should().NotBeNullOrEmpty();
 	}
@@ -20,7 +22,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var switchPorts = await TestMerakiClient
 			.Switch
 			.Ports
-			.GetDeviceSwitchPortsAsync(Configuration.TestDeviceSerial, CancellationToken);
+			.GetDeviceSwitchPortsAsync(
+				Configuration.TestDeviceSerial,
+				cancellationToken: CancellationToken);
 
 		var switchPort = switchPorts[0];
 		_ = switchPort.PortScheduleId.Should().NotBeNullOrEmpty();
@@ -29,8 +33,13 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		// ACT
 		switchPort.PortScheduleId = null;
 		var switchPortAfterUpdate = await TestMerakiClient
-			.Switch.Ports
-			.UpdateDeviceSwitchPortAsync(Configuration.TestDeviceSerial, switchPort.PortId, switchPort, CancellationToken);
+			.Switch
+			.Ports
+			.UpdateDeviceSwitchPortAsync(
+				Configuration.TestDeviceSerial,
+				switchPort.PortId,
+				switchPort,
+				cancellationToken: CancellationToken);
 
 		// ASSERT
 		_ = switchPortAfterUpdate.Should().NotBeNull();

@@ -108,5 +108,5 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		=> _serializerIgnore.GetFieldNameForProperty(propertyInfo);
 
 	public HttpContent ToHttpContent<T>(T item)
-		=> _serializerIgnore.ToHttpContent<T>(item);
+		=> _serializerIgnore.ToHttpContent(item);
 }

@@ -26,7 +26,9 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 		var commands = await TestMerakiClient
 			.Devices
 			.SensorCommands
-			.GetDeviceSensorCommandsAllAsync(Configuration.TestMt40Serial);
+			.GetDeviceSensorCommandsAllAsync(
+				Configuration.TestMt40Serial,
+				cancellationToken: CancellationToken);
 
 		_ = commands.Should().NotBeEmpty();
 	}
@@ -37,7 +39,10 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 		var commands = await TestMerakiClient
 			.Devices
 			.SensorCommands
-			.GetDeviceSensorCommandsAsync(Configuration.TestMt40Serial, perPage: 3);
+			.GetDeviceSensorCommandsAsync(
+				Configuration.TestMt40Serial,
+				perPage: 3,
+				cancellationToken: CancellationToken);
 
 		_ = commands.Should().NotBeEmpty();
 		_ = commands.Should().HaveCount(3);

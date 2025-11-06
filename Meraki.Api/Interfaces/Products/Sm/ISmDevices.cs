@@ -50,7 +50,7 @@ public interface ISmDevices
 	/// <summary>
 	/// Lock a set of devices
 	/// </summary>
-	/// <exception cref="Refit.ApiException">Thrown when fails to make API call</exception>
+	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId"></param>
 	/// <param name="lockNetworkSmDevices">Body for locking a set of devices</param>
 	/// <param name="cancellationToken"></param>

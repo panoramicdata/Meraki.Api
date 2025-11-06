@@ -30,7 +30,8 @@ public class UsageTests(ITestOutputHelper testOutputHelper) : MerakiClientTest(t
 			.UsageHistory
 			.GetNetworkApplianceUplinksUsageHistoryAsync(
 				applianceNetwork.Id,
-				timespan: 7200);
+				timespan: 7200,
+				cancellationToken: CancellationToken);
 
 		_ = uplinkUsageHistory.Should().NotBeNull();
 	}

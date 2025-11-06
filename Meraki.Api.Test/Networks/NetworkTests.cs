@@ -23,7 +23,11 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 		{
 			// Check the network can be retrieved and that its values are those we set earlier
 			// Get the network details using the network id
-			var retrievedNetwork = await TestMerakiClient.Networks.GetNetworkAsync(network.Id);
+			var retrievedNetwork = await TestMerakiClient
+				.Networks
+				.GetNetworkAsync(
+					network.Id,
+					cancellationToken: CancellationToken);
 
 			// Create a comparison network object using the data we sent at create
 			var expectedNetwork = new Network
@@ -50,14 +54,15 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 			var testAlternateNetworkName = "Altered Basic CRUD Test Network";
 
 			// Change the network Name
-			var networkUpdated = await TestMerakiClient.Networks.UpdateNetworkAsync
-				(
-				network.Id,
-				new NetworkUpdateRequest
-				{
-					Name = testAlternateNetworkName,
-				}
-				);
+			var networkUpdated = await TestMerakiClient
+				.Networks
+				.UpdateNetworkAsync(
+					network.Id,
+					new NetworkUpdateRequest
+					{
+						Name = testAlternateNetworkName,
+					},
+					cancellationToken: CancellationToken);
 
 			// Check that the name has changed in the return data and that the remaining settings stay the same
 			// Change the expected name to the alternate name
@@ -72,7 +77,11 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 				);
 
 			// Then we pull the network once more to make sure the pulled data matches the response from the update
-			var reretrievedNetwork = await TestMerakiClient.Networks.GetNetworkAsync(network.Id);
+			var reretrievedNetwork = await TestMerakiClient
+				.Networks
+				.GetNetworkAsync(
+					network.Id,
+					cancellationToken: CancellationToken);
 			_ = reretrievedNetwork.Should()
 				.NotBeNull()
 				.And
@@ -88,7 +97,12 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 		}
 
 		// Make sure that the network is gone
-		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Networks.GetNetworkAsync(network.Id));
+		var exception = await Assert.ThrowsAsync<ApiException>(
+			() => TestMerakiClient
+				.Networks
+				.GetNetworkAsync(
+					network.Id,
+					cancellationToken: CancellationToken));
 		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
 	}
@@ -105,7 +119,12 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 				cancellationToken: CancellationToken
 			);
 		var network = networks[0];
-		var clients = await TestMerakiClient.Networks.Clients.GetNetworkClientsAllAsync(network.Id, cancellationToken: CancellationToken);
+		var clients = await TestMerakiClient
+			.Networks
+			.Clients
+			.GetNetworkClientsAllAsync(
+				network.Id,
+				cancellationToken: CancellationToken);
 		_ = clients.Should().NotBeNull();
 	}
 
@@ -115,7 +134,7 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 		// Arrange: JSON with an extremely large number for zoneId
 		var json = """
 			{
-			    "startTs": "2025-03-10T08:00:00Z",
+			  "startTs": "2025-03-10T08:00:00Z",
 			    "endTs": "2025-03-10T10:00:00Z",
 			    "zoneId": 999999999999999999999999999,
 			    "entrances": 120,

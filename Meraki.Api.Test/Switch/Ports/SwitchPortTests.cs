@@ -11,7 +11,9 @@ public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientT
 		var switchPorts = await TestMerakiClient
 			.Switch
 			.Ports
-			.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, CancellationToken);
+			.GetDeviceSwitchPortsAsync(
+				Configuration.TestSwitchSerial,
+				cancellationToken: CancellationToken);
 
 		// pick the first port
 		var firstPort = switchPorts.FirstOrDefault();
@@ -29,7 +31,7 @@ public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientT
 						Configuration.TestSwitchSerial,
 						firstPort.PortId,
 						null,
-						CancellationToken);
+						cancellationToken: CancellationToken);
 
 		// ASSERT
 		_ = updatedPort.Should().NotBeNull();
@@ -46,7 +48,9 @@ public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientT
 		var switchPorts = await TestMerakiClient
 			.Switch
 			.Ports
-			.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, CancellationToken);
+			.GetDeviceSwitchPortsAsync(
+				Configuration.TestSwitchSerial,
+				cancellationToken: CancellationToken);
 		
 		// pick the first port
 		var firstPort = switchPorts.FirstOrDefault();
@@ -64,7 +68,7 @@ public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientT
 						Configuration.TestSwitchSerial,
 						firstPort.PortId,
 						null,
-						CancellationToken);
+						cancellationToken: CancellationToken);
 		
 		// ASSERT
 		_ = updatedPort.Should().NotBeNull();

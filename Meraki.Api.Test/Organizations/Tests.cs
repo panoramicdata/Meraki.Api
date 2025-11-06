@@ -34,7 +34,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				.Organizations
 				.GetOrganizationAsync(
 					Configuration.TestOrganizationId,
-					CancellationToken);
+					cancellationToken: CancellationToken);
 			ValidateOrganisation(result);
 		}
 		finally
@@ -72,14 +72,19 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		// Read
 		var refetchedOrganization = await TestMerakiClient
 			.Organizations
-			.GetOrganizationAsync(createdOrganization.Id, cancellationToken: CancellationToken);
+			.GetOrganizationAsync(
+				createdOrganization.Id,
+				cancellationToken: CancellationToken);
 		CheckOrganization(refetchedOrganization, initialOrganizationName, createdOrganization.Id);
 
 		// Update
 		const string newOrganizationName = "TestOrganizationNewName";
 		var updatedOrganization = await TestMerakiClient
 			.Organizations
-			.UpdateOrganizationAsync(createdOrganization.Id, new OrganizationUpdateRequest { Name = newOrganizationName }, cancellationToken: CancellationToken);
+			.UpdateOrganizationAsync(
+				createdOrganization.Id,
+				new OrganizationUpdateRequest { Name = newOrganizationName },
+				cancellationToken: CancellationToken);
 		CheckOrganization(updatedOrganization, newOrganizationName, createdOrganization.Id);
 
 		await Task.Delay(TimeSpan.FromSeconds(5), CancellationToken);
@@ -87,7 +92,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		// Delete
 		await TestMerakiClient
 			.Organizations
-			.DeleteOrganizationAsync(createdOrganization.Id, CancellationToken);
+			.DeleteOrganizationAsync(
+				createdOrganization.Id,
+				cancellationToken: CancellationToken);
 
 		await Task.Delay(TimeSpan.FromSeconds(5), CancellationToken);
 
@@ -95,7 +102,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		Func<Task> act = async ()
 			=> _ = await TestMerakiClient
 				.Organizations
-				.GetOrganizationAsync(createdOrganization.Id, CancellationToken);
+				.GetOrganizationAsync(
+					createdOrganization.Id,
+					cancellationToken: CancellationToken);
 		_ = await act
 			.Should()
 			.ThrowAsync<ApiException>();

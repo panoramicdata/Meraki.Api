@@ -48,7 +48,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 						Name = configurationTemplateName + "x",
 						TimeZone = timeZone
 					},
-					CancellationToken);
+					cancellationToken: CancellationToken);
 
 			// Read 2
 			var refetchedConfigurationTemplate2 =
@@ -58,7 +58,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				.GetOrganizationConfigTemplateAsync(
 					Configuration.TestOrganizationId,
 					createResult.Id,
-					CancellationToken);
+					cancellationToken: CancellationToken);
 			_ = refetchedConfigurationTemplate2.Should().NotBeNull();
 			_ = refetchedConfigurationTemplate2.Name.Should().Be(configurationTemplateName + "x");
 			_ = refetchedConfigurationTemplate2.TimeZone.Should().Be(timeZone);
@@ -68,11 +68,13 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				.Appliance
 				.Vlans
 				.Settings
-				.UpdateNetworkApplianceVlansSettingsAsync(createResult.Id, new VlansEnabledState
-				{
-					Enabled = true
-				},
-				CancellationToken);
+				.UpdateNetworkApplianceVlansSettingsAsync(
+					createResult.Id,
+					new VlansEnabledState
+					{
+						Enabled = true
+					},
+					cancellationToken: CancellationToken);
 
 			// Set VLAN info
 			_ = await TestMerakiClient
@@ -87,7 +89,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 						Subnet = $"{PrivateNetworkFirst3Octets}.0/24",
 						ApplianceIp = $"{PrivateNetworkFirst3Octets}.1"
 					},
-					CancellationToken);
+					cancellationToken: CancellationToken);
 		}
 		finally
 		{
@@ -97,7 +99,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 				.DeleteOrganizationConfigTemplateAsync(
 					Configuration.TestOrganizationId,
 					createResult.Id,
-					CancellationToken);
+					cancellationToken: CancellationToken);
 		}
 	}
 
@@ -131,11 +133,13 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		foreach (var configurationTemplate in configurationTemplates.Take(3))
 		{
 			var switchProfiles = await TestMerakiClient
-				.Switch.ConfigTemplates.Profiles
+				.Switch
+				.ConfigTemplates
+				.Profiles
 				.GetOrganizationConfigTemplateSwitchProfilesAsync(
 					Configuration.TestOrganizationId,
 					configurationTemplate.Id,
-					CancellationToken);
+					cancellationToken: CancellationToken);
 			_ = switchProfiles.Should().BeOfType<List<SwitchProfile>>();
 			_ = switchProfiles.Should().NotBeNull();
 			if (switchProfiles.Count > 0)
@@ -150,8 +154,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var configurationTemplates = await TestMerakiClient
 			.Organizations
 			.ConfigTemplates
-			.GetOrganizationConfigTemplatesAsync(Configuration.TestOrganizationId)
-			.ConfigureAwait(false);
+			.GetOrganizationConfigTemplatesAsync(
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
 		_ = configurationTemplates.Should().BeOfType<List<ConfigurationTemplate>>();
 		_ = configurationTemplates.Should().NotBeNull();
 		return configurationTemplates;

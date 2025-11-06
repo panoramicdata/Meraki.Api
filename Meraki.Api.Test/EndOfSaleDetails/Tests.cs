@@ -6,7 +6,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 	public async Task GetEndOfLifeDetailsAsync_Succeeds()
 	{
 		var details = await MerakiClient
-			.GetEndOfLifeDetailsAsync(CancellationToken);
+			.GetEndOfLifeDetailsAsync(cancellationToken: CancellationToken);
 
 		_ = details
 			.Should()

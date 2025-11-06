@@ -86,8 +86,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		var networks = await TestMerakiClient
 						.Organizations
 						.Networks
-						.GetOrganizationNetworksAsync(Configuration.TestOrganizationId)
-						.ConfigureAwait(false);
+						.GetOrganizationNetworksAsync(
+							Configuration.TestOrganizationId,
+							cancellationToken: CancellationToken);
 		var oldNetwork = networks.SingleOrDefault(n => n.Name == networkName);
 		if (oldNetwork != default)
 		{
@@ -95,8 +96,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			var oldNetworkDevices = await TestMerakiClient
 				.Networks
 				.Devices
-				.GetNetworkDevicesAsync(oldNetwork.Id)
-				.ConfigureAwait(false);
+				.GetNetworkDevicesAsync(
+					oldNetwork.Id,
+					cancellationToken: CancellationToken);
 			foreach (var oldNetworkDevice in oldNetworkDevices)
 			{
 				await TestMerakiClient
@@ -108,14 +110,15 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 						{
 							Serial = oldNetworkDevice.Serial
 								?? throw new InvalidDataException("Expected serial number")
-						})
-					.ConfigureAwait(false);
+						},
+						cancellationToken: CancellationToken);
 			}
 
 			await TestMerakiClient
 				.Networks
-				.DeleteNetworkAsync(oldNetwork.Id)
-				.ConfigureAwait(false);
+				.DeleteNetworkAsync(
+					oldNetwork.Id,
+					cancellationToken: CancellationToken);
 		}
 	}
 

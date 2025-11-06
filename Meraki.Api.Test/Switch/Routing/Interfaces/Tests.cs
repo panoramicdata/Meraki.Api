@@ -24,7 +24,10 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 			.Switch
 			.Routing
 			.Interfaces
-			.CreateDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterfaceRequest);
+			.CreateDeviceSwitchRoutingInterfaceAsync(
+				Configuration.TestSwitchSerial,
+				createSwitchRoutingInterfaceRequest,
+				cancellationToken: CancellationToken);
 		_ = createSwitchRoutingInterface.Should().NotBeNull();
 
 		// Get all routing interfaces from the switch and see that it's there
@@ -32,7 +35,9 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 			.Switch
 			.Routing
 			.Interfaces
-			.GetDeviceSwitchRoutingInterfacesAsync(Configuration.TestSwitchSerial);
+			.GetDeviceSwitchRoutingInterfacesAsync(
+				Configuration.TestSwitchSerial,
+				cancellationToken: CancellationToken);
 		_ = getSwitchRoutingInterfaces.Should().Contain(getSwitchRoutingInterfaces => getSwitchRoutingInterfaces.Name == createSwitchRoutingInterface.Name);
 
 		// Make a change to the interface
@@ -60,14 +65,21 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 			.Switch
 			.Routing
 			.Interfaces
-			.UpdateDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterface.InterfaceId, updateSwitchRoutingInterfaceRequest);
+			.UpdateDeviceSwitchRoutingInterfaceAsync(
+				Configuration.TestSwitchSerial,
+				createSwitchRoutingInterface.InterfaceId,
+				updateSwitchRoutingInterfaceRequest,
+				cancellationToken: CancellationToken);
 
 		// Get the routing interface and compare
 		var testSwitchRoutingInterface = await TestMerakiClient
 			.Switch
 			.Routing
 			.Interfaces
-			.GetDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterface.InterfaceId);
+			.GetDeviceSwitchRoutingInterfaceAsync(
+				Configuration.TestSwitchSerial,
+				createSwitchRoutingInterface.InterfaceId,
+				cancellationToken: CancellationToken);
 		_ = testSwitchRoutingInterface.Name.Should().Be(updateSwitchRoutingInterfaceRequest.Name);
 
 		// Delete the routing interface
@@ -75,14 +87,21 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 			.Switch
 			.Routing
 			.Interfaces
-			.DeleteDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterface.InterfaceId);
+			.DeleteDeviceSwitchRoutingInterfaceAsync(
+				Configuration.TestSwitchSerial,
+				createSwitchRoutingInterface.InterfaceId,
+				cancellationToken: CancellationToken);
 
 		// Check that the interface no longer exists
-		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient
-			.Switch
-			.Routing
-			.Interfaces
-			.GetDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterface.InterfaceId));
+		var exception = await Assert.ThrowsAsync<ApiException>(
+			() => TestMerakiClient
+				.Switch
+				.Routing
+				.Interfaces
+				.GetDeviceSwitchRoutingInterfaceAsync(
+					Configuration.TestSwitchSerial,
+					createSwitchRoutingInterface.InterfaceId,
+					cancellationToken: CancellationToken));
 		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 	}
 }

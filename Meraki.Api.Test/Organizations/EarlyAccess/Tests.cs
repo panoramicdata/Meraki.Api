@@ -9,7 +9,9 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 			.Organizations
 			.EarlyAccess
 			.Features
-			.GetOrganizationEarlyAccessFeaturesAsync(Configuration.TestOrganizationId, CancellationToken);
+			.GetOrganizationEarlyAccessFeaturesAsync(
+				Configuration.TestOrganizationId,
+				cancellation: CancellationToken);
 		_ = result.Should().NotBeNullOrEmpty();
 	}
 
@@ -20,7 +22,9 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 			.Organizations
 			.EarlyAccess
 			.Features
-			.GetOrganizationEarlyAccessFeaturesOptInsAsync(Configuration.TestOrganizationId, CancellationToken);
+			.GetOrganizationEarlyAccessFeaturesOptInsAsync(
+				Configuration.TestOrganizationId,
+				cancellation: CancellationToken);
 		_ = result.Should().NotBeNullOrEmpty();
 	}
 }
