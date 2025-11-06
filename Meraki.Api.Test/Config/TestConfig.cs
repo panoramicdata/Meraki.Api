@@ -5,7 +5,7 @@ namespace Meraki.Api.Test.Config;
 /// <summary>
 /// Test configuration
 /// </summary>
-internal class TestConfig
+internal sealed class TestConfig
 {
 	/// <summary>
 	/// Meraki client options

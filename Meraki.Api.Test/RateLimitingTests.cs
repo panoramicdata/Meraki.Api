@@ -1,6 +1,5 @@
 ﻿using PanoramicData.SheetMagic;
 using System.Diagnostics;
-using System.Net;
 
 namespace Meraki.Api.Test;
 
@@ -43,13 +42,4 @@ public class RateLimitingTests(ITestOutputHelper iTestOutputHelper) : MerakiClie
 		magicSpreadsheet.AddSheet(timerList);
 		magicSpreadsheet.Save();
 	}
-}
-
-internal class QueryResult
-{
-	public long DurationMs { get; set; }
-
-	public HttpStatusCode? StatusCode { get; set; }
-
-	public string? ExceptionMessage { get; set; }
 }
