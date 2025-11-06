@@ -3,7 +3,7 @@
 public partial class OrganizationsDevicesSystemSection
 {
 	[RefitPromoteCalls]
-	internal IOrganizationsDevicesSystem System { get; set; }
+	internal IOrganizationsDevicesSystem System { get; set; } = null!;
 
 	public OrganizationsDevicesSystemMemorySection Memory { get; internal set; } = new();
 }

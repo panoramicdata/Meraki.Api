@@ -135,7 +135,7 @@ public partial class MerakiClient
 				throw pageResponse.Error;
 			}
 
-			allEntries.AddRange(pageResponse.Content);
+			allEntries.AddRange(pageResponse.Content ?? []);
 
 			// Check the Link response header
 			if (pageResponse.Headers is not null && pageResponse.Headers.TryGetValues("Link", out var linkHeaders))
@@ -181,7 +181,7 @@ public partial class MerakiClient
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
 		string? t0 = null,
 		string? t1 = null,
-		double? timespan = null,
+		double? timeSpan = null,
 		CancellationToken cancellationToken = default)
 	{
 		var allEntries = new List<T>();
@@ -191,7 +191,7 @@ public partial class MerakiClient
 		while (!finished)
 		{
 			var pageResponse = await
-				pageFactoryAsync(startingAfter, endingBefore, t0, t1, timespan, cancellationToken).ConfigureAwait(false);
+				pageFactoryAsync(startingAfter, endingBefore, t0, t1, timeSpan, cancellationToken).ConfigureAwait(false);
 
 			// Refit traps exceptions into Error when using ApiResponse
 			if (pageResponse.Error is not null)
@@ -199,7 +199,7 @@ public partial class MerakiClient
 				throw pageResponse.Error;
 			}
 
-			allEntries.AddRange(pageResponse.Content);
+			allEntries.AddRange(pageResponse.Content ?? []);
 
 			// Check the Link response header
 			if (pageResponse.Headers is not null && pageResponse.Headers.TryGetValues("Link", out var linkHeaders))
@@ -261,7 +261,7 @@ public partial class MerakiClient
 				throw pageResponse.Error;
 			}
 
-			allEntries.AddRange(pageResponse.Content);
+			allEntries.AddRange(pageResponse.Content ?? []);
 
 			// Check the Link response header
 			if (pageResponse.Headers is not null && pageResponse.Headers.TryGetValues("Link", out var linkHeaders))

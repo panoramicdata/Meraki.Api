@@ -117,6 +117,7 @@ Paket
 param
 params
 passphrase
+PCAP
 pii
 plugin
 png
@@ -133,11 +134,13 @@ rtt
 saml
 saturday
 Silverlight
+SKUs
 sm
 snmp
 snupkg
 ssid
 ssids
+subnet
 subnetted
 subtab
 sunday
@@ -167,6 +170,7 @@ vap
 vlan
 vlans
 vpn
+VRF
 vrrp
 webhook
 webhooks
@@ -179,3 +183,5 @@ workflows
 wpa
 wwwroot
 Xamarin
+XUnit
+Zigbee

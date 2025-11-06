@@ -7,7 +7,9 @@ public static class AttributeExtensions
 	{
 		var type = value.GetType();
 		var field = type.GetField(value.ToString());
-		var attribute = (MerakiApiDomainAttribute)field.GetCustomAttributes(typeof(MerakiApiDomainAttribute), false).FirstOrDefault();
+		var attribute = (MerakiApiDomainAttribute?)field?
+			.GetCustomAttributes(typeof(MerakiApiDomainAttribute), false)?
+			.FirstOrDefault();
 		return attribute?.MerakiApiDomain ?? string.Empty;
 	}
 }

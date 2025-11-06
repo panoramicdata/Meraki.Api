@@ -5,7 +5,7 @@ public partial class DevicesSection
 	[RefitPromoteCalls]
 	internal IDevices Devices { get; set; } = null!;
 
-	public DevicesApplianceSection Appliance { get; set; }
+	public DevicesApplianceSection Appliance { get; set; } = null!;
 
 	public IDeviceClients Clients { get; internal set; } = null!;
 

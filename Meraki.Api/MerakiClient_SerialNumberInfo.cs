@@ -1027,16 +1027,26 @@ public partial class MerakiClient
 			throw new ArgumentException("Serial number should be in the format XXXX-XXXX-XXXX", nameof(serialNumber));
 		}
 
+#if NETSTANDARD2_0
 		var model = _serialNumberModels.TryGetValue(serialNumber.Substring(0, 4), out var m)
 			? m
 			: null;
+#else
+		var model = _serialNumberModels.TryGetValue(serialNumber[..4], out var m)
+			? m
+			: null;
+#endif
 
 		var productType =
 			model is null ? null :
 			model.StartsWith("MX", StringComparison.Ordinal)
 				|| model.StartsWith("vMX", StringComparison.Ordinal)
 				|| model.StartsWith("VMX", StringComparison.Ordinal)
+#if NETSTANDARD2_0
 				|| model.StartsWith("Z", StringComparison.Ordinal)
+#else
+				|| model.StartsWith('Z')
+#endif
 					? ProductType.Appliance :
 			model.StartsWith("MS", StringComparison.Ordinal)
 				|| model.StartsWith("C9", StringComparison.Ordinal)

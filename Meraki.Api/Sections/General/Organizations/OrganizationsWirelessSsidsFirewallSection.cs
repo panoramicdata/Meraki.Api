@@ -2,5 +2,5 @@
 
 public class OrganizationsWirelessSsidsFirewallSection
 {
-	public IOrganizationsWirelessSsidsFirewallIsolation Isolation { get; internal set; }
+	public IOrganizationsWirelessSsidsFirewallIsolation Isolation { get; internal set; } = null!;
 }

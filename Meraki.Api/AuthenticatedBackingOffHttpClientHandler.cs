@@ -70,12 +70,16 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				_logger.Log(_levelToLogAt, "{LogPrefix}Request\r\n{Request}", logPrefix, request);
 				if (request.Content != null)
 				{
+#if NETSTANDARD2_0
 					var requestContent = await request.Content.ReadAsStringAsync().ConfigureAwait(false);
+#else
+					var requestContent = await request.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+#endif
 					_logger.Log(_levelToLogAt, "{LogPrefix}RequestContent\r\n{RequestContent}", logPrefix, requestContent);
 				}
 			}
 
-			LastRequestUri = request.RequestUri.ToString();
+			LastRequestUri = request.RequestUri?.ToString() ?? string.Empty;
 
 			// Complete the action
 			HttpResponseMessage httpResponseMessage;
@@ -152,8 +156,8 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				continue;
 			}
 			catch (HttpRequestException ex) when (
-				ex.Message.IndexOf("An error occurred while sending the request", StringComparison.OrdinalIgnoreCase) >= 0 ||
-				ex.InnerException?.Message.IndexOf("Connection reset by peer", StringComparison.OrdinalIgnoreCase) >= 0)
+				ex.Message.Contains("An error occurred while sending the request", StringComparison.OrdinalIgnoreCase) ||
+				(ex.InnerException is not null && ex.InnerException.Message.Contains("Connection reset by peer", StringComparison.OrdinalIgnoreCase)))
 			{
 				// This is a common error that occurs when the remote server (Meraki API) abruptly closes the TCP connection
 				// This can happen due to network issues, load balancing, or server-side connection limits
@@ -192,7 +196,11 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				_logger.Log(_levelToLogAt, "{LogPrefix}Response\r\n{HttpResponseMessage}", logPrefix, httpResponseMessage);
 				if (httpResponseMessage.Content != null)
 				{
+#if NETSTANDARD2_0
 					var responseContent = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+#else
+					var responseContent = await httpResponseMessage.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+#endif
 					_logger.Log(_levelToLogAt, "{LogPrefix}ResponseContent\r\n{ResponseContent}", logPrefix, responseContent);
 				}
 			}
@@ -213,7 +221,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 						var headers = httpResponseMessage.Headers;
 						var foundHeader = headers.TryGetValues("Retry-After", out var retryAfterHeaders);
 						var retryAfterSecondsString = foundHeader
-							? retryAfterHeaders.FirstOrDefault() ?? "1"
+							? retryAfterHeaders?.FirstOrDefault() ?? "1"
 							: "1";
 						if (!int.TryParse(retryAfterSecondsString, out var retryAfterSeconds))
 						{

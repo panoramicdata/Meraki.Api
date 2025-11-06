@@ -19,10 +19,17 @@ public partial class MerakiClient
 		using var HttpClient = new HttpClient();
 		var url = new Uri("https://documentation.meraki.com/General_Administration/Other_Topics/Meraki_End-of-Life_(EOL)_Products_and_Dates");
 		var response = await HttpClient.GetAsync(url, cancellationToken);
+#if NETSTANDARD2_0
 		var html = await response
 			.Content
 			.ReadAsStringAsync()
 			?? throw new InvalidDataException("Could not read response content");
+#else
+		var html = await response
+			.Content
+			.ReadAsStringAsync(cancellationToken)
+			?? throw new InvalidDataException("Could not read response content");
+#endif
 
 		// Use HtmlAgilityPack to parse the HTML
 		var htmlDocument = new HtmlDocument();
@@ -34,7 +41,7 @@ public partial class MerakiClient
 			.FirstOrDefault();
 
 		var endOfLifeDetails = new List<DeviceModelEndOfLifeDetail>();
-		foreach (var tr in tbody.Descendants("tr"))
+		foreach (var tr in tbody?.Descendants("tr") ?? [])
 		{
 			var tds = tr
 				.Descendants("td")

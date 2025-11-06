@@ -13,7 +13,7 @@ public class MerakiClientStatistics
 
 	internal void RecordStatusCode(int statusCode, long durationMs, long delayMs)
 	{
-		_statusCodeCounts.AddOrUpdate(
+		_ = _statusCodeCounts.AddOrUpdate(
 			statusCode,
 			_ => new MerakiClientStatistic(1, durationMs, delayMs),
 			(_, stat) =>
@@ -24,13 +24,13 @@ public class MerakiClientStatistics
 				return stat;
 			});
 
-		Interlocked.Increment(ref _totalRequestCount);
+		_ = Interlocked.Increment(ref _totalRequestCount);
 	}
 
 	public void Reset()
 	{
 		_statusCodeCounts.Clear();
-		Interlocked.Exchange(ref _totalRequestCount, 0);
+		_ = Interlocked.Exchange(ref _totalRequestCount, 0);
 	}
 
 	public override string ToString()

@@ -12,5 +12,4 @@ public class SsidUpdateRequestLocalAuthFallbackServerCaCertificate
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "contents")]
 	public string? Contents { get; set; }
-
 }

@@ -19,5 +19,4 @@ public class SwitchStaticRouteVrf
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "leakRouteToDefaultVrf")]
 	public bool? LeakRouteToDefaultVrf { get; set; }
-
 }
