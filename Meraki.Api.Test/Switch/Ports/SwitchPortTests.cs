@@ -1,10 +1,9 @@
-﻿namespace Meraki.Api.NewTest;
+namespace Meraki.Api.Test.Switch.Ports;
 
-[Collection("API Collection")]
-public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
+public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
 {
 	[Fact]
-	public async Task UpdateDeviceSwitchPort_Succeeds()
+	public async Task UpdateDeviceSwitchPort_SetPortScheduleId_Succeeds()
 	{
 		TestMerakiClient.Statistics.Reset();
 
@@ -12,7 +11,7 @@ public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientU
 		var switchPorts = await TestMerakiClient
 			.Switch
 			.Ports
-			.GetDeviceSwitchPortsAsync(TestSwitchSerial, CancellationToken.None);
+			.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, CancellationToken);
 
 		// pick the first port
 		var firstPort = switchPorts.FirstOrDefault();
@@ -27,10 +26,10 @@ public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientU
 					.Switch
 					.Ports
 					.UpdateDeviceSwitchPortSetPortScheduleIdAsync(
-						TestSwitchSerial,
+						Configuration.TestSwitchSerial,
 						firstPort.PortId,
 						null,
-						CancellationToken.None);
+						CancellationToken);
 
 		// ASSERT
 		_ = updatedPort.Should().NotBeNull();
@@ -39,14 +38,16 @@ public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientU
 	}
 
 	[Fact]
-	public async Task UpdateDeviceSwitchPortSetVlan_Succeeds()
+	public async Task UpdateDeviceSwitchPort_SetVlan_Succeeds()
 	{
 		TestMerakiClient.Statistics.Reset();
+		
 		// ARRANGE
 		var switchPorts = await TestMerakiClient
 			.Switch
 			.Ports
-			.GetDeviceSwitchPortsAsync(TestSwitchSerial, CancellationToken.None);
+			.GetDeviceSwitchPortsAsync(Configuration.TestSwitchSerial, CancellationToken);
+		
 		// pick the first port
 		var firstPort = switchPorts.FirstOrDefault();
 
@@ -60,10 +61,11 @@ public class SwitchPortTests(ITestOutputHelper testOutputHelper) : MerakiClientU
 					.Switch
 					.Ports
 					.UpdateDeviceSwitchPortSetVlanAsync(
-						TestSwitchSerial,
+						Configuration.TestSwitchSerial,
 						firstPort.PortId,
 						null,
-						CancellationToken.None);
+						CancellationToken);
+		
 		// ASSERT
 		_ = updatedPort.Should().NotBeNull();
 		_ = updatedPort.Vlan.Should().BeNull();

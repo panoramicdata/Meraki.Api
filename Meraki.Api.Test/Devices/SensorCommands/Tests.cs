@@ -1,44 +1,43 @@
-﻿namespace Meraki.Api.NewTest;
+namespace Meraki.Api.Test.Devices.SensorCommands;
 
-[Collection("API Collection")]
-public class DeviceSensorCommandTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
+public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
 {
 	[Fact]
-	public async Task EnableMT40Device_Succeeds()
+	public async Task CreateDeviceSensorCommand_EnableDownstreamPower_Succeeds()
 	{
 		var command = await TestMerakiClient
 				.Devices
 				.SensorCommands
 				.CreateDeviceSensorCommandAsync(
-					TestMt40DeviceSerial,
+					Configuration.TestMt40Serial,
 					new()
 					{
 						Operation = SensorCommandOperation.EnableDownstreamPower
 					},
-					CancellationToken.None
+					CancellationToken
 				);
 
 		_ = command.Status.Should().Be("pending");
 	}
 
 	[Fact]
-	public async Task GetAll_Succeeds()
+	public async Task GetDeviceSensorCommandsAll_Succeeds()
 	{
 		var commands = await TestMerakiClient
 			.Devices
 			.SensorCommands
-			.GetDeviceSensorCommandsAllAsync(TestMt40DeviceSerial);
+			.GetDeviceSensorCommandsAllAsync(Configuration.TestMt40Serial);
 
 		_ = commands.Should().NotBeEmpty();
 	}
 
 	[Fact]
-	public async Task GetAllPaged_Succeeds()
+	public async Task GetDeviceSensorCommands_Paged_Succeeds()
 	{
 		var commands = await TestMerakiClient
 			.Devices
 			.SensorCommands
-			.GetDeviceSensorCommandsAsync(TestMt40DeviceSerial, perPage: 3);
+			.GetDeviceSensorCommandsAsync(Configuration.TestMt40Serial, perPage: 3);
 
 		_ = commands.Should().NotBeEmpty();
 		_ = commands.Should().HaveCount(3);

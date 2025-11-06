@@ -1,9 +1,8 @@
-﻿namespace Meraki.Api.NewTest;
+namespace Meraki.Api.Test.Internal;
 
 public class BackOffDelaysTests
 {
 	[Theory]
-#pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
 	[InlineData(1, 1, 1, 30, 1.0)]
 	[InlineData(2, 1, 1, 30, 1.0)]
 	[InlineData(3, 1, 1, 30, 1.0)]
@@ -24,17 +23,20 @@ public class BackOffDelaysTests
 	[InlineData(2, 5, 2, 7, 5.0)]
 	[InlineData(3, 5, 2, 7, 5.0)]
 	[InlineData(4, 5, 2, 7, 7.0)]
-
-	public void CalculateBackoffDelay_ReturnsExpected(
+	public void CalculateBackOffDelay_ReturnsExpected(
 		int attemptCount,
 		int retryAfterSeconds,
 		double backOffDelayFactor,
 		int maxBackOffDelaySeconds,
 		double expectedDelaySeconds)
 	{
-		var actual = AuthenticatedBackingOffHttpClientHandler.CalculateBackoffDelay(attemptCount, retryAfterSeconds, backOffDelayFactor, maxBackOffDelaySeconds);
+		// Use reflection to test internal method
+		var type = typeof(MerakiClient).Assembly.GetType("Meraki.Api.AuthenticatedBackingOffHttpClientHandler");
+		_ = type.Should().NotBeNull();
+		var method = type!.GetMethod("CalculateBackoffDelay", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public);
+		_ = method.Should().NotBeNull();
+		var actual = (TimeSpan)method!.Invoke(null, [attemptCount, retryAfterSeconds, backOffDelayFactor, maxBackOffDelaySeconds])!;
 		var actualSeconds = actual.TotalSeconds;
 		_ = actualSeconds.Should().Be(expectedDelaySeconds);
 	}
-#pragma warning restore CS3016 // Arrays as attribute arguments is not CLS-compliant
 }

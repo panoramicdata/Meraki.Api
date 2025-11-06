@@ -1,15 +1,14 @@
 using Microsoft.Extensions.Logging;
 using System.Net;
 
-namespace Meraki.Api.NewTest;
+namespace Meraki.Api.Test.Networks.Webhooks;
 
-[Collection("API Collection")]
-public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
+public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
 {
 	[Fact]
-	public async Task WebhookHttpServersCrud_Succeeds()
+	public async Task WebhookHttpServers_Crud_Succeeds()
 	{
-		var network = await CreateValidNetworkAsync("WebhookHttpServer Test Network");
+		var network = await CreateTestNetworkAsync();
 		_ = network.Should().NotBeNull();
 
 		try
@@ -86,7 +85,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 		finally
 		{
 			// Delete the network
-			await TestMerakiClient.Networks.DeleteNetworkAsync(network.Id);
+			await RemoveNetworkAsync(network.Id);
 		}
 
 		// Make sure that the network is gone
@@ -96,9 +95,9 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 	}
 
 	[Fact]
-	public async Task NetworkWebhookPayloadTemplatesCrud_Succeeds()
+	public async Task NetworkWebhookPayloadTemplates_Crud_Succeeds()
 	{
-		var network = await CreateValidNetworkAsync("WebhookPayload Test Network");
+		var network = await CreateTestNetworkAsync();
 		_ = network.Should().NotBeNull();
 
 		try
@@ -123,7 +122,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 					.Webhooks
 					.PayloadTemplates
 					.DeleteNetworkWebhooksPayloadTemplateAsync(
-						TestOrganizationId,
+						Configuration.TestOrganizationId,
 						oldTemplate.PayloadTemplateId!
 					);
 			}
@@ -239,17 +238,10 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 
 			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 		}
-		catch (Exception e)
-		{
-			Logger.LogError(e, "NetworkWebhookPayloadTemplatesCrud_Succeeds failed: {Message}", e.Message);
-			throw;
-		}
 		finally
 		{
 			// Delete the network
-			await TestMerakiClient
-				.Networks
-				.DeleteNetworkAsync(network.Id);
+			await RemoveNetworkAsync(network.Id);
 		}
 
 		// Make sure that the network is gone
@@ -259,7 +251,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 	}
 
 	[Fact]
-	public async Task OrganizationWebhookPayloadTemplatesCrud_Succeeds()
+	public async Task OrganizationWebhookPayloadTemplates_Crud_Succeeds()
 	{
 		try
 		{
@@ -268,7 +260,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 				.Organizations
 				.Webhooks
 				.PayloadTemplates
-				.GetOrganizationWebhooksPayloadTemplatesAsync(TestOrganizationId);
+				.GetOrganizationWebhooksPayloadTemplatesAsync(Configuration.TestOrganizationId);
 
 			const string testPayloadTemplateNamePrefix = "Test Payload Template";
 
@@ -283,7 +275,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 					.Webhooks
 					.PayloadTemplates
 					.DeleteOrganizationWebhooksPayloadTemplateAsync(
-						TestOrganizationId,
+						Configuration.TestOrganizationId,
 						oldTemplate.PayloadTemplateId!
 					);
 			}
@@ -304,7 +296,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 				.Webhooks
 				.PayloadTemplates
 				.CreateOrganizationWebhooksPayloadTemplatesAsync(
-					TestOrganizationId,
+					Configuration.TestOrganizationId,
 					testCreateWebhookPayloadTemplateRequest
 				);
 
@@ -315,7 +307,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 				.Organizations
 				.Webhooks
 				.PayloadTemplates
-				.GetOrganizationWebhooksPayloadTemplatesAsync(TestOrganizationId);
+				.GetOrganizationWebhooksPayloadTemplatesAsync(Configuration.TestOrganizationId);
 
 			_ = retrieveWebhookPayloadTemplates.Should().NotBeNull();
 
@@ -342,7 +334,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 				.Webhooks
 				.HttpServers
 				.CreateOrganizationWebhooksHttpServerAsync(
-					TestOrganizationId,
+					Configuration.TestOrganizationId,
 					testWebhookHttpServerRequest);
 			_ = testWebhookHttpServer.Should().NotBeNull();
 
@@ -356,7 +348,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 				.PayloadTemplates
 				.UpdateOrganizationWebhooksPayloadTemplateAsync
 				(
-					TestOrganizationId,
+					Configuration.TestOrganizationId,
 					testCreateWebhookPayloadTemplate.PayloadTemplateId!,
 					new PayloadTemplate
 					{
@@ -382,7 +374,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 				.Webhooks
 				.HttpServers
 				.DeleteOrganizationWebhooksHttpServerAsync(
-					TestOrganizationId,
+					Configuration.TestOrganizationId,
 					testWebhookHttpServer.Id
 				);
 			var webhookhttpserverexception = await Assert.ThrowsAsync<Refit.ApiException>(
@@ -391,7 +383,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 					.Webhooks
 					.HttpServers
 					.GetOrganizationWebhooksHttpServerAsync(
-						TestOrganizationId,
+						Configuration.TestOrganizationId,
 						testWebhookHttpServer.Id
 					)
 				);
@@ -403,7 +395,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 				.Webhooks
 				.PayloadTemplates
 				.DeleteOrganizationWebhooksPayloadTemplateAsync(
-					TestOrganizationId,
+					Configuration.TestOrganizationId,
 					testCreateWebhookPayloadTemplate.PayloadTemplateId!
 				);
 
@@ -413,22 +405,22 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 					.Organizations
 					.Webhooks
 					.PayloadTemplates
-					.GetOrganizationWebhooksPayloadTemplateAsync(TestOrganizationId, testCreateWebhookPayloadTemplate.PayloadTemplateId!)
+					.GetOrganizationWebhooksPayloadTemplateAsync(Configuration.TestOrganizationId, testCreateWebhookPayloadTemplate.PayloadTemplateId!)
 				);
 
 			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 		}
 		catch (Exception e)
 		{
-			Logger.LogError(e, "OrganizationWebhookPayloadTemplatesCrud_Succeeds failed: {Message}", e.Message);
+			TestOutputHelper.WriteLine($"OrganizationWebhookPayloadTemplates_Crud_Succeeds failed: {e.Message}");
 			throw;
 		}
 	}
 
 	[Fact]
-	public async Task WebhookTestCr_Succeeds()
+	public async Task WebhookTest_Cr_Succeeds()
 	{
-		var network = await CreateValidNetworkAsync("WebhookTest Test Network");
+		var network = await CreateTestNetworkAsync();
 		_ = network.Should().NotBeNull();
 
 		try
@@ -469,7 +461,7 @@ public class WebhookTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 		finally
 		{
 			// Delete the network
-			await TestMerakiClient.Networks.DeleteNetworkAsync(network.Id);
+			await RemoveNetworkAsync(network.Id);
 		}
 
 		// Make sure that the network is gone

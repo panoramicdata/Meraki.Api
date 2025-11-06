@@ -1,14 +1,12 @@
 using System.Net;
 
-namespace Meraki.Api.NewTest;
+namespace Meraki.Api.Test.Switch.Routing.Interfaces;
 
-[Collection("API Collection")]
-public class SwitchRoutingInterfaceTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
+public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
 {
 	[Fact]
-	public async Task BasicCrud_Succeeds()
+	public async Task SwitchRoutingInterface_Crud_Succeeds()
 	{
-
 		// Create a routing interface on our test switch
 
 		// Set up the routing interface object to be created
@@ -22,11 +20,19 @@ public class SwitchRoutingInterfaceTests(ITestOutputHelper testOutputHelper) : M
 			Subnet = "192.168.1.0/24"
 		};
 
-		var createSwitchRoutingInterface = await TestMerakiClient.Switch.Routing.Interfaces.CreateDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterfaceRequest);
+		var createSwitchRoutingInterface = await TestMerakiClient
+			.Switch
+			.Routing
+			.Interfaces
+			.CreateDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterfaceRequest);
 		_ = createSwitchRoutingInterface.Should().NotBeNull();
 
 		// Get all routing interfaces from the switch and see that it's there
-		var getSwitchRoutingInterfaces = await TestMerakiClient.Switch.Routing.Interfaces.GetDeviceSwitchRoutingInterfacesAsync(TestSwitchSerial);
+		var getSwitchRoutingInterfaces = await TestMerakiClient
+			.Switch
+			.Routing
+			.Interfaces
+			.GetDeviceSwitchRoutingInterfacesAsync(Configuration.TestSwitchSerial);
 		_ = getSwitchRoutingInterfaces.Should().Contain(getSwitchRoutingInterfaces => getSwitchRoutingInterfaces.Name == createSwitchRoutingInterface.Name);
 
 		// Make a change to the interface
@@ -54,17 +60,29 @@ public class SwitchRoutingInterfaceTests(ITestOutputHelper testOutputHelper) : M
 			.Switch
 			.Routing
 			.Interfaces
-			.UpdateDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterface.InterfaceId, updateSwitchRoutingInterfaceRequest);
+			.UpdateDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterface.InterfaceId, updateSwitchRoutingInterfaceRequest);
 
 		// Get the routing interface and compare
-		var testSwitchRoutingInterface = await TestMerakiClient.Switch.Routing.Interfaces.GetDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterface.InterfaceId);
+		var testSwitchRoutingInterface = await TestMerakiClient
+			.Switch
+			.Routing
+			.Interfaces
+			.GetDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterface.InterfaceId);
 		_ = testSwitchRoutingInterface.Name.Should().Be(updateSwitchRoutingInterfaceRequest.Name);
 
 		// Delete the routing interface
-		await TestMerakiClient.Switch.Routing.Interfaces.DeleteDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterface.InterfaceId);
+		await TestMerakiClient
+			.Switch
+			.Routing
+			.Interfaces
+			.DeleteDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterface.InterfaceId);
 
 		// Check that the interface no longer exists
-		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient.Switch.Routing.Interfaces.GetDeviceSwitchRoutingInterfaceAsync(TestSwitchSerial, createSwitchRoutingInterface.InterfaceId));
+		var exception = await Assert.ThrowsAsync<Refit.ApiException>(() => TestMerakiClient
+			.Switch
+			.Routing
+			.Interfaces
+			.GetDeviceSwitchRoutingInterfaceAsync(Configuration.TestSwitchSerial, createSwitchRoutingInterface.InterfaceId));
 		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
 	}
 }

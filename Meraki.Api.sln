@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31808.319
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11123.170 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meraki.Api", "Meraki.Api\Meraki.Api.csproj", "{6F7224AA-58BA-4C3C-8FE6-0A1F64439EF6}"
 EndProject
@@ -32,8 +32,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitClassSourceGenerator", "RefitClassSourceGenerator\RefitClassSourceGenerator.csproj", "{262F4864-47EF-4B3B-BFBB-D9C374A542DB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefitClassSourceGeneratorApp", "RefitClassSourceGeneratorApp\RefitClassSourceGeneratorApp.csproj", "{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meraki.Api.NewTest", "Meraki.Api.NewTest\Meraki.Api.NewTest.csproj", "{F491879D-2939-4BB6-BFC2-F5E0A76520C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHubWorkFlows", "GitHubWorkFlows", "{23327A92-08A3-4DAB-9163-F23D76723C56}"
 	ProjectSection(SolutionItems) = preProject
@@ -85,10 +83,6 @@ Global
 		{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65B8BB4B-0C6A-4257-8D87-6F2275C4B3A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F491879D-2939-4BB6-BFC2-F5E0A76520C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F491879D-2939-4BB6-BFC2-F5E0A76520C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F491879D-2939-4BB6-BFC2-F5E0A76520C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F491879D-2939-4BB6-BFC2-F5E0A76520C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA0C3D81-896B-4D34-ABDF-82392CE462C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA0C3D81-896B-4D34-ABDF-82392CE462C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA0C3D81-896B-4D34-ABDF-82392CE462C5}.Release|Any CPU.ActiveCfg = Release|Any CPU

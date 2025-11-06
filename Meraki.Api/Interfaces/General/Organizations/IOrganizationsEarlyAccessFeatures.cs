@@ -9,7 +9,8 @@ public interface IOrganizationsEarlyAccessFeatures
 	/// <param name="organizationId">The organization id</param>
 	[Get("/organizations/{organizationId}/earlyAccess/features")]
 	Task<List<EarlyAccessFeature>> GetOrganizationEarlyAccessFeaturesAsync(
-		string organizationId
+		string organizationId,
+		CancellationToken cancellation = default
 		);
 
 	/// <summary>

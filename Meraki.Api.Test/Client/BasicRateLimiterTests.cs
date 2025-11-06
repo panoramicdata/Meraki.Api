@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.NewTest;
+namespace Meraki.Api.Test.Internal;
 
 public class BasicRateLimiterTests
 {

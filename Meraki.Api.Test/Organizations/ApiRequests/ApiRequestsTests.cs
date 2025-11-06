@@ -1,9 +1,9 @@
-﻿namespace Meraki.Api.NewTest;
-[Collection("API Collection")]
-public class ApiRequestsTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
-{
-	private static readonly System.Text.Json.JsonSerializerOptions _jsonOptions = new() { WriteIndented = true };
+namespace Meraki.Api.Test.Organizations.ApiRequests;
 
+public class ApiRequestsTests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
+{
+	// Note: The original test was commented out, so leaving it commented here as well
+	
 	//[Fact]
 	//public async Task GetApiRequests_Succeeds()
 	//{
@@ -17,11 +17,11 @@ public class ApiRequestsTests(ITestOutputHelper testOutputHelper) : MerakiClient
 	//			.Organizations
 	//			.ApiRequests
 	//			.GetOrganizationApiRequestsAllAsync(
-	//				"xxxx",
+	//				Configuration.TestOrganizationId,
 	//				t0: startTimeStamp.Date.ToString("yyyy-MM-dd 00:00:00Z", CultureInfo.InvariantCulture),
 	//				t1: endTimeStamp.Date.ToString("yyyy-MM-dd 00:00:00Z", CultureInfo.InvariantCulture)
 	//				);
-	//		var json = System.Text.Json.JsonSerializer.Serialize(apiRequests, _jsonOptions);
+	//		var json = System.Text.Json.JsonSerializer.Serialize(apiRequests, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
 	//		// write the json to a file
 	//		var outFile = Path.Combine(Path.GetTempPath(), $"apiRequests_{startTimeStamp:yyyyMMdd}.json");
 	//		await File.WriteAllTextAsync(outFile, json);

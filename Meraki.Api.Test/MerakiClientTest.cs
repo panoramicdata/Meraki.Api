@@ -6,25 +6,37 @@ using Newtonsoft.Json;
 
 namespace Meraki.Api.Test;
 
-public abstract class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : IDisposable
+public abstract class MerakiClientTest(ITestOutputHelper testOutputHelper) : IAsyncLifetime
 {
+	protected ITestOutputHelper TestOutputHelper { get; } = testOutputHelper;
+
 	protected DateTimeOffset UtcNow { get; } = DateTimeOffset.UtcNow;
 
 	protected DateTimeOffset Utc10DaysAgo => UtcNow - TimeSpan.FromDays(10);
 
 	private MerakiClient? _merakiClient;
 
-	private bool _disposedValue;
+	private ILogger? _logger;
 
-	private readonly ILogger _logger = new LoggerFactory()
-			.AddXUnit(_iTestOutputHelper)
-			.CreateLogger<MerakiClientTest>();
+	internal TestConfig Configuration { get; private set; } = null!;
 
-	internal TestConfig Configuration { get; } = LoadConfig();
+	protected CancellationToken CancellationToken => TestContext.Current.CancellationToken;
 
-	protected CancellationToken CancellationToken { get; } = TestContext.Current.CancellationToken;
+	public virtual async ValueTask InitializeAsync()
+	{
+		Configuration = await LoadConfigAsync();
+		_logger = CreateLogger();
+	}
 
-	private static TestConfig LoadConfig()
+	public virtual async ValueTask DisposeAsync()
+	{
+		if (_merakiClient != null)
+		{
+			await Task.Run(() => _merakiClient.Dispose());
+		}
+	}
+
+	private static async Task<TestConfig> LoadConfigAsync()
 	{
 		// Load config from file
 		var fileInfo = new FileInfo("../../../appsettings.json");
@@ -33,17 +45,28 @@ public abstract class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : I
 		if (!fileInfo.Exists)
 		{
 			// No - hint to the user what to do
-			throw new ConfigurationException("Missing appsettings.json.  Please copy the appsettings.example.json in the project root folder and set the various values appropriately.");
+			throw new ConfigurationException("Missing appsettings.json. Please copy the appsettings.example.json in the project root folder and set the various values appropriately.");
 		}
 		// Yes
 
 		// Load in the config
-		var configuration = JsonConvert.DeserializeObject<TestConfig>(File.ReadAllText(fileInfo.FullName))
+		var json = await File.ReadAllTextAsync(fileInfo.FullName);
+		var configuration = JsonConvert.DeserializeObject<TestConfig>(json)
 			?? throw new ConfigurationException("Configuration did not deserialize");
 
 		configuration.Validate();
 
 		return configuration;
+	}
+
+	private ILogger CreateLogger()
+	{
+		var factory = LoggerFactory.Create(builder =>
+		{
+			builder.AddProvider(new XunitLoggerProvider(TestOutputHelper));
+			builder.SetMinimumLevel(LogLevel.Debug);
+		});
+		return factory.CreateLogger<MerakiClientTest>();
 	}
 
 	protected MerakiClient TestMerakiClient
@@ -103,32 +126,11 @@ public abstract class MerakiClientTest(ITestOutputHelper _iTestOutputHelper) : I
 	protected Task RemoveNetworkAsync(string networkId)
 		=> TestMerakiClient
 			.Networks
-			.DeleteNetworkAsync(networkId)
-;
+			.DeleteNetworkAsync(networkId);
 
 	protected static string DnsServer => string.Join('.', _sourceArray.Select(_ => 8));
 	protected static string PrivateNetworkFirst3Octets => "10.1.2";
 	protected static string SubnetMaskFirst3Octets => "255.255.255";
 
 	private static readonly int[] _sourceArray = [0, 1, 2, 3];
-
-	protected virtual void Dispose(bool disposing)
-	{
-		if (!_disposedValue)
-		{
-			if (disposing)
-			{
-				_merakiClient?.Dispose();
-			}
-
-			_disposedValue = true;
-		}
-	}
-
-	public void Dispose()
-	{
-		// Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-		Dispose(disposing: true);
-		GC.SuppressFinalize(this);
-	}
 }

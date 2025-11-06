@@ -1,13 +1,12 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 using System.Globalization;
 
-namespace Meraki.Api.NewTest;
+namespace Meraki.Api.Test.Appliance;
 
-[Collection("API Collection")]
-public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
+public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
 {
 	[Fact]
-	public async Task GetOrganizationApplianceVpnStatsAllAsync_BetweenT0AndT1_Succeeds()
+	public async Task GetOrganizationApplianceVpnStatsAll_BetweenT0AndT1_Succeeds()
 	{
 		TestMerakiClient.Statistics.Reset();
 
@@ -17,17 +16,17 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 			.Vpn
 			.Stats
 			.GetOrganizationApplianceVpnStatsAllAsync(
-				TestOrganizationId,
+				Configuration.TestOrganizationId,
 				t0: utcNow.AddHours(-1).ToMerakiT0T1String(),
 				t1: utcNow.ToMerakiT0T1String(),
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 		_ = vpnStatsLastHour.Should().NotBeEmpty();
 		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
-		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+		TestOutputHelper.WriteLine($"Stats: {TestMerakiClient.Statistics}");
 	}
 
 	[Fact]
-	public async Task GetOrganizationApplianceVpnStatsAllAsync_WithTimeSpan_Succeeds()
+	public async Task GetOrganizationApplianceVpnStatsAll_WithTimeSpan_Succeeds()
 	{
 		TestMerakiClient.Statistics.Reset();
 		var vpnStatsLastDay = await TestMerakiClient
@@ -35,16 +34,16 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 			.Vpn
 			.Stats
 			.GetOrganizationApplianceVpnStatsAllAsync(
-				TestOrganizationId,
+				Configuration.TestOrganizationId,
 				timespan: 24 * 60 * 60, // 24 hours in seconds
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 		_ = vpnStatsLastDay.Should().NotBeEmpty();
 		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
-		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+		TestOutputHelper.WriteLine($"Stats: {TestMerakiClient.Statistics}");
 	}
 
 	[Fact]
-	public async Task GetOrganizationApplianceVpnStatsAllAsync_Succeeds()
+	public async Task GetOrganizationApplianceVpnStatsAll_Succeeds()
 	{
 		TestMerakiClient.Statistics.Reset();
 		var vpnStats = await TestMerakiClient
@@ -52,24 +51,24 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 			.Vpn
 			.Stats
 			.GetOrganizationApplianceVpnStatsAllAsync(
-				TestOrganizationId,
-				cancellationToken: default);
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
 		_ = vpnStats.Should().NotBeEmpty();
 		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
-		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+		TestOutputHelper.WriteLine($"Stats: {TestMerakiClient.Statistics}");
 	}
 
 	[Fact]
-	public async Task GetDeviceLldpCdpAsync_Succeeds()
+	public async Task GetDeviceLldpCdp_Succeeds()
 	{
 		TestMerakiClient.Statistics.Reset();
 		var lldpCdp = await TestMerakiClient
 			.Devices
 			.LldpCdp
 			.GetDeviceLldpCdpAsync(
-				TestApplianceSerial,
+				Configuration.TestDeviceSerial,
 				timespan: 24 * 60 * 60, // 24 hours in seconds
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 		_ = lldpCdp.Should().NotBeNull();
 		_ = lldpCdp.Ports.Should().NotBeEmpty();
 		_ = lldpCdp.Ports.Keys.Should().Contain("wan0");
@@ -77,7 +76,7 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 		_ = lldpCdp.PortsFixed.Keys.Should().NotContain("wan0");
 
 		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
-		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+		TestOutputHelper.WriteLine($"Stats: {TestMerakiClient.Statistics}");
 	}
 
 	[Fact]
@@ -92,15 +91,15 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientUn
 			.Devices
 			.LossAndLatencyHistory
 			.GetDeviceLossAndLatencyHistoryAsync(
-				TestApplianceSerial,
+				Configuration.TestDeviceSerial,
 				"8.8.8.8",
 				startDateTime.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
 				endDateTime.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
 				null,
 				3600, // 1 hour in seconds,"
-				cancellationToken: default);
+				cancellationToken: CancellationToken);
 		_ = lossAndLatencyHistory.Should().NotBeNullOrEmpty();
 		_ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
-		Logger.LogInformation("Stats: {Stats}", TestMerakiClient.Statistics);
+		TestOutputHelper.WriteLine($"Stats: {TestMerakiClient.Statistics}");
 	}
 }

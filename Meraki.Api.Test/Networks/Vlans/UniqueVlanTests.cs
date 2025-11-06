@@ -1,12 +1,11 @@
 using System.Net;
 
-namespace Meraki.Api.NewTest;
+namespace Meraki.Api.Test.Networks.Vlans;
 
-[Collection("API Collection")]
-public class UniqueVlanTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
+public class UniqueVlanTests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
 {
 	[Fact]
-	public async Task BasicCrud_Succeeds()
+	public async Task UniqueVlan_Crud_Succeeds()
 	{
 		// Create the test Configuration Template
 		var configurationTemplate = await CreateValidConfigurationTemplateAsync("VLAN Test ConfigTemplate");
@@ -20,7 +19,7 @@ public class UniqueVlanTests(ITestOutputHelper testOutputHelper) : MerakiClientU
 			_ = await TestMerakiClient.Appliance.Vlans.Settings.UpdateNetworkApplianceVlansSettingsAsync(
 				configurationTemplate.Id,
 				new() { Enabled = true },
-				default);
+				CancellationToken);
 
 			// Create a uniquely subnetted VLAN
 			var vlanCreationRequest = new VlanCreationRequest
@@ -37,7 +36,7 @@ public class UniqueVlanTests(ITestOutputHelper testOutputHelper) : MerakiClientU
 			var newVlan = await TestMerakiClient.Appliance.Vlans.CreateNetworkApplianceVlanAsync(
 				configurationTemplate.Id,
 				vlanCreationRequest,
-				default);
+				CancellationToken);
 			_ = newVlan.Should().NotBeNull();
 
 		}
@@ -45,7 +44,7 @@ public class UniqueVlanTests(ITestOutputHelper testOutputHelper) : MerakiClientU
 		{
 			// Delete the Configuration Template
 			await TestMerakiClient.Organizations.ConfigTemplates.DeleteOrganizationConfigTemplateAsync(
-				TestOrganizationId,
+				Configuration.TestOrganizationId,
 				configurationTemplate.Id
 				);
 		}
@@ -53,11 +52,23 @@ public class UniqueVlanTests(ITestOutputHelper testOutputHelper) : MerakiClientU
 		// Make sure that the Configuration Template is gone
 		var exception = await Assert.ThrowsAsync<Refit.ApiException>(
 			() => TestMerakiClient.Organizations.ConfigTemplates.GetOrganizationConfigTemplateAsync(
-				TestOrganizationId,
+				Configuration.TestOrganizationId,
 				configurationTemplate.Id
 				)
 			);
 		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
-
 	}
+
+	private async Task<ConfigurationTemplate> CreateValidConfigurationTemplateAsync(string configurationTemplateName)
+		=> await TestMerakiClient
+			.Organizations
+			.ConfigTemplates
+			.CreateOrganizationConfigTemplateAsync(
+				Configuration.TestOrganizationId,
+				new ConfigurationTemplateCreateRequest
+				{
+					Name = configurationTemplateName,
+					TimeZone = "Europe/London"
+				}
+			);
 }

@@ -1,22 +1,18 @@
 using Newtonsoft.Json;
 using System.Net;
 
-namespace Meraki.Api.NewTest;
+namespace Meraki.Api.Test.Networks;
 
-[Collection("API Collection")]
-public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientUnitTest(testOutputHelper)
+public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
 {
 	[Fact]
-	public async Task BasicCrud_Succeeds()
+	public async Task Network_Crud_Succeeds()
 	{
 		//Create, modify and delete a test network
 		var testNetworkName = "Basic CRUD Test Network";
 
-		//Get the data that we're going to use to create the test network
-		var createNetworkRequest = GetValidNetworkCreationRequest(testNetworkName);
-
 		//Create the test network
-		var network = await CreateValidNetworkAsync(testNetworkName);
+		var network = await CreateTestNetworkAsync();
 
 		//Make sure we've got something back
 		_ = network.Should().NotBeNull();
@@ -32,12 +28,12 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 			// Create a comparison network object using the data we sent at create
 			var expectedNetwork = new Network
 			{
-				OrganizationId = TestOrganizationId,
-				Name = createNetworkRequest.Name,
-				Notes = createNetworkRequest.Notes,
-				TimeZone = createNetworkRequest.TimeZone!,
-				ProductTypes = createNetworkRequest.ProductTypes,
-				Tags = createNetworkRequest.Tags!,
+				OrganizationId = Configuration.TestOrganizationId,
+				Name = network.Name,
+				Notes = network.Notes,
+				TimeZone = network.TimeZone,
+				ProductTypes = network.ProductTypes,
+				Tags = network.Tags,
 				Id = network.Id,
 				IsBoundToConfigTemplate = false
 			};
@@ -88,7 +84,7 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 		finally
 		{
 			// Delete the network
-			await TestMerakiClient.Networks.DeleteNetworkAsync(network.Id);
+			await RemoveNetworkAsync(network.Id);
 		}
 
 		// Make sure that the network is gone
@@ -105,11 +101,11 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientUnit
 			.Organizations
 			.Networks
 			.GetOrganizationNetworksAllAsync(
-				TestOrganizationId,
-				default
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken
 			);
 		var network = networks[0];
-		var clients = await TestMerakiClient.Networks.Clients.GetNetworkClientsAllAsync(network.Id, cancellationToken: default);
+		var clients = await TestMerakiClient.Networks.Clients.GetNetworkClientsAllAsync(network.Id, cancellationToken: CancellationToken);
 		_ = clients.Should().NotBeNull();
 	}
 
