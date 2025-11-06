@@ -20,7 +20,7 @@ public abstract class MerakiClientTest(ITestOutputHelper testOutputHelper) : IAs
 
 	internal TestConfig Configuration { get; private set; } = null!;
 
-	protected CancellationToken CancellationToken => TestContext.Current.CancellationToken;
+	protected static CancellationToken CancellationToken => TestContext.Current.CancellationToken;
 
 	public virtual async ValueTask InitializeAsync()
 	{
@@ -32,7 +32,7 @@ public abstract class MerakiClientTest(ITestOutputHelper testOutputHelper) : IAs
 	{
 		if (_merakiClient != null)
 		{
-			await Task.Run(() => _merakiClient.Dispose());
+			await Task.Run(_merakiClient.Dispose);
 		}
 	}
 
