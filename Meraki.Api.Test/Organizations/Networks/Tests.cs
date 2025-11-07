@@ -489,23 +489,25 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		try
 		{
 			// Create network
-			var exception = await Assert.ThrowsAsync<InvalidOperationException>(
-				() => TestMerakiClient
-					.Organizations
-					.Networks
-					.CreateOrganizationNetworkAsync(
-						Configuration.TestOrganizationId,
-						new NetworkCreationRequest
-						{
-							Name = Guid.NewGuid().ToString(),
-							ProductTypes = [ProductType.Wireless],
-							Tags = [],
-							TimeZone = "Europe/London",
-							Notes = $"Created at {DateTime.UtcNow:u} during unit testing, OK to delete"
-						}, cancellationToken: CancellationToken
-					)
-				);
-			_ = exception.Message.Should().Be("The client options have been configured to only allow read actions");
+			var act = () => TestMerakiClient
+				.Organizations
+				.Networks
+				.CreateOrganizationNetworkAsync(
+					Configuration.TestOrganizationId,
+					new NetworkCreationRequest
+					{
+						Name = Guid.NewGuid().ToString(),
+						ProductTypes = [ProductType.Wireless],
+						Tags = [],
+						TimeZone = "Europe/London",
+						Notes = $"Created at {DateTime.UtcNow:u} during unit testing, OK to delete"
+					},
+					cancellationToken: CancellationToken);
+
+			_ = await act
+				.Should()
+				.ThrowExactlyAsync<InvalidOperationException>()
+				.WithMessage("The client options have been configured to only allow read actions");
 		}
 		finally
 		{

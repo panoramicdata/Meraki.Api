@@ -60,15 +60,18 @@ public class UniqueVlanTests(ITestOutputHelper testOutputHelper) : MerakiClientT
 		}
 
 		// Make sure that the Configuration Template is gone
-		var exception = await Assert.ThrowsAsync<ApiException>(
-			() => TestMerakiClient
-				.Organizations
-				.ConfigTemplates
-				.GetOrganizationConfigTemplateAsync(
-					Configuration.TestOrganizationId,
-					configurationTemplate.Id,
-					cancellationToken: CancellationToken));
-		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+		var act = () => TestMerakiClient
+			.Organizations
+			.ConfigTemplates
+			.GetOrganizationConfigTemplateAsync(
+				Configuration.TestOrganizationId,
+				configurationTemplate.Id,
+				cancellationToken: CancellationToken);
+
+		_ = await act
+			.Should()
+			.ThrowExactlyAsync<ApiException>()
+			.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 	}
 
 	private Task<ConfigurationTemplate> CreateValidConfigurationTemplateAsync(string configurationTemplateName)

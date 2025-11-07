@@ -1,5 +1,12 @@
 ﻿namespace Meraki.Api.Interfaces.General.Organizations;
 
+/// <summary>
+/// Defines methods for managing early access features and opt-ins for organizations.
+/// </summary>
+/// <remarks>This interface provides asynchronous operations to list, create, update, retrieve, and delete early
+/// access feature opt-ins for a specified organization. All methods are intended to be used with organization
+/// identifiers and support cancellation via a CancellationToken. Implementations may throw an ApiException if an API
+/// call fails.</remarks>
 public interface IOrganizationsEarlyAccessFeatures
 {
 	/// <summary>
@@ -7,10 +14,11 @@ public interface IOrganizationsEarlyAccessFeatures
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="organizationId">The organization id</param>
+	/// <param name="cancellationToken"></param>
 	[Get("/organizations/{organizationId}/earlyAccess/features")]
 	Task<List<EarlyAccessFeature>> GetOrganizationEarlyAccessFeaturesAsync(
 		string organizationId,
-		CancellationToken cancellation = default
+		CancellationToken cancellationToken = default
 		);
 
 	/// <summary>

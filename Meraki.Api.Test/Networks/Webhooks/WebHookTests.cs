@@ -39,7 +39,7 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 				.HttpServers
 				.GetNetworkWebhooksHttpServersAsync(
 					network.Id,
-					CancellationToken);
+					cancellationToken: CancellationToken);
 			_ = testWebhookHttpServers.Should().Contain(testWebhookHttpServer => testWebhookHttpServer.Name == testWebhookHttpServerRequest.Name);
 
 			// Create a comparison WebhookHttpSever object
@@ -109,16 +109,19 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 					cancellationToken: CancellationToken);
 
 			// Check the webhook http server is gone
-			var webhookhttpserverexception = await Assert.ThrowsAsync<ApiException>(() => TestMerakiClient
+			var webhookhttpserverGetAct = () => TestMerakiClient
 				.Networks
 				.Webhooks
 				.HttpServers
 				.GetNetworkWebhooksHttpServerAsync(
 					network.Id,
 					testWebhookHttpServer.Id,
-					cancellationToken: CancellationToken));
+					cancellationToken: CancellationToken);
 
-			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+			_ = await webhookhttpserverGetAct
+				.Should()
+				.ThrowExactlyAsync<ApiException>()
+				.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 
 		}
 		finally
@@ -128,13 +131,16 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 		}
 
 		// Make sure that the network is gone
-		var exception = await Assert.ThrowsAsync<ApiException>(() => TestMerakiClient
+		var networkGetAct = () => TestMerakiClient
 			.Networks
 			.GetNetworkAsync(
 				network.Id,
-				cancellationToken: CancellationToken));
+				cancellationToken: CancellationToken);
 
-		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+		_ = await networkGetAct
+			.Should()
+			.ThrowExactlyAsync<ApiException>()
+			.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 
 	}
 
@@ -277,15 +283,19 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 					testWebhookHttpServer.Id,
 					cancellationToken: CancellationToken);
 
-			var webhookhttpserverexception = await Assert.ThrowsAsync<ApiException>(() => TestMerakiClient
+			var webhookServerGetAct = () => TestMerakiClient
 				.Networks
 				.Webhooks
 				.HttpServers
 				.GetNetworkWebhooksHttpServerAsync(
 					network.Id,
 					testWebhookHttpServer.Id,
-					cancellationToken: CancellationToken));
-			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+					cancellationToken: CancellationToken);
+
+			_ = await webhookServerGetAct
+				.Should()
+				.ThrowExactlyAsync<ApiException>()
+				.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 
 			// Delete the payload template
 			await TestMerakiClient
@@ -298,18 +308,19 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 					cancellationToken: CancellationToken);
 
 			// Check that the payload template is gone
-			_ = await Assert.ThrowsAsync<ApiException>(
-				() => TestMerakiClient
-					.Networks
-					.Webhooks
-					.PayloadTemplates
-					.GetNetworkWebhooksPayloadTemplateAsync(
-						network.Id,
-						testCreateWebhookPayloadTemplate.PayloadTemplateId!,
-						cancellationToken: CancellationToken)
-				);
+			var payloadTemplateGetAct = () => TestMerakiClient
+				.Networks
+				.Webhooks
+				.PayloadTemplates
+				.GetNetworkWebhooksPayloadTemplateAsync(
+					network.Id,
+					testCreateWebhookPayloadTemplate.PayloadTemplateId!,
+					cancellationToken: CancellationToken);
 
-			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+			_ = await payloadTemplateGetAct
+				.Should()
+				.ThrowExactlyAsync<ApiException>()
+				.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 		}
 		finally
 		{
@@ -318,12 +329,16 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 		}
 
 		// Make sure that the network is gone
-		var exception = await Assert.ThrowsAsync<ApiException>(() => TestMerakiClient
+		var networkGetAct = () => TestMerakiClient
 			.Networks
 			.GetNetworkAsync(
 				network.Id,
-				cancellationToken: CancellationToken));
-		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+				cancellationToken: CancellationToken);
+
+		_ = await networkGetAct
+			.Should()
+			.ThrowExactlyAsync<ApiException>()
+			.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 
 	}
 
@@ -464,18 +479,19 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 					cancellationToken: CancellationToken
 				);
 
-			var webhookhttpserverexception = await Assert.ThrowsAsync<ApiException>(
-				() => TestMerakiClient
-					.Organizations
-					.Webhooks
-					.HttpServers
-					.GetOrganizationWebhooksHttpServerAsync(
-						Configuration.TestOrganizationId,
-						testWebhookHttpServer.Id,
-						cancellationToken: CancellationToken
-					)
-				);
-			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+			var webhookServerGetAct = () => TestMerakiClient
+				.Organizations
+				.Webhooks
+				.HttpServers
+				.GetOrganizationWebhooksHttpServerAsync(
+					Configuration.TestOrganizationId,
+					testWebhookHttpServer.Id,
+					cancellationToken: CancellationToken);
+
+			_ = await webhookServerGetAct
+				.Should()
+				.ThrowExactlyAsync<ApiException>()
+				.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 
 			// Delete the payload template
 			await TestMerakiClient
@@ -489,18 +505,19 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 				);
 
 			// Check that the payload template is gone
-			_ = await Assert.ThrowsAsync<ApiException>(
-				() => TestMerakiClient
-					.Organizations
-					.Webhooks
-					.PayloadTemplates
-					.GetOrganizationWebhooksPayloadTemplateAsync(
-						Configuration.TestOrganizationId,
-						testCreateWebhookPayloadTemplate.PayloadTemplateId!,
-						cancellationToken: CancellationToken)
-				);
+			var payloadTemplateGetAct = () => TestMerakiClient
+				.Organizations
+				.Webhooks
+				.PayloadTemplates
+				.GetOrganizationWebhooksPayloadTemplateAsync(
+					Configuration.TestOrganizationId,
+					testCreateWebhookPayloadTemplate.PayloadTemplateId!,
+					cancellationToken: CancellationToken);
 
-			_ = webhookhttpserverexception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+			_ = await payloadTemplateGetAct
+				.Should()
+				.ThrowExactlyAsync<ApiException>()
+				.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 		}
 		catch (Exception e)
 		{
@@ -565,13 +582,16 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 		}
 
 		// Make sure that the network is gone
-		var exception = await Assert.ThrowsAsync<ApiException>(() => TestMerakiClient
+		var networkGetAct = () => TestMerakiClient
 			.Networks
 			.GetNetworkAsync(
 				network.Id,
-				cancellationToken: CancellationToken));
+				cancellationToken: CancellationToken);
 
-		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+		_ = await networkGetAct
+			.Should()
+			.ThrowExactlyAsync<ApiException>()
+			.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 
 	}
 }

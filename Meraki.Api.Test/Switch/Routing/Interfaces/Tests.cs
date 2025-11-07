@@ -93,15 +93,17 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 				cancellationToken: CancellationToken);
 
 		// Check that the interface no longer exists
-		var exception = await Assert.ThrowsAsync<ApiException>(
-			() => TestMerakiClient
-				.Switch
-				.Routing
-				.Interfaces
-				.GetDeviceSwitchRoutingInterfaceAsync(
-					Configuration.TestSwitchSerial,
-					createSwitchRoutingInterface.InterfaceId,
-					cancellationToken: CancellationToken));
-		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+
+		_ = await ((Func<Task<RoutingInterface>>?)(() => TestMerakiClient
+			.Switch
+			.Routing
+			.Interfaces
+			.GetDeviceSwitchRoutingInterfaceAsync(
+				Configuration.TestSwitchSerial,
+				createSwitchRoutingInterface.InterfaceId,
+				cancellationToken: CancellationToken)))
+			.Should()
+			.ThrowExactlyAsync<ApiException>()
+			.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 	}
 }

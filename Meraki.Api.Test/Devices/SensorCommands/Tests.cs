@@ -5,17 +5,19 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 	[Fact]
 	public async Task CreateDeviceSensorCommand_EnableDownstreamPower_Succeeds()
 	{
+		_ = Configuration.TestMt40Serial.Should().NotBeNullOrEmpty(because: "a valid MT40 serial is required for this test");
+
 		var command = await TestMerakiClient
-				.Devices
-				.SensorCommands
-				.CreateDeviceSensorCommandAsync(
-					Configuration.TestMt40Serial,
-					new()
-					{
-						Operation = SensorCommandOperation.EnableDownstreamPower
-					},
-					CancellationToken
-				);
+			.Devices
+			.SensorCommands
+			.CreateDeviceSensorCommandAsync(
+				Configuration.TestMt40Serial,
+				new()
+				{
+					Operation = SensorCommandOperation.EnableDownstreamPower
+				},
+				cancellationToken: CancellationToken
+			);
 
 		_ = command.Status.Should().Be("pending");
 	}
@@ -23,6 +25,8 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 	[Fact]
 	public async Task GetDeviceSensorCommandsAll_Succeeds()
 	{
+		_ = Configuration.TestMt40Serial.Should().NotBeNullOrEmpty(because: "a valid MT40 serial is required for this test");
+
 		var commands = await TestMerakiClient
 			.Devices
 			.SensorCommands
@@ -36,6 +40,8 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 	[Fact]
 	public async Task GetDeviceSensorCommands_Paged_Succeeds()
 	{
+		_ = Configuration.TestMt40Serial.Should().NotBeNullOrEmpty(because: "a valid MT40 serial is required for this test");
+
 		var commands = await TestMerakiClient
 			.Devices
 			.SensorCommands

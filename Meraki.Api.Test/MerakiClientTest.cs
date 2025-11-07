@@ -34,6 +34,8 @@ public abstract class MerakiClientTest(ITestOutputHelper testOutputHelper) : IAs
 		{
 			await Task.Run(_merakiClient.Dispose);
 		}
+
+		GC.SuppressFinalize(this);
 	}
 
 	private static async Task<TestConfig> LoadConfigAsync()
@@ -60,14 +62,9 @@ public abstract class MerakiClientTest(ITestOutputHelper testOutputHelper) : IAs
 	}
 
 	private ILogger CreateLogger()
-	{
-		var factory = LoggerFactory.Create(builder =>
-		{
-			builder.AddProvider(new XunitLoggerProvider(TestOutputHelper));
-			builder.SetMinimumLevel(LogLevel.Debug);
-		});
-		return factory.CreateLogger<MerakiClientTest>();
-	}
+		=> LoggerFactory.Create(builder => _ = builder
+			.AddProvider(new XunitLoggerProvider(TestOutputHelper))
+			.SetMinimumLevel(LogLevel.Debug)).CreateLogger<MerakiClientTest>();
 
 	protected MerakiClient TestMerakiClient
 	{

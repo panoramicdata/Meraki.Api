@@ -1,11 +1,9 @@
-using Microsoft.Extensions.Logging;
-
 namespace Meraki.Api.Test.Wireless.Status;
 
 public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
 {
 	[Fact]
-	public async Task GetDeviceWirelessStatus_Succeeds()
+	public void GetDeviceWirelessStatus_Succeeds()
 	{
 		// TODO: Add WirelessDeviceSerial1 and WirelessDeviceSerial2 to TestConfig if needed
 		// For now, skip this test if the properties don't exist
@@ -28,9 +26,5 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 		// }
 
 		// _ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
-		
-		// Placeholder test - update when wireless device serials are available
-		await Task.CompletedTask;
-		Assert.True(true, "Test requires wireless device serials to be configured");
 	}
 }

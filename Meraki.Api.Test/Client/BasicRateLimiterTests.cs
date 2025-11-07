@@ -67,7 +67,10 @@ public class BasicRateLimiterTests
 	[Fact]
 	public void ThrowsOnInvalidConstructorArguments()
 	{
-		_ = Assert.Throws<ArgumentOutOfRangeException>(() => new BasicRateLimiter(0, TimeSpan.FromSeconds(1)));
-		_ = Assert.Throws<ArgumentOutOfRangeException>(() => new BasicRateLimiter(1, TimeSpan.Zero));
+		var actZeroLimit = () => new BasicRateLimiter(0, TimeSpan.FromSeconds(1));
+		_ = actZeroLimit.Should().ThrowExactly<ArgumentOutOfRangeException>();
+
+		var actZeroWindow = () => new BasicRateLimiter(1, TimeSpan.Zero);
+		_ = actZeroWindow.Should().ThrowExactly<ArgumentOutOfRangeException>();
 	}
 }

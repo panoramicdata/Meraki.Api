@@ -8,9 +8,6 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 	[Fact]
 	public async Task Network_Crud_Succeeds()
 	{
-		//Create, modify and delete a test network
-		var testNetworkName = "Basic CRUD Test Network";
-
 		//Create the test network
 		var network = await CreateTestNetworkAsync();
 
@@ -97,13 +94,16 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 		}
 
 		// Make sure that the network is gone
-		var exception = await Assert.ThrowsAsync<ApiException>(
-			() => TestMerakiClient
-				.Networks
-				.GetNetworkAsync(
-					network.Id,
-					cancellationToken: CancellationToken));
-		_ = exception.StatusCode.Should().Be(HttpStatusCode.NotFound);
+		var act = () => TestMerakiClient
+			.Networks
+			.GetNetworkAsync(
+				network.Id,
+				cancellationToken: CancellationToken);
+
+		_ = await act
+			.Should()
+			.ThrowExactlyAsync<ApiException>()
+			.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
 
 	}
 
@@ -144,5 +144,6 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 
 		// Act & Assert: Expect a JsonSerializationException due to number overflow
 		var cameraOverview = JsonConvert.DeserializeObject<CameraOverview>(json);
+		_ = cameraOverview.Should().NotBeNull();
 	}
 }

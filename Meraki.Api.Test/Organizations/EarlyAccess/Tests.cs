@@ -11,7 +11,7 @@ public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOu
 			.Features
 			.GetOrganizationEarlyAccessFeaturesAsync(
 				Configuration.TestOrganizationId,
-				cancellation: CancellationToken);
+				cancellationToken: CancellationToken);
 		_ = result.Should().NotBeNullOrEmpty();
 	}
 
