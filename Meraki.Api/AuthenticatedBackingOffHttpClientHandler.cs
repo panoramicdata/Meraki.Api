@@ -156,8 +156,14 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				continue;
 			}
 			catch (HttpRequestException ex) when (
+#if NETSTANDARD2_0
+				ex.Message.Contains("An error occurred while sending the request") ||
+				(ex.InnerException is not null && ex.InnerException.Message.Contains("Connection reset by peer"))
+#else
 				ex.Message.Contains("An error occurred while sending the request", StringComparison.OrdinalIgnoreCase) ||
-				(ex.InnerException is not null && ex.InnerException.Message.Contains("Connection reset by peer", StringComparison.OrdinalIgnoreCase)))
+				(ex.InnerException is not null && ex.InnerException.Message.Contains("Connection reset by peer", StringComparison.OrdinalIgnoreCase))
+#endif
+				)
 			{
 				// This is a common error that occurs when the remote server (Meraki API) abruptly closes the TCP connection
 				// This can happen due to network issues, load balancing, or server-side connection limits
