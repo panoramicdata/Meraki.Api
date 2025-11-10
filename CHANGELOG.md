@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.63.19
+## 1.64.2
 - Fixed missing JSON members identified from API responses across multiple models:
   - **StatusPageAuthentication**: Added `PasswordSet` property (bool?, read-only) - Indicates whether a password has been set for the Local Status Page
   - **SwitchSettings**: Added `UplinkSelection` property with supporting models:
