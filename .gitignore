@@ -332,3 +332,6 @@ ASALocalRun/
 appsettings.json
 /Documentation/api
 /Documentation/_site
+/Meraki.Api/missing*.csv
+/Meraki.Api/hub_*.xlsx
+

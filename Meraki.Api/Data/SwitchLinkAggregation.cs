@@ -26,4 +26,11 @@ public class SwitchLinkAggregation
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "switchProfilePorts")]
 	public List<SwitchProfilePort> SwitchProfilePorts { get; set; } = null!;
+
+	/// <summary>
+	/// Metadata about the link aggregation
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "meta")]
+	public SwitchLinkAggregationMeta? Meta { get; set; }
 }

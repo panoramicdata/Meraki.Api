@@ -145,7 +145,12 @@ public class FloorplanDevice : NamedItem
 	/// <summary>
 	/// Imei
 	/// </summary>
-	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "imei")]
 	public string? Imei { get; set; }
+
+	/// <summary>
+	/// Height information for the device
+	/// </summary>
+	[DataMember(Name = "height")]
+	public FloorplanDeviceHeight? Height { get; set; }
 }

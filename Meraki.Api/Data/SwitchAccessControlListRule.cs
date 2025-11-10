@@ -35,6 +35,13 @@ public class SwitchAccessControlListRule
 	public TcpUdpAnyProtocol Protocol { get; set; }
 
 	/// <summary>
+	/// Indicates if TCP established flag should be set
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "tcpEstablished")]
+	public bool? TcpEstablished { get; set; }
+
+	/// <summary>
 	/// Source IP address (in IP or CIDR notation) or 'any'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

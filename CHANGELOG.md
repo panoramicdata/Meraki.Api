@@ -1,5 +1,26 @@
 ﻿# Changelog
 
+## 1.63.19
+- Fixed missing JSON members identified from API responses across multiple models:
+  - **StatusPageAuthentication**: Added `PasswordSet` property (bool?, read-only) - Indicates whether a password has been set for the Local Status Page
+  - **SwitchSettings**: Added `UplinkSelection` property with supporting models:
+    - `SwitchSettingsUplinkSelection` - Contains failback settings and candidates configuration
+    - `SwitchSettingsUplinkSelectionFailback` - Controls whether failback is enabled
+  - **InventoryDevice**: Added End-of-Life (EOL) tracking properties:
+    - `EoxStatus` (string?) - End of Life status ("endOfSale", "endOfSupport", "nearEndOfSupport", or empty)
+    - `EndOfSaleAt` (DateTime?) - End of sale date
+    - `EndOfSupportAt` (DateTime?) - End of support date
+  - **GroupPolicySecurityGroupTag**: Added `Value` property (int?) - Security group tag numeric value
+  - **RoutingInterface**: Added advanced routing configuration properties:
+    - `SwitchFabricId` (string?, read-only) - Switch Fabric ID for the interface
+    - `StaticV4Dns1` (string?) - Primary static IPv4 DNS server
+    - `StaticV4Dns2` (string?) - Secondary static IPv4 DNS server
+  - **NetworkBluetoothSettings**: Added `Transmit` property (BluetoothTransmitSettings?) - Network-level Bluetooth beacon transmit configuration
+  - **DeviceBluetoothSettings**: Added `Transmit` property (BluetoothTransmitSettings?) - Device-level Bluetooth beacon transmit configuration
+- Created new supporting model classes:
+  - `BluetoothTransmitSettings` - Contains power level, interval, and advertised power settings
+  - `BluetoothAdvertisedPower` - Contains advertised power in dBm
+
 ## 1.63.8
 - Fixed deserialization error for Bonjour forwarding services by adding missing `Chromecast` enum value to `BonjourService`
 - Updated `BonjourForwardingRule` documentation to include `Chromecast` in the list of available services
