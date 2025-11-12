@@ -13,7 +13,6 @@ public enum TagsFilterType
 	[EnumMember(Value = "withAnyTags")]
 	WithAnyTags = 1,
 
-
 	/// <summary>
 	/// With All Tags
 	/// </summary>

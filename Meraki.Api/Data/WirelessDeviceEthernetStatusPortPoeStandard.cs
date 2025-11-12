@@ -13,13 +13,11 @@ public enum WirelessDeviceEthernetStatusPortPoeStandard
 	[EnumMember(Value = "802.3at")]
 	Standard8023at = 1,
 
-
 	/// <summary>
 	/// Standard8023af
 	/// </summary>
 	[EnumMember(Value = "802.3af")]
 	Standard8023af = 2,
-
 
 	/// <summary>
 	/// Standard8023bt

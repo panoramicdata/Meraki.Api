@@ -11,13 +11,11 @@ public enum SensorCommandOperation
 	[EnumMember(Value = "connect")]
 	Connect = 1,
 
-
 	/// <summary>
 	/// Cycle Downstream Power
 	/// </summary>
 	[EnumMember(Value = "cycleDownstreamPower")]
 	CycleDownstreamPower,
-
 
 	/// <summary>
 	/// Disable Downstream Power
@@ -25,13 +23,11 @@ public enum SensorCommandOperation
 	[EnumMember(Value = "disableDownstreamPower")]
 	DisableDownstreamPower,
 
-
 	/// <summary>
 	/// Enable Downstream Power
 	/// </summary>
 	[EnumMember(Value = "enableDownstreamPower")]
 	EnableDownstreamPower,
-
 
 	/// <summary>
 	/// Refresh Data

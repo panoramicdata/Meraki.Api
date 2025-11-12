@@ -12,7 +12,6 @@ public enum OrganizationPolicyObjectCategory
 	[EnumMember(Value = "adaptivePolicy")]
 	AdaptivePolicy = 1,
 
-
 	/// <summary>
 	/// Network
 	/// </summary>

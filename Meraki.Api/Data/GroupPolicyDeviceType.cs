@@ -12,13 +12,11 @@ public enum GroupPolicyDeviceType
 	[EnumMember(Value = "Android")]
 	Android,
 
-
 	/// <summary>
 	/// Black Berry
 	/// </summary>
 	[EnumMember(Value = "BlackBerry")]
 	BlackBerry,
-
 
 	/// <summary>
 	/// Chrome OS
@@ -26,13 +24,11 @@ public enum GroupPolicyDeviceType
 	[EnumMember(Value = "Chrome OS")]
 	ChromeOS,
 
-
 	/// <summary>
 	/// I Pad
 	/// </summary>
 	[EnumMember(Value = "iPad")]
 	IPad,
-
 
 	/// <summary>
 	/// I Phone
@@ -40,13 +36,11 @@ public enum GroupPolicyDeviceType
 	[EnumMember(Value = "iPhone")]
 	IPhone,
 
-
 	/// <summary>
 	/// I Pod
 	/// </summary>
 	[EnumMember(Value = "iPod")]
 	IPod,
-
 
 	/// <summary>
 	/// Mac OSX
@@ -54,13 +48,11 @@ public enum GroupPolicyDeviceType
 	[EnumMember(Value = "Mac OS X")]
 	MacOSX,
 
-
 	/// <summary>
 	/// Windows
 	/// </summary>
 	[EnumMember(Value = "Windows")]
 	Windows,
-
 
 	/// <summary>
 	/// Windows Phone
@@ -68,13 +60,11 @@ public enum GroupPolicyDeviceType
 	[EnumMember(Value = "Windows Phone")]
 	WindowsPhone,
 
-
 	/// <summary>
 	/// B And N Nook
 	/// </summary>
 	[EnumMember(Value = "B&N Nook")]
 	BAndNNook,
-
 
 	/// <summary>
 	/// Other OS

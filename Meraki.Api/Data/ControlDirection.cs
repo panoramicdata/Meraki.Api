@@ -13,7 +13,6 @@ public enum ControlDirection
 	[EnumMember(Value = "both")]
 	Both = 1,
 
-
 	/// <summary>
 	/// Inbound
 	/// </summary>

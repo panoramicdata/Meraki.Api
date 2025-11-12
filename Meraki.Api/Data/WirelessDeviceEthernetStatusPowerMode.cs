@@ -13,7 +13,6 @@ public enum WirelessDeviceEthernetStatusPowerMode
 	[EnumMember(Value = "full")]
 	Full = 1,
 
-
 	/// <summary>
 	/// Low
 	/// </summary>

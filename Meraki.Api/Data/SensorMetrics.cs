@@ -13,13 +13,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "temperature")]
 	Temperature,
 
-
 	/// <summary>
 	/// Humidity
 	/// </summary>
 	[EnumMember(Value = "humidity")]
 	Humidity,
-
 
 	/// <summary>
 	/// Water
@@ -27,13 +25,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "water")]
 	Water,
 
-
 	/// <summary>
 	/// Door
 	/// </summary>
 	[EnumMember(Value = "door")]
 	Door,
-
 
 	/// <summary>
 	/// Tvoc
@@ -41,13 +37,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "tvoc")]
 	Tvoc,
 
-
 	/// <summary>
 	/// Pm25
 	/// </summary>
 	[EnumMember(Value = "pm25")]
 	Pm25,
-
 
 	/// <summary>
 	/// Noise
@@ -55,13 +49,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "noise")]
 	Noise,
 
-
 	/// <summary>
 	/// Indoor Air Quality
 	/// </summary>
 	[EnumMember(Value = "indoorAirQuality")]
 	IndoorAirQuality,
-
 
 	/// <summary>
 	/// Button
@@ -69,13 +61,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "button")]
 	Button,
 
-
 	/// <summary>
 	/// Battery
 	/// </summary>
 	[EnumMember(Value = "battery")]
 	Battery,
-
 
 	/// <summary>
 	/// Downstream Power
@@ -83,13 +73,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "downstreamPower")]
 	DownstreamPower,
 
-
 	/// <summary>
 	/// Current
 	/// </summary>
 	[EnumMember(Value = "current")]
 	Current,
-
 
 	/// <summary>
 	/// Frequency
@@ -97,13 +85,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "frequency")]
 	Frequency,
 
-
 	/// <summary>
 	/// Voltage
 	/// </summary>
 	[EnumMember(Value = "voltage")]
 	Voltage,
-
 
 	/// <summary>
 	/// Eco2
@@ -111,13 +97,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "eco2")]
 	Eco2,
 
-
 	/// <summary>
 	/// Power Factor
 	/// </summary>
 	[EnumMember(Value = "powerFactor")]
 	PowerFactor,
-
 
 	/// <summary>
 	/// Apparent Power
@@ -125,13 +109,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "apparentPower")]
 	ApparentPower,
 
-
 	/// <summary>
 	/// Real Power
 	/// </summary>
 	[EnumMember(Value = "realPower")]
 	RealPower,
-
 
 	/// <summary>
 	/// Remote Lockout Switch
@@ -139,13 +121,11 @@ public enum SensorMetrics
 	[EnumMember(Value = "remoteLockoutSwitch")]
 	RemoteLockoutSwitch,
 
-
 	/// <summary>
 	/// Co2
 	/// </summary>
 	[EnumMember(Value = "co2")]
 	Co2,
-
 
 	/// <summary>
 	/// Raw Temperature

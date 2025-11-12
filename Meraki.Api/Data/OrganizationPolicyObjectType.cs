@@ -12,20 +12,17 @@ public enum OrganizationPolicyObjectType
 	[EnumMember(Value = "cidr")]
 	Cidr = 1,
 
-
 	/// <summary>
 	/// Adaptive Policy Ipv4Cidr
 	/// </summary>
 	[EnumMember(Value = "adaptivePolicyIpv4Cidr")]
 	AdaptivePolicyIpv4Cidr,
 
-
 	/// <summary>
 	/// Fqdn
 	/// </summary>
 	[EnumMember(Value = "fqdn")]
 	Fqdn,
-
 
 	/// <summary>
 	/// Ip And Mask

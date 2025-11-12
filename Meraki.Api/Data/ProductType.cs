@@ -13,13 +13,11 @@ public enum ProductType
 	[EnumMember(Value = "wireless")]
 	Wireless = 1,
 
-
 	/// <summary>
 	/// Appliance
 	/// </summary>
 	[EnumMember(Value = "appliance")]
 	Appliance,
-
 
 	/// <summary>
 	/// Switch
@@ -27,13 +25,11 @@ public enum ProductType
 	[EnumMember(Value = "switch")]
 	Switch,
 
-
 	/// <summary>
 	/// Systems Manager
 	/// </summary>
 	[EnumMember(Value = "systemsManager")]
 	SystemsManager,
-
 
 	/// <summary>
 	/// Camera
@@ -41,13 +37,11 @@ public enum ProductType
 	[EnumMember(Value = "camera")]
 	Camera,
 
-
 	/// <summary>
 	/// Cellular Gateway
 	/// </summary>
 	[EnumMember(Value = "cellularGateway")]
 	CellularGateway,
-
 
 	/// <summary>
 	/// Sensor
@@ -62,13 +56,11 @@ public enum ProductType
 	[EnumMember(Value = "environmental")]
 	Environmental,
 
-
 	/// <summary>
 	/// Wired
 	/// </summary>
 	[EnumMember(Value = "wired")]
 	Wired,
-
 
 	/// <summary>
 	/// Vm Concentrator
@@ -77,13 +69,11 @@ public enum ProductType
 	[EnumMember(Value = "vm_concentrator")]
 	VmConcentrator,
 
-
 	/// <summary>
 	/// Phone
 	/// </summary>
 	[EnumMember(Value = "phone")]
 	Phone,
-
 
 	/// <summary>
 	/// Frontizo
@@ -91,13 +81,11 @@ public enum ProductType
 	[EnumMember(Value = "frontizo")]
 	Frontizo,
 
-
 	/// <summary>
 	/// Secure Connect
 	/// </summary>
 	[EnumMember(Value = "secureConnect")]
 	SecureConnect,
-
 
 	/// <summary>
 	/// Wireless Controller

@@ -12,20 +12,17 @@ public enum SensorAlertConditionThresholdCo2Quality
 	[EnumMember(Value = "fair")]
 	Fair,
 
-
 	/// <summary>
 	/// Good
 	/// </summary>
 	[EnumMember(Value = "good")]
 	Good,
 
-
 	/// <summary>
 	/// Inadequate
 	/// </summary>
 	[EnumMember(Value = "inadequate")]
 	Inadequate,
-
 
 	/// <summary>
 	/// Poor

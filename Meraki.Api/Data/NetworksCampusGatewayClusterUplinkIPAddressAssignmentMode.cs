@@ -12,7 +12,6 @@ public enum NetworksCampusGatewayClusterUplinkIPAddressAssignmentMode
 	[EnumMember(Value = "static")]
 	Static,
 
-
 	/// <summary>
 	/// Dynamic
 	/// </summary>

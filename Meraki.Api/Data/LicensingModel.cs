@@ -12,13 +12,11 @@ public enum LicensingModel
 	[EnumMember(Value = "co-term")]
 	CoTerm = 1,
 
-
 	/// <summary>
 	/// Per Device
 	/// </summary>
 	[EnumMember(Value = "per-device")]
 	PerDevice,
-
 
 	/// <summary>
 	/// Subscription

@@ -13,7 +13,6 @@ public enum WirelessDeviceEthernetStatusPortLinkNegotiationDuplex
 	[EnumMember(Value = "full")]
 	Full = 1,
 
-
 	/// <summary>
 	/// Half
 	/// </summary>

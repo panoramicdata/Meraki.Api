@@ -12,13 +12,11 @@ public enum AlertType
 	[EnumMember(Value = "gatewayDown")]
 	GatewayDown = 1,
 
-
 	/// <summary>
 	/// Gateway To Repeater
 	/// </summary>
 	[EnumMember(Value = "gatewayToRepeater")]
 	GatewayToRepeater,
-
 
 	/// <summary>
 	/// Repeater Down
@@ -26,13 +24,11 @@ public enum AlertType
 	[EnumMember(Value = "repeaterDown")]
 	RepeaterDown,
 
-
 	/// <summary>
 	/// Rogue Ap
 	/// </summary>
 	[EnumMember(Value = "rogueAp")]
 	RogueAp,
-
 
 	/// <summary>
 	/// Settings Changed
@@ -40,13 +36,11 @@ public enum AlertType
 	[EnumMember(Value = "settingsChanged")]
 	SettingsChanged,
 
-
 	/// <summary>
 	/// Signal To Noise Ratio
 	/// </summary>
 	[EnumMember(Value = "snr")]
 	SignalToNoiseRatio,
-
 
 	/// <summary>
 	/// High Wireless Usage
@@ -54,13 +48,11 @@ public enum AlertType
 	[EnumMember(Value = "highWirelessUsage")]
 	HighWirelessUsage,
 
-
 	/// <summary>
 	/// Onboarding
 	/// </summary>
 	[EnumMember(Value = "onboarding")]
 	Onboarding,
-
 
 	/// <summary>
 	/// Vpn Connectivity Change
@@ -68,13 +60,11 @@ public enum AlertType
 	[EnumMember(Value = "vpnConnectivityChange")]
 	VpnConnectivityChange,
 
-
 	/// <summary>
 	/// Usage Alert
 	/// </summary>
 	[EnumMember(Value = "usageAlert")]
 	UsageAlert,
-
 
 	/// <summary>
 	/// Weekly Presence
@@ -82,13 +72,11 @@ public enum AlertType
 	[EnumMember(Value = "weeklyPresence")]
 	WeeklyPresence,
 
-
 	/// <summary>
 	/// Uplink Ip6Conflict
 	/// </summary>
 	[EnumMember(Value = "uplinkIp6Conflict")]
 	UplinkIp6Conflict,
-
 
 	/// <summary>
 	/// Port Down
@@ -96,13 +84,11 @@ public enum AlertType
 	[EnumMember(Value = "portDown")]
 	PortDown,
 
-
 	/// <summary>
 	/// Power Supply Down
 	/// </summary>
 	[EnumMember(Value = "powerSupplyDown")]
 	PowerSupplyDown,
-
 
 	/// <summary>
 	/// Rps Backup
@@ -110,13 +96,11 @@ public enum AlertType
 	[EnumMember(Value = "rpsBackup")]
 	RpsBackup,
 
-
 	/// <summary>
 	/// Udld Error
 	/// </summary>
 	[EnumMember(Value = "udldError")]
 	UdldError,
-
 
 	/// <summary>
 	/// Port Error
@@ -124,13 +108,11 @@ public enum AlertType
 	[EnumMember(Value = "portError")]
 	PortError,
 
-
 	/// <summary>
 	/// Port Speed
 	/// </summary>
 	[EnumMember(Value = "portSpeed")]
 	PortSpeed,
-
 
 	/// <summary>
 	/// New Dhcp Server
@@ -138,13 +120,11 @@ public enum AlertType
 	[EnumMember(Value = "newDhcpServer")]
 	NewDhcpServer,
 
-
 	/// <summary>
 	/// Switch Down
 	/// </summary>
 	[EnumMember(Value = "switchDown")]
 	SwitchDown,
-
 
 	/// <summary>
 	/// Switch Critical Temperature
@@ -152,13 +132,11 @@ public enum AlertType
 	[EnumMember(Value = "switchCriticalTemperature")]
 	SwitchCriticalTemperature,
 
-
 	/// <summary>
 	/// Node Hardware Failure
 	/// </summary>
 	[EnumMember(Value = "nodeHardwareFailure")]
 	NodeHardwareFailure,
-
 
 	/// <summary>
 	/// Camera Down
@@ -166,13 +144,11 @@ public enum AlertType
 	[EnumMember(Value = "cameraDown")]
 	CameraDown,
 
-
 	/// <summary>
 	/// Custom Motion Alert Recipients
 	/// </summary>
 	[EnumMember(Value = "customMotionAlertRecipients")]
 	CustomMotionAlertRecipients,
-
 
 	/// <summary>
 	/// Sensor Down
@@ -180,13 +156,11 @@ public enum AlertType
 	[EnumMember(Value = "sensorDown")]
 	SensorDown,
 
-
 	/// <summary>
 	/// Sensor Battery Percentage
 	/// </summary>
 	[EnumMember(Value = "sensorBatteryPercentage")]
 	SensorBatteryPercentage,
-
 
 	/// <summary>
 	/// Sensor Probe Cable
@@ -194,13 +168,11 @@ public enum AlertType
 	[EnumMember(Value = "sensorProbeCable")]
 	SensorProbeCable,
 
-
 	/// <summary>
 	/// Sensor Water Cable
 	/// </summary>
 	[EnumMember(Value = "sensorWaterCable")]
 	SensorWaterCable,
-
 
 	/// <summary>
 	/// Sensor Magnetic Tampering
@@ -208,13 +180,11 @@ public enum AlertType
 	[EnumMember(Value = "sensorMagneticTampering")]
 	SensorMagneticTampering,
 
-
 	/// <summary>
 	/// Sensor Battery Cover
 	/// </summary>
 	[EnumMember(Value = "sensorBatteryCover")]
 	SensorBatteryCover,
-
 
 	/// <summary>
 	/// Sensor Usb Power Cable
@@ -222,13 +192,11 @@ public enum AlertType
 	[EnumMember(Value = "sensorUsbPowerCable")]
 	SensorUsbPowerCable,
 
-
 	/// <summary>
 	/// Amp Malware Detected
 	/// </summary>
 	[EnumMember(Value = "ampMalwareDetected")]
 	AmpMalwareDetected,
-
 
 	/// <summary>
 	/// Amp Malware Blocked
@@ -236,13 +204,11 @@ public enum AlertType
 	[EnumMember(Value = "ampMalwareBlocked")]
 	AmpMalwareBlocked,
 
-
 	/// <summary>
 	/// Appliance Down
 	/// </summary>
 	[EnumMember(Value = "applianceDown")]
 	ApplianceDown,
-
 
 	/// <summary>
 	/// Failover Event
@@ -250,13 +216,11 @@ public enum AlertType
 	[EnumMember(Value = "failoverEvent")]
 	FailoverEvent,
 
-
 	/// <summary>
 	/// Dhcp No Leases
 	/// </summary>
 	[EnumMember(Value = "dchpNoLeases")]
 	DhcpNoLeases,
-
 
 	/// <summary>
 	/// Rogue Dhcp
@@ -264,13 +228,11 @@ public enum AlertType
 	[EnumMember(Value = "rogueDhcp")]
 	RogueDhcp,
 
-
 	/// <summary>
 	/// Ip Conflict
 	/// </summary>
 	[EnumMember(Value = "ipConflict")]
 	IpConflict,
-
 
 	/// <summary>
 	/// Ip6Conflict
@@ -278,13 +240,11 @@ public enum AlertType
 	[EnumMember(Value = "ip6Conflict")]
 	Ip6Conflict,
 
-
 	/// <summary>
 	/// Dhcp6Na Renumber
 	/// </summary>
 	[EnumMember(Value = "dhcp6naRenumber")]
 	Dhcp6NaRenumber,
-
 
 	/// <summary>
 	/// Dhcp6Pd Renumber
@@ -292,13 +252,11 @@ public enum AlertType
 	[EnumMember(Value = "dhcp6pdRenumber")]
 	Dhcp6PdRenumber,
 
-
 	/// <summary>
 	/// Cellular Up Down
 	/// </summary>
 	[EnumMember(Value = "cellularUpDown")]
 	CellularUpDown,
-
 
 	/// <summary>
 	/// Client Connectivity
@@ -306,13 +264,11 @@ public enum AlertType
 	[EnumMember(Value = "clientConnectivity")]
 	ClientConnectivity,
 
-
 	/// <summary>
 	/// Vrrp
 	/// </summary>
 	[EnumMember(Value = "vrrp")]
 	Vrrp,
-
 
 	/// <summary>
 	/// Weekly Umbrella
@@ -320,13 +276,11 @@ public enum AlertType
 	[EnumMember(Value = "weeklyUmbrella")]
 	WeeklyUmbrella,
 
-
 	/// <summary>
 	/// Prefix Starvation
 	/// </summary>
 	[EnumMember(Value = "prefixStarvation")]
 	PrefixStarvation,
-
 
 	/// <summary>
 	/// Cellular Gateway Down
@@ -334,13 +288,11 @@ public enum AlertType
 	[EnumMember(Value = "cellularGatewayDown")]
 	CellularGatewayDown,
 
-
 	/// <summary>
 	/// New Splash Signup
 	/// </summary>
 	[EnumMember(Value = "newSplashSignup")]
 	NewSplashSignup,
-
 
 	/// <summary>
 	/// Sw Found
@@ -348,13 +300,11 @@ public enum AlertType
 	[EnumMember(Value = "swFound")]
 	SwFound,
 
-
 	/// <summary>
 	/// Cloud Archive Alert
 	/// </summary>
 	[EnumMember(Value = "cloudArchiveAlert")]
 	CloudArchiveAlert,
-
 
 	/// <summary>
 	/// Pcc Outage
@@ -362,13 +312,11 @@ public enum AlertType
 	[EnumMember(Value = "pccOutage")]
 	PccOutage,
 
-
 	/// <summary>
 	/// Pcc Unmanaged
 	/// </summary>
 	[EnumMember(Value = "pccUnmanaged")]
 	PccUnmanaged,
-
 
 	/// <summary>
 	/// Geofencing Out
@@ -376,13 +324,11 @@ public enum AlertType
 	[EnumMember(Value = "geofencingOut")]
 	GeofencingOut,
 
-
 	/// <summary>
 	/// Geofencing In
 	/// </summary>
 	[EnumMember(Value = "geofencingIn")]
 	GeofencingIn,
-
 
 	/// <summary>
 	/// Pcc Enrollment
@@ -390,13 +336,11 @@ public enum AlertType
 	[EnumMember(Value = "pccEnrollment")]
 	PccEnrollment,
 
-
 	/// <summary>
 	/// Pcc Expired Apns Cert
 	/// </summary>
 	[EnumMember(Value = "pccExpiredApnsCert")]
 	PccExpiredApnsCert,
-
 
 	/// <summary>
 	/// Motion Alert
@@ -404,13 +348,11 @@ public enum AlertType
 	[EnumMember(Value = "motionAlert")]
 	MotionAlert,
 
-
 	/// <summary>
 	/// Sensor Power Saving Schedule Success Event
 	/// </summary>
 	[EnumMember(Value = "sensorPowerSavingScheduleSuccessEvent")]
 	SensorPowerSavingScheduleSuccessEvent,
-
 
 	/// <summary>
 	/// Sensor Power Saving Schedule Failure Event

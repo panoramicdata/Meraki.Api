@@ -12,7 +12,6 @@ public enum PayloadTemplateType
 	[EnumMember(Value = "included")]
 	Included = 1,
 
-
 	/// <summary>
 	/// Custom
 	/// </summary>

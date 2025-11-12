@@ -12,13 +12,11 @@ public enum TrafficShapingVpnExclusionsCustomProtocol
 	[EnumMember(Value = "any")]
 	Any,
 
-
 	/// <summary>
 	/// Dns
 	/// </summary>
 	[EnumMember(Value = "dns")]
 	Dns,
-
 
 	/// <summary>
 	/// Icmp
@@ -26,13 +24,11 @@ public enum TrafficShapingVpnExclusionsCustomProtocol
 	[EnumMember(Value = "icmp")]
 	Icmp,
 
-
 	/// <summary>
 	/// Tcp
 	/// </summary>
 	[EnumMember(Value = "tcp")]
 	Tcp,
-
 
 	/// <summary>
 	/// Udp

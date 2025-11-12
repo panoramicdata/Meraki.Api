@@ -12,7 +12,6 @@ public enum AlertFiltersConditionDirection
 	[EnumMember(Value = "+")]
 	Plus,
 
-
 	/// <summary>
 	/// Minus
 	/// </summary>

@@ -13,7 +13,6 @@ public enum ConnectionType
 	[EnumMember(Value = "Wireless")]
 	Wireless = 1,
 
-
 	/// <summary>
 	/// Wired
 	/// </summary>
