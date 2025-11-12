@@ -1,5 +1,17 @@
 ﻿# Changelog
 
+## 1.64.25
+- **BREAKING CHANGE**: Upgraded solution to .NET 10.0 (projects now target .NET 10.0 and .NET Standard 2.0)
+- **Major Improvement**: Complete XML documentation coverage - ALL CS1591 warnings resolved
+  - Added comprehensive XML documentation for all public classes, properties, methods, and enum members
+  - Enabled `TreatWarningsAsErrors` for documentation compliance
+  - All public APIs now have proper IntelliSense documentation
+- **Infrastructure**: Migrated solution to modern `.slnx` format
+- **Testing**: Fixed Visual Studio Test Runner compatibility issues
+- Code quality improvements and general code tidying
+- Updated project dependencies
+
+
 ## 1.64.2
 - Fixed missing JSON members identified from API responses across multiple models:
   - **StatusPageAuthentication**: Added `PasswordSet` property (bool?, read-only) - Indicates whether a password has been set for the Local Status Page
