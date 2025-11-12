@@ -1,0 +1,42 @@
+<Solution>
+  <Folder Name="/Documentation/">
+    <File Path="Documentation/docfx.json" />
+    <File Path="Documentation/index.md" />
+    <File Path="Documentation/toc.yml" />
+  </Folder>
+  <Folder Name="/Documentation/docs/">
+    <File Path="Documentation/docs/getting-started.md" />
+    <File Path="Documentation/docs/introduction.md" />
+    <File Path="Documentation/docs/meraki-community.md" />
+    <File Path="Documentation/docs/toc.yml" />
+    <File Path="Documentation/docs/user-agent.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="CHANGELOG.md" />
+    <File Path="CheckForNugetPublish.ps1" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="Example.ps1" />
+    <File Path="Generating Documentation.md" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="Meraki.Api.sln.vsspell.dic" />
+    <File Path="README.md" />
+    <File Path="Tag.ps1" />
+    <File Path="version.json" />
+    <Properties Name="FolderGlobals">
+      <Property Name="C_5_4Code_4Meraki_1Api_4version_1json__JsonSchema" />
+    </Properties>
+  </Folder>
+  <Folder Name="/Solution Items/GitHubWorkFlows/">
+    <File Path=".github/workflows/codeql-analysis.yml" />
+    <File Path=".github/workflows/publish-nuget.yml" />
+  </Folder>
+  <Project Path="Benchmarks/Benchmarks.csproj" />
+  <Project Path="Meraki.Api.Test/Meraki.Api.Test.csproj" />
+  <Project Path="Meraki.Api/Meraki.Api.csproj" />
+  <Project Path="Meraki.ApiChecker/Meraki.ApiChecker.csproj" />
+  <Project Path="RefitClassSourceGenerator/RefitClassSourceGenerator.csproj" />
+  <Project Path="RefitClassSourceGeneratorApp/RefitClassSourceGeneratorApp.csproj" />
+</Solution>
