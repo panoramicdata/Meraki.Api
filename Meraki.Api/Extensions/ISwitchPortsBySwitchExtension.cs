@@ -1,5 +1,8 @@
 ﻿namespace Meraki.Api.Extensions;
 
+/// <summary>
+/// Extension methods for switch ports by switch
+/// </summary>
 public static class ISwitchPortsBySwitchExtensions
 {
 	/// <summary>

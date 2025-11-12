@@ -5,6 +5,9 @@
 /// </summary>
 public partial class MerakiClient
 {
+	/// <summary>
+	/// Gets sensor reading ranges and thresholds for various sensor metrics, consistent with the Meraki Dashboard UI
+	/// </summary>
 	// The following data ensures consistency between SensorMetrics and the Meraki Dashboard UI for the Sensor Readings page.
 	public static Dictionary<SensorMetrics, List<SensorRange>> SensorRanges
 		=> new()

@@ -3,9 +3,13 @@ namespace Meraki.Api.Extensions;
 /// <summary>
 /// Extension methods for Device
 /// </summary>
-
 public static class DeviceExtensions
 {
+	/// <summary>
+	/// Gets the model type for a device based on its model string
+	/// </summary>
+	/// <param name="device">The device</param>
+	/// <returns>The model type category</returns>
 	public static ModelType GetModelType(this Device device)
 	{
 		var deviceModelUpper = device.Model?.ToUpperInvariant();

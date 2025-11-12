@@ -104,5 +104,9 @@ public class ChangeLogEntry
 	[DataMember(Name = "ssidNumber")]
 	public int? SsidNumber { get; set; }
 
+	/// <summary>
+	/// Returns a string representation of the change log entry
+	/// </summary>
+	/// <returns>The label of the change log entry</returns>
 	public override string ToString() => Label;
 }

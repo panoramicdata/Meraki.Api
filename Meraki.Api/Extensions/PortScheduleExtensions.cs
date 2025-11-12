@@ -7,6 +7,11 @@ namespace Meraki.Api.Extensions;
 /// </summary>
 public static class PortScheduleExtensions
 {
+	/// <summary>
+	/// Calculates the total active hours across all days in a week for a port schedule
+	/// </summary>
+	/// <param name="portSchedule">The port schedule</param>
+	/// <returns>The total active hours for the week</returns>
 	public static double TotalActiveHours(this PortSchedule portSchedule)
 		=> portSchedule.Monday!.TotalActiveHours() +
 			portSchedule.Tuesday!.TotalActiveHours() +
@@ -16,6 +21,11 @@ public static class PortScheduleExtensions
 			portSchedule.Saturday!.TotalActiveHours() +
 			portSchedule.Sunday!.TotalActiveHours();
 
+	/// <summary>
+	/// Calculates the total active hours for a single day schedule
+	/// </summary>
+	/// <param name="daySchedule">The day schedule</param>
+	/// <returns>The total active hours for the day</returns>
 	public static double TotalActiveHours(this DaySchedule daySchedule)
 		=> daySchedule.Active
 			? GetTotalHours(daySchedule.To) - GetTotalHours(daySchedule.From)

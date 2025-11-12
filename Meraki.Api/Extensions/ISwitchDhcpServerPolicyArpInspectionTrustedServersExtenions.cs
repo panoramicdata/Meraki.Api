@@ -1,5 +1,8 @@
 ﻿namespace Meraki.Api.Extensions;
 
+/// <summary>
+/// Extension methods for switch DHCP server policy ARP inspection trusted servers
+/// </summary>
 public static class ISwitchDhcpServerPolicyArpInspectionTrustedServersExtenions
 {
 	/// <summary>

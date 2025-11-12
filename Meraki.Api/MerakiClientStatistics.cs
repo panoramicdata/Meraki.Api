@@ -7,11 +7,18 @@ namespace Meraki.Api;
 /// </summary>
 public class MerakiClientStatistics
 {
+	/// <summary>
+	/// Gets a dictionary of HTTP status codes and their corresponding statistics
+	/// </summary>
 	public IReadOnlyDictionary<int, MerakiClientStatistic> StatusCodeCounts => _statusCodeCounts;
 
 	private readonly ConcurrentDictionary<int, MerakiClientStatistic> _statusCodeCounts = new();
 
 	private int _totalRequestCount;
+	
+	/// <summary>
+	/// Gets the total number of API requests made
+	/// </summary>
 	public int TotalRequestCount => _totalRequestCount;
 
 	internal void RecordStatusCode(int statusCode, long durationMs, long delayMs)
@@ -39,6 +46,10 @@ public class MerakiClientStatistics
 		_ = Interlocked.Exchange(ref _totalRequestCount, 0);
 	}
 
+	/// <summary>
+	/// Returns a string representation of the statistics including total requests and status code counts
+	/// </summary>
+	/// <returns>A formatted string showing request statistics</returns>
 	public override string ToString()
 		=> $"Total Requests: {TotalRequestCount}, Status codes: {string.Join(", ", StatusCodeCounts.Select(x => $"{x.Key}: {x.Value.Count} ({x.Value.TotalInitialResponseDurationMs:N0}ms / {x.Value.TotalClientDelayMs:N0}ms)"))}";
 }

@@ -11,6 +11,11 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 	private readonly JsonSerializerSettings _jsonSerializerSettingsWithError;
 	private readonly NewtonsoftJsonContentSerializer _serializerIgnore;
 
+	/// <summary>
+	/// Initializes a new instance of the CustomNewtonsoftJsonContentSerializer class
+	/// </summary>
+	/// <param name="options">The Meraki client options</param>
+	/// <param name="logger">The logger instance</param>
 	public CustomNewtonsoftJsonContentSerializer(MerakiClientOptions options, ILogger logger)
 	{
 		_options = options;
@@ -37,6 +42,13 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		_serializerIgnore = new NewtonsoftJsonContentSerializer(_jsonSerializerSettingsWithIgnore);
 	}
 
+	/// <summary>
+	/// Deserializes an object from HTTP content
+	/// </summary>
+	/// <typeparam name="T">The type to deserialize to</typeparam>
+	/// <param name="content">The HTTP content to deserialize</param>
+	/// <param name="cancellationToken">The cancellation token</param>
+	/// <returns>The deserialized object</returns>
 	public async Task<T?> FromHttpContentAsync<T>(HttpContent content, CancellationToken cancellationToken = default)
 		=> _options.JsonMissingMemberHandling switch
 		{
@@ -110,6 +122,12 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 	public string? GetFieldNameForProperty(PropertyInfo propertyInfo)
 		=> _serializerIgnore.GetFieldNameForProperty(propertyInfo);
 
+	/// <summary>
+	/// Serializes an object to HTTP content
+	/// </summary>
+	/// <typeparam name="T">The type of the object to serialize</typeparam>
+	/// <param name="item">The object to serialize</param>
+	/// <returns>The HTTP content containing the serialized object</returns>
 	public HttpContent ToHttpContent<T>(T item)
 		=> _serializerIgnore.ToHttpContent(item);
 }

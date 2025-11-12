@@ -1,5 +1,8 @@
 ﻿namespace Meraki.Api.Extensions;
 
+/// <summary>
+/// Extension methods for wireless devices ethernet statuses
+/// </summary>
 public static class IWirelessDevicesEthernetStatusesExtentions
 {
 	/// <summary>

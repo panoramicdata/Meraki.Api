@@ -57,8 +57,14 @@ public partial class MerakiClient : IDisposable
 	private readonly HttpClient _secureConnectHttpClient;
 	private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
 
+	/// <summary>
+	/// Gets the URI of the last API request made by this client
+	/// </summary>
 	public string LastRequestUri => _httpClientHandler.LastRequestUri;
 
+	/// <summary>
+	/// Gets statistics about API requests made by this client
+	/// </summary>
 	public MerakiClientStatistics Statistics => _httpClientHandler.Statistics;
 
 	/// <summary>
@@ -719,6 +725,10 @@ public partial class MerakiClient : IDisposable
 	#region IDisposable Support
 	private bool _disposedValue; // To detect redundant calls
 
+	/// <summary>
+	/// Releases the unmanaged resources used by the MerakiClient and optionally releases the managed resources
+	/// </summary>
+	/// <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources</param>
 	protected virtual void Dispose(bool disposing)
 	{
 		if (!_disposedValue)

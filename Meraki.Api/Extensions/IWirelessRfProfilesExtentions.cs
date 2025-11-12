@@ -1,5 +1,8 @@
 ﻿namespace Meraki.Api.Extensions;
 
+/// <summary>
+/// Extension methods for wireless RF profiles
+/// </summary>
 public static class IWirelessRfProfilesExtensions
 {
 	/// <summary>

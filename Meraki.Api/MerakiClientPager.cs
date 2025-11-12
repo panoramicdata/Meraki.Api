@@ -1,10 +1,18 @@
-﻿namespace Meraki.Api;
+namespace Meraki.Api;
 
 /// <summary>
 /// This file contains paging logic
 /// </summary>
 public partial class MerakiClient
 {
+	/// <summary>
+	/// Retrieves all items using pagination with a per-page count parameter
+	/// </summary>
+	/// <typeparam name="T">The type of items to retrieve</typeparam>
+	/// <param name="pageFactoryAsync">The function to call for each page of results</param>
+	/// <param name="perPage">The number of items per page</param>
+	/// <param name="cancellationToken">The cancellation token</param>
+	/// <returns>A list of all items</returns>
 	public async Task<List<T>> GetAllAsync<T>(
 		Func<int, string?, string?, CancellationToken, Task<List<T>>> pageFactoryAsync,
 		int perPage,
@@ -60,6 +68,13 @@ public partial class MerakiClient
 		return allEntries;
 	}
 
+	/// <summary>
+	/// Retrieves all items using pagination with startingAfter/endingBefore parameters
+	/// </summary>
+	/// <typeparam name="T">The type of items to retrieve</typeparam>
+	/// <param name="pageFactoryAsync">The function to call for each page of results</param>
+	/// <param name="cancellationToken">The cancellation token</param>
+	/// <returns>A list of all items</returns>
 	public async Task<List<T>> GetAllAsync<T>(
 		Func<string?, string?, CancellationToken, Task<List<T>>> pageFactoryAsync,
 		CancellationToken cancellationToken)
