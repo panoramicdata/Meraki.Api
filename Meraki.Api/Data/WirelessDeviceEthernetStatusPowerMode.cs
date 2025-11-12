@@ -1,4 +1,4 @@
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// The PoE Power Mode for the AP
@@ -8,14 +8,8 @@ namespace Meraki.Api.Data;
 public enum WirelessDeviceEthernetStatusPowerMode
 {
 	[EnumMember(Value = "full")]
-	/// <summary>
-	/// Full
-	/// </summary>
 	Full = 1,
 
 	[EnumMember(Value = "low")]
-	/// <summary>
-	/// Low
-	/// </summary>
 	Low = 2
 }

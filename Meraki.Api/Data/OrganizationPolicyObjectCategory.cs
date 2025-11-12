@@ -7,14 +7,8 @@ namespace Meraki.Api.Data;
 public enum OrganizationPolicyObjectCategory
 {
 	[EnumMember(Value = "adaptivePolicy")]
-	/// <summary>
-	/// Adaptive Policy
-	/// </summary>
 	AdaptivePolicy = 1,
 
 	[EnumMember(Value = "network")]
-	/// <summary>
-	/// Network
-	/// </summary>
 	Network,
 }

@@ -619,23 +619,23 @@ function Add-MissingXmlDoc {
         elseif ($line -match '^\s*([A-Z]\w+)\s*(=\s*\d+)?\s*,?\s*$') {
             $enumMemberName = $Matches[1]
             
-            # Skip if previous line has docs
-            if ($i -gt 0 -and $lines[$i - 1] -match '^\s*///') {
-                [void]$newLines.Add($line)
-                continue
-            }
-            
             # Check if previous non-empty line has XML doc or is an attribute
             $hasDocs = $false
+            $hasAttribute = $false
+            $firstAttributeLineIndex = -1
             
+            # Look backwards to find attributes and check for existing docs
             for ($j = $i - 1; $j -ge 0; $j--) {
                 if ($lines[$j] -match '^\s*///') {
                     $hasDocs = $true
                     break
                 }
                 if ($lines[$j] -match '^\s*\[') {
+                    $hasAttribute = $true
+                    $firstAttributeLineIndex = $j
                     continue
                 }
+                # If we hit a non-empty, non-attribute line, break
                 if ($lines[$j] -notmatch '^\s*$') {
                     break
                 }
@@ -643,7 +643,7 @@ function Add-MissingXmlDoc {
             
             if (-not $hasDocs) {
                 # Check if this looks like an enum member (not a property or method)
-                # Only add docs if we're likely inside an enum (previous lines have EnumMember or we're after an opening brace)
+                # Only add docs if we're likely inside an enum
                 $likelyEnum = $false
                 for ($j = $i - 1; $j -ge 0 -and $j -ge $i - 10; $j--) {
                     if ($lines[$j] -match 'public enum' -or $lines[$j] -match '\[EnumMember') {
@@ -657,9 +657,47 @@ function Add-MissingXmlDoc {
                     Write-ColorOutput "  [Line $($i + 1)] Adding docs for enum member '$enumMemberName'" -ForegroundColor Cyan
                     
                     $indent = if ($line -match '^(\s+)') { $Matches[1] } else { "`t" }
-                    [void]$newLines.Add("$indent/// <summary>")
-                    [void]$newLines.Add("$indent/// $englishDescription")
-                    [void]$newLines.Add("$indent/// </summary>")
+                    
+                    # Check if we need a blank line before the documentation
+                    # (if the previous enum member exists, we need spacing)
+                    $needsBlankLineBefore = $false
+                    if ($hasAttribute -and $firstAttributeLineIndex -ge 0) {
+                        # Check if there's content before the attribute (another enum member)
+                        for ($k = $firstAttributeLineIndex - 1; $k -ge 0; $k--) {
+                            if ($lines[$k] -match '^\s*$') {
+                                continue  # Skip blank lines
+                            }
+                            if ($lines[$k] -match '^\s*[A-Z]\w+\s*(=\s*\d+)?\s*,\s*$') {
+                                # Found a previous enum member
+                                $needsBlankLineBefore = $true
+                                break
+                            }
+                            break  # Hit something else, stop looking
+                        }
+                    }
+                    
+                    # If there are attributes, insert BEFORE the first one
+                    if ($hasAttribute -and $firstAttributeLineIndex -ge 0) {
+                        # Calculate the position in newLines array
+                        $insertPosition = $newLines.Count - ($i - $firstAttributeLineIndex)
+                        
+                        $newLines.Insert($insertPosition, "$indent/// </summary>")
+                        $newLines.Insert($insertPosition, "$indent/// $englishDescription")
+                        $newLines.Insert($insertPosition, "$indent/// <summary>")
+                        if ($needsBlankLineBefore) {
+                            $newLines.Insert($insertPosition, "")
+                        }
+                    }
+                    else {
+                        # No attributes, add right before enum member
+                        if ($needsBlankLineBefore) {
+                            [void]$newLines.Add("")
+                        }
+                        [void]$newLines.Add("$indent/// <summary>")
+                        [void]$newLines.Add("$indent/// $englishDescription")
+                        [void]$newLines.Add("$indent/// </summary>")
+                    }
+                    
                     $modified = $true
                     $changesCount++
                 }

@@ -1,4 +1,4 @@
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// The duplex mode for the port
@@ -8,14 +8,8 @@ namespace Meraki.Api.Data;
 public enum WirelessDeviceEthernetStatusPortLinkNegotiationDuplex
 {
 	[EnumMember(Value = "full")]
-	/// <summary>
-	/// Full
-	/// </summary>
 	Full = 1,
 
 	[EnumMember(Value = "half")]
-	/// <summary>
-	/// Half
-	/// </summary>
 	Half = 2
 }

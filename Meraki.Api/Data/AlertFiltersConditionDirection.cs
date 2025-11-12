@@ -7,14 +7,8 @@ namespace Meraki.Api.Data;
 public enum AlertFiltersConditionDirection
 {
 	[EnumMember(Value = "+")]
-	/// <summary>
-	/// Plus
-	/// </summary>
 	Plus,
 
 	[EnumMember(Value = "-")]
-	/// <summary>
-	/// Minus
-	/// </summary>
 	Minus
 }

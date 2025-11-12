@@ -7,14 +7,8 @@ namespace Meraki.Api.Data;
 public enum NetworksCampusGatewayClusterUplinkIPAddressAssignmentMode
 {
 	[EnumMember(Value = "static")]
-	/// <summary>
-	/// Static
-	/// </summary>
 	Static,
 
 	[EnumMember(Value = "dynamic")]
-	/// <summary>
-	/// Dynamic
-	/// </summary>
 	Dynamic
 }

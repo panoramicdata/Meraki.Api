@@ -8,14 +8,8 @@ namespace Meraki.Api.Data;
 public enum AssignmentMode
 {
 	[EnumMember(Value = "eui-64")]
-	/// <summary>
-	/// Eui64
-	/// </summary>
 	Eui64 = 1,
 
 	[EnumMember(Value = "static")]
-	/// <summary>
-	/// Static
-	/// </summary>
 	Static
 }
