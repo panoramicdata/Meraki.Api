@@ -25,11 +25,6 @@ public class StatusPageAuthentication
 	/// </summary>
 	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "password")]
-	// [JsonProperty(NullValueHandling = NullValueHandling.Include)] - not using this so that we don't accidentally clear passwords
-	/// <summary>
-	/// Gets the password
-	/// </summary>
-
 	public string? Password { get; set; }
 
 	/// <summary>

@@ -129,6 +129,14 @@ public partial class MerakiClient
 		return allEntries;
 	}
 
+	
+	/// <summary>
+	/// Retrieves all items using pagination with ApiResponse wrapper
+	/// </summary>
+	/// <typeparam name="T">The type of items to retrieve</typeparam>
+	/// <param name="pageFactoryAsync">The function to call for each page of results</param>
+	/// <param name="cancellationToken">The cancellation token</param>
+	/// <returns>A list of all items</returns>
 	public static async Task<List<T>> GetAllAsync<T>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 		Func<string?, string?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
@@ -190,6 +198,17 @@ public partial class MerakiClient
 		return allEntries;
 	}
 
+	
+	/// <summary>
+	/// Retrieves all items using pagination with time-based parameters
+	/// </summary>
+	/// <typeparam name="T">The type of items to retrieve</typeparam>
+	/// <param name="pageFactoryAsync">The function to call for each page of results</param>
+	/// <param name="t0">The beginning of the timespan</param>
+	/// <param name="t1">The end of the timespan</param>
+	/// <param name="timeSpan">The timespan duration</param>
+	/// <param name="cancellationToken">The cancellation token</param>
+	/// <returns>A list of all items</returns>
 	public static async Task<List<T>> GetAllAsync<T>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 		Func<string?, string?, string?, string?, double?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
@@ -254,6 +273,15 @@ public partial class MerakiClient
 		return allEntries;
 	}
 
+	
+	/// <summary>
+	/// Retrieves all items using pagination with per-page count and ApiResponse wrapper
+	/// </summary>
+	/// <typeparam name="T">The type of items to retrieve</typeparam>
+	/// <param name="pageFactoryAsync">The function to call for each page of results</param>
+	/// <param name="perPage">The number of items per page</param>
+	/// <param name="cancellationToken">The cancellation token</param>
+	/// <returns>A list of all items</returns>
 	public static async Task<List<T>> GetAllAsync<T>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 	Func<int?, string?, string?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
