@@ -21,10 +21,10 @@ public class ApplianceSection
 
 	public ApplianceContentFilteringSection ContentFiltering { get; internal set; } = new();
 	/// <summary>
-	/// Gets the dhpc
+	/// Gets the DHCP
 	/// </summary>
 
-	public ApplianceDhcpSection Dhpc { get; internal set; } = new();
+	public ApplianceDhcpSection Dhcp { get; internal set; } = new();
 	/// <summary>
 	/// Create a new local DNS profile
 	/// </summary>

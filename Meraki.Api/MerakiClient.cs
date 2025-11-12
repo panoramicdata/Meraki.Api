@@ -331,9 +331,9 @@ public partial class MerakiClient : IDisposable
 			},
 			Settings = RefitFor(Appliance.Settings),
 			SingleLan = RefitFor(Appliance.SingleLan),
-			Dhpc = new()
+			Dhcp = new()
 			{
-				Subnets = RefitFor(Appliance.Dhpc.Subnets)
+				Subnets = RefitFor(Appliance.Dhcp.Subnets)
 			},
 			DnsLocalProfiles = RefitFor(Appliance.DnsLocalProfiles),
 			Firewall = new()
