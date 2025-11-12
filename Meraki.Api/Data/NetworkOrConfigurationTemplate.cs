@@ -1,5 +1,8 @@
 ﻿namespace Meraki.Api.Data;
 
+/// <summary>
+/// Represents either a network or a configuration template
+/// </summary>
 [DataContract]
 public abstract class NetworkOrConfigurationTemplate : NamedIdentifiedItem
 {

@@ -1,4 +1,8 @@
 namespace Meraki.Api.Sections.General.Devices;
+
+/// <summary>
+/// Provides access to devices wireless API endpoints
+/// </summary>
 public partial class DevicesWirelessSection
 {
 	[RefitPromoteCalls]

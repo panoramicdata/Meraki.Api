@@ -1,5 +1,8 @@
 namespace Meraki.Api.Sections.General.Networks;
 
+/// <summary>
+/// Provides access to networks alerts API endpoints
+/// </summary>
 public partial class NetworksAlertsSection
 {
 	[RefitPromoteCalls]

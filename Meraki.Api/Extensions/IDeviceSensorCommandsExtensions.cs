@@ -1,4 +1,8 @@
-﻿namespace Meraki.Api.Extensions;
+namespace Meraki.Api.Extensions;
+
+/// <summary>
+/// Extension methods for IDevice Sensor Commands
+/// </summary>
 public static class IDeviceSensorCommandsExtensions
 {
 	/// <summary>

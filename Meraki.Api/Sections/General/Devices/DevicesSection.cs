@@ -1,5 +1,8 @@
 namespace Meraki.Api.Sections.General.Devices;
 
+/// <summary>
+/// Provides access to devices API endpoints
+/// </summary>
 public partial class DevicesSection
 {
 	[RefitPromoteCalls]

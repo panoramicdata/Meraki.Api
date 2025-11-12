@@ -25,6 +25,9 @@ public class SensorRange
 
 	public double? Max { get; set; }
 
+	/// <summary>
+	/// Color associated with this sensor range
+	/// </summary>
 	public Color Color => Name switch
 	{
 		"Inadequate" => Color.FromArgb(218, 31, 0),

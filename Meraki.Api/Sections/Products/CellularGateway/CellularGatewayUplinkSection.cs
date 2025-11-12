@@ -1,5 +1,9 @@
 namespace Meraki.Api.Sections.Products.CellularGateway;
 
+/// <summary>
+/// Provides access to cellular gateway uplink API endpoints
+/// </summary>
+
 public partial class CellularGatewayUplinkSection
 {
 	[RefitPromoteCalls]

@@ -1,5 +1,9 @@
 namespace Meraki.Api.Sections.Products.Wireless;
 
+/// <summary>
+/// Provides access to wireless ssids API endpoints
+/// </summary>
+
 public partial class WirelessSsidsSection
 {
 	[RefitPromoteCalls]

@@ -1,6 +1,10 @@
-﻿using Meraki.Api.Interfaces.Products.Licensing;
+using Meraki.Api.Interfaces.Products.Licensing;
 
 namespace Meraki.Api.Extensions;
+
+/// <summary>
+/// Extension methods for ILicensing Subscriptions
+/// </summary>
 
 public static class ILicensingSubscriptionsExtensions
 {

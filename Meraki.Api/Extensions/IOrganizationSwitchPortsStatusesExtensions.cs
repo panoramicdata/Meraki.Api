@@ -1,4 +1,8 @@
-﻿namespace Meraki.Api.Extensions;
+namespace Meraki.Api.Extensions;
+
+/// <summary>
+/// Extension methods for IOrganization Switch Ports Statuses
+/// </summary>
 
 public static class IOrganizationSwitchPortsStatusesExtensions
 {

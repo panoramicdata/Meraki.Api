@@ -1,4 +1,8 @@
-﻿namespace Meraki.Api.Extensions;
+namespace Meraki.Api.Extensions;
+
+/// <summary>
+/// Extension methods for IOrganizations Inventory Devices
+/// </summary>
 
 public static class IOrganizationsInventoryDevicesExtensions
 {

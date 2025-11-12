@@ -7,6 +7,9 @@
 [DebuggerDisplay("{" + nameof(Serial) + "} ({" + nameof(Model) + "} - {" + nameof(Name) + "})")]
 public class Device : NamedItem
 {
+	/// <summary>
+	/// Maximum length for device address
+	/// </summary>
 	public const int MaxAddressLength = 255;
 
 	/// <summary>

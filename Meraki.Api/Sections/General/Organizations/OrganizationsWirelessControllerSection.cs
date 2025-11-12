@@ -1,4 +1,8 @@
 namespace Meraki.Api.Sections.General.Organizations;
+
+/// <summary>
+/// Provides access to organizations wireless controller API endpoints
+/// </summary>
 public partial class OrganizationsWirelessControllerSection
 {
 	[RefitPromoteCalls]

@@ -1,5 +1,9 @@
 namespace Meraki.Api.Sections.General.Organizations;
 
+/// <summary>
+/// Provides access to organizations config templates API endpoints
+/// </summary>
+
 public partial class OrganizationsConfigTemplatesSection
 {
 	[RefitPromoteCalls]

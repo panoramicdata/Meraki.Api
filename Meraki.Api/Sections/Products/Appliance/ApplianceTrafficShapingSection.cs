@@ -1,5 +1,9 @@
 namespace Meraki.Api.Sections.Products.Appliance;
 
+/// <summary>
+/// Provides access to appliance traffic shaping API endpoints
+/// </summary>
+
 public partial class ApplianceTrafficShapingSection
 {
 	[RefitPromoteCalls]

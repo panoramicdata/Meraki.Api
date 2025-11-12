@@ -1,4 +1,8 @@
 namespace Meraki.Api.Sections.General.Organizations;
+
+/// <summary>
+/// Provides access to organizations insight API endpoints
+/// </summary>
 public partial class OrganizationsInsightSection
 {
 	[RefitPromoteCalls]

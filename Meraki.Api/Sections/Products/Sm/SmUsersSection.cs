@@ -1,5 +1,9 @@
 namespace Meraki.Api.Sections.Products.Sm;
 
+/// <summary>
+/// Provides access to sm users API endpoints
+/// </summary>
+
 public partial class SmUsersSection
 {
 	[RefitPromoteCalls]

@@ -1,4 +1,8 @@
 namespace Meraki.Api.Sections.General.Organizations;
+
+/// <summary>
+/// Provides access to organizations device API endpoints
+/// </summary>
 public partial class OrganizationsDeviceSection
 {
 	[RefitPromoteCalls]

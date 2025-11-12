@@ -1,5 +1,9 @@
 namespace Meraki.Api.Sections.General.Organizations;
 
+/// <summary>
+/// Provides access to organizations saml API endpoints
+/// </summary>
+
 public partial class OrganizationsSamlSection
 {
 	[RefitPromoteCalls]

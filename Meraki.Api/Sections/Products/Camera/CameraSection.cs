@@ -1,5 +1,9 @@
 namespace Meraki.Api.Sections.Products.Camera;
 
+/// <summary>
+/// Provides access to camera API endpoints
+/// </summary>
+
 public partial class CameraSection
 {
 	[RefitPromoteCalls]

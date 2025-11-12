@@ -1,5 +1,9 @@
 namespace Meraki.Api.Sections.Products.Camera;
 
+/// <summary>
+/// Provides access to camera onboarding API endpoints
+/// </summary>
+
 public partial class CameraOnboardingSection
 {
 	/// <summary>

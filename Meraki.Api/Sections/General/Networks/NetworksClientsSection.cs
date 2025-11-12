@@ -1,5 +1,8 @@
 namespace Meraki.Api.Sections.General.Networks;
 
+/// <summary>
+/// Provides access to networks clients API endpoints
+/// </summary>
 public partial class NetworksClientsSection
 {
 	[RefitPromoteCalls]

@@ -1,6 +1,10 @@
-﻿using System.Globalization;
+using System.Globalization;
 
 namespace Meraki.Api.Extensions;
+
+/// <summary>
+/// Extension methods for Port Schedule
+/// </summary>
 public static class PortScheduleExtensions
 {
 	public static double TotalActiveHours(this PortSchedule portSchedule)

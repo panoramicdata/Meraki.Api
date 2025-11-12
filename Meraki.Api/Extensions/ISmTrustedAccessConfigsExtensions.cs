@@ -1,4 +1,8 @@
-﻿namespace Meraki.Api.Extensions;
+namespace Meraki.Api.Extensions;
+
+/// <summary>
+/// Extension methods for ISm Truted Access Config
+/// </summary>
 
 public static class ISmTrutedAccessConfigExtensions
 {

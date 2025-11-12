@@ -6,6 +6,9 @@
 [DataContract]
 public class SwitchStack : NamedIdentifiedItem
 {
+	/// <summary>
+	/// Maximum length for switch stack name
+	/// </summary>
 	public const int MaxNameLength = 38;
 
 	/// <summary>

@@ -1,4 +1,8 @@
-﻿namespace Meraki.Api.Extensions;
+namespace Meraki.Api.Extensions;
+
+/// <summary>
+/// Extension methods for IOrganizations Api Requests
+/// </summary>
 
 public static class IOrganizationsApiRequestsExtensions
 {

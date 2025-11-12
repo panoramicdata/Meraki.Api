@@ -1,5 +1,9 @@
 ﻿namespace Meraki.Api.Data;
 
+/// <summary>
+/// Response containing a list of items with metadata
+/// </summary>
+/// <typeparam name="T">The type of items in the response</typeparam>
 public abstract class ItemsResponseWithMeta<T>
 {
 	/// <summary>

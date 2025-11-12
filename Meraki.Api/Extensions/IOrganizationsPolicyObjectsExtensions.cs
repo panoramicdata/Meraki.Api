@@ -1,4 +1,8 @@
-﻿namespace Meraki.Api.Extensions;
+namespace Meraki.Api.Extensions;
+
+/// <summary>
+/// Extension methods for IOrganizations Policy Objects
+/// </summary>
 
 public static class IOrganizationsPolicyObjectsExtensions
 {

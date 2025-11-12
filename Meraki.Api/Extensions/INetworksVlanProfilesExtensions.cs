@@ -1,4 +1,8 @@
-﻿namespace Meraki.Api.Extensions;
+namespace Meraki.Api.Extensions;
+
+/// <summary>
+/// Extension methods for INetworks Vlan Profiles
+/// </summary>
 
 public static class INetworksVlanProfilesExtensions
 {
