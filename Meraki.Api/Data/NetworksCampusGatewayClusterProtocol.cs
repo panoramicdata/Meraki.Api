@@ -7,5 +7,8 @@ namespace Meraki.Api.Data;
 public enum NetworksCampusGatewayClusterProtocol
 {
 	[EnumMember(Value = "ipv4")]
+	/// <summary>
+	/// Ipv4
+	/// </summary>
 	Ipv4
 }

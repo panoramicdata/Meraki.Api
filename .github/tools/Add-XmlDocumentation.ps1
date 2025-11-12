@@ -299,6 +299,10 @@ function ConvertTo-EnglishDescription {
         "interface" {
             return $spaced
         }
+        "enum" {
+            # For enum members, just return the spaced name
+            return $spaced
+        }
         "property" {
             # Check if it looks like a boolean
             if ($Name -match '^(Is|Has|Can|Should|Enable|Disable)') {
@@ -609,6 +613,56 @@ function Add-MissingXmlDoc {
                 [void]$newLines.Add("$indent/// </summary>")
                 $modified = $true
                 $changesCount++
+            }
+        }
+        # Check for enum members (e.g., "Eui64 = 1," or "Static")
+        elseif ($line -match '^\s*([A-Z]\w+)\s*(=\s*\d+)?\s*,?\s*$') {
+            $enumMemberName = $Matches[1]
+            
+            # Skip if previous line has docs
+            if ($i -gt 0 -and $lines[$i - 1] -match '^\s*///') {
+                [void]$newLines.Add($line)
+                continue
+            }
+            
+            # Check if previous non-empty line has XML doc or is an attribute
+            $hasDocs = $false
+            
+            for ($j = $i - 1; $j -ge 0; $j--) {
+                if ($lines[$j] -match '^\s*///') {
+                    $hasDocs = $true
+                    break
+                }
+                if ($lines[$j] -match '^\s*\[') {
+                    continue
+                }
+                if ($lines[$j] -notmatch '^\s*$') {
+                    break
+                }
+            }
+            
+            if (-not $hasDocs) {
+                # Check if this looks like an enum member (not a property or method)
+                # Only add docs if we're likely inside an enum (previous lines have EnumMember or we're after an opening brace)
+                $likelyEnum = $false
+                for ($j = $i - 1; $j -ge 0 -and $j -ge $i - 10; $j--) {
+                    if ($lines[$j] -match 'public enum' -or $lines[$j] -match '\[EnumMember') {
+                        $likelyEnum = $true
+                        break
+                    }
+                }
+                
+                if ($likelyEnum) {
+                    $englishDescription = ConvertTo-EnglishDescription -Name $enumMemberName -MemberType "enum"
+                    Write-ColorOutput "  [Line $($i + 1)] Adding docs for enum member '$enumMemberName'" -ForegroundColor Cyan
+                    
+                    $indent = if ($line -match '^(\s+)') { $Matches[1] } else { "`t" }
+                    [void]$newLines.Add("$indent/// <summary>")
+                    [void]$newLines.Add("$indent/// $englishDescription")
+                    [void]$newLines.Add("$indent/// </summary>")
+                    $modified = $true
+                    $changesCount++
+                }
             }
         }
         

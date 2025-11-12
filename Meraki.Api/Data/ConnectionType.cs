@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// A connection type
@@ -8,8 +8,14 @@
 public enum ConnectionType
 {
 	[EnumMember(Value = "Wireless")]
+	/// <summary>
+	/// Wireless
+	/// </summary>
 	Wireless = 1,
 
 	[EnumMember(Value = "Wired")]
+	/// <summary>
+	/// Wired
+	/// </summary>
 	Wired
 }
