@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Sm;
+namespace Meraki.Api.Interfaces.Products.Sm;
 
+/// <summary>
+/// I Sm Devices Bypass Activation Lock Attempts
+/// </summary>
 public interface ISmDevicesBypassActivationLockAttempts
 {
 	/// <summary>

@@ -55,6 +55,9 @@ public class SixGhzSettings
 	[DataMember(Name = "afcEnabled")]
 	public bool? AfcEnabled { get; set; }
 
+	/// <summary>
+	/// Gets the channel puncturing
+	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "channelPuncturing")]
 	public SixGhzSettingsChannelPuncturing? ChannelPuncturing { get; set; }

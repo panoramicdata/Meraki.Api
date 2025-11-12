@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// Authentication
@@ -26,6 +26,10 @@ public class StatusPageAuthentication
 	[ApiAccess(ApiAccess.Update)]
 	[DataMember(Name = "password")]
 	// [JsonProperty(NullValueHandling = NullValueHandling.Include)] - not using this so that we don't accidentally clear passwords
+	/// <summary>
+	/// Gets the password
+	/// </summary>
+
 	public string? Password { get; set; }
 
 	/// <summary>

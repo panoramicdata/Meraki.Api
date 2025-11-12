@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.LiveTools;
+namespace Meraki.Api.Interfaces.General.LiveTools;
+/// <summary>
+/// I Live Tools Acl Hit Count
+/// </summary>
 public interface ILiveToolsAclHitCount
 {
 	/// <summary>

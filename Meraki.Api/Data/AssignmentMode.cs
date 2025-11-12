@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Assignment Mode
+/// </summary>
 [DataContract]
 [JsonConverter(typeof(StringEnumConverter))]
 public enum AssignmentMode

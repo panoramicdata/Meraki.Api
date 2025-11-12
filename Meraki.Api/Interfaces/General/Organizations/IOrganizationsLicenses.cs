@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
 
+/// <summary>
+/// I Organizations Licenses
+/// </summary>
 public interface IOrganizationsLicenses
 {
 	/// <summary>

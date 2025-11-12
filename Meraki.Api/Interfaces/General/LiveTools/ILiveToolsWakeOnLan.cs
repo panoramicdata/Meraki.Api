@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.LiveTools;
+namespace Meraki.Api.Interfaces.General.LiveTools;
 
+/// <summary>
+/// I Live Tools Wake On Lan
+/// </summary>
 public interface ILiveToolsWakeOnLan
 {
 	/// <summary>

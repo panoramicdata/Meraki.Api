@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Md5Authentication Key
+/// </summary>
 public class Md5AuthenticationKey
 {
 	/// <summary>

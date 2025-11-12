@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Sm;
+namespace Meraki.Api.Interfaces.Products.Sm;
 
+/// <summary>
+/// I Sm Devices Restrictions
+/// </summary>
 public interface ISmDevicesRestrictions
 {
 	/// <summary>

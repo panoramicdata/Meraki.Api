@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Firewall Port Forwarding Rules
+/// </summary>
 public interface IApplianceFirewallPortForwardingRules
 {
 	/// <summary>

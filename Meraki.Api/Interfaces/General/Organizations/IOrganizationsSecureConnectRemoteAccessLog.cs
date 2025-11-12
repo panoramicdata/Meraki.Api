@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
+/// <summary>
+/// I Organizations Secure Connect Remote Access Log
+/// </summary>
 public interface IOrganizationsSecureConnectRemoteAccessLog
 {
 	/// <summary>

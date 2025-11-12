@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Devices;
+namespace Meraki.Api.Interfaces.General.Devices;
 
+/// <summary>
+/// I Device Loss And Latency History
+/// </summary>
 public interface IDeviceLossAndLatencyHistory
 {
 	/// <summary>

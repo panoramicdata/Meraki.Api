@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Ports
+/// </summary>
 public interface IAppliancePorts
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Network Snmp Trap Mode
+/// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum NetworkSnmpTrapMode
 {

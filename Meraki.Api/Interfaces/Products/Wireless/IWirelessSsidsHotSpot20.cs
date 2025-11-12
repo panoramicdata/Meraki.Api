@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Wireless;
+namespace Meraki.Api.Interfaces.Products.Wireless;
 
+/// <summary>
+/// I Wireless Ssids Hot Spot20
+/// </summary>
 public interface IWirelessSsidsHotSpot20
 {
 	/// <summary>

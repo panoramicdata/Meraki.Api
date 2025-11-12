@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.CellularGateway;
+namespace Meraki.Api.Interfaces.Products.CellularGateway;
 
+/// <summary>
+/// I Cellular Gateway Connectivity Monitoring Destinations
+/// </summary>
 public interface ICellularGatewayConnectivityMonitoringDestinations
 {
 	/// <summary>

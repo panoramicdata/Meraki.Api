@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
+/// <summary>
+/// I Organizations Certificates Rad Sec Device Certificate Authorities
+/// </summary>
 public interface IOrganizationsCertificatesRadSecDeviceCertificateAuthorities
 {
 	/// <summary>

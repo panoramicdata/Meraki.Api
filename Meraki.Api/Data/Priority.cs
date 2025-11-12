@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Priority
+/// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum Priority
 {

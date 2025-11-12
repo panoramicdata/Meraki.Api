@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// Switch profile port
@@ -185,6 +185,9 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[DataMember(Name = "allowedVlans")]
 	public string? AllowedVlans { get; set; }
 
+	/// <summary>
+	/// Gets the link negotiation capabilities
+	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "linkNegotiationCapabilities")]
 	public List<string>? LinkNegotiationCapabilities { get; set; }

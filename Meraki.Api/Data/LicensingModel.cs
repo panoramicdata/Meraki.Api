@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Licensing Model
+/// </summary>
 [DataContract]
 public enum LicensingModel
 {

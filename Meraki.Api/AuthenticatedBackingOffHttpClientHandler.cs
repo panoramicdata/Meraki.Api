@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api;
+namespace Meraki.Api;
 
 internal sealed class AuthenticatedBackingOffHttpClientHandler(
 	MerakiClientOptions options,
@@ -10,7 +10,15 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 	private readonly ILogger _logger = logger;
 	private readonly LogLevel _levelToLogAt = LogLevel.Trace;
 
+	/// <summary>
+	/// Gets the last request uri
+	/// </summary>
+
 	public string LastRequestUri { get; private set; } = string.Empty;
+
+	/// <summary>
+	/// Gets the statistics
+	/// </summary>
 
 	public MerakiClientStatistics Statistics { get; } = new();
 

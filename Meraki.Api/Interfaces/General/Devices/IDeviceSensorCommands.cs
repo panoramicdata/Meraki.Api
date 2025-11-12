@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Devices;
+namespace Meraki.Api.Interfaces.General.Devices;
+/// <summary>
+/// I Device Sensor Commands
+/// </summary>
 public interface IDeviceSensorCommands
 {
 	/// <summary>

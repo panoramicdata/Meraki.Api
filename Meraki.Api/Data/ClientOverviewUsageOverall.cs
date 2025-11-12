@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Client Overview Usage Overall
+/// </summary>
 [DataContract]
 public class ClientOverviewUsageOverall
 {

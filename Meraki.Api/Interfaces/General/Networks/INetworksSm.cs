@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
+/// <summary>
+/// I Networks Sm
+/// </summary>
 public interface INetworksSm
 {
 	/// <summary>

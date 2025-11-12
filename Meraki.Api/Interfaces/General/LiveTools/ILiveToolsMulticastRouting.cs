@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.LiveTools;
+namespace Meraki.Api.Interfaces.General.LiveTools;
 
+/// <summary>
+/// I Live Tools Multicast Routing
+/// </summary>
 public interface ILiveToolsMulticastRouting
 {
 	/// <summary>

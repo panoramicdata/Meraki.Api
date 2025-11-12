@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
+/// <summary>
+/// I Organizations Config Templates Switch Profiles Ports Mirrors
+/// </summary>
 public interface IOrganizationsConfigTemplatesSwitchProfilesPortsMirrors
 {
 	/// <summary>

@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// SM Devices
@@ -83,6 +83,9 @@ public class SmDevice : NamedIdentifiedItem
 	[DataMember(Name = "notes")]
 	public string Notes { get; set; } = string.Empty;
 
+	/// <summary>
+	/// Gets the battery est charge
+	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "batteryEstCharge")]
 	public string BatteryEstCharge { get; set; } = string.Empty;

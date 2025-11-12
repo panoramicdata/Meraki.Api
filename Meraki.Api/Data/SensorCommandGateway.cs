@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Sensor Command Gateway
+/// </summary>
 [DataContract]
 public class SensorCommandGateway
 {

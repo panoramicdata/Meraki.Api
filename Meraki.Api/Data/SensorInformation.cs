@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Sensor Information
+/// </summary>
 public class SensorInformation
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Firewalled Service Access Type
+/// </summary>
 public enum FirewalledServiceAccessType
 {
 	/// <summary>

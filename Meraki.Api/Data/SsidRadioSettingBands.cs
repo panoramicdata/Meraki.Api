@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Ssid Radio Setting Bands
+/// </summary>
 [DataContract]
 public class SsidRadioSettingBands
 {

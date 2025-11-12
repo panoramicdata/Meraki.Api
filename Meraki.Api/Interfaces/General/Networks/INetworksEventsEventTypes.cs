@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
 
+/// <summary>
+/// I Networks Events Event Types
+/// </summary>
 public interface INetworksEventsEventTypes
 {
 	/// <summary>

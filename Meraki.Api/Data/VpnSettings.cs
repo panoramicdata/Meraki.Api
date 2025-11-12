@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// VPN settings
@@ -20,6 +20,9 @@ public class VpnSettings
 	[DataMember(Name = "splitTunnel")]
 	public SplitTunnel SplitTunnel { get; set; } = new();
 
+	/// <summary>
+	/// Gets the concentrator
+	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "concentrator")]
 	public WirelessSsidVpnConcentrator? Concentrator { get; set; } = new();

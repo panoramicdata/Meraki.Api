@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
 
+/// <summary>
+/// I Networks Webhooks Http Servers
+/// </summary>
 public interface INetworksWebhooksHttpServers
 
 {

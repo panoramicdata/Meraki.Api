@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Firewall Inbound Cellular Firewall Rules
+/// </summary>
 public interface IApplianceFirewallInboundCellularFirewallRules
 {
 	/// <summary>

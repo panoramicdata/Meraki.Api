@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
 
+/// <summary>
+/// I Organizations Secure Connect Sites
+/// </summary>
 public interface IOrganizationsSecureConnectSites
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Assurance Alert Scope Device Lldp
+/// </summary>
 [DataContract]
 public class OrganizationAssuranceAlertScopeDeviceLldp
 {

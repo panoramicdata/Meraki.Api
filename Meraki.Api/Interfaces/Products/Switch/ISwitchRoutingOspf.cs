@@ -1,4 +1,7 @@
 namespace Meraki.Api.Interfaces.Products.Switch;
+/// <summary>
+/// I Switch Routing Ospf
+/// </summary>
 public interface ISwitchRoutingOspf
 {
 	/// <summary>

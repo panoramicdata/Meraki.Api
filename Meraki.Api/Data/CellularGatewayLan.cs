@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Cellular Gateway Lan
+/// </summary>
 [DataContract]
 public class CellularGatewayLan : CellularGatewayLanUpdateRequest
 {

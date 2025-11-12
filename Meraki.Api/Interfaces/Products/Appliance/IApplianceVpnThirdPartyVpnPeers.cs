@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Vpn Third Party Vpn Peers
+/// </summary>
 public interface IApplianceVpnThirdPartyVpnPeers
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Payload Template Type
+/// </summary>
 [DataContract]
 public enum PayloadTemplateType
 {

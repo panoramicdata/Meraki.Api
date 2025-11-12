@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Administered;
+namespace Meraki.Api.Interfaces.General.Administered;
 
+/// <summary>
+/// I Administered Licensing Subscription Entitlements
+/// </summary>
 public interface IAdministeredLicensingSubscriptionEntitlements
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Tags Filter Type
+/// </summary>
 [DataContract]
 [JsonConverter(typeof(StringEnumConverter))]
 public enum TagsFilterType

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Networks Location Scanning Http Server Radio Type
+/// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum NetworksLocationScanningHttpServerRadioType
 {

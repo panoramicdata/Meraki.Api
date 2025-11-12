@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Policy Object Type
+/// </summary>
 [DataContract]
 public enum OrganizationPolicyObjectType
 {

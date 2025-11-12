@@ -154,8 +154,29 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 
 					if (methodSymbol.DeclaredAccessibility == Accessibility.Public)
 					{
-						// Add XML documentation comment
+						// Add XML documentation comment first
 						sb.AppendLine("\t/// <inheritdoc />");
+
+						// Check for Obsolete attribute and add it after the XML comment
+						var obsoleteAttribute = methodSymbol.GetAttributes()
+							.FirstOrDefault(a => a.AttributeClass?.Name == "ObsoleteAttribute");
+						
+						if (obsoleteAttribute is not null)
+						{
+							// Extract the message from the Obsolete attribute if it exists
+							var obsoleteMessage = obsoleteAttribute.ConstructorArguments.Length > 0
+								? obsoleteAttribute.ConstructorArguments[0].Value?.ToString()
+								: null;
+							
+							if (obsoleteMessage is not null)
+							{
+								sb.AppendLine($"\t[Obsolete(\"{obsoleteMessage}\")]");
+							}
+							else
+							{
+								sb.AppendLine("\t[Obsolete]");
+							}
+						}
 
 						var methodSignature = methodSymbol.GetMethodSignature(true);
 						sb.AppendLine("\t" + methodSignature);

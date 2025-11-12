@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
+/// <summary>
+/// I Networks Switch Dhcp Server Policy
+/// </summary>
 public interface INetworksSwitchDhcpServerPolicy
 {
 	/// <summary>

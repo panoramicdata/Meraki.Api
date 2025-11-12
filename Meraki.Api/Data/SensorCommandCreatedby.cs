@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Sensor Command Createdby
+/// </summary>
 [DataContract]
 public class SensorCommandCreatedby
 {

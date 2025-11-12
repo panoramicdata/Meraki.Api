@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Sensor Command Operation
+/// </summary>
 public enum SensorCommandOperation
 {
 	[EnumMember(Value = "connect")]

@@ -1,5 +1,8 @@
 namespace Meraki.Api.Data;
 
+/// <summary>
+/// Traffic Shaping Vpn Exclusions Custom Protocol
+/// </summary>
 [DataContract]
 public enum TrafficShapingVpnExclusionsCustomProtocol
 {

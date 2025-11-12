@@ -1,4 +1,4 @@
-﻿using Meraki.Api.Interfaces.General.Administered;
+using Meraki.Api.Interfaces.General.Administered;
 
 namespace Meraki.Api.Sections.General.Administered;
 
@@ -6,6 +6,10 @@ public partial class AdministeredIdentitiesMeSection
 {
 	[RefitPromoteCalls]
 	internal IAdministeredIdentitiesMe Me { get; set; } = null!;
+
+	/// <summary>
+	/// Gets the api
+	/// </summary>
 
 	public AdministeredIdentitiesMeApiSection Api { get; internal set; } = new();
 }

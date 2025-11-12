@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Adaptive Policy Policy Create Update
+/// </summary>
 [DataContract]
 public class AdaptivePolicyPolicyCreateUpdateRequest
 {

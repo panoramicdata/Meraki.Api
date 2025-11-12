@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Clients Security
+/// </summary>
 public interface IApplianceClientsSecurity
 {
 	/// <summary>

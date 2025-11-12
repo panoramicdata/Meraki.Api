@@ -1,4 +1,4 @@
-﻿using Meraki.Api.Extensions;
+using Meraki.Api.Extensions;
 using Meraki.Api.Sections.General.LiveTools;
 using Meraki.Api.Sections.Products.Licensing;
 using Meraki.Api.Sections.SecureConnect;
@@ -60,6 +60,10 @@ public partial class MerakiClient : IDisposable
 	public string LastRequestUri => _httpClientHandler.LastRequestUri;
 
 	public MerakiClientStatistics Statistics => _httpClientHandler.Statistics;
+
+	/// <summary>
+	/// Gets the api client version
+	/// </summary>
 
 	public string ApiClientVersion { get; private set; }
 
@@ -611,31 +615,87 @@ public partial class MerakiClient : IDisposable
 
 	private readonly RefitSettings _refitSettings;
 
+	/// <summary>
+	/// Gets the appliance
+	/// </summary>
+
 	public ApplianceSection Appliance { get; } = new();
+
+	/// <summary>
+	/// Generate a snapshot of what the camera sees at the specified time and return a link to that image.
+	/// </summary>
 
 	public CameraSection Camera { get; } = new();
 
+	/// <summary>
+	/// Gets the cellular gateway
+	/// </summary>
+
 	public CellularGatewaySection CellularGateway { get; } = new();
+
+	/// <summary>
+	/// Return a single device
+	/// </summary>
 
 	public DevicesSection Devices { get; } = new();
 
+	/// <summary>
+	/// Gets the insight
+	/// </summary>
+
 	public InsightSection Insight { get; } = new();
+
+	/// <summary>
+	/// Gets the licensing
+	/// </summary>
 
 	public LicensingSection Licensing { get; } = new();
 
+	/// <summary>
+	/// Gets the live tools
+	/// </summary>
+
 	public LiveToolsSection LiveTools { get; } = new();
+
+	/// <summary>
+	/// Return a network
+	/// </summary>
 
 	public NetworksSection Networks { get; } = new();
 
+	/// <summary>
+	/// List the organizations that the user has privileges on
+	/// </summary>
+
 	public OrganizationsSection Organizations { get; } = new();
+
+	/// <summary>
+	/// Gets the sensor
+	/// </summary>
 
 	public SensorSection Sensor { get; } = new();
 
+	/// <summary>
+	/// Gets the sm
+	/// </summary>
+
 	public SmSection Sm { get; } = new();
+
+	/// <summary>
+	/// Gets the secure connect
+	/// </summary>
 
 	public SecureConnectSection SecureConnect { get; } = new();
 
+	/// <summary>
+	/// Gets the switch
+	/// </summary>
+
 	public SwitchSection Switch { get; } = new();
+
+	/// <summary>
+	/// Gets the wireless
+	/// </summary>
 
 	public WirelessSection Wireless { get; } = new();
 
@@ -643,6 +703,10 @@ public partial class MerakiClient : IDisposable
 	/// Used to find out whether the client has the ReadOnly option set
 	/// </summary>
 	public bool IsReadOnly => _options.ReadOnly;
+
+	/// <summary>
+	/// Gets the last response headers
+	/// </summary>
 
 	public HttpResponseHeaders? LastResponseHeaders { get; set; }
 
@@ -671,6 +735,9 @@ public partial class MerakiClient : IDisposable
 	}
 
 	// This code added to correctly implement the disposable pattern.
+	/// <summary>
+	/// Dispose
+	/// </summary>
 	public void Dispose()
 	{
 		// Do not change this code. Put cleanup code in Dispose(bool disposing) above.

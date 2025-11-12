@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Adaptive Policy Overview Counts
+/// </summary>
 [DataContract]
 public class OrganizationAdaptivePolicyOverviewCounts
 {

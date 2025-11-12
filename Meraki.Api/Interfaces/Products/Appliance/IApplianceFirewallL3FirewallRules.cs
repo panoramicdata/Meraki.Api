@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Firewall L3Firewall Rules
+/// </summary>
 public interface IApplianceFirewallL3FirewallRules
 {
 	/// <summary>

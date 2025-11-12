@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Wireless;
+namespace Meraki.Api.Interfaces.Products.Wireless;
 
+/// <summary>
+/// I Wireless Status
+/// </summary>
 public interface IWirelessStatus
 {
 	/// <summary>

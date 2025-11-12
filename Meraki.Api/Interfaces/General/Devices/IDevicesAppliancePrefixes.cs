@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Devices;
+namespace Meraki.Api.Interfaces.General.Devices;
+/// <summary>
+/// I Devices Appliance Prefixes
+/// </summary>
 public interface IDevicesAppliancePrefixes
 {
 	/// <summary>

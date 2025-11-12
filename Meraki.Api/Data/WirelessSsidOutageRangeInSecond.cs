@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Wireless Ssid Outage Range In Second
+/// </summary>
 [DataContract]
 public class WirelessSsidOutageRangeInSecond
 {

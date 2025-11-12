@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Region
+/// </summary>
 [ApiAccessReadOnlyClass]
 [DataContract]
 public class Region : NamedItem

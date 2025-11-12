@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
+/// <summary>
+/// I Networks Sensor Alerts Overview
+/// </summary>
 public interface INetworksSensorAlertsOverview
 {
 	/// <summary>

@@ -475,6 +475,9 @@ public class SsidUpdateRequest
 	[DataMember(Name = "wifiPersonalNetworkEnabled")]
 	public object? WifiPersonalNetworkEnabled { get; set; }
 
+	/// <summary>
+	/// Gets the radius data carrier detect
+	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "radiusDataCarrierDetect")]
 	public SsidRadiusDataCarrierDetect? RadiusDataCarrierDetect { get; set; }

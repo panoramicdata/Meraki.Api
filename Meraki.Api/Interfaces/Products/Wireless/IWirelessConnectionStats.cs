@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Wireless;
+namespace Meraki.Api.Interfaces.Products.Wireless;
 
+/// <summary>
+/// I Wireless Connection Stats
+/// </summary>
 public interface IWirelessConnectionStats
 {
 	/// <summary>

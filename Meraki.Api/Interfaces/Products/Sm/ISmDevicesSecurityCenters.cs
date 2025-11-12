@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Sm;
+namespace Meraki.Api.Interfaces.Products.Sm;
 
+/// <summary>
+/// I Sm Devices Security Centers
+/// </summary>
 public interface ISmDevicesSecurityCenters
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Sensor;
+namespace Meraki.Api.Interfaces.Products.Sensor;
 
+/// <summary>
+/// I Organization Sensor Relationships
+/// </summary>
 public interface IOrganizationSensorRelationships
 {
 	/// <summary>

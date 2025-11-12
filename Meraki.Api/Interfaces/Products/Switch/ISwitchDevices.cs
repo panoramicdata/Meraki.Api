@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Switch;
+namespace Meraki.Api.Interfaces.Products.Switch;
 
+/// <summary>
+/// I Switch Devices
+/// </summary>
 public interface ISwitchDevices
 {
 	/// <summary>

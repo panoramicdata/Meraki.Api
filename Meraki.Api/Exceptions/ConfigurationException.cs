@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Exceptions;
+namespace Meraki.Api.Exceptions;
 
+/// <summary>
+/// Configuration Exception
+/// </summary>
 public class ConfigurationException : Exception
 {
 	public ConfigurationException()

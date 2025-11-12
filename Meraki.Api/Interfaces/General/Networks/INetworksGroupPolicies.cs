@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
 
+/// <summary>
+/// I Networks Group Policies
+/// </summary>
 public interface INetworksGroupPolicies
 {
 	/// <summary>

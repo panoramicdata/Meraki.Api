@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Bandwidth Usage History
+/// </summary>
 [DataContract]
 public class BandwidthUsageHistory
 {

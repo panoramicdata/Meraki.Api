@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Energy Usage Summary
+/// </summary>
 [DataContract]
 public class EnergyUsageSummary
 {

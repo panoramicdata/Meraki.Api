@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
 
+/// <summary>
+/// I Networks Pii Sm Devices For Key
+/// </summary>
 public interface INetworksPiiSmDevicesForKey
 {
 	/// <summary>

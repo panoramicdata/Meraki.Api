@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// Represents a list of WLANs with their creation date, identifier, and XML data.
@@ -7,12 +7,21 @@
 [DataContract]
 public class WlanList
 {
+	/// <summary>
+	/// Gets the created at
+	/// </summary>
 	[DataMember(Name = "createdAt")]
 	public DateTime CreatedAt { get; set; }
 
+	/// <summary>
+	/// Gets the id
+	/// </summary>
 	[DataMember(Name = "id")]
 	public string Id { get; set; } = string.Empty;
 
+	/// <summary>
+	/// Gets the xml
+	/// </summary>
 	[DataMember(Name = "xml")]
 	public string Xml { get; set; } = string.Empty;
 }

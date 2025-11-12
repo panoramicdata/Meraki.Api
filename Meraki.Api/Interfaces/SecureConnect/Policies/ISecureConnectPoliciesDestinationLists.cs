@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.SecureConnect.Policies;
+namespace Meraki.Api.Interfaces.SecureConnect.Policies;
+/// <summary>
+/// I Secure Connect Policies Destination Lists
+/// </summary>
 public interface ISecureConnectPoliciesDestinationLists
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Vpn Vpn Firewall Rules
+/// </summary>
 public interface IApplianceVpnVpnFirewallRules
 {
 	/// <summary>

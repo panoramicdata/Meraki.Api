@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Administered;
+namespace Meraki.Api.Interfaces.General.Administered;
+/// <summary>
+/// I Administered Licensing Subscription Networks Feature Tiers
+/// </summary>
 public interface IAdministeredLicensingSubscriptionNetworksFeatureTiers
 {
 	/// <summary>

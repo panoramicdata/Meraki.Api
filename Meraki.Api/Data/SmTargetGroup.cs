@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
+/// <summary>
+/// Sm Target Group
+/// </summary>
 public class SmTargetGroup : NamedIdentifiedItem
 {
 	/// <summary>

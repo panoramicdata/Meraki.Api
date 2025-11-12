@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Five Ghz Channel Puncturing
+/// </summary>
 [DataContract]
 public class FiveGhzChannelPuncturingSettings
 {

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Device Management Interface
+/// </summary>
 [DataContract]
 public class DeviceManagementInterfaceSettings
 {

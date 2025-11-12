@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
 
+/// <summary>
+/// I Organization Monitor Adaptive Policy
+/// </summary>
 public interface IOrganizationMonitorAdaptivePolicy
 {
 	/// <summary>

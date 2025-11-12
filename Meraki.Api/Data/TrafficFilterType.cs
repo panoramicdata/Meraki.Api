@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Traffic Filter Type
+/// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum TrafficFilterType
 {

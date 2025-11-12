@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Access Policy Type
+/// </summary>
 [DataContract]
 public enum AccessPolicyType
 {

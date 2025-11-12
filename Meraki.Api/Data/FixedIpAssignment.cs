@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Fixed Ip Assignment
+/// </summary>
 [DataContract]
 public class FixedIpAssignment : NamedItem
 {

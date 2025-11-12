@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Per Ssid
+/// </summary>
 [DataContract]
 public class PerSsidSettings
 {

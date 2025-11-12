@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
+/// <summary>
+/// I Organizations Campus Gateway Devices Uplinks Local Overrides
+/// </summary>
 public interface IOrganizationsCampusGatewayDevicesUplinksLocalOverrides
 {
 	/// <summary>

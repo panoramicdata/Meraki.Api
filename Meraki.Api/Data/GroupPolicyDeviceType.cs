@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Group Policy Device Type
+/// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum GroupPolicyDeviceType
 {

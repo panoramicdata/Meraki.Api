@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
 
+/// <summary>
+/// I Organizations Webhooks Callbacks
+/// </summary>
 public interface IOrganizationsWebhooksCallbacks
 
 {

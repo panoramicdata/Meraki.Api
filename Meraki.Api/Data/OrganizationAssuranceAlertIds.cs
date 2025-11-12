@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Assurance Alert Ids
+/// </summary>
 [DataContract]
 public class OrganizationAssuranceAlertIds
 {

@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
+/// <summary>
+/// I Organizations Appliance Dns Local Profiles
+/// </summary>
 public interface IOrganizationsApplianceDnsLocalProfiles
 {
 	/// <summary>

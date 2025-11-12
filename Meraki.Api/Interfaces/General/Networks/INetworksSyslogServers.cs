@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
 
+/// <summary>
+/// I Networks Syslog Servers
+/// </summary>
 public interface INetworksSyslogServers
 {
 	/// <summary>

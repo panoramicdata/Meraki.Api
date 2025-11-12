@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
+/// <summary>
+/// I Networks Sensor Schedules
+/// </summary>
 public interface INetworksSensorSchedules
 {
 	/// <summary>

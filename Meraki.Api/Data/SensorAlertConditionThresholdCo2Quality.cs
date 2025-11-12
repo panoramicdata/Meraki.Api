@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Sensor Alert Condition Threshold Co2Quality
+/// </summary>
 [DataContract]
 public enum SensorAlertConditionThresholdCo2Quality
 {

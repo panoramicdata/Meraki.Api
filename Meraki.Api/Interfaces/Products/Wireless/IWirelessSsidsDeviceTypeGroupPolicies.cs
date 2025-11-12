@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Wireless;
+namespace Meraki.Api.Interfaces.Products.Wireless;
 
+/// <summary>
+/// I Wireless Ssids Device Type Group Policies
+/// </summary>
 public interface IWirelessSsidsDeviceTypeGroupPolicies
 {
 	/// <summary>

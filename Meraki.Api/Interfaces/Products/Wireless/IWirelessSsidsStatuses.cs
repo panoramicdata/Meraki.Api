@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Wireless;
+namespace Meraki.Api.Interfaces.Products.Wireless;
 
+/// <summary>
+/// I Wireless Ssids Statuses
+/// </summary>
 public interface IWirelessSsidsStatuses
 {
 	/// <summary>

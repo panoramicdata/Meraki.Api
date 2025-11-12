@@ -97,6 +97,9 @@ public class WirelessRfProfileCreateUpdateRequest
 	[DataMember(Name = "flexRadios")]
 	public WirelessRfProfileFlexRadios? FlexRadios { get; set; }
 
+	/// <summary>
+	/// Gets the be
+	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "be")]
 	public WirelessRfProfileBe? Be { get; set; }

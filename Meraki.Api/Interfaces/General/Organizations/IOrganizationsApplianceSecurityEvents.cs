@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
 
+/// <summary>
+/// I Organizations Appliance Security Events
+/// </summary>
 public interface IOrganizationsApplianceSecurityEvents
 {
 	/// <summary>

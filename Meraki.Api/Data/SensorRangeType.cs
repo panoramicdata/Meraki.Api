@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Sensor Range Type
+/// </summary>
 public enum SensorRangeType
 {
 	Low,

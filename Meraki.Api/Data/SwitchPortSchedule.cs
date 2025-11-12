@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Switch Port Schedule
+/// </summary>
 [DataContract]
 public class SwitchPortSchedule : NamedIdentifiedItem
 {

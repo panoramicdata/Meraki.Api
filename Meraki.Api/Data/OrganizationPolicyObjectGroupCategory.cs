@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Policy Objects Group Category
+/// </summary>
 [DataContract]
 public enum OrganizationPolicyObjectsGroupCategory
 {

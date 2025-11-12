@@ -1,7 +1,10 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 
 namespace Meraki.Api;
 
+/// <summary>
+/// Meraki Client Statistics
+/// </summary>
 public class MerakiClientStatistics
 {
 	public IReadOnlyDictionary<int, MerakiClientStatistic> StatusCodeCounts => _statusCodeCounts;
@@ -27,6 +30,9 @@ public class MerakiClientStatistics
 		_ = Interlocked.Increment(ref _totalRequestCount);
 	}
 
+	/// <summary>
+	/// Reset
+	/// </summary>
 	public void Reset()
 	{
 		_statusCodeCounts.Clear();

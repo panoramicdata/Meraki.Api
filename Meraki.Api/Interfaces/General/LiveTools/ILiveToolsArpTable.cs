@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.LiveTools;
+namespace Meraki.Api.Interfaces.General.LiveTools;
 
+/// <summary>
+/// I Live Tools Arp Table
+/// </summary>
 public interface ILiveToolsArpTable
 {
 	/// <summary>

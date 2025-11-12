@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api;
+namespace Meraki.Api;
+/// <summary>
+/// Json Missing Member Handling
+/// </summary>
 public enum JsonMissingMemberHandling
 {
 	/// <summary>

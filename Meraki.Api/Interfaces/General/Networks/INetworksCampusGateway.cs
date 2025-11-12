@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
+/// <summary>
+/// I Networks Campus Gateway
+/// </summary>
 public interface INetworksCampusGateway
 {
 	/// <summary>

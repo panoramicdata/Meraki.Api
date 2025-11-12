@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
+/// <summary>
+/// I Organizations Insight Web Apps
+/// </summary>
 public interface IOrganizationsInsightWebApps
 {
 	/// <summary>

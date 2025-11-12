@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Assurance Alerts Overview Historical Item
+/// </summary>
 [DataContract]
 public class OrganizationAssuranceAlertsOverviewHistoricalItem
 {

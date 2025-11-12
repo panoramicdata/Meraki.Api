@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Device Status Overview Counts By Status
+/// </summary>
 [DataContract]
 public class DeviceStatusOverviewCountsByStatus
 {

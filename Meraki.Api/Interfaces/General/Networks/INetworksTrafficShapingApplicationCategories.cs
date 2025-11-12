@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
 
+/// <summary>
+/// I Networks Traffic Shaping Application Categories
+/// </summary>
 public interface INetworksTrafficShapingApplicationCategories
 {
 	/// <summary>

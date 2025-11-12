@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Multicast Routing
+/// </summary>
 [DataContract]
 [JsonConverter(typeof(StringEnumConverter))]
 public enum MulticastRouting

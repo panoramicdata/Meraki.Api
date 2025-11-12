@@ -9,3 +9,4 @@ Rule ID | Category | Severity | Notes
 --------|----------|----------|-------
 REFIT001 | Refit | Error | RefitInterfaceAnalyzer
 REFIT002 | Refit | Error | RefitInterfaceAnalyzer
+REFIT003 | Refit | Error | RefitForAnalyzer

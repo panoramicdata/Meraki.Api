@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Firewall One To Many Nat Rules
+/// </summary>
 public interface IApplianceFirewallOneToManyNatRules
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Switch Ports By Switch
+/// </summary>
 [DataContract]
 public class SwitchPortsBySwitch : NamedItem
 {

@@ -63,6 +63,9 @@ public class GroupPolicy : NamedItem
 	[DataMember(Name = "bonjourForwarding")]
 	public GroupPolicyBonjourForwarding? BonjourForwarding { get; set; }
 
+	/// <summary>
+	/// Gets the security group tag
+	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "securityGroupTag")]
 	public GroupPolicySecurityGroupTag? SecurityGroupTag { get; set; }

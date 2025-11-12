@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Eapol Key
+/// </summary>
 [DataContract]
 public class EapolKey
 {

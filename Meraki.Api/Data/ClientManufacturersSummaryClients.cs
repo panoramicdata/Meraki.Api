@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Client Manufacturers Summary Clients
+/// </summary>
 [DataContract]
 public class ClientManufacturersSummaryClients
 {

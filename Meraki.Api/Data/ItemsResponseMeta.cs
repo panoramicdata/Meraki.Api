@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Items Response Meta
+/// </summary>
 public class ItemsResponseMeta
 {
 	/// <summary>

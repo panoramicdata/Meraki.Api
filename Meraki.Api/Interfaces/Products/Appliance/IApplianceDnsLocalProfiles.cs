@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Dns Local Profiles
+/// </summary>
 public interface IApplianceDnsLocalProfiles
 {
 	/// <summary>

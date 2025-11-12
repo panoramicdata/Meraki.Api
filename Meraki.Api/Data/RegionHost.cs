@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Region Host
+/// </summary>
 [ApiAccessReadOnlyClass]
 [DataContract]
 public class RegionHost

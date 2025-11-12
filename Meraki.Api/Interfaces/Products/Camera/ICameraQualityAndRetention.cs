@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Camera;
+namespace Meraki.Api.Interfaces.Products.Camera;
 
+/// <summary>
+/// I Camera Quality And Retention
+/// </summary>
 public interface ICameraQualityAndRetention
 {
 	/// <summary>

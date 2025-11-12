@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
+/// <summary>
+/// I Organizations Devices System Memory Usage History
+/// </summary>
 public interface IOrganizationsDevicesSystemMemoryUsageHistory
 {
 	/// <summary>

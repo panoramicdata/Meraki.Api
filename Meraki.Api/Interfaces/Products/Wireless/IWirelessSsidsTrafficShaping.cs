@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Wireless;
+namespace Meraki.Api.Interfaces.Products.Wireless;
 
+/// <summary>
+/// I Wireless Ssids Traffic Shaping
+/// </summary>
 public interface IWirelessSsidsTrafficShaping
 {
 	/// <summary>

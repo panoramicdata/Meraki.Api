@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Devices Overview By Model
+/// </summary>
 [DataContract]
 [ApiAccessReadOnlyClass]
 public class DevicesOverviewByModel

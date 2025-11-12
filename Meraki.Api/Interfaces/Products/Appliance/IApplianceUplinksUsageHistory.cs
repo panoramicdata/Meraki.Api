@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Uplinks Usage History
+/// </summary>
 public interface IApplianceUplinksUsageHistory
 {
 	/// <summary>

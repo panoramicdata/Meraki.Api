@@ -55,6 +55,9 @@ public class SwitchSettings
 	[DataMember(Name = "uacAutomaticFailback")]
 	public SwitchSettingsUacAutomaticFailback? UacAutomaticFailback { get; set; }
 
+	/// <summary>
+	/// Gets the uac candidate uplink
+	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "uacCandidateUplink")]
 	public SwitchSettingsUacCandidateUplink? UacCandidateUplink { get; set; }

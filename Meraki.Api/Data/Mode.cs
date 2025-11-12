@@ -1,5 +1,8 @@
 namespace Meraki.Api.Data;
 
+/// <summary>
+/// Mode
+/// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum Mode
 {

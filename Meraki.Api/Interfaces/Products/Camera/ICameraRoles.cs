@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Camera;
+namespace Meraki.Api.Interfaces.Products.Camera;
 
+/// <summary>
+/// I Camera Roles
+/// </summary>
 public interface ICameraRoles
 {
 	/// <summary>

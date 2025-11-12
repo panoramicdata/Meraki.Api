@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Assurance Alert Scope
+/// </summary>
 [DataContract]
 public class OrganizationAssuranceAlertScope
 {

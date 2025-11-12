@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Api
+/// </summary>
 [DataContract]
 public class OrganizationApi
 {

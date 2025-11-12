@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Client Provision
+/// </summary>
 [DataContract]
 public class ClientProvision
 {

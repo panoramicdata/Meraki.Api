@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// Splash page settings
@@ -6,6 +6,9 @@
 [DataContract]
 public class SsidSplashSettings
 {
+	/// <summary>
+	/// Gets the splash method
+	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "splashMethod")]
 	public string? SplashMethod { get; set; }

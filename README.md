@@ -19,6 +19,7 @@ See the [contribution guide](CONTRIBUTING.md) for more information regarding con
 
 The Meraki API documentation can be found here:
 - [Meraki API Documentation v1](https://developer.cisco.com/meraki/api-v1/)
+- [Meraki OpenAPI Specification (v1-beta)](https://raw.githubusercontent.com/meraki/openapi/refs/heads/v1-beta/openapi/spec3.json)
 
 ## Testing
 

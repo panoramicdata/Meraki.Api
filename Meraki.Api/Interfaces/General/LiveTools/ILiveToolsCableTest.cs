@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.LiveTools;
+namespace Meraki.Api.Interfaces.General.LiveTools;
 
+/// <summary>
+/// I Live Tools Cable Test
+/// </summary>
 public interface ILiveToolsCableTest
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Sm;
+namespace Meraki.Api.Interfaces.Products.Sm;
 
+/// <summary>
+/// I Sm Trusted Access Configs
+/// </summary>
 public interface ISmTrustedAccessConfigs
 {
 	/// <summary>

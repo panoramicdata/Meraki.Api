@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Sm;
+namespace Meraki.Api.Interfaces.Products.Sm;
 
+/// <summary>
+/// I Sm Devices Cellular Usage History
+/// </summary>
 public interface ISmDevicesCellularUsageHistory
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
 
+/// <summary>
+/// I Organizations Devices Power Modules Statuses
+/// </summary>
 public interface IOrganizationsDevicesPowerModulesStatuses
 {
 	/// <summary>

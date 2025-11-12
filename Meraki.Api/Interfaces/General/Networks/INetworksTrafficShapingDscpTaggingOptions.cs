@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
 
+/// <summary>
+/// I Networks Traffic Shaping Dscp Tagging Options
+/// </summary>
 public interface INetworksTrafficShapingDscpTaggingOptions
 {
 	/// <summary>

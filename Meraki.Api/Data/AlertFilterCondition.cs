@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Alert Filters Condition
+/// </summary>
 [DataContract]
 public class AlertFiltersCondition
 {

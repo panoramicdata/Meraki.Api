@@ -1,5 +1,8 @@
 namespace Meraki.Api.Data;
 
+/// <summary>
+/// Branding Policy Help Setting
+/// </summary>
 [JsonConverter(typeof(StringEnumConverter))]
 public enum BrandingPolicyHelpSetting
 {

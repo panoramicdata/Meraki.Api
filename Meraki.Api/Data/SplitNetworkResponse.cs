@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Split Network
+/// </summary>
 [DataContract]
 public class SplitNetworkResponse
 {

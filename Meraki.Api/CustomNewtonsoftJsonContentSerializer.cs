@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api;
+namespace Meraki.Api;
 /// <summary>
 /// A custom IHttpContentSerializer based on NewtonsoftJsonContentSerializer
 /// to handle retries after missing members are observed
@@ -104,6 +104,9 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 	}
 
+	/// <summary>
+	/// gets the field name for property
+	/// </summary>
 	public string? GetFieldNameForProperty(PropertyInfo propertyInfo)
 		=> _serializerIgnore.GetFieldNameForProperty(propertyInfo);
 

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Traffic Shaping
+/// </summary>
 public interface IApplianceTrafficShaping
 {
 	/// <summary>

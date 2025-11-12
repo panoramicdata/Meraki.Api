@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Insight;
+namespace Meraki.Api.Interfaces.Products.Insight;
 
+/// <summary>
+/// I Insight Application Health By Time
+/// </summary>
 public interface IInsightApplicationHealthByTime
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Ap Band Settings Bands
+/// </summary>
 [DataContract]
 public class ApBandSettingsBands
 {

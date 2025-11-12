@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
+/// <summary>
+/// Api Region
+/// </summary>
 public enum ApiRegion
 {
 	/// <summary>

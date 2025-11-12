@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Networks;
+namespace Meraki.Api.Interfaces.General.Networks;
 
+/// <summary>
+/// I Network Wireless Electronic Shelf Label
+/// </summary>
 public interface INetworkWirelessElectronicShelfLabel
 {
 	/// <summary>

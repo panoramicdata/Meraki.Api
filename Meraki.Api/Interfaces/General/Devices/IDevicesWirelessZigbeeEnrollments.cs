@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Devices;
+namespace Meraki.Api.Interfaces.General.Devices;
+/// <summary>
+/// I Devices Wireless Zigbee Enrollments
+/// </summary>
 public interface IDevicesWirelessZigbeeEnrollments
 {
 	/// <summary>

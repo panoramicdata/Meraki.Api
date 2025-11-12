@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Client Overview Counts
+/// </summary>
 [DataContract]
 public class ClientOverviewCounts
 {

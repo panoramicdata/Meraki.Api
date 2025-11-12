@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Cloud Information
+/// </summary>
 [ApiAccessReadOnlyClass]
 [DataContract]
 public class CloudInformation

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Product Type
+/// </summary>
 [DataContract]
 [JsonConverter(typeof(StringEnumConverter))]
 public enum ProductType

@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Devices;
+namespace Meraki.Api.Interfaces.General.Devices;
+/// <summary>
+/// I Device Wireless Electronic Shelf Label
+/// </summary>
 public interface IDeviceWirelessElectronicShelfLabel
 {
 	/// <summary>

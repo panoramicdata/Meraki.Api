@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Devices;
+namespace Meraki.Api.Interfaces.General.Devices;
 
+/// <summary>
+/// I Device Clients
+/// </summary>
 public interface IDeviceClients
 {
 	/// <summary>

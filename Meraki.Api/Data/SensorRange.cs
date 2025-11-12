@@ -1,12 +1,27 @@
-﻿using System.Drawing;
+using System.Drawing;
 
 namespace Meraki.Api.Data;
 
+/// <summary>
+/// Sensor Range
+/// </summary>
 public class SensorRange
 {
+	/// <summary>
+	/// Gets the name
+	/// </summary>
+
 	public string Name { get; set; } = string.Empty;
 
+	/// <summary>
+	/// Gets the min
+	/// </summary>
+
 	public double? Min { get; set; }
+
+	/// <summary>
+	/// Gets the max
+	/// </summary>
 
 	public double? Max { get; set; }
 
@@ -19,6 +34,10 @@ public class SensorRange
 		"Excellent" => Color.FromArgb(64, 185, 64),
 		_ => Color.Empty
 	};
+
+	/// <summary>
+	/// Gets the type
+	/// </summary>
 
 	public SensorRangeType Type { get; set; } = SensorRangeType.Ok;
 }

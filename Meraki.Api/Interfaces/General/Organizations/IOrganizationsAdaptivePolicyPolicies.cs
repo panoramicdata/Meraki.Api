@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
 
+/// <summary>
+/// I Organizations Adaptive Policy Policies
+/// </summary>
 public interface IOrganizationsAdaptivePolicyPolicies
 {
 	/// <summary>

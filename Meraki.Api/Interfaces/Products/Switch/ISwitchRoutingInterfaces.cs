@@ -1,4 +1,7 @@
 namespace Meraki.Api.Interfaces.Products.Switch;
+/// <summary>
+/// I Switch Routing Interfaces
+/// </summary>
 public interface ISwitchRoutingInterfaces
 {
 	/// <summary>

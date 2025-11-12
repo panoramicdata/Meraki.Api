@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Switch Power History Summary
+/// </summary>
 [DataContract]
 
 public class SwitchPowerHistorySummary

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Alert Profile
+/// </summary>
 [DataContract]
 public class OrganizationAlertProfile : IdentifiedItem
 {

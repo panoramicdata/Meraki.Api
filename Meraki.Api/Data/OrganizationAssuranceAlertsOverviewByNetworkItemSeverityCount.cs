@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Organization Assurance Alerts Overview By Network Item Severity Count
+/// </summary>
 [DataContract]
 public class OrganizationAssuranceAlertsOverviewByNetworkItemSeverityCount
 {

@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
+/// <summary>
+/// Sm Trusted Access
+/// </summary>
 public class SmTrustedAccessConfig : NamedIdentifiedItem
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.General.Devices;
+namespace Meraki.Api.Interfaces.General.Devices;
 
+/// <summary>
+/// I Devices Wireless Radio Afc
+/// </summary>
 public interface IDevicesWirelessRadioAfc
 {
 	/// <summary>

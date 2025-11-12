@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Interfaces.Products.Appliance;
+namespace Meraki.Api.Interfaces.Products.Appliance;
 
+/// <summary>
+/// I Appliance Uplinks Statuses Overview
+/// </summary>
 public interface IApplianceUplinksStatusesOverview
 {
 	/// <summary>

@@ -1,5 +1,8 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
+/// <summary>
+/// Appliance Utilization Summary Utilization Average
+/// </summary>
 [DataContract]
 public class ApplianceUtilizationSummaryUtilizationAverage
 {

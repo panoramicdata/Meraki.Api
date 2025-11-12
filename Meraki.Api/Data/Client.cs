@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// A (Network) Client
@@ -176,6 +176,9 @@ public class Client : IdentifiedItem
 	[DataMember(Name = "adaptivePolicyGroup")]
 	public string? AdaptivePolicyGroup { get; set; }
 
+	/// <summary>
+	/// Gets the usage
+	/// </summary>
 	[DataMember(Name = "usage")]
 	public UsageInKb Usage { get; set; } = new();
 

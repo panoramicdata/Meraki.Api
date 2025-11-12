@@ -1,4 +1,7 @@
-﻿namespace Meraki.Api.Interfaces.General.Organizations;
+namespace Meraki.Api.Interfaces.General.Organizations;
+/// <summary>
+/// I Organizations Wireless Controller Overview
+/// </summary>
 public interface IOrganizationsWirelessControllerOverview
 {
 	/// <summary>
