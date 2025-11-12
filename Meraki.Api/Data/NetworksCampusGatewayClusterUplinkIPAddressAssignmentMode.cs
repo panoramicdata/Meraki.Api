@@ -6,9 +6,16 @@ namespace Meraki.Api.Data;
 [JsonConverter(typeof(StringEnumConverter))]
 public enum NetworksCampusGatewayClusterUplinkIPAddressAssignmentMode
 {
+	/// <summary>
+	/// Static
+	/// </summary>
 	[EnumMember(Value = "static")]
 	Static,
 
+
+	/// <summary>
+	/// Dynamic
+	/// </summary>
 	[EnumMember(Value = "dynamic")]
 	Dynamic
 }

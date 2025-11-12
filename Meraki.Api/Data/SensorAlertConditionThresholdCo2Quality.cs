@@ -6,15 +6,30 @@ namespace Meraki.Api.Data;
 [DataContract]
 public enum SensorAlertConditionThresholdCo2Quality
 {
+	/// <summary>
+	/// Fair
+	/// </summary>
 	[EnumMember(Value = "fair")]
 	Fair,
 
+
+	/// <summary>
+	/// Good
+	/// </summary>
 	[EnumMember(Value = "good")]
 	Good,
 
+
+	/// <summary>
+	/// Inadequate
+	/// </summary>
 	[EnumMember(Value = "inadequate")]
 	Inadequate,
 
+
+	/// <summary>
+	/// Poor
+	/// </summary>
 	[EnumMember(Value = "poor")]
 	Poor,
 }

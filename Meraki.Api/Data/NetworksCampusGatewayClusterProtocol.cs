@@ -6,6 +6,9 @@ namespace Meraki.Api.Data;
 [JsonConverter(typeof(StringEnumConverter))]
 public enum NetworksCampusGatewayClusterProtocol
 {
+	/// <summary>
+	/// Ipv4
+	/// </summary>
 	[EnumMember(Value = "ipv4")]
 	Ipv4
 }

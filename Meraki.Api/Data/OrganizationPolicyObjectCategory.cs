@@ -6,9 +6,16 @@ namespace Meraki.Api.Data;
 [DataContract]
 public enum OrganizationPolicyObjectCategory
 {
+	/// <summary>
+	/// Adaptive Policy
+	/// </summary>
 	[EnumMember(Value = "adaptivePolicy")]
 	AdaptivePolicy = 1,
 
+
+	/// <summary>
+	/// Network
+	/// </summary>
 	[EnumMember(Value = "network")]
 	Network,
 }
