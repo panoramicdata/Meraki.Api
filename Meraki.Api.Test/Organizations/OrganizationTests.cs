@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Logging;
-
 namespace Meraki.Api.Test.Organizations;
 
 public class OrganizationTests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)

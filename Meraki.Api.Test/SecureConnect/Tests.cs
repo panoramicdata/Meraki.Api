@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Logging;
-
 namespace Meraki.Api.Test.SecureConnect;
 
 public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
