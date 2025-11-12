@@ -51,6 +51,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 	}
 
 	[Fact]
+	[Obsolete("Unit test here for legacy behaviour testing")]
 	public async Task BlinkDeviceAsync_Succeeds()
 	{
 		var deviceStatuses = await TestMerakiClient
