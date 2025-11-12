@@ -14,8 +14,10 @@ public class MerakiClientStatistics
 
 	private readonly ConcurrentDictionary<int, MerakiClientStatistic> _statusCodeCounts = new();
 
+#pragma warning disable IDE0044 // Don't add readonly modifier because it's modified via Interlocked
 	private int _totalRequestCount;
-	
+#pragma warning restore IDE0044
+
 	/// <summary>
 	/// Gets the total number of API requests made
 	/// </summary>
