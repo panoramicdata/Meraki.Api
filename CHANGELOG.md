@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.64.28
+- Added missing `Details` property to `Network` class (object?, read-only) - Undocumented additional details about the network returned by the API
+
 ## 1.64.27
 - Updated to also build .NET 9.0 target along with .NET 10.0 and .NET Standard 2.0
 

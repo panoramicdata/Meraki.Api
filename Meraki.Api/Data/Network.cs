@@ -72,4 +72,11 @@ public class Network : NetworkOrConfigurationTemplate
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isVirtual")]
 	public bool? IsVirtual { get; set; }
+
+	/// <summary>
+	/// Additional details about the network - always observed to be null
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "details")]
+	public object? Details { get; set; }
 }
