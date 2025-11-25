@@ -1,5 +1,38 @@
 ﻿# Changelog
 
+## Unreleased
+- **New Feature: Push API Support (Private Beta)**
+  - Added Push API endpoints for event-driven notifications (eliminates polling):
+    - **Topics**: GET `/organizations/{organizationId}/api/push/topics` - List available Push API topics
+    - **Receiver Profiles**: CRUD operations for Push receiver profiles
+      - GET `/organizations/{organizationId}/api/push/receivers/profiles` - List receiver profiles
+      - POST `/organizations/{organizationId}/api/push/receivers/profiles` - Create receiver profile
+      - DELETE `/organizations/{organizationId}/api/push/receivers/profiles/{receiverProfileIname}` - Delete receiver profile
+    - **Push Profiles**: CRUD operations for Push profiles (topic subscriptions)
+      - POST `/organizations/{organizationId}/api/push/profiles` - Create push profile (subscribe to topic)
+      - PUT `/organizations/{organizationId}/api/push/profiles/{pushProfileIname}` - Update push profile
+      - DELETE `/organizations/{organizationId}/api/push/profiles/{pushProfileIname}` - Delete push profile
+  - Added new data models:
+    - `PushTopic` - Represents a Push API topic
+    - `PushTopicReference` - Topic reference for profiles
+    - `PushReceiver` - Receiver configuration
+    - `PushReceiverProfile` - Receiver profile with iname, name, description
+    - `PushProfile` - Push profile linking topics to receivers
+    - `PushProfileUpdateRequest` - Update request for push profiles
+  - Added new interfaces:
+    - `IOrganizationsApiPushTopics` - Push topics operations
+    - `IOrganizationsApiPushReceiversProfiles` - Receiver profile operations
+    - `IOrganizationsApiPushProfiles` - Push profile operations
+  - Added new section hierarchy:
+    - `OrganizationsApiSection` - Root section for organization API operations
+    - `OrganizationsApiPushSection` - Push API section
+    - `OrganizationsApiPushReceiversSection` - Push receivers section
+  - Added integration tests in `Meraki.Api.Test.PushApi` namespace
+  - Supported topics in private beta:
+    - `organizationDevicesAvailabilitiesChangeHistory` - Device availability changes
+    - `organizationConfigurationChanges` - Configuration changes
+  - Note: Push API is currently in private beta. Requires webhook HTTP servers to be configured first.
+
 ## 1.64.28
 - Added missing `Details` property to `Network` class (object?, read-only) - Undocumented additional details about the network returned by the API
 

@@ -8,6 +8,7 @@
 		<Nullable>enable</Nullable>
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<AnalysisMode>All</AnalysisMode>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<ItemGroup>

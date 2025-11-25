@@ -21,12 +21,20 @@ public class WebhookHttpServer : NamedIdentifiedItem
 	public string? SharedSecret { get; set; }
 
 	/// <summary>
+	/// The Id of the Organization the Webhook belongs to. Undocumented but returned in response bodies.
+	/// </summary>
+	[ApiForeignKey(typeof(Organization))]
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "organizationId")]
+	public string? OrganizationId { get; set; }
+
+	/// <summary>
 	/// The Id of the Network the Webhook belongs to. Undocumented but returned in response bodies.
 	/// </summary>
 	[ApiForeignKey(typeof(Network))]
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkId")]
-	public string NetworkId { get; set; } = string.Empty;
+	public string? NetworkId { get; set; }
 
 	/// <summary>
 	/// The Webhook PayloadTemplate

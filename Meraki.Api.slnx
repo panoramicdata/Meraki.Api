@@ -11,6 +11,10 @@
     <File Path="Documentation/docs/toc.yml" />
     <File Path="Documentation/docs/user-agent.md" />
   </Folder>
+  <Folder Name="/Early Access Features/">
+    <File Path="Early Access Features/Push API.md" />
+    <File Path="Early Access Features/Push API.postman_collection.json" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />

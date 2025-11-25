@@ -1,20 +1,20 @@
 ﻿namespace Meraki.Api.Data;
 
 /// <summary>
-/// HTTP servers
+/// HTTP servers payload template reference
 /// </summary>
 [DataContract]
 public class WebhookHttpServerPayloadTemplate
 {
 	/// <summary>
-	/// Id
+	/// The payload template ID
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "payloadTemplateid")]
-	public string? PayloadTemplateId { get; set; }
+	[DataMember(Name = "id")]
+	public string? Id { get; set; }
 
 	/// <summary>
-	/// Name
+	/// The payload template name
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "name")]

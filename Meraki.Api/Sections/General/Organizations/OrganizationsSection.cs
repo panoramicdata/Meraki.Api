@@ -30,6 +30,11 @@ public partial class OrganizationsSection
 	public OrganizationsAdaptivePolicySection AdaptivePolicy { get; internal set; } = new();
 
 	/// <summary>
+	/// Section for organization API operations (Push API, etc.)
+	/// </summary>
+	public OrganizationsApiSection Api { get; internal set; } = new();
+
+	/// <summary>
 	/// Interface for accessing API request logs and statistics.
 	/// </summary>
 	public IOrganizationsApiRequests ApiRequests { get; internal set; } = null!;

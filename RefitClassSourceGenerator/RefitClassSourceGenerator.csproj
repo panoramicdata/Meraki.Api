@@ -12,6 +12,7 @@
 		     Code fix providers require Microsoft.CodeAnalysis.Workspaces which triggers RS1038.
 		     This is a known limitation when combining generators and code fixes in one project. -->
 		<NoWarn>$(NoWarn);RS1038</NoWarn>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 	<ItemGroup>
