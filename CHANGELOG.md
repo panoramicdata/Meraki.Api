@@ -1,6 +1,14 @@
 ﻿# Changelog
 
-## Unreleased
+## 1.64.32
+- **Breaking Change**: Updated `ClaimNetworkDevicesAsync` return type from `Task` to `Task<DeviceClaimResponse>`
+  - The API now returns a response object containing:
+    - `Serials` - List of successfully claimed device serial numbers
+    - `Errors` - List of errors for devices that failed to be claimed (each with `Serial` and list of error messages)
+  - Added new data models:
+    - `DeviceClaimResponse` - Response wrapper with serials and errors
+    - `DeviceClaimError` - Error details for failed device claims
+  - This change provides better visibility into partial success scenarios when claiming multiple devices
 - **New Feature: Push API Support (Private Beta)**
   - Added Push API endpoints for event-driven notifications (eliminates polling):
     - **Topics**: GET `/organizations/{organizationId}/api/push/topics` - List available Push API topics

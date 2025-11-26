@@ -27,7 +27,7 @@ public interface INetworksDevices
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("claimNetworkDevices")]
 	[Post("/networks/{networkId}/devices/claim")]
-	Task ClaimNetworkDevicesAsync(
+	Task<DeviceClaimResponse> ClaimNetworkDevicesAsync(
 		string networkId,
 		bool addAtomically,
 		[Body] DeviceClaimRequest claimNetworkDevices,
