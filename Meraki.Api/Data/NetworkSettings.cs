@@ -28,14 +28,14 @@ public class NetworkSettings
 	public NetworkSettingsSecurePort? SecurePort { get; set; }
 
 	/// <summary>
-	/// Fips settings
+	/// Fips settings - Readonly as undocumented for setting
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "fips")]
 	public NetworkSettingsFips? Fips { get; set; }
 
 	/// <summary>
-	/// Local Status PAge
+	/// Local Status Page
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "localStatusPage")]

@@ -7,9 +7,9 @@
 public class NetworkSettingsFips
 {
 	/// <summary>
-	/// Enabled?
+	/// Enabled
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "enabled")]
 	public bool? Enabled { get; set; }
 }
