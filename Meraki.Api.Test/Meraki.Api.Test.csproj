@@ -15,7 +15,7 @@
 	<ItemGroup>
 		<!-- XUnit 3 Packages -->
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
-		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.0.4" />
+		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.1.0" />
 		<PackageReference Include="xunit.v3" Version="3.2.0" />
 		<PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
 			<PrivateAssets>all</PrivateAssets>
@@ -33,7 +33,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-		<PackageReference Include="PanoramicData.SheetMagic" Version="3.0.109" />
+		<PackageReference Include="PanoramicData.SheetMagic" Version="3.0.114" />
 	</ItemGroup>
 
 	<ItemGroup>
