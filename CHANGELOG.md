@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.64.35
+- Updated IsMixedDefault to read only - fixed typo
+
 ## 1.64.34
 - Updated IsMixedDefault to read only
 

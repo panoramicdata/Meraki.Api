@@ -93,7 +93,7 @@ public class WirelessRfProfileCreateUpdateRequest
 	/// <summary>
 	/// Undocumented - can't set currently
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "isMixedDefault")]
 	public bool? IsMixedDefault { get; set; }
 
