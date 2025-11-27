@@ -1,5 +1,25 @@
 ﻿# Changelog
 
+## 1.64.33
+- Added `AccessControl` property to `Ssid` class (read-only) - SSID access control settings including:
+  - `Encryption` - Encryption mode settings
+  - `Bandwidth` - Bandwidth limit settings
+  - `ClientIpAssignment` - Client IP assignment mode
+  - `ClientsBlockedFromUsingLan` - Whether clients are blocked from using LAN
+  - `WiredClientsPartOfWifiNetwork` - Whether wired clients are part of the Wi-Fi network
+  - `Tunnel` - Tunnel enabled status and summary
+  - `Vlan` - VLAN enabled status and tag
+  - `SplashPage` - Splash page enabled status and theme
+- Added new data models:
+  - `SsidAccessControl` - Main access control settings container
+  - `SsidAccessControlEncryption` - Encryption mode settings
+  - `SsidAccessControlBandwidth` - Bandwidth limit settings
+  - `SsidAccessControlClientIpAssignment` - Client IP assignment mode settings
+  - `SsidAccessControlTunnel` - Tunnel settings with enabled status and summary
+  - `SsidAccessControlVlan` - VLAN settings with enabled status and tag
+  - `SsidAccessControlSplashPage` - Splash page settings with enabled status and theme
+- Added `PayloadTemplateId` property to `WebhookHttpServerPayloadTemplate` class - Alternate property name for the payload template ID
+
 ## 1.64.32
 - **Breaking Change**: Updated `ClaimNetworkDevicesAsync` return type from `Task` to `Task<DeviceClaimResponse>`
   - The API now returns a response object containing:

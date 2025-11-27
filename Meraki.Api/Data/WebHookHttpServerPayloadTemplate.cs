@@ -14,6 +14,13 @@ public class WebhookHttpServerPayloadTemplate
 	public string? Id { get; set; }
 
 	/// <summary>
+	/// The payload template ID (alternate property name)
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "payloadTemplateId")]
+	public string? PayloadTemplateId { get; set; }
+
+	/// <summary>
 	/// The payload template name
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

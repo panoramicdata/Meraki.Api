@@ -27,4 +27,11 @@ public class Ssid : SsidUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "adminSplashUrl")]
 	public string AdminSplashUrl { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Access control settings for the SSID
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "accessControl")]
+	public SsidAccessControl? AccessControl { get; set; }
 }
