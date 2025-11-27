@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.64.34
+- Updated IsMixedDefault to read only
+
 ## 1.64.33
 - Added `AccessControl` property to `Ssid` class (read-only) - SSID access control settings including:
   - `Encryption` - Encryption mode settings

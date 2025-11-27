@@ -33,11 +33,4 @@ public class WirelessRfProfile : WirelessRfProfileCreateUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "antennas")]
 	public object? Antennas { get; set; }
-
-	/// <summary>
-	/// Undocumented
-	/// </summary>
-	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "isMixedDefault")]
-	public bool? IsMixedDefault { get; set; }
 }

@@ -91,6 +91,13 @@ public class WirelessRfProfileCreateUpdateRequest
 	public bool? IsOutdoorDefault { get; set; }
 
 	/// <summary>
+	/// Undocumented - can't set currently
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "isMixedDefault")]
+	public bool? IsMixedDefault { get; set; }
+
+	/// <summary>
 	/// Flex radio settings.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
