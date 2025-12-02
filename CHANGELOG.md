@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.64.37
+- **Testing Infrastructure Fix**: Resolved xUnit v3 compatibility issue in test project
+- Refit updated
+
 ## 1.64.35
 - Updated IsMixedDefault to read only - fixed typo
 

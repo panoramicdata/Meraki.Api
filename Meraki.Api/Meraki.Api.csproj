@@ -48,8 +48,8 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-		<PackageReference Include="refit" Version="8.0.0" />
-		<PackageReference Include="Refit.Newtonsoft.Json" Version="8.0.0" />
+		<PackageReference Include="refit" Version="9.0.2" />
+		<PackageReference Include="Refit.Newtonsoft.Json" Version="9.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
