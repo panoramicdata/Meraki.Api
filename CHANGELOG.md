@@ -1,5 +1,12 @@
 ﻿# Changelog
 
+## 1.64.40
+- **New Feature: OAuth Bearer Token Authentication**
+  - Added `AccessToken` property to `MerakiClientOptions` for OAuth Bearer token authentication
+  - When `AccessToken` is set, authentication uses `Authorization: Bearer {AccessToken}` header instead of the API key header
+  - Either `ApiKey` or `AccessToken` must be set, but not both
+  - Updated `Validate()` method to enforce authentication requirements
+
 ## 1.64.37
 - **Testing Infrastructure Fix**: Resolved xUnit v3 compatibility issue in test project
 - Refit updated

@@ -38,12 +38,14 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 			}
 		}
 
-		// Ensure the API key is set
-		if (_options.ApiKey?.Length == 0)
+		// Ensure authentication is configured
+		var hasApiKey = !string.IsNullOrWhiteSpace(_options.ApiKey);
+		var hasAccessToken = !string.IsNullOrWhiteSpace(_options.AccessToken);
+
+		if (!hasApiKey && !hasAccessToken)
 		{
-			throw new InvalidOperationException(Resources.ApiKeyIsNotSet);
+			throw new InvalidOperationException(Resources.AuthenticationNotConfigured);
 		}
-		// The API Key is set
 
 		// Apply rate limiting if we have a rate limiter
 		if (_options.RateLimiter is not null)
@@ -58,8 +60,16 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 
 		var logPrefix = $"Request {Guid.NewGuid()}: ";
 
-		// Add the request headers
-		request.Headers.Add("X-Cisco-Meraki-API-Key", _options.ApiKey);
+		// Add the authentication header - prefer AccessToken (Bearer) over ApiKey
+		if (hasAccessToken)
+		{
+			request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _options.AccessToken);
+		}
+		else
+		{
+			request.Headers.Add("X-Cisco-Meraki-API-Key", _options.ApiKey);
+		}
+
 		if (_options.UserAgent is not null)
 		{
 			request.Headers.Add("User-Agent", _options.UserAgent);

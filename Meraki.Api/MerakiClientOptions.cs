@@ -30,9 +30,18 @@ public class MerakiClientOptions
 	public string? UserAgent { get; set; }
 
 	/// <summary>
-	/// The API key
+	/// The API key.
+	/// Either ApiKey or AccessToken must be set, but not both.
 	/// </summary>
 	public string ApiKey { get; set; } = string.Empty;
+
+	/// <summary>
+	/// The OAuth access token for Bearer authentication.
+	/// Either ApiKey or AccessToken must be set, but not both.
+	/// When set, this will be used for authentication instead of the API key.
+	/// The token is passed as "Authorization: Bearer {AccessToken}".
+	/// </summary>
+	public string? AccessToken { get; set; }
 
 	/// <summary>
 	/// Allow overriding the HttpClient Timeout - defaults to 600 seconds
@@ -95,10 +104,18 @@ public class MerakiClientOptions
 	/// <exception cref="ConfigurationException"></exception>
 	public void Validate()
 	{
-		// ApiKey
-		if (string.IsNullOrWhiteSpace(ApiKey))
+		// Authentication - either ApiKey or AccessToken must be set, but not both
+		var hasApiKey = !string.IsNullOrWhiteSpace(ApiKey);
+		var hasAccessToken = !string.IsNullOrWhiteSpace(AccessToken);
+
+		if (!hasApiKey && !hasAccessToken)
 		{
-			throw new ConfigurationException($"Missing {nameof(ApiKey)}.");
+			throw new ConfigurationException($"Either {nameof(ApiKey)} or {nameof(AccessToken)} must be set.");
+		}
+
+		if (hasApiKey && hasAccessToken)
+		{
+			throw new ConfigurationException($"Only one of {nameof(ApiKey)} or {nameof(AccessToken)} can be set, not both.");
 		}
 
 		// MaxBackoffDelay

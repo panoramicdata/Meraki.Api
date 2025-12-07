@@ -70,6 +70,15 @@ namespace Meraki.Api {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Authentication is not configured. Either ApiKey or AccessToken must be set..
+        /// </summary>
+        internal static string AuthenticationNotConfigured {
+            get {
+                return ResourceManager.GetString("AuthenticationNotConfigured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disposed.
         /// </summary>
         internal static string Disposed {
