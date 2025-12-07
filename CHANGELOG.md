@@ -1,5 +1,26 @@
 ﻿# Changelog
 
+## 1.64.41
+- **New Feature: API Response Codes History Endpoints (Beta)**
+  - Added 4 new endpoints to track API request response codes aggregated by different dimensions:
+    - `GetOrganizationApiRequestsResponseCodesHistoryByAdminAsync` - Lists API request response codes and their counts aggregated by admin
+      - GET `/organizations/{organizationId}/apiRequests/responseCodes/history/byAdmin`
+    - `GetOrganizationApiRequestsResponseCodesHistoryByApplicationAsync` - Lists API request response codes and their counts aggregated by application
+      - GET `/organizations/{organizationId}/apiRequests/responseCodes/history/byApplication`
+    - `GetOrganizationApiRequestsResponseCodesHistoryByOperationAsync` - Aggregates API usage data by operationId
+      - GET `/organizations/{organizationId}/apiRequests/responseCodes/history/byOperation`
+    - `GetOrganizationApiRequestsResponseCodesHistoryBySourceIpAsync` - Aggregates API usage by source IP
+      - GET `/organizations/{organizationId}/apiRequests/responseCodes/history/bySourceIp`
+  - Added new data models:
+    - `ApiResponseCodeCount` - Response code and total count
+    - `ApiResponseCodeCounts` - Contains byCode array and total
+    - `ApiResponseCodeOverall` - Overall response code information wrapper
+    - `ApiResponseCodesHistoryByAdmin` - Admin-level aggregation with adminId, name, email, and overall counts
+    - `ApiResponseCodesHistoryByApplication` - Application-level aggregation with userAgentString, name, and overall counts
+    - `ApiResponseCodesHistoryByOperation` - Operation-level aggregation with operationId and overall counts
+    - `ApiResponseCodesHistoryBySourceIp` - Source IP-level aggregation with sourceIp and overall counts
+  - Note: These endpoints are currently in beta (API v1.65.0-beta.0)
+
 ## 1.64.40
 - **New Feature: OAuth Bearer Token Authentication**
   - Added `AccessToken` property to `MerakiClientOptions` for OAuth Bearer token authentication
