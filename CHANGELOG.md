@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.64.42
+- Updated models for missing JSON members identified from API responses
+
 ## 1.64.41
 - **New Feature: API Response Codes History Endpoints (Beta)**
   - Added 4 new endpoints to track API request response codes aggregated by different dimensions:

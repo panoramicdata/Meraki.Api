@@ -49,6 +49,13 @@ public class SsidUpdateRequest
 	public int? RadiusAccountingInterimInterval { get; set; }
 
 	/// <summary>
+	/// The delay in seconds before RADIUS accounting starts after client authentication
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "radiusAccountingStartDelay")]
+	public int? RadiusAccountingStartDelay { get; set; }
+
+	/// <summary>
 	/// VLAN ID of the RADIUS Guest VLAN. This param is only valid if the authMode is 'open-with-radius' and addressing mode is not set to 'isolated' or 'nat' mode
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

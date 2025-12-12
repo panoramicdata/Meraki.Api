@@ -19,4 +19,11 @@ public class TrafficShapingVpnExclusions
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "majorApplications")]
 	public List<TrafficShapingVpnExclusionsMajorApplication>? MajorApplications { get; set; }
+
+	/// <summary>
+	/// Application based VPN exclusion rules.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "applications")]
+	public List<TrafficShapingVpnExclusionsApplication>? Applications { get; set; }
 }
