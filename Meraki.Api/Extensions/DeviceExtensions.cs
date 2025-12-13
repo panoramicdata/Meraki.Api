@@ -12,17 +12,18 @@ public static class DeviceExtensions
 	/// <returns>The model type category</returns>
 	public static ModelType GetModelType(this Device device)
 	{
-		// Optimized: Use ReadOnlySpan to avoid string allocations
+		// Optimized: Avoid string allocations where possible
+		// - .NET Standard 2.0: Single ToUpperInvariant() call
+		// - Modern .NET: ReadOnlySpan<char> with no allocations
 		var deviceModel = device.Model;
-		if (string.IsNullOrEmpty(deviceModel))
+		if (deviceModel is null or { Length: 0 })
 		{
 			return ModelType.Unknown;
 		}
 
 #if NETSTANDARD2_0
-		// For .NET Standard 2.0, we need to create the uppercased string once
-		// At this point, deviceModel is not null due to the check above
-		var deviceModelUpper = deviceModel!.ToUpperInvariant();
+		// For .NET Standard 2.0, create the uppercased string once
+		var deviceModelUpper = deviceModel.ToUpperInvariant();
 		
 		// Check exact matches first (most specific)
 		if (deviceModelUpper == "CPSC-HUB")
