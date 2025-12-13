@@ -12,53 +12,157 @@ public static class DeviceExtensions
 	/// <returns>The model type category</returns>
 	public static ModelType GetModelType(this Device device)
 	{
-		var deviceModelUpper = device.Model?.ToUpperInvariant();
+		// Optimized: Use ReadOnlySpan to avoid string allocations
+		var deviceModel = device.Model;
+		if (string.IsNullOrEmpty(deviceModel))
+		{
+			return ModelType.Unknown;
+		}
 
-		return deviceModelUpper == "CPSC-HUB"
-				? ModelType.CiscoSecureConnect
-				:
-				deviceModelUpper == "UMB-SIG"
-				? ModelType.Appliance
-				: deviceModelUpper?.Length >= 2
 #if NETSTANDARD2_0
-					? deviceModelUpper.Substring(0, 2) switch
-#else
-					? deviceModelUpper[..2] switch
-#endif
+		// For .NET Standard 2.0, we need to create the uppercased string once
+		// At this point, deviceModel is not null due to the check above
+		var deviceModelUpper = deviceModel!.ToUpperInvariant();
+		
+		// Check exact matches first (most specific)
+		if (deviceModelUpper == "CPSC-HUB")
+		{
+			return ModelType.CiscoSecureConnect;
+		}
+
+		if (deviceModelUpper == "UMB-SIG")
+		{
+			return ModelType.Appliance;
+		}
+
+		// Check by length and prefix
+		var length = deviceModelUpper.Length;
+		if (length >= 2)
+		{
+			var prefix2 = deviceModelUpper.Substring(0, 2);
+			switch (prefix2)
+			{
+				case "MR":
+				case "CW":
+					return ModelType.WirelessLan;
+				case "MS":
+					return ModelType.Switch;
+				case "SM":
+					return ModelType.MobileDeviceManagement;
+				case "MG":
+					return ModelType.Cellular;
+				case "MX":
+				case "Z3":
+				case "Z4":
+					return ModelType.Appliance;
+				case "MV":
+					return ModelType.Camera;
+				case "MT":
+					return ModelType.Sensor;
+			}
+
+			if (length >= 3)
+			{
+				var prefix3 = deviceModelUpper.Substring(0, 3);
+				if (prefix3 == "VMX")
+				{
+					return ModelType.Appliance;
+				}
+
+				if (length >= 5)
+				{
+					var prefix5 = deviceModelUpper.Substring(0, 5);
+					switch (prefix5)
 					{
-						// Try matching on the first two characters
-						"MR" or "CW" => ModelType.WirelessLan,
-						"MS" => ModelType.Switch,
-						"SM" => ModelType.MobileDeviceManagement,
-						"MG" => ModelType.Cellular,
-						"MX" or "Z3" or "Z4" => ModelType.Appliance,
-						"MV" => ModelType.Camera,
-						"MT" => ModelType.Sensor,
-						// We didn't manage to match on the first two characters
-						_ => deviceModelUpper?.Length >= 3
-#if NETSTANDARD2_0
-							? deviceModelUpper.Substring(0, 3) switch
-#else
-							? deviceModelUpper[..3] switch
-#endif
-							{
-								"VMX" => ModelType.Appliance,
-								// We didn't manage to match on the first three characters
-								_ => deviceModelUpper.Length >= 5
-#if NETSTANDARD2_0
-									? deviceModelUpper.Substring(0, 5) switch
-#else
-									? deviceModelUpper[..5] switch
-#endif
-									{
-										"C9200" or "C9300" or "C9500" => ModelType.Switch,
-										// We don't know what this is
-										_ => ModelType.Unknown
-									}
-									: ModelType.Unknown
-							}
-							: ModelType.Unknown
+						case "C9200":
+						case "C9300":
+						case "C9500":
+							return ModelType.Switch;
 					}
-					: ModelType.Unknown;
+				}
+			}
+		}
+#else
+		// For modern .NET, use ReadOnlySpan to avoid allocations
+		var span = deviceModel.AsSpan();
+		
+		// Check exact matches first (most specific)
+		if (span.Equals("CPSC-HUB", StringComparison.OrdinalIgnoreCase))
+		{
+			return ModelType.CiscoSecureConnect;
+		}
+
+		if (span.Equals("UMB-SIG", StringComparison.OrdinalIgnoreCase))
+		{
+			return ModelType.Appliance;
+		}
+
+		// Check by length and prefix
+		var length = span.Length;
+		if (length >= 2)
+		{
+			var prefix2 = span[..2];
+			if (prefix2.Equals("MR", StringComparison.OrdinalIgnoreCase) ||
+				prefix2.Equals("CW", StringComparison.OrdinalIgnoreCase))
+			{
+				return ModelType.WirelessLan;
+			}
+
+			if (prefix2.Equals("MS", StringComparison.OrdinalIgnoreCase))
+			{
+				return ModelType.Switch;
+			}
+
+			if (prefix2.Equals("SM", StringComparison.OrdinalIgnoreCase))
+			{
+				return ModelType.MobileDeviceManagement;
+			}
+
+			if (prefix2.Equals("MG", StringComparison.OrdinalIgnoreCase))
+			{
+				return ModelType.Cellular;
+			}
+
+			if (prefix2.Equals("MX", StringComparison.OrdinalIgnoreCase) ||
+				prefix2.Equals("Z3", StringComparison.OrdinalIgnoreCase) ||
+				prefix2.Equals("Z4", StringComparison.OrdinalIgnoreCase))
+			{
+				return ModelType.Appliance;
+			}
+
+			if (prefix2.Equals("MV", StringComparison.OrdinalIgnoreCase))
+			{
+				return ModelType.Camera;
+			}
+
+			if (prefix2.Equals("MT", StringComparison.OrdinalIgnoreCase))
+			{
+				return ModelType.Sensor;
+			}
+
+			if (length >= 3)
+			{
+				var prefix3 = span[..3];
+				if (prefix3.Equals("VMX", StringComparison.OrdinalIgnoreCase))
+				{
+					return ModelType.Appliance;
+				}
+
+				if (length >= 5)
+				{
+					var prefix5 = span[..5];
+					if (prefix5.Equals("C9200", StringComparison.OrdinalIgnoreCase) ||
+						prefix5.Equals("C9300", StringComparison.OrdinalIgnoreCase) ||
+						prefix5.Equals("C9500", StringComparison.OrdinalIgnoreCase))
+					{
+						return ModelType.Switch;
+					}
+				}
+			}
+		}
+#endif
+
+		return ModelType.Unknown;
 	}
 }
+

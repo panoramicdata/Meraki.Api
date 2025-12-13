@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## Unreleased
+- **Performance Improvements**:
+  - Optimized `GetMerakiApiDomain()` extension method by replacing reflection-based attribute lookup with direct switch statement, resulting in significantly faster execution
+  - Optimized `GetModelType()` extension method to reduce memory allocations:
+    - For .NET Standard 2.0: Reduced redundant `ToUpperInvariant()` calls and streamlined string comparisons
+    - For modern .NET: Implemented `ReadOnlySpan<char>` to eliminate string allocations during model type detection
+    - Improved overall performance and reduced GC pressure
+  - Added comprehensive benchmarks for performance testing of optimized methods
+
 ## 1.64.42
 - Updated models for missing JSON members identified from API responses
 
