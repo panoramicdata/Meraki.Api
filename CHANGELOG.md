@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.64.44
+- Added missing ApiForeignKey attribute to the PortScheduleId property in SwitchPort class
+
 ## 1.64.42
 - Updated models for missing JSON members identified from API responses
 
