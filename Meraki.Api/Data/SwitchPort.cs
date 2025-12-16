@@ -124,7 +124,6 @@ public class SwitchPort : NamedItem
 	/// The ID of the port schedule. A value of null will clear the port schedule
 	/// </summary>
 	[ApiForeignKey(typeof(SwitchPortSchedule))]
-	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "portScheduleId")]
 	[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 	public string? PortScheduleId { get; set; }
