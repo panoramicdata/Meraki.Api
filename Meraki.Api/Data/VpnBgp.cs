@@ -28,6 +28,13 @@ public class VpnBgp
 	public int? IbgpHoldTimer { get; set; }
 
 	/// <summary>
+	/// The router ID for BGP. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "routerId")]
+	public string? RouterId { get; set; }
+
+	/// <summary>
 	/// List of BGP neighbors. This list replaces the existing set of neighbors. When absent, this field is not updated.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

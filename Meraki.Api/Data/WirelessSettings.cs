@@ -63,4 +63,11 @@ public class WirelessSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "predownloadFirmware")]
 	public bool? PredownloadFirmware { get; set; }
+
+	/// <summary>
+	/// Multicast to unicast conversion settings. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "multicastToUnicastConversion")]
+	public MulticastToUnicastConversion? MulticastToUnicastConversion { get; set; }
 }

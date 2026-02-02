@@ -146,4 +146,11 @@ public class SsidSplashSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "selfRegistration")]
 	public SelfRegistration? SelfRegistration { get; set; }
+
+	/// <summary>
+	/// User consent settings. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "userConsent")]
+	public UserConsent? UserConsent { get; set; }
 }

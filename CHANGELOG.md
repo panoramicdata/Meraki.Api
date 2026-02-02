@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.64.45
+- Added missing properties for various models
+
 ## 1.64.44
 - Added missing ApiForeignKey attribute to the PortScheduleId property in SwitchPort class
 

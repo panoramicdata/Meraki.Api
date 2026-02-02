@@ -57,6 +57,13 @@ public class FloorPlan
 	public double? FloorNumber { get; set; }
 
 	/// <summary>
+	/// The ID of the building associated with this floor plan. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "buildingId")]
+	public string? BuildingId { get; set; }
+
+	/// <summary>
 	/// Devices
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]

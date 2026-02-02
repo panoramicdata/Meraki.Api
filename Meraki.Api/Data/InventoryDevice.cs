@@ -126,4 +126,11 @@ public class InventoryDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "endOfSupportAt")]
 	public DateTime? EndOfSupportAt { get; set; }
+
+	/// <summary>
+	/// End of life (EOX) information - Undocumented property
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "eox")]
+	public Eox? Eox { get; set; }
 }

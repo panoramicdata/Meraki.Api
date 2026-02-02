@@ -54,4 +54,11 @@ public class RoutingOspf
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "md5AuthenticationKey")]
 	public Md5AuthenticationKey? Md5AuthenticationKey { get; set; }
+
+	/// <summary>
+	/// VRF (Virtual Routing and Forwarding) settings. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "vrf")]
+	public RoutingInterfaceVrf? Vrf { get; set; }
 }

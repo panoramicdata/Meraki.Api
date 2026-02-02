@@ -40,4 +40,11 @@ public class DhcpServerPolicy
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "arpInspection")]
 	public DhcpServerPolicyArpInspection ArpInspection { get; set; } = new();
+
+	/// <summary>
+	/// List the MAC addresses of DHCP servers that are always allowed on the network. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "alwaysAllowedServers")]
+	public List<string> AlwaysAllowedServers { get; set; } = [];
 }

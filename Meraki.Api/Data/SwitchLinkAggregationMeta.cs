@@ -19,4 +19,11 @@ public class SwitchLinkAggregationMeta
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "aggrId")]
 	public string? AggrId { get; set; }
+
+	/// <summary>
+	/// The serial number of the switch. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "serial")]
+	public string? Serial { get; set; }
 }

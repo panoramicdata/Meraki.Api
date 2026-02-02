@@ -79,4 +79,11 @@ public class Network : NetworkOrConfigurationTemplate
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "details")]
 	public object? Details { get; set; }
+
+	/// <summary>
+	/// The product edition of the network (e.g., "sdwan"). Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "productEdition")]
+	public string? ProductEdition { get; set; }
 }

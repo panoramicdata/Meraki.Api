@@ -54,4 +54,11 @@ public class FiveGhzSettings
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "channelPuncturing")]
 	public FiveGhzChannelPuncturingSettings? ChannelPuncturing { get; set; }
+
+	/// <summary>
+	/// Determines whether 802.11ax is enabled. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "axEnabled")]
+	public bool? AxEnabled { get; set; }
 }

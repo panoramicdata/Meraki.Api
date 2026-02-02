@@ -61,4 +61,12 @@ public class Wan
 	[DataMember(Name = "vlan")]
 	[JsonProperty(NullValueHandling = NullValueHandling.Include)]
 	public int? Vlan { get; set; }
+
+	/// <summary>
+	/// VRF (Virtual Routing and Forwarding) settings for this WAN interface. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "vrf")]
+	[JsonProperty(NullValueHandling = NullValueHandling.Include)]
+	public RoutingInterfaceVrf? Vrf { get; set; }
 }
