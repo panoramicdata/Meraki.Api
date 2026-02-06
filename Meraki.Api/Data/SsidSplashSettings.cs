@@ -78,6 +78,13 @@ public class SsidSplashSettings
 	public bool? UseRedirectUrl { get; set; }
 
 	/// <summary>
+	/// The language of the splash page.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "language")]
+	public string? Language { get; set; }
+
+	/// <summary>
 	/// Theme ID
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

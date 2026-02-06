@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.67.1
+- Added missing `Language` property to `SsidSplashSettings` model
+
 ## 1.64.45
 - Added missing properties for various models
 
