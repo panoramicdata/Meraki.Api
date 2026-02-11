@@ -187,4 +187,34 @@ public class Client : IdentifiedItem
 	/// </summary>
 	[DataMember(Name = "pskGroup")]
 	public string? PskGroup { get; set; }
+
+	/// <summary>
+	/// Is 11b capable
+	/// </summary>
+	[DataMember(Name = "is11beCapable")]
+	public bool? Is11beCapable { get; set; }
+
+	/// <summary>
+	/// Meraki Campus Gateway (MCG) serial
+	/// </summary>
+	[DataMember(Name = "mcgSerial")]
+	public string? McgSerial { get; set; }
+
+	/// <summary>
+	/// Meraki Campus Gateway (MCG) Node Name
+	/// </summary>
+	[DataMember(Name = "mcgNodeName")]
+	public string? McgNodeName { get; set; }
+
+	/// <summary>
+	/// Meraki Campus Gateway (MCG) Node MAC
+	/// </summary>
+	[DataMember(Name = "mcgNodeMac")]
+	public string? McgNodeMac { get; set; }
+
+	/// <summary>
+	/// Meraki Campus Gateway (MCG) Network ID
+	/// </summary>
+	[DataMember(Name = "mcgNetworkId")]
+	public string? McgNetworkId { get; set; }
 }
