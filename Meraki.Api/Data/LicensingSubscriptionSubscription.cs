@@ -78,6 +78,13 @@ public class LicensingSubscriptionSubscription
 	public bool RenewalRequested { get; set; }
 
 	/// <summary>
+	/// Renewal date for the subscription
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "renewalDate")]
+	public DateTime? RenewalDate { get; set; }
+
+	/// <summary>
 	/// Web order id
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
@@ -111,4 +118,25 @@ public class LicensingSubscriptionSubscription
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "entitlements")]
 	public List<LicensingSubscriptionClaimEntitlement> Entitlements { get; set; } = [];
+
+	/// <summary>
+	/// Subscription type
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "type")]
+	public string? Type { get; set; }
+
+	/// <summary>
+	/// Whether the subscription has been claimed
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "claimed")]
+	public bool Claimed { get; set; }
+
+	/// <summary>
+	/// Whether the subscription is multi-cluster
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "isMultiCluster")]
+	public bool IsMultiCluster { get; set; }
 }
