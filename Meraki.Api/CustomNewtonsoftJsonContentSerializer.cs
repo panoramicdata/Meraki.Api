@@ -73,7 +73,9 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 
 			if (_options.JsonMissingMemberResponseLogLevel != LogLevel.None)
 			{
+#pragma warning disable CA1873 // Avoid potentially expensive logging
 				_logger.Log(_options.JsonMissingMemberResponseLogLevel, "Missing Member Response JSON:\n{SourceJson}", sourceJson);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 			}
 
 			// Execute the action if one was provided
@@ -83,7 +85,9 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 		catch (JsonReaderException ex)
 		{
+#pragma warning disable S6667 // Logging in a catch clause should pass the caught exception as a parameter.
 			_logger.LogWarning("JsonReaderException: {Message} - Invalid JSON: {Json}", ex.Message, sourceJson);
+#pragma warning restore S6667 // Logging in a catch clause should pass the caught exception as a parameter.
 			throw;
 		}
 	}
@@ -101,7 +105,9 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		{
 			if (_options.JsonMissingMemberResponseLogLevel != LogLevel.None)
 			{
+#pragma warning disable CA1873 // Avoid potentially expensive logging
 				_logger.Log(_options.JsonMissingMemberResponseLogLevel, "Missing Member Response JSON:\n{SourceJson}", sourceJson);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 			}
 
 			// Execute the action if one was provided
@@ -111,7 +117,9 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 		catch (JsonReaderException ex)
 		{
+#pragma warning disable S6667 // Logging in a catch clause should pass the caught exception as a parameter.
 			_logger.LogWarning("JsonReaderException: {Message} - Invalid JSON: {Json}", ex.Message, sourceJson);
+#pragma warning restore S6667 // Logging in a catch clause should pass the caught exception as a parameter.
 			throw;
 		}
 	}

@@ -254,59 +254,65 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 
 						delay = CalculateBackoffDelay(attemptCount, retryAfterSeconds, _options.BackOffDelayFactor, _options.MaxBackOffDelaySeconds);
 
+#pragma warning disable CA1873 // Avoid potentially expensive logging
 						_logger.LogDebug(
 							"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
 							logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
 							);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 						break;
 					case 502:
 					case 503:
 					case 504:
+#pragma warning disable CA1873 // Avoid potentially expensive logging
 						_logger.LogInformation(
 							"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
 							logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
 							);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 						delay = TimeSpan.FromSeconds(5);
 						break;
-					default:
-						if (attemptCount > 1)
-						{
-							_logger.LogDebug(
-								"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
-								logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
-								);
-						}
+				default:
+					if (attemptCount > 1)
+					{
+#pragma warning disable CA1873
+						_logger.LogDebug(
+							"{LogPrefix}Received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
+							logPrefix, statusCodeInt, attemptCount, _options.MaxAttemptCount
+							);
+#pragma warning restore CA1873
+					}
 
-						if (statusCodeInt == 500)
-						{
-							_logger.LogError(
-								"{LogPrefix}Received remote error code 500 on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
-								logPrefix,
-								attemptCount,
-								_options.MaxAttemptCount,
-								request.Method.ToString(),
-								request.RequestUri
-								);
-						}
+					if (statusCodeInt == 500)
+					{
+						_logger.LogError(
+							"{LogPrefix}Received remote error code 500 on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+							logPrefix,
+							attemptCount,
+							_options.MaxAttemptCount,
+							request.Method.ToString(),
+							request.RequestUri
+							);
+					}
 
-						return httpResponseMessage;
+					return httpResponseMessage;
 				}
 
 				// Try up to the maximum retry count.
 				if (attemptCount >= _options.MaxAttemptCount)
 				{
+#pragma warning disable CA1873 // Avoid potentially expensive logging
 					_logger.LogInformation(
-						"{LogPrefix}Giving up retrying. Returning {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
-						logPrefix,
-						statusCodeInt,
-						attemptCount,
-						_options.MaxAttemptCount,
-						request.Method.ToString(),
-						request.RequestUri
-						);
-					return httpResponseMessage;
+							"{LogPrefix}Giving up retrying. Returning {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+							logPrefix,
+							statusCodeInt,
+							attemptCount,
+							_options.MaxAttemptCount,
+							request.Method.ToString(),
+							request.RequestUri);
+						return httpResponseMessage;
 				}
-
+	
 				_logger.LogInformation(
 					"{LogPrefix}Received {StatusCode} on attempt {AttemptCount}/{MaxAttemptCount} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
 					logPrefix,
@@ -315,8 +321,8 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 					_options.MaxAttemptCount,
 					delay.TotalSeconds,
 					request.Method.ToString(),
-					request.RequestUri
-					);
+					request.RequestUri);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 
 				await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
 			}
