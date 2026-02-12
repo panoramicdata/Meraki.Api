@@ -14,9 +14,16 @@ public class LicensingSubscriptionClaimCounts
 	public int Networks { get; set; }
 
 	/// <summary>
-	/// Subscription expiration date
+	/// Seat distribution counts
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "endDate")]
+	[DataMember(Name = "seats")]
 	public LicensingSubscriptionClaimCountsSeats Seats { get; set; } = new();
+
+	/// <summary>
+	/// Number of organizations bound to this subscription
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "organizations")]
+	public int Organizations { get; set; }
 }

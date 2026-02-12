@@ -46,7 +46,10 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		}
 		catch (ApiException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
 		{
-			TestOutputHelper.WriteLine($"No subscriptions found for organization {Configuration.TestOrganizationId}. This is expected if the organization has no subscriptions. Skipping test.");
+			TestOutputHelper.WriteLine($"API returned 404 Not Found for organization {Configuration.TestOrganizationId}");
+			TestOutputHelper.WriteLine($"Status Code: {ex.StatusCode}");
+			TestOutputHelper.WriteLine($"Response Body: {ex.Content}");
+			TestOutputHelper.WriteLine("This is expected if the organization has no subscriptions. Skipping test.");
 		}
 	}
 
@@ -73,7 +76,10 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		}
 		catch (ApiException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
 		{
-			TestOutputHelper.WriteLine($"No subscriptions found for organization {Configuration.TestOrganizationId}. This is expected if the organization has no subscriptions. Skipping test.");
+			TestOutputHelper.WriteLine($"API returned 404 Not Found for organization {Configuration.TestOrganizationId}");
+			TestOutputHelper.WriteLine($"Status Code: {ex.StatusCode}");
+			TestOutputHelper.WriteLine($"Response Body: {ex.Content}");
+			TestOutputHelper.WriteLine("This is expected if the organization has no subscriptions. Skipping test.");
 		}
 	}
 
@@ -100,7 +106,10 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		}
 		catch (ApiException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
 		{
-			TestOutputHelper.WriteLine($"No subscriptions found for organization {Configuration.TestOrganizationId}. This is expected if the organization has no subscriptions. Skipping test.");
+			TestOutputHelper.WriteLine($"API returned 404 Not Found for organization {Configuration.TestOrganizationId}");
+			TestOutputHelper.WriteLine($"Status Code: {ex.StatusCode}");
+			TestOutputHelper.WriteLine($"Response Body: {ex.Content}");
+			TestOutputHelper.WriteLine("This is expected if the organization has no subscriptions. Skipping test.");
 		}
 	}
 
@@ -129,7 +138,10 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		}
 		catch (ApiException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
 		{
-			TestOutputHelper.WriteLine($"No subscriptions found for organization {Configuration.TestOrganizationId}. This is expected if the organization has no subscriptions. Skipping test.");
+			TestOutputHelper.WriteLine($"API returned 404 Not Found for organization {Configuration.TestOrganizationId}");
+			TestOutputHelper.WriteLine($"Status Code: {ex.StatusCode}");
+			TestOutputHelper.WriteLine($"Response Body: {ex.Content}");
+			TestOutputHelper.WriteLine("This is expected if the organization has no subscriptions. Skipping test.");
 		}
 	}
 }
