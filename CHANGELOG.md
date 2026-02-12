@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.67.4
+## 1.67.8
 - Update docs and API access for SsidRadioSetting and SwitchPortSchedule
 
 ## 1.67.1
