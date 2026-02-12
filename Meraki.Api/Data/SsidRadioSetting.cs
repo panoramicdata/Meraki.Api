@@ -7,7 +7,7 @@ namespace Meraki.Api.Data;
 public class SsidRadioSetting
 {
 	/// <summary>
-	/// Gets or Sets BandOperationMode
+	/// Gets or Sets BandOperationName
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "name")]

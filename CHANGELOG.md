@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.67.4
+- Update docs and API access for SsidRadioSetting and SwitchPortSchedule
+
 ## 1.67.1
 - Added missing `Language` property to `SsidSplashSettings` model
 

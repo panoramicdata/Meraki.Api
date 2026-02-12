@@ -10,7 +10,6 @@ public class SwitchPortSchedule : NamedIdentifiedItem
 	/// The Network Id
 	/// </summary>
 	[ApiForeignKey(typeof(Network))]
-	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "networkId")]
 	public string NetworkId { get; set; } = string.Empty;
 
