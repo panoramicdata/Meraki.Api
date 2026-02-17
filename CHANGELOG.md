@@ -3,6 +3,9 @@
 ## 1.67.8
 - Update docs and API access for SsidRadioSetting and SwitchPortSchedule
 
+## 1.67.6
+- Fixed LicensingSubscription model to match API responsee
+
 ## 1.67.1
 - Added missing `Language` property to `SsidSplashSettings` model
 
