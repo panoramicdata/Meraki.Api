@@ -56,6 +56,13 @@ public class SsidUpdateRequest
 	public int? RadiusAccountingStartDelay { get; set; }
 
 	/// <summary>
+	/// Whether or not RADIUS accounting should send updates on client events such as association and roaming
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "radiusAccountingUpdateOnEvent")]
+	public bool? RadiusAccountingUpdateOnEvent { get; set; }
+
+	/// <summary>
 	/// VLAN ID of the RADIUS Guest VLAN. This param is only valid if the authMode is 'open-with-radius' and addressing mode is not set to 'isolated' or 'nat' mode
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

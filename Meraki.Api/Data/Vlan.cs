@@ -168,4 +168,11 @@ public class Vlan : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "adaptivePolicyGroupId")]
 	public object? AdaptivePolicyGroupId { get; set; }
+
+	/// <summary>
+	/// The uplinks for this VLAN
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "uplinks")]
+	public List<VlanUplink>? Uplinks { get; set; }
 }

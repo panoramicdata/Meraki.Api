@@ -70,4 +70,11 @@ public class WirelessSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "multicastToUnicastConversion")]
 	public MulticastToUnicastConversion? MulticastToUnicastConversion { get; set; }
+
+	/// <summary>
+	/// Local RADIUS server settings for the network
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "localRadiusServer")]
+	public WirelessSettingsLocalRadiusServer? LocalRadiusServer { get; set; }
 }

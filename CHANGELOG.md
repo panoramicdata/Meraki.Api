@@ -1,5 +1,12 @@
 ﻿# Changelog
 
+## 1.67.11
+- Added missing `RadiusAccountingUpdateOnEvent` property to `SsidUpdateRequest`
+- Added missing `FilterIn` and `CommunityOut` properties to `Neighbor`
+- Added missing `Source` property to `TrafficShapingVpnExclusionsCustom`
+- Added missing `Uplinks` property to `Vlan` with new `VlanUplink` and `VlanUplinkNat` models
+- Added missing `LocalRadiusServer` property to `WirelessSettings` with new `WirelessSettingsLocalRadiusServer` model
+
 ## 1.67.8
 - Update docs and API access for SsidRadioSetting and SwitchPortSchedule
 

@@ -103,4 +103,18 @@ public class Neighbor
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "authentication")]
 	public NeighborAuthentication? Authenticaton { get; set; }
+
+	/// <summary>
+	/// The inbound filter for routes from this neighbor
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "filterIn")]
+	public string? FilterIn { get; set; }
+
+	/// <summary>
+	/// The BGP community to set on routes advertised to this neighbor
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "communityOut")]
+	public string? CommunityOut { get; set; }
 }
