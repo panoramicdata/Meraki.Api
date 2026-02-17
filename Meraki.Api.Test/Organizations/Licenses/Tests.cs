@@ -3,6 +3,19 @@ namespace Meraki.Api.Test.Organizations.Licenses;
 public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
 {
 	[Fact]
+	public async Task GetCoTermLicense_Succeeds()
+	{
+		var coTermSubscriptions = await TestMerakiClient
+			.Organizations
+			.Licenses
+			.GetOrganizationLicensingCotermLicensesAsync(
+				Configuration.TestOrganizationId,
+				cancellationToken: CancellationToken);
+
+		_ = coTermSubscriptions.Should().NotBeNull();
+	}
+
+	[Fact]
 	public async Task GetOrganizationLicenseState_Succeeds()
 	{
 		var result = await TestMerakiClient
