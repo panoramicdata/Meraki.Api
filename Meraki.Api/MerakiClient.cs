@@ -562,7 +562,11 @@ public partial class MerakiClient : IDisposable
 
 		Licensing = new()
 		{
-			Subscriptions = RefitFor(Licensing.Subscriptions)
+			Subscriptions = new()
+			{
+				Subscriptions = RefitFor(Licensing.Subscriptions.Subscriptions),
+				Entitlements = RefitFor(Licensing.Subscriptions.Entitlements)
+			}
 		};
 
 		LiveTools = new()

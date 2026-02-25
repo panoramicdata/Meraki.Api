@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.67.X
+- `Licensing.Subscriptions` is now a `LicensingSubscriptionsSection` (previously `ILicensingSubscriptions`); existing subscription methods remain accessible directly
+- Added `Licensing.Subscriptions.Entitlements` for retrieving purchasable entitlements
+
 ## 1.67.11
 - Added missing `RadiusAccountingUpdateOnEvent` property to `SsidUpdateRequest`
 - Added missing `FilterIn` and `CommunityOut` properties to `Neighbor`

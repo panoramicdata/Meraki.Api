@@ -1,5 +1,3 @@
-using Meraki.Api.Interfaces.Products.Licensing;
-
 namespace Meraki.Api.Sections.Products.Licensing;
 
 /// <summary>
@@ -8,8 +6,8 @@ namespace Meraki.Api.Sections.Products.Licensing;
 public class LicensingSection
 {
 	/// <summary>
-	/// Claim a subscription into an organization.
+	/// Gets the subscriptions
 	/// </summary>
 
-	public ILicensingSubscriptions Subscriptions { get; internal set; } = null!;
+	public LicensingSubscriptionsSection Subscriptions { get; internal set; } = new();
 }
