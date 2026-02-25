@@ -1,8 +1,13 @@
 ﻿# Changelog
 
-## 1.67.X
+## 1.67.13
+- Fixed `LicensingSubscriptionsSection` to implement `ILicensingSubscriptions`, restoring compatibility with the `GetAdministeredLicensingSubscriptionSubscriptionsAllAsync` extension method
+- Fixed `GetAdministeredLicensingSubscriptionEntitlementsAsync` return type from `Task<AdministeredLicensingSubscriptionEntitlements>` to `Task<List<AdministeredLicensingSubscriptionEntitlements>>` to match the API response
+
+## 1.67.12
 - `Licensing.Subscriptions` is now a `LicensingSubscriptionsSection` (previously `ILicensingSubscriptions`); existing subscription methods remain accessible directly
 - Added `Licensing.Subscriptions.Entitlements` for retrieving purchasable entitlements
+
 
 ## 1.67.11
 - Added missing `RadiusAccountingUpdateOnEvent` property to `SsidUpdateRequest`

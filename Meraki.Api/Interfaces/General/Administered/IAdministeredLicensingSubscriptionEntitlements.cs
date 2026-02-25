@@ -13,5 +13,5 @@ public interface IAdministeredLicensingSubscriptionEntitlements
 	/// <returns></returns>
 	[ApiOperationId("getAdministeredLicensingSubscriptionEntitlements")]
 	[Get("/administered/licensing/subscription/entitlements")]
-	Task<AdministeredLicensingSubscriptionEntitlements> GetAdministeredLicensingSubscriptionEntitlementsAsync(CancellationToken cancellationToken = default);
+	Task<List<AdministeredLicensingSubscriptionEntitlements>> GetAdministeredLicensingSubscriptionEntitlementsAsync(CancellationToken cancellationToken = default);
 }
