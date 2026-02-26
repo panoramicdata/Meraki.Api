@@ -76,5 +76,11 @@ public enum BonjourService
 	/// Enum SSH for "SSH"
 	/// </summary>
 	[EnumMember(Value = "SSH")]
-	SSH
+	SSH,
+
+	/// <summary>
+	/// Enum AppleScreenShare for "Apple screen share"
+	/// </summary>
+	[EnumMember(Value = "Apple screen share")]
+	AppleScreenShare
 }
