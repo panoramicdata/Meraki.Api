@@ -218,6 +218,7 @@ public partial class MerakiClient
 		{ "Q4EF", "MV33" },
 		{ "Q4EG", "MV53X" },
 		{ "Q4EH", "MV23M" },
+		{ "Q4EM", "MV13M"},
 		{ "Q4EN", "MV33M" },
 		{ "Q4EP", "MV84X" },
 		{ "Q4FA", "MS130R-8P" },
