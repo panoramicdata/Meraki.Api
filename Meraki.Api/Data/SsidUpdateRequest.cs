@@ -49,6 +49,13 @@ public class SsidUpdateRequest
 	public int? RadiusAccountingInterimInterval { get; set; }
 
 	/// <summary>
+	/// Whether RADIUS accounting device profiling is enabled
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "radiusAccountingDeviceProfiling")]
+	public SsidRadiusAccountingDeviceProfiling? RadiusAccountingDeviceProfiling { get; set; }
+
+	/// <summary>
 	/// The delay in seconds before RADIUS accounting starts after client authentication
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

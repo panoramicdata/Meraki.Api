@@ -19,4 +19,11 @@ public class TrafficShapingVpnExclusionsMajorApplication
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "name")]
 	public string? Name { get; set; }
+
+	/// <summary>
+	/// Protocol. Valid values are 'any', 'dns', 'icmp', 'tcp', 'udp'
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "protocol")]
+	public TrafficShapingVpnExclusionsCustomProtocol? Protocol { get; set; }
 }

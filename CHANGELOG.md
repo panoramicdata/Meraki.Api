@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 1.67.17
+- Added missing `Upgrade` property to `WirelessSettings` and `WirelessSettingsUpdateDto` with new `WirelessSettingsUpgrade` and `WirelessSettingsUpgradePredownload` models
+- Added missing `RadiusAccountingDeviceProfiling` property to `SsidUpdateRequest` with new `SsidRadiusAccountingDeviceProfiling` model
+- Added missing `Protocol` property to `TrafficShapingVpnExclusionsMajorApplication`
+
 ## 1.67.13
 - Fixed `LicensingSubscriptionsSection` to implement `ILicensingSubscriptions`, restoring compatibility with the `GetAdministeredLicensingSubscriptionSubscriptionsAllAsync` extension method
 - Fixed `GetAdministeredLicensingSubscriptionEntitlementsAsync` return type from `Task<AdministeredLicensingSubscriptionEntitlements>` to `Task<List<AdministeredLicensingSubscriptionEntitlements>>` to match the API response
