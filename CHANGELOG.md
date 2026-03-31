@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.67.23
+- Added missing `Vrrp` property to `RoutingInterface` with new `RoutingInterfaceVrrp`, `RoutingInterfaceVrrpIpv4`, and `RoutingInterfaceVrrpIpv6` models
+
 ## 1.67.17
 - Added missing `Upgrade` property to `WirelessSettings` and `WirelessSettingsUpdateDto` with new `WirelessSettingsUpgrade` and `WirelessSettingsUpgradePredownload` models
 - Added missing `RadiusAccountingDeviceProfiling` property to `SsidUpdateRequest` with new `SsidRadiusAccountingDeviceProfiling` model

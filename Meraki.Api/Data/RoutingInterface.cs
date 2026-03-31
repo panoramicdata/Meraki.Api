@@ -127,6 +127,13 @@ public class RoutingInterface : NamedItem
 	public RoutingInterfaceVrf? Vrf { get; set; }
 
 	/// <summary>
+	/// VRRP settings. Undocumented added 2026-03-31
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vrrp")]
+	public RoutingInterfaceVrrp? Vrrp { get; set; }
+
+	/// <summary>
 	/// Switch fabric ID - Undocumented added 2025-10-21
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
