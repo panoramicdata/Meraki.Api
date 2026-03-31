@@ -26,8 +26,8 @@
     <File Path="global.json" />
     <File Path="LICENSE" />
     <File Path="Meraki.Api.sln.vsspell.dic" />
+    <File Path="Publish.ps1" />
     <File Path="README.md" />
-    <File Path="Tag.ps1" />
     <File Path="version.json" />
     <Properties Name="FolderGlobals">
       <Property Name="C_5_4Code_4Meraki_1Api_4version_1json__JsonSchema" />
