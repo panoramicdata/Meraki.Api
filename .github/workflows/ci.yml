@@ -62,9 +62,10 @@ jobs:
           out/*.snupkg
 
     - name: NuGet Login (Trusted Publishing)
+      id: nuget-login
       uses: nuget/login@v1
       with:
-        nuget-source: "https://api.nuget.org/v3/index.json"
+        user: PanoramicData
 
     - name: Push to NuGet
-      run: dotnet nuget push "out/*.nupkg" -s "https://api.nuget.org/v3/index.json"
+      run: dotnet nuget push "out/*.nupkg" -k "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" -s "https://api.nuget.org/v3/index.json"
