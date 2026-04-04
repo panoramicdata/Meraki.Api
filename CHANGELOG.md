@@ -1,5 +1,17 @@
 ﻿# Changelog
 
+## 1.67.24
+- Removed 30 unused model classes that were not referenced anywhere in the codebase:
+  `ClientAccess`, `DenyOnlyPolicy`, `DeviceForUnsettingTheSwitchProfileId`, `DeviceUpdateRequest`, `DeviceUplink`,
+  `FirmwareUpgradesRollback`, `FloorPlanBatchDevicesUpdateRequestAssignmentFloorPlan`, `Layer7RuleType`, `LicenseClaim`,
+  `LinkLayerNodeDiscoveredCdp`, `LiveToolsThroughputTestCallbackPayload`, `LockNetworkSmDevices`, `NetworkVlanEnabledStatus`,
+  `NetworksCampusGatewayClusterDeviceIPAddressWithGateway`, `OrganizationConfigTemplatesSwitchProfilesPortsMirrorUpdateResponseConfigTemplate`,
+  `OrganizationLicensing`, `OrganizationWirelessDevicesRadsecCertificateAuthority`, `OrganizationWirelessDevicesRadsecCertificateAuthorityUpdateRequest`,
+  `SensorGatewayConnectionsLatest`, `SensorMetricDownstreamPowerState`, `SensorMetricPowerApparent`, `SensorMetricPowerReal`,
+  `SmAppPolarisCreationRequest`, `SmAppPolarisUpdateRequest`, `SmDevicesTagsUpdateRequest`,
+  `SwitchPortsTopologyDiscoveryByDeviceItemPortLldp`, `ThirdPartyVpnPeersUpdateRequest`, `UrlObject`,
+  `WanTrafficUplinkPreferencesUpdateRequest`, `WarmSpareSettingsUpdateRequest`
+
 ## 1.67.23
 - Added missing `Vrrp` property to `RoutingInterface` with new `RoutingInterfaceVrrp`, `RoutingInterfaceVrrpIpv4`, and `RoutingInterfaceVrrpIpv6` models
 
