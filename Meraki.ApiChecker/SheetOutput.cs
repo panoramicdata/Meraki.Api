@@ -45,19 +45,36 @@ public static class SheetOutput
 							var responseSchema = responseValue.Content.Count == 0 ? null : responseValue.Content.First().Value.Schema;
 							if (responseSchema is not null)
 							{
-								var responseProperties = responseSchema.Properties;
+								var responseProperties = GetAllSchemaProperties(responseSchema);
 								if (responseProperties.Count == 0)
 								{
 									schemaDetails = $"{responseSchema.Type}";
 
-									// No properties, is the base type roughly matching
-									// At this point just check whether one is an array and the other isn't
-									// Is the schema response an array and the model property is not IEnumerable
-									if (responseSchema.Type == "array"
-										&& !singleImplementation.ResponseType!.IsGenericList())
+									// No direct properties on the response schema
+									if (responseSchema.Type == "array")
 									{
-										// YES - The base types don't match
-										schemaDetails += $" - Response schema is '{responseSchema.Type}', model type '{singleImplementation.ResponseType?.Name}' is not IEnumerable";
+										if (!singleImplementation.ResponseType!.IsGenericList())
+										{
+											// The base types don't match
+											schemaDetails += $" - Response schema is '{responseSchema.Type}', model type '{singleImplementation.ResponseType?.Name}' is not IEnumerable";
+										}
+										else if (responseSchema.Items is not null)
+										{
+											// Array type with items schema - check the items properties
+											var itemProperties = GetAllSchemaProperties(responseSchema.Items);
+											if (itemProperties.Count > 0)
+											{
+												schemaDetails += $" of object ({itemProperties.Count})";
+												var schemaPropertyDetails = CheckSchemaProperties(
+													responseSchema,
+													singleImplementation.ResponseType);
+
+												if (schemaPropertyDetails != string.Empty)
+												{
+													schemaDetails += $" {schemaPropertyDetails}";
+												}
+											}
+										}
 									}
 								}
 								else
@@ -65,8 +82,6 @@ public static class SheetOutput
 									// For anything we can write to, there should be a DataMember attribute
 									schemaDetails = $"{responseSchema.Type} ({responseProperties.Count})";
 									// Compare the responseProperties to those on the response object defined
-									// Find the properties that match (and check their type)
-									// TODO
 
 									var schemaPropertyDetails = CheckSchemaProperties(
 										responseSchema,
@@ -138,6 +153,36 @@ public static class SheetOutput
 	}
 
 	/// <summary>
+	/// Collects all properties from a schema, including those defined via allOf composition.
+	/// </summary>
+	/// <param name="schema">The OpenAPI schema</param>
+	/// <returns>A dictionary of all properties from the schema and its allOf compositions</returns>
+	private static Dictionary<string, OpenApiSchema> GetAllSchemaProperties(OpenApiSchema schema)
+	{
+		var allProperties = new Dictionary<string, OpenApiSchema>();
+
+		// Add direct properties
+		foreach (var prop in schema.Properties)
+		{
+			allProperties[prop.Key] = prop.Value;
+		}
+
+		// Merge properties from allOf compositions
+		if (schema.AllOf is not null)
+		{
+			foreach (var allOfSchema in schema.AllOf)
+			{
+				foreach (var prop in GetAllSchemaProperties(allOfSchema))
+				{
+					allProperties.TryAdd(prop.Key, prop.Value);
+				}
+			}
+		}
+
+		return allProperties;
+	}
+
+	/// <summary>
 	/// Compare the properties of the schema to the properties of the response object.
 	/// </summary>
 	/// <param name="apiSchema">The API schema</param>
@@ -151,6 +196,19 @@ public static class SheetOutput
 		{
 			// Start out assuming we have nothing to report
 			var result = string.Empty;
+
+			// If the schema is an array type, check the items schema instead
+			if (apiSchema.Type == "array" && apiSchema.Items is not null)
+			{
+				// Get the underlying element type from the model
+				var elementType = modelType;
+				if (modelType is not null && modelType.IsGenericList())
+				{
+					elementType = modelType.GetGenericArguments()[0];
+				}
+
+				return CheckSchemaProperties(apiSchema.Items, elementType, responseSchemaPath);
+			}
 
 			// Check for writable properties without DataMember attribute set
 			var modelPropertiesWithoutDataMembers = modelType?
@@ -184,15 +242,21 @@ public static class SheetOutput
 					modelProperty => modelProperty
 				) ?? [];
 
+			// Get all schema properties including those from allOf compositions
+			var schemaProperties = GetAllSchemaProperties(apiSchema);
+
 			// Loop through the properties in the schema and check if they exist in the responseModel
 			// Deconstruct each Dictionary entry Key and Value into two variables
-			foreach ((var schemaPropertyName, var schemaProperty) in apiSchema.Properties)
+			foreach ((var schemaPropertyName, var schemaProperty) in schemaProperties)
 			{
 				// Can we find a modelProperty matching on the schema property name
 				if (modelProperties.TryGetValue(schemaPropertyName, out var modelProperty))
 				{
-					// YES - Do we have sub properties?
-					if (schemaProperty.Properties.Count > 0)
+					// Get all sub-properties including from allOf composition
+					var subProperties = GetAllSchemaProperties(schemaProperty);
+
+					// Do we have sub properties?
+					if (subProperties.Count > 0)
 					{
 						// YES - check those too
 						result += CheckSchemaProperties(
@@ -202,7 +266,21 @@ public static class SheetOutput
 						);
 					}
 
-					// TODO - See if the modelProperty has any sub properties as this might be different from the schema
+					// If the schema property is an array with items, check the items schema against the model property's generic type
+					if (schemaProperty.Type == "array" && schemaProperty.Items is not null && schemaProperty.Items.Properties.Count > 0)
+					{
+						var itemType = modelProperty.PropertyType;
+						if (itemType.IsGenericList())
+						{
+							itemType = itemType.GetGenericArguments()[0];
+						}
+
+						result += CheckSchemaProperties(
+							schemaProperty.Items,
+							itemType,
+							responseSchemaPath + (responseSchemaPath != string.Empty ? "." : string.Empty) + schemaPropertyName + "[]"
+						);
+					}
 				}
 				else
 				{
@@ -216,34 +294,22 @@ public static class SheetOutput
 				}
 			}
 
-			// TODO - report on any extra model properties that are not on the schema
-			//foreach (var property in responseModel.GetProperties().Where(p => p.CanWrite))
-			//{
-			//	var dataMember = property.GetCustomAttribute<DataMemberAttribute>();
-			//	var dataMemberName = dataMember is not null
-			//		? dataMember.Name!
-			//		: throw new InvalidDataException("Expected property to have a DataMember with a name set");
+			// Report on any extra model properties that are not on the schema
+			foreach (var modelProperty in modelProperties)
+			{
+				// Do we have a matching schema property?
+				if (!schemaProperties.ContainsKey(modelProperty.Key))
+				{
+					// No - we have an extra model property that's not on the schema
+					if (result != string.Empty)
+					{
+						result += "\n";
+					}
 
-			//	// Do we have a matching property?
-			//	if (responseSchema.Properties.TryGetValue(dataMemberName, out var matchingSchemaProperty))
-			//	{
-			//		// Yes - Do we have sub properties?
-			//		if (matchingSchemaProperty.Properties.Count > 0)
-			//		{
-			//			// Yes - check those too
-			//			result += CheckSchemaProperties(
-			//				matchingSchemaProperty,
-			//				property.GetType(),
-			//				responseSchemaPath + "." + dataMemberName
-			//			);
-			//		}
-			//	}
-			//	else
-			//	{
-			//		// No - we have an extra model property that's not on the schema
-			//		result += "Extra model property";
-			//	}
-			//}
+					result += $"Extra model property '{responseSchemaPath}{(responseSchemaPath != string.Empty ? "." : string.Empty)}{modelProperty.Key}' ({modelProperty.Value.PropertyType.Name})";
+				}
+			}
+
 			return result;
 		}
 		catch (Exception)
