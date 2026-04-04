@@ -75,9 +75,9 @@ public partial class OrganizationsSection
 	public OrganizationsCertificatesSection Certificates { get; internal set; } = new();
 
 	/// <summary>
-	/// Interface for client search and details.
+	/// Section for client search and details.
 	/// </summary>
-	public IOrganizationsClients Clients { get; internal set; } = null!;
+	public OrganizationsClientsSection Clients { get; internal set; } = new();
 
 	/// <summary>
 	/// Section for cloud-related operations.
