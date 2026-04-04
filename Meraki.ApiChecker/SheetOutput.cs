@@ -201,8 +201,13 @@ public static class SheetOutput
 			if (apiSchema.Type == "array" && apiSchema.Items is not null)
 			{
 				// Get the underlying element type from the model
+				if (modelType is null)
+				{
+					return string.Empty;
+				}
+
 				var elementType = modelType;
-				if (modelType is not null && modelType.IsGenericList())
+				if (modelType.IsGenericList())
 				{
 					elementType = modelType.GetGenericArguments()[0];
 				}
@@ -267,7 +272,7 @@ public static class SheetOutput
 					}
 
 					// If the schema property is an array with items, check the items schema against the model property's generic type
-					if (schemaProperty.Type == "array" && schemaProperty.Items is not null && schemaProperty.Items.Properties.Count > 0)
+					if (schemaProperty.Type == "array" && schemaProperty.Items is not null && GetAllSchemaProperties(schemaProperty.Items).Count > 0)
 					{
 						var itemType = modelProperty.PropertyType;
 						if (itemType.IsGenericList())
