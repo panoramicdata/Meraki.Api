@@ -39,23 +39,6 @@ public interface ISwitchPorts
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="serial">The serial number</param>
 	/// <param name="portId">The port id</param>
-	/// <param name="deviceSwitchPort">The new configuration</param>
-	/// <param name="cancellationToken"></param>
-	[ApiOperationId("updateDeviceSwitchPort")]
-	[Put("/devices/{serial}/switch/ports/{portId}")]
-	Task<SwitchPort> UpdateDeviceSwitchPortAsync(
-		string serial,
-		string portId,
-		[Body] SwitchPort deviceSwitchPort,
-		CancellationToken cancellationToken = default
-		);
-
-	/// <summary>
-	/// Update a switch port
-	/// </summary>
-	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="serial">The serial number</param>
-	/// <param name="portId">The port id</param>
 	/// <param name="switchPortUpdateRequest">The switch port update request</param>
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateDeviceSwitchPort")]

@@ -31,14 +31,13 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		_ = switchPort.PortId.Should().NotBeNullOrEmpty();
 
 		// ACT
-		switchPort.PortScheduleId = null;
 		var switchPortAfterUpdate = await TestMerakiClient
 			.Switch
 			.Ports
 			.UpdateDeviceSwitchPortAsync(
 				Configuration.TestDeviceSerial,
 				switchPort.PortId,
-				switchPort,
+				new SwitchPortUpdateRequest { PortScheduleId = null },
 				cancellationToken: CancellationToken);
 
 		// ASSERT
