@@ -189,6 +189,13 @@ public class ResourceUpdateRequest
 - Use `MerakiClientOptions` for client configuration
 - Support for different API regions (Default, China, Canada, India, Government)
 
+### Build and NuGet
+
+- Build the repository from the root with `dotnet build Meraki.Api.slnx -c Debug`
+- The repo uses Central Package Management in `Directory.Packages.props` and treats warnings as errors in `Directory.Build.props`
+- The committed `NuGet.config` clears inherited machine-level package sources and intentionally uses only `nuget.org` to avoid `NU1507` restore failures from extra local sources
+- Before adding a package, verify it is available on `nuget.org`; if a private feed becomes necessary, update the repo `NuGet.config` explicitly instead of relying on developer-local NuGet sources
+
 ## File Generation Guidelines
 
 ### When Creating New Models
