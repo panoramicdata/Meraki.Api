@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.67.25
+## 1.67.36
 
 - Added missing writable properties to `SwitchPortUpdateRequest`: `ActiveVlans`,
   `MacWhitelistLimit`, `HighSpeed`; use this request model with
