@@ -1,5 +1,8 @@
 ﻿# Changelog
 
+## 1.67.25
+- Added missing writable properties to `SwitchPortUpdateRequest`: `ActiveVlans`, `MacWhitelistLimit`, `HighSpeed`; use this request model with `UpdateDeviceSwitchPortAsync` to update individual fields without overwriting others
+
 ## 1.67.24
 - Removed 30 unused model classes that were not referenced anywhere in the codebase:
   `ClientAccess`, `DenyOnlyPolicy`, `DeviceForUnsettingTheSwitchProfileId`, `DeviceUpdateRequest`, `DeviceUplink`,

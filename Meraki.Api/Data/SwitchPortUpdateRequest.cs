@@ -155,10 +155,28 @@ public class SwitchPortUpdateRequest
 	public List<string>? Tags { get; set; }
 
 	/// <summary>
+	/// Undocumented
+	/// </summary>
+	[DataMember(Name = "activeVlans")]
+	public string? ActiveVlans { get; set; }
+
+	/// <summary>
+	/// The maximum number of MAC addresses for regular MAC allow list. Only applicable when 'accessPolicyType' is 'MAC allow list'.
+	/// </summary>
+	[DataMember(Name = "macWhitelistLimit")]
+	public int? MacWhitelistLimit { get; set; }
+
+	/// <summary>
 	/// dot3az settings for the port
 	/// </summary>
 	[DataMember(Name = "dot3az")]
 	public SwitchPortDot3az? Dot3az { get; set; }
+
+	/// <summary>
+	/// High speed port enablement settings for C9500-32QC
+	/// </summary>
+	[DataMember(Name = "highSpeed")]
+	public SwitchPortHighSpeed? HighSpeed { get; set; }
 
 	/// <summary>
 	/// Profile attributes
