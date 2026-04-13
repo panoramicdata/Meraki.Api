@@ -1,107 +1,173 @@
 ﻿# Changelog
 
 ## 1.67.25
-- Added missing writable properties to `SwitchPortUpdateRequest`: `ActiveVlans`, `MacWhitelistLimit`, `HighSpeed`; use this request model with `UpdateDeviceSwitchPortAsync` to update individual fields without overwriting others
+
+- Added missing writable properties to `SwitchPortUpdateRequest`: `ActiveVlans`,
+  `MacWhitelistLimit`, `HighSpeed`; use this request model with
+  `UpdateDeviceSwitchPortAsync` to update individual fields without overwriting
+  others
 
 ## 1.67.24
-- Removed 30 unused model classes that were not referenced anywhere in the codebase:
-  `ClientAccess`, `DenyOnlyPolicy`, `DeviceForUnsettingTheSwitchProfileId`, `DeviceUpdateRequest`, `DeviceUplink`,
-  `FirmwareUpgradesRollback`, `FloorPlanBatchDevicesUpdateRequestAssignmentFloorPlan`, `Layer7RuleType`, `LicenseClaim`,
-  `LinkLayerNodeDiscoveredCdp`, `LiveToolsThroughputTestCallbackPayload`, `LockNetworkSmDevices`, `NetworkVlanEnabledStatus`,
-  `NetworksCampusGatewayClusterDeviceIPAddressWithGateway`, `OrganizationConfigTemplatesSwitchProfilesPortsMirrorUpdateResponseConfigTemplate`,
-  `OrganizationLicensing`, `OrganizationWirelessDevicesRadsecCertificateAuthority`, `OrganizationWirelessDevicesRadsecCertificateAuthorityUpdateRequest`,
-  `SensorGatewayConnectionsLatest`, `SensorMetricDownstreamPowerState`, `SensorMetricPowerApparent`, `SensorMetricPowerReal`,
-  `SmAppPolarisCreationRequest`, `SmAppPolarisUpdateRequest`, `SmDevicesTagsUpdateRequest`,
-  `SwitchPortsTopologyDiscoveryByDeviceItemPortLldp`, `ThirdPartyVpnPeersUpdateRequest`, `UrlObject`,
+
+- Removed 30 unused model classes that were not referenced anywhere in the
+  codebase: `ClientAccess`, `DenyOnlyPolicy`,
+  `DeviceForUnsettingTheSwitchProfileId`, `DeviceUpdateRequest`, `DeviceUplink`,
+  `FirmwareUpgradesRollback`,
+  `FloorPlanBatchDevicesUpdateRequestAssignmentFloorPlan`, `Layer7RuleType`,
+  `LicenseClaim`, `LinkLayerNodeDiscoveredCdp`,
+  `LiveToolsThroughputTestCallbackPayload`, `LockNetworkSmDevices`,
+  `NetworkVlanEnabledStatus`,
+  `NetworksCampusGatewayClusterDeviceIPAddressWithGateway`,
+  `OrganizationConfigTemplatesSwitchProfilesPortsMirrorUpdateResponseConfigTemplate`,
+  `OrganizationLicensing`,
+  `OrganizationWirelessDevicesRadsecCertificateAuthority`,
+  `OrganizationWirelessDevicesRadsecCertificateAuthorityUpdateRequest`,
+  `SensorGatewayConnectionsLatest`, `SensorMetricDownstreamPowerState`,
+  `SensorMetricPowerApparent`, `SensorMetricPowerReal`,
+  `SmAppPolarisCreationRequest`, `SmAppPolarisUpdateRequest`,
+  `SmDevicesTagsUpdateRequest`,
+  `SwitchPortsTopologyDiscoveryByDeviceItemPortLldp`,
+  `ThirdPartyVpnPeersUpdateRequest`, `UrlObject`,
   `WanTrafficUplinkPreferencesUpdateRequest`, `WarmSpareSettingsUpdateRequest`
 
 ## 1.67.23
-- Added missing `Vrrp` property to `RoutingInterface` with new `RoutingInterfaceVrrp`, `RoutingInterfaceVrrpIpv4`, and `RoutingInterfaceVrrpIpv6` models
+
+- Added missing `Vrrp` property to `RoutingInterface` with new
+  `RoutingInterfaceVrrp`, `RoutingInterfaceVrrpIpv4`, and
+  `RoutingInterfaceVrrpIpv6` models
 
 ## 1.67.17
-- Added missing `Upgrade` property to `WirelessSettings` and `WirelessSettingsUpdateDto` with new `WirelessSettingsUpgrade` and `WirelessSettingsUpgradePredownload` models
-- Added missing `RadiusAccountingDeviceProfiling` property to `SsidUpdateRequest` with new `SsidRadiusAccountingDeviceProfiling` model
-- Added missing `Protocol` property to `TrafficShapingVpnExclusionsMajorApplication`
+
+- Added missing `Upgrade` property to `WirelessSettings` and
+  `WirelessSettingsUpdateDto` with new `WirelessSettingsUpgrade` and
+  `WirelessSettingsUpgradePredownload` models
+- Added missing `RadiusAccountingDeviceProfiling` property to
+  `SsidUpdateRequest` with new `SsidRadiusAccountingDeviceProfiling` model
+- Added missing `Protocol` property to
+  `TrafficShapingVpnExclusionsMajorApplication`
 
 ## 1.67.13
-- Fixed `LicensingSubscriptionsSection` to implement `ILicensingSubscriptions`, restoring compatibility with the `GetAdministeredLicensingSubscriptionSubscriptionsAllAsync` extension method
-- Fixed `GetAdministeredLicensingSubscriptionEntitlementsAsync` return type from `Task<AdministeredLicensingSubscriptionEntitlements>` to `Task<List<AdministeredLicensingSubscriptionEntitlements>>` to match the API response
+
+- Fixed `LicensingSubscriptionsSection` to implement `ILicensingSubscriptions`,
+  restoring compatibility with the
+  `GetAdministeredLicensingSubscriptionSubscriptionsAllAsync` extension method
+- Fixed `GetAdministeredLicensingSubscriptionEntitlementsAsync` return type from
+  `Task<AdministeredLicensingSubscriptionEntitlements>` to
+  `Task<List<AdministeredLicensingSubscriptionEntitlements>>` to match the API
+  response
 
 ## 1.67.12
-- `Licensing.Subscriptions` is now a `LicensingSubscriptionsSection` (previously `ILicensingSubscriptions`); existing subscription methods remain accessible directly
-- Added `Licensing.Subscriptions.Entitlements` for retrieving purchasable entitlements
 
+- `Licensing.Subscriptions` is now a `LicensingSubscriptionsSection` (previously
+  `ILicensingSubscriptions`); existing subscription methods remain accessible
+  directly
+- Added `Licensing.Subscriptions.Entitlements` for retrieving purchasable
+  entitlements
 
 ## 1.67.11
+
 - Added missing `RadiusAccountingUpdateOnEvent` property to `SsidUpdateRequest`
 - Added missing `FilterIn` and `CommunityOut` properties to `Neighbor`
 - Added missing `Source` property to `TrafficShapingVpnExclusionsCustom`
-- Added missing `Uplinks` property to `Vlan` with new `VlanUplink` and `VlanUplinkNat` models
-- Added missing `LocalRadiusServer` property to `WirelessSettings` with new `WirelessSettingsLocalRadiusServer` model
+- Added missing `Uplinks` property to `Vlan` with new `VlanUplink` and
+  `VlanUplinkNat` models
+- Added missing `LocalRadiusServer` property to `WirelessSettings` with new
+  `WirelessSettingsLocalRadiusServer` model
 
 ## 1.67.8
+
 - Update docs and API access for SsidRadioSetting and SwitchPortSchedule
 
 ## 1.67.6
+
 - Fixed LicensingSubscription model to match API responsee
 
 ## 1.67.1
+
 - Added missing `Language` property to `SsidSplashSettings` model
 
 ## 1.64.45
+
 - Added missing properties for various models
 
 ## 1.64.44
-- Added missing ApiForeignKey attribute to the PortScheduleId property in SwitchPort class
+
+- Added missing ApiForeignKey attribute to the PortScheduleId property in
+  SwitchPort class
 
 ## 1.64.42
+
 - Updated models for missing JSON members identified from API responses
 
 ## 1.64.41
+
 - **New Feature: API Response Codes History Endpoints (Beta)**
-  - Added 4 new endpoints to track API request response codes aggregated by different dimensions:
-    - `GetOrganizationApiRequestsResponseCodesHistoryByAdminAsync` - Lists API request response codes and their counts aggregated by admin
-      - GET `/organizations/{organizationId}/apiRequests/responseCodes/history/byAdmin`
-    - `GetOrganizationApiRequestsResponseCodesHistoryByApplicationAsync` - Lists API request response codes and their counts aggregated by application
-      - GET `/organizations/{organizationId}/apiRequests/responseCodes/history/byApplication`
-    - `GetOrganizationApiRequestsResponseCodesHistoryByOperationAsync` - Aggregates API usage data by operationId
-      - GET `/organizations/{organizationId}/apiRequests/responseCodes/history/byOperation`
-    - `GetOrganizationApiRequestsResponseCodesHistoryBySourceIpAsync` - Aggregates API usage by source IP
-      - GET `/organizations/{organizationId}/apiRequests/responseCodes/history/bySourceIp`
+  - Added 4 new endpoints to track API request response codes aggregated by
+    different dimensions:
+    - `GetOrganizationApiRequestsResponseCodesHistoryByAdminAsync` - Lists API
+      request response codes and their counts aggregated by admin
+      - GET
+        `/organizations/{organizationId}/apiRequests/responseCodes/history/byAdmin`
+    - `GetOrganizationApiRequestsResponseCodesHistoryByApplicationAsync` - Lists
+      API request response codes and their counts aggregated by application
+      - GET
+        `/organizations/{organizationId}/apiRequests/responseCodes/history/byApplication`
+    - `GetOrganizationApiRequestsResponseCodesHistoryByOperationAsync` -
+      Aggregates API usage data by operationId
+      - GET
+        `/organizations/{organizationId}/apiRequests/responseCodes/history/byOperation`
+    - `GetOrganizationApiRequestsResponseCodesHistoryBySourceIpAsync` -
+      Aggregates API usage by source IP
+      - GET
+        `/organizations/{organizationId}/apiRequests/responseCodes/history/bySourceIp`
   - Added new data models:
     - `ApiResponseCodeCount` - Response code and total count
     - `ApiResponseCodeCounts` - Contains byCode array and total
     - `ApiResponseCodeOverall` - Overall response code information wrapper
-    - `ApiResponseCodesHistoryByAdmin` - Admin-level aggregation with adminId, name, email, and overall counts
-    - `ApiResponseCodesHistoryByApplication` - Application-level aggregation with userAgentString, name, and overall counts
-    - `ApiResponseCodesHistoryByOperation` - Operation-level aggregation with operationId and overall counts
-    - `ApiResponseCodesHistoryBySourceIp` - Source IP-level aggregation with sourceIp and overall counts
+    - `ApiResponseCodesHistoryByAdmin` - Admin-level aggregation with adminId,
+      name, email, and overall counts
+    - `ApiResponseCodesHistoryByApplication` - Application-level aggregation
+      with userAgentString, name, and overall counts
+    - `ApiResponseCodesHistoryByOperation` - Operation-level aggregation with
+      operationId and overall counts
+    - `ApiResponseCodesHistoryBySourceIp` - Source IP-level aggregation with
+      sourceIp and overall counts
   - Note: These endpoints are currently in beta (API v1.65.0-beta.0)
 
 ## 1.64.40
+
 - **New Feature: OAuth Bearer Token Authentication**
-  - Added `AccessToken` property to `MerakiClientOptions` for OAuth Bearer token authentication
-  - When `AccessToken` is set, authentication uses `Authorization: Bearer {AccessToken}` header instead of the API key header
+  - Added `AccessToken` property to `MerakiClientOptions` for OAuth Bearer token
+    authentication
+  - When `AccessToken` is set, authentication uses
+    `Authorization: Bearer {AccessToken}` header instead of the API key header
   - Either `ApiKey` or `AccessToken` must be set, but not both
   - Updated `Validate()` method to enforce authentication requirements
 
 ## 1.64.37
-- **Testing Infrastructure Fix**: Resolved xUnit v3 compatibility issue in test project
+
+- **Testing Infrastructure Fix**: Resolved xUnit v3 compatibility issue in test
+  project
 - Refit updated
 
 ## 1.64.35
+
 - Updated IsMixedDefault to read only - fixed typo
 
 ## 1.64.34
+
 - Updated IsMixedDefault to read only
 
 ## 1.64.33
-- Added `AccessControl` property to `Ssid` class (read-only) - SSID access control settings including:
+
+- Added `AccessControl` property to `Ssid` class (read-only) - SSID access
+  control settings including:
   - `Encryption` - Encryption mode settings
   - `Bandwidth` - Bandwidth limit settings
   - `ClientIpAssignment` - Client IP assignment mode
   - `ClientsBlockedFromUsingLan` - Whether clients are blocked from using LAN
-  - `WiredClientsPartOfWifiNetwork` - Whether wired clients are part of the Wi-Fi network
+  - `WiredClientsPartOfWifiNetwork` - Whether wired clients are part of the
+    Wi-Fi network
   - `Tunnel` - Tunnel enabled status and summary
   - `Vlan` - VLAN enabled status and tag
   - `SplashPage` - Splash page enabled status and theme
@@ -112,29 +178,47 @@
   - `SsidAccessControlClientIpAssignment` - Client IP assignment mode settings
   - `SsidAccessControlTunnel` - Tunnel settings with enabled status and summary
   - `SsidAccessControlVlan` - VLAN settings with enabled status and tag
-  - `SsidAccessControlSplashPage` - Splash page settings with enabled status and theme
-- Added `PayloadTemplateId` property to `WebhookHttpServerPayloadTemplate` class - Alternate property name for the payload template ID
+  - `SsidAccessControlSplashPage` - Splash page settings with enabled status and
+    theme
+- Added `PayloadTemplateId` property to `WebhookHttpServerPayloadTemplate`
+  class - Alternate property name for the payload template ID
 
 ## 1.64.32
-- **Breaking Change**: Updated `ClaimNetworkDevicesAsync` return type from `Task` to `Task<DeviceClaimResponse>`
+
+- **Breaking Change**: Updated `ClaimNetworkDevicesAsync` return type from
+  `Task` to `Task<DeviceClaimResponse>`
   - The API now returns a response object containing:
     - `Serials` - List of successfully claimed device serial numbers
-    - `Errors` - List of errors for devices that failed to be claimed (each with `Serial` and list of error messages)
+    - `Errors` - List of errors for devices that failed to be claimed (each with
+      `Serial` and list of error messages)
   - Added new data models:
     - `DeviceClaimResponse` - Response wrapper with serials and errors
     - `DeviceClaimError` - Error details for failed device claims
-  - This change provides better visibility into partial success scenarios when claiming multiple devices
+  - This change provides better visibility into partial success scenarios when
+    claiming multiple devices
 - **New Feature: Push API Support (Private Beta)**
-  - Added Push API endpoints for event-driven notifications (eliminates polling):
-    - **Topics**: GET `/organizations/{organizationId}/api/push/topics` - List available Push API topics
+  - Added Push API endpoints for event-driven notifications (eliminates
+    polling):
+    - **Topics**: GET `/organizations/{organizationId}/api/push/topics` - List
+      available Push API topics
     - **Receiver Profiles**: CRUD operations for Push receiver profiles
-      - GET `/organizations/{organizationId}/api/push/receivers/profiles` - List receiver profiles
-      - POST `/organizations/{organizationId}/api/push/receivers/profiles` - Create receiver profile
-      - DELETE `/organizations/{organizationId}/api/push/receivers/profiles/{receiverProfileIname}` - Delete receiver profile
+      - GET `/organizations/{organizationId}/api/push/receivers/profiles` - List
+        receiver profiles
+      - POST `/organizations/{organizationId}/api/push/receivers/profiles` -
+        Create receiver profile
+      - DELETE
+        <!-- markdownlint-disable-next-line MD013 -->
+        `/organizations/{organizationId}/api/push/receivers/profiles/{receiverProfileIname}` -
+        Delete receiver profile
     - **Push Profiles**: CRUD operations for Push profiles (topic subscriptions)
-      - POST `/organizations/{organizationId}/api/push/profiles` - Create push profile (subscribe to topic)
-      - PUT `/organizations/{organizationId}/api/push/profiles/{pushProfileIname}` - Update push profile
-      - DELETE `/organizations/{organizationId}/api/push/profiles/{pushProfileIname}` - Delete push profile
+      - POST `/organizations/{organizationId}/api/push/profiles` - Create push
+        profile (subscribe to topic)
+      - PUT
+        `/organizations/{organizationId}/api/push/profiles/{pushProfileIname}` -
+        Update push profile
+      - DELETE
+        `/organizations/{organizationId}/api/push/profiles/{pushProfileIname}` -
+        Delete push profile
   - Added new data models:
     - `PushTopic` - Represents a Push API topic
     - `PushTopicReference` - Topic reference for profiles
@@ -152,20 +236,30 @@
     - `OrganizationsApiPushReceiversSection` - Push receivers section
   - Added integration tests in `Meraki.Api.Test.PushApi` namespace
   - Supported topics in private beta:
-    - `organizationDevicesAvailabilitiesChangeHistory` - Device availability changes
+    - `organizationDevicesAvailabilitiesChangeHistory` - Device availability
+      changes
     - `organizationConfigurationChanges` - Configuration changes
-  - Note: Push API is currently in private beta. Requires webhook HTTP servers to be configured first.
+  - Note: Push API is currently in private beta. Requires webhook HTTP servers
+    to be configured first.
 
 ## 1.64.28
-- Added missing `Details` property to `Network` class (object?, read-only) - Undocumented additional details about the network returned by the API
+
+- Added missing `Details` property to `Network` class (object?, read-only) -
+  Undocumented additional details about the network returned by the API
 
 ## 1.64.27
-- Updated to also build .NET 9.0 target along with .NET 10.0 and .NET Standard 2.0
+
+- Updated to also build .NET 9.0 target along with .NET 10.0 and .NET Standard
+  2.0
 
 ## 1.64.25
-- **BREAKING CHANGE**: Upgraded solution to .NET 10.0 (projects now target .NET 10.0 and .NET Standard 2.0)
-- **Major Improvement**: Complete XML documentation coverage - ALL CS1591 warnings resolved
-  - Added comprehensive XML documentation for all public classes, properties, methods, and enum members
+
+- **BREAKING CHANGE**: Upgraded solution to .NET 10.0 (projects now target .NET
+  10.0 and .NET Standard 2.0)
+- **Major Improvement**: Complete XML documentation coverage - ALL CS1591
+  warnings resolved
+  - Added comprehensive XML documentation for all public classes, properties,
+    methods, and enum members
   - Enabled `TreatWarningsAsErrors` for documentation compliance
   - All public APIs now have proper IntelliSense documentation
 - **Infrastructure**: Migrated solution to modern `.slnx` format
@@ -173,170 +267,249 @@
 - Code quality improvements and general code tidying
 - Updated project dependencies
 
-
 ## 1.64.2
-- Fixed missing JSON members identified from API responses across multiple models:
-  - **StatusPageAuthentication**: Added `PasswordSet` property (bool?, read-only) - Indicates whether a password has been set for the Local Status Page
+
+- Fixed missing JSON members identified from API responses across multiple
+  models:
+  - **StatusPageAuthentication**: Added `PasswordSet` property (bool?,
+    read-only) - Indicates whether a password has been set for the Local Status
+    Page
   - **SwitchSettings**: Added `UplinkSelection` property with supporting models:
-    - `SwitchSettingsUplinkSelection` - Contains failback settings and candidates configuration
-    - `SwitchSettingsUplinkSelectionFailback` - Controls whether failback is enabled
+    - `SwitchSettingsUplinkSelection` - Contains failback settings and
+      candidates configuration
+    - `SwitchSettingsUplinkSelectionFailback` - Controls whether failback is
+      enabled
   - **InventoryDevice**: Added End-of-Life (EOL) tracking properties:
-    - `EoxStatus` (string?) - End of Life status ("endOfSale", "endOfSupport", "nearEndOfSupport", or empty)
+    - `EoxStatus` (string?) - End of Life status ("endOfSale", "endOfSupport",
+      "nearEndOfSupport", or empty)
     - `EndOfSaleAt` (DateTime?) - End of sale date
     - `EndOfSupportAt` (DateTime?) - End of support date
-  - **GroupPolicySecurityGroupTag**: Added `Value` property (int?) - Security group tag numeric value
+  - **GroupPolicySecurityGroupTag**: Added `Value` property (int?) - Security
+    group tag numeric value
   - **RoutingInterface**: Added advanced routing configuration properties:
     - `SwitchFabricId` (string?, read-only) - Switch Fabric ID for the interface
     - `StaticV4Dns1` (string?) - Primary static IPv4 DNS server
     - `StaticV4Dns2` (string?) - Secondary static IPv4 DNS server
-  - **NetworkBluetoothSettings**: Added `Transmit` property (BluetoothTransmitSettings?) - Network-level Bluetooth beacon transmit configuration
-  - **DeviceBluetoothSettings**: Added `Transmit` property (BluetoothTransmitSettings?) - Device-level Bluetooth beacon transmit configuration
+  - **NetworkBluetoothSettings**: Added `Transmit` property
+    (BluetoothTransmitSettings?) - Network-level Bluetooth beacon transmit
+    configuration
+  - **DeviceBluetoothSettings**: Added `Transmit` property
+    (BluetoothTransmitSettings?) - Device-level Bluetooth beacon transmit
+    configuration
 - Created new supporting model classes:
-  - `BluetoothTransmitSettings` - Contains power level, interval, and advertised power settings
+  - `BluetoothTransmitSettings` - Contains power level, interval, and advertised
+    power settings
   - `BluetoothAdvertisedPower` - Contains advertised power in dBm
 
 ## 1.63.8
-- Fixed deserialization error for Bonjour forwarding services by adding missing `Chromecast` enum value to `BonjourService`
-- Updated `BonjourForwardingRule` documentation to include `Chromecast` in the list of available services
+
+- Fixed deserialization error for Bonjour forwarding services by adding missing
+  `Chromecast` enum value to `BonjourService`
+- Updated `BonjourForwardingRule` documentation to include `Chromecast` in the
+  list of available services
 
 ## 1.63.3
+
 - Updated for Meraki API v1.63
 - Added new wireless MQTT settings endpoints for organizations:
-  - **GET** `/organizations/{organizationId}/wireless/mqtt/settings` - Return MQTT settings for networks
-  - **PUT** `/organizations/{organizationId}/wireless/mqtt/settings` - Add new broker config for wireless MQTT
+  - **GET** `/organizations/{organizationId}/wireless/mqtt/settings` - Return
+    MQTT settings for networks
+  - **PUT** `/organizations/{organizationId}/wireless/mqtt/settings` - Add new
+    broker config for wireless MQTT
 - Added new data models for wireless MQTT settings:
-  - `OrganizationWirelessMqttSettings` - Main settings model with network, mqtt, ble, and wifi properties
+  - `OrganizationWirelessMqttSettings` - Main settings model with network, mqtt,
+    ble, and wifi properties
   - `OrganizationWirelessMqttSettingsNetwork` - Network information
-  - `OrganizationWirelessMqttSettingsMqtt` - MQTT configuration including topic, message fields, publishing settings, and broker
-  - `OrganizationWirelessMqttSettingsMqttPublishing` - Publishing frequency and QoS settings
+  - `OrganizationWirelessMqttSettingsMqtt` - MQTT configuration including topic,
+    message fields, publishing settings, and broker
+  - `OrganizationWirelessMqttSettingsMqttPublishing` - Publishing frequency and
+    QoS settings
   - `OrganizationWirelessMqttSettingsMqttBroker` - Broker reference information
-  - `OrganizationWirelessMqttSettingsBle` - BLE settings including type, flush, allow lists, and hysteresis
+  - `OrganizationWirelessMqttSettingsBle` - BLE settings including type, flush,
+    allow lists, and hysteresis
   - `OrganizationWirelessMqttSettingsBleFlush` - BLE flush frequency settings
-  - `OrganizationWirelessMqttSettingsBleAllowLists` - BLE UUID and MAC allow lists
-  - `OrganizationWirelessMqttSettingsBleHysteresis` - BLE hysteresis threshold settings
-  - `OrganizationWirelessMqttSettingsWifi` - Wi-Fi settings including type, flush, allow lists, and hysteresis
+  - `OrganizationWirelessMqttSettingsBleAllowLists` - BLE UUID and MAC allow
+    lists
+  - `OrganizationWirelessMqttSettingsBleHysteresis` - BLE hysteresis threshold
+    settings
+  - `OrganizationWirelessMqttSettingsWifi` - Wi-Fi settings including type,
+    flush, allow lists, and hysteresis
   - `OrganizationWirelessMqttSettingsWifiFlush` - Wi-Fi flush frequency settings
   - `OrganizationWirelessMqttSettingsWifiAllowLists` - Wi-Fi MAC allow lists
-  - `OrganizationWirelessMqttSettingsWifiHysteresis` - Wi-Fi hysteresis threshold settings
+  - `OrganizationWirelessMqttSettingsWifiHysteresis` - Wi-Fi hysteresis
+    threshold settings
   - `OrganizationWirelessMqttSettingsResponse` - Paginated response wrapper
-  - `OrganizationWirelessMqttSettingsUpdateRequest` - Request model for updating settings
+  - `OrganizationWirelessMqttSettingsUpdateRequest` - Request model for updating
+    settings
 - Added `IOrganizationsWirelessMqtt` interface with GET and PUT methods
 - Added `Mqtt` property to `OrganizationsWirelessSection`
-- Added `GetOrganizationWirelessMqttSettingsAllAsync` extension method for automatic pagination
+- Added `GetOrganizationWirelessMqttSettingsAllAsync` extension method for
+  automatic pagination
 
 ## 1.62.13
+
 - Added missing JSON members identified from API responses:
-  - **StatusPageAuthentication**: Added `passwordSet` property (bool, read-only) to indicate if a password has been set
-  - **SwitchSettings**: Added `uplinkSelection` property with nested models for failback settings and candidate uplink selection
-  - **InventoryDevice**: Added End-of-Life (EOL) properties: `eoxStatus`, `endOfSaleAt`, and `endOfSupportAt`
-  - **GroupPolicySecurityGroupTag**: Added `value` property (int) for security group tag value
-  - **RoutingInterface**: Added `switchFabricId`, `staticV4Dns1`, and `staticV4Dns2` properties for advanced routing configurations
-  - **NetworkBluetoothSettings**: Added `transmit` property with nested models for power, interval, and advertised settings
-  - **DeviceBluetoothSettings**: Added `transmit` property with nested models for device-specific Bluetooth beacon configuration
+  - **StatusPageAuthentication**: Added `passwordSet` property (bool, read-only)
+    to indicate if a password has been set
+  - **SwitchSettings**: Added `uplinkSelection` property with nested models for
+    failback settings and candidate uplink selection
+  - **InventoryDevice**: Added End-of-Life (EOL) properties: `eoxStatus`,
+    `endOfSaleAt`, and `endOfSupportAt`
+  - **GroupPolicySecurityGroupTag**: Added `value` property (int) for security
+    group tag value
+  - **RoutingInterface**: Added `switchFabricId`, `staticV4Dns1`, and
+    `staticV4Dns2` properties for advanced routing configurations
+  - **NetworkBluetoothSettings**: Added `transmit` property with nested models
+    for power, interval, and advertised settings
+  - **DeviceBluetoothSettings**: Added `transmit` property with nested models
+    for device-specific Bluetooth beacon configuration
 - Created new nested model classes following hierarchy naming convention:
   - `SwitchSettingsUplinkSelection` and `SwitchSettingsUplinkSelectionFailback`
-  - `NetworkBluetoothSettingsTransmit` and `NetworkBluetoothSettingsTransmitAdvertised`
-  - `DeviceBluetoothSettingsTransmit` and `DeviceBluetoothSettingsTransmitAdvertised`
+  - `NetworkBluetoothSettingsTransmit` and
+    `NetworkBluetoothSettingsTransmitAdvertised`
+  - `DeviceBluetoothSettingsTransmit` and
+    `DeviceBluetoothSettingsTransmitAdvertised`
 
 ## 1.61.29
+
 - Added missing members
 
 ## 1.61.26
+
 - Added missing members
 
 ## 1.61.25
+
 - Fixed issue with Radius Server list for NetworkApplianceSsidUpdateRequest
 
 ## 1.61.23
+
 - Fixed issue with type for NetworkApplianceSsidUpdateRequest
 
 ## 1.61.22
+
 - Updates for missing members and endpoints
-- Improved handling when the Meraki API hangs by offering an inner timeout/retry mechanism, controlled by MerakiClientOptions.HttpClientInnerTimeoutSeconds.  By default, this value is set to 25.
+- Improved handling when the Meraki API hangs by offering an inner timeout/retry
+  mechanism, controlled by MerakiClientOptions.HttpClientInnerTimeoutSeconds. By
+  default, this value is set to 25.
 - Improved handling when the Meraki API resets the connection
 
 ## 1.61.11
+
 - Nuget package updates
 
 ## 1.61.1
+
 - Updated for 1.61 API changes.
 - Increased default timeout to 600s to accommodate longer running requests.
-- Increased default MaxAttempts to 100 to accommodate more retries due to per-IP rate limiting on api.meraki.com
+- Increased default MaxAttempts to 100 to accommodate more retries due to per-IP
+  rate limiting on api.meraki.com
 
 ## 1.57.9
-- Added GetAllFromResponsePropertyAsync extension method to handle responses with meta/data, e.g. SecureConnect.
+
+- Added GetAllFromResponsePropertyAsync extension method to handle responses
+  with meta/data, e.g. SecureConnect.
 
 ## 1.57.6
+
 - Added initial Secure Connect endpoints
 - Fixing retainConfigs parameter on UnbindNetworkAsync to be set in body.
 
 ## 1.56.454
-- BREAKING CHANGE: Removed support for Shard-direct API access, as this will cease to work due to a change being applied by Meraki in September 2025.
+
+- BREAKING CHANGE: Removed support for Shard-direct API access, as this will
+  cease to work due to a change being applied by Meraki in September 2025.
 
 ## 1.56.449
-- Added UpdateDeviceSwitchPortSetVlanAsync to allow setting the VLAN on a switch port.
-- Added UpdateDeviceSwitchPortSetPortScheduleIdAsync to allow setting the PortScheduleId on a switch port.
+
+- Added UpdateDeviceSwitchPortSetVlanAsync to allow setting the VLAN on a switch
+  port.
+- Added UpdateDeviceSwitchPortSetPortScheduleIdAsync to allow setting the
+  PortScheduleId on a switch port.
 
 ## 1.56.443
+
 - Added ability to swap warm spare
 
 ## 1.56.438
- - Fixed StartTime and EndTime json member name in LossAndLatencyHistory.
+
+- Fixed StartTime and EndTime json member name in LossAndLatencyHistory.
 
 ## 1.56.436
+
 - Fixed LossAndLatencyHistory StartTime and EndTime field type
 
 ## 1.56.433
+
 - Added various missing interfaces and models to improve coverage
 
 ## 1.56.195
-- Fixed GetOrganizationApplianceVpnStatsAllAsync to allow retrieving all items when specify t0 & t1 or timespan
-- 
+
+- Fixed GetOrganizationApplianceVpnStatsAllAsync to allow retrieving all items
+  when specify t0 & t1 or timespan
+-
+
 ## 1.56.193
+
 - Added extension method GetOrganizationApplianceVpnStatsAllAsync
 - Fixed VpnPeers stats property types
 
 ## 1.56.191
+
 - Added missing SerialNumber/Models
-- 
+-
+
 ## 1.56.190
+
 - Fixed PerfScore property type for Device Appliance Performance
 
 ## 1.56.187
+
 - Fixed Bssid field type for BasicServiceSet for Wireless Device Status
 - Fixed Client.AdaptivePolicyGroup to be a nullable string
 
 ## 1.56.165
-- Added an optional IRateLimiter to the MerakiClientOptions, which can be shared between multiple MerakiClients. The interface contains a single call 	public Task ApplyRateLimitingAsync(
-		HttpRequestMessage httpRequestMessage,
-		CancellationToken cancellationToken);
-- Added a BasicRateLimiter implementation which will limit the number of requests per given timespan - the HttpRequestMessage is ignored.
+
+- Added an optional IRateLimiter to the MerakiClientOptions, which can be shared
+  between multiple MerakiClients. The interface contains a single call public
+  Task ApplyRateLimitingAsync( HttpRequestMessage httpRequestMessage,
+  CancellationToken cancellationToken);
+- Added a BasicRateLimiter implementation which will limit the number of
+  requests per given timespan - the HttpRequestMessage is ignored.
 
 ## 1.56.164
+
 - Added GetModelType handling for CPSC-HUB as CiscoSecureConnect
 
 ## 1.56.162
+
 - Updated OpenRoamingCertificateId to support larger values
 
 ## 1.56.160
+
 - Added many missing interface calls
 
 ## 1.56.21
+
 - Added minimumPasswordLength to Organization admin security
 - Added MV84X video resolution details
 - Added NetworkType to OSPF Settings
 - Added MacWhitelistLimit to switch port
 
 ## 1.56.20
+
 - Added ipsk-with-nac for appliance SSID security type
 
 ## 1.56.19
+
 - Updates for missing serial number/product type determination
 
 ## 1.56.18
+
 - Updates for missing serial number/product type determination
 
 ## 1.56.17
+
 - Updates for missing serial number/product type determination
 
 ## 1.56.13
@@ -348,7 +521,8 @@
 
 - XML documentation is now correctly packaged
 - Added UserAgent format Meraki documentation link
-- Fix for "ReservedIPRanges are not updated when executing UpdateDeviceSwitchRoutingInterfaceDhcpAsync" PR #292 - Kudos @LouisDMateco
+- Fix for "ReservedIPRanges are not updated when executing
+  UpdateDeviceSwitchRoutingInterfaceDhcpAsync" PR #292 - Kudos @LouisDMateco
 
 ## 1.55.5
 
@@ -376,11 +550,14 @@
 
 ## 1.54.7
 
-- Fixes to GetNetworkApplianceUplinksUsageHistoryAsync(). Updated copyright notice.
+- Fixes to GetNetworkApplianceUplinksUsageHistoryAsync(). Updated copyright
+  notice.
 
 ## 1.54.5
 
-- Reverted SwitchPort.cs changes and added overload for UpdateDeviceSwitchPortAsync to use SwitchPortUpdateRequest which allows nullable values for all properties.
+- Reverted SwitchPort.cs changes and added overload for
+  UpdateDeviceSwitchPortAsync to use SwitchPortUpdateRequest which allows
+  nullable values for all properties.
 
 ## 1.54.1
 
@@ -388,7 +565,8 @@
 
 ## 1.53.19
 
-- Added nullable Client to ChangeLogEntry.cs to prevent deserialization errors for configurationChanges endpoint
+- Added nullable Client to ChangeLogEntry.cs to prevent deserialization errors
+  for configurationChanges endpoint
 
 ## 1.53.12
 
@@ -402,8 +580,10 @@
 
 ## 1.51.51
 
-- Added BackOffDelayFactor to MerakiClientOptions, defaults to 1.0, which allows automatic exponential increased delay on 429 until the maximum MaxBackOffDelay which defaults to 30.
-The API response Retry-After will be honored up to the MaxBackOffDelay. 
+- Added BackOffDelayFactor to MerakiClientOptions, defaults to 1.0, which allows
+  automatic exponential increased delay on 429 until the maximum MaxBackOffDelay
+  which defaults to 30. The API response Retry-After will be honored up to the
+  MaxBackOffDelay.
 
 ## 1.51.49
 
@@ -472,8 +652,8 @@ The API response Retry-After will be honored up to the MaxBackOffDelay.
 
 ## 1.49.14
 
-- Region support added (for China).  The default region is "Default" ("Rest of the world").
-If you want to select China, use:
+- Region support added (for China). The default region is "Default" ("Rest of
+  the world"). If you want to select China, use:
 
 ```C#
 merakiClientOptions.ApiRegion = ApiRegion.China;
@@ -511,12 +691,15 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 ## 1.48.4
 
 - Updated for 1.48 API changes
-- Adjusted "GetAll" extensions to utilise endingBefore as well as startingAfter. This currently only seemed to affect getting apiRequests.
+- Adjusted "GetAll" extensions to utilise endingBefore as well as startingAfter.
+  This currently only seemed to affect getting apiRequests.
 
 ## 1.46.1
 
 - Added/updated new endpoints.
-- Some new endpoints with new paging mechanism have not had "Get All" endpoints added until the inconsistencies between the models have been confirmed as intentional by Meraki API developers.
+- Some new endpoints with new paging mechanism have not had "Get All" endpoints
+  added until the inconsistencies between the models have been confirmed as
+  intentional by Meraki API developers.
 
 ## 1.45.26
 
@@ -572,7 +755,7 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 
 ## 1.37.19
 
-- Updated model detection to match Z3* as an Appliance
+- Updated model detection to match Z3\* as an Appliance
 
 ## 1.37.13
 
@@ -592,7 +775,8 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 
 ## 1.36.30
 
-- Updated for some missing Properties and added CW to product type detection as a Wireless device
+- Updated for some missing Properties and added CW to product type detection as
+  a Wireless device
 
 ## 1.36.24
 
@@ -600,11 +784,13 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 
 ## 1.36.20
 
-- Fixed further inconsistencies with webhook and corrected all occurrences of WebHooks/webHook to lowercase h.
+- Fixed further inconsistencies with webhook and corrected all occurrences of
+  WebHooks/webHook to lowercase h.
 
 ## 1.36.19
 
-- Fixes for Webhooks.  In some places, "WebHooks" has been changed to "Webhooks for consistency, which is a breaking change.
+- Fixes for Webhooks. In some places, "WebHooks" has been changed to "Webhooks
+  for consistency, which is a breaking change.
 
 ## 1.36.13
 
@@ -661,7 +847,8 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 
 ## 1.32.3
 
-- RefitSettings CollectionFormat now set to CollectionFormat.Multi, default was CSV, this allows sending multiple values for the filters.
+- RefitSettings CollectionFormat now set to CollectionFormat.Multi, default was
+  CSV, this allows sending multiple values for the filters.
 
 ## 1.32.2
 
@@ -669,16 +856,19 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 
 ## 1.31.51
 
-- Thanks to @rlouch2 for the PR to fix the encoding of colons in MACs being set in a GET query.
+- Thanks to @rlouch2 for the PR to fix the encoding of colons in MACs being set
+  in a GET query.
 - Thanks to @garlic17 for the PR to catch the typo in a datamember for cidr.
 
 ## 1.31.48
 
-- Allow all properties on an SSID Update to be nullable to allow only setting certain properties.
+- Allow all properties on an SSID Update to be nullable to allow only setting
+  certain properties.
 
 ## 1.31.46
 
-- Added MerakiClient.ApiClientVersion to return the library version which returns similar to 1.31.46
+- Added MerakiClient.ApiClientVersion to return the library version which
+  returns similar to 1.31.46
 
 ## 1.31.31
 
@@ -692,18 +882,21 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 ## 1.31.8
 
 - Updated for 1.31 API changes
-- All query endpoints that provide lists now have "[]" after the parameter name to allow for multiple values to be passed in and work with the Meraki API.
+- All query endpoints that provide lists now have "[]" after the parameter name
+  to allow for multiple values to be passed in and work with the Meraki API.
 
 ## 1.30.23
 
-- Fixed GetOrganizationDevicesStatusesAsync and GetNetworkSmDevicesAsync to use "[]" after the parameter names for lists to work.
+- Fixed GetOrganizationDevicesStatusesAsync and GetNetworkSmDevicesAsync to use
+  "[]" after the parameter names for lists to work.
 - Updated log messages when retry fails to include the method and url.
 
 ## 1.30.15
 
 - Added obsolete VmConcentrator to ProductType
 - Made all device properties nullable
-- Modified GeoLocation Lat/Long to be non nullable as they should either both be present or the GeoLocation should be null
+- Modified GeoLocation Lat/Long to be non nullable as they should either both be
+  present or the GeoLocation should be null
 
 ## 1.30.9
 
@@ -711,7 +904,8 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 
 ## 1.30.3
 
-- Fix for GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync breaking client creation
+- Fix for GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync
+  breaking client creation
 
 ## 1.30.1
 
@@ -761,18 +955,23 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 
 ## v1.25.13
 
-- Fixed <https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses> for:
+- Fixed
+  <https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses>
+  for:
   - port to ports, permitting deserialization
   - renamed Speed to SpeedMbps
   - renamed IsConnectd to IsConnected
 
 ## v1.25.6
 
-- Added <https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses> as `MerakiClient.Wireless.Devices.OrganizationEthernetStatuses`
+- Added
+  <https://developer.cisco.com/meraki/api-latest/#!get-organization-wireless-devices-ethernet-statuses>
+  as `MerakiClient.Wireless.Devices.OrganizationEthernetStatuses`
 
 ## v1.25.1
 
-- Added appliance SSID endpoints - <https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-ssids>
+- Added appliance SSID endpoints -
+  <https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-ssids>
 
 ## v1.24.19
 
@@ -781,10 +980,13 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 ## v1.24.1
 
 - Changed all floats to double.
-- Modified several models to be nullable where the response model is also used in requests to allow only setting certain properties.
+- Modified several models to be nullable where the response model is also used
+  in requests to allow only setting certain properties.
 - Added missing endpoints
 - Updated existing models
-- No change made yet to Client to support new documentation "Platform" layout.  Intention is to add "Platform" at the root level with duplicate references to sections and interfaces to allow easily finding calls matching documentation.
+- No change made yet to Client to support new documentation "Platform" layout.
+  Intention is to add "Platform" at the root level with duplicate references to
+  sections and interfaces to allow easily finding calls matching documentation.
 
 ## v1.23.9
 
@@ -793,20 +995,21 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 ## v1.22.19
 
 - Renamed AuthMode enum entries
-  - _8021xmeraki to Auth8021xmeraki
-  - _8021xradius to Auth8021xradius
+  - \_8021xmeraki to Auth8021xmeraki
+  - \_8021xradius to Auth8021xradius
 
 - Renamed DhcpLeaseTime enum entries
-  - _30minutes to Duration30Minutes
-  - _1hour to Duration1Hour
-  - _4hours to Duration4Hours
-  - _12hours to Duration12Hours
-  - _1day to Duration1Day
-  - _1week to Duration1Week
+  - \_30minutes to Duration30Minutes
+  - \_1hour to Duration1Hour
+  - \_4hours to Duration4Hours
+  - \_12hours to Duration12Hours
+  - \_1day to Duration1Day
+  - \_1week to Duration1Week
 
 ## v1.22.15
 
-- Added JsonMissingMemberAction which will execute when Options.JsonMissingMemberHandling is set to something other than Ignore.
+- Added JsonMissingMemberAction which will execute when
+  Options.JsonMissingMemberHandling is set to something other than Ignore.
 
 ## v1.22.4
 
@@ -815,7 +1018,8 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 ## v1.22.3
 
 - Changed AdaptivePolicyGroup CreatedAt and UpdatedAt to be DateTime
-- Changed AdaptivePolicyPolicies to correct nullability. Changed timestamps to DateTime
+- Changed AdaptivePolicyPolicies to correct nullability. Changed timestamps to
+  DateTime
 - Updated RoutingOspf to add RoutingOspfV3 settings
 - Made all DeviceClient properties null
 - Updated nullability on SmNetworkUser
@@ -841,7 +1045,9 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 ## v1.20.8
 
 - Updated for release against 1.20 API
-- Added JsonMissingMemberResponseLogLevel to MerakiClientOptions. When set to something other than None, this will log the actual JSON response from the API when a member is missing from the response.
+- Added JsonMissingMemberResponseLogLevel to MerakiClientOptions. When set to
+  something other than None, this will log the actual JSON response from the API
+  when a member is missing from the response.
 - Added "concentrator" to Wireless SSID VPN Settings.
 - Added "alerts" to DHCP Server Policy.
 
@@ -849,25 +1055,37 @@ merakiClientOptions.ApiRegion = ApiRegion.China;
 
 - Updated the following method names to follow naming conventions:
   - `RemoveNetworkDeviceAsync` -> `RemoveNetworkDevicesAsync`
-  - `GetNetworksWebhooksPayloadTemplatesAsync` -> `GetNetworkWebhooksPayloadTemplatesAsync`
-  - `GetNetworkWebhooksPayloadTemplateAsync` -> `GetNetworkWebhooksPayloadTemplateAsync`
-  - `UpdateNetworksWebhooksPayloadTemplatesAsync` -> `UpdateNetworkWebhooksPayloadTemplateAsync`
-  - `GetNetworkSsidL3FirewallRulesAsync` -> `GetNetworkWirelessSsidFirewallL3FirewallRulesAsync`
-  - `UpdateNetworkSsidL3FirewallRulesAsync` -> `UpdateNetworkWirelessSsidFirewallL3FirewallRulesAsync`
-  - `GetNetworkCellularGatewaySettingsUplinkAsync` -> `GetNetworkCellularGatewayUplinkAsync`
-  - `UpdateNetworkCellularGatewaySettingsUplinkAsync` -> `UpdateNetworkCellularGatewayUplinkAsync`
-  - `GetNetworkCellularGatewaySettingsSubnetPoolAsync` -> `GetNetworkCellularGatewaySubnetPoolAsync`
-  - `UpdateNetworkCellularGatewaySettingsSubnetPoolAsync` -> `UpdateNetworkCellularGatewaySubnetPoolAsync`
-  - `UpdateOrganizationAdaptivePolicyGroup`-> `UpdateOrganizationAdaptivePolicyGroupAsync`
+  - `GetNetworksWebhooksPayloadTemplatesAsync` ->
+    `GetNetworkWebhooksPayloadTemplatesAsync`
+  - `GetNetworkWebhooksPayloadTemplateAsync` ->
+    `GetNetworkWebhooksPayloadTemplateAsync`
+  - `UpdateNetworksWebhooksPayloadTemplatesAsync` ->
+    `UpdateNetworkWebhooksPayloadTemplateAsync`
+  - `GetNetworkSsidL3FirewallRulesAsync` ->
+    `GetNetworkWirelessSsidFirewallL3FirewallRulesAsync`
+  - `UpdateNetworkSsidL3FirewallRulesAsync` ->
+    `UpdateNetworkWirelessSsidFirewallL3FirewallRulesAsync`
+  - `GetNetworkCellularGatewaySettingsUplinkAsync` ->
+    `GetNetworkCellularGatewayUplinkAsync`
+  - `UpdateNetworkCellularGatewaySettingsUplinkAsync` ->
+    `UpdateNetworkCellularGatewayUplinkAsync`
+  - `GetNetworkCellularGatewaySettingsSubnetPoolAsync` ->
+    `GetNetworkCellularGatewaySubnetPoolAsync`
+  - `UpdateNetworkCellularGatewaySettingsSubnetPoolAsync` ->
+    `UpdateNetworkCellularGatewaySubnetPoolAsync`
+  - `UpdateOrganizationAdaptivePolicyGroup`->
+    `UpdateOrganizationAdaptivePolicyGroupAsync`
 - Changed other function names to match documentation operation ids.
 - Modified models to correct ApiAccess attributes.
 
 ## v1.19.60
 
-- Fixed NetworkTraffic.Port type from int to object, as the API can return either an int or a string
+- Fixed NetworkTraffic.Port type from int to object, as the API can return
+  either an int or a string
 - Fixed Client.Manufacturer type from string to string?
 - Fixed Client.Switchport type from string to string?
-- BREAKING CHANGE: OrganizationDeviceStatus.productType renamed to ProductType (capitalized)
+- BREAKING CHANGE: OrganizationDeviceStatus.productType renamed to ProductType
+  (capitalized)
 - Correctly implemented Wifi class (previously no fields were correctly mapping)
 
 ## v1.19.52
