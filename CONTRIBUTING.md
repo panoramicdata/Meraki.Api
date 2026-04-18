@@ -127,6 +127,22 @@ CellularGateway,
 The first entry should be set to a value of 1 so that deserialization of unknown values 
 will result in defaulting to 0 which has no valid value in the enum.
 
+## DTO property naming
+
+DTO properties use PascalCase C# names. The Meraki API's camelCase wire format
+is preserved by a `[DataMember(Name = "camelCaseName")]` attribute on each
+property. For example:
+
+```c#
+[DataMember(Name = "networkId")]
+public string NetworkId { get; set; } = string.Empty;
+```
+
+Do not define public properties directly in camelCase — this breaks consumer
+ergonomics (no `IntelliSense` match for the C# convention) and trips IDE1006.
+The analyzer is intentionally *not* suppressed, so stragglers will fail the
+build.
+
 ## API Attributes
 To assist with understanding at runtime, all models which are used as a response body should be decorated to indicate
 which returned properties can be used as part of create/update/delete requests.
