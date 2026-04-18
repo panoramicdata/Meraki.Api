@@ -337,3 +337,6 @@ appsettings.json
 
 /Early Access Features/Push API.postman_collection.json
 tmpclaude-*-cwd
+
+# Claude Code local settings
+.claude/settings.local.json

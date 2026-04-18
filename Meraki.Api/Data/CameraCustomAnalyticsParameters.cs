@@ -11,5 +11,5 @@ public class CameraCustomAnalyticsParameters : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "value")]
-	public string value { get; set; } = string.Empty;
+	public string Value { get; set; } = string.Empty;
 }

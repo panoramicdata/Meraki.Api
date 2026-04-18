@@ -19,7 +19,7 @@ public class NetworkCellularGatewayEsimsInventoryItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "lastUpdatedAt")]
-	public string lastUpdatedAt { get; set; } = string.Empty;
+	public string LastUpdatedAt { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Whether eSIM is currently active SIM on Device

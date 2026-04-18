@@ -32,5 +32,5 @@ public class OrganizationAssuranceAlertsOverviewHistoricalItemByAlertType
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "type")]
-	public string type { get; set; } = string.Empty;
+	public string Type { get; set; } = string.Empty;
 }
