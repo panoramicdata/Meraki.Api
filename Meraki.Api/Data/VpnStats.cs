@@ -10,7 +10,7 @@ public class VpnStats
 	/// NetworkId
 	/// </summary>
 	[DataMember(Name = "networkId")]
-	public string networkId { get; set; } = string.Empty;
+	public string NetworkId { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Network name

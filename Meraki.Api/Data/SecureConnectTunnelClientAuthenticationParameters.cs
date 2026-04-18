@@ -18,5 +18,5 @@ public class SecureConnectTunnelClientAuthenticationParameters
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "modifiedAt")]
-	public DateTime modifiedAt { get; set; }
+	public DateTime ModifiedAt { get; set; }
 }

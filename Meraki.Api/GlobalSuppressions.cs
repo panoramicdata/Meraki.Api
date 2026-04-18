@@ -21,13 +21,6 @@ using System.Diagnostics.CodeAnalysis;
 	Target = "~N:Meraki.Api.Data")]
 
 [assembly: SuppressMessage(
-	"Style",
-	"IDE1006:Naming Styles",
-	Justification = "This can't be right!",
-	Scope = "namespaceanddescendants",
-	Target = "~N:Meraki.Api.Data")]
-
-[assembly: SuppressMessage(
 	"Globalization",
 	"CA1303:Do not pass literals as localized parameters",
 	Justification = "Not localising.",
