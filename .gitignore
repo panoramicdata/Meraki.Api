@@ -337,3 +337,4 @@ appsettings.json
 
 /Early Access Features/Push API.postman_collection.json
 tmpclaude-*-cwd
+*.code-workspace
