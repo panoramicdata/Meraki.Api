@@ -126,6 +126,13 @@ public class VideoSettings
 	public Mv32? Mv32 { get; set; }
 
 	/// <summary>
+	/// Gets or Sets MV44X
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "MV44X")]
+	public Mv44X? Mv44X { get; set; }
+
+	/// <summary>
 	/// Gets or Sets MV12WE
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

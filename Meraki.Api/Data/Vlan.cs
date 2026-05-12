@@ -170,6 +170,13 @@ public class Vlan : NamedIdentifiedItem
 	public object? AdaptivePolicyGroupId { get; set; }
 
 	/// <summary>
+	/// VRF settings for this VLAN
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "vrf")]
+	public VlanVrf? Vrf { get; set; }
+
+	/// <summary>
 	/// The uplinks for this VLAN
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]

@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## 1.67.37
+
+- Added missing model properties from observed API responses: `InventoryDevice.Sku`,
+  `MqttBroker.ProductType`, `NetworkSettings.Twilio`,
+  `NetworkSnmpSetting.Authentication`, `NetworkSnmpSetting.Privacy`,
+  `RoutingInterface.Mtu`, `Ssid.Security`, `StaticRoute.Vpn`,
+  `TrafficShapingVpnExclusionsMajorApplication.Source`, `VideoSettings.Mv44X`,
+  `Vlan.Vrf`, and `WirelessBilling.HasTransactions`
+- Added supporting models for the new Twilio, SNMP, SSID security, static
+  route VPN, MV44X, and VLAN VRF response shapes
+
 ## 1.67.36
 
 - Added missing writable properties to `SwitchPortUpdateRequest`: `ActiveVlans`,
