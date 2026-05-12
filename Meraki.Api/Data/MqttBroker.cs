@@ -33,4 +33,11 @@ public class MqttBroker : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "security")]
 	public MqttSecurity Security { get; set; } = new();
+
+	/// <summary>
+	/// Product type this MQTT broker is associated with
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "productType")]
+	public ProductType? ProductType { get; set; }
 }

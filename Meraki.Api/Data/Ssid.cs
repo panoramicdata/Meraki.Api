@@ -34,4 +34,11 @@ public class Ssid : SsidUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "accessControl")]
 	public SsidAccessControl? AccessControl { get; set; }
+
+	/// <summary>
+	/// Security settings for the SSID
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "security")]
+	public SsidSecurity? Security { get; set; }
 }

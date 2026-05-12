@@ -28,4 +28,11 @@ public class StaticRoute : StaticRouteUpdateRequest
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "gateway")]
 	public StaticRouteGateway? Gateway { get; set; }
+
+	/// <summary>
+	/// VPN settings for the static route
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vpn")]
+	public StaticRouteVpn? Vpn { get; set; }
 }
