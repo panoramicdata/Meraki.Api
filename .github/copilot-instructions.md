@@ -124,7 +124,7 @@ When updating for new Meraki API versions:
 
 1. **Review the changelog**: Check official Meraki API changelog (e.g., `v1.63.0.md` found at https://raw.githubusercontent.com/CiscoDevNet/Meraki-Portal-What-s-New-Changelog/master/changelog/v1.63.0.md)
 
-2. **Check the OpenApiSpec**: Review the OpenAPI specification for new endpoints and changes - found at https://raw.githubusercontent.com/meraki/openapi/refs/tags/v1.63.0/openapi/spec2.json where v1.63.0 is the version
+2. **Check the OpenApiSpec**: Review the OpenAPI specification for new endpoints and changes - found at https://raw.githubusercontent.com/meraki/openapi/refs/heads/master/openapi/spec3.json
 
 3. **Update models**: Add new properties to existing models or create new models
    - Add properties as nullable unless required
