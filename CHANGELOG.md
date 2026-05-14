@@ -1,5 +1,22 @@
 ﻿# Changelog
 
+## 1.70.0
+
+- Updated models for Meraki Dashboard API `v1.70.0` member-level schema changes
+- Added missing properties:
+  `Client.RecentDeviceId`, `DeviceAppliancePrefixesDelegatedItem.StaticDelegatedPrefixId`,
+  `RoutingInterfaceCreateRequest.Mtu`, `RoutingInterfaceUpdateRequest.Mtu`,
+  `SwitchSettings.PortChannelFallback`, `VlanCreationRequest.Vrf`, and `VlanSpec.Vrf`
+- Added preview-order resolution support with
+  `OrganizationInventoryOrdersPreviewResponse.Resolution` and new
+  `OrganizationInventoryOrdersPreviewResolution` model
+- Added `OrganizationAssuranceAlertNetwork.Url`
+- Updated `StaticRouteCreationRequest.GatewayVlanId` to nullable integer to match
+  API request schema
+- Updated optionality for delegated prefix fields in
+  `NetworkAppliancePrefixesDelegatedStatic` and
+  `DeviceAppliancePrefixesDelegatedItem`
+
 ## 1.67.37
 
 - Added missing model properties from observed API responses: `InventoryDevice.Sku`,

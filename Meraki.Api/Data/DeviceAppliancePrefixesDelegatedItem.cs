@@ -11,7 +11,7 @@ public class DeviceAppliancePrefixesDelegatedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "origin")]
-	public DeviceAppliancePrefixesDelegatedItemOrigin Origin { get; set; } = new();
+	public DeviceAppliancePrefixesDelegatedItemOrigin? Origin { get; set; }
 
 	/// <summary>
 	/// Prefix
@@ -25,7 +25,7 @@ public class DeviceAppliancePrefixesDelegatedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "counts")]
-	public DeviceAppliancePrefixesDelegatedItemCounts Counts { get; set; } = new();
+	public DeviceAppliancePrefixesDelegatedItemCounts? Counts { get; set; }
 
 	/// <summary>
 	/// Method
@@ -39,7 +39,7 @@ public class DeviceAppliancePrefixesDelegatedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "description")]
-	public string Description { get; set; } = string.Empty;
+	public string? Description { get; set; }
 
 	/// <summary>
 	/// Is Preferred
@@ -53,5 +53,12 @@ public class DeviceAppliancePrefixesDelegatedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "expiresAt")]
-	public string ExpiresAt { get; set; } = string.Empty;
+	public string? ExpiresAt { get; set; }
+
+	/// <summary>
+	/// Static delegated prefix id
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "staticDelegatedPrefixId")]
+	public string? StaticDelegatedPrefixId { get; set; }
 }

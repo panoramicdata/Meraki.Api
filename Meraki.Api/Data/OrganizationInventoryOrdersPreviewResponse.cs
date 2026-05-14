@@ -21,6 +21,13 @@ public class OrganizationInventoryOrdersPreviewResponse
 	public string Number { get; set; } = string.Empty;
 
 	/// <summary>
+	/// Resolution metadata for order claim preview routing
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "resolution")]
+	public OrganizationInventoryOrdersPreviewResolution? Resolution { get; set; }
+
+	/// <summary>
 	/// All shipping information for this order
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

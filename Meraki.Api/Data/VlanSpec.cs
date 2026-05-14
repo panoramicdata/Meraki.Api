@@ -125,4 +125,10 @@ public class VlanSpec
 	/// </summary>
 	[DataMember(Name = "mandatoryDhcp")]
 	public MandatoryDhcp? MandatoryDhcp { get; set; }
+
+	/// <summary>
+	/// VRF settings for this VLAN
+	/// </summary>
+	[DataMember(Name = "vrf")]
+	public VlanVrf? Vrf { get; set; }
 }

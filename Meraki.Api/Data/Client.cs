@@ -135,6 +135,12 @@ public class Client : IdentifiedItem
 	public string? RecentDeviceSerial { get; set; }
 
 	/// <summary>
+	/// The recent device id
+	/// </summary>
+	[DataMember(Name = "recentDeviceId")]
+	public string? RecentDeviceId { get; set; }
+
+	/// <summary>
 	/// The status
 	/// </summary>
 	[DataMember(Name = "status")]
