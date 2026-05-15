@@ -341,3 +341,5 @@ tmpclaude-*-cwd
 
 # Tempoarary folder
 tmp/*
+# Local cache files for c# devkit
+*.csproj.lscache
