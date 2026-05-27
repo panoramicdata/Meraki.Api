@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 1.70.5
+
+- Fixed deserialization for camera quality retention profiles by adding
+  `Mv84xResolution.Size1440x1080` mapped to API value `"1440x1080"`
+
 ## 1.70.0
 
 - Updated models for Meraki Dashboard API `v1.70.0` member-level schema changes
