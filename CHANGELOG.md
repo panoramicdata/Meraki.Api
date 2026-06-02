@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 1.70.6
+
+- Added missing `Organization.Privacy` response property with supporting
+  `OrganizationPrivacy` and `OrganizationPrivacyByDefault` models
+
 ## 1.70.5
 
 - Fixed deserialization for camera quality retention profiles by adding

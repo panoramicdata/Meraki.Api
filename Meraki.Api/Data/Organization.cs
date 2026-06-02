@@ -54,4 +54,11 @@ public class Organization : NamedIdentifiedItem
 	[DataMember(Name = "management")]
 	[ApiAccess(ApiAccess.Read)]
 	public OrganizationManagement? Management { get; set; }
+
+	/// <summary>
+	/// Privacy settings
+	/// </summary>
+	[DataMember(Name = "privacy")]
+	[ApiAccess(ApiAccess.Read)]
+	public OrganizationPrivacy? Privacy { get; set; }
 }
