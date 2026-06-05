@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.70.7
+
+- Updated dependencies
+
 ## 1.70.6
 
 - Added missing `Organization.Privacy` response property with supporting
