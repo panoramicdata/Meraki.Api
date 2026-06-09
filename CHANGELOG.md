@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.70.9
+
+- Bumped Refit and Refit.Newtonsoft.Json from 10.2.0 to 11.0.1 to maintain compatibility with consuming projects that have upgraded to Refit 11
+
 ## 1.70.7
 
 - Updated dependencies
