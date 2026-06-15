@@ -184,6 +184,7 @@ public partial class MerakiClient
 		{ "Q3LV", "MS130-48X" },
 		{ "Q3LW", "MS130-8P-I" },
 		{ "Q3NE", "MR46E" },
+		{ "Q3NJ", "MR76" },
 		{ "Q3NM", "MV13" },
 		{ "Q4AA", "MS120-8" },
 		{ "Q4AB", "MS120-8LP" },
