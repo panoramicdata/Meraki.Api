@@ -68,6 +68,7 @@
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="Meraki.Api.NewTest" />
+		<InternalsVisibleTo Include="Meraki.Api.Test" />
 	</ItemGroup>
 
 </Project>

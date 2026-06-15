@@ -1,5 +1,31 @@
 ﻿# Changelog
 
+## 1.70.10
+
+- Rewrote `GetEndOfLifeDetailsAsync` HTML parsing to match the current Meraki
+  End-of-Life products page. The previous parser split the first table cell on
+  spaces, which mangled multi-word product names and invented bogus regions.
+  - `DeviceModelEndOfLifeDetail.DeviceModel` now contains the full product
+    description exactly as published (it previously held only the first
+    space-delimited token).
+  - Added `DeviceModelEndOfLifeDetail.Models`: the individual model identifiers
+    parsed from the row, kept verbatim including the `-HW` suffix. Note: the
+    Dashboard API device model omits `-HW`, so match case-insensitively and allow
+    a trailing `-HW` when relating these to devices.
+  - Added `DeviceModelEndOfLifeDetail.Regions`: the region codes a row applies to
+    (e.g. `US`, `UK`, `EU`, `NA`, `WW`), parsed from a parenthetical list
+    (`GS110-8P (UK)`, `MA-INJ-4-XX (AU, CN, EU, UK, US)`) or a SKU suffix
+    (`GX50-HW-US`). Empty for rows that are not region-specific.
+  - Rejoin a model split across adjacent `<a>` tags (e.g. `MR70` + `-HW` becomes
+    `MR70-HW`).
+  - Expand license SKU shorthand to full SKUs, e.g.
+    `LIC-MI-XS (1D, 1YR, 3YR, 5YR, 7YR, 10YR)` and `LIC-MT-3Y, 5Y, 7Y, 10Y`.
+  - Parse the several published date formats (abbreviated and full month names,
+    missing leading zero, and missing comma); unparseable dates now yield null
+    instead of mangled values.
+  - `DeviceModelEndOfLifeDetail.Region` (legacy single-region string) is retained
+    for compatibility but is no longer populated; use `Regions` instead.
+
 ## 1.70.9
 
 - Bumped Refit and Refit.Newtonsoft.Json from 10.2.0 to 11.0.1 to maintain compatibility with consuming projects that have upgraded to Refit 11

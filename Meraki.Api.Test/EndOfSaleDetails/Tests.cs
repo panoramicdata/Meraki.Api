@@ -1,32 +1,33 @@
-﻿namespace Meraki.Api.Test.EndOfSaleDetails;
+using Meraki.Api;
 
-public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTestOutputHelper)
+namespace Meraki.Api.Test.EndOfSaleDetails;
+
+/// <summary>
+/// Live smoke test that fetches the published Meraki EOL page. It exists to detect when
+/// Meraki change the page structure (which would silently break parsing). Deterministic
+/// parsing behaviour is covered offline by <see cref="ParseEndOfLifeDetailsTests"/>.
+/// </summary>
+public class Tests
 {
 	[Fact]
-	public async Task GetEndOfLifeDetailsAsync_Succeeds()
+	public async Task GetEndOfLifeDetailsAsync_ParsesLivePage()
 	{
 		var details = await MerakiClient
-			.GetEndOfLifeDetailsAsync(cancellationToken: CancellationToken);
+			.GetEndOfLifeDetailsAsync(TestContext.Current.CancellationToken);
 
-		_ = details
-			.Should()
-			.BeOfType<List<DeviceModelEndOfLifeDetail>>();
+		_ = details.Should().NotBeNullOrEmpty();
 
-		_ = details
-			.Should()
-			.NotBeNull();
+		// Every row should yield a product description and a notice URL.
+		_ = details.Should().OnlyContain(d => d.DeviceModel.Length > 0);
+		_ = details.Should().OnlyContain(d => d.EosNoticeUrl.Length > 0);
 
-		// Regions should all have two letters
-		_ = details
-			.Select(x => x.Region)
-			.Where(x => x != null)
-			.Should()
-			.OnlyContain(x => x.Length == 2);
+		// The page should still contain recognisable device models.
+		_ = details.Should().Contain(d => d.Models.Count > 0);
 
-		// Device models should all start with M
+		// Any parsed dates should be expressed at UTC offset zero.
 		_ = details
-			.Select(x => x.DeviceModel)
+			.Where(d => d.EndOfSale is not null)
 			.Should()
-			.OnlyContain(x => x.StartsWith('M'));
+			.OnlyContain(d => d.EndOfSale!.Value.Offset == TimeSpan.Zero);
 	}
 }
