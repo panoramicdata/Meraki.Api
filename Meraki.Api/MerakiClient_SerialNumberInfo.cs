@@ -175,6 +175,7 @@ public partial class MerakiClient
 		{ "Q3LA", "MX95" },
 		{ "Q3LB", "MX105" },
 		{ "Q3LE", "MX75" },
+		{ "Q3LL", "MS130-8" },
 		{ "Q3LM", "MS130-8P" },
 		{ "Q3LN", "MS130-8X" },
 		{ "Q3LP", "MS130-12X" },
@@ -183,9 +184,11 @@ public partial class MerakiClient
 		{ "Q3LU", "MS130-48P" },
 		{ "Q3LV", "MS130-48X" },
 		{ "Q3LW", "MS130-8P-I" },
+		{ "Q3MG", "MS130-48X" },
 		{ "Q3NE", "MR46E" },
 		{ "Q3NJ", "MR76" },
 		{ "Q3NM", "MV13" },
+		{ "Q3PD", "MG52E" },
 		{ "Q4AA", "MS120-8" },
 		{ "Q4AB", "MS120-8LP" },
 		{ "Q4AC", "MS120-8FP" },
@@ -229,6 +232,7 @@ public partial class MerakiClient
 		{ "Q4GG", "MS150-24P" },
 		{ "Q4GJ", "MS150-48LP" },
 		{ "Q4GL", "MS150-24MP" },
+		{ "Q4GX", "MS150-48FP-4X" },
 		{ "Q4GZ", "MS150-48MP-4X" },
 		{ "Q4HF", "MX650" },
 		{ "Q5AA", "CW9162I" },
@@ -251,6 +255,7 @@ public partial class MerakiClient
 		{ "Q5JC", "C9300X-12Y" },
 		{ "Q5JD", "C9300X-24Y" },
 		{ "Q5JG", "C9300L-24P-4X" },
+		{ "Q5JK", "C9300L-48PF-4X" },
 		{ "Q5JM", "C9300X-48HXN" },
 		{ "Q5JQ", "C9300X-48TX" },
 		{ "Q5KA", "C9300-24P" },
@@ -272,7 +277,8 @@ public partial class MerakiClient
 		{ "Q5UB", "C9200L-24P-4X" },
 		{ "Q5UF", "C9200L-48P-4X" },
 		{ "Q5UK", "C9200L-24T-4G" },
-		{ "Q5UL", "C9200L-24P-4G" }
+		{ "Q5UL", "C9200L-24P-4G" },
+		{ "Q5VC", "C9200CX-8UXG-2X" }
 	};
 
 	/// <summary>
