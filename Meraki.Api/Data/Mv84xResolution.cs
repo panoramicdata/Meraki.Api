@@ -13,6 +13,12 @@ public enum Mv84xResolution
 	Size2560x1920,
 
 	/// <summary>
+	/// Enum 1440x1080
+	/// </summary>
+	[EnumMember(Value = "1440x1080")]
+	Size1440x1080,
+
+	/// <summary>
 	/// Enum 1920x1080
 	/// </summary>
 	[EnumMember(Value = "1920x1080")]

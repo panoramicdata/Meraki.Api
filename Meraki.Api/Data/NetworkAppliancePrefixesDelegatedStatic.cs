@@ -40,12 +40,12 @@ public class NetworkAppliancePrefixesDelegatedStatic
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "createdAt")]
-	public DateTime CreatedAt { get; set; }
+	public DateTime? CreatedAt { get; set; }
 
 	/// <summary>
 	/// Prefix Updated time.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "updatedAt")]
-	public DateTime UpdatedAt { get; set; }
+	public DateTime? UpdatedAt { get; set; }
 }

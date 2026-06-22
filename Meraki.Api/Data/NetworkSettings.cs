@@ -55,4 +55,11 @@ public class NetworkSettings
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "namedVlans")]
 	public NetworkSettingsNamedVlans? NamedVlans { get; set; }
+
+	/// <summary>
+	/// Twilio settings
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "twilio")]
+	public NetworkSettingsTwilio? Twilio { get; set; }
 }

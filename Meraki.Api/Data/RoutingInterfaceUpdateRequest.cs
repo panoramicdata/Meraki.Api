@@ -28,6 +28,13 @@ public class RoutingInterfaceUpdateRequest : NamedItem
 	public string? InterfaceIp { get; set; }
 
 	/// <summary>
+	/// The maximum transmission unit for the interface
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "mtu")]
+	public int? Mtu { get; set; }
+
+	/// <summary>
 	/// Switch Port ID when in Routed mode (CS 17.18 or higher required)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

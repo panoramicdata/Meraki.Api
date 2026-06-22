@@ -340,3 +340,10 @@ tmpclaude-*-cwd
 
 # Claude Code local settings
 .claude/settings.local.json
+
+*.code-workspace
+
+# Tempoarary folder
+tmp/*
+# Local cache files for c# devkit
+*.csproj.lscache

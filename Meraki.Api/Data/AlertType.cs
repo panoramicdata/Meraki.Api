@@ -359,4 +359,10 @@ public enum AlertType
 	/// </summary>
 	[EnumMember(Value = "sensorPowerSavingScheduleFailureEvent")]
 	SensorPowerSavingScheduleFailureEvent,
+
+	/// <summary>
+	/// Nat Detection
+	/// </summary>
+	[EnumMember(Value = "natDetection")]
+	NatDetection,
 }

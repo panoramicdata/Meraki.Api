@@ -12,7 +12,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.GetOrganizationApplianceVpnThirdPartyVPNPeersAsync(
 				Configuration.TestOrganizationId,
 				cancellationToken: CancellationToken);
-		_ = result.Should().BeOfType<Data.ThirdPartyVpnPeers>();
+		_ = result.Should().BeOfType<global::Meraki.Api.Data.ThirdPartyVpnPeers>();
 		_ = result.Should().NotBeNull();
 	}
 }

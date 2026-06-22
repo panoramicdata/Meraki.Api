@@ -25,5 +25,5 @@ public class StaticRouteCreationRequest : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "gatewayVlanId")]
-	public string? GatewayVlanId { get; set; } = string.Empty;
+	public int? GatewayVlanId { get; set; }
 }

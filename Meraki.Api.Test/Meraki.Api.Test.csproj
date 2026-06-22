@@ -34,6 +34,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Update="EndOfSaleDetails\meraki-eol-sample.html" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\Meraki.Api\Meraki.Api.csproj" />
 	</ItemGroup>
 

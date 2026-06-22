@@ -5,7 +5,7 @@
 This is the **Meraki.Api** - a .NET client library for the Cisco Meraki Dashboard API. The library provides a strongly-typed C# interface to interact with Meraki cloud-managed network infrastructure.
 
 ### Key Technologies
-- **Target Frameworks**: .NET 9, .NET Standard 2.0
+- **Target Frameworks**: .NET 10, .NET Standard 2.0
 - **HTTP Client**: Refit (declarative REST library)
 - **Serialization**: Newtonsoft.Json
 - **Testing**: xUnit
@@ -14,7 +14,7 @@ This is the **Meraki.Api** - a .NET client library for the Cisco Meraki Dashboar
 ## Project Structure
 
 ### Core Projects
-- **Meraki.Api**: Main client library (multi-targeted: .NET Standard 2.0, .NET 9)
+- **Meraki.Api**: Main client library (multi-targeted: .NET Standard 2.0, .NET 10)
 - **Meraki.Api.Test**: xUnit tests
 - **Meraki.Api.NewTest**: Additional test suite
 - **RefitClassSourceGenerator**: Source generator for Refit interfaces
@@ -27,7 +27,7 @@ This is the **Meraki.Api** - a .NET client library for the Cisco Meraki Dashboar
 
 1. **Follow existing patterns**: This is a mature, established codebase. Study existing code before adding new features.
 
-2. **Multi-targeting**: Remember the library targets both .NET Standard 2.0. Avoid using APIs not available in .NET Standard 2.0.
+2. **Multi-targeting**: Remember the library targets both .NET Standard 2.0 and .NET 10. Avoid using APIs not available in .NET Standard 2.0.
 
 3. **Nullable reference types**: The project uses nullable reference types. Be explicit about nullability.
 
@@ -124,7 +124,7 @@ When updating for new Meraki API versions:
 
 1. **Review the changelog**: Check official Meraki API changelog (e.g., `v1.63.0.md` found at https://raw.githubusercontent.com/CiscoDevNet/Meraki-Portal-What-s-New-Changelog/master/changelog/v1.63.0.md)
 
-2. **Check the OpenApiSpec**: Review the OpenAPI specification for new endpoints and changes - found at https://raw.githubusercontent.com/meraki/openapi/refs/tags/v1.63.0/openapi/spec2.json where v1.63.0 is the version
+2. **Check the OpenApiSpec**: Review the OpenAPI specification for new endpoints and changes - found at https://raw.githubusercontent.com/meraki/openapi/refs/tags/v1.63.0/openapi/spec3.json where v1.63.0 is the version
 
 3. **Update models**: Add new properties to existing models or create new models
    - Add properties as nullable unless required

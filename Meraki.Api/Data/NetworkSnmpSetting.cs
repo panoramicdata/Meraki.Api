@@ -25,4 +25,18 @@ public class NetworkSnmpSetting
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "users")]
 	public List<SnmpUser>? Users { get; set; }
+
+	/// <summary>
+	/// The SNMP authentication settings. Only relevant if 'access' is set to 'users'.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "authentication")]
+	public NetworkSnmpSettingAuthentication? Authentication { get; set; }
+
+	/// <summary>
+	/// The SNMP privacy settings. Only relevant if 'access' is set to 'users'.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "privacy")]
+	public NetworkSnmpSettingPrivacy? Privacy { get; set; }
 }

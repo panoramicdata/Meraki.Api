@@ -66,6 +66,12 @@ public class VlanCreationRequest
 	public VlanIpv6? Ipv6 { get; set; }
 
 	/// <summary>
+	/// VRF settings for this VLAN
+	/// </summary>
+	[DataMember(Name = "vrf")]
+	public VlanVrf? Vrf { get; set; }
+
+	/// <summary>
 	/// Mandatory DHCP will enforce that clients connecting to this VLAN must use the IP address assigned by the DHCP server. Clients who use a static IP address won't be able to associate. Only available on firmware versions 17.0 and above
 	/// </summary>
 	[DataMember(Name = "mandatoryDhcp")]

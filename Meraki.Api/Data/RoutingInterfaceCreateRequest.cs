@@ -28,6 +28,13 @@ public class RoutingInterfaceCreateRequest : NamedItem
 	public string InterfaceIp { get; set; } = string.Empty;
 
 	/// <summary>
+	/// The maximum transmission unit for the interface
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "mtu")]
+	public int? Mtu { get; set; }
+
+	/// <summary>
 	/// Enable multicast support if, multicast routing between VLANs is required. Options are, 'disabled', 'enabled' or 'IGMP snooping querier'.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

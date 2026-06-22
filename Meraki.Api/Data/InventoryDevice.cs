@@ -36,6 +36,13 @@ public class InventoryDevice
 	public string? Model { get; set; }
 
 	/// <summary>
+	/// SKU
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "sku")]
+	public string? Sku { get; set; }
+
+	/// <summary>
 	/// Network ID
 	/// </summary>
 	[ApiForeignKey(typeof(Network))]

@@ -42,6 +42,13 @@ public class SwitchSettings
 	public MacBlockListSettings? MacBlockList { get; set; }
 
 	/// <summary>
+	/// Enable port channel fallback on Catalyst MS switches.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "portChannelFallback")]
+	public bool? PortChannelFallback { get; set; }
+
+	/// <summary>
 	/// Undocumented uacSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
