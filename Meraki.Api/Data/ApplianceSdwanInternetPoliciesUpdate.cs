@@ -11,5 +11,5 @@ public class ApplianceSdwanInternetPoliciesUpdate
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wanTrafficUplinkPreferences")]
-	public List<WanTrafficUplinkPreference>? wanTrafficUplinkPreferences { get; set; }
+	public List<WanTrafficUplinkPreference>? WanTrafficUplinkPreferences { get; set; }
 }

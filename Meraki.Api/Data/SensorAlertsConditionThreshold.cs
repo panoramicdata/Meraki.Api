@@ -102,7 +102,7 @@ public class SensorAlertConditionThreshold
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "upstreamPower")]
-	public SensorAlertConditionThresholdUpstreamPower? upstreamPower { get; set; }
+	public SensorAlertConditionThresholdUpstreamPower? UpstreamPower { get; set; }
 
 	/// <summary>
 	/// Voltage threshold. 'level' must be provided.

@@ -25,5 +25,5 @@ public class ApplianceSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dynamicDns")]
-	public ApplianceSettingsDynamicDns? dynamicDns { get; set; }
+	public ApplianceSettingsDynamicDns? DynamicDns { get; set; }
 }

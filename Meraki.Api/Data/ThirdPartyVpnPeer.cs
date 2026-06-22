@@ -95,7 +95,7 @@ public class ThirdPartyVpnPeer : NamedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "priorityInGroup")]
-	public int? priorityInGroup { get; set; }
+	public int? PriorityInGroup { get; set; }
 
 	/// <summary>
 	/// Undocumented 2025-02-21

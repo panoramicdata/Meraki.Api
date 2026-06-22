@@ -39,5 +39,5 @@ public class Authorization
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "authorizedByEmail")]
-	public string authorizedByEmail { get; set; } = string.Empty;
+	public string AuthorizedByEmail { get; set; } = string.Empty;
 }

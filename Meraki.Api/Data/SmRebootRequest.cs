@@ -16,13 +16,13 @@ public class SmRebootRequest
 	/// Whether or not to rebuild the kernel cache when rebooting the endpoint. Available for macOS 11+
 	/// </summary>
 	[DataMember(Name = "rebuildKernelCache")]
-	public bool? rebuildKernelCache { get; set; }
+	public bool? RebuildKernelCache { get; set; }
 
 	/// <summary>
 	/// Whether or not the request requires network tethering. Available for macOS and supervised iOS or tvOS
 	/// </summary>
 	[DataMember(Name = "rebuildRequiresNetworkTether")]
-	public bool? rebuildRequiresNetworkTether { get; set; }
+	public bool? RebuildRequiresNetworkTether { get; set; }
 
 	/// <summary>
 	/// The ids of the endpoints to be rebooted.

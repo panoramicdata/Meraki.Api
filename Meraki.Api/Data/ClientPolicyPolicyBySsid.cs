@@ -25,5 +25,5 @@ public class ClientPolicyPolicyBySsid
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "groupPolicyId")]
-	public string groupPolicyId { get; set; } = string.Empty;
+	public string GroupPolicyId { get; set; } = string.Empty;
 }

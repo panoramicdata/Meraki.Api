@@ -9,7 +9,7 @@ public class ClientOverview
 	/// Usage
 	/// </summary>
 	[DataMember(Name = "usage")]
-	public ClientOverviewUsage usage { get; set; } = new();
+	public ClientOverviewUsage Usage { get; set; } = new();
 
 	/// <summary>
 	/// Counts

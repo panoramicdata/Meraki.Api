@@ -26,7 +26,7 @@ public class LiveToolsPingCreateCallback
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "httpServer")]
-	public LiveToolsPingCallbackHttpServer? httpServer { get; set; } = new();
+	public LiveToolsPingCallbackHttpServer? HttpServer { get; set; } = new();
 
 	/// <summary>
 	/// The ID of the payload template. Defaults to 'wpt_00005' for the Callback (included) template.

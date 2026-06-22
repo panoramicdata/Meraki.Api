@@ -28,5 +28,5 @@ public class DeviceLiveToolsCyclePortCreateRequestCallback
 	/// The payload template of the webhook used for the callback
 	/// </summary>
 	[DataMember(Name = "payloadTemplate")]
-	public DeviceLiveToolsCyclePortCreateRequestCallbackPayloadtemplate? payloadTemplate { get; set; }
+	public DeviceLiveToolsCyclePortCreateRequestCallbackPayloadtemplate? PayloadTemplate { get; set; }
 }

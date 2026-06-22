@@ -34,7 +34,7 @@ public class LinkLayerNodeDiscoveredLldp
 	/// Management address
 	/// </summary>
 	[DataMember(Name = "managementAddress")]
-	public string managementAddress { get; set; } = string.Empty;
+	public string ManagementAddress { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Port id

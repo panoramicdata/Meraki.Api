@@ -60,7 +60,7 @@ public class ThirdPartyVpnPeerEbgpNeighbor
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "neighborIp")]
-	public string? neighborIp { get; set; }
+	public string? NeighborIp { get; set; }
 
 	/// <summary>
 	/// Source IP of eBGP neighbor
@@ -77,5 +77,5 @@ public class ThirdPartyVpnPeerEbgpNeighbor
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "pathPrepend")]
-	public List<int>? pathPrepend { get; set; }
+	public List<int>? PathPrepend { get; set; }
 }

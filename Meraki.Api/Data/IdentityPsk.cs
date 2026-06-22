@@ -39,5 +39,5 @@ public class IdentityPsk : NamedIdentifiedItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "expiresAt")]
-	public DateTime? expiresAt { get; set; }
+	public DateTime? ExpiresAt { get; set; }
 }

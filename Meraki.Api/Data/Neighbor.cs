@@ -95,7 +95,7 @@ public class Neighbor
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ttlSecurity")]
-	public NeighborTtlSecurity? ttlSecurity { get; set; }
+	public NeighborTtlSecurity? TtlSecurity { get; set; }
 
 	/// <summary>
 	/// Authentication settings between BGP peers.
