@@ -67,5 +67,5 @@ public class Radius
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "suspendReAuthentication")]
-	public bool? suspendReAuthentication { get; set; }
+	public bool? SuspendReAuthentication { get; set; }
 }

@@ -25,7 +25,7 @@ public class IpsecPolicies
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ikePrfAlgo")]
-	public List<string>? ikePrfAlgo { get; set; }
+	public List<string>? IkePrfAlgo { get; set; }
 
 	/// <summary>
 	/// This is the Diffie-Hellman group to be used in Phase 1. The value should be an array with one of the following algorithms: 'group14', 'group5', 'group2', 'group1'

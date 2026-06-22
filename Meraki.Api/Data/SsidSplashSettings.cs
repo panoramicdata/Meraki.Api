@@ -117,7 +117,7 @@ public class SsidSplashSettings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "sentryEnrollment")]
-	public SentryEnrollment? sentryEnrollment { get; set; }
+	public SentryEnrollment? SentryEnrollment { get; set; }
 
 	/// <summary>
 	/// The image used in the splash page.

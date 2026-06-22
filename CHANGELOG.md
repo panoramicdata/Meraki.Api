@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## 1.70.21
+
+- **Breaking:** Renamed all remaining camelCase public properties in
+  `Meraki.Api.Data` to PascalCase. The JSON wire format is unchanged (each
+  keeps its `[DataMember(Name = "...")]`); only code referencing these
+  properties by their old camelCase C# name needs updating.
+- Removed the now-redundant `IDE1006` naming suppression and a stale `CA1848`
+  one, dropped some dead commented-out code, and documented the DTO naming
+  convention in `CONTRIBUTING.md`.
+
 ## 1.70.10
 
 - Rewrote `GetEndOfLifeDetailsAsync` HTML parsing to match the current Meraki

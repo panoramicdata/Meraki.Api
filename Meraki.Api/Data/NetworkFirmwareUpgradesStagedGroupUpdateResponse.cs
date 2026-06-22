@@ -32,7 +32,7 @@ public class NetworkFirmwareUpgradesStagedGroupUpdateResponse
 	/// </summary>
 	[DataMember(Name = "isDefault")]
 	[ApiAccess(ApiAccess.Read)]
-	public bool? isDefault { get; set; }
+	public bool? IsDefault { get; set; }
 
 	/// <summary>
 	/// The devices and Switch Stacks assigned to the Group

@@ -29,5 +29,5 @@ public class SsidsStatusesByDeviceItem
 	/// Status information for wireless access points.
 	/// </summary>
 	[DataMember(Name = "basicServiceSets")]
-	public List<SsidsStatusesByDeviceItemBasicServiceSet> basicServiceSets { get; set; } = [];
+	public List<SsidsStatusesByDeviceItemBasicServiceSet> BasicServiceSets { get; set; } = [];
 }

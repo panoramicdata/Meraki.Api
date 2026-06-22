@@ -11,5 +11,5 @@ public class TrustedServerIpv4
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "address")]
-	public string? address { get; set; }
+	public string? Address { get; set; }
 }
