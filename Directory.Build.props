@@ -8,5 +8,6 @@
     <Nullable>enable</Nullable>
     <NuGetAuditMode>All</NuGetAuditMode>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
 </Project>
