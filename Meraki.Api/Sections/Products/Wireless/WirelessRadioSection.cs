@@ -10,4 +10,10 @@ public class WirelessRadioSection
 	/// </summary>
 
 	public IWirelessRadioSettings Settings { get; internal set; } = null!;
+
+	/// <summary>
+	/// Return RF health metrics, by network, over time
+	/// </summary>
+
+	public IWirelessRadioRfHealth RfHealth { get; internal set; } = null!;
 }

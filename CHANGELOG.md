@@ -1,5 +1,18 @@
 ﻿# Changelog
 
+## 1.70.33
+
+- Added `MerakiClient.Wireless.Radio.RfHealth.GetOrganizationWirelessRadioRfHealthOverviewByNetworkByIntervalAsync`,
+  covering `GET /organizations/{organizationId}/wireless/radio/rfHealth/overview/byNetwork/byInterval`.
+  Returns RF health score, high co-channel interference percentage, and channel
+  change count, broken down by network, band and time interval.
+  - Confirmed against the live API: `timespan` is capped at exactly `2629746`
+    seconds (one second over returns a 400), and `interval` only accepts `7200`
+    or `86400` (any other value returns a 400). If `interval` is omitted, the
+    server silently widens its default bucket size from 7200 to 86400 once the
+    requested timespan is large enough - pass `interval` explicitly for a
+    predictable bucket size.
+
 ## 1.70.21
 
 - **Breaking:** Renamed all remaining camelCase public properties in

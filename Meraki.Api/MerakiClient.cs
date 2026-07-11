@@ -531,7 +531,8 @@ public partial class MerakiClient : IDisposable
 			MeshStatuses = RefitFor(Wireless.MeshStatuses),
 			Radio = new()
 			{
-				Settings = RefitFor(Wireless.Radio.Settings)
+				Settings = RefitFor(Wireless.Radio.Settings),
+				RfHealth = RefitFor(Wireless.Radio.RfHealth)
 			},
 			RfProfiles = RefitFor(Wireless.RfProfiles),
 			Settings = RefitFor(Wireless.Settings),
