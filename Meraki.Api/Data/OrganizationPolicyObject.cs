@@ -60,7 +60,8 @@ public class OrganizationPolicyObject : NamedIdentifiedItem
 	/// Networkd Ids
 	/// </summary>
 	[DataMember(Name = "networkIds")]
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
+	[ApiForeignKey(typeof(Network))]
 	public List<string>? NetworkIds { get; set; }
 
 	/// <summary>
