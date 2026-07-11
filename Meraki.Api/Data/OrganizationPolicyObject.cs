@@ -61,6 +61,7 @@ public class OrganizationPolicyObject : NamedIdentifiedItem
 	/// </summary>
 	[DataMember(Name = "networkIds")]
 	[ApiAccess(ApiAccess.Read)]
+	[ApiForeignKey(typeof(Network))]
 	public List<string>? NetworkIds { get; set; }
 
 	/// <summary>
