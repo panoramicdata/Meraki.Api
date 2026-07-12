@@ -18,6 +18,11 @@ namespace RefitClassSourceGenerator;
 [Generator]
 public class RefitClassGenerator : IIncrementalGenerator
 {
+	/// <summary>
+	/// Registers the incremental generation pipeline that discovers eligible Refit-backed properties
+	/// and emits the promoted method implementations onto their containing classes.
+	/// </summary>
+	/// <param name="context">The initialization context used to register the generator's providers and outputs.</param>
 	public void Initialize(IncrementalGeneratorInitializationContext context)
 	{
 		// Find all properties with the RefitPromoteCalls attribute

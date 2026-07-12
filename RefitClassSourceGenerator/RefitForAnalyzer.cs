@@ -7,9 +7,16 @@ using System.Collections.Immutable;
 
 namespace RefitClassSourceGenerator;
 
+/// <summary>
+/// Analyzer that reports REFIT003 when a non-interface type is passed to <c>RefitFor</c>,
+/// which is only valid with interface types.
+/// </summary>
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class RefitForAnalyzer : DiagnosticAnalyzer
 {
+	/// <summary>
+	/// The diagnostic identifier raised by this analyzer.
+	/// </summary>
 	public const string DiagnosticId = "REFIT003";
 
 	private static readonly LocalizableString _title = "RefitFor parameter must be an interface";
@@ -26,8 +33,15 @@ public class RefitForAnalyzer : DiagnosticAnalyzer
 		isEnabledByDefault: true,
 		description: _description);
 
+	/// <summary>
+	/// Gets the set of diagnostics this analyzer can produce.
+	/// </summary>
 	public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => [_rule];
 
+	/// <summary>
+	/// Configures the analyzer and registers the syntax-node action that inspects <c>RefitFor</c> invocations.
+	/// </summary>
+	/// <param name="context">The analysis context used to register actions and configure execution.</param>
 	public override void Initialize(AnalysisContext context)
 	{
 		context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);

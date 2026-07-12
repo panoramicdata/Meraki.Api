@@ -7,13 +7,29 @@ using System.Collections.Immutable;
 using System.Composition;
 
 namespace RefitClassSourceGenerator;
+
+/// <summary>
+/// Code fix provider for REFIT001, which adds the required <c>AliasAs</c> attribute (with the
+/// parameter name followed by <c>[]</c>) to <see cref="List{T}"/> parameters on Refit GET methods.
+/// </summary>
 [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(CodeFixProviderRefit001)), Shared]
 public class CodeFixProviderRefit001 : CodeFixProvider
 {
+	/// <summary>
+	/// The diagnostic identifiers this provider can fix, namely REFIT001.
+	/// </summary>
 	public sealed override ImmutableArray<string> FixableDiagnosticIds => ["REFIT001"];
 
+	/// <summary>
+	/// Gets the fix-all provider, allowing this fix to be applied in batch across a document, project or solution.
+	/// </summary>
+	/// <returns>The <see cref="WellKnownFixAllProviders.BatchFixer"/>.</returns>
 	public sealed override FixAllProvider GetFixAllProvider() => WellKnownFixAllProviders.BatchFixer;
 
+	/// <summary>
+	/// Registers the code action that adds the missing <c>AliasAs</c> attribute for the reported REFIT001 diagnostic.
+	/// </summary>
+	/// <param name="context">The context supplying the document, diagnostics and cancellation token for the fix.</param>
 	public sealed override async Task RegisterCodeFixesAsync(CodeFixContext context)
 	{
 		var root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);

@@ -6,6 +6,11 @@ using System.Collections.Immutable;
 
 namespace RefitClassSourceGenerator;
 
+/// <summary>
+/// Analyzer for Meraki Refit interface GET methods that enforces correct <c>AliasAs</c> usage:
+/// REFIT001 requires an <c>AliasAs</c> attribute (name followed by <c>[]</c>) on <see cref="List{T}"/>
+/// parameters, and REFIT002 flags an <c>AliasAs</c> attribute present on a non-<see cref="List{T}"/> parameter.
+/// </summary>
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
 public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 {
@@ -35,8 +40,15 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 		isEnabledByDefault: true,
 		description: _removeAliasAsRule_Description);
 
+	/// <summary>
+	/// Gets the set of diagnostics this analyzer can produce (REFIT001 and REFIT002).
+	/// </summary>
 	public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => [_requireListParameterRule, _removeAliasAsRule];
 
+	/// <summary>
+	/// Configures the analyzer and registers the syntax-node action that inspects Refit method declarations.
+	/// </summary>
+	/// <param name="context">The analysis context used to register actions and configure execution.</param>
 	public override void Initialize(AnalysisContext context)
 	{
 		context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);

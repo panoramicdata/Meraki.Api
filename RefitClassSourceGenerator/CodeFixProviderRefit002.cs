@@ -7,13 +7,29 @@ using System.Collections.Immutable;
 using System.Composition;
 
 namespace RefitClassSourceGenerator;
+
+/// <summary>
+/// Code fix provider for REFIT002, which removes an <c>AliasAs</c> attribute from a parameter that
+/// is not of type <see cref="List{T}"/> and therefore should not carry one.
+/// </summary>
 [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(CodeFixProviderRefit002)), Shared]
 public class CodeFixProviderRefit002 : CodeFixProvider
 {
+	/// <summary>
+	/// The diagnostic identifiers this provider can fix, namely REFIT002.
+	/// </summary>
 	public sealed override ImmutableArray<string> FixableDiagnosticIds => ["REFIT002"];
 
+	/// <summary>
+	/// Gets the fix-all provider, allowing this fix to be applied in batch across a document, project or solution.
+	/// </summary>
+	/// <returns>The <see cref="WellKnownFixAllProviders.BatchFixer"/>.</returns>
 	public sealed override FixAllProvider GetFixAllProvider() => WellKnownFixAllProviders.BatchFixer;
 
+	/// <summary>
+	/// Registers the code action that removes the offending <c>AliasAs</c> attribute for the reported REFIT002 diagnostic.
+	/// </summary>
+	/// <param name="context">The context supplying the document, diagnostics and cancellation token for the fix.</param>
 	public sealed override async Task RegisterCodeFixesAsync(CodeFixContext context)
 	{
 		var root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);

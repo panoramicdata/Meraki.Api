@@ -9,6 +9,8 @@
 		<IsPackable>false</IsPackable>
 		<IsTestProject>true</IsTestProject>
 		<OutputType>Exe</OutputType>
+		<!-- Non-shipping project: no public API to document -->
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

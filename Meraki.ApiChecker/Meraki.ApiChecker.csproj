@@ -8,6 +8,8 @@
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<AnalysisMode>All</AnalysisMode>
+		<!-- Non-shipping project: no public API to document -->
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
