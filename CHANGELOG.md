@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.70.38
+## 1.70.37
 
 - Surfaced `MerakiClient.Wireless.DataRateHistory.GetNetworkWirelessDataRateHistoryAsync`,
   covering `GET /networks/{networkId}/wireless/dataRateHistory`. Returns the average,
