@@ -524,6 +524,7 @@ public partial class MerakiClient : IDisposable
 				PacketLoss = RefitFor(Wireless.Devices.PacketLoss),
 			},
 			ConnectionStats = RefitFor(Wireless.ConnectionStats),
+			DataRateHistory = RefitFor(Wireless.DataRateHistory),
 			EthernetPortsProfile = RefitFor(Wireless.EthernetPortsProfile),
 			FailedConnections = RefitFor(Wireless.FailedConnections),
 			LatencyHistory = RefitFor(Wireless.LatencyHistory),

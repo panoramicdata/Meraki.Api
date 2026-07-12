@@ -45,6 +45,12 @@ public class WirelessSection
 	/// </summary>
 
 	public IWirelessConnectionStats ConnectionStats { get; internal set; } = null!;
+
+	/// <summary>
+	/// Return PHY data rates over time for a network, device, or network client
+	/// </summary>
+	public IWirelessDataRateHistory DataRateHistory { get; internal set; } = null!;
+
 	/// <summary>
 	/// Return a single device
 	/// </summary>

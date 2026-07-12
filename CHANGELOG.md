@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## 1.70.38
+
+- Surfaced `MerakiClient.Wireless.DataRateHistory.GetNetworkWirelessDataRateHistoryAsync`,
+  covering `GET /networks/{networkId}/wireless/dataRateHistory`. Returns the average,
+  download and upload PHY data rates (Kbps) over time for a network, bucketed by time
+  interval, with optional `band` (`2.4`/`5`/`6`) and `ssid` filters. The
+  `IWirelessDataRateHistory` interface already existed but was not exposed on
+  `WirelessSection`; this wires it up so it is reachable via the client.
+  - Confirmed against the live API.
+
 ## 1.70.33
 
 - Added `MerakiClient.Wireless.Radio.RfHealth.GetOrganizationWirelessRadioRfHealthOverviewByNetworkByIntervalAsync`,
