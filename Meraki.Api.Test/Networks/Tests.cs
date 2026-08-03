@@ -212,7 +212,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		_ = updatedVlan.Should().NotBeNull();
 
 		//--- Claim/Remove device
-		await TestMerakiClient
+		_ = await TestMerakiClient
 			.Networks
 			.Devices
 			.ClaimNetworkDevicesAsync(newNetwork.Id, true, new DeviceClaimRequest { Serials = [Configuration.TestDeviceSerial] }, cancellationToken: CancellationToken);

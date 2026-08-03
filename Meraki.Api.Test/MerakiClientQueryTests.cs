@@ -17,38 +17,38 @@ public class MerakiClientQueryTests
 	public void BuildRequestUri_PreservesApiV1SegmentAndCombinesPath(string baseAddress, string path, string expected)
 	{
 		var uri = MerakiClient.BuildRequestUri(new Uri(baseAddress), path);
-		uri.AbsoluteUri.Should().Be(expected);
+		_ = uri.AbsoluteUri.Should().Be(expected);
 	}
 
 	[Fact]
 	public void GetNextPageUri_WithRelNext_ReturnsAbsoluteNextUriWithCursor()
 	{
 		using var response = new HttpResponseMessage();
-		response.Headers.TryAddWithoutValidation(
+		_ = response.Headers.TryAddWithoutValidation(
 			"Link",
 			"<https://api.meraki.com/api/v1/organizations/123/devices?perPage=1000&startingAfter=Q2XX>; rel=next");
 
 		var next = MerakiClient.GetNextPageUri(response.Headers);
 
-		next.Should().NotBeNull();
-		System.Web.HttpUtility.ParseQueryString(next!.Query).Get("startingAfter").Should().Be("Q2XX");
+		_ = next.Should().NotBeNull();
+		_ = System.Web.HttpUtility.ParseQueryString(next!.Query).Get("startingAfter").Should().Be("Q2XX");
 	}
 
 	[Fact]
 	public void GetNextPageUri_WithFirstAndPrevButNoNext_ReturnsNull()
 	{
 		using var response = new HttpResponseMessage();
-		response.Headers.TryAddWithoutValidation(
+		_ = response.Headers.TryAddWithoutValidation(
 			"Link",
 			"<https://api.meraki.com/api/v1/x?startingAfter=A>; rel=first, <https://api.meraki.com/api/v1/x?endingBefore=B>; rel=prev");
 
-		MerakiClient.GetNextPageUri(response.Headers).Should().BeNull();
+		_ = MerakiClient.GetNextPageUri(response.Headers).Should().BeNull();
 	}
 
 	[Fact]
 	public void GetNextPageUri_WithNoLinkHeader_ReturnsNull()
 	{
 		using var response = new HttpResponseMessage();
-		MerakiClient.GetNextPageUri(response.Headers).Should().BeNull();
+		_ = MerakiClient.GetNextPageUri(response.Headers).Should().BeNull();
 	}
 }

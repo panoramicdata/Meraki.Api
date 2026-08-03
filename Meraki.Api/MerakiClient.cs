@@ -143,6 +143,13 @@ public partial class MerakiClient : IDisposable
 				}
 			},
 			ApiRequests = RefitFor(Organizations.ApiRequests),
+			Appliance = new()
+			{
+				Uplinks = new()
+				{
+					Usage = RefitFor(Organizations.Appliance.Uplinks.Usage)
+				}
+			},
 			ApplianceSecurityEvents = RefitFor(Organizations.ApplianceSecurityEvents),
 			AssuranceAlerts = RefitFor(Organizations.AssuranceAlerts),
 			BrandingPolicies = new()
@@ -239,7 +246,8 @@ public partial class MerakiClient : IDisposable
 			Splash = RefitFor(Organizations.Splash),
 			Summary = new()
 			{
-				Top = RefitFor(Organizations.Summary.Top)
+				Top = RefitFor(Organizations.Summary.Top),
+				SwitchPower = RefitFor(Organizations.Summary.SwitchPower)
 			},
 			Switches = RefitFor(Organizations.Switches),
 			SwitchPortsOverview = RefitFor(Organizations.SwitchPortsOverview),
@@ -250,6 +258,15 @@ public partial class MerakiClient : IDisposable
 				Logs = RefitFor(Organizations.Webhooks.Logs),
 				PayloadTemplates = RefitFor(Organizations.Webhooks.PayloadTemplates),
 				HttpServers = RefitFor(Organizations.Webhooks.HttpServers)
+			},
+			Wireless = new()
+			{
+				Devices = new()
+				{
+					ChannelUtilization = RefitFor(Organizations.Wireless.Devices.ChannelUtilization),
+					Latency = RefitFor(Organizations.Wireless.Devices.Latency),
+					PacketLoss = RefitFor(Organizations.Wireless.Devices.PacketLoss)
+				}
 			}
 		};
 
