@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.70.42
+## 1.70.45
 
 - Fixed several organization-level Refit clients being left `null` by the `MerakiClient`
   constructor, which threw `NullReferenceException` on first use
