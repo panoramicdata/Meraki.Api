@@ -1,5 +1,22 @@
 ﻿# Changelog
 
+## 1.70.42
+
+- Fixed several organization-level Refit clients being left `null` by the `MerakiClient`
+  constructor, which threw `NullReferenceException` on first use
+  (issue [#337](https://github.com/panoramicdata/Meraki.Api/issues/337)):
+  - `Organizations.Summary.SwitchPower`
+  - `Organizations.Appliance.Uplinks.Usage`
+  - `Organizations.Wireless.Devices.Latency`
+  - `Organizations.Wireless.Devices.PacketLoss`
+  - `Organizations.Wireless.Devices.ChannelUtilization`
+- Fixed `IOrganizationsWirelessDevicesChannelUtilization`, which Refit could not build at
+  all: all four methods spelled the parameter `orgnanizationId` while the route templates
+  used `{organizationId}`, so `RestService.For<T>()` threw
+  `ArgumentException: ... has parameter organizationid, but no method parameter matches`.
+  The parameter is now `organizationId` throughout. Callers using named arguments would
+  need to update, but the interface could not be constructed before this fix.
+
 ## 1.70.37
 
 - Surfaced `MerakiClient.Wireless.DataRateHistory.GetNetworkWirelessDataRateHistoryAsync`,
