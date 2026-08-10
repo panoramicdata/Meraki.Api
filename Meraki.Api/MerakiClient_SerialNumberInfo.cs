@@ -200,6 +200,7 @@ public partial class MerakiClient
 		{ "Q4AT", "MS210-48" },
 		{ "Q4AU", "MS210-48LP" },
 		{ "Q4AV", "MS210-48FP" },
+		{ "Q4BG", "MS390-48U" },
 		{ "Q4BJ", "MS390-48UX2" },
 		{ "Q4BF", "MS390-48P" },
 		{ "Q4CB", "MS130-8P" },
