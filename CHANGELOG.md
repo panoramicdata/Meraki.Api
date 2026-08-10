@@ -1,5 +1,23 @@
 ﻿# Changelog
 
+## Unreleased
+
+- Added first-class support for the **Cisco Meraki MCP server**
+  (issue [#365](https://github.com/panoramicdata/Meraki.Api/issues/365)).
+  - New `MerakiMcpClient` with typed `SemanticSearchAsync`, `ExecuteApiAsync` and
+    `GetStatusAsync` operations, wrapping the server's `semantic_search` and `execute_api` tools.
+  - All three deployments supported: the Cisco-hosted server at `https://mcp.meraki.com/mcp`,
+    a self-hosted instance over HTTP, and a self-hosted instance launched over stdio.
+  - Retry, `Retry-After` handling and exponential back-off mirroring `MerakiClient`, plus
+    `MerakiMcpClientStatistics`.
+  - A dedicated exception taxonomy distinguishing invalid credentials (401) from unauthorised
+    organizations (403), tool-catalogue drift, rate limiting, transport failure and protocol errors.
+  - Guard rails: hosted transport rejects non-default `ApiRegion` (the hosted server supports
+    Meraki.com only), and `ExecuteApiAsync` refuses non-read capabilities because the MCP server
+    is read-only by design. Mutations remain the job of `MerakiClient`.
+  - **The MCP types are compiled for `net10.0` only.** The `netstandard2.0` target's public
+    surface and dependency graph are unchanged.
+
 ## 1.70.45
 
 - Fixed several organization-level Refit clients being left `null` by the `MerakiClient`

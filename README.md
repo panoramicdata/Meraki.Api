@@ -15,6 +15,77 @@ See the [contribution guide](CONTRIBUTING.md) for more information regarding con
 * how to use the library
 * all methods and properties
 
+## MCP server support
+
+In addition to the REST client, this package can act as a client for the
+[Cisco Meraki MCP server](https://developer.cisco.com/meraki/api-v1/mcp-server/), letting an agent
+you build search the Meraki Dashboard API capability catalogue in natural language and execute the
+capability it selects.
+
+The MCP types target `net10.0` only. The `netstandard2.0` target is unchanged.
+
+```csharp
+using Meraki.Api.Mcp;
+
+// The Cisco-hosted server (the default).
+await using var client = new MerakiMcpClient(new MerakiMcpClientOptions
+{
+    ApiKey = merakiDashboardApiKey
+});
+
+var capabilities = await client.SemanticSearchAsync("which clients are on this network?");
+
+var result = await client.ExecuteApiAsync(
+    capabilities[0].CapabilityId,
+    new Dictionary<string, object?> { ["networkId"] = "N_123" });
+```
+
+A self-hosted instance of the
+[open-source server](https://github.com/CiscoDevNet/cisco-meraki-mcp-official) over HTTP:
+
+```csharp
+await using var client = new MerakiMcpClient(new MerakiMcpClientOptions
+{
+    Transport = MerakiMcpTransport.LocalHttp,
+    Uri = "http://localhost:8080/mcp",
+    ApiKey = merakiDashboardApiKey,
+    ApiRegion = ApiRegion.Government
+});
+```
+
+Or launched as a child process over stdio:
+
+```csharp
+var options = new MerakiMcpClientOptions
+{
+    Transport = MerakiMcpTransport.Stdio,
+    Command = "npx",
+    ApiKey = merakiDashboardApiKey
+};
+options.Arguments.Add("cisco-meraki-mcp-official");
+
+await using var client = new MerakiMcpClient(options);
+```
+
+Use `GetStatusAsync()` for a non-destructive connectivity and credential check.
+
+### Limitations
+
+These come from Cisco's own documentation, and are worth reading before you design around the server:
+
+- **The server is in beta**, and Cisco documents that breaking changes are possible.
+- **Operations are read-only.** `execute_api` cannot mutate anything. Use `MerakiClient` for writes;
+  `ExecuteApiAsync` refuses non-read capabilities rather than letting you discover this at runtime.
+- **Authentication is by API key only.** OAuth is not yet supported.
+- **The hosted server supports Meraki.com environments only** — not Federal, GovCloud, or localised
+  instances. Those require a self-hosted server, so `MerakiMcpTransport.HostedHttp` rejects a
+  non-default `ApiRegion`.
+- **Six static egress IP addresses** may require allowlisting for the hosted server. They are listed
+  on `MerakiMcpTransportException.HostedEgressIpAddresses`, and named in the exception message when a
+  connection times out.
+- **Rate limits are shared.** The server respects the Dashboard limit of 10 requests per second per
+  organization, and that budget is shared with any `MerakiClient` traffic in the same process.
+
 ## API Documentation
 
 The Meraki API documentation can be found here:

@@ -47,6 +47,19 @@
 		<PackageReference Include="Refit.Newtonsoft.Json" />
 	</ItemGroup>
 
+	<!--
+		MCP client support requires the ModelContextProtocol SDK, which in turn requires net8.0 or later.
+		The Mcp folder is therefore compiled only for net10.0, leaving the netstandard2.0 public surface
+		and dependency graph completely untouched. See https://github.com/panoramicdata/Meraki.Api/issues/365
+	-->
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<Compile Remove="Mcp\**\*.cs" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+		<PackageReference Include="ModelContextProtocol.Core" />
+	</ItemGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\RefitClassSourceGenerator\RefitClassSourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
