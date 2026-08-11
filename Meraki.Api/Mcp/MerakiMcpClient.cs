@@ -186,6 +186,7 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			{
 				CapabilityId = capabilityId,
 				RawJson = rawJson,
+				DataJson = TryUnwrapData(rawJson, out var dataJson) ? dataJson : null,
 				Text = response.Text
 			};
 	}
@@ -428,6 +429,50 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 		return new MerakiMcpProtocolException(
 			$"The Meraki MCP server failed while {activity}: {exception.Message}",
 			exception);
+	}
+
+	/// <summary>
+	/// Unwraps the Meraki Dashboard payload from the MCP server's response envelope.
+	/// </summary>
+	/// <remarks>
+	/// The server returns <c>{"result":{"type":"success","capability_id":"...","data": ... }}</c>.
+	/// Callers want the <c>data</c> element, because that is the shape the equivalent REST call
+	/// returns. Returns false when no envelope is recognised, in which case the raw JSON is already
+	/// the payload.
+	/// </remarks>
+	internal static bool TryUnwrapData(string? json, out string dataJson)
+	{
+		dataJson = string.Empty;
+
+		if (string.IsNullOrWhiteSpace(json))
+		{
+			return false;
+		}
+
+		JToken token;
+		try
+		{
+			token = JToken.Parse(json!);
+		}
+		catch (JsonException)
+		{
+			return false;
+		}
+
+		if (token is not JObject root || root["result"] is not JObject result)
+		{
+			return false;
+		}
+
+		var data = result["data"];
+
+		if (data is null || data.Type == JTokenType.Null)
+		{
+			return false;
+		}
+
+		dataJson = data.ToString(Formatting.None);
+		return true;
 	}
 
 	/// <summary>

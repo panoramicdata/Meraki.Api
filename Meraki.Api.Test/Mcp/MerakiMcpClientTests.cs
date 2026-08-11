@@ -524,6 +524,105 @@ public class MerakiMcpClientTests
 		result.RawJson.Should().Contain("Q2QN");
 	}
 
+	// ---------------------------------------------------------------- envelope unwrapping
+	//
+	// Successful responses are wrapped as {"result":{"type":"success","capability_id":...,"data":...}}.
+	// Observed against the live server; the envelope below is the shape it actually returned.
+
+	[Fact]
+	public async Task ExecuteApiAsync_UnwrapsTheDataElementFromTheSuccessEnvelope()
+	{
+		var session = new FakeMerakiMcpSession
+		{
+			OnCallTool = (_, _, _) => Task.FromResult(new MerakiMcpToolResponse(
+				false,
+				null,
+				"""
+				{"result":{"type":"success","capability_id":"getOrganizationSwitchPortsClientsOverviewByDevice","product":"switch","data":{"items":[{"serial":"Q4AA-FWF6-VWK6","model":"MS120-8"}]}}}
+				"""))
+		};
+
+		using var client = Create(session);
+
+		var result = await client.ExecuteApiAsync("getOrganizationSwitchPortsClientsOverviewByDevice", cancellationToken: TestContext.Current.CancellationToken);
+
+		// The envelope is preserved for anyone who wants it...
+		result.RawJson.Should().Contain("\"type\":\"success\"");
+
+		// ...but the payload is the data element alone, matching the REST shape.
+		result.DataJson.Should().Be("""{"items":[{"serial":"Q4AA-FWF6-VWK6","model":"MS120-8"}]}""");
+		result.Payload.Should().Be(result.DataJson);
+	}
+
+	[Fact]
+	public async Task ExecuteApiAsync_DeserializesTheUnwrappedPayload()
+	{
+		var session = new FakeMerakiMcpSession
+		{
+			OnCallTool = (_, _, _) => Task.FromResult(new MerakiMcpToolResponse(
+				false,
+				null,
+				"""{"result":{"type":"success","data":{"serial":"Q4AA-FWF6-VWK6"}}}"""))
+		};
+
+		using var client = Create(session);
+
+		var result = await client.ExecuteApiAsync("getDevice", cancellationToken: TestContext.Current.CancellationToken);
+
+		result.Deserialize<DeviceStub>()!.Serial.Should().Be("Q4AA-FWF6-VWK6");
+	}
+
+	[Fact]
+	public async Task ExecuteApiAsync_WithNoEnvelope_LeavesTheRawJsonAsThePayload()
+	{
+		var session = new FakeMerakiMcpSession
+		{
+			OnCallTool = (_, _, _) => Task.FromResult(new MerakiMcpToolResponse(false, null, """{"serial":"Q4AA-FWF6-VWK6"}"""))
+		};
+
+		using var client = Create(session);
+
+		var result = await client.ExecuteApiAsync("getDevice", cancellationToken: TestContext.Current.CancellationToken);
+
+		result.DataJson.Should().BeNull();
+		result.Payload.Should().Be(result.RawJson);
+		result.Deserialize<DeviceStub>()!.Serial.Should().Be("Q4AA-FWF6-VWK6");
+	}
+
+	[Fact]
+	public async Task ExecuteApiAsync_UnwrapsAnArrayDataElement()
+	{
+		var session = new FakeMerakiMcpSession
+		{
+			OnCallTool = (_, _, _) => Task.FromResult(new MerakiMcpToolResponse(
+				false,
+				null,
+				"""{"result":{"type":"success","data":[{"serial":"A"},{"serial":"B"}]}}"""))
+		};
+
+		using var client = Create(session);
+
+		var result = await client.ExecuteApiAsync("getOrganizationDevices", cancellationToken: TestContext.Current.CancellationToken);
+
+		result.Deserialize<List<DeviceStub>>()!.Should().HaveCount(2);
+	}
+
+	[Theory]
+	[InlineData(null)]
+	[InlineData("")]
+	[InlineData("not json")]
+	[InlineData("[1,2,3]")]
+	[InlineData("""{"result":"a string, not an object"}""")]
+	[InlineData("""{"result":{"type":"success"}}""")]
+	[InlineData("""{"result":{"type":"success","data":null}}""")]
+	public void TryUnwrapData_ReturnsFalseWhenThereIsNoDataElement(string? json)
+		=> MerakiMcpClient.TryUnwrapData(json, out _).Should().BeFalse();
+
+	private sealed class DeviceStub
+	{
+		public string Serial { get; set; } = string.Empty;
+	}
+
 	// ---------------------------------------------------------------- tool catalogue drift
 
 	[Fact]

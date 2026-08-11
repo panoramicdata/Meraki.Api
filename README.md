@@ -38,6 +38,11 @@ var capabilities = await client.SemanticSearchAsync("which clients are on this n
 var result = await client.ExecuteApiAsync(
     capabilities[0].CapabilityId,
     new Dictionary<string, object?> { ["networkId"] = "N_123" });
+
+// The server wraps results in an envelope. Payload is the "data" element alone, which
+// matches the shape the equivalent MerakiClient call returns. Deserialize<T>() uses it.
+Console.WriteLine(result.Payload);
+var clients = result.Deserialize<List<Client>>();
 ```
 
 A self-hosted instance of the

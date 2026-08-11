@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- MCP: `MerakiMcpResult` now unwraps the server's response envelope. The server returns
+  `{"result":{"type":"success","capability_id":"...","data": ... }}`, so `RawJson` alone forced callers
+  to unwrap it themselves and `Deserialize<T>()` could not match the REST response shapes. New
+  `DataJson` (the `data` element, or null when no envelope is present) and `Payload`
+  (`DataJson ?? RawJson`); `Deserialize<T>()` now uses `Payload`. `RawJson` still exposes the full
+  envelope for anyone who wants `capability_id` or `product`. Also found by live smoke-testing.
+
 - MCP: `ExecuteApiAsync` and `SemanticSearchAsync` now detect an error reported in the *payload* of an
   otherwise successful tool result and throw `MerakiMcpProtocolException`, including the server's
   `recovery_suggestion`. Found by smoke-testing against the live hosted server, which returns

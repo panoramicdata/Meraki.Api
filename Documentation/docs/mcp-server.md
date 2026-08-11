@@ -99,20 +99,34 @@ call returns, you have data.
 
 ### Working with the result
 
-`MerakiMcpResult` gives you the raw JSON plus a typed helper:
+The server wraps every result in an envelope:
+
+``` json
+{ "result": { "type": "success", "capability_id": "getNetworkClients",
+              "product": "wireless", "data": [ ... ] } }
+```
+
+`MerakiMcpResult` gives you both the envelope and, more usefully, the payload on its own:
 
 ``` C#
 var result = await mcpClient
 	.ExecuteApiAsync("getNetworkClients", new Dictionary<string, object?> { ["networkId"] = networkId })
 	.ConfigureAwait(false);
 
-// The raw JSON, taken from the tool result's structured content where present.
+// Payload is the "data" element alone — the same shape the equivalent MerakiClient call returns.
+Console.WriteLine(result.Payload);
+
+// The full envelope, if you want capability_id, product, and so on.
 Console.WriteLine(result.RawJson);
 
-// Or deserialise it. Unknown members are ignored by default, because the
-// MCP server is in beta and its response shapes may change.
+// Deserialise. This uses Payload, so it matches the REST shapes. Unknown members are
+// ignored by default, because the MCP server is in beta and its shapes may change.
 var clients = result.Deserialize<List<Client>>();
 ```
+
+`DataJson` is the unwrapped payload, or null if no envelope was recognised. `Payload` is
+`DataJson ?? RawJson`, so it is always the right thing to read and is what `Deserialize<T>()` uses.
+Prefer `Payload` over `RawJson` unless you specifically want the envelope metadata.
 
 ### Checking connectivity without making changes
 

@@ -14,15 +14,31 @@ internal sealed class FakeMerakiMcpSession : IMerakiMcpSession
 
 	public Func<CancellationToken, Task<IReadOnlyList<string>>>? OnListToolNames { get; set; }
 
-	public List<(string ToolName, IReadOnlyDictionary<string, object?> Arguments)> Calls { get; } = [];
+	// Guarded, because the concurrency tests drive this from many threads at once. An unsynchronised
+	// List would silently lose entries and make those tests flaky.
+	private readonly List<(string ToolName, IReadOnlyDictionary<string, object?> Arguments)> _calls = [];
+	private readonly object _callsLock = new();
 
-	public int ListToolNamesCallCount { get; private set; }
+	public IReadOnlyList<(string ToolName, IReadOnlyDictionary<string, object?> Arguments)> Calls
+	{
+		get
+		{
+			lock (_callsLock)
+			{
+				return [.. _calls];
+			}
+		}
+	}
+
+	private int _listToolNamesCallCount;
+
+	public int ListToolNamesCallCount => _listToolNamesCallCount;
 
 	public int DisposeCount { get; private set; }
 
 	public async Task<IReadOnlyList<string>> ListToolNamesAsync(CancellationToken cancellationToken)
 	{
-		ListToolNamesCallCount++;
+		Interlocked.Increment(ref _listToolNamesCallCount);
 
 		if (OnListToolNames is not null)
 		{
@@ -39,7 +55,10 @@ internal sealed class FakeMerakiMcpSession : IMerakiMcpSession
 		IReadOnlyDictionary<string, object?> arguments,
 		CancellationToken cancellationToken)
 	{
-		Calls.Add((toolName, arguments));
+		lock (_callsLock)
+		{
+			_calls.Add((toolName, arguments));
+		}
 
 		if (OnCallTool is not null)
 		{

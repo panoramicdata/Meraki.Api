@@ -22,6 +22,25 @@ public class MerakiMcpResult
 	public string? Text { get; set; }
 
 	/// <summary>
+	/// The Meraki Dashboard API payload, unwrapped from the MCP server's response envelope.
+	/// </summary>
+	/// <remarks>
+	/// The server wraps results as
+	/// <c>{"result":{"type":"success","capability_id":"...","data": ... }}</c>. This property is the
+	/// <c>data</c> element alone, which is the shape the equivalent
+	/// <see cref="MerakiClient"/> call returns, and is therefore what you almost always want.
+	/// Null when the response carried no recognisable envelope, in which case
+	/// <see cref="RawJson"/> is already the payload.
+	/// </remarks>
+	public string? DataJson { get; set; }
+
+	/// <summary>
+	/// The payload to work with: <see cref="DataJson"/> when the envelope was recognised, and
+	/// <see cref="RawJson"/> otherwise.
+	/// </summary>
+	public string Payload => DataJson ?? RawJson;
+
+	/// <summary>
 	/// Deserialises <see cref="RawJson"/> into the requested type.
 	/// </summary>
 	/// <typeparam name="T">The type to deserialise into.</typeparam>
@@ -34,7 +53,7 @@ public class MerakiMcpResult
 	/// <exception cref="MerakiMcpProtocolException">Thrown when the JSON cannot be deserialised.</exception>
 	public T? Deserialize<T>(JsonMissingMemberHandling missingMemberHandling = JsonMissingMemberHandling.Ignore)
 	{
-		if (string.IsNullOrWhiteSpace(RawJson))
+		if (string.IsNullOrWhiteSpace(Payload))
 		{
 			throw new MerakiMcpProtocolException($"Capability '{CapabilityId}' returned no JSON content to deserialise.");
 		}
@@ -42,7 +61,7 @@ public class MerakiMcpResult
 		try
 		{
 			return JsonConvert.DeserializeObject<T>(
-				RawJson,
+				Payload,
 				new JsonSerializerSettings
 				{
 					MissingMemberHandling = missingMemberHandling == JsonMissingMemberHandling.ThrowOnError
