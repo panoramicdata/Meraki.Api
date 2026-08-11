@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Using the Meraki MCP server | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Using the Meraki MCP server | Meraki.Api ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/blob/main/Documentation/docs/mcp-server.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="using-the-meraki-mcp-server">Using the Meraki MCP server</h1>
+
+<p>As well as the REST client, this library can act as a client for the
+<a href="https://developer.cisco.com/meraki/api-v1/mcp-server/">Cisco Meraki MCP server</a>.</p>
+<p>The MCP server exists to solve a specific problem: the Meraki Dashboard API has several hundred
+endpoints, and knowing which one answers a given question is itself expertise. The server exposes two
+tools that let an agent you build and control do that selection for itself:</p>
+<ul>
+<li><code>semantic_search</code> takes a natural-language query and returns ranked capability identifiers.</li>
+<li><code>execute_api</code> executes one of those capabilities and returns the data.</li>
+</ul>
+<p><code>MerakiMcpClient</code> wraps both as typed .NET operations.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p><code>execute_api</code> is <strong>read-only</strong>. The MCP server cannot change anything in your Meraki estate.
+Use <a href="getting-started.html">MerakiClient</a> for any mutation. <code>MerakiMcpClient</code> enforces this rather
+than letting you discover it at runtime — see <a href="#the-read-only-boundary">The read-only boundary</a>.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The MCP types target <code>net10.0</code> only, because the underlying Model Context Protocol SDK requires
+<code>net8.0</code> or later. The <code>netstandard2.0</code> build of this package is unchanged and contains no MCP
+types. If you consume the <code>netstandard2.0</code> target, MCP support is not available to you.</p>
+</div>
+<h2 id="getting-started">Getting started</h2>
+<p>Install the same <code>Meraki.Api</code> package. No separate package is needed.</p>
+<p>The normal shape of an agentic query is search, then execute:</p>
+<pre><code class="lang-C#">using Meraki.Api.Mcp;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace My.Project;
+public static class Program
+{
+	public static async Task Main()
+	{
+		await using var mcpClient = new MerakiMcpClient(
+			new MerakiMcpClientOptions
+			{
+				ApiKey = &quot;0123456789abcdef0123456789abcdef01234567&quot;,
+				UserAgent = &quot;YourProductName/YourProductVersion YourCompanyName&quot;
+			}
+		);
+
+		// 1. Ask the server which capabilities answer the question.
+		var capabilities = await mcpClient
+			.SemanticSearchAsync(&quot;which clients are connected to this network?&quot;)
+			.ConfigureAwait(false);
+
+		Console.WriteLine(&quot;Candidate capabilities:&quot;);
+		foreach (var capability in capabilities)
+		{
+			Console.WriteLine($&quot;    - {capability.CapabilityId}: {capability.Description}&quot;);
+		}
+
+		// 2. Execute the best match.
+		var result = await mcpClient
+			.ExecuteApiAsync(
+				capabilities[0].CapabilityId,
+				new Dictionary&lt;string, object?&gt;
+				{
+					[&quot;networkId&quot;] = &quot;N_0123456789&quot;
+				})
+			.ConfigureAwait(false);
+
+		Console.WriteLine(result.RawJson);
+	}
+}
+</code></pre>
+<p><code>capabilities[0]</code> is the server's highest-ranked match. In an agentic application you would normally
+pass the whole ranked list to your model and let it choose, along with each capability's
+<code>ParameterSchemaJson</code>, so it knows what arguments the capability takes.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>MerakiCapability.Score</code> is nullable, and against the Cisco-hosted server it is currently <strong>always
+null</strong> — the beta server returns no relevance score. The ranking is therefore the list order alone.
+Do not filter on a score threshold; it will discard everything.</p>
+</div>
+<h3 id="when-the-server-reports-a-problem">When the server reports a problem</h3>
+<p>The server signals some failures, notably a capability called without its required parameters, in the
+<em>payload</em> of an otherwise successful tool result rather than through the MCP error flag:</p>
+<pre><code class="lang-json">{ &quot;result&quot;: { &quot;type&quot;: &quot;error&quot;, &quot;error&quot;: &quot;Missing required parameters&quot;,
+              &quot;recovery_suggestion&quot;: &quot;Provide values for: organizationId&quot; } }
+</code></pre>
+<p><code>ExecuteApiAsync</code> and <code>SemanticSearchAsync</code> detect that envelope and throw
+<code>MerakiMcpProtocolException</code>, including the server's own recovery suggestion in the message, rather
+than returning an error document to you as though it were data. So the usual pattern applies: if the
+call returns, you have data.</p>
+<h3 id="working-with-the-result">Working with the result</h3>
+<p>The server wraps every result in an envelope:</p>
+<pre><code class="lang-json">{ &quot;result&quot;: { &quot;type&quot;: &quot;success&quot;, &quot;capability_id&quot;: &quot;getNetworkClients&quot;,
+              &quot;product&quot;: &quot;wireless&quot;, &quot;data&quot;: [ ... ] } }
+</code></pre>
+<p><code>MerakiMcpResult</code> gives you both the envelope and, more usefully, the payload on its own:</p>
+<pre><code class="lang-C#">var result = await mcpClient
+	.ExecuteApiAsync(&quot;getNetworkClients&quot;, new Dictionary&lt;string, object?&gt; { [&quot;networkId&quot;] = networkId })
+	.ConfigureAwait(false);
+
+// Payload is the &quot;data&quot; element alone — the same shape the equivalent MerakiClient call returns.
+Console.WriteLine(result.Payload);
+
+// The full envelope, if you want capability_id, product, and so on.
+Console.WriteLine(result.RawJson);
+
+// Deserialise. This uses Payload, so it matches the REST shapes. Unknown members are
+// ignored by default, because the MCP server is in beta and its shapes may change.
+var clients = result.Deserialize&lt;List&lt;Client&gt;&gt;();
+</code></pre>
+<p><code>DataJson</code> is the unwrapped payload, or null if no envelope was recognised. <code>Payload</code> is
+<code>DataJson ?? RawJson</code>, so it is always the right thing to read and is what <code>Deserialize&lt;T&gt;()</code> uses.
+Prefer <code>Payload</code> over <code>RawJson</code> unless you specifically want the envelope metadata.</p>
+<h3 id="checking-connectivity-without-making-changes">Checking connectivity without making changes</h3>
+<p><code>GetStatusAsync</code> performs a non-destructive check: it connects, authenticates and confirms that both
+required tools are advertised. It reports failures rather than throwing, so it is safe to call from a
+health check or a configuration screen. It never includes your API key in its output.</p>
+<pre><code class="lang-C#">var status = await mcpClient.GetStatusAsync().ConfigureAwait(false);
+
+if (!status.IsConnected)
+{
+	Console.WriteLine($&quot;Not connected: {status.Message}&quot;);
+	return;
+}
+
+Console.WriteLine($&quot;Tools available: {string.Join(&quot;, &quot;, status.AvailableToolNames)}&quot;);
+</code></pre>
+<h2 id="choosing-a-transport">Choosing a transport</h2>
+<p>Cisco offers two deployments of the server, and this library supports three ways of reaching them.</p>
+<h3 id="cisco-hosted-the-default">Cisco-hosted (the default)</h3>
+<p>Cisco hosts and manages the server. Nothing to run.</p>
+<pre><code class="lang-C#">await using var mcpClient = new MerakiMcpClient(
+	new MerakiMcpClientOptions
+	{
+		Transport = MerakiMcpTransport.HostedHttp,   // the default
+		ApiKey = apiKey
+	}
+);
+</code></pre>
+<p>The endpoint defaults to <code>https://mcp.meraki.com/mcp</code>. This deployment supports Meraki.com
+environments <strong>only</strong>.</p>
+<h3 id="self-hosted-over-http">Self-hosted over HTTP</h3>
+<p>Run the <a href="https://github.com/CiscoDevNet/cisco-meraki-mcp-official">open-source server</a> yourself and
+point the client at it. This is the route for any Meraki environment the hosted server does not
+support, and for air-gapped or egress-restricted networks.</p>
+<pre><code class="lang-C#">await using var mcpClient = new MerakiMcpClient(
+	new MerakiMcpClientOptions
+	{
+		Transport = MerakiMcpTransport.LocalHttp,
+		Uri = &quot;http://localhost:8080/mcp&quot;,
+		ApiKey = apiKey,
+		ApiRegion = ApiRegion.Government
+	}
+);
+</code></pre>
+<h3 id="self-hosted-over-stdio">Self-hosted over stdio</h3>
+<p>The client launches the server as a child process and speaks to it over stdin and stdout. The child
+process is terminated when the client is disposed. The API key is passed to the child as
+<code>MERAKI_DASHBOARD_API_KEY</code>, as Cisco documents.</p>
+<pre><code class="lang-C#">var options = new MerakiMcpClientOptions
+{
+	Transport = MerakiMcpTransport.Stdio,
+	Command = &quot;npx&quot;,
+	ApiKey = apiKey
+};
+
+options.Arguments.Add(&quot;cisco-meraki-mcp-official&quot;);
+options.EnvironmentVariables[&quot;LOG_LEVEL&quot;] = &quot;debug&quot;;
+
+await using var mcpClient = new MerakiMcpClient(options);
+</code></pre>
+<h3 id="which-regions-work-where">Which regions work where</h3>
+<p>The Cisco-hosted server supports Meraki.com environments only. Federal, GovCloud and localised
+instances require a self-hosted server. Rather than let that fail confusingly at runtime, combining
+<code>HostedHttp</code> with a non-default <code>ApiRegion</code> throws <code>ConfigurationException</code> when the client is
+constructed, and the message names <code>LocalHttp</code> and <code>Stdio</code> as the remedy.</p>
+<h2 id="the-read-only-boundary">The read-only boundary</h2>
+<p><code>execute_api</code> cannot mutate anything. That is a property of Cisco's server, not of this library.</p>
+<p>Because every Meraki Dashboard GET operation identifier begins with <code>get</code>, <code>ExecuteApiAsync</code> can tell
+a read from a write before any request leaves your process. Asking it to execute a mutation throws
+<code>MerakiMcpReadOnlyViolationException</code>, and the message directs you to <code>MerakiClient</code>:</p>
+<pre><code class="lang-C#">// Throws MerakiMcpReadOnlyViolationException. Nothing is sent to the server.
+await mcpClient.ExecuteApiAsync(&quot;updateNetworkWirelessSsid&quot;, parameters);
+</code></pre>
+<p>The pattern for an application that both diagnoses and remediates is therefore to read through MCP
+and write through REST:</p>
+<pre><code class="lang-C#">// Diagnose agentically, through the MCP server.
+var capabilities = await mcpClient.SemanticSearchAsync(&quot;wireless client connection failures&quot;);
+var evidence = await mcpClient.ExecuteApiAsync(capabilities[0].CapabilityId, parameters);
+
+// ... decide what to do, and have a human approve it ...
+
+// Then apply the change through the REST client.
+using var merakiClient = new MerakiClient(new MerakiClientOptions { ApiKey = apiKey });
+await merakiClient.Networks.Wireless.Ssids.UpdateNetworkWirelessSsidAsync(networkId, number, update);
+</code></pre>
+<p>Should Cisco change its capability naming during the beta, set
+<code>EnforceReadOnlyCapabilityNames = false</code> to disable the client-side check. The server remains
+read-only regardless.</p>
+<h2 id="handling-failures">Handling failures</h2>
+<p>Errors are surfaced as specific exception types, so you can react to each case rather than parsing
+messages. All derive from <code>MerakiMcpException</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Exception</th>
+<th>Meaning</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MerakiMcpAuthenticationException</code></td>
+<td>HTTP 401. The API key is invalid, expired or malformed.</td>
+<td>Correct the credential.</td>
+</tr>
+<tr>
+<td><code>MerakiMcpAuthorizationException</code></td>
+<td>HTTP 403. The key is valid but is not authorised for that organization or capability.</td>
+<td>Check the key's organization access.</td>
+</tr>
+<tr>
+<td><code>MerakiMcpRateLimitException</code></td>
+<td>Still rate limited after <code>MaxAttemptCount</code> attempts.</td>
+<td>Reduce concurrency, or raise the attempt count.</td>
+</tr>
+<tr>
+<td><code>MerakiMcpToolNotFoundException</code></td>
+<td>A required tool is not advertised. The server is in beta and its catalogue may change.</td>
+<td>Check Cisco's documentation and update this package. The exception lists what the server did advertise.</td>
+</tr>
+<tr>
+<td><code>MerakiMcpReadOnlyViolationException</code></td>
+<td>A mutation was attempted through MCP.</td>
+<td>Use <code>MerakiClient</code>.</td>
+</tr>
+<tr>
+<td><code>MerakiMcpTransportException</code></td>
+<td>The server could not be reached, or a stdio child process failed.</td>
+<td>Check connectivity and egress rules.</td>
+</tr>
+<tr>
+<td><code>MerakiMcpProtocolException</code></td>
+<td>The server reported an error, or its response could not be understood.</td>
+<td>Inspect the message; may indicate a beta schema change.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-C#">try
+{
+	var result = await mcpClient.ExecuteApiAsync(capabilityId, parameters).ConfigureAwait(false);
+}
+catch (MerakiMcpReadOnlyViolationException)
+{
+	// Route this through MerakiClient instead.
+}
+catch (MerakiMcpAuthorizationException)
+{
+	// The key is fine, but it cannot see this organization.
+}
+catch (MerakiMcpException ex)
+{
+	// Everything else. The message never contains your API key.
+	logger.LogError(ex, &quot;Meraki MCP query failed.&quot;);
+}
+</code></pre>
+<h3 id="egress-allowlisting">Egress allowlisting</h3>
+<p>Cisco publishes six static egress IP addresses for the hosted server, which some networks will need
+to allowlist. They are available on <code>MerakiMcpTransportException.HostedEgressIpAddresses</code>, and are
+named in the exception message when a connection to the hosted server times out, so the cause is
+obvious from the log alone.</p>
+<h2 id="rate-limits-retries-and-statistics">Rate limits, retries and statistics</h2>
+<p>The server respects the Dashboard API limit of 10 requests per second per organization.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>That budget is <strong>shared</strong> with any <code>MerakiClient</code> traffic in the same process. A multi-step agentic
+investigation competes with your scheduled polling.</p>
+</div>
+<p>Retries are handled inside the client, honouring <code>Retry-After</code> and then applying exponential back-off:</p>
+<pre><code class="lang-C#">var options = new MerakiMcpClientOptions
+{
+	ApiKey = apiKey,
+	MaxAttemptCount = 10,          // attempts before giving up
+	BackOffDelayFactor = 1.5,      // exponential factor per attempt
+	MaxBackOffDelaySeconds = 30    // ceiling on any single wait
+};
+</code></pre>
+<p>Do not add your own retry loop on top, or the effective attempt count multiplies.</p>
+<p><code>MerakiMcpClientStatistics</code> exposes what actually happened, which is worth logging in a long-running
+service:</p>
+<pre><code class="lang-C#">Console.WriteLine(mcpClient.Statistics);
+// Tool calls: 14, Retries: 2, Back-off: 3,000ms. Total Requests: 31, Status codes: 200: 29 ..., 429: 2 ...
+</code></pre>
+<h2 id="logging">Logging</h2>
+<p>Pass an <code>ILogger</code> as the second constructor argument to see transport-level detail. No secret value
+is ever written to a log or included in an exception message.</p>
+<pre><code class="lang-C#">await using var mcpClient = new MerakiMcpClient(options, logger);
+</code></pre>
+<h2 id="limitations">Limitations</h2>
+<p>These are properties of Cisco's server, taken from their documentation. They are worth reading before
+designing around it:</p>
+<ul>
+<li><strong>The server is in beta</strong>, and Cisco documents that breaking changes are possible. This client
+tolerates unknown JSON members and variations in response shape for that reason, but a renamed tool
+will still require a package update.</li>
+<li><strong>Operations are read-only.</strong></li>
+<li><strong>Authentication is by API key only.</strong> OAuth is not supported yet, so the credential is a
+full-scope Dashboard key. Treat it accordingly.</li>
+<li><strong>The hosted server supports Meraki.com only</strong> — not Federal, GovCloud or localised instances.</li>
+<li><strong>Six static egress IP addresses</strong> may require allowlisting for the hosted server.</li>
+<li><strong>Rate limits are shared</strong> with your REST traffic.</li>
+</ul>
+<h2 id="a-note-on-untrusted-content">A note on untrusted content</h2>
+<p>Data returned from Meraki includes strings that people other than you control: device names, SSIDs,
+client hostnames and note fields. If you are feeding these into a language model, treat them as
+untrusted input rather than as instructions. This matters as much as any of the limitations above.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Documentation/docs/mcp-server.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

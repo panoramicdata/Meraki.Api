@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_AccessPolicy.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.AccessPolicy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Data_AccessPolicy" data-uid="Meraki.Api.Data.AccessPolicy" class="text-break">
-Class AccessPolicy  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class AccessPolicy  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -123,27 +123,57 @@ public class AccessPolicy</code></pre>
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Meraki_Api_Data_AccessPolicy__ctor_" data-uid="Meraki.Api.Data.AccessPolicy.#ctor*"></a>
+
+  <h3 id="Meraki_Api_Data_AccessPolicy__ctor" data-uid="Meraki.Api.Data.AccessPolicy.#ctor">
+  AccessPolicy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AccessPolicy()</code></pre>
+  </div>
+
+
+
+
+
+
+
 
 
 
@@ -158,7 +188,7 @@ public class AccessPolicy</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_AccessPolicyNumber" data-uid="Meraki.Api.Data.AccessPolicy.AccessPolicyNumber">
   AccessPolicyNumber
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Access policy number</p>
@@ -166,7 +196,8 @@ public class AccessPolicy</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+    <pre><code class="lang-csharp hljs">[ApiKey]
+[ApiAccess(ApiAccess.Read)]
 [DataMember(Name = &quot;accessPolicyNumber&quot;)]
 public string? AccessPolicyNumber { get; set; }</code></pre>
   </div>
@@ -192,7 +223,7 @@ public string? AccessPolicyNumber { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_AccessPolicyType" data-uid="Meraki.Api.Data.AccessPolicy.AccessPolicyType">
   AccessPolicyType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Access Type of the policy.Automatically 'Hybrid authentication' when hostMode is 'Multi-Domain'.</p>
@@ -226,7 +257,7 @@ public string? AccessPolicyType { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_AuthenticationMethod" data-uid="Meraki.Api.Data.AccessPolicy.AuthenticationMethod">
   AuthenticationMethod
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Authentication Method - Undocumented, no responses other than null observed yet</p>
@@ -260,7 +291,7 @@ public object? AuthenticationMethod { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_Counts" data-uid="Meraki.Api.Data.AccessPolicy.Counts">
   Counts
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Counts</p>
@@ -294,7 +325,7 @@ public AccessPolicyCounts? Counts { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_Dot1x" data-uid="Meraki.Api.Data.AccessPolicy.Dot1x">
   Dot1x
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>802.1x Settings</p>
@@ -324,11 +355,79 @@ public Dot1x? Dot1x { get; set; }</code></pre>
 
 
 
+  <a id="Meraki_Api_Data_AccessPolicy_EnforceRadiusMonitoring_" data-uid="Meraki.Api.Data.AccessPolicy.EnforceRadiusMonitoring*"></a>
+
+  <h3 id="Meraki_Api_Data_AccessPolicy_EnforceRadiusMonitoring" data-uid="Meraki.Api.Data.AccessPolicy.EnforceRadiusMonitoring">
+  EnforceRadiusMonitoring
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is a readonly flag, indicating whether the access policy was under has_guest_port_bouncing NFO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;enforceRadiusMonitoring&quot;)]
+public bool? EnforceRadiusMonitoring { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_AccessPolicy_GuestGroupPolicyId_" data-uid="Meraki.Api.Data.AccessPolicy.GuestGroupPolicyId*"></a>
+
+  <h3 id="Meraki_Api_Data_AccessPolicy_GuestGroupPolicyId" data-uid="Meraki.Api.Data.AccessPolicy.GuestGroupPolicyId">
+  GuestGroupPolicyId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Group policy Number for guest group policy</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;guestGroupPolicyId&quot;)]
+public string? GuestGroupPolicyId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Meraki_Api_Data_AccessPolicy_GuestPortBouncing_" data-uid="Meraki.Api.Data.AccessPolicy.GuestPortBouncing*"></a>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_GuestPortBouncing" data-uid="Meraki.Api.Data.AccessPolicy.GuestPortBouncing">
   GuestPortBouncing
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Guest Port Bouncng - Undocumented</p>
@@ -358,11 +457,45 @@ public bool? GuestPortBouncing { get; set; }</code></pre>
 
 
 
+  <a id="Meraki_Api_Data_AccessPolicy_GuestSgtId_" data-uid="Meraki.Api.Data.AccessPolicy.GuestSgtId*"></a>
+
+  <h3 id="Meraki_Api_Data_AccessPolicy_GuestSgtId" data-uid="Meraki.Api.Data.AccessPolicy.GuestSgtId">
+  GuestSgtId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Security Group Tag ID for guest group policy</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.ReadWrite)]
+[DataMember(Name = &quot;guestSgtId&quot;)]
+public int? GuestSgtId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Meraki_Api_Data_AccessPolicy_GuestVlanId_" data-uid="Meraki.Api.Data.AccessPolicy.GuestVlanId*"></a>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_GuestVlanId" data-uid="Meraki.Api.Data.AccessPolicy.GuestVlanId">
   GuestVlanId
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>ID for the guest VLAN allow unauthorized devices access to limited network resources</p>
@@ -396,7 +529,7 @@ public int? GuestVlanId { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_HostMode" data-uid="Meraki.Api.Data.AccessPolicy.HostMode">
   HostMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Choose the Host Mode for the access policy.</p>
@@ -430,7 +563,7 @@ public string? HostMode { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_IncreaseAccessSpeed" data-uid="Meraki.Api.Data.AccessPolicy.IncreaseAccessSpeed">
   IncreaseAccessSpeed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enabling this option will make switches execute 802.1X and MAC-bypass authentication simultaneously so that clients authenticate faster. Only required when accessPolicyType is 'Hybrid Authentication.</p>
@@ -460,11 +593,45 @@ public bool? IncreaseAccessSpeed { get; set; }</code></pre>
 
 
 
+  <a id="Meraki_Api_Data_AccessPolicy_MaxSessions_" data-uid="Meraki.Api.Data.AccessPolicy.MaxSessions*"></a>
+
+  <h3 id="Meraki_Api_Data_AccessPolicy_MaxSessions" data-uid="Meraki.Api.Data.AccessPolicy.MaxSessions">
+  MaxSessions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Undocumented maxSessions</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiAccess(ApiAccess.Read)]
+[DataMember(Name = &quot;maxSessions&quot;)]
+public object? MaxSessions { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Meraki_Api_Data_AccessPolicy_Name_" data-uid="Meraki.Api.Data.AccessPolicy.Name*"></a>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_Name" data-uid="Meraki.Api.Data.AccessPolicy.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Name of the access policy</p>
@@ -498,7 +665,7 @@ public string? Name { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_Radius" data-uid="Meraki.Api.Data.AccessPolicy.Radius">
   Radius
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Object for RADIUS Settings</p>
@@ -532,7 +699,7 @@ public Radius? Radius { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_RadiusAccountingEnabled" data-uid="Meraki.Api.Data.AccessPolicy.RadiusAccountingEnabled">
   RadiusAccountingEnabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enable to send start, interim-update and stop messages to a configured RADIUS accounting server for tracking connected clients</p>
@@ -566,7 +733,7 @@ public bool? RadiusAccountingEnabled { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_RadiusAccountingServers" data-uid="Meraki.Api.Data.AccessPolicy.RadiusAccountingServers">
   RadiusAccountingServers
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>List of RADIUS accounting servers to require connecting devices to authenticate against before granting network access</p>
@@ -600,7 +767,7 @@ public List&lt;RadiusServer&gt;? RadiusAccountingServers { get; set; }</code></p
 
   <h3 id="Meraki_Api_Data_AccessPolicy_RadiusCoaSupportEnabled" data-uid="Meraki.Api.Data.AccessPolicy.RadiusCoaSupportEnabled">
   RadiusCoaSupportEnabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Change of authentication for RADIUS re-authentication and disconnection</p>
@@ -634,7 +801,7 @@ public bool? RadiusCoaSupportEnabled { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_RadiusGroupAttribute" data-uid="Meraki.Api.Data.AccessPolicy.RadiusGroupAttribute">
   RadiusGroupAttribute
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Acceptable values are <code>&quot;&quot;</code> for None, or <code>&quot;11&quot;</code> for Group Policies ACL</p>
@@ -668,7 +835,7 @@ public string? RadiusGroupAttribute { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_RadiusServers" data-uid="Meraki.Api.Data.AccessPolicy.RadiusServers">
   RadiusServers
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>List of RADIUS servers to require connecting devices to authenticate against before granting network access</p>
@@ -702,7 +869,7 @@ public List&lt;RadiusServer&gt;? RadiusServers { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_RadiusTestingEnabled" data-uid="Meraki.Api.Data.AccessPolicy.RadiusTestingEnabled">
   RadiusTestingEnabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If enabled, Meraki devices will periodically send access-request messages to these RADIUS servers</p>
@@ -736,7 +903,7 @@ public bool? RadiusTestingEnabled { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_UrlRedirectWalledGardenEnabled" data-uid="Meraki.Api.Data.AccessPolicy.UrlRedirectWalledGardenEnabled">
   UrlRedirectWalledGardenEnabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enable to restrict access for clients to a specific set of IP addresses or hostnames prior to authentication</p>
@@ -770,7 +937,7 @@ public bool? UrlRedirectWalledGardenEnabled { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_AccessPolicy_UrlRedirectWalledGardenRanges" data-uid="Meraki.Api.Data.AccessPolicy.UrlRedirectWalledGardenRanges">
   UrlRedirectWalledGardenRanges
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>IP address ranges, in CIDR notation, to restrict access for clients to a specific set of IP addresses or hostnames prior to authentication</p>
@@ -804,7 +971,7 @@ public List&lt;string&gt;? UrlRedirectWalledGardenRanges { get; set; }</code></p
 
   <h3 id="Meraki_Api_Data_AccessPolicy_VoiceVlanClients" data-uid="Meraki.Api.Data.AccessPolicy.VoiceVlanClients">
   VoiceVlanClients
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>CDP/LLDP capable voice clients will be able to use this VLAN. Automatically true when hostMode is 'Multi-Domain'.</p>
@@ -838,7 +1005,7 @@ public bool? VoiceVlanClients { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/AccessPolicy.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/AccessPolicy.cs" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface INetworksDevices | Meraki.Api ">
       
-      
+      <meta name="description" content="I Networks Devices">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Interfaces_General_Networks_INetworksDevices.md&amp;value=---%0Auid%3A%20Meraki.Api.Interfaces.General.Networks.INetworksDevices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Interfaces_General_Networks_INetworksDevices" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksDevices" class="text-break">
-Interface INetworksDevices  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs/#L3"><i class="bi bi-code-slash"></i></a>
+Interface INetworksDevices  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Interface INetworksDevices  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>I Networks Devices</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -124,7 +125,7 @@ Interface INetworksDevices  <a class="header-action link-secondary" title="View 
 
   <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksDevices_ClaimNetworkDevicesAsync_System_String_System_Boolean_Meraki_Api_Data_DeviceClaimRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksDevices.ClaimNetworkDevicesAsync(System.String,System.Boolean,Meraki.Api.Data.DeviceClaimRequest,System.Threading.CancellationToken)">
   ClaimNetworkDevicesAsync(string, bool, DeviceClaimRequest, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Claim devices into a network.</p>
@@ -133,7 +134,7 @@ Interface INetworksDevices  <a class="header-action link-secondary" title="View 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Post(&quot;/networks/{networkId}/devices/claim&quot;)]
-Task ClaimNetworkDevicesAsync(string networkId, bool addAtomically, DeviceClaimRequest claimNetworkDevices, CancellationToken cancellationToken = default)</code></pre>
+Task&lt;DeviceClaimResponse&gt; ClaimNetworkDevicesAsync(string networkId, bool addAtomically, DeviceClaimRequest claimNetworkDevices, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -153,7 +154,7 @@ Task ClaimNetworkDevicesAsync(string networkId, bool addAtomically, DeviceClaimR
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.DeviceClaimResponse.html">DeviceClaimResponse</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -177,7 +178,7 @@ Task ClaimNetworkDevicesAsync(string networkId, bool addAtomically, DeviceClaimR
 
   <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksDevices_GetNetworkDevicesAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksDevices.GetNetworkDevicesAsync(System.String,System.Threading.CancellationToken)">
   GetNetworkDevicesAsync(string, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>List the devices in a network</p>
@@ -224,7 +225,7 @@ Task&lt;List&lt;Device&gt;&gt; GetNetworkDevicesAsync(string networkId, Cancella
 
   <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksDevices_RemoveNetworkDevicesAsync_System_String_Meraki_Api_Data_DeviceRemovalRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksDevices.RemoveNetworkDevicesAsync(System.String,Meraki.Api.Data.DeviceRemovalRequest,System.Threading.CancellationToken)">
   RemoveNetworkDevicesAsync(string, DeviceRemovalRequest, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Remove a single device</p>
@@ -273,7 +274,7 @@ Task RemoveNetworkDevicesAsync(string networkId, DeviceRemovalRequest deviceRemo
 
   <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksDevices_VmxNetworkDevicesClaimAsync_System_String_Meraki_Api_Data_VmxNetworkDevicesClaim_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksDevices.VmxNetworkDevicesClaimAsync(System.String,Meraki.Api.Data.VmxNetworkDevicesClaim,System.Threading.CancellationToken)">
   VmxNetworkDevicesClaimAsync(string, VmxNetworkDevicesClaim, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Claim a vMX into a network</p>
@@ -323,7 +324,7 @@ Task&lt;Device&gt; VmxNetworkDevicesClaimAsync(string networkId, VmxNetworkDevic
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs/#L3" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksDevices.cs" class="edit-link">Edit this page</a>
         </div>
 
 

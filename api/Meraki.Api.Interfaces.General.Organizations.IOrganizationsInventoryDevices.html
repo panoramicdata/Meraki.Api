@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IOrganizationsInventoryDevices | Meraki.Api ">
       
-      
+      <meta name="description" content="I Organizations Inventory Devices">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices.md&amp;value=---%0Auid%3A%20Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices" class="text-break">
-Interface IOrganizationsInventoryDevices  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs/#L3"><i class="bi bi-code-slash"></i></a>
+Interface IOrganizationsInventoryDevices  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Interface IOrganizationsInventoryDevices  <a class="header-action link-secondary
   <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>I Organizations Inventory Devices</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -131,7 +132,7 @@ Interface IOrganizationsInventoryDevices  <a class="header-action link-secondary
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices_ClaimIntoOrganizationInventoryAsync_System_String_Meraki_Api_Data_OrganizationInventoryClaimRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices.ClaimIntoOrganizationInventoryAsync(System.String,Meraki.Api.Data.OrganizationInventoryClaimRequest,System.Threading.CancellationToken)">
   ClaimIntoOrganizationInventoryAsync(string, OrganizationInventoryClaimRequest, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Claim a list of devices, licenses, and/or orders into an organization</p>
@@ -177,11 +178,107 @@ Task&lt;OrganizationInventoryClaimResponse&gt; ClaimIntoOrganizationInventoryAsy
 
 
 
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices_CreateOrganizationInventoryDevicesSwapsBulkAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices.CreateOrganizationInventoryDevicesSwapsBulkAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices_CreateOrganizationInventoryDevicesSwapsBulkAsync_System_String_Meraki_Api_Data_OrganizationInventorySwapCreateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices.CreateOrganizationInventoryDevicesSwapsBulkAsync(System.String,Meraki.Api.Data.OrganizationInventorySwapCreateRequest,System.Threading.CancellationToken)">
+  CreateOrganizationInventoryDevicesSwapsBulkAsync(string, OrganizationInventorySwapCreateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swap the devices identified by devices.old with a devices.new, then perform the :afterAction on the devices.old.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/organizations/{organizationId}/inventory/devices/swaps/bulk&quot;)]
+Task&lt;OrganizationInventorySwapResponse&gt; CreateOrganizationInventoryDevicesSwapsBulkAsync(string organizationId, OrganizationInventorySwapCreateRequest request, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>request</code> <a class="xref" href="Meraki.Api.Data.OrganizationInventorySwapCreateRequest.html">OrganizationInventorySwapCreateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationInventorySwapResponse.html">OrganizationInventorySwapResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices_GetOrganizaitonInventoryDevicesSwapsBulkAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices.GetOrganizaitonInventoryDevicesSwapsBulkAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices_GetOrganizaitonInventoryDevicesSwapsBulkAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices.GetOrganizaitonInventoryDevicesSwapsBulkAsync(System.String,System.String,System.Threading.CancellationToken)">
+  GetOrganizaitonInventoryDevicesSwapsBulkAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of device swaps for a given request ID ({id}).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/inventory/devices/swaps/bulk/{id}&quot;)]
+Task&lt;OrganizationInventorySwapResponse&gt; GetOrganizaitonInventoryDevicesSwapsBulkAsync(string organizationId, string id, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationInventorySwapResponse.html">OrganizationInventorySwapResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
   <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices_GetOrganizationInventoryDeviceAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices.GetOrganizationInventoryDeviceAsync*"></a>
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices_GetOrganizationInventoryDeviceAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices.GetOrganizationInventoryDeviceAsync(System.String,System.String,System.Threading.CancellationToken)">
   GetOrganizationInventoryDeviceAsync(string, string, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return the device inventory for an organization</p>
@@ -231,7 +328,7 @@ Task&lt;InventoryDevice&gt; GetOrganizationInventoryDeviceAsync(string organizat
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices_GetOrganizationInventoryDevicesAsync_System_String_System_Nullable_System_Int32__System_String_System_String_System_String_System_String_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_Nullable_Meraki_Api_Data_TagsFilterType__System_Collections_Generic_List_Meraki_Api_Data_ProductType__System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices.GetOrganizationInventoryDevicesAsync(System.String,System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Nullable{Meraki.Api.Data.TagsFilterType},System.Collections.Generic.List{Meraki.Api.Data.ProductType},System.Threading.CancellationToken)">
   GetOrganizationInventoryDevicesAsync(string, int?, string?, string?, string?, string?, List&lt;string&gt;?, List&lt;string&gt;?, List&lt;string&gt;?, List&lt;string&gt;?, List&lt;string&gt;?, List&lt;string&gt;?, TagsFilterType?, List&lt;ProductType&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return the device inventory for an organization</p>
@@ -316,7 +413,7 @@ Task&lt;List&lt;InventoryDevice&gt;&gt; GetOrganizationInventoryDevicesAsync(str
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsInventoryDevices_ReleaseFromOrganizationInventoryAsync_System_String_Meraki_Api_Data_OrganizationInventoryReleaseRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsInventoryDevices.ReleaseFromOrganizationInventoryAsync(System.String,Meraki.Api.Data.OrganizationInventoryReleaseRequest,System.Threading.CancellationToken)">
   ReleaseFromOrganizationInventoryAsync(string, OrganizationInventoryReleaseRequest, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Release a list of claimed devices from an organization</p>
@@ -366,7 +463,7 @@ Task&lt;OrganizationInventoryReleaseResponse&gt; ReleaseFromOrganizationInventor
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs/#L3" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsInventoryDevices.cs" class="edit-link">Edit this page</a>
         </div>
 
 

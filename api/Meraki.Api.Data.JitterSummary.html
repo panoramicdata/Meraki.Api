@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_JitterSummary.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.JitterSummary%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Data_JitterSummary" data-uid="Meraki.Api.Data.JitterSummary" class="text-break">
-Class JitterSummary  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/JitterSummary.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class JitterSummary  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/JitterSummary.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -123,27 +123,57 @@ public class JitterSummary</code></pre>
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Meraki_Api_Data_JitterSummary__ctor_" data-uid="Meraki.Api.Data.JitterSummary.#ctor*"></a>
+
+  <h3 id="Meraki_Api_Data_JitterSummary__ctor" data-uid="Meraki.Api.Data.JitterSummary.#ctor">
+  JitterSummary()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/JitterSummary.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JitterSummary()</code></pre>
+  </div>
+
+
+
+
+
+
+
 
 
 
@@ -158,7 +188,7 @@ public class JitterSummary</code></pre>
 
   <h3 id="Meraki_Api_Data_JitterSummary_AvgJitter" data-uid="Meraki.Api.Data.JitterSummary.AvgJitter">
   AvgJitter
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/JitterSummary.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/JitterSummary.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Average jitter</p>
@@ -167,7 +197,7 @@ public class JitterSummary</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;avgJitter&quot;)]
-public int AvgJitter { get; set; }</code></pre>
+public double AvgJitter { get; set; }</code></pre>
   </div>
 
 
@@ -176,7 +206,7 @@ public int AvgJitter { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
   </dl>
 
@@ -191,7 +221,7 @@ public int AvgJitter { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_JitterSummary_MaxJitter" data-uid="Meraki.Api.Data.JitterSummary.MaxJitter">
   MaxJitter
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/JitterSummary.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/JitterSummary.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Maximum jitter</p>
@@ -200,7 +230,7 @@ public int AvgJitter { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;maxJitter&quot;)]
-public int MaxJitter { get; set; }</code></pre>
+public double MaxJitter { get; set; }</code></pre>
   </div>
 
 
@@ -209,7 +239,7 @@ public int MaxJitter { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
   </dl>
 
@@ -224,7 +254,7 @@ public int MaxJitter { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_JitterSummary_MinJitter" data-uid="Meraki.Api.Data.JitterSummary.MinJitter">
   MinJitter
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/JitterSummary.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/JitterSummary.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Minimum jitter</p>
@@ -233,7 +263,7 @@ public int MaxJitter { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;minJitter&quot;)]
-public int MinJitter { get; set; }</code></pre>
+public double MinJitter { get; set; }</code></pre>
   </div>
 
 
@@ -242,7 +272,7 @@ public int MinJitter { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
   </dl>
 
@@ -257,7 +287,7 @@ public int MinJitter { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_JitterSummary_ReceiverUplink" data-uid="Meraki.Api.Data.JitterSummary.ReceiverUplink">
   ReceiverUplink
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/JitterSummary.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/JitterSummary.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Receiver uplink</p>
@@ -290,7 +320,7 @@ public string ReceiverUplink { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_JitterSummary_SenderUplink" data-uid="Meraki.Api.Data.JitterSummary.SenderUplink">
   SenderUplink
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/JitterSummary.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/JitterSummary.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sender uplink</p>
@@ -323,7 +353,7 @@ public string SenderUplink { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/JitterSummary.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/JitterSummary.cs" class="edit-link">Edit this page</a>
         </div>
 
 

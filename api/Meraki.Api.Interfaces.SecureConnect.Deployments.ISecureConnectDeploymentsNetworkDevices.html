@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ISecureConnectDeploymentsNetworkDevices | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ISecureConnectDeploymentsNetworkDevices | Meraki.Api ">
+      
+      <meta name="description" content="Defines a contract for managing network devices within Secure Connect deployments.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices">
+
+
+
+  <h1 id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices" class="text-break">
+Interface ISecureConnectDeploymentsNetworkDevices  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/SecureConnect/Deployments/ISecureConnectDeploymentsNetworkDevices.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Meraki.html">Meraki</a>.<a class="xref" href="Meraki.Api.html">Api</a>.<a class="xref" href="Meraki.Api.Interfaces.html">Interfaces</a>.<a class="xref" href="Meraki.Api.Interfaces.SecureConnect.html">SecureConnect</a>.<a class="xref" href="Meraki.Api.Interfaces.SecureConnect.Deployments.html">Deployments</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Defines a contract for managing network devices within Secure Connect deployments.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ISecureConnectDeploymentsNetworkDevices</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This interface provides methods for performing CRUD operations on network devices,  as well as
+retrieving associated policies. Each method interacts with the Secure Connect API  and requires an organization ID
+to scope the operations.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_CreateNetworkDeviceAsync_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.CreateNetworkDeviceAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_CreateNetworkDeviceAsync_System_Int64_Meraki_Api_Data_SecureConnectNetworkDeviceCreateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.CreateNetworkDeviceAsync(System.Int64,Meraki.Api.Data.SecureConnectNetworkDeviceCreateRequest,System.Threading.CancellationToken)">
+  CreateNetworkDeviceAsync(long, SecureConnectNetworkDeviceCreateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/SecureConnect/Deployments/ISecureConnectDeploymentsNetworkDevices.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a network device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/organizations/{organizationId}/networkDevices&quot;)]
+Task&lt;SecureConnectNetworkDevice&gt; CreateNetworkDeviceAsync(long organizationId, SecureConnectNetworkDeviceCreateRequest secureConnectNetworkDeviceCreateRequest, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Organization ID associated with this resource.</p>
+</dd>
+    <dt><code>secureConnectNetworkDeviceCreateRequest</code> <a class="xref" href="Meraki.Api.Data.SecureConnectNetworkDeviceCreateRequest.html">SecureConnectNetworkDeviceCreateRequest</a></dt>
+    <dd><p>The device creation request</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.SecureConnectNetworkDevice.html">SecureConnectNetworkDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_DeleteNetworkDeviceAsync_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.DeleteNetworkDeviceAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_DeleteNetworkDeviceAsync_System_Int64_System_Int64_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.DeleteNetworkDeviceAsync(System.Int64,System.Int64,System.Threading.CancellationToken)">
+  DeleteNetworkDeviceAsync(long, long, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/SecureConnect/Deployments/ISecureConnectDeploymentsNetworkDevices.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove a network device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Delete(&quot;/organizations/{organizationId}/networkDevices/{originId}&quot;)]
+Task DeleteNetworkDeviceAsync(long organizationId, long originId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Organization ID associated with this resource.</p>
+</dd>
+    <dt><code>originId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The origin ID of the network device. minimum = 1</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_GetAllNetworkDevicesAsync_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.GetAllNetworkDevicesAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_GetAllNetworkDevicesAsync_System_Int64_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.GetAllNetworkDevicesAsync(System.Int64,System.Threading.CancellationToken)">
+  GetAllNetworkDevicesAsync(long, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/SecureConnect/Deployments/ISecureConnectDeploymentsNetworkDevices.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List the network devices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/networkDevices&quot;)]
+Task&lt;List&lt;SecureConnectNetworkDevice&gt;&gt; GetAllNetworkDevicesAsync(long organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Organization ID associated with this resource.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.SecureConnectNetworkDevice.html">SecureConnectNetworkDevice</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_GetNetworkDeviceAsync_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.GetNetworkDeviceAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_GetNetworkDeviceAsync_System_Int64_System_Int64_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.GetNetworkDeviceAsync(System.Int64,System.Int64,System.Threading.CancellationToken)">
+  GetNetworkDeviceAsync(long, long, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/SecureConnect/Deployments/ISecureConnectDeploymentsNetworkDevices.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a network device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/networkDevices/{originId}&quot;)]
+Task&lt;SecureConnectNetworkDevice&gt; GetNetworkDeviceAsync(long organizationId, long originId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Organization ID associated with this resource.</p>
+</dd>
+    <dt><code>originId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The origin ID of the network device. minimum = 1</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.SecureConnectNetworkDevice.html">SecureConnectNetworkDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_ListNetworkDevicePoliciesAsync_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.ListNetworkDevicePoliciesAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_ListNetworkDevicePoliciesAsync_System_Int64_System_Int64_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.ListNetworkDevicePoliciesAsync(System.Int64,System.Int64,System.Threading.CancellationToken)">
+  ListNetworkDevicePoliciesAsync(long, long, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/SecureConnect/Deployments/ISecureConnectDeploymentsNetworkDevices.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List the Umbrella policies associated with a network device. If no filters are supplied, Umbrella returns the DNS policies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/networkDevices/{originId}/policies&quot;)]
+Task&lt;List&lt;SecureConnectDevicePolicy&gt;&gt; ListNetworkDevicePoliciesAsync(long organizationId, long originId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Organization ID associated with this resource.</p>
+</dd>
+    <dt><code>originId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The origin ID of the network device. minimum = 1</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.SecureConnectDevicePolicy.html">SecureConnectDevicePolicy</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_UpdateNetworkDeviceAsync_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.UpdateNetworkDeviceAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_SecureConnect_Deployments_ISecureConnectDeploymentsNetworkDevices_UpdateNetworkDeviceAsync_System_Int64_System_Int64_Meraki_Api_Data_SecureConnectNetworkDeviceUpdateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.SecureConnect.Deployments.ISecureConnectDeploymentsNetworkDevices.UpdateNetworkDeviceAsync(System.Int64,System.Int64,Meraki.Api.Data.SecureConnectNetworkDeviceUpdateRequest,System.Threading.CancellationToken)">
+  UpdateNetworkDeviceAsync(long, long, SecureConnectNetworkDeviceUpdateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/SecureConnect/Deployments/ISecureConnectDeploymentsNetworkDevices.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update a network device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Patch(&quot;/organizations/{organizationId}/networkDevices/{originId}&quot;)]
+Task&lt;SecureConnectNetworkDevice&gt; UpdateNetworkDeviceAsync(long organizationId, long originId, SecureConnectNetworkDeviceUpdateRequest secureConnectNetworkDeviceUpdateRequest, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Organization ID associated with this resource.</p>
+</dd>
+    <dt><code>originId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The origin ID of the network device. minimum = 1</p>
+</dd>
+    <dt><code>secureConnectNetworkDeviceUpdateRequest</code> <a class="xref" href="Meraki.Api.Data.SecureConnectNetworkDeviceUpdateRequest.html">SecureConnectNetworkDeviceUpdateRequest</a></dt>
+    <dd><p>The device creation request</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.SecureConnectNetworkDevice.html">SecureConnectNetworkDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/SecureConnect/Deployments/ISecureConnectDeploymentsNetworkDevices.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

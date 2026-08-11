@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches.md&amp;value=---%0Auid%3A%20Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches" class="text-break">
-Interface IOrganizationSwitches  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Interface IOrganizationSwitches  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -131,11 +131,441 @@ Interface IOrganizationSwitches  <a class="header-action link-secondary" title="
 </h2>
 
 
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_BatchOrganizationSwitchPortsProfilesNetworksAssignmentsCreate_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.BatchOrganizationSwitchPortsProfilesNetworksAssignmentsCreate*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_BatchOrganizationSwitchPortsProfilesNetworksAssignmentsCreate_System_String_Meraki_Api_Data_OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.BatchOrganizationSwitchPortsProfilesNetworksAssignmentsCreate(System.String,Meraki.Api.Data.OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateRequest,System.Threading.CancellationToken)">
+  BatchOrganizationSwitchPortsProfilesNetworksAssignmentsCreate(string, OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Batch Create Network and Smart Ports Profile associations for a specific profile</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/organizations/{organizationId}/switch/ports/profiles/networks/assignments/batchCreate&quot;)]
+Task&lt;OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateResponse&gt; BatchOrganizationSwitchPortsProfilesNetworksAssignmentsCreate(string organizationId, OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateRequest OrganizationSwitchPortsProfilesNetworksAssignmentsbatchCreateRequest, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>OrganizationSwitchPortsProfilesNetworksAssignmentsbatchCreateRequest</code> <a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateRequest.html">OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateResponse.html">OrganizationSwitchPortsProfilesNetworksAssignmentsBatchCreateResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_BulkOrganizationSwitchPortsProfilesNetworksAssignmentsDeleteAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.BulkOrganizationSwitchPortsProfilesNetworksAssignmentsDeleteAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_BulkOrganizationSwitchPortsProfilesNetworksAssignmentsDeleteAsync_System_String_Meraki_Api_Data_OrganizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.BulkOrganizationSwitchPortsProfilesNetworksAssignmentsDeleteAsync(System.String,Meraki.Api.Data.OrganizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest,System.Threading.CancellationToken)">
+  BulkOrganizationSwitchPortsProfilesNetworksAssignmentsDeleteAsync(string, OrganizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Bulk delete Network and Smart Port Profile associations</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/organizations/{organizationId}/switch/ports/profiles/networks/assignments/bulkDelete&quot;)]
+Task BulkOrganizationSwitchPortsProfilesNetworksAssignmentsDeleteAsync(string organizationId, OrganizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest organizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>organizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest</code> <a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest.html">OrganizationSwitchPortsProfilesNetworksAssignmentsBulkDeleteRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_CreateOrganizationSwitchPortsProfilesAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.CreateOrganizationSwitchPortsProfilesAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_CreateOrganizationSwitchPortsProfilesAsync_System_String_Meraki_Api_Data_OrganizationSwitchPortsProfilesProfileCreateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.CreateOrganizationSwitchPortsProfilesAsync(System.String,Meraki.Api.Data.OrganizationSwitchPortsProfilesProfileCreateRequest,System.Threading.CancellationToken)">
+  CreateOrganizationSwitchPortsProfilesAsync(string, OrganizationSwitchPortsProfilesProfileCreateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a port profile in an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/organizations/{organizationId}/switch/ports/profiles&quot;)]
+Task&lt;OrganizationSwitchPortsProfilesProfileDetailed&gt; CreateOrganizationSwitchPortsProfilesAsync(string organizationId, OrganizationSwitchPortsProfilesProfileCreateRequest organizationSwitchPortsProfilesProfile, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>organizationSwitchPortsProfilesProfile</code> <a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesProfileCreateRequest.html">OrganizationSwitchPortsProfilesProfileCreateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesProfileDetailed.html">OrganizationSwitchPortsProfilesProfileDetailed</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_CreateOrganizationSwitchPortsProfilesAutomationAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.CreateOrganizationSwitchPortsProfilesAutomationAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_CreateOrganizationSwitchPortsProfilesAutomationAsync_System_String_Meraki_Api_Data_OrganizationSwitchPortsProfileAutomationCreateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.CreateOrganizationSwitchPortsProfilesAutomationAsync(System.String,Meraki.Api.Data.OrganizationSwitchPortsProfileAutomationCreateRequest,System.Threading.CancellationToken)">
+  CreateOrganizationSwitchPortsProfilesAutomationAsync(string, OrganizationSwitchPortsProfileAutomationCreateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a port profile automation for an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/organizations/{organizationId}/switch/ports/profiles/automations&quot;)]
+Task&lt;OrganizationSwitchPortsProfileAutomationItem&gt; CreateOrganizationSwitchPortsProfilesAutomationAsync(string organizationId, OrganizationSwitchPortsProfileAutomationCreateRequest organizationSwitchPortsProfilesProfileAutomation, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>organizationSwitchPortsProfilesProfileAutomation</code> <a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfileAutomationCreateRequest.html">OrganizationSwitchPortsProfileAutomationCreateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfileAutomationItem.html">OrganizationSwitchPortsProfileAutomationItem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_CreateOrganizationSwitchPortsProfilesNetworksAssignment_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.CreateOrganizationSwitchPortsProfilesNetworksAssignment*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_CreateOrganizationSwitchPortsProfilesNetworksAssignment_System_String_Meraki_Api_Data_OrganizationSwitchPortsProfilesNetworksAssignmentCreateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.CreateOrganizationSwitchPortsProfilesNetworksAssignment(System.String,Meraki.Api.Data.OrganizationSwitchPortsProfilesNetworksAssignmentCreateRequest,System.Threading.CancellationToken)">
+  CreateOrganizationSwitchPortsProfilesNetworksAssignment(string, OrganizationSwitchPortsProfilesNetworksAssignmentCreateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create Network and Smart Ports Profile association for a specific profile</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/organizations/{organizationId}/switch/ports/profiles/networks/assignments&quot;)]
+Task&lt;OrganizationSwitchPortsProfilesNetworksAssignment&gt; CreateOrganizationSwitchPortsProfilesNetworksAssignment(string organizationId, OrganizationSwitchPortsProfilesNetworksAssignmentCreateRequest organizationSwitchPortsProfilesNetworksAssignment, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>organizationSwitchPortsProfilesNetworksAssignment</code> <a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesNetworksAssignmentCreateRequest.html">OrganizationSwitchPortsProfilesNetworksAssignmentCreateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesNetworksAssignment.html">OrganizationSwitchPortsProfilesNetworksAssignment</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_DeleteOrganizationSwitchPortsProfileAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.DeleteOrganizationSwitchPortsProfileAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_DeleteOrganizationSwitchPortsProfileAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.DeleteOrganizationSwitchPortsProfileAsync(System.String,System.String,System.Threading.CancellationToken)">
+  DeleteOrganizationSwitchPortsProfileAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete a port profile from an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Delete(&quot;/organizations/{organizationId}/switch/ports/profiles/{id}&quot;)]
+Task DeleteOrganizationSwitchPortsProfileAsync(string organizationId, string id, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_DeleteOrganizationSwitchPortsProfilesAutomationAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.DeleteOrganizationSwitchPortsProfilesAutomationAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_DeleteOrganizationSwitchPortsProfilesAutomationAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.DeleteOrganizationSwitchPortsProfilesAutomationAsync(System.String,System.String,System.Threading.CancellationToken)">
+  DeleteOrganizationSwitchPortsProfilesAutomationAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete an automation port profile from an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Delete(&quot;/organizations/{organizationId}/switch/ports/profiles/automations/{id}&quot;)]
+Task DeleteOrganizationSwitchPortsProfilesAutomationAsync(string organizationId, string id, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_DeleteOrganizationSwitchPortsProfilesNetworksAssignment_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.DeleteOrganizationSwitchPortsProfilesNetworksAssignment*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_DeleteOrganizationSwitchPortsProfilesNetworksAssignment_System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.DeleteOrganizationSwitchPortsProfilesNetworksAssignment(System.String,System.String,System.Threading.CancellationToken)">
+  DeleteOrganizationSwitchPortsProfilesNetworksAssignment(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete Network and Smart Port profile association for a specific profile</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Delete(&quot;/organizations/{organizationId}/switch/ports/profiles/networks/assignments/{assignmentId}&quot;)]
+Task DeleteOrganizationSwitchPortsProfilesNetworksAssignment(string organizationId, string assignmentId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>assignmentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByIntervalAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByIntervalAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByIntervalAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByIntervalAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByIntervalAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return a historical record of packet transmission and loss, broken down by protocol, for insight into switch device health.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/devices/system/queues/history/bySwitch/byInterval&quot;)]
+Task&lt;OrganizationSwitchDevicesSystemQueuesHistoryBySwitchByInterval&gt; GetOrganizationSwitchDevicesSystemQueuesHistoryBySwitchByIntervalAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchDevicesSystemQueuesHistoryBySwitchByInterval.html">OrganizationSwitchDevicesSystemQueuesHistoryBySwitchByInterval</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
   <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsBySwitchAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsBySwitchAsync*"></a>
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsBySwitchAsync_System_String_System_Nullable_System_Int32__System_String_System_String_System_String_System_Collections_Generic_List_System_String__System_String_System_String_System_String_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsBySwitchAsync(System.String,System.Nullable{System.Int32},System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Threading.CancellationToken)">
   GetOrganizationSwitchPortsBySwitchAsync(string, int?, string?, string?, string?, List&lt;string&gt;?, string?, string?, string, List&lt;string&gt;?, List&lt;string&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>List the switchports in an organization by switch</p>
@@ -208,11 +638,335 @@ Task&lt;List&lt;SwitchPortsBySwitch&gt;&gt; GetOrganizationSwitchPortsBySwitchAs
 
 
 
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsClientsOverviewByDeviceAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsClientsOverviewByDeviceAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsClientsOverviewByDeviceAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsClientsOverviewByDeviceAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchPortsClientsOverviewByDeviceAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List the number of clients for all switchports with at least one online client in an organization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/ports/clients/overview/byDevice&quot;)]
+Task&lt;OrganizationSwitchPortsClientsOverviewByDevice&gt; GetOrganizationSwitchPortsClientsOverviewByDeviceAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsClientsOverviewByDevice.html">OrganizationSwitchPortsClientsOverviewByDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsMirrorsBySwitchAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsMirrorsBySwitchAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsMirrorsBySwitchAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsMirrorsBySwitchAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchPortsMirrorsBySwitchAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List the port mirror configurations in an organization by switch</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/ports/mirrors/bySwitch&quot;)]
+Task&lt;OrganizationSwitchPortsMirrorsByDeviceResponse&gt; GetOrganizationSwitchPortsMirrorsBySwitchAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsMirrorsByDeviceResponse.html">OrganizationSwitchPortsMirrorsByDeviceResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfileAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfileAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfileAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfileAsync(System.String,System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchPortsProfileAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get detailed information about a port profile</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/ports/profiles/{id}&quot;)]
+Task&lt;OrganizationSwitchPortsProfilesProfileDetailed&gt; GetOrganizationSwitchPortsProfileAsync(string organizationId, string id, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesProfileDetailed.html">OrganizationSwitchPortsProfilesProfileDetailed</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfilesAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfilesAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfilesAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfilesAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchPortsProfilesAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List the port profiles in an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/ports/profiles&quot;)]
+Task&lt;List&lt;OrganizationSwitchPortsProfilesProfile&gt;&gt; GetOrganizationSwitchPortsProfilesAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesProfile.html">OrganizationSwitchPortsProfilesProfile</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfilesAutomationsAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfilesAutomationsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfilesAutomationsAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfilesAutomationsAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchPortsProfilesAutomationsAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List the automation port profiles in an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/ports/profiles/automations&quot;)]
+Task&lt;List&lt;OrganizationSwitchPortsProfileAutomation&gt;&gt; GetOrganizationSwitchPortsProfilesAutomationsAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfileAutomation.html">OrganizationSwitchPortsProfileAutomation</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfilesNetworksAssignments_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfilesNetworksAssignments*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfilesNetworksAssignments_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfilesNetworksAssignments(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchPortsProfilesNetworksAssignments(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fetch all Network - Smart Port Profile associations for an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/ports/profiles/networks/assignments&quot;)]
+Task&lt;OrganizationSwitchPortsProfilesNetworksAssignments&gt; GetOrganizationSwitchPortsProfilesNetworksAssignments(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesNetworksAssignments.html">OrganizationSwitchPortsProfilesNetworksAssignments</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfilesOverviewByProfile_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfilesOverviewByProfile*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsProfilesOverviewByProfile_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsProfilesOverviewByProfile(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchPortsProfilesOverviewByProfile(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List the port profiles in an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/ports/profiles/overview/byProfile&quot;)]
+Task&lt;OrganizationSwitchPortsProfilesOverviewByProfile&gt; GetOrganizationSwitchPortsProfilesOverviewByProfile(string organizationId, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesOverviewByProfile.html">OrganizationSwitchPortsProfilesOverviewByProfile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
   <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsStatusesBySwitchAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsStatusesBySwitchAsync*"></a>
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsStatusesBySwitchAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_String_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_String_System_String_System_Collections_Generic_List_System_String__System_String_System_Collections_Generic_List_System_String__System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsStatusesBySwitchAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{System.String},System.String,System.Threading.CancellationToken)">
   GetOrganizationSwitchPortsStatusesBySwitchAsync(string, string?, int?, int?, string?, string?, List&lt;string&gt;?, List&lt;string&gt;?, string?, string?, List&lt;string&gt;?, string?, List&lt;string&gt;?, string?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>List the switchports in an organization</p>
@@ -298,7 +1052,7 @@ Task&lt;List&lt;SwitchPortsStatusesBySwitch&gt;&gt; GetOrganizationSwitchPortsSt
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_String_System_String_System_String_System_Collections_Generic_List_System_String__System_String_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_String_System_Collections_Generic_List_System_String__System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{System.String},System.Threading.CancellationToken)">
   GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync(string, string?, string?, int?, int?, int?, string?, string?, string?, string?, List&lt;string&gt;?, string?, List&lt;string&gt;?, List&lt;string&gt;?, string?, List&lt;string&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>List most recently seen LLDP/CDP discovery and topology information per switch port in an organization.</p>
@@ -384,11 +1138,103 @@ Task&lt;SwitchPortsTopologyDiscoveryByDevice&gt; GetOrganizationSwitchPortsTopol
 
 
 
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List most recently seen LLDP/CDP discovery and topology information per switch port in an organization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/ports/topology/discovery/byDevice&quot;)]
+Task&lt;OrganizationSwitchPortsTopologyDiscoveryByDevice&gt; GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsTopologyDiscoveryByDevice.html">OrganizationSwitchPortsTopologyDiscoveryByDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsTransceiversReadingsHistoryBySwitchAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsTransceiversReadingsHistoryBySwitchAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsTransceiversReadingsHistoryBySwitchAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsTransceiversReadingsHistoryBySwitchAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchPortsTransceiversReadingsHistoryBySwitchAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return time-series digital optical monitoring (DOM) readings for ports on each DOM-enabled switch in an organization, in addition to thresholds for each relevant Small Form Factor Pluggable (SFP) module.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/ports/transceivers/readings/history/bySwitch&quot;)]
+Task&lt;OrganizationSwitchPortsTransceiversReadingsHistoryBySwitch&gt; GetOrganizationSwitchPortsTransceiversReadingsHistoryBySwitchAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsTransceiversReadingsHistoryBySwitch.html">OrganizationSwitchPortsTransceiversReadingsHistoryBySwitch</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
   <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsUsageHistoryByDeviceByIntervalAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsUsageHistoryByDeviceByIntervalAsync*"></a>
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchPortsUsageHistoryByDeviceByIntervalAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_String_System_String_System_String_System_Collections_Generic_List_System_String__System_String_System_Collections_Generic_List_System_String__System_Collections_Generic_List_System_String__System_String_System_Collections_Generic_List_System_String__System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchPortsUsageHistoryByDeviceByIntervalAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{System.String},System.Threading.CancellationToken)">
   GetOrganizationSwitchPortsUsageHistoryByDeviceByIntervalAsync(string, string?, string?, int?, int?, int?, string?, string?, string?, string?, List&lt;string&gt;?, string?, List&lt;string&gt;?, List&lt;string&gt;?, string?, List&lt;string&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>List the historical usage and traffic data of switchports in an organization.</p>
@@ -412,7 +1258,7 @@ Task&lt;SwitchPortsUsageHistoryByDeviceByInterval&gt; GetOrganizationSwitchPorts
     <dd><p>The end of the timespan for the data. t1 can be a maximum of 31 days after t0.</p>
 </dd>
     <dt><code>timespan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
-    <dd><p>The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. If interval is provided, the timespan will be autocalculated. maximum = 2678400</p>
+    <dd><p>The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. If interval is provided, the timespan will be `calculated. maximum = 2678400</p>
 </dd>
     <dt><code>interval</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
     <dd><p>The time interval in seconds for returned data. The valid intervals are: 300, 1200, 14400, 86400. The default is 1200. Interval is calculated if time params are provided.</p>
@@ -476,11 +1322,157 @@ Task&lt;SwitchPortsUsageHistoryByDeviceByInterval&gt; GetOrganizationSwitchPorts
 
 
 
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchStacksPortsMirrorsByStackAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchStacksPortsMirrorsByStackAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_GetOrganizationSwitchStacksPortsMirrorsByStackAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.GetOrganizationSwitchStacksPortsMirrorsByStackAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSwitchStacksPortsMirrorsByStackAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List the port mirror configurations in an organization by stack</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/switch/stacks/ports/mirrors/byStack&quot;)]
+Task&lt;List&lt;OrganizationSwitchPortsMirrorsByStackResponseItem&gt;&gt; GetOrganizationSwitchStacksPortsMirrorsByStackAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsMirrorsByStackResponseItem.html">OrganizationSwitchPortsMirrorsByStackResponseItem</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_UpdateOrganizationSwitchPortsProfileAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.UpdateOrganizationSwitchPortsProfileAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_UpdateOrganizationSwitchPortsProfileAsync_System_String_System_String_Meraki_Api_Data_OrganizationSwitchPortsProfilesProfileUpdateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.UpdateOrganizationSwitchPortsProfileAsync(System.String,System.String,Meraki.Api.Data.OrganizationSwitchPortsProfilesProfileUpdateRequest,System.Threading.CancellationToken)">
+  UpdateOrganizationSwitchPortsProfileAsync(string, string, OrganizationSwitchPortsProfilesProfileUpdateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update a port profile in an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Put(&quot;/organizations/{organizationId}/switch/ports/profiles/{id}&quot;)]
+Task&lt;OrganizationSwitchPortsProfilesProfileDetailed&gt; UpdateOrganizationSwitchPortsProfileAsync(string organizationId, string id, OrganizationSwitchPortsProfilesProfileUpdateRequest organizationSwitchPortsProfilesProfile, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>organizationSwitchPortsProfilesProfile</code> <a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesProfileUpdateRequest.html">OrganizationSwitchPortsProfilesProfileUpdateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfilesProfileDetailed.html">OrganizationSwitchPortsProfilesProfileDetailed</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_UpdateOrganizationSwitchPortsProfilesAutomationAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.UpdateOrganizationSwitchPortsProfilesAutomationAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationSwitches_UpdateOrganizationSwitchPortsProfilesAutomationAsync_System_String_System_String_Meraki_Api_Data_OrganizationSwitchPortsProfileAutomationUpdateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationSwitches.UpdateOrganizationSwitchPortsProfilesAutomationAsync(System.String,System.String,Meraki.Api.Data.OrganizationSwitchPortsProfileAutomationUpdateRequest,System.Threading.CancellationToken)">
+  UpdateOrganizationSwitchPortsProfilesAutomationAsync(string, string, OrganizationSwitchPortsProfileAutomationUpdateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update a port profile automation in an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Put(&quot;/organizations/{organizationId}/switch/ports/profiles/automations/{id}&quot;)]
+Task&lt;OrganizationSwitchPortsProfileAutomationItem&gt; UpdateOrganizationSwitchPortsProfilesAutomationAsync(string organizationId, string id, OrganizationSwitchPortsProfileAutomationUpdateRequest organizationSwitchPortsProfilesProfileAutomation, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>organizationSwitchPortsProfilesProfileAutomation</code> <a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfileAutomationUpdateRequest.html">OrganizationSwitchPortsProfileAutomationUpdateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSwitchPortsProfileAutomationItem.html">OrganizationSwitchPortsProfileAutomationItem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationSwitches.cs" class="edit-link">Edit this page</a>
         </div>
 
 

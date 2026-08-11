@@ -95,6 +95,12 @@
 Classes
 </h3>
     <dl class="jumplist">
+      <dt><a class="xref" href="Meraki.Api.BasicRateLimiter.html">BasicRateLimiter</a></dt>
+      <dd><p>This rate limiter can be used by any number of clients to limit the number of requests
+It uses a simple in-memory queue to track request timestamps and enforces a limit on the number of requests per specified time window.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Meraki.Api.CustomNewtonsoftJsonContentSerializer.html">CustomNewtonsoftJsonContentSerializer</a></dt>
       <dd><p>A custom IHttpContentSerializer based on NewtonsoftJsonContentSerializer
 to handle retries after missing members are observed</p>
@@ -151,18 +157,27 @@ public static class Program
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Meraki.Api.MerakiClientStatistic.html">MerakiClientStatistic</a></dt>
-      <dd></dd>
+      <dd><p>Meraki Client Statistic</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Meraki.Api.MerakiClientStatistics.html">MerakiClientStatistics</a></dt>
-      <dd></dd>
+      <dd><p>Meraki Client Statistics</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Meraki.Api.MerakiQueryResponse.html">MerakiQueryResponse</a></dt>
+      <dd><p>The result of a generic <a class="xref" href="Meraki.Api.MerakiClient.html#Meraki_Api_MerakiClient_QueryAsync_System_Net_Http_HttpMethod_System_String_System_String_System_String_System_Boolean_System_Threading_CancellationToken_">QueryAsync(HttpMethod, string, string?, string?, bool, CancellationToken)</a>
+call against an arbitrary Meraki Dashboard API v1 endpoint.</p>
+</dd>
     </dl>
     <h3 id="enums">
 Enums
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="Meraki.Api.JsonMissingMemberHandling.html">JsonMissingMemberHandling</a></dt>
-      <dd></dd>
+      <dd><p>Json Missing Member Handling</p>
+</dd>
     </dl>
 
 

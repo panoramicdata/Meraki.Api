@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop.md&amp;value=---%0Auid%3A%20Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop" class="text-break">
-Interface IOrganizationsSummaryTop  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Interface IOrganizationsSummaryTop  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -125,7 +125,7 @@ Interface IOrganizationsSummaryTop  <a class="header-action link-secondary" titl
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopAppliancesByUtilizationAsync_System_String_System_String_System_String_System_Nullable_System_Double__System_String_System_String_System_String_System_Nullable_System_Int32__System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopAppliancesByUtilizationAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
   GetOrganizationSummaryTopAppliancesByUtilizationAsync(string, string?, string?, double?, string?, string?, string?, int?, string?, string?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return the top 10 appliances sorted by utilization over given time range.</p>
@@ -195,11 +195,103 @@ Task&lt;List&lt;ApplianceUtilizationSummary&gt;&gt; GetOrganizationSummaryTopApp
 
 
 
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopApplicationsByUsageAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopApplicationsByUsageAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopApplicationsByUsageAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopApplicationsByUsageAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSummaryTopApplicationsByUsageAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return the top applications sorted by data usage over given time range. Default unit is megabytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/summary/top/applications/byUsage&quot;)]
+Task&lt;List&lt;ApplicationUsageSummary&gt;&gt; GetOrganizationSummaryTopApplicationsByUsageAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.ApplicationUsageSummary.html">ApplicationUsageSummary</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopApplicationsCategoriesByUsageAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopApplicationsCategoriesByUsageAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopApplicationsCategoriesByUsageAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopApplicationsCategoriesByUsageAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSummaryTopApplicationsCategoriesByUsageAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return the top application categories sorted by data usage over given time range. Default unit is megabytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/summary/top/applications/categories/byUsage&quot;)]
+Task&lt;List&lt;ApplicationCategoryUsageSummary&gt;&gt; GetOrganizationSummaryTopApplicationsCategoriesByUsageAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.ApplicationCategoryUsageSummary.html">ApplicationCategoryUsageSummary</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
   <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopClientsByUsageAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopClientsByUsageAsync*"></a>
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopClientsByUsageAsync_System_String_System_String_System_String_System_Nullable_System_Double__System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopClientsByUsageAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.Threading.CancellationToken)">
   GetOrganizationSummaryTopClientsByUsageAsync(string, string?, string?, double?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return metrics for organization's top 10 clients by data usage (in mb) over given time range.</p>
@@ -255,7 +347,7 @@ Task&lt;List&lt;ClientUsageSummary&gt;&gt; GetOrganizationSummaryTopClientsByUsa
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopClientsManufacturersByUsageAsync_System_String_System_String_System_String_System_Nullable_System_Double__System_String_System_String_System_String_System_Nullable_System_Int32__System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopClientsManufacturersByUsageAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
   GetOrganizationSummaryTopClientsManufacturersByUsageAsync(string, string?, string?, double?, string?, string?, string?, int?, string?, string?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return metrics for organization's top clients by data usage (in mb) over given time range, grouped by manufacturer.</p>
@@ -329,7 +421,7 @@ Task&lt;List&lt;ClientManufacturersSummary&gt;&gt; GetOrganizationSummaryTopClie
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopDevicesByUsageAsync_System_String_System_String_System_String_System_Nullable_System_Double__System_String_System_String_System_String_System_Nullable_System_Int32__System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopDevicesByUsageAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
   GetOrganizationSummaryTopDevicesByUsageAsync(string, string?, string?, double?, string?, string?, string?, int?, string?, string?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return metrics for organization's top 10 devices sorted by data usage over given time range. Default unit is megabytes.</p>
@@ -403,7 +495,7 @@ Task&lt;List&lt;DeviceUsageSummary&gt;&gt; GetOrganizationSummaryTopDevicesByUsa
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopDevicesModelsByUsageAsync_System_String_System_String_System_String_System_Nullable_System_Double__System_String_System_String_System_String_System_Nullable_System_Int32__System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopDevicesModelsByUsageAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
   GetOrganizationSummaryTopDevicesModelsByUsageAsync(string, string?, string?, double?, string?, string?, string?, int?, string?, string?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return metrics for organization's top 10 device models sorted by data usage over given time range. Default unit is megabytes.</p>
@@ -473,11 +565,57 @@ Task&lt;List&lt;DeviceModelUsageSummary&gt;&gt; GetOrganizationSummaryTopDevices
 
 
 
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopNetworksByStatusAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopNetworksByStatusAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopNetworksByStatusAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopNetworksByStatusAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSummaryTopNetworksByStatusAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List the client and status overview information for the networks in an organization. Usage is measured in kilobytes and from the last seven days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/summary/top/networks/byStatus&quot;)]
+Task&lt;List&lt;NetworkStatusSummary&gt;&gt; GetOrganizationSummaryTopNetworksByStatusAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkStatusSummary.html">NetworkStatusSummary</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
   <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopSsidsByUsageAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopSsidsByUsageAsync*"></a>
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopSsidsByUsageAsync_System_String_System_String_System_String_System_Nullable_System_Double__System_String_System_String_System_String_System_Nullable_System_Int32__System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopSsidsByUsageAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
   GetOrganizationSummaryTopSsidsByUsageAsync(string, string?, string?, double?, string?, string?, string?, int?, string?, string?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return metrics for organization's top 10 ssids by data usage over given time range. Default unit is megabytes.</p>
@@ -551,7 +689,7 @@ Task&lt;List&lt;SsidUsageSummary&gt;&gt; GetOrganizationSummaryTopSsidsByUsageAs
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSummaryTop_GetOrganizationSummaryTopSwitchesByEnergyUsageAsync_System_String_System_String_System_String_System_Nullable_System_Double__System_String_System_String_System_String_System_Nullable_System_Int32__System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSummaryTop.GetOrganizationSummaryTopSwitchesByEnergyUsageAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.Threading.CancellationToken)">
   GetOrganizationSummaryTopSwitchesByEnergyUsageAsync(string, string?, string?, double?, string?, string?, string?, int?, string?, string?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return metrics for organization's top 10 switches by energy usage over given time range. Default unit is joules.</p>
@@ -625,7 +763,7 @@ Task&lt;List&lt;EnergyUsageSummary&gt;&gt; GetOrganizationSummaryTopSwitchesByEn
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSummaryTop.cs" class="edit-link">Edit this page</a>
         </div>
 
 

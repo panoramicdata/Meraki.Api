@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_Client.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.Client%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Data_Client" data-uid="Meraki.Api.Data.Client" class="text-break">
-Class Client  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class Client  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,7 +102,8 @@ Class Client  <a class="header-action link-secondary" title="View source" href="
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DataContract]
+    <pre><code class="lang-csharp hljs">[ApiAccessReadOnlyClass]
+[DataContract]
 public class Client : IdentifiedItem</code></pre>
   </div>
 
@@ -124,27 +125,57 @@ public class Client : IdentifiedItem</code></pre>
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Meraki_Api_Data_Client__ctor_" data-uid="Meraki.Api.Data.Client.#ctor*"></a>
+
+  <h3 id="Meraki_Api_Data_Client__ctor" data-uid="Meraki.Api.Data.Client.#ctor">
+  Client()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Client()</code></pre>
+  </div>
+
+
+
+
+
+
+
 
 
 
@@ -159,7 +190,7 @@ public class Client : IdentifiedItem</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_AdaptivePolicyGroup" data-uid="Meraki.Api.Data.Client.AdaptivePolicyGroup">
   AdaptivePolicyGroup
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The adaptivePolicyGroup</p>
@@ -168,7 +199,7 @@ public class Client : IdentifiedItem</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;adaptivePolicyGroup&quot;)]
-public object? AdaptivePolicyGroup { get; set; }</code></pre>
+public string? AdaptivePolicyGroup { get; set; }</code></pre>
   </div>
 
 
@@ -177,7 +208,7 @@ public object? AdaptivePolicyGroup { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -192,7 +223,7 @@ public object? AdaptivePolicyGroup { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_ClientVpnConnections" data-uid="Meraki.Api.Data.Client.ClientVpnConnections">
   ClientVpnConnections
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Client VPN connections</p>
@@ -225,7 +256,7 @@ public List&lt;ClientVpnConnections&gt; ClientVpnConnections { get; set; }</code
 
   <h3 id="Meraki_Api_Data_Client_Description" data-uid="Meraki.Api.Data.Client.Description">
   Description
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Description</p>
@@ -258,17 +289,16 @@ public string? Description { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_DeviceTypePrediction" data-uid="Meraki.Api.Data.Client.DeviceTypePrediction">
   DeviceTypePrediction
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Device Type prediction
-Temporarily set to object? until examples can be found</p>
+  <div class="markdown level1 summary"><p>Prediction of the client's device type</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;deviceTypePrediction&quot;)]
-public object? DeviceTypePrediction { get; set; }</code></pre>
+public string? DeviceTypePrediction { get; set; }</code></pre>
   </div>
 
 
@@ -277,7 +307,7 @@ public object? DeviceTypePrediction { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -292,7 +322,7 @@ public object? DeviceTypePrediction { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_FirstSeen" data-uid="Meraki.Api.Data.Client.FirstSeen">
   FirstSeen
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>When this client was first seen</p>
@@ -325,7 +355,7 @@ public DateTime FirstSeen { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_GroupPolicy8021x" data-uid="Meraki.Api.Data.Client.GroupPolicy8021x">
   GroupPolicy8021x
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The groupPolicy8021x</p>
@@ -358,7 +388,7 @@ public string? GroupPolicy8021x { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Id" data-uid="Meraki.Api.Data.Client.Id">
   Id
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Id</p>
@@ -391,7 +421,7 @@ public string Id { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Ip" data-uid="Meraki.Api.Data.Client.Ip">
   Ip
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The IP address</p>
@@ -424,7 +454,7 @@ public string? Ip { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Ip6" data-uid="Meraki.Api.Data.Client.Ip6">
   Ip6
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The IPv6 address</p>
@@ -457,7 +487,7 @@ public string? Ip6 { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Ip6Local" data-uid="Meraki.Api.Data.Client.Ip6Local">
   Ip6Local
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The IPv6 local address</p>
@@ -486,11 +516,44 @@ public string? Ip6Local { get; set; }</code></pre>
 
 
 
+  <a id="Meraki_Api_Data_Client_Is11beCapable_" data-uid="Meraki.Api.Data.Client.Is11beCapable*"></a>
+
+  <h3 id="Meraki_Api_Data_Client_Is11beCapable" data-uid="Meraki.Api.Data.Client.Is11beCapable">
+  Is11beCapable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Is 11b capable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;is11beCapable&quot;)]
+public bool? Is11beCapable { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Meraki_Api_Data_Client_LastSeen_" data-uid="Meraki.Api.Data.Client.LastSeen*"></a>
 
   <h3 id="Meraki_Api_Data_Client_LastSeen" data-uid="Meraki.Api.Data.Client.LastSeen">
   LastSeen
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>When this client was last seen</p>
@@ -523,7 +586,7 @@ public DateTime LastSeen { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Lldp" data-uid="Meraki.Api.Data.Client.Lldp">
   Lldp
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>LLDP</p>
@@ -556,7 +619,7 @@ public List&lt;List&lt;string&gt;&gt; Lldp { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Mac" data-uid="Meraki.Api.Data.Client.Mac">
   Mac
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The mac</p>
@@ -589,7 +652,7 @@ public string Mac { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Manufacturer" data-uid="Meraki.Api.Data.Client.Manufacturer">
   Manufacturer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The manufacturer</p>
@@ -618,11 +681,143 @@ public string? Manufacturer { get; set; }</code></pre>
 
 
 
+  <a id="Meraki_Api_Data_Client_McgNetworkId_" data-uid="Meraki.Api.Data.Client.McgNetworkId*"></a>
+
+  <h3 id="Meraki_Api_Data_Client_McgNetworkId" data-uid="Meraki.Api.Data.Client.McgNetworkId">
+  McgNetworkId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Meraki Campus Gateway (MCG) Network ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;mcgNetworkId&quot;)]
+public string? McgNetworkId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_Client_McgNodeMac_" data-uid="Meraki.Api.Data.Client.McgNodeMac*"></a>
+
+  <h3 id="Meraki_Api_Data_Client_McgNodeMac" data-uid="Meraki.Api.Data.Client.McgNodeMac">
+  McgNodeMac
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Meraki Campus Gateway (MCG) Node MAC</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;mcgNodeMac&quot;)]
+public string? McgNodeMac { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_Client_McgNodeName_" data-uid="Meraki.Api.Data.Client.McgNodeName*"></a>
+
+  <h3 id="Meraki_Api_Data_Client_McgNodeName" data-uid="Meraki.Api.Data.Client.McgNodeName">
+  McgNodeName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Meraki Campus Gateway (MCG) Node Name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;mcgNodeName&quot;)]
+public string? McgNodeName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_Client_McgSerial_" data-uid="Meraki.Api.Data.Client.McgSerial*"></a>
+
+  <h3 id="Meraki_Api_Data_Client_McgSerial" data-uid="Meraki.Api.Data.Client.McgSerial">
+  McgSerial
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Meraki Campus Gateway (MCG) serial</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;mcgSerial&quot;)]
+public string? McgSerial { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Meraki_Api_Data_Client_NamedVlan_" data-uid="Meraki.Api.Data.Client.NamedVlan*"></a>
 
   <h3 id="Meraki_Api_Data_Client_NamedVlan" data-uid="Meraki.Api.Data.Client.NamedVlan">
   NamedVlan
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The Named VLAN</p>
@@ -655,7 +850,7 @@ public string? NamedVlan { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Notes" data-uid="Meraki.Api.Data.Client.Notes">
   Notes
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The notes</p>
@@ -688,7 +883,7 @@ public string? Notes { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Os" data-uid="Meraki.Api.Data.Client.Os">
   Os
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The Operating system</p>
@@ -721,7 +916,7 @@ public string? Os { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_PskGroup" data-uid="Meraki.Api.Data.Client.PskGroup">
   PskGroup
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The pskGroup</p>
@@ -754,7 +949,7 @@ public string? PskGroup { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_RecentDeviceConnectionType" data-uid="Meraki.Api.Data.Client.RecentDeviceConnectionType">
   RecentDeviceConnectionType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The recent device mac address</p>
@@ -783,11 +978,44 @@ public ConnectionType? RecentDeviceConnectionType { get; set; }</code></pre>
 
 
 
+  <a id="Meraki_Api_Data_Client_RecentDeviceId_" data-uid="Meraki.Api.Data.Client.RecentDeviceId*"></a>
+
+  <h3 id="Meraki_Api_Data_Client_RecentDeviceId" data-uid="Meraki.Api.Data.Client.RecentDeviceId">
+  RecentDeviceId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The recent device id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;recentDeviceId&quot;)]
+public string? RecentDeviceId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Meraki_Api_Data_Client_RecentDeviceMac_" data-uid="Meraki.Api.Data.Client.RecentDeviceMac*"></a>
 
   <h3 id="Meraki_Api_Data_Client_RecentDeviceMac" data-uid="Meraki.Api.Data.Client.RecentDeviceMac">
   RecentDeviceMac
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The recent device mac address</p>
@@ -820,7 +1048,7 @@ public string? RecentDeviceMac { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_RecentDeviceName" data-uid="Meraki.Api.Data.Client.RecentDeviceName">
   RecentDeviceName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The recent device name</p>
@@ -853,7 +1081,7 @@ public string? RecentDeviceName { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_RecentDeviceSerial" data-uid="Meraki.Api.Data.Client.RecentDeviceSerial">
   RecentDeviceSerial
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The recent device serial</p>
@@ -886,7 +1114,7 @@ public string? RecentDeviceSerial { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_SmInstalled" data-uid="Meraki.Api.Data.Client.SmInstalled">
   SmInstalled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>SM Installed</p>
@@ -919,7 +1147,7 @@ public bool SmInstalled { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Ssid" data-uid="Meraki.Api.Data.Client.Ssid">
   Ssid
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>SSID</p>
@@ -952,7 +1180,7 @@ public string? Ssid { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Status" data-uid="Meraki.Api.Data.Client.Status">
   Status
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The status</p>
@@ -985,7 +1213,7 @@ public string Status { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Switchport" data-uid="Meraki.Api.Data.Client.Switchport">
   Switchport
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The switch port</p>
@@ -1018,10 +1246,11 @@ public string? Switchport { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Usage" data-uid="Meraki.Api.Data.Client.Usage">
   Usage
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the usage</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1050,7 +1279,7 @@ public UsageInKb Usage { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_User" data-uid="Meraki.Api.Data.Client.User">
   User
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The user</p>
@@ -1083,7 +1312,7 @@ public string? User { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_Vlan" data-uid="Meraki.Api.Data.Client.Vlan">
   Vlan
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The VLAN</p>
@@ -1116,7 +1345,7 @@ public int Vlan { get; set; }</code></pre>
 
   <h3 id="Meraki_Api_Data_Client_WirelessCapabilities" data-uid="Meraki.Api.Data.Client.WirelessCapabilities">
   WirelessCapabilities
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Wireless capabilities</p>
@@ -1149,7 +1378,7 @@ public string WirelessCapabilities { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/Client.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/Client.cs" class="edit-link">Edit this page</a>
         </div>
 
 

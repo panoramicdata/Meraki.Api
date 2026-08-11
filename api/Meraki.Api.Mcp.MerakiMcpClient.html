@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MerakiMcpClient | Meraki.Api </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MerakiMcpClient | Meraki.Api ">
+      
+      <meta name="description" content="A client for the Cisco Meraki MCP server.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Meraki.Api">
+            Meraki.Api
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Meraki.Api.Mcp.MerakiMcpClient">
+
+
+
+  <h1 id="Meraki_Api_Mcp_MerakiMcpClient" data-uid="Meraki.Api.Mcp.MerakiMcpClient" class="text-break">
+Class MerakiMcpClient  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Meraki.html">Meraki</a>.<a class="xref" href="Meraki.Api.html">Api</a>.<a class="xref" href="Meraki.Api.Mcp.html">Mcp</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A client for the Cisco Meraki MCP server.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MerakiMcpClient</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Meraki_Api_Mcp_MerakiMcpClient_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The Meraki MCP server exposes two tools: semantic_search, which searches the Meraki Dashboard API
+capability catalogue with a natural-language query, and execute_api, which executes a
+<em>read-only</em> capability selected from that search.
+</p>
+<p>
+Mutations are deliberately out of scope. Use <a class="xref" href="Meraki.Api.MerakiClient.html">MerakiClient</a> for those.
+</p>
+<p>
+The server is in beta and Cisco documents that breaking changes are possible. See
+<a href="https://developer.cisco.com/meraki/api-v1/mcp-server/">Meraki MCP Server</a>.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Meraki_Api_Mcp_MerakiMcpClient__ctor_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.#ctor*"></a>
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient__ctor_Meraki_Api_Mcp_MerakiMcpClientOptions_Microsoft_Extensions_Logging_ILogger_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.#ctor(Meraki.Api.Mcp.MerakiMcpClientOptions,Microsoft.Extensions.Logging.ILogger)">
+  MerakiMcpClient(MerakiMcpClientOptions, ILogger?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Meraki.Api.Mcp.MerakiMcpClient.html">MerakiMcpClient</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MerakiMcpClient(MerakiMcpClientOptions options, ILogger? logger = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="Meraki.Api.Mcp.MerakiMcpClientOptions.html">MerakiMcpClientOptions</a></dt>
+    <dd><p>The options. These are validated immediately.</p>
+</dd>
+    <dt><code>logger</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger">ILogger</a></dt>
+    <dd><p>An optional logger.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">options</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="Meraki.Api.Exceptions.ConfigurationException.html">ConfigurationException</a></dt>
+    <dd><p>Thrown when the options are not usable.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient_ExecuteApiToolName" data-uid="Meraki.Api.Mcp.MerakiMcpClient.ExecuteApiToolName">
+  ExecuteApiToolName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the API execution tool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ExecuteApiToolName = &quot;execute_api&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient_SemanticSearchToolName" data-uid="Meraki.Api.Mcp.MerakiMcpClient.SemanticSearchToolName">
+  SemanticSearchToolName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the semantic search tool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string SemanticSearchToolName = &quot;semantic_search&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Meraki_Api_Mcp_MerakiMcpClient_Statistics_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.Statistics*"></a>
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient_Statistics" data-uid="Meraki.Api.Mcp.MerakiMcpClient.Statistics">
+  Statistics
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Statistics for this client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MerakiMcpClientStatistics Statistics { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Meraki.Api.Mcp.MerakiMcpClientStatistics.html">MerakiMcpClientStatistics</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Meraki_Api_Mcp_MerakiMcpClient_Dispose_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.Dispose*"></a>
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient_Dispose" data-uid="Meraki.Api.Mcp.MerakiMcpClient.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes the client, closing any session and terminating any child process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Mcp_MerakiMcpClient_DisposeAsync_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.DisposeAsync*"></a>
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient_DisposeAsync" data-uid="Meraki.Api.Mcp.MerakiMcpClient.DisposeAsync">
+  DisposeAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Asynchronously disposes the client, closing any session and terminating any child process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueTask DisposeAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd><p>A task that completes when disposal is complete.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Mcp_MerakiMcpClient_ExecuteApiAsync_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.ExecuteApiAsync*"></a>
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient_ExecuteApiAsync_System_String_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Object__System_Threading_CancellationToken_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.ExecuteApiAsync(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+  ExecuteApiAsync(string, IReadOnlyDictionary&lt;string, object?&gt;?, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes a read-only Meraki Dashboard API capability selected from
+<a class="xref" href="Meraki.Api.Mcp.MerakiMcpClient.html#Meraki_Api_Mcp_MerakiMcpClient_SemanticSearchAsync_System_String_System_Threading_CancellationToken_">SemanticSearchAsync(string, CancellationToken)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MerakiMcpResult&gt; ExecuteApiAsync(string capabilityId, IReadOnlyDictionary&lt;string, object?&gt;? parameters = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capabilityId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The capability identifier, for example &quot;getNetworkClients&quot;.</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>The capability's parameters, where it takes any.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Mcp.MerakiMcpResult.html">MerakiMcpResult</a>&gt;</dt>
+    <dd><p>The result the server returned.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">capabilityId</code> is null or whitespace.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>Thrown when this client has been disposed.</p>
+</dd>
+    <dt><a class="xref" href="Meraki.Api.Mcp.MerakiMcpReadOnlyViolationException.html">MerakiMcpReadOnlyViolationException</a></dt>
+    <dd><p>Thrown when the capability does not name a read operation. The MCP server is read-only by
+design; use <a class="xref" href="Meraki.Api.MerakiClient.html">MerakiClient</a> for mutations.</p>
+</dd>
+    <dt><a class="xref" href="Meraki.Api.Mcp.MerakiMcpToolNotFoundException.html">MerakiMcpToolNotFoundException</a></dt>
+    <dd><p>Thrown when the server does not advertise the execute_api tool.</p>
+</dd>
+    <dt><a class="xref" href="Meraki.Api.Mcp.MerakiMcpProtocolException.html">MerakiMcpProtocolException</a></dt>
+    <dd><p>Thrown when the server reports an error or its response cannot be understood.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Mcp_MerakiMcpClient_GetStatusAsync_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.GetStatusAsync*"></a>
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient_GetStatusAsync_System_Threading_CancellationToken_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.GetStatusAsync(System.Threading.CancellationToken)">
+  GetStatusAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a non-destructive connectivity and credential check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;MerakiMcpStatus&gt; GetStatusAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Mcp.MerakiMcpStatus.html">MerakiMcpStatus</a>&gt;</dt>
+    <dd><p>The status. This never throws for an expected failure; inspect the result instead.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>Thrown when this client has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Mcp_MerakiMcpClient_IsReadCapabilityName_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.IsReadCapabilityName*"></a>
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient_IsReadCapabilityName_System_String_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.IsReadCapabilityName(System.String)">
+  IsReadCapabilityName(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a capability identifier names a read operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsReadCapabilityName(string? capabilityId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>capabilityId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The capability identifier, for example &quot;getNetworkClients&quot;.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when the identifier names a read operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Meraki_Api_Mcp_MerakiMcpClient_IsReadCapabilityName_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Every Meraki Dashboard GET operation identifier begins with &quot;get&quot;.</p>
+</div>
+
+
+
+
+  <a id="Meraki_Api_Mcp_MerakiMcpClient_SemanticSearchAsync_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.SemanticSearchAsync*"></a>
+
+  <h3 id="Meraki_Api_Mcp_MerakiMcpClient_SemanticSearchAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Mcp.MerakiMcpClient.SemanticSearchAsync(System.String,System.Threading.CancellationToken)">
+  SemanticSearchAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Searches the Meraki Dashboard API capability catalogue with a natural-language query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IReadOnlyList&lt;MerakiCapability&gt;&gt; SemanticSearchAsync(string query, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The natural-language query.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Meraki.Api.Mcp.MerakiCapability.html">MerakiCapability</a>&gt;&gt;</dt>
+    <dd><p>The ranked capabilities the server returned.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">query</code> is null or whitespace.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>Thrown when this client has been disposed.</p>
+</dd>
+    <dt><a class="xref" href="Meraki.Api.Mcp.MerakiMcpToolNotFoundException.html">MerakiMcpToolNotFoundException</a></dt>
+    <dd><p>Thrown when the server does not advertise the semantic_search tool.</p>
+</dd>
+    <dt><a class="xref" href="Meraki.Api.Mcp.MerakiMcpProtocolException.html">MerakiMcpProtocolException</a></dt>
+    <dd><p>Thrown when the server's response cannot be understood.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Mcp/MerakiMcpClient.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

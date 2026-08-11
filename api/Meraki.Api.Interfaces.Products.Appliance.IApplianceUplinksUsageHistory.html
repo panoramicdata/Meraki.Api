@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IApplianceUplinksUsageHistory | Meraki.Api ">
       
-      
+      <meta name="description" content="I Appliance Uplinks Usage History">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Interfaces_Products_Appliance_IApplianceUplinksUsageHistory.md&amp;value=---%0Auid%3A%20Meraki.Api.Interfaces.Products.Appliance.IApplianceUplinksUsageHistory%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Interfaces_Products_Appliance_IApplianceUplinksUsageHistory" data-uid="Meraki.Api.Interfaces.Products.Appliance.IApplianceUplinksUsageHistory" class="text-break">
-Interface IApplianceUplinksUsageHistory  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/Products/Appliance/IApplianceUplinksUsageHistory.cs/#L3"><i class="bi bi-code-slash"></i></a>
+Interface IApplianceUplinksUsageHistory  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/Products/Appliance/IApplianceUplinksUsageHistory.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Interface IApplianceUplinksUsageHistory  <a class="header-action link-secondary"
   <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>I Appliance Uplinks Usage History</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -124,7 +125,7 @@ Interface IApplianceUplinksUsageHistory  <a class="header-action link-secondary"
 
   <h3 id="Meraki_Api_Interfaces_Products_Appliance_IApplianceUplinksUsageHistory_GetNetworkApplianceUplinksUsageHistoryAsync_System_String_System_String_System_String_System_Nullable_System_Double__System_Nullable_System_Int32__System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.Products.Appliance.IApplianceUplinksUsageHistory.GetNetworkApplianceUplinksUsageHistoryAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.Nullable{System.Int32},System.Threading.CancellationToken)">
   GetNetworkApplianceUplinksUsageHistoryAsync(string, string, string, double?, int?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/Products/Appliance/IApplianceUplinksUsageHistory.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/Products/Appliance/IApplianceUplinksUsageHistory.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get the sent and received bytes for each uplink of a network.</p>
@@ -142,10 +143,14 @@ Task&lt;List&lt;UplinkUsageHistory&gt;&gt; GetNetworkApplianceUplinksUsageHistor
     <dd><p>The network id</p>
 </dd>
     <dt><code>t0</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The beginning of the timespan for the data. The maximum lookback period is 365 days from today.</p>
+    <dd><p>The beginning of the timespan for the data. Meraki documents the maximum lookback period as 365 days from today.
+In practice this endpoint only returns data for t0 within ~30 days of now (verified against a live organization on 2026-06-16,
+and identical for every supported resolution); older values are rejected with HTTP 400 &quot;timespan goes too far into the past&quot;.</p>
 </dd>
     <dt><code>t1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The end of the timespan for the data. t1 can be a maximum of 14 days after t0.</p>
+    <dd><p>The end of the timespan for the data. Meraki documents t1 as a maximum of 14 days after t0.
+In practice this 14-day span limit is not enforced: spans of at least ~29 days return data at hourly resolution
+(verified 2026-06-16), bounded only by the ~30-day lookback on t0.</p>
 </dd>
     <dt><code>timespan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
     <dd><p>The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 14 days. The default is 10 minutes.</p>
@@ -184,7 +189,7 @@ Task&lt;List&lt;UplinkUsageHistory&gt;&gt; GetNetworkApplianceUplinksUsageHistor
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/Products/Appliance/IApplianceUplinksUsageHistory.cs/#L3" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/Products/Appliance/IApplianceUplinksUsageHistory.cs" class="edit-link">Edit this page</a>
         </div>
 
 

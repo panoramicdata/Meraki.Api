@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface INetworksFirmwareUpgrades | Meraki.Api ">
       
-      
+      <meta name="description" content="I Networks Firmware Upgrades">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades.md&amp;value=---%0Auid%3A%20Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades" class="text-break">
-Interface INetworksFirmwareUpgrades  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs/#L3"><i class="bi bi-code-slash"></i></a>
+Interface INetworksFirmwareUpgrades  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Interface INetworksFirmwareUpgrades  <a class="header-action link-secondary" tit
   <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>I Networks Firmware Upgrades</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -124,7 +125,7 @@ Interface INetworksFirmwareUpgrades  <a class="header-action link-secondary" tit
 
   <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_CreateNetworkFirmwareUpgradesRollbackAsync_System_String_Meraki_Api_Data_FirmwareUpgradeRollbackRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.CreateNetworkFirmwareUpgradesRollbackAsync(System.String,Meraki.Api.Data.FirmwareUpgradeRollbackRequest,System.Threading.CancellationToken)">
   CreateNetworkFirmwareUpgradesRollbackAsync(string, FirmwareUpgradeRollbackRequest, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Rollback a Firmware Upgrade For A Network</p>
@@ -145,12 +146,211 @@ Task&lt;NetworkFirmwareUpgrade&gt; CreateNetworkFirmwareUpgradesRollbackAsync(st
     <dd><p>Body for creating network firmware upgrade rollbacks</p>
 </dd>
     <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>The Cancellation Token</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgrade.html">NetworkFirmwareUpgrade</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_CreateNetworkFirmwareUpgradesStagedEventsAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.CreateNetworkFirmwareUpgradesStagedEventsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_CreateNetworkFirmwareUpgradesStagedEventsAsync_System_String_Meraki_Api_Data_NetworkFirmwareUpgradeStagedEventsCreateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.CreateNetworkFirmwareUpgradesStagedEventsAsync(System.String,Meraki.Api.Data.NetworkFirmwareUpgradeStagedEventsCreateRequest,System.Threading.CancellationToken)">
+  CreateNetworkFirmwareUpgradesStagedEventsAsync(string, NetworkFirmwareUpgradeStagedEventsCreateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a Staged Upgrade Event for a Network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/networks/{networkId}/firmwareUpgrades/staged/events&quot;)]
+Task&lt;NetworkFirmwareUpgradeStagedEvents&gt; CreateNetworkFirmwareUpgradesStagedEventsAsync(string networkId, NetworkFirmwareUpgradeStagedEventsCreateRequest createNetworkFirmwareUpgradesStagedEvents, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>createNetworkFirmwareUpgradesStagedEvents</code> <a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradeStagedEventsCreateRequest.html">NetworkFirmwareUpgradeStagedEventsCreateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradeStagedEvents.html">NetworkFirmwareUpgradeStagedEvents</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_CreateNetworkFirmwareUpgradesStagedGroupsAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.CreateNetworkFirmwareUpgradesStagedGroupsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_CreateNetworkFirmwareUpgradesStagedGroupsAsync_System_String_Meraki_Api_Data_NetworkFirmwareUpgradesStagedGroupCreateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.CreateNetworkFirmwareUpgradesStagedGroupsAsync(System.String,Meraki.Api.Data.NetworkFirmwareUpgradesStagedGroupCreateRequest,System.Threading.CancellationToken)">
+  CreateNetworkFirmwareUpgradesStagedGroupsAsync(string, NetworkFirmwareUpgradesStagedGroupCreateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a Staged Upgrade Group for a Network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/networks/{networkId}/firmwareUpgrades/staged/groups&quot;)]
+Task&lt;NetworkFirmwareUpgradesStagedGroup&gt; CreateNetworkFirmwareUpgradesStagedGroupsAsync(string networkId, NetworkFirmwareUpgradesStagedGroupCreateRequest createNetworkFirmwareUpgradesStagedGroups, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>createNetworkFirmwareUpgradesStagedGroups</code> <a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradesStagedGroupCreateRequest.html">NetworkFirmwareUpgradesStagedGroupCreateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradesStagedGroup.html">NetworkFirmwareUpgradesStagedGroup</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_DeferNetworkFirmwareUpgradesStagedEventsAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.DeferNetworkFirmwareUpgradesStagedEventsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_DeferNetworkFirmwareUpgradesStagedEventsAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.DeferNetworkFirmwareUpgradesStagedEventsAsync(System.String,System.Threading.CancellationToken)">
+  DeferNetworkFirmwareUpgradesStagedEventsAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Postpone by 1 week all pending staged upgrade stages for a network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/networks/{networkId}/firmwareUpgrades/staged/events/defer&quot;)]
+Task&lt;NetworkFirmwareUpgradeStagedEventsDeferResponse&gt; DeferNetworkFirmwareUpgradesStagedEventsAsync(string networkId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradeStagedEventsDeferResponse.html">NetworkFirmwareUpgradeStagedEventsDeferResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_DeleteNetworkFirmwareUpgradesStagedGroupsAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.DeleteNetworkFirmwareUpgradesStagedGroupsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_DeleteNetworkFirmwareUpgradesStagedGroupsAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.DeleteNetworkFirmwareUpgradesStagedGroupsAsync(System.String,System.String,System.Threading.CancellationToken)">
+  DeleteNetworkFirmwareUpgradesStagedGroupsAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete a Staged Upgrade Group</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Delete(&quot;/networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}&quot;)]
+Task DeleteNetworkFirmwareUpgradesStagedGroupsAsync(string networkId, string groupId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>groupId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
     <dd></dd>
   </dl>
 
@@ -174,7 +374,7 @@ Task&lt;NetworkFirmwareUpgrade&gt; CreateNetworkFirmwareUpgradesRollbackAsync(st
 
   <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_GetNetworkFirmwareUpgradesAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.GetNetworkFirmwareUpgradesAsync(System.String,System.Threading.CancellationToken)">
   GetNetworkFirmwareUpgradesAsync(string, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get firmware upgrade information for a network</p>
@@ -192,12 +392,258 @@ Task&lt;NetworkFirmwareUpgrade&gt; GetNetworkFirmwareUpgradesAsync(string networ
     <dd><p>The network id</p>
 </dd>
     <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>The Cancellation Token</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgrade.html">NetworkFirmwareUpgrade</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_GetNetworkFirmwareUpgradesStagedEventsAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.GetNetworkFirmwareUpgradesStagedEventsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_GetNetworkFirmwareUpgradesStagedEventsAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.GetNetworkFirmwareUpgradesStagedEventsAsync(System.String,System.Threading.CancellationToken)">
+  GetNetworkFirmwareUpgradesStagedEventsAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the staged Upgrade events for a Network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/networks/{networkId}/firmwareUpgrades/staged/events&quot;)]
+Task&lt;NetworkFirmwareUpgradeStagedEvents&gt; GetNetworkFirmwareUpgradesStagedEventsAsync(string networkId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradeStagedEvents.html">NetworkFirmwareUpgradeStagedEvents</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_GetNetworkFirmwareUpgradesStagedGroupAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.GetNetworkFirmwareUpgradesStagedGroupAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_GetNetworkFirmwareUpgradesStagedGroupAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.GetNetworkFirmwareUpgradesStagedGroupAsync(System.String,System.String,System.Threading.CancellationToken)">
+  GetNetworkFirmwareUpgradesStagedGroupAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a Staged Upgrade Group from a Network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}&quot;)]
+Task&lt;NetworkFirmwareUpgradesStagedGroup&gt; GetNetworkFirmwareUpgradesStagedGroupAsync(string networkId, string groupId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>groupId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Group ID</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradesStagedGroup.html">NetworkFirmwareUpgradesStagedGroup</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_GetNetworkFirmwareUpgradesStagedGroupsAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.GetNetworkFirmwareUpgradesStagedGroupsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_GetNetworkFirmwareUpgradesStagedGroupsAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.GetNetworkFirmwareUpgradesStagedGroupsAsync(System.String,System.Threading.CancellationToken)">
+  GetNetworkFirmwareUpgradesStagedGroupsAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of Staged Upgrade Groups in a Network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/networks/{networkId}/firmwareUpgrades/staged/groups&quot;)]
+Task&lt;List&lt;NetworkFirmwareUpgradesStagedGroup&gt;&gt; GetNetworkFirmwareUpgradesStagedGroupsAsync(string networkId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradesStagedGroup.html">NetworkFirmwareUpgradesStagedGroup</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_GetNetworkFirmwareUpgradesStagedStagesAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.GetNetworkFirmwareUpgradesStagedStagesAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_GetNetworkFirmwareUpgradesStagedStagesAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.GetNetworkFirmwareUpgradesStagedStagesAsync(System.String,System.Threading.CancellationToken)">
+  GetNetworkFirmwareUpgradesStagedStagesAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Order of Staged Upgrade Groups in a network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/networks/{networkId}/firmwareUpgrades/staged/stages&quot;)]
+Task&lt;List&lt;NetworkFirmwareUpgradesStagedStage&gt;&gt; GetNetworkFirmwareUpgradesStagedStagesAsync(string networkId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradesStagedStage.html">NetworkFirmwareUpgradesStagedStage</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_RollbacksNetworkFirmwareUpgradesStagedEventsAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.RollbacksNetworkFirmwareUpgradesStagedEventsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_RollbacksNetworkFirmwareUpgradesStagedEventsAsync_System_String_Meraki_Api_Data_NetworkFirmwareUpgradeStagedEventsRollbacksRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.RollbacksNetworkFirmwareUpgradesStagedEventsAsync(System.String,Meraki.Api.Data.NetworkFirmwareUpgradeStagedEventsRollbacksRequest,System.Threading.CancellationToken)">
+  RollbacksNetworkFirmwareUpgradesStagedEventsAsync(string, NetworkFirmwareUpgradeStagedEventsRollbacksRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rollback a Staged Upgrade Event for a Network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Post(&quot;/networks/{networkId}/firmwareUpgrades/staged/events/rollbacks&quot;)]
+Task&lt;NetworkFirmwareUpgradeStagedEventsRollbacksResponse&gt; RollbacksNetworkFirmwareUpgradesStagedEventsAsync(string networkId, NetworkFirmwareUpgradeStagedEventsRollbacksRequest createNetworkFirmwareUpgradesStagedEvents, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>createNetworkFirmwareUpgradesStagedEvents</code> <a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradeStagedEventsRollbacksRequest.html">NetworkFirmwareUpgradeStagedEventsRollbacksRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradeStagedEventsRollbacksResponse.html">NetworkFirmwareUpgradeStagedEventsRollbacksResponse</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -221,7 +667,7 @@ Task&lt;NetworkFirmwareUpgrade&gt; GetNetworkFirmwareUpgradesAsync(string networ
 
   <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_UpdateNetworkFirmwareUpgradesAsync_System_String_Meraki_Api_Data_NetworkFirmwareUpgradeUpdateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.UpdateNetworkFirmwareUpgradesAsync(System.String,Meraki.Api.Data.NetworkFirmwareUpgradeUpdateRequest,System.Threading.CancellationToken)">
   UpdateNetworkFirmwareUpgradesAsync(string, NetworkFirmwareUpgradeUpdateRequest, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update firmware upgrade information for a network</p>
@@ -242,7 +688,8 @@ Task&lt;NetworkFirmwareUpgrade&gt; UpdateNetworkFirmwareUpgradesAsync(string net
     <dd><p>Body for updating network firmware upgrades</p>
 </dd>
     <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>The Cancellation Token</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -267,11 +714,163 @@ Task&lt;NetworkFirmwareUpgrade&gt; UpdateNetworkFirmwareUpgradesAsync(string net
 
 
 
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_UpdateNetworkFirmwareUpgradesStagedEventsAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.UpdateNetworkFirmwareUpgradesStagedEventsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_UpdateNetworkFirmwareUpgradesStagedEventsAsync_System_String_Meraki_Api_Data_NetworkFirmwareUpgradeStagedEventsUpdateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.UpdateNetworkFirmwareUpgradesStagedEventsAsync(System.String,Meraki.Api.Data.NetworkFirmwareUpgradeStagedEventsUpdateRequest,System.Threading.CancellationToken)">
+  UpdateNetworkFirmwareUpgradesStagedEventsAsync(string, NetworkFirmwareUpgradeStagedEventsUpdateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update the Staged Upgrade Event for a network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Put(&quot;/networks/{networkId}/firmwareUpgrades/staged/events&quot;)]
+Task&lt;NetworkFirmwareUpgradeStagedEvents&gt; UpdateNetworkFirmwareUpgradesStagedEventsAsync(string networkId, NetworkFirmwareUpgradeStagedEventsUpdateRequest createNetworkFirmwareUpgradesStagedEvents, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>createNetworkFirmwareUpgradesStagedEvents</code> <a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradeStagedEventsUpdateRequest.html">NetworkFirmwareUpgradeStagedEventsUpdateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradeStagedEvents.html">NetworkFirmwareUpgradeStagedEvents</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_UpdateNetworkFirmwareUpgradesStagedGroupsAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.UpdateNetworkFirmwareUpgradesStagedGroupsAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_UpdateNetworkFirmwareUpgradesStagedGroupsAsync_System_String_System_String_Meraki_Api_Data_NetworkFirmwareUpgradesStagedGroupUpdateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.UpdateNetworkFirmwareUpgradesStagedGroupsAsync(System.String,System.String,Meraki.Api.Data.NetworkFirmwareUpgradesStagedGroupUpdateRequest,System.Threading.CancellationToken)">
+  UpdateNetworkFirmwareUpgradesStagedGroupsAsync(string, string, NetworkFirmwareUpgradesStagedGroupUpdateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update a Staged Upgrade Group for a network</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Put(&quot;/networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}&quot;)]
+Task&lt;NetworkFirmwareUpgradesStagedGroupUpdateResponse&gt; UpdateNetworkFirmwareUpgradesStagedGroupsAsync(string networkId, string groupId, NetworkFirmwareUpgradesStagedGroupUpdateRequest createNetworkFirmwareUpgradesStagedGroups, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>groupId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>createNetworkFirmwareUpgradesStagedGroups</code> <a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradesStagedGroupUpdateRequest.html">NetworkFirmwareUpgradesStagedGroupUpdateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradesStagedGroupUpdateResponse.html">NetworkFirmwareUpgradesStagedGroupUpdateResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_UpdateNetworkFirmwareUpgradesStagedStagesAsync_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.UpdateNetworkFirmwareUpgradesStagedStagesAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Networks_INetworksFirmwareUpgrades_UpdateNetworkFirmwareUpgradesStagedStagesAsync_System_String_Meraki_Api_Data_NetworkFirmwareUpgradesStagedStageUpdateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Networks.INetworksFirmwareUpgrades.UpdateNetworkFirmwareUpgradesStagedStagesAsync(System.String,Meraki.Api.Data.NetworkFirmwareUpgradesStagedStageUpdateRequest,System.Threading.CancellationToken)">
+  UpdateNetworkFirmwareUpgradesStagedStagesAsync(string, NetworkFirmwareUpgradesStagedStageUpdateRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assign Staged Upgrade Group order in the sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Put(&quot;/networks/{networkId}/firmwareUpgrades/staged/stages&quot;)]
+Task&lt;NetworkFirmwareUpgradesStagedStage&gt; UpdateNetworkFirmwareUpgradesStagedStagesAsync(string networkId, NetworkFirmwareUpgradesStagedStageUpdateRequest updateNetworkFirmwareUpgradesStagedStages, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The network id</p>
+</dd>
+    <dt><code>updateNetworkFirmwareUpgradesStagedStages</code> <a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradesStagedStageUpdateRequest.html">NetworkFirmwareUpgradesStagedStageUpdateRequest</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The Cancellation Token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Meraki.Api.Data.NetworkFirmwareUpgradesStagedStage.html">NetworkFirmwareUpgradesStagedStage</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs/#L3" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Networks/INetworksFirmwareUpgrades.cs" class="edit-link">Edit this page</a>
         </div>
 
 

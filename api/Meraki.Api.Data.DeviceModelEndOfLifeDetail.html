@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class DeviceModelEndOfLifeDetail | Meraki.Api ">
       
-      <meta name="description" content="End of life details about a device model">
+      <meta name="description" content="End of life details for a single row of the Meraki End-of-Life (EOL) products table. A single published row frequently covers several device models and/or accessories, so  holds the full product description exactly as published and  holds the individual model identifiers parsed from it.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Data_DeviceModelEndOfLifeDetail.md&amp;value=---%0Auid%3A%20Meraki.Api.Data.DeviceModelEndOfLifeDetail%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail" class="text-break">
-Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/EndOfLifeDetail.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title=
   <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>End of life details about a device model</p>
+  <div class="markdown summary"><p>End of life details for a single row of the Meraki End-of-Life (EOL) products table.
+A single published row frequently covers several device models and/or accessories, so
+<a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html#Meraki_Api_Data_DeviceModelEndOfLifeDetail_DeviceModel">DeviceModel</a> holds the full product description exactly as published and
+<a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html#Meraki_Api_Data_DeviceModelEndOfLifeDetail_Models">Models</a> holds the individual model identifiers parsed from it.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -128,27 +131,79 @@ Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title=
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
   </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail__ctor_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.#ctor*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail__ctor" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.#ctor">
+  DeviceModelEndOfLifeDetail()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeviceModelEndOfLifeDetail()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail__ctor_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.#ctor*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail__ctor_Meraki_Api_Data_DeviceModelEndOfLifeDetail_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.#ctor(Meraki.Api.Data.DeviceModelEndOfLifeDetail)">
+  DeviceModelEndOfLifeDetail(DeviceModelEndOfLifeDetail)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DeviceModelEndOfLifeDetail(DeviceModelEndOfLifeDetail original)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>original</code> <a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html">DeviceModelEndOfLifeDetail</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
 
@@ -163,10 +218,10 @@ Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title=
 
   <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Announcement" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Announcement">
   Announcement
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/EndOfLifeDetail.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The announcement date</p>
+  <div class="markdown level1 summary"><p>The announcement date, or null when not published or not parseable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -195,10 +250,11 @@ Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title=
 
   <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_DeviceModel" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.DeviceModel">
   DeviceModel
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/EndOfLifeDetail.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The device model</p>
+  <div class="markdown level1 summary"><p>The product description exactly as published in the EOL table. This may list several
+models and/or accessories (e.g. &quot;MR36, MR36H, MR44, MR46, MR46E and Accessories&quot;).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -227,10 +283,10 @@ Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title=
 
   <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_EndOfSale" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.EndOfSale">
   EndOfSale
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/EndOfLifeDetail.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The end of sale date</p>
+  <div class="markdown level1 summary"><p>The end of sale date, or null when not published or not parseable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -259,10 +315,10 @@ Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title=
 
   <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_EndOfSupport" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.EndOfSupport">
   EndOfSupport
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/EndOfLifeDetail.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The end of support date</p>
+  <div class="markdown level1 summary"><p>The end of support date, or null when not published or not parseable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -291,10 +347,10 @@ Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title=
 
   <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_EosNoticeUrl" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.EosNoticeUrl">
   EosNoticeUrl
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/EndOfLifeDetail.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The end of support date for Meraki cloud management</p>
+  <div class="markdown level1 summary"><p>The URL to the official End-of-Sale / End-of-Life notice, or &quot;Missing URL&quot; when absent.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -319,14 +375,88 @@ Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title=
 
 
 
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_EqualityContract_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.EqualityContract*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_EqualityContract" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.EqualityContract">
+  EqualityContract
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Type EqualityContract { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Models_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Models*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Models" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Models">
+  Models
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The individual Meraki model identifiers parsed from <a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html#Meraki_Api_Data_DeviceModelEndOfLifeDetail_DeviceModel">DeviceModel</a> on a
+best-effort basis, kept exactly as published (including the &quot;-HW&quot; hardware suffix).
+Descriptive / accessory text is excluded. Empty when the row contains no recognisable
+model identifiers.</p>
+<p>
+Note: the Meraki Dashboard API device model omits the "-HW" suffix (e.g. "MR70"
+rather than "MR70-HW"), so when relating these to a device, match case-insensitively
+and allow a trailing "-HW".
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Models { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Region_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Region*"></a>
 
   <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Region" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Region">
   Region
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/EndOfLifeDetail.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>If null, all regions apply</p>
+  <div class="markdown level1 summary"><p>Legacy single-region field. The current EOL page no longer publishes a separate
+region column, so this is no longer populated (null). Use <a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html#Meraki_Api_Data_DeviceModelEndOfLifeDetail_Regions">Regions</a>
+instead, which also represents rows that apply to several regions. Retained for
+backwards compatibility.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -351,11 +481,300 @@ Class DeviceModelEndOfLifeDetail  <a class="header-action link-secondary" title=
 
 
 
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Regions_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Regions*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Regions" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Regions">
+  Regions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The geographic region codes the row applies to (e.g. &quot;US&quot;, &quot;UK&quot;, &quot;EU&quot;, &quot;NA&quot;, &quot;WW&quot;),
+parsed on a best-effort basis from either a parenthetical list (e.g. &quot;GS110-8P (UK)&quot;
+or &quot;MA-INJ-4-XX (AU, CN, EU, UK, US)&quot;) or a model SKU suffix (e.g. &quot;GX50-HW-US&quot;).
+Empty when the row is not region-specific.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Regions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Equals_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Equals*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Equals_Meraki_Api_Data_DeviceModelEndOfLifeDetail_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Equals(Meraki.Api.Data.DeviceModelEndOfLifeDetail)">
+  Equals(DeviceModelEndOfLifeDetail?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Equals(DeviceModelEndOfLifeDetail? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html">DeviceModelEndOfLifeDetail</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Equals_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Equals*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_Equals_System_Object_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_GetHashCode_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.GetHashCode*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_GetHashCode" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_PrintMembers_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.PrintMembers*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_PrintMembers_System_Text_StringBuilder_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.PrintMembers(System.Text.StringBuilder)">
+  PrintMembers(StringBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool PrintMembers(StringBuilder builder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_ToString_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.ToString*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_ToString" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_op_Equality_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.op_Equality*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_op_Equality_Meraki_Api_Data_DeviceModelEndOfLifeDetail_Meraki_Api_Data_DeviceModelEndOfLifeDetail_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.op_Equality(Meraki.Api.Data.DeviceModelEndOfLifeDetail,Meraki.Api.Data.DeviceModelEndOfLifeDetail)">
+  operator ==(DeviceModelEndOfLifeDetail?, DeviceModelEndOfLifeDetail?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(DeviceModelEndOfLifeDetail? left, DeviceModelEndOfLifeDetail? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html">DeviceModelEndOfLifeDetail</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html">DeviceModelEndOfLifeDetail</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_op_Inequality_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.op_Inequality*"></a>
+
+  <h3 id="Meraki_Api_Data_DeviceModelEndOfLifeDetail_op_Inequality_Meraki_Api_Data_DeviceModelEndOfLifeDetail_Meraki_Api_Data_DeviceModelEndOfLifeDetail_" data-uid="Meraki.Api.Data.DeviceModelEndOfLifeDetail.op_Inequality(Meraki.Api.Data.DeviceModelEndOfLifeDetail,Meraki.Api.Data.DeviceModelEndOfLifeDetail)">
+  operator !=(DeviceModelEndOfLifeDetail?, DeviceModelEndOfLifeDetail?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(DeviceModelEndOfLifeDetail? left, DeviceModelEndOfLifeDetail? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html">DeviceModelEndOfLifeDetail</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="Meraki.Api.Data.DeviceModelEndOfLifeDetail.html">DeviceModelEndOfLifeDetail</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Data/EndOfLifeDetail.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Data/EndOfLifeDetail.cs" class="edit-link">Edit this page</a>
         </div>
 
 

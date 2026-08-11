@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IOrganizationsSnmp | Meraki.Api ">
       
-      
+      <meta name="description" content="I Organizations Snmp">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/panoramicdata/Meraki.Api/new/main/apiSpec/new?filename=Meraki_Api_Interfaces_General_Organizations_IOrganizationsSnmp.md&amp;value=---%0Auid%3A%20Meraki.Api.Interfaces.General.Organizations.IOrganizationsSnmp%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSnmp" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSnmp" class="text-break">
-Interface IOrganizationsSnmp  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSnmp.cs/#L3"><i class="bi bi-code-slash"></i></a>
+Interface IOrganizationsSnmp  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSnmp.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Interface IOrganizationsSnmp  <a class="header-action link-secondary" title="Vie
   <dl><dt>Assembly</dt><dd>Meraki.Api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>I Organizations Snmp</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -124,7 +125,7 @@ Interface IOrganizationsSnmp  <a class="header-action link-secondary" title="Vie
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSnmp_GetOrganizationSnmpAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSnmp.GetOrganizationSnmpAsync(System.String,System.Threading.CancellationToken)">
   GetOrganizationSnmpAsync(string, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSnmp.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSnmp.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return the SNMP settings for an organization</p>
@@ -167,11 +168,57 @@ Task&lt;OrganizationSnmp&gt; GetOrganizationSnmpAsync(string organizationId, Can
 
 
 
+  <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSnmp_GetOrganizationSnmpTrapByNetworksAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSnmp.GetOrganizationSnmpTrapByNetworksAsync*"></a>
+
+  <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSnmp_GetOrganizationSnmpTrapByNetworksAsync_System_String_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSnmp.GetOrganizationSnmpTrapByNetworksAsync(System.String,System.Threading.CancellationToken)">
+  GetOrganizationSnmpTrapByNetworksAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSnmp.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieve the SNMP trap configuration for the networks in an organization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Get(&quot;/organizations/{organizationId}/snmp/traps/byNetwork&quot;)]
+Task&lt;List&lt;OrganizationSnmpTrapByNetwork&gt;&gt; GetOrganizationSnmpTrapByNetworksAsync(string organizationId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>organizationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Meraki.Api.Data.OrganizationSnmpTrapByNetwork.html">OrganizationSnmpTrapByNetwork</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ApiException</span></dt>
+    <dd><p>Thrown when fails to make API call</p>
+</dd>
+  </dl>
+
+
+
   <a id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSnmp_UpdateOrganizationSnmpAsync_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSnmp.UpdateOrganizationSnmpAsync*"></a>
 
   <h3 id="Meraki_Api_Interfaces_General_Organizations_IOrganizationsSnmp_UpdateOrganizationSnmpAsync_System_String_Meraki_Api_Data_OrganizationSnmpUpdateRequest_System_Threading_CancellationToken_" data-uid="Meraki.Api.Interfaces.General.Organizations.IOrganizationsSnmp.UpdateOrganizationSnmpAsync(System.String,Meraki.Api.Data.OrganizationSnmpUpdateRequest,System.Threading.CancellationToken)">
   UpdateOrganizationSnmpAsync(string, OrganizationSnmpUpdateRequest, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSnmp.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSnmp.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update the SNMP settings for an organization</p>
@@ -220,7 +267,7 @@ Task&lt;OrganizationSnmp&gt; UpdateOrganizationSnmpAsync(string organizationId, 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/panoramicdata/Meraki.Api/blob/main/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSnmp.cs/#L3" class="edit-link">Edit this page</a>
+          <a href="https://github.com/panoramicdata/Meraki.Api/blob/50447c9d61e007f886621dcd71e9d190d7aaf4c4/Meraki.Api/Interfaces/General/Organizations/IOrganizationsSnmp.cs" class="edit-link">Edit this page</a>
         </div>
 
 
