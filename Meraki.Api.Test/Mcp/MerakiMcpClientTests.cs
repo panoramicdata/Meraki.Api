@@ -417,6 +417,113 @@ public class MerakiMcpClientTests
 		await act.Should().ThrowAsync<MerakiMcpProtocolException>().WithMessage("*no detail supplied*");
 	}
 
+	// ---------------------------------------------------------------- payload-level errors
+	//
+	// The hosted server reports some failures, notably missing required parameters, in the payload of
+	// an otherwise successful tool result, without setting the MCP error flag. Observed against the
+	// live server; these tests use the exact envelope it returned.
+
+	[Fact]
+	public async Task ExecuteApiAsync_WithAPayloadErrorEnvelope_ThrowsRatherThanReturningTheErrorAsData()
+	{
+		var session = new FakeMerakiMcpSession
+		{
+			OnCallTool = (_, _, _) => Task.FromResult(new MerakiMcpToolResponse(
+				false,
+				null,
+				"""
+				{"result":{"type":"error","error":"Missing required parameters","recovery_suggestion":"Provide values for: organizationId","capability_id":"getOrganizationSwitchPortsClientsOverviewByDevice"}}
+				"""))
+		};
+
+		using var client = Create(session);
+
+		var act = async () => await client.ExecuteApiAsync("getOrganizationSwitchPortsClientsOverviewByDevice", cancellationToken: TestContext.Current.CancellationToken);
+
+		await act.Should().ThrowAsync<MerakiMcpProtocolException>()
+			.WithMessage("*Missing required parameters*Provide values for: organizationId*");
+	}
+
+	[Fact]
+	public async Task SemanticSearchAsync_WithAPayloadErrorEnvelope_ReportsTheServerError()
+	{
+		var session = new FakeMerakiMcpSession
+		{
+			OnCallTool = (_, _, _) => Task.FromResult(new MerakiMcpToolResponse(
+				false,
+				null,
+				"""{"result":{"type":"error","error":"Query too long"}}"""))
+		};
+
+		using var client = Create(session);
+
+		var act = async () => await client.SemanticSearchAsync("clients", TestContext.Current.CancellationToken);
+
+		await act.Should().ThrowAsync<MerakiMcpProtocolException>().WithMessage("*Query too long*");
+	}
+
+	[Fact]
+	public async Task ExecuteApiAsync_WithABareTopLevelErrorObject_AlsoThrows()
+	{
+		var session = new FakeMerakiMcpSession
+		{
+			OnCallTool = (_, _, _) => Task.FromResult(new MerakiMcpToolResponse(
+				false,
+				null,
+				"""{"type":"error","error":"Unknown capability","recoverySuggestion":"Run semantic_search first"}"""))
+		};
+
+		using var client = Create(session);
+
+		var act = async () => await client.ExecuteApiAsync("getNoSuchThing", cancellationToken: TestContext.Current.CancellationToken);
+
+		await act.Should().ThrowAsync<MerakiMcpProtocolException>()
+			.WithMessage("*Unknown capability*Run semantic_search first*");
+	}
+
+	[Fact]
+	public async Task ExecuteApiAsync_WithAnErrorEnvelopeLackingDetail_StillThrows()
+	{
+		var session = new FakeMerakiMcpSession
+		{
+			OnCallTool = (_, _, _) => Task.FromResult(new MerakiMcpToolResponse(false, null, """{"result":{"type":"error"}}"""))
+		};
+
+		using var client = Create(session);
+
+		var act = async () => await client.ExecuteApiAsync("getOrganizations", cancellationToken: TestContext.Current.CancellationToken);
+
+		await act.Should().ThrowAsync<MerakiMcpProtocolException>().WithMessage("*no detail supplied*");
+	}
+
+	[Theory]
+	[InlineData(null)]
+	[InlineData("")]
+	[InlineData("not json at all")]
+	[InlineData("[1,2,3]")]
+	[InlineData("""{"result":{"type":"success"}}""")]
+	[InlineData("""{"clients":[]}""")]
+	public void TryReadPayloadError_DoesNotFalselyFlagNonErrors(string? json)
+		=> MerakiMcpClient.TryReadPayloadError(json, out _).Should().BeFalse();
+
+	[Fact]
+	public async Task ExecuteApiAsync_WithGenuineDataThatHappensToContainATypeField_IsNotTreatedAsAnError()
+	{
+		var session = new FakeMerakiMcpSession
+		{
+			OnCallTool = (_, _, _) => Task.FromResult(new MerakiMcpToolResponse(
+				false,
+				null,
+				"""{"type":"switch","serial":"Q2QN-XXXX-XXXX"}"""))
+		};
+
+		using var client = Create(session);
+
+		var result = await client.ExecuteApiAsync("getDevice", cancellationToken: TestContext.Current.CancellationToken);
+
+		result.RawJson.Should().Contain("Q2QN");
+	}
+
 	// ---------------------------------------------------------------- tool catalogue drift
 
 	[Fact]

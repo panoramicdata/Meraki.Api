@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- MCP: `ExecuteApiAsync` and `SemanticSearchAsync` now detect an error reported in the *payload* of an
+  otherwise successful tool result and throw `MerakiMcpProtocolException`, including the server's
+  `recovery_suggestion`. Found by smoke-testing against the live hosted server, which returns
+  `{"result":{"type":"error","error":"Missing required parameters", ...}}` without setting the MCP
+  error flag. Previously that error document was returned to the caller as though it were data.
+- MCP: documented that `MerakiCapability.Score` is currently always null against the hosted server,
+  so the ranking is the list order alone.
+
+## 1.70.49
+
 - Added first-class support for the **Cisco Meraki MCP server**
   (issue [#365](https://github.com/panoramicdata/Meraki.Api/issues/365)).
   - New `MerakiMcpClient` with typed `SemanticSearchAsync`, `ExecuteApiAsync` and

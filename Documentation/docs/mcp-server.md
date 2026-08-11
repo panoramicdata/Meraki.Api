@@ -77,6 +77,26 @@ public static class Program
 pass the whole ranked list to your model and let it choose, along with each capability's
 `ParameterSchemaJson`, so it knows what arguments the capability takes.
 
+> [!NOTE]
+> `MerakiCapability.Score` is nullable, and against the Cisco-hosted server it is currently **always
+> null** — the beta server returns no relevance score. The ranking is therefore the list order alone.
+> Do not filter on a score threshold; it will discard everything.
+
+### When the server reports a problem
+
+The server signals some failures, notably a capability called without its required parameters, in the
+*payload* of an otherwise successful tool result rather than through the MCP error flag:
+
+``` json
+{ "result": { "type": "error", "error": "Missing required parameters",
+              "recovery_suggestion": "Provide values for: organizationId" } }
+```
+
+`ExecuteApiAsync` and `SemanticSearchAsync` detect that envelope and throw
+`MerakiMcpProtocolException`, including the server's own recovery suggestion in the message, rather
+than returning an error document to you as though it were data. So the usual pattern applies: if the
+call returns, you have data.
+
 ### Working with the result
 
 `MerakiMcpResult` gives you the raw JSON plus a typed helper:

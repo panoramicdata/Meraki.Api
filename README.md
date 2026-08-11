@@ -69,6 +69,15 @@ await using var client = new MerakiMcpClient(options);
 
 Use `GetStatusAsync()` for a non-destructive connectivity and credential check.
 
+Two things observed against the live hosted server that are worth knowing:
+
+- `MerakiCapability.Score` is currently always `null` — the beta server returns no relevance score, so
+  the ranking is the list order alone. Do not filter on a score threshold.
+- The server reports some failures, such as a capability called without its required parameters, in
+  the payload of an otherwise successful tool result. Both operations detect that and throw
+  `MerakiMcpProtocolException` including the server's recovery suggestion, so if a call returns, you
+  have data rather than an error document.
+
 ### Limitations
 
 These come from Cisco's own documentation, and are worth reading before you design around the server:

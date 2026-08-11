@@ -175,12 +175,19 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 
 		var rawJson = response.StructuredJson ?? response.Text ?? string.Empty;
 
-		return new MerakiMcpResult
-		{
-			CapabilityId = capabilityId,
-			RawJson = rawJson,
-			Text = response.Text
-		};
+		// The server also reports some failures in the *payload* of an otherwise successful tool
+		// result, without setting the MCP error flag. Missing required parameters arrive this way.
+		// Surface those as exceptions too, rather than handing an error document back as if it
+		// were data.
+		return TryReadPayloadError(rawJson, out var payloadError)
+			? throw new MerakiMcpProtocolException(
+				$"The Meraki MCP server reported an error executing capability '{capabilityId}': {payloadError}")
+			: new MerakiMcpResult
+			{
+				CapabilityId = capabilityId,
+				RawJson = rawJson,
+				Text = response.Text
+			};
 	}
 
 	/// <summary>
@@ -423,6 +430,57 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			exception);
 	}
 
+	/// <summary>
+	/// Detects an error reported in the payload of an otherwise successful tool result.
+	/// </summary>
+	/// <remarks>
+	/// The hosted server returns some failures, notably missing required parameters, as a normal tool
+	/// result whose content is an error envelope, without setting the MCP error flag. Both the
+	/// documented envelope and a bare top-level error object are recognised.
+	/// </remarks>
+	internal static bool TryReadPayloadError(string? json, out string message)
+	{
+		message = string.Empty;
+
+		if (string.IsNullOrWhiteSpace(json))
+		{
+			return false;
+		}
+
+		JToken token;
+		try
+		{
+			token = JToken.Parse(json!);
+		}
+		catch (JsonException)
+		{
+			// Not JSON at all, so not a recognisable error envelope. Leave it to the caller.
+			return false;
+		}
+
+		if (token is not JObject root)
+		{
+			return false;
+		}
+
+		var errorObject = root["result"] as JObject ?? root;
+
+		if (!string.Equals(errorObject["type"]?.Value<string>(), "error", StringComparison.OrdinalIgnoreCase))
+		{
+			return false;
+		}
+
+		var error = errorObject["error"]?.Value<string>() ?? "no detail supplied";
+		var recovery = errorObject["recovery_suggestion"]?.Value<string>()
+			?? errorObject["recoverySuggestion"]?.Value<string>();
+
+		message = string.IsNullOrWhiteSpace(recovery)
+			? error
+			: $"{error}. {recovery}";
+
+		return true;
+	}
+
 	internal static IReadOnlyList<MerakiCapability> ParseCapabilities(MerakiMcpToolResponse response)
 	{
 		if (response.IsError)
@@ -436,6 +494,12 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 		if (string.IsNullOrWhiteSpace(json))
 		{
 			throw new MerakiMcpProtocolException("The Meraki MCP server returned no content for semantic_search.");
+		}
+
+		if (TryReadPayloadError(json, out var payloadError))
+		{
+			throw new MerakiMcpProtocolException(
+				$"The Meraki MCP server reported an error searching for capabilities: {payloadError}");
 		}
 
 		JToken token;
