@@ -8,7 +8,7 @@ Click on the menu link above to view each section of this documentation:
 	- Introduction
 	- Getting started
 	- Asistance and links to external resources
-* [API Documentation](~/api/Meraki.Api.html)
+* [API Documentation](~/api/Meraki.Api.yml)
 	- Details of classes, interfaces, methods and properties
 
 ## Pre-requisites

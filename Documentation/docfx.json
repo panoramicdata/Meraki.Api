@@ -2,11 +2,23 @@
 	"$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
 	"metadata": [
 		{
+			"comment": [
+				"Metadata is generated from the built assembly and its XML documentation, not from the",
+				"project. Two reasons, both of which broke project-based generation:",
+				"1. docfx bundles an older Roslyn than RefitClassSourceGenerator targets, so it refuses",
+				"   to load the generator. The generated partial implementations then do not exist and",
+				"   the section classes fail their Refit interfaces with CS0535, producing no API at all.",
+				"2. Meraki.Api multi-targets netstandard2.0 and net10.0. Project-based generation resolves",
+				"   the default target framework, which would silently omit everything compiled only for",
+				"   net10.0 - notably the whole Meraki.Api.Mcp namespace.",
+				"Build Meraki.Api in Release before generating. See 'Generating Documentation.md'.",
+				"Tracked as https://github.com/panoramicdata/Meraki.Api/issues/373"
+			],
 			"src": [
 				{
-					"src": "../Meraki.Api",
+					"src": "../Meraki.Api/bin/Release/net10.0",
 					"files": [
-						"**/*.csproj"
+						"Meraki.Api.dll"
 					]
 				}
 			],
