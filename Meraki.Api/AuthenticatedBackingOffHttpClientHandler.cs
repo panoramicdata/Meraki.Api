@@ -131,17 +131,31 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 					throw new TimeoutException($"The request timed out after multiple attempts ({_options.MaxAttemptCount}).");
 				}
 
+				// Back off before retrying. A timeout usually means the far end is slow because it is
+				// under load, so returning immediately is the least helpful response available, and it
+				// is the one case where we have already waited HttpClientInnerTimeoutSeconds and so have
+				// the least reason to expect the next attempt to be quicker. Every other retry path in
+				// this method pauses first.
+				//
+				// There is no Retry-After to honour here, so pass zero and let the configured back-off
+				// factor govern, rather than introducing another magic number.
+				var timeoutDelay = ApplyJitter(
+					CalculateBackoffDelay(attemptCount, retryAfterSeconds: 0, _options.BackOffDelayFactor, _options.MaxBackOffDelaySeconds),
+					_options.MaxBackOffDelaySeconds,
+					GetJitterRandom());
+
 				_logger.LogWarning(
-					"{LogPrefix}Timed out after {TimeoutSeconds:N1} seconds on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+					"{LogPrefix}Timed out after {TimeoutSeconds:N1} seconds on attempt {AttemptCount}/{MaxAttemptCount} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
 					logPrefix,
 					_options.HttpClientInnerTimeoutSeconds,
 					attemptCount,
 					_options.MaxAttemptCount,
+					timeoutDelay.TotalSeconds,
 					request.Method.ToString(),
 					request.RequestUri
 					);
 
-				// Retry immediately
+				await Task.Delay(timeoutDelay, cancellationToken).ConfigureAwait(false);
 				continue;
 			}
 			catch (HttpRequestException ex) when (ex.Message.StartsWith("Network is unreachable", StringComparison.Ordinal))
@@ -252,7 +266,12 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 							retryAfterSeconds = 1;
 						}
 
-						delay = CalculateBackoffDelay(attemptCount, retryAfterSeconds, _options.BackOffDelayFactor, _options.MaxBackOffDelaySeconds);
+						// Jittered so that clients throttled in the same window, which Retry-After actively
+						// aligns, do not all come back at the same instant. See ApplyJitter.
+						delay = ApplyJitter(
+							CalculateBackoffDelay(attemptCount, retryAfterSeconds, _options.BackOffDelayFactor, _options.MaxBackOffDelaySeconds),
+							_options.MaxBackOffDelaySeconds,
+							GetJitterRandom());
 
 #pragma warning disable CA1873 // Avoid potentially expensive logging
 						_logger.LogDebug(
@@ -332,6 +351,63 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 				Statistics.RecordStatusCode(statusCodeInt, (long)_durationStopWatch.Elapsed.TotalMilliseconds, (long)delay.TotalMilliseconds);
 			}
 		}
+	}
+
+	/// <summary>
+	/// The maximum proportion by which <see cref="ApplyJitter"/> may extend a computed back-off delay.
+	/// </summary>
+	private const double JitterFraction = 0.5;
+
+#if NETSTANDARD2_0
+	[ThreadStatic]
+	private static Random? _jitterRandom;
+
+	/// <summary>
+	/// netstandard2.0 has no Random.Shared, and Random is not thread safe, so give each thread its own.
+	/// Seeded from a Guid rather than the clock, because clock-seeded instances created on different
+	/// threads within the same tick produce identical sequences, which would defeat the point of jitter.
+	/// </summary>
+	private static Random GetJitterRandom() => _jitterRandom ??= new Random(Guid.NewGuid().GetHashCode());
+#else
+	private static Random GetJitterRandom() => Random.Shared;
+#endif
+
+	/// <summary>
+	/// Spreads a computed back-off delay by a random amount, so that clients throttled at the same
+	/// moment do not all retry at the same instant.
+	/// <para>
+	/// Meraki's rate limit is per organization and one API key is commonly used by several processes,
+	/// or several replicas of one process, against the same organization. Retry-After makes this worse
+	/// rather than better, because every throttled client is handed the same value and is therefore
+	/// actively aligned by it.
+	/// </para>
+	/// <para>
+	/// Jitter is only ever applied UPWARD. Where the server supplied a Retry-After, the delay passed in
+	/// already honours it, so adding to that delay can never retry earlier than the server asked.
+	/// </para>
+	/// <para>
+	/// Note the limitation at the ceiling: once <paramref name="delay"/> has reached
+	/// <paramref name="maxBackOffDelaySeconds"/> there is no headroom left, and the delay is returned
+	/// unchanged. Clients therefore re-align at the maximum. That is deliberate - keeping the documented
+	/// maximum honoured matters more, and at a 30 second cycle the herd effect is far weaker than at one
+	/// second, which is where the shipped defaults actually put it.
+	/// </para>
+	/// </summary>
+	/// <param name="delay">The delay computed by <see cref="CalculateBackoffDelay"/>.</param>
+	/// <param name="maxBackOffDelaySeconds">The configured ceiling, which jitter must not exceed.</param>
+	/// <param name="random">The randomness source. Injected so that tests can seed it.</param>
+	internal static TimeSpan ApplyJitter(
+		TimeSpan delay,
+		int maxBackOffDelaySeconds,
+		Random random)
+	{
+		var delaySeconds = delay.TotalSeconds;
+		var ceilingSeconds = Math.Min(delaySeconds * (1.0 + JitterFraction), maxBackOffDelaySeconds);
+
+		// Where there is no headroom between the delay and the ceiling, leave the delay alone.
+		return ceilingSeconds <= delaySeconds
+			? delay
+			: TimeSpan.FromSeconds(delaySeconds + (random.NextDouble() * (ceilingSeconds - delaySeconds)));
 	}
 
 	/// <summary>
