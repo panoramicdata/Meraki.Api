@@ -1,6 +1,26 @@
 ﻿# Changelog
 
-## Unreleased
+## 1.70.57
+
+- Back-off after an HTTP 429 is now **jittered**, so clients sharing an API key that are throttled in
+  the same window no longer all retry at the same instant
+  (issue [#374](https://github.com/panoramicdata/Meraki.Api/issues/374)). Meraki's rate limit is per
+  organization and `Retry-After` hands every throttled client the same value, which actively aligned
+  them. `Retry-After` is still honoured exactly: jitter is only ever applied *upward*, so a retry can
+  never happen earlier than the server asked, and it never exceeds `MaxBackOffDelaySeconds`. Where a
+  delay has already reached that ceiling there is no headroom and it is left unchanged.
+- A request that hits the per-attempt timeout (`HttpClientInnerTimeoutSeconds`, default 25 seconds)
+  now **waits before retrying** instead of retrying immediately
+  (issue [#376](https://github.com/panoramicdata/Meraki.Api/issues/376)). This was the only retry path
+  in the client with no delay at all, while every other path already paused. The wait uses the
+  configured `BackOffDelayFactor`, so it is one second at the default factor of 1.0.
+- The API reference documentation is now generated from the built assembly
+  (issue [#373](https://github.com/panoramicdata/Meraki.Api/issues/373)).
+
+Both retry changes affect timing only. No option or public API changed, so no existing configuration
+behaves differently beyond when it retries.
+
+## 1.70.51
 
 - MCP: `MerakiMcpResult` now unwraps the server's response envelope. The server returns
   `{"result":{"type":"success","capability_id":"...","data": ... }}`, so `RawJson` alone forced callers
@@ -8,6 +28,8 @@
   `DataJson` (the `data` element, or null when no envelope is present) and `Payload`
   (`DataJson ?? RawJson`); `Deserialize<T>()` now uses `Payload`. `RawJson` still exposes the full
   envelope for anyone who wants `capability_id` or `product`. Also found by live smoke-testing.
+
+## 1.70.50
 
 - MCP: `ExecuteApiAsync` and `SemanticSearchAsync` now detect an error reported in the *payload* of an
   otherwise successful tool result and throw `MerakiMcpProtocolException`, including the server's
