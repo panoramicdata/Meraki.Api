@@ -24,10 +24,10 @@ public class McpSdkSessionTests
 
 		var status = await client.GetStatusAsync(TestContext.Current.CancellationToken);
 
-		status.IsConnected.Should().BeTrue();
-		status.AvailableToolNames.Should().BeEquivalentTo(
+		_ = status.IsConnected.Should().BeTrue();
+		_ = status.AvailableToolNames.Should().BeEquivalentTo(
 			[MerakiMcpClient.SemanticSearchToolName, MerakiMcpClient.ExecuteApiToolName]);
-		server.ReceivedMethods.Should().Contain("initialize").And.Contain("tools/list");
+		_ = server.ReceivedMethods.Should().Contain("initialize").And.Contain("tools/list");
 	}
 
 	[Fact]
@@ -45,10 +45,10 @@ public class McpSdkSessionTests
 
 		var capabilities = await client.SemanticSearchAsync("clients", TestContext.Current.CancellationToken);
 
-		capabilities.Should().ContainSingle();
-		capabilities[0].CapabilityId.Should().Be("getNetworkClients");
-		capabilities[0].Score.Should().Be(0.9);
-		server.ReceivedMethods.Should().Contain("tools/call");
+		_ = capabilities.Should().ContainSingle();
+		_ = capabilities[0].CapabilityId.Should().Be("getNetworkClients");
+		_ = capabilities[0].Score.Should().Be(0.9);
+		_ = server.ReceivedMethods.Should().Contain("tools/call");
 	}
 
 	[Fact]
@@ -70,8 +70,8 @@ public class McpSdkSessionTests
 			new Dictionary<string, object?> { ["networkId"] = "N_1" },
 			TestContext.Current.CancellationToken);
 
-		result.RawJson.Should().Contain("k1");
-		result.Text.Should().Be("human readable");
+		_ = result.RawJson.Should().Contain("k1");
+		_ = result.Text.Should().Be("human readable");
 	}
 
 	[Fact]
@@ -93,7 +93,7 @@ public class McpSdkSessionTests
 
 		var result = await client.ExecuteApiAsync("getOrganizations", cancellationToken: TestContext.Current.CancellationToken);
 
-		result.Text.Should().Contain("first").And.Contain("second");
+		_ = result.Text.Should().Contain("first").And.Contain("second");
 	}
 
 	[Fact]
@@ -108,8 +108,8 @@ public class McpSdkSessionTests
 
 		var result = await client.ExecuteApiAsync("getOrganizations", cancellationToken: TestContext.Current.CancellationToken);
 
-		result.Text.Should().BeNull();
-		result.RawJson.Should().BeEmpty();
+		_ = result.Text.Should().BeNull();
+		_ = result.RawJson.Should().BeEmpty();
 	}
 
 	[Fact]
@@ -128,7 +128,7 @@ public class McpSdkSessionTests
 
 		var act = async () => await client.ExecuteApiAsync("getNoSuchThing", cancellationToken: TestContext.Current.CancellationToken);
 
-		await act.Should().ThrowAsync<MerakiMcpProtocolException>().WithMessage("*capability not found*");
+		_ = await act.Should().ThrowAsync<MerakiMcpProtocolException>().WithMessage("*capability not found*");
 	}
 
 	[Fact]
@@ -143,7 +143,7 @@ public class McpSdkSessionTests
 		var act = async () => await client.SemanticSearchAsync("clients", TestContext.Current.CancellationToken);
 
 		var exception = await act.Should().ThrowAsync<MerakiMcpToolNotFoundException>();
-		exception.Which.AvailableToolNames.Should().ContainSingle().Which.Should().Be("meraki_search_v2");
+		_ = exception.Which.AvailableToolNames.Should().ContainSingle().Which.Should().Be("meraki_search_v2");
 	}
 
 	[Fact]
@@ -158,7 +158,7 @@ public class McpSdkSessionTests
 
 		var act = async () => await client.SemanticSearchAsync("clients", TestContext.Current.CancellationToken);
 
-		await act.Should().ThrowAsync<MerakiMcpProtocolException>();
+		_ = await act.Should().ThrowAsync<MerakiMcpProtocolException>();
 	}
 
 	[Fact]
@@ -173,6 +173,6 @@ public class McpSdkSessionTests
 
 		var act = async () => await client.GetStatusAsync(TestContext.Current.CancellationToken);
 
-		await act.Should().ThrowAsync<ObjectDisposedException>();
+		_ = await act.Should().ThrowAsync<ObjectDisposedException>();
 	}
 }

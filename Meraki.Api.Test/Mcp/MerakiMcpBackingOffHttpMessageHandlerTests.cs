@@ -49,12 +49,12 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, Options(), statistics, TestContext.Current.CancellationToken);
 
-		response.StatusCode.Should().Be(HttpStatusCode.OK);
+		_ = response.StatusCode.Should().Be(HttpStatusCode.OK);
 		var authorization = inner.Requests[0].Headers.Authorization;
-		authorization.Should().NotBeNull();
-		authorization!.Scheme.Should().Be("Bearer");
-		authorization.Parameter.Should().Be("super-secret-key");
-		string.Join(" ", inner.Requests[0].Headers.GetValues("User-Agent"))
+		_ = authorization.Should().NotBeNull();
+		_ = authorization!.Scheme.Should().Be("Bearer");
+		_ = authorization.Parameter.Should().Be("super-secret-key");
+		_ = string.Join(" ", inner.Requests[0].Headers.GetValues("User-Agent"))
 			.Should().Be("MerakiClient/1.0 PanoramicData");
 	}
 
@@ -68,7 +68,7 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, options, new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
-		inner.Requests[0].Headers.Contains("User-Agent").Should().BeFalse();
+		_ = inner.Requests[0].Headers.Contains("User-Agent").Should().BeFalse();
 	}
 
 	[Fact]
@@ -78,8 +78,8 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		var act = async () => await SendAsync(inner, Options(), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
-		await act.Should().ThrowAsync<MerakiMcpAuthenticationException>();
-		inner.SendCount.Should().Be(1);
+		_ = await act.Should().ThrowAsync<MerakiMcpAuthenticationException>();
+		_ = inner.SendCount.Should().Be(1);
 	}
 
 	[Fact]
@@ -89,15 +89,15 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		var act = async () => await SendAsync(inner, Options(), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
-		await act.Should().ThrowAsync<MerakiMcpAuthorizationException>();
-		inner.SendCount.Should().Be(1);
+		_ = await act.Should().ThrowAsync<MerakiMcpAuthorizationException>();
+		_ = inner.SendCount.Should().Be(1);
 	}
 
 	[Fact]
 	public void UnauthorizedAndForbidden_AreDistinguishedFromOneAnother()
 	{
-		new MerakiMcpAuthenticationException().Message.Should().Contain("401");
-		new MerakiMcpAuthorizationException().Message.Should().Contain("403");
+		_ = new MerakiMcpAuthenticationException().Message.Should().Contain("401");
+		_ = new MerakiMcpAuthorizationException().Message.Should().Contain("403");
 	}
 
 	[Fact]
@@ -111,11 +111,11 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, Options(), statistics, TestContext.Current.CancellationToken);
 
-		response.StatusCode.Should().Be(HttpStatusCode.OK);
-		inner.SendCount.Should().Be(2);
-		statistics.RetryCount.Should().Be(1);
-		statistics.Http.StatusCodeCounts.Should().ContainKey(429);
-		statistics.Http.StatusCodeCounts.Should().ContainKey(200);
+		_ = response.StatusCode.Should().Be(HttpStatusCode.OK);
+		_ = inner.SendCount.Should().Be(2);
+		_ = statistics.RetryCount.Should().Be(1);
+		_ = statistics.Http.StatusCodeCounts.Should().ContainKey(429);
+		_ = statistics.Http.StatusCodeCounts.Should().ContainKey(200);
 	}
 
 	[Fact]
@@ -127,8 +127,8 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, Options(), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
-		response.StatusCode.Should().Be(HttpStatusCode.OK);
-		inner.SendCount.Should().Be(2);
+		_ = response.StatusCode.Should().Be(HttpStatusCode.OK);
+		_ = inner.SendCount.Should().Be(2);
 	}
 
 	[Fact]
@@ -140,8 +140,8 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, Options(), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
-		response.StatusCode.Should().Be(HttpStatusCode.OK);
-		inner.SendCount.Should().Be(2);
+		_ = response.StatusCode.Should().Be(HttpStatusCode.OK);
+		_ = inner.SendCount.Should().Be(2);
 	}
 
 	[Fact]
@@ -155,9 +155,9 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 		var act = async () => await SendAsync(inner, Options(maxAttemptCount: 3), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
 		var exception = await act.Should().ThrowAsync<MerakiMcpRateLimitException>();
-		exception.Which.AttemptCount.Should().Be(3);
-		exception.Which.Message.Should().Contain("10 requests per second per organization");
-		inner.SendCount.Should().Be(3);
+		_ = exception.Which.AttemptCount.Should().Be(3);
+		_ = exception.Which.Message.Should().Contain("10 requests per second per organization");
+		_ = inner.SendCount.Should().Be(3);
 	}
 
 	[Theory]
@@ -177,9 +177,9 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, options, statistics, TestContext.Current.CancellationToken);
 
-		response.StatusCode.Should().Be(HttpStatusCode.OK);
-		inner.SendCount.Should().Be(2);
-		statistics.RetryCount.Should().Be(1);
+		_ = response.StatusCode.Should().Be(HttpStatusCode.OK);
+		_ = inner.SendCount.Should().Be(2);
+		_ = statistics.RetryCount.Should().Be(1);
 	}
 
 	[Fact]
@@ -191,8 +191,8 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, Options(maxAttemptCount: 2), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
-		response.StatusCode.Should().Be(HttpStatusCode.ServiceUnavailable);
-		inner.SendCount.Should().Be(2);
+		_ = response.StatusCode.Should().Be(HttpStatusCode.ServiceUnavailable);
+		_ = inner.SendCount.Should().Be(2);
 	}
 
 	[Fact]
@@ -202,8 +202,8 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, Options(), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
-		response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-		inner.SendCount.Should().Be(1);
+		_ = response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+		_ = inner.SendCount.Should().Be(1);
 	}
 
 	[Fact]
@@ -213,8 +213,8 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, Options(), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
-		response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
-		inner.SendCount.Should().Be(1);
+		_ = response.StatusCode.Should().Be(HttpStatusCode.InternalServerError);
+		_ = inner.SendCount.Should().Be(1);
 	}
 
 	[Fact]
@@ -228,8 +228,8 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		using var response = await SendAsync(inner, Options(), statistics, TestContext.Current.CancellationToken);
 
-		response.StatusCode.Should().Be(HttpStatusCode.OK);
-		statistics.RetryCount.Should().Be(1);
+		_ = response.StatusCode.Should().Be(HttpStatusCode.OK);
+		_ = statistics.RetryCount.Should().Be(1);
 	}
 
 	[Fact]
@@ -241,7 +241,7 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 		var act = async () => await SendAsync(inner, Options(maxAttemptCount: 1), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
 		var exception = await act.Should().ThrowAsync<MerakiMcpTransportException>();
-		exception.Which.Message.Should().Contain("158.115.141.245").And.Contain("allowlisting");
+		_ = exception.Which.Message.Should().Contain("158.115.141.245").And.Contain("allowlisting");
 	}
 
 	[Fact]
@@ -257,7 +257,7 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 			TestContext.Current.CancellationToken);
 
 		var exception = await act.Should().ThrowAsync<MerakiMcpTransportException>();
-		exception.Which.Message.Should().Contain("http://localhost:9999/mcp");
+		_ = exception.Which.Message.Should().Contain("http://localhost:9999/mcp");
 	}
 
 	[Fact]
@@ -269,7 +269,7 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 		var act = async () => await SendAsync(inner, Options(maxAttemptCount: 1), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
 		var exception = await act.Should().ThrowAsync<MerakiMcpTransportException>();
-		exception.Which.ToString().Should().NotContain("super-secret-key");
+		_ = exception.Which.ToString().Should().NotContain("super-secret-key");
 	}
 
 	[Fact]
@@ -281,7 +281,7 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 
 		var act = async () => await SendAsync(inner, Options(), new MerakiMcpClientStatistics(), cancellationTokenSource.Token);
 
-		await act.Should().ThrowAsync<OperationCanceledException>();
+		_ = await act.Should().ThrowAsync<OperationCanceledException>();
 	}
 
 	[Fact]

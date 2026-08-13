@@ -21,7 +21,7 @@ public class MerakiMcpModelTests
 			RawJson = """{"description":"Laptop"}"""
 		};
 
-		result.Deserialize<Client>()!.Description.Should().Be("Laptop");
+		_ = result.Deserialize<Client>()!.Description.Should().Be("Laptop");
 	}
 
 	[Fact]
@@ -32,7 +32,7 @@ public class MerakiMcpModelTests
 			RawJson = """{"description":"Laptop","somethingCiscoAdded":true}"""
 		};
 
-		result.Deserialize<Client>(JsonMissingMemberHandling.Ignore)!.Description.Should().Be("Laptop");
+		_ = result.Deserialize<Client>(JsonMissingMemberHandling.Ignore)!.Description.Should().Be("Laptop");
 	}
 
 	[Fact]
@@ -46,7 +46,7 @@ public class MerakiMcpModelTests
 
 		var act = () => result.Deserialize<Client>(JsonMissingMemberHandling.ThrowOnError);
 
-		act.Should().Throw<MerakiMcpProtocolException>().WithMessage("*getNetworkClients*");
+		_ = act.Should().Throw<MerakiMcpProtocolException>().WithMessage("*getNetworkClients*");
 	}
 
 	[Theory]
@@ -58,7 +58,7 @@ public class MerakiMcpModelTests
 
 		var act = () => result.Deserialize<Client>();
 
-		act.Should().Throw<MerakiMcpProtocolException>().WithMessage("*no JSON content*");
+		_ = act.Should().Throw<MerakiMcpProtocolException>().WithMessage("*no JSON content*");
 	}
 
 	[Fact]
@@ -68,7 +68,7 @@ public class MerakiMcpModelTests
 
 		var act = () => result.Deserialize<Client>();
 
-		act.Should().Throw<MerakiMcpProtocolException>();
+		_ = act.Should().Throw<MerakiMcpProtocolException>();
 	}
 
 	[Fact]
@@ -94,8 +94,8 @@ public class MerakiMcpModelTests
 	[Fact]
 	public void MerakiCapability_IsReadOperation_ReflectsTheCapabilityName()
 	{
-		new MerakiCapability { CapabilityId = "getNetworkClients" }.IsReadOperation.Should().BeTrue();
-		new MerakiCapability { CapabilityId = "updateNetwork" }.IsReadOperation.Should().BeFalse();
+		_ = new MerakiCapability { CapabilityId = "getNetworkClients" }.IsReadOperation.Should().BeTrue();
+		_ = new MerakiCapability { CapabilityId = "updateNetwork" }.IsReadOperation.Should().BeFalse();
 	}
 
 	// ---------------------------------------------------------------- statistics
@@ -110,17 +110,17 @@ public class MerakiMcpModelTests
 		statistics.RecordRetry(TimeSpan.FromMilliseconds(250));
 		statistics.Http.RecordStatusCode(429, 10, 250);
 
-		statistics.ToolCallCount.Should().Be(2);
-		statistics.RetryCount.Should().Be(1);
-		statistics.TotalBackOffMs.Should().Be(250);
-		statistics.ToString().Should().Contain("Tool calls: 2").And.Contain("Retries: 1");
+		_ = statistics.ToolCallCount.Should().Be(2);
+		_ = statistics.RetryCount.Should().Be(1);
+		_ = statistics.TotalBackOffMs.Should().Be(250);
+		_ = statistics.ToString().Should().Contain("Tool calls: 2").And.Contain("Retries: 1");
 
 		statistics.Reset();
 
-		statistics.ToolCallCount.Should().Be(0);
-		statistics.RetryCount.Should().Be(0);
-		statistics.TotalBackOffMs.Should().Be(0);
-		statistics.Http.TotalRequestCount.Should().Be(0);
+		_ = statistics.ToolCallCount.Should().Be(0);
+		_ = statistics.RetryCount.Should().Be(0);
+		_ = statistics.TotalBackOffMs.Should().Be(0);
+		_ = statistics.Http.TotalRequestCount.Should().Be(0);
 	}
 
 	// ---------------------------------------------------------------- exceptions
@@ -128,35 +128,35 @@ public class MerakiMcpModelTests
 	[Fact]
 	public void Exceptions_ExposeTheStandardConstructors()
 	{
-		new MerakiMcpException().Should().BeOfType<MerakiMcpException>();
-		new MerakiMcpException("message").Message.Should().Be("message");
-		new MerakiMcpException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
+		_ = new MerakiMcpException().Should().BeOfType<MerakiMcpException>();
+		_ = new MerakiMcpException("message").Message.Should().Be("message");
+		_ = new MerakiMcpException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
 
-		new MerakiMcpProtocolException().Should().BeOfType<MerakiMcpProtocolException>();
-		new MerakiMcpProtocolException("message").Message.Should().Be("message");
-		new MerakiMcpProtocolException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
+		_ = new MerakiMcpProtocolException().Should().BeOfType<MerakiMcpProtocolException>();
+		_ = new MerakiMcpProtocolException("message").Message.Should().Be("message");
+		_ = new MerakiMcpProtocolException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
 
-		new MerakiMcpTransportException().Should().BeOfType<MerakiMcpTransportException>();
-		new MerakiMcpTransportException("message").Message.Should().Be("message");
-		new MerakiMcpTransportException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
+		_ = new MerakiMcpTransportException().Should().BeOfType<MerakiMcpTransportException>();
+		_ = new MerakiMcpTransportException("message").Message.Should().Be("message");
+		_ = new MerakiMcpTransportException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
 
-		new MerakiMcpAuthenticationException("message").Message.Should().Be("message");
-		new MerakiMcpAuthenticationException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
+		_ = new MerakiMcpAuthenticationException("message").Message.Should().Be("message");
+		_ = new MerakiMcpAuthenticationException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
 
-		new MerakiMcpAuthorizationException("message").Message.Should().Be("message");
-		new MerakiMcpAuthorizationException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
+		_ = new MerakiMcpAuthorizationException("message").Message.Should().Be("message");
+		_ = new MerakiMcpAuthorizationException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
 
-		new MerakiMcpRateLimitException().Should().BeOfType<MerakiMcpRateLimitException>();
-		new MerakiMcpRateLimitException("message").Message.Should().Be("message");
-		new MerakiMcpRateLimitException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
+		_ = new MerakiMcpRateLimitException().Should().BeOfType<MerakiMcpRateLimitException>();
+		_ = new MerakiMcpRateLimitException("message").Message.Should().Be("message");
+		_ = new MerakiMcpRateLimitException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
 
-		new MerakiMcpToolNotFoundException().Should().BeOfType<MerakiMcpToolNotFoundException>();
-		new MerakiMcpToolNotFoundException("message").Message.Should().Be("message");
-		new MerakiMcpToolNotFoundException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
+		_ = new MerakiMcpToolNotFoundException().Should().BeOfType<MerakiMcpToolNotFoundException>();
+		_ = new MerakiMcpToolNotFoundException("message").Message.Should().Be("message");
+		_ = new MerakiMcpToolNotFoundException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
 
-		new MerakiMcpReadOnlyViolationException().Should().BeOfType<MerakiMcpReadOnlyViolationException>();
-		new MerakiMcpReadOnlyViolationException("message").Message.Should().Be("message");
-		new MerakiMcpReadOnlyViolationException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
+		_ = new MerakiMcpReadOnlyViolationException().Should().BeOfType<MerakiMcpReadOnlyViolationException>();
+		_ = new MerakiMcpReadOnlyViolationException("message").Message.Should().Be("message");
+		_ = new MerakiMcpReadOnlyViolationException("message", new InvalidOperationException()).InnerException.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -164,9 +164,9 @@ public class MerakiMcpModelTests
 	{
 		var exception = new MerakiMcpToolNotFoundException("execute_api", ["semantic_search"]);
 
-		exception.ToolName.Should().Be("execute_api");
-		exception.AvailableToolNames.Should().ContainSingle();
-		exception.Message.Should().Contain("execute_api").And.Contain("semantic_search");
+		_ = exception.ToolName.Should().Be("execute_api");
+		_ = exception.AvailableToolNames.Should().ContainSingle();
+		_ = exception.Message.Should().Contain("execute_api").And.Contain("semantic_search");
 	}
 
 	[Fact]
@@ -174,7 +174,7 @@ public class MerakiMcpModelTests
 	{
 		var exception = MerakiMcpReadOnlyViolationException.ForCapability("updateNetworkSsid");
 
-		exception.CapabilityId.Should().Be("updateNetworkSsid");
-		exception.Message.Should().Contain("updateNetworkSsid").And.Contain(nameof(MerakiClient));
+		_ = exception.CapabilityId.Should().Be("updateNetworkSsid");
+		_ = exception.Message.Should().Contain("updateNetworkSsid").And.Contain(nameof(MerakiClient));
 	}
 }

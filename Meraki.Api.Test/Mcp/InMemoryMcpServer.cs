@@ -100,7 +100,7 @@ internal sealed class InMemoryMcpServer : IClientTransport, ITransport
 
 	public ValueTask DisposeAsync()
 	{
-		_toClient.Writer.TryComplete();
+		_ = _toClient.Writer.TryComplete();
 		return ValueTask.CompletedTask;
 	}
 }
