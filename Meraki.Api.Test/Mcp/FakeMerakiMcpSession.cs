@@ -38,7 +38,7 @@ internal sealed class FakeMerakiMcpSession : IMerakiMcpSession
 
 	public async Task<IReadOnlyList<string>> ListToolNamesAsync(CancellationToken cancellationToken)
 	{
-		Interlocked.Increment(ref _listToolNamesCallCount);
+		_ = Interlocked.Increment(ref _listToolNamesCallCount);
 
 		if (OnListToolNames is not null)
 		{

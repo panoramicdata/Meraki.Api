@@ -29,9 +29,9 @@ public class MerakiMcpTransportTests
 
 		var status = await client.GetStatusAsync(TestContext.Current.CancellationToken);
 
-		status.IsConnected.Should().BeFalse();
-		status.Message.Should().NotBeNullOrWhiteSpace();
-		await act.Should().NotThrowAsync("GetStatusAsync reports failures rather than throwing");
+		_ = status.IsConnected.Should().BeFalse();
+		_ = status.Message.Should().NotBeNullOrWhiteSpace();
+		_ = await act.Should().NotThrowAsync("GetStatusAsync reports failures rather than throwing");
 	}
 
 	[Fact]
@@ -40,7 +40,7 @@ public class MerakiMcpTransportTests
 		// Constructing the client must not perform any I/O; the session is created lazily.
 		await using var client = new MerakiMcpClient(new MerakiMcpClientOptions { ApiKey = "key" });
 
-		client.Statistics.ToolCallCount.Should().Be(0);
+		_ = client.Statistics.ToolCallCount.Should().Be(0);
 	}
 
 	[Fact]
@@ -62,7 +62,7 @@ public class MerakiMcpTransportTests
 		var act = async () => await client.SemanticSearchAsync("clients", TestContext.Current.CancellationToken);
 
 		var exception = await act.Should().ThrowAsync<MerakiMcpTransportException>();
-		exception.Which.Message.Should().Contain("meraki-mcp-command-that-does-not-exist");
+		_ = exception.Which.Message.Should().Contain("meraki-mcp-command-that-does-not-exist");
 	}
 
 	[Fact]
@@ -91,7 +91,7 @@ public class MerakiMcpTransportTests
 
 		var act = async () => await client.SemanticSearchAsync("clients", TestContext.Current.CancellationToken);
 
-		await act.Should().ThrowAsync<MerakiMcpTransportException>();
+		_ = await act.Should().ThrowAsync<MerakiMcpTransportException>();
 	}
 
 	[Fact]
@@ -109,7 +109,7 @@ public class MerakiMcpTransportTests
 
 		var status = await client.GetStatusAsync(TestContext.Current.CancellationToken);
 
-		status.IsConnected.Should().BeFalse();
-		status.Message.Should().Contain("meraki-mcp-command-that-does-not-exist");
+		_ = status.IsConnected.Should().BeFalse();
+		_ = status.Message.Should().Contain("meraki-mcp-command-that-does-not-exist");
 	}
 }

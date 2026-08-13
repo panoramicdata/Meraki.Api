@@ -12,13 +12,13 @@ public class MerakiMcpClientOptionsTests
 	{
 		var options = new MerakiMcpClientOptions();
 
-		options.Transport.Should().Be(MerakiMcpTransport.HostedHttp);
-		options.Uri.Should().Be("https://mcp.meraki.com/mcp");
-		options.ApiRegion.Should().Be(ApiRegion.Default);
-		options.EnforceReadOnlyCapabilityNames.Should().BeTrue();
-		options.JsonMissingMemberHandling.Should().Be(JsonMissingMemberHandling.Ignore);
-		options.Arguments.Should().BeEmpty();
-		options.EnvironmentVariables.Should().BeEmpty();
+		_ = options.Transport.Should().Be(MerakiMcpTransport.HostedHttp);
+		_ = options.Uri.Should().Be("https://mcp.meraki.com/mcp");
+		_ = options.ApiRegion.Should().Be(ApiRegion.Default);
+		_ = options.EnforceReadOnlyCapabilityNames.Should().BeTrue();
+		_ = options.JsonMissingMemberHandling.Should().Be(JsonMissingMemberHandling.Ignore);
+		_ = options.Arguments.Should().BeEmpty();
+		_ = options.EnvironmentVariables.Should().BeEmpty();
 	}
 
 	[Fact]
@@ -26,7 +26,7 @@ public class MerakiMcpClientOptionsTests
 	{
 		var act = () => Valid().Validate();
 
-		act.Should().NotThrow();
+		_ = act.Should().NotThrow();
 	}
 
 	[Theory]
@@ -39,7 +39,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*ApiKey*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*ApiKey*");
 	}
 
 	[Fact]
@@ -50,7 +50,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>()
+		_ = act.Should().Throw<ConfigurationException>()
 			.Which.Message.Should().Contain("LocalHttp").And.Contain("Stdio");
 	}
 
@@ -68,7 +68,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().NotThrow();
+		_ = act.Should().NotThrow();
 	}
 
 	[Theory]
@@ -82,7 +82,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*Uri*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*Uri*");
 	}
 
 	[Fact]
@@ -93,7 +93,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*not a valid absolute URI*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*not a valid absolute URI*");
 	}
 
 	[Fact]
@@ -104,7 +104,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*http or https*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*http or https*");
 	}
 
 	[Fact]
@@ -115,7 +115,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*Command*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*Command*");
 	}
 
 	[Fact]
@@ -128,7 +128,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().NotThrow();
+		_ = act.Should().NotThrow();
 	}
 
 	[Fact]
@@ -139,7 +139,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*not supported*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*not supported*");
 	}
 
 	[Theory]
@@ -152,7 +152,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*HttpClientTimeoutSeconds*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*HttpClientTimeoutSeconds*");
 	}
 
 	[Fact]
@@ -163,7 +163,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*MaxAttemptCount*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*MaxAttemptCount*");
 	}
 
 	[Fact]
@@ -174,7 +174,7 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*MaxBackOffDelaySeconds*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*MaxBackOffDelaySeconds*");
 	}
 
 	[Fact]
@@ -185,6 +185,6 @@ public class MerakiMcpClientOptionsTests
 
 		var act = () => options.Validate();
 
-		act.Should().Throw<ConfigurationException>().WithMessage("*BackOffDelayFactor*");
+		_ = act.Should().Throw<ConfigurationException>().WithMessage("*BackOffDelayFactor*");
 	}
 }

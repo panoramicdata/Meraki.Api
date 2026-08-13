@@ -14,7 +14,7 @@ internal sealed class StubHttpMessageHandler : HttpMessageHandler
 
 	public StubHttpMessageHandler EnqueueStatus(System.Net.HttpStatusCode statusCode, string? retryAfter = null)
 	{
-		_responses.Enqueue(_ =>
+		_responses.Enqueue(_request =>
 		{
 			var response = new HttpResponseMessage(statusCode)
 			{
@@ -23,7 +23,7 @@ internal sealed class StubHttpMessageHandler : HttpMessageHandler
 
 			if (retryAfter is not null)
 			{
-				response.Headers.TryAddWithoutValidation("Retry-After", retryAfter);
+				_ = response.Headers.TryAddWithoutValidation("Retry-After", retryAfter);
 			}
 
 			return response;
