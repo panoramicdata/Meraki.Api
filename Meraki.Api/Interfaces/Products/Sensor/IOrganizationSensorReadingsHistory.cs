@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Sensor;
+﻿namespace Meraki.Api.Interfaces.Products.Sensor;
 
 /// <summary>
 /// I Organization Sensor Readings History
@@ -26,8 +26,8 @@ public interface IOrganizationSensorReadingsHistory
 		int? perPage,
 		string? startingAfter = null,
 		string? endingBefore = null,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		[AliasAs("networkIds[]")] List<string>? networkIds = null,
 		[AliasAs("serials[]")] List<string>? serials = null,

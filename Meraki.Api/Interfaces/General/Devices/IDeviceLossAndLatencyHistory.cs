@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Devices;
+﻿namespace Meraki.Api.Interfaces.General.Devices;
 
 /// <summary>
 /// I Device Loss And Latency History
@@ -22,10 +22,10 @@ public interface IDeviceLossAndLatencyHistory
 	Task<List<LossAndLatencyHistory>> GetDeviceLossAndLatencyHistoryAsync(
 		string serial,
 		string ip,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? resolution = null,
-		string uplink = null!,
+		string? uplink = null,
 		CancellationToken cancellationToken = default);
 }

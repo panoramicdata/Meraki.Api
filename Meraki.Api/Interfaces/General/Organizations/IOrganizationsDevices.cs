@@ -137,11 +137,11 @@ public interface IOrganizationsDevices
 	[Get("/organizations/{organizationId}/devices/uplinksLossAndLatency")]
 	Task<List<UplinksLossAndLatencyResponse>> GetOrganizationDevicesUplinksLossAndLatencyAsync(
 		string organizationId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
-		string uplink = null!,
-		string ip = null!,
+		string? uplink = null,
+		string? ip = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -171,9 +171,9 @@ public interface IOrganizationsDevices
 	Task<List<OrganizationDevice>> GetOrganizationDevicesAsync(
 		string organizationId,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
-		string configurationUpdatedAfter = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? configurationUpdatedAfter = null,
 		[AliasAs("networksIds[]")] List<string>? networksIds = null,
 		[AliasAs("productTypes[]")] List<string>? productTypes = null,
 		[AliasAs("tags[]")] List<string>? tags = null,

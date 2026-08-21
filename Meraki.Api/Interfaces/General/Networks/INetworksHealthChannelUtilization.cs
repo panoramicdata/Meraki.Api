@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -22,8 +22,8 @@ public interface INetworksHealthChannelUtilization
 	[Get("/networks/{networkId}/networkHealth/channelUtilization")]
 	Task<List<ChannelUtilization>> GetNetworkNetworkHealthChannelUtilizationAsync(
 		string networkId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? resolution = null,
 		int? perPage = 100,

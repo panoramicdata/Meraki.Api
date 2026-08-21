@@ -17,8 +17,8 @@ public interface INetworksSplashLoginAttempts
 	[Get("/networks/{networkId}/splashLoginAttempts")]
 	Task<List<SplashLoginAttempts>> GetNetworkSplashLoginAttemptsAsync(
 		string networkId,
-		string ssidNumber = null!,
-		string loginIdentifier = null!,
+		string? ssidNumber = null,
+		string? loginIdentifier = null,
 		int? timespan = null,
 		CancellationToken cancellationToken = default);
 }

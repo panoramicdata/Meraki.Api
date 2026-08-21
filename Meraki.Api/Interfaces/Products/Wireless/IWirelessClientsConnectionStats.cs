@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Wireless;
+﻿namespace Meraki.Api.Interfaces.Products.Wireless;
 
 /// <summary>
 /// I Wireless Clients Connection Stats
@@ -21,13 +21,13 @@ public interface IWirelessClientsConnectionStats
 	[Get("/networks/{networkId}/wireless/clients/connectionStats")]
 	Task<List<NetworkClientConnectionStats>> GetNetworkWirelessClientsConnectionStatsAsync(
 		string networkId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
-		string band = null!,
+		string? band = null,
 		int? ssid = null,
 		int? vlan = null,
-		string apTag = null!,
+		string? apTag = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -48,12 +48,12 @@ public interface IWirelessClientsConnectionStats
 	Task<NetworkClientConnectionStats> GetNetworkWirelessClientConnectionStatsAsync(
 		string networkId,
 		string clientId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
-		string band = null!,
+		string? band = null,
 		int? ssid = null,
 		int? vlan = null,
-		string apTag = null!,
+		string? apTag = null,
 		CancellationToken cancellationToken = default);
 }

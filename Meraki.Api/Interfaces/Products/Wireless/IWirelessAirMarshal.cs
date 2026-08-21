@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Wireless;
+﻿namespace Meraki.Api.Interfaces.Products.Wireless;
 
 /// <summary>
 /// I Wireless Air Marshal
@@ -16,7 +16,7 @@ public interface IWirelessAirMarshal
 	[Get("/networks/{networkId}/wireless/airMarshal")]
 	Task<List<AirMarshal>> GetNetworkWirelessAirMarshalAsync(
 		string networkId,
-		string t0 = null!,
+		string? t0 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default
 		);

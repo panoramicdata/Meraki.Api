@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Appliance;
+﻿namespace Meraki.Api.Interfaces.Products.Appliance;
 
 /// <summary>
 /// I Appliance Uplinks Usage History
@@ -22,8 +22,8 @@ public interface IApplianceUplinksUsageHistory
 	[Get("/networks/{networkId}/appliance/uplinks/usageHistory")]
 	Task<List<UplinkUsageHistory>> GetNetworkApplianceUplinksUsageHistoryAsync(
 		string networkId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? resolution = null,
 		CancellationToken cancellationToken = default

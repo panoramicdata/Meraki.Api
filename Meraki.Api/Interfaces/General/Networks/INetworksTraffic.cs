@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// I Networks Traffic
@@ -16,9 +16,9 @@ public interface INetworksTraffic
 	[Get("/networks/{networkId}/traffic")]
 	Task<List<NetworkTraffic>> GetNetworkTrafficAsync(
 		string networkId,
-		string t0 = null!,
+		string? t0 = null,
 		double? timespan = null,
-		string deviceType = null!,
+		string? deviceType = null,
 		CancellationToken cancellationToken = default
 		);
 }

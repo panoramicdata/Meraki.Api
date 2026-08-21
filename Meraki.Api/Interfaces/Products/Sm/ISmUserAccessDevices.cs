@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Sm;
+﻿namespace Meraki.Api.Interfaces.Products.Sm;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -18,8 +18,8 @@ public interface ISmUserAccessDevices
 	Task<List<UserAccessDevices>> GetNetworkSmUserAccessDevicesAsync(
 		string networkId,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 

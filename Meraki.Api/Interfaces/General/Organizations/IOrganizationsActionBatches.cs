@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Organizations;
+﻿namespace Meraki.Api.Interfaces.General.Organizations;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -71,6 +71,6 @@ public interface IOrganizationsActionBatches
 	Task<ActionBatch> UpdateOrganizationActionBatchAsync(
 		string organizationId,
 		string actionBatchId,
-		[Body] ActionBatchUpdateRequest updateOrganizationActionBatch = null!,
+		[Body] ActionBatchUpdateRequest? updateOrganizationActionBatch = null,
 		CancellationToken cancellationToken = default);
 }

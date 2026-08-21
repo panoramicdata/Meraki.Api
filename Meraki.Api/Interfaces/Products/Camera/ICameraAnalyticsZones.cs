@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Camera;
+﻿namespace Meraki.Api.Interfaces.Products.Camera;
 
 /// <summary>
 /// I Camera Analytics Zones
@@ -21,11 +21,11 @@ public interface ICameraAnalyticsZones
 	Task<List<CameraZoneHistory>> GetDeviceCameraAnalyticsZoneHistoryAsync(
 		string serial,
 		string zoneId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? resolution = null,
-		string objectType = null!,
+		string? objectType = null,
 		CancellationToken cancellationToken = default
 		);
 

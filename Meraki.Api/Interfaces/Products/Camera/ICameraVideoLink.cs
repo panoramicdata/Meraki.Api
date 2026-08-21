@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Camera;
+﻿namespace Meraki.Api.Interfaces.Products.Camera;
 
 /// <summary>
 /// I Camera Video Link
@@ -15,6 +15,6 @@ public interface ICameraVideoLink
 	[Get("/devices/{serial}/camera/videoLink")]
 	Task<VideoLink> GetDeviceCameraVideoLinkAsync(
 		string serial,
-		string timestamp = null!,
+		string? timestamp = null,
 		CancellationToken cancellationToken = default);
 }

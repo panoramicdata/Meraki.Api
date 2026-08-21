@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -28,6 +28,6 @@ public interface INetworksAlertsSettings
 	[Put("/networks/{networkId}/alerts/settings")]
 	Task<NetworkAlertSettings> UpdateNetworkAlertsSettingsAsync(
 		string networkId,
-		[Body] NetworkAlertSettings updateNetworkAlertSettings = null!,
+		[Body] NetworkAlertSettings? updateNetworkAlertSettings = null,
 		CancellationToken cancellationToken = default);
 }

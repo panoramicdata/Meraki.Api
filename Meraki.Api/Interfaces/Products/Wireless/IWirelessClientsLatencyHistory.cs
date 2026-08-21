@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Wireless;
+﻿namespace Meraki.Api.Interfaces.Products.Wireless;
 
 /// <summary>
 /// I Wireless Clients Latency History
@@ -20,8 +20,8 @@ public interface IWirelessClientsLatencyHistory
 	Task<List<ClientLatencyHistory>> GetNetworkWirelessClientLatencyHistoryAsync(
 		string networkId,
 		string clientId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? resolution = null,
 		CancellationToken cancellationToken = default);

@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Wireless;
+﻿namespace Meraki.Api.Interfaces.Products.Wireless;
 
 /// <summary>
 /// I Wireless Channel Utilization History
@@ -23,8 +23,8 @@ public interface IWirelessChannelUtilizationHistory
 	[Get("/networks/{networkId}/wireless/channelUtilizationHistory")]
 	Task<List<ChannelUtilizationHistory>> GetNetworkWirelessChannelUtilizationHistoryAsync(
 		string networkId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? resolution = null,
 		bool? autoResolution = null,

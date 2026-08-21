@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Organizations;
+﻿namespace Meraki.Api.Interfaces.General.Organizations;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -78,8 +78,8 @@ public interface IOrganizationsApiRequests
 	[Get("/organizations/{organizationId}/apiRequests/overview")]
 	Task<ApiUsageOverview> GetOrganizationApiRequestsOverviewAsync(
 		string organizationId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default);
 
