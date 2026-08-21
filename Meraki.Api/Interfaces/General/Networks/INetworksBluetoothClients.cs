@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -39,11 +39,11 @@ public interface INetworksBluetoothClients
 	[Get("/networks/{networkId}/bluetoothClients")]
 	Task<List<BluetoothClient>> GetNetworkBluetoothClientsAsync(
 		string networkId,
-		string t0 = null!,
+		string? t0 = null,
 		double? timespan = null,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		bool? includeConnectivityHistory = null,
 		CancellationToken cancellationToken = default);
 }

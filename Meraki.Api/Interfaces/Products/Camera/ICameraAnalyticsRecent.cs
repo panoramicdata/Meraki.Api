@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Camera;
+﻿namespace Meraki.Api.Interfaces.Products.Camera;
 
 /// <summary>
 /// I Camera Analytics Recent
@@ -15,7 +15,7 @@ public interface ICameraAnalyticsRecent
 	[Get("/devices/{serial}/camera/analytics/recent")]
 	Task<List<CameraOverview>> GetDeviceCameraAnalyticsRecentAsync(
 		string serial,
-		string objectType = null!,
+		string? objectType = null,
 		CancellationToken cancellationToken = default
 		);
 }

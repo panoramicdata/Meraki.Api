@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// I Networks Clients
@@ -30,11 +30,11 @@ public interface INetworksClients
 	[QueryUriFormat(UriFormat.Unescaped)]
 	Task<List<Client>> GetNetworkClientsAsync(
 		string networkId,
-		string t0 = null!,
+		string? t0 = null,
 		double? timespan = null,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		string? statuses = null,
 		string? ip = null,
 		string? ip6 = null,
@@ -51,7 +51,7 @@ public interface INetworksClients
 	[QueryUriFormat(UriFormat.Unescaped)]
 	internal Task<ApiResponse<List<Client>>> GetNetworkClientsApiResponseAsync(
 		string networkId,
-		string t0 = null!,
+		string? t0 = null,
 		double? timespan = null,
 		int? perPage = null,
 		string? startingAfter = null,

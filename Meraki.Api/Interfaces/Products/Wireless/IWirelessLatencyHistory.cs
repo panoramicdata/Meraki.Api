@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Wireless;
+﻿namespace Meraki.Api.Interfaces.Products.Wireless;
 
 /// <summary>
 /// I Wireless Latency History
@@ -25,8 +25,8 @@ public interface IWirelessLatencyHistory
 	[Get("/networks/{networkId}/wireless/latencyHistory")]
 	Task<List<LatencyHistory>> GetNetworkWirelessLatencyHistoryAsync(
 		string networkId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? resolution = null,
 		bool? autoResolution = null,

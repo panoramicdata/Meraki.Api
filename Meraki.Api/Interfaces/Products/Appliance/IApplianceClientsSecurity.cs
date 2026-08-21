@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Appliance;
+﻿namespace Meraki.Api.Interfaces.Products.Appliance;
 
 /// <summary>
 /// I Appliance Clients Security
@@ -22,12 +22,12 @@ public interface IApplianceClientsSecurity
 	Task<List<SecurityEvent>> GetNetworkApplianceClientSecurityEventsAsync(
 		string networkId,
 		string clientId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 }

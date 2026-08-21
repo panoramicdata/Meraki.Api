@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Sm;
+﻿namespace Meraki.Api.Interfaces.Products.Sm;
 
 /// <summary>
 /// I Sm Devices Performance History
@@ -21,8 +21,8 @@ public interface ISmDevicesPerformanceHistory
 		string networkId,
 		string deviceId,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 }

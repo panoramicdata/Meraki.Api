@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Switch;
+﻿namespace Meraki.Api.Interfaces.Products.Switch;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -104,7 +104,7 @@ public interface ISwitchPorts
 	[Get("/devices/{serial}/switch/ports/statuses")]
 	Task<List<SwitchPortStatus>> GetDeviceSwitchPortsStatusesAsync(
 		string serial,
-		string t0 = null!,
+		string? t0 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default
 		);
@@ -120,7 +120,7 @@ public interface ISwitchPorts
 	[Get("/devices/{serial}/switch/ports/statuses/packets")]
 	Task<List<PacketsList>> GetDeviceSwitchPortsStatusesPacketsAsync(
 		string serial,
-		string t0 = null!,
+		string? t0 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default
 		);

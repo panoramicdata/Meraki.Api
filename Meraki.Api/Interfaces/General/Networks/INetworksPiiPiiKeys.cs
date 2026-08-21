@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// I Networks Pii Pii Keys
@@ -21,12 +21,12 @@ public interface INetworksPiiPiiKeys
 	[Get("/networks/{networkId}/pii/piiKeys")]
 	Task<PiiKeys> GetNetworkPiiPiiKeysAsync(
 		string networkId,
-		string username = null!,
-		string email = null!,
-		string mac = null!,
-		string serial = null!,
-		string imei = null!,
-		string bluetoothMac = null!,
+		string? username = null,
+		string? email = null,
+		string? mac = null,
+		string? serial = null,
+		string? imei = null,
+		string? bluetoothMac = null,
 		CancellationToken cancellationToken = default
 		);
 }

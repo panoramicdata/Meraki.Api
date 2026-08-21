@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// I Networks Events
@@ -32,23 +32,23 @@ public interface INetworksEvents
 	[Get("/networks/{networkId}/events")]
 	Task<NetworkEvents> GetNetworkEventsAsync(
 		string networkId,
-		string productType = null!,
-		[AliasAs("includedEventTypes[]")] List<string> includedEventTypes = null!,
-		[AliasAs("excludedEventTypes[]")] List<string> excludedEventTypes = null!,
-		string deviceMac = null!,
-		string deviceSerial = null!,
-		string deviceName = null!,
-		string clientIp = null!,
-		string clientMac = null!,
-		string clientName = null!,
-		string smDeviceMac = null!,
-		string smDeviceName = null!,
-		string eventDetails = null!,
-		string eventSeverity = null!,
+		string? productType = null,
+		[AliasAs("includedEventTypes[]")] List<string>? includedEventTypes = null,
+		[AliasAs("excludedEventTypes[]")] List<string>? excludedEventTypes = null,
+		string? deviceMac = null,
+		string? deviceSerial = null,
+		string? deviceName = null,
+		string? clientIp = null,
+		string? clientMac = null,
+		string? clientName = null,
+		string? smDeviceMac = null,
+		string? smDeviceName = null,
+		string? eventDetails = null,
+		string? eventSeverity = null,
 		bool isCatalyst = false,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default
 		);
 }

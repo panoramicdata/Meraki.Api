@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Sm;
+﻿namespace Meraki.Api.Interfaces.Products.Sm;
 
 /// <summary>
 /// I Sm Users
@@ -18,10 +18,10 @@ public interface ISmUsers
 	[Get("/networks/{networkId}/sm/users")]
 	Task<List<SmNetworkUser>> GetNetworkSmUsersAsync(
 		string networkId,
-		string ids = null!,
-		string usernames = null!,
-		string emails = null!,
-		string scope = null!,
+		string? ids = null,
+		string? usernames = null,
+		string? emails = null,
+		string? scope = null,
 		CancellationToken cancellationToken = default
 		);
 }

@@ -1,5 +1,17 @@
 ﻿# Changelog
 
+## Unreleased
+
+- Optional parameters across the Refit interfaces are now declared **nullable**: `string? t0 = null`
+  rather than `string t0 = null!` (issue
+  [#386](https://github.com/panoramicdata/Meraki.Api/issues/386)). 194 parameters in 50 interface
+  files, all of them optional query or body parameters where `null` is how a caller omits the value.
+  The old form asserted the opposite of the contract, so a consumer with nullable reference types
+  enabled got a CS8604 at every call site that computed the value - and had no honest way to silence
+  it, because sending an empty string instead is not the same request. Nullability is metadata: no
+  signature, default value or runtime behaviour changed, and the test suite gives identical results
+  before and after.
+
 ## 1.70.57
 
 - Back-off after an HTTP 429 is now **jittered**, so clients sharing an API key that are throttled in

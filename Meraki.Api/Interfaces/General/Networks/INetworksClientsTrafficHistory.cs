@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// I Networks Clients Traffic History
@@ -21,7 +21,7 @@ public interface INetworksClientsTrafficHistory
 		string networkId,
 		string clientId,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
 		CancellationToken cancellationToken = default);
 }

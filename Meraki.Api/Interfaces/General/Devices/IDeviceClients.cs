@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Devices;
+﻿namespace Meraki.Api.Interfaces.General.Devices;
 
 /// <summary>
 /// I Device Clients
@@ -17,7 +17,7 @@ public interface IDeviceClients
 	[Get("/devices/{serial}/clients")]
 	Task<List<DeviceClient>> GetDeviceClientsAsync(
 		string serial,
-		string t0 = null!,
+		string? t0 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default);
 }

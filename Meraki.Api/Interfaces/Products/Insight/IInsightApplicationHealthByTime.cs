@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Insight;
+﻿namespace Meraki.Api.Interfaces.Products.Insight;
 
 /// <summary>
 /// I Insight Application Health By Time
@@ -20,8 +20,8 @@ public interface IInsightApplicationHealthByTime
 	Task<List<HealthByTime>> GetNetworkInsightApplicationHealthByTimeAsync(
 		string networkId,
 		string applicationId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? resolution = null,
 		CancellationToken cancellationToken = default

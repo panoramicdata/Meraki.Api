@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// I Networks Clients Application Usage
@@ -23,13 +23,13 @@ public interface INetworksClientsApplicationUsage
 	[Get("/networks/{networkId}/clients/applicationUsage")]
 	Task<List<ApplicationUsage>> GetNetworkClientsApplicationUsageAsync(
 		string networkId,
-		string clients = null!,
+		string? clients = null,
 		int? ssidNumber = null,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
-		string t0 = null!,
-		string t1 = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default);
 }

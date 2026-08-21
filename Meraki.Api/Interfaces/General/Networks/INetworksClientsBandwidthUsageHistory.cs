@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// I Networks Clients Bandwidth Usage History
@@ -22,10 +22,10 @@ public interface INetworksClientsBandwidthUsageHistory
 	Task<List<NetworkClientBandwidthUsageHistory>> GetNetworkClientsBandwidthUsageHistoryAsync(
 		string networkId,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
-		string t0 = null!,
-		string t1 = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default);
 }

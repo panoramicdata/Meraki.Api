@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Camera;
+﻿namespace Meraki.Api.Interfaces.Products.Camera;
 
 /// <summary>
 /// I Camera Analytics Overview
@@ -19,10 +19,10 @@ public interface ICameraAnalyticsOverview
 	[Obsolete("This endpoint is deprecated and will be removed in a future update. Please use the new camera/analytics/overview endpoint.", false)]
 	Task<List<CameraOverview>> GetDeviceCameraAnalyticsOverviewAsync(
 		string serial,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
-		string objectType = null!,
+		string? objectType = null,
 		CancellationToken cancellationToken = default
 		);
 }

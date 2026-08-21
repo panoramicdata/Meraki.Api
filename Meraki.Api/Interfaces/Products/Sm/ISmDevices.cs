@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Sm;
+﻿namespace Meraki.Api.Interfaces.Products.Sm;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -22,11 +22,11 @@ public interface ISmDevices
 	[Get("/networks/{networkId}/sm/devices")]
 	Task<List<SmDevice>> GetNetworkSmDevicesAsync(
 		string networkId,
-		[AliasAs("fields[]")] List<string> fields = null!,
-		[AliasAs("wifiMacs[]")] List<string> wifiMacs = null!,
-		[AliasAs("serials[]")] List<string> serials = null!,
-		[AliasAs("ids[]")] List<string> ids = null!,
-		[AliasAs("scope[]")] List<string> scope = null!,
+		[AliasAs("fields[]")] List<string>? fields = null,
+		[AliasAs("wifiMacs[]")] List<string>? wifiMacs = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("ids[]")] List<string>? ids = null,
+		[AliasAs("scope[]")] List<string>? scope = null,
 		int? perPage = 1000,
 		string? startingAfter = null,
 		string? endingBefore = null,

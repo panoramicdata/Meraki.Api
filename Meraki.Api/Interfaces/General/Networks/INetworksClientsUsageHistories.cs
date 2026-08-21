@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Networks;
+﻿namespace Meraki.Api.Interfaces.General.Networks;
 
 /// <summary>
 /// I Networks Clients Usage Histories
@@ -23,13 +23,13 @@ public interface INetworksClientsUsageHistories
 	[Get("/networks/{networkId}/clients/usageHistories")]
 	Task<List<ClientApplicationHistory>> GetNetworkClientsUsageHistoriesAsync(
 		string networkId,
-		string clients = null!,
+		string? clients = null,
 		int? ssidNumber = null,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
-		string t0 = null!,
-		string t1 = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default);
 }

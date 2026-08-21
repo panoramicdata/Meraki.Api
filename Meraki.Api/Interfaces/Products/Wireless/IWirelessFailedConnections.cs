@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Wireless;
+﻿namespace Meraki.Api.Interfaces.Products.Wireless;
 
 /// <summary>
 /// I Wireless Failed Connections
@@ -23,14 +23,14 @@ public interface IWirelessFailedConnections
 	[Get("/networks/{networkId}/wireless/failedConnections")]
 	Task<List<FailedConnection>> GetNetworkWirelessFailedConnectionsAsync(
 		string networkId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
-		string band = null!,
+		string? band = null,
 		int? ssid = null,
 		int? vlan = null,
-		string apTag = null!,
-		string serial = null!,
-		string clientId = null!,
+		string? apTag = null,
+		string? serial = null,
+		string? clientId = null,
 		CancellationToken cancellationToken = default);
 }

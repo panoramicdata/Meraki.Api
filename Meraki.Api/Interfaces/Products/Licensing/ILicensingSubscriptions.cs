@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Licensing;
+﻿namespace Meraki.Api.Interfaces.Products.Licensing;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -52,15 +52,15 @@ public interface ILicensingSubscriptions
 	[Get("/administered/licensing/subscription/subscriptions")]
 	Task<List<LicensingSubscriptionSubscription>> GetAdministeredLicensingSubscriptionSubscriptionsAsync(
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
-		[AliasAs("subscriptionIds[]")] List<string> subscriptionIds = null!,
-		[AliasAs("organizationIds[]")] List<string> organizationIds = null!,
-		[AliasAs("statuses[]")] List<string> statuses = null!,
-		[AliasAs("productTypes[]")] List<string> productTypes = null!,
-		[AliasAs("skus[]")] List<string> skus = null!,
-		string startDate = null!,
-		string endDate = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("subscriptionIds[]")] List<string>? subscriptionIds = null,
+		[AliasAs("organizationIds[]")] List<string>? organizationIds = null,
+		[AliasAs("statuses[]")] List<string>? statuses = null,
+		[AliasAs("productTypes[]")] List<string>? productTypes = null,
+		[AliasAs("skus[]")] List<string>? skus = null,
+		string? startDate = null,
+		string? endDate = null,
 		CancellationToken cancellationToken = default
 		);
 

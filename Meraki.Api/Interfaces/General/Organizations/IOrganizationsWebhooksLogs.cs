@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.General.Organizations;
+﻿namespace Meraki.Api.Interfaces.General.Organizations;
 
 /// <summary>
 /// Represents a collection of functions to interact with the API endpoints
@@ -21,12 +21,12 @@ public interface IOrganizationsWebhooksLogs
 	[Get("/organizations/{organizationId}/webhooks/logs")]
 	Task<List<WebhookLog>> GetOrganizationWebhooksLogsAsync(
 		string organizationId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
 		int? perPage = 1000,
-		string startingAfter = null!,
-		string endingBefore = null!,
-		string url = null!,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? url = null,
 		CancellationToken cancellationToken = default);
 }

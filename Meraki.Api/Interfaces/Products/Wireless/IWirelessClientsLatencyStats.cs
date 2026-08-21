@@ -1,4 +1,4 @@
-namespace Meraki.Api.Interfaces.Products.Wireless;
+﻿namespace Meraki.Api.Interfaces.Products.Wireless;
 
 /// <summary>
 /// I Wireless Clients Latency Stats
@@ -22,14 +22,14 @@ public interface IWirelessClientsLatencyStats
 	[Get("/networks/{networkId}/wireless/clients/latencyStats")]
 	Task<List<NetworkClientLatencyStats>> GetNetworkWirelessClientsLatencyStatsAsync(
 		string networkId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
-		string band = null!,
+		string? band = null,
 		int? ssid = null,
 		int? vlan = null,
-		string apTag = null!,
-		string fields = null!,
+		string? apTag = null,
+		string? fields = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
@@ -51,13 +51,13 @@ public interface IWirelessClientsLatencyStats
 	Task<NetworkClientLatencyStats> GetNetworkWirelessClientLatencyStatsAsync(
 		string networkId,
 		string clientId,
-		string t0 = null!,
-		string t1 = null!,
+		string? t0 = null,
+		string? t1 = null,
 		double? timespan = null,
-		string band = null!,
+		string? band = null,
 		int? ssid = null,
 		int? vlan = null,
-		string apTag = null!,
-		string fields = null!,
+		string? apTag = null,
+		string? fields = null,
 		CancellationToken cancellationToken = default);
 }
