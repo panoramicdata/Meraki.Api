@@ -53,7 +53,7 @@ public class MerakiMcpRateLimitRetryTests
 	[InlineData("", false)]
 	[InlineData(null, false)]
 	public void IsRateLimitMessage_ClassifiesCorrectly(string? message, bool expected)
-		=> MerakiMcpClient.IsRateLimitMessage(message).Should().Be(expected);
+		=> MerakiMcpRateLimitPolicy.IsRateLimitMessage(message).Should().Be(expected);
 
 	// ---------------------------------------------------------------- execute_api
 

@@ -110,9 +110,14 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			throw new ArgumentException("A natural-language query is required.", nameof(query));
 		}
 
-		var response = await CallToolWithRateLimitRetryAsync(
+		var arguments = new Dictionary<string, object?>(StringComparer.Ordinal) { ["query"] = query };
+
+		var response = await MerakiMcpRateLimitPolicy.CallWithRetryAsync(
+			token => CallToolAsync(SemanticSearchToolName, arguments, token),
 			SemanticSearchToolName,
-			new Dictionary<string, object?>(StringComparer.Ordinal) { ["query"] = query },
+			_options,
+			Statistics,
+			_logger,
 			cancellationToken)
 			.ConfigureAwait(false);
 
@@ -166,7 +171,13 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 				StringComparer.Ordinal);
 		}
 
-		var response = await CallToolWithRateLimitRetryAsync(ExecuteApiToolName, arguments, cancellationToken)
+		var response = await MerakiMcpRateLimitPolicy.CallWithRetryAsync(
+			token => CallToolAsync(ExecuteApiToolName, arguments, token),
+			ExecuteApiToolName,
+			_options,
+			Statistics,
+			_logger,
+			cancellationToken)
 			.ConfigureAwait(false);
 
 		if (response.IsError)
@@ -221,140 +232,6 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			// The message is built from exception text only, which never contains the credential.
 			return MerakiMcpStatus.Disconnected(ex.Message);
 		}
-	}
-
-	/// <summary>
-	/// Calls a tool, transparently retrying while the server reports that the Meraki Dashboard rate
-	/// limit has been reached.
-	/// </summary>
-	/// <remarks>
-	/// <para>
-	/// The server reports rate limiting <b>inside an otherwise successful tool response</b>, as a
-	/// payload error, and answers the HTTP request with 200. So
-	/// <see cref="MerakiMcpBackingOffHttpMessageHandler"/> - which can only see status codes - never
-	/// sees a 429 and its retry and back-off never engage. Without this, the first rate-limited call
-	/// fails outright, however generous <see cref="MerakiMcpClientOptions.MaxAttemptCount"/> is.
-	/// </para>
-	/// <para>
-	/// Rate limiting is an expected condition rather than an exceptional one: an agentic
-	/// investigation is several capability calls in quick succession, sharing the documented
-	/// 10-requests-per-second-per-organization budget with every other consumer of the same key.
-	/// Callers should not have to reimplement retry logic this library already performs for HTTP
-	/// 429s, and callers that hand these operations to a language model cannot retry reliably at
-	/// all - whether the model retries sensibly is not a decision to delegate.
-	/// </para>
-	/// <para>
-	/// Only rate-limit errors are retried. A missing required parameter is also reported as a
-	/// payload error, and retrying that would waste the very budget being protected, so it is left
-	/// to fail immediately. See issue #389.
-	/// </para>
-	/// </remarks>
-	private async Task<MerakiMcpToolResponse> CallToolWithRateLimitRetryAsync(
-		string toolName,
-		IReadOnlyDictionary<string, object?> arguments,
-		CancellationToken cancellationToken)
-	{
-		var attemptCount = 0;
-
-		while (true)
-		{
-			cancellationToken.ThrowIfCancellationRequested();
-			attemptCount++;
-
-			var response = await CallToolAsync(toolName, arguments, cancellationToken)
-				.ConfigureAwait(false);
-
-			if (!TryGetRateLimitMessage(response, out var rateLimitMessage))
-			{
-				return response;
-			}
-
-			if (attemptCount >= _options.MaxAttemptCount)
-			{
-				throw new MerakiMcpRateLimitException(attemptCount);
-			}
-
-			var delay = AuthenticatedBackingOffHttpClientHandler.CalculateBackoffDelay(
-				attemptCount,
-				retryAfterSeconds: 1,
-				_options.BackOffDelayFactor,
-				_options.MaxBackOffDelaySeconds);
-
-#pragma warning disable CA1873 // Avoid potentially expensive logging
-			_logger.LogDebug(
-				"Meraki MCP tool {ToolName} reported a rate limit on attempt {AttemptCount}/{MaxAttemptCount} ({RateLimitMessage}). Waiting {TotalSeconds:N1}s.",
-				toolName,
-				attemptCount,
-				_options.MaxAttemptCount,
-				rateLimitMessage,
-				delay.TotalSeconds);
-#pragma warning restore CA1873 // Avoid potentially expensive logging
-
-			Statistics.RecordRetry(delay);
-
-			await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
-		}
-	}
-
-	/// <summary>
-	/// Determines whether a tool response reports that the Meraki Dashboard rate limit was reached.
-	/// </summary>
-	/// <remarks>
-	/// Checks both the MCP error flag and the payload error envelope, because the server has been
-	/// observed using the latter for rate limiting.
-	/// </remarks>
-	internal static bool TryGetRateLimitMessage(MerakiMcpToolResponse response, out string message)
-	{
-		message = string.Empty;
-
-		if (response.IsError)
-		{
-			if (!IsRateLimitMessage(response.Text))
-			{
-				return false;
-			}
-
-			message = response.Text!;
-			return true;
-		}
-
-		var json = response.StructuredJson ?? response.Text;
-
-		if (!TryReadPayloadError(json, out var payloadError) || !IsRateLimitMessage(payloadError))
-		{
-			return false;
-		}
-
-		message = payloadError;
-		return true;
-	}
-
-	/// <summary>
-	/// Determines whether an error message describes Meraki Dashboard rate limiting.
-	/// </summary>
-	/// <remarks>
-	/// Matched on text because the server supplies no machine-readable code for this, which is
-	/// itself worth raising with Cisco. Deliberately tolerant of wording changes during the beta:
-	/// several phrasings are accepted, and matching is case-insensitive.
-	/// </remarks>
-	internal static bool IsRateLimitMessage(string? message)
-	{
-		if (string.IsNullOrWhiteSpace(message))
-		{
-			return false;
-		}
-
-		string[] fragments = ["rate limit", "ratelimit", "rate-limit", "too many requests", "429"];
-
-		foreach (var fragment in fragments)
-		{
-			if (message!.Contains(fragment, StringComparison.OrdinalIgnoreCase))
-			{
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	private async Task<MerakiMcpToolResponse> CallToolAsync(
