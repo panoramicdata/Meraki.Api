@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## Unreleased
+## 1.70.58
 
 - Optional parameters across the Refit interfaces are now declared **nullable**: `string? t0 = null`
   rather than `string t0 = null!` (issue
