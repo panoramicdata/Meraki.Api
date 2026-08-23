@@ -1,5 +1,33 @@
 ﻿# Changelog
 
+## Unreleased
+
+- MCP: **Meraki Dashboard rate limiting is now retried transparently** (issue
+  [#389](https://github.com/panoramicdata/Meraki.Api/issues/389)). The server reports a rate limit
+  *inside an otherwise successful tool response*, answering the HTTP request with 200, so
+  `MerakiMcpBackingOffHttpMessageHandler` never saw a 429 and its retry and back-off never engaged.
+  The first rate-limited call therefore failed outright as a `MerakiMcpProtocolException`, however
+  generous `MaxAttemptCount` was - confirmed against the live hosted server, which reported
+  `Retries: 0` alongside the failure.
+  - `SemanticSearchAsync` and `ExecuteApiAsync` now retry while the server reports a rate limit,
+    honouring `MaxAttemptCount`, `BackOffDelayFactor` and `MaxBackOffDelaySeconds`, and recording
+    each wait in `MerakiMcpClientStatistics` so a slow call is still explicable.
+  - Once attempts are exhausted they throw `MerakiMcpRateLimitException`, which already carries the
+    attempt count, rather than `MerakiMcpProtocolException`. A caller that wants to come back later
+    needs to tell "busy" apart from "malformed".
+  - Rate limiting is detected from both the MCP error flag and the payload error envelope, and
+    matched on message text tolerantly, because the server supplies no machine-readable code for it.
+  - **Other payload errors are unchanged** and still fail immediately: retrying a missing required
+    parameter would spend the very budget the retry protects.
+
+  Rate limiting is an expected condition rather than an exceptional one, since an agentic
+  investigation is several capability calls in quick succession sharing the documented
+  10-requests-per-second-per-organization budget with every other consumer of the same key. Callers
+  should not have to reimplement retry logic the library already performs for HTTP 429s - and a
+  caller that hands these operations to a language model cannot retry reliably at all, because
+  whether the model retries sensibly is not a decision to delegate.
+
+
 ## 1.70.58
 
 - Optional parameters across the Refit interfaces are now declared **nullable**: `string? t0 = null`

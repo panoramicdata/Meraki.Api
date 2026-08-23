@@ -1,4 +1,4 @@
-using ModelContextProtocol.Client;
+﻿using ModelContextProtocol.Client;
 using Newtonsoft.Json.Linq;
 
 namespace Meraki.Api.Mcp;
@@ -97,6 +97,7 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 	/// <exception cref="ArgumentException">Thrown when <paramref name="query"/> is null or whitespace.</exception>
 	/// <exception cref="ObjectDisposedException">Thrown when this client has been disposed.</exception>
 	/// <exception cref="MerakiMcpToolNotFoundException">Thrown when the server does not advertise the semantic_search tool.</exception>
+	/// <exception cref="MerakiMcpRateLimitException">Thrown when the server was still reporting a rate limit after <see cref="MerakiMcpClientOptions.MaxAttemptCount"/> attempts.</exception>
 	/// <exception cref="MerakiMcpProtocolException">Thrown when the server's response cannot be understood.</exception>
 	public async Task<IReadOnlyList<MerakiCapability>> SemanticSearchAsync(
 		string query,
@@ -109,9 +110,14 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			throw new ArgumentException("A natural-language query is required.", nameof(query));
 		}
 
-		var response = await CallToolAsync(
+		var arguments = new Dictionary<string, object?>(StringComparer.Ordinal) { ["query"] = query };
+
+		var response = await MerakiMcpRateLimitPolicy.CallWithRetryAsync(
+			token => CallToolAsync(SemanticSearchToolName, arguments, token),
 			SemanticSearchToolName,
-			new Dictionary<string, object?>(StringComparer.Ordinal) { ["query"] = query },
+			_options,
+			Statistics,
+			_logger,
 			cancellationToken)
 			.ConfigureAwait(false);
 
@@ -133,6 +139,7 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 	/// design; use <see cref="MerakiClient"/> for mutations.
 	/// </exception>
 	/// <exception cref="MerakiMcpToolNotFoundException">Thrown when the server does not advertise the execute_api tool.</exception>
+	/// <exception cref="MerakiMcpRateLimitException">Thrown when the server was still reporting a rate limit after <see cref="MerakiMcpClientOptions.MaxAttemptCount"/> attempts.</exception>
 	/// <exception cref="MerakiMcpProtocolException">Thrown when the server reports an error or its response cannot be understood.</exception>
 	public async Task<MerakiMcpResult> ExecuteApiAsync(
 		string capabilityId,
@@ -164,7 +171,13 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 				StringComparer.Ordinal);
 		}
 
-		var response = await CallToolAsync(ExecuteApiToolName, arguments, cancellationToken)
+		var response = await MerakiMcpRateLimitPolicy.CallWithRetryAsync(
+			token => CallToolAsync(ExecuteApiToolName, arguments, token),
+			ExecuteApiToolName,
+			_options,
+			Statistics,
+			_logger,
+			cancellationToken)
 			.ConfigureAwait(false);
 
 		if (response.IsError)
