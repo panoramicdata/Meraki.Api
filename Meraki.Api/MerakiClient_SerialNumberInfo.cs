@@ -330,6 +330,10 @@ public partial class MerakiClient
 		{ "Q3MX", "CW9164I" },
 		// Added 2026-07-27 from DataMagic prod logs (serials seen in Meraki inventory but previously unmapped)
 		{ "Q3NK", "MR78" },
+		// Added 2026-08-25 from DataMagic prod logs (serials seen in Meraki inventory but previously unmapped)
+		{ "Q4NC", "C8455-G2" },
+		{ "Q5CA", "C9350-48HX" },
+		{ "Q5VB", "C9200CX-8P-2X2G" },
 	};
 
 	/// <summary>
