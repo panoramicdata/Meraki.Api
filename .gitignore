@@ -347,4 +347,3 @@ tmpclaude-*-cwd
 tmp/*
 # Local cache files for c# devkit
 *.csproj.lscache
-nuget-key.txt

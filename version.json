@@ -1,8 +1,7 @@
 {
-  "version": "1.70",
-  "publicReleaseRefSpec": [
-    "^refs/heads/main$",
-    "^refs/tags/\\d\u002B\\.\\d\u002B\\.\\d\u002B",
-    "^refs/tags/\\d\u002B\\.\\d\u002B\\.\\d\u002B$"
-  ]
+	"version": "1.70",
+	"publicReleaseRefSpec": [
+		"^refs/heads/main$",
+		"^refs/tags/\\d+\\.\\d+\\.\\d+"
+	]
 }

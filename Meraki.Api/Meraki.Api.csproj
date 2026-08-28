@@ -1,77 +1,87 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
-    <LangVersion>latest</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <AnalysisLevel>latest-recommended</AnalysisLevel>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <PackageIcon>Icon.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/panoramicdata/Meraki.Api</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>Meraki API</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Description>Meraki API</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <NeutralLanguage>en</NeutralLanguage>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Changelog can be found at https://github.com/panoramicdata/Meraki.Api/blob/main/CHANGELOG.md</PackageReleaseNotes>
-    <PackageId>Meraki.Api</PackageId>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Include="Icon.png" Pack="true" PackagePath="" />
-    <None Include="../README.md" Pack="true" PackagePath="" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="AsyncFixer">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="HtmlAgilityPack" />
-    <PackageReference Include="Microsoft.Extensions.Logging" />
-    <PackageReference Include="Nerdbank.GitVersioning">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" />
-    <PackageReference Include="Refit" />
-    <PackageReference Include="Refit.Newtonsoft.Json" />
-  </ItemGroup>
-  <!--
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<PackageIcon>Icon.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/panoramicdata/Meraki.Api</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/panoramicdata/Meraki.Api</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Meraki API</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Description>Meraki API</Description>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<NeutralLanguage>en</NeutralLanguage>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+
+		<PackageReleaseNotes>Changelog can be found at https://github.com/panoramicdata/Meraki.Api/blob/main/CHANGELOG.md</PackageReleaseNotes>
+
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="Icon.png" Pack="true" PackagePath="" />
+		<None Include="../README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AsyncFixer">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="HtmlAgilityPack" />
+		<PackageReference Include="Microsoft.Extensions.Logging" />
+		<PackageReference Include="Nerdbank.GitVersioning">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="Refit" />
+		<PackageReference Include="Refit.Newtonsoft.Json" />
+	</ItemGroup>
+
+	<!--
 		MCP client support requires the ModelContextProtocol SDK, which in turn requires net8.0 or later.
 		The Mcp folder is therefore compiled only for net10.0, leaving the netstandard2.0 public surface
 		and dependency graph completely untouched. See https://github.com/panoramicdata/Meraki.Api/issues/365
 	-->
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <Compile Remove="Mcp\**\*.cs" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
-    <PackageReference Include="ModelContextProtocol.Core" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RefitClassSourceGenerator\RefitClassSourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <InternalsVisibleTo Include="Meraki.Api.NewTest" />
-    <InternalsVisibleTo Include="Meraki.Api.Test" />
-  </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<Compile Remove="Mcp\**\*.cs" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+		<PackageReference Include="ModelContextProtocol.Core" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\RefitClassSourceGenerator\RefitClassSourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Meraki.Api.NewTest" />
+		<InternalsVisibleTo Include="Meraki.Api.Test" />
+	</ItemGroup>
+
 </Project>
