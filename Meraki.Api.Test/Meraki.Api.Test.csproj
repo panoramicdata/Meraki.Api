@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
@@ -33,7 +34,7 @@
 		</PackageReference>
 		<PackageReference Include="Newtonsoft.Json" />
 		<PackageReference Include="PanoramicData.SheetMagic" />
-	</ItemGroup>
+	<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" PrivateAssets="all" /></ItemGroup>
 
 	<ItemGroup>
 		<None Update="EndOfSaleDetails\meraki-eol-sample.html" CopyToOutputDirectory="PreserveNewest" />
