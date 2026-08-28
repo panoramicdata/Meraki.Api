@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Solution>
   <Folder Name="/Documentation/">
     <File Path="Documentation/docfx.json" />
@@ -32,6 +33,9 @@
     <Properties Name="FolderGlobals">
       <Property Name="C_5_4Code_4Meraki_1Api_4version_1json__JsonSchema" />
     </Properties>
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="SECURITY.md" />
   </Folder>
   <Folder Name="/Solution Items/GitHubWorkFlows/">
     <File Path=".github/workflows/codeql-analysis.yml" />
