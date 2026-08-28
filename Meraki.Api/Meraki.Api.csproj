@@ -2,6 +2,18 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
+		<!-- RF006: Refit 15 reports that a few methods take request features its source generator
+		     cannot build without reflection, so they fall back to the reflection request builder.
+		     That is the supported path here: MerakiClient creates every client with
+		     RestService.For<T>(), which the diagnostic explicitly permits, and this library is not
+		     trimmed or AOT-published. Revisit if it ever moves to AddRefitGeneratedClient. -->
+		<NoWarn>$(NoWarn);RF006</NoWarn>
+		<!-- CS0618: Refit 15 generates interface stubs that reference [Obsolete] members of this
+		     API - ProductType.Environmental and ProductType.VmConcentrator, which Meraki retired
+		     but which remain part of the published surface. The generated code is not ours to
+		     change. Kept as a warning rather than suppressed, so obsolete usage stays visible;
+		     it simply no longer fails the build. -->
+		<WarningsNotAsErrors>$(WarningsNotAsErrors);CS0618</WarningsNotAsErrors>
 		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
