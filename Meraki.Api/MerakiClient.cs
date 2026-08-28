@@ -2,6 +2,7 @@ using Meraki.Api.Extensions;
 using Meraki.Api.Sections.General.LiveTools;
 using Meraki.Api.Sections.Products.Licensing;
 using Meraki.Api.Sections.SecureConnect;
+using Meraki.Api.Workflows;
 
 namespace Meraki.Api;
 
@@ -54,6 +55,7 @@ public partial class MerakiClient : IDisposable
 	private readonly MerakiClientOptions _options;
 	private readonly ILogger _logger;
 	private readonly HttpClient _coreHttpClient;
+	private readonly HttpClient _workflowsHttpClient;
 	private readonly HttpClient _secureConnectHttpClient;
 	private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
 
@@ -101,6 +103,17 @@ public partial class MerakiClient : IDisposable
 			BaseAddress = new Uri($"https://api.{merakiDomain}/api/secureConnect/v1"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
 		};
+
+		// Cisco Workflows is a separate, organization-scoped API surface. The generated client
+		// supplies the organization ID in every route; this base address supplies the dedicated
+		// /api/automate prefix. The shared handler selects Bearer authentication for these paths.
+		_workflowsHttpClient = new HttpClient(_httpClientHandler)
+		{
+			BaseAddress = new Uri($"https://api.{merakiDomain}/api/automate/organizations/"),
+			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
+		};
+
+		Workflows = new MerakiWorkflowsApiClient(_workflowsHttpClient);
 
 		_refitSettings = new RefitSettings
 		{
@@ -734,6 +747,16 @@ public partial class MerakiClient : IDisposable
 	public SecureConnectSection SecureConnect { get; } = new();
 
 	/// <summary>
+	/// Gets the typed Cisco Workflows Automation API client.
+	/// </summary>
+	/// <remarks>
+	/// Workflows operations require full access to the organization and Bearer authentication.
+	/// The client covers the complete Cisco Workflows OpenAPI specification, including workflows,
+	/// instances, targets, variables, schedules, rules, triggers, tables, and Exchange operations.
+	/// </remarks>
+	public IMerakiWorkflowsApiClient Workflows { get; }
+
+	/// <summary>
 	/// Gets the switch
 	/// </summary>
 
@@ -776,6 +799,7 @@ public partial class MerakiClient : IDisposable
 			if (disposing)
 			{
 				_coreHttpClient.Dispose();
+				_workflowsHttpClient.Dispose();
 				_secureConnectHttpClient.Dispose();
 				_httpClientHandler.Dispose();
 			}

@@ -61,6 +61,28 @@ Both retry changes affect timing only. No option or public API changed, so no ex
 behaves differently beyond when it retries.
 
 ## 1.70.51
+- Added first-class support for the complete **Cisco Workflows Automation API**.
+  - New typed `MerakiClient.Workflows` surface generated from Cisco's published Automation OpenAPI
+    document: 156 operations across 99 paths and 350 request/response schemas.
+  - Covers workflows and runs plus targets, variables, schedules, rules, triggers, tables, tasks,
+    webhooks, tenants, sharing, and Exchange import/export/install operations across v1, v1.1,
+    v1.2, v2, and exchange/v1.
+  - Projects the organization ID into every method, so a single client can safely access multiple
+    organizations.
+  - Reuses the existing API-region routing, read-only enforcement, rate limiter, exponential
+    back-off, logging, request statistics, and timeout configuration.
+  - Sends Dashboard API keys as Bearer credentials only for Workflows routes, as Cisco requires,
+    while leaving authentication for the existing Dashboard and Secure Connect APIs unchanged.
+  - Includes typed multipart file upload for the v1.1 workflow-start operation, generated API
+    exceptions, a complete mocked Exchange-import/read/validate/execute/inspect/delete lifecycle,
+    and an explicit real-service lifecycle test using the same temporary, side-effect-free
+    `Completed` workflow artifact with `finally`-based cleanup.
+  - Verifies that Workflows `429 rate_limit_exceeded` responses use the existing `MerakiClient`
+    `Retry-After` and back-off path; the explicit lifecycle test retains the production retry policy.
+  - Handles both documented workflow deletion successes: a typed response for `202 Accepted` and
+    `null` for `204 No Content`.
+  - Includes README guidance and a full conceptual documentation page with a minimal Exchange-import
+    lifecycle example, a complete executable fixture, and test commands.
 
 - MCP: `MerakiMcpResult` now unwraps the server's response envelope. The server returns
   `{"result":{"type":"success","capability_id":"...","data": ... }}`, so `RawJson` alone forced callers

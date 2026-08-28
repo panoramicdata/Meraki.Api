@@ -15,6 +15,39 @@ See the [contribution guide](CONTRIBUTING.md) for more information regarding con
 * how to use the library
 * all methods and properties
 
+## Cisco Workflows API support
+
+`MerakiClient.Workflows` is a typed client for the complete
+[Cisco Workflows Automation API](https://documentation.meraki.com/Platform_Management/Workflows/Workflows/API_Usage).
+It covers all 156 published operations and their request and response models, including workflows,
+runs, targets, variables, schedules, rules, triggers, tables, and Exchange import/export.
+
+```csharp
+using var meraki = new MerakiClient(new MerakiClientOptions
+{
+    ApiKey = merakiDashboardApiKey,
+    UserAgent = "YourProduct/1.0 YourCompany"
+});
+
+var page = await meraki.Workflows.GetAllWorkflowsPostQueryParamsAsync(
+    organizationId,
+    limit: 100);
+
+foreach (var workflow in page.Results ?? [])
+{
+    Console.WriteLine($"{workflow.Id}: {workflow.Title}");
+}
+```
+
+Every operation takes `organizationId` because Workflows routes are organization-scoped. The
+existing `MerakiClientOptions` region, read-only guard, rate limiter, retry/back-off, logging, and
+statistics apply unchanged. API keys are automatically sent as `Authorization: Bearer`, as required
+by Workflows, without changing authentication for Dashboard API calls.
+
+See the [Workflows API guide](Documentation/docs/workflows-api.md) for listing, creating, validating,
+executing, inspecting, and cleaning up a minimal workflow, plus multipart upload, prerequisites,
+versioning, and the opt-in live integration test.
+
 ## MCP server support
 
 In addition to the REST client, this package can act as a client for the

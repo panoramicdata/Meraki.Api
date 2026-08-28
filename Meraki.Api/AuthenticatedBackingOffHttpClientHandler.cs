@@ -1,14 +1,31 @@
 namespace Meraki.Api;
 
-internal sealed class AuthenticatedBackingOffHttpClientHandler(
-	MerakiClientOptions options,
-	MerakiClient merakiClient,
-	ILogger logger) : HttpClientHandler
+internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandler
 {
-	private readonly MerakiClientOptions _options = options;
-	private readonly MerakiClient _merakiClient = merakiClient;
-	private readonly ILogger _logger = logger;
+	private readonly MerakiClientOptions _options;
+	private readonly MerakiClient _merakiClient;
+	private readonly ILogger _logger;
 	private readonly LogLevel _levelToLogAt = LogLevel.Trace;
+
+	public AuthenticatedBackingOffHttpClientHandler(
+		MerakiClientOptions options,
+		MerakiClient merakiClient,
+		ILogger logger)
+		: this(options, merakiClient, logger, new HttpClientHandler())
+	{
+	}
+
+	internal AuthenticatedBackingOffHttpClientHandler(
+		MerakiClientOptions options,
+		MerakiClient merakiClient,
+		ILogger logger,
+		HttpMessageHandler innerHandler)
+	{
+		_options = options;
+		_merakiClient = merakiClient;
+		_logger = logger;
+		InnerHandler = innerHandler;
+	}
 
 	/// <summary>
 	/// Gets the last request uri
@@ -60,15 +77,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 
 		var logPrefix = $"Request {Guid.NewGuid()}: ";
 
-		// Add the authentication header - prefer AccessToken (Bearer) over ApiKey
-		if (hasAccessToken)
-		{
-			request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _options.AccessToken);
-		}
-		else
-		{
-			request.Headers.Add("X-Cisco-Meraki-API-Key", _options.ApiKey);
-		}
+		ApplyAuthentication(request, _options);
 
 		if (_options.UserAgent is not null)
 		{
@@ -408,6 +417,34 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler(
 		return ceilingSeconds <= delaySeconds
 			? delay
 			: TimeSpan.FromSeconds(delaySeconds + (random.NextDouble() * (ceilingSeconds - delaySeconds)));
+	}
+
+	/// <summary>
+	/// Applies the authentication scheme required by the selected Meraki API surface.
+	/// </summary>
+	/// <remarks>
+	/// The Dashboard API accepts the traditional API-key header, while Cisco Workflows explicitly
+	/// requires that same API key as a Bearer token. OAuth access tokens are Bearer tokens everywhere.
+	/// </remarks>
+	internal static void ApplyAuthentication(HttpRequestMessage request, MerakiClientOptions options)
+	{
+		var requestUri = request.RequestUri;
+		var usesWorkflowsApi = requestUri is { IsAbsoluteUri: true }
+			&& requestUri.AbsolutePath.StartsWith(
+				"/api/automate/organizations/",
+				StringComparison.OrdinalIgnoreCase);
+
+		if (!string.IsNullOrWhiteSpace(options.AccessToken) || usesWorkflowsApi)
+		{
+			var credential = !string.IsNullOrWhiteSpace(options.AccessToken)
+				? options.AccessToken
+				: options.ApiKey;
+
+			request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", credential);
+			return;
+		}
+
+		request.Headers.Add("X-Cisco-Meraki-API-Key", options.ApiKey);
 	}
 
 	/// <summary>

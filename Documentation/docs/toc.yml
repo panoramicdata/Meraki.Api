@@ -4,6 +4,8 @@
   href: getting-started.md
 - name: Choosing a UserAgent
   href: user-agent.md
+- name: Using the Cisco Workflows API
+  href: workflows-api.md
 - name: Using the Meraki MCP server
   href: mcp-server.md
 - name: Meraki Community
