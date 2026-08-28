@@ -9,6 +9,7 @@
     <!-- Non-shipping project: no public API to document -->
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" />
