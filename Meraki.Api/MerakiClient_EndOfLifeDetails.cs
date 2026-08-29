@@ -71,19 +71,11 @@ public partial class MerakiClient
 		using var httpClient = new HttpClient();
 		var url = new Uri(EndOfLifeUrl);
 		var response = await httpClient.GetAsync(url, cancellationToken).ConfigureAwait(false);
-#if NETSTANDARD2_0
-		var html = await response
-			.Content
-			.ReadAsStringAsync()
-			.ConfigureAwait(false)
-			?? throw new InvalidDataException("Could not read response content");
-#else
 		var html = await response
 			.Content
 			.ReadAsStringAsync(cancellationToken)
 			.ConfigureAwait(false)
 			?? throw new InvalidDataException("Could not read response content");
-#endif
 
 		return ParseEndOfLifeDetails(html);
 	}

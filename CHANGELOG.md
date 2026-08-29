@@ -2,6 +2,23 @@
 
 ## Unreleased
 
+- **BREAKING: the `netstandard2.0` target has been dropped. This package now targets `net10.0` only.**
+  Consumers who need `netstandard2.0` should stay on 1.70.79.
+  - Note the version does not jump to 2.0: this package's version tracks the Meraki Dashboard API
+    version it targets (see [Versioning](README.md#versioning)), so a major bump would announce a
+    Meraki API v2.0 that does not exist. The break is recorded here instead.
+  - The second target was not merely redundant, it behaved differently. Four `ReadAsStringAsync`
+    calls could not accept a `CancellationToken` on `netstandard2.0`, so cancellation was silently
+    ignored there. The retry logic compared error strings case-sensitively on `netstandard2.0` and
+    case-insensitively on `net10.0`, so the two targets could disagree about whether a failure was
+    retryable. Both divergences are now impossible.
+  - The MCP client was excluded from `netstandard2.0` entirely (20 files, ~2,000 lines). There is now
+    one public surface across the package rather than two.
+  - Refit is back to a single version. 1.70.79 had to pin Refit 15.2.0 for `net10.0` and 11.2.0 for
+    `netstandard2.0`, because Refit dropped `netstandard2.0` at 12.0.0.
+  - All twelve `#if NETSTANDARD2_0` blocks are gone, replaced by the modern APIs they were polyfilling
+    (`ArgumentNullException.ThrowIfNull`, range indexers, `Random.Shared`, `StartsWith(char)`).
+
 - MCP: **Meraki Dashboard rate limiting is now retried transparently** (issue
   [#389](https://github.com/panoramicdata/Meraki.Api/issues/389)). The server reports a rate limit
   *inside an otherwise successful tool response*, answering the HTTP request with 200, so

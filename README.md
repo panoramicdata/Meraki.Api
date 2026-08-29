@@ -9,6 +9,38 @@ This project implements access to the v1 Meraki API
 
 See the [contribution guide](CONTRIBUTING.md) for more information regarding contributing to this project.
 
+## Versioning
+
+**This package's version tracks the Cisco Meraki Dashboard API version it targets. It is not
+semantic versioning.**
+
+    1.70.79
+    │  │  └── build height, incremented automatically by Nerdbank.GitVersioning
+    │  └───── Meraki Dashboard API minor version (this package targets API v1.70)
+    └──────── Meraki Dashboard API major version
+
+So `1.70.x` means "generated against Meraki Dashboard API v1.70". The major and minor parts move
+when this library is regenerated against a newer Meraki API, and only then.
+
+The practical consequence: **do not bump the major version to signal a breaking change in this
+library.** Releasing a `2.0.x` would announce a Meraki Dashboard API v2.0 that does not exist.
+Breaking changes to this library are called out in [CHANGELOG.md](CHANGELOG.md) instead, and the
+version continues to follow Meraki.
+
+When updating to a new Meraki API version, see the guidance in
+[.github/copilot-instructions.md](.github/copilot-instructions.md).
+
+## Supported frameworks
+
+`net10.0` only. Panoramic Data does not support anything lower.
+
+The `netstandard2.0` target was dropped after 1.70.79. It existed to serve .NET Framework and older
+.NET consumers, but it also forced a second, quietly different build: several methods could not pass
+a `CancellationToken`, and the retry logic compared error strings case-sensitively on
+`netstandard2.0` and case-insensitively on `net10.0`, so the two targets could disagree about
+whether to retry. The MCP client was excluded from it entirely. Consumers who need `netstandard2.0`
+should stay on 1.70.79.
+
 ## Library documentation
 
 **[Full documentation is available here](https://panoramicdata.github.io/Meraki.Api/)** including:
@@ -55,7 +87,6 @@ In addition to the REST client, this package can act as a client for the
 you build search the Meraki Dashboard API capability catalogue in natural language and execute the
 capability it selects.
 
-The MCP types target `net10.0` only. The `netstandard2.0` target is unchanged.
 
 ```csharp
 using Meraki.Api.Mcp;

@@ -97,11 +97,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 				_logger.Log(_levelToLogAt, "{LogPrefix}Request\r\n{Request}", logPrefix, request);
 				if (request.Content != null)
 				{
-#if NETSTANDARD2_0
-					var requestContent = await request.Content.ReadAsStringAsync().ConfigureAwait(false);
-#else
 					var requestContent = await request.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-#endif
 					_logger.Log(_levelToLogAt, "{LogPrefix}RequestContent\r\n{RequestContent}", logPrefix, requestContent);
 				}
 			}
@@ -197,13 +193,8 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 				continue;
 			}
 			catch (HttpRequestException ex) when (
-#if NETSTANDARD2_0
-				ex.Message.Contains("An error occurred while sending the request") ||
-				(ex.InnerException is not null && ex.InnerException.Message.Contains("Connection reset by peer"))
-#else
 				ex.Message.Contains("An error occurred while sending the request", StringComparison.OrdinalIgnoreCase) ||
 				(ex.InnerException is not null && ex.InnerException.Message.Contains("Connection reset by peer", StringComparison.OrdinalIgnoreCase))
-#endif
 				)
 			{
 				// This is a common error that occurs when the remote server (Meraki API) abruptly closes the TCP connection
@@ -243,11 +234,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 				_logger.Log(_levelToLogAt, "{LogPrefix}Response\r\n{HttpResponseMessage}", logPrefix, httpResponseMessage);
 				if (httpResponseMessage.Content != null)
 				{
-#if NETSTANDARD2_0
-					var responseContent = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
-#else
 					var responseContent = await httpResponseMessage.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-#endif
 					_logger.Log(_levelToLogAt, "{LogPrefix}ResponseContent\r\n{ResponseContent}", logPrefix, responseContent);
 				}
 			}
@@ -367,19 +354,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 	/// </summary>
 	private const double JitterFraction = 0.5;
 
-#if NETSTANDARD2_0
-	[ThreadStatic]
-	private static Random? _jitterRandom;
-
-	/// <summary>
-	/// netstandard2.0 has no Random.Shared, and Random is not thread safe, so give each thread its own.
-	/// Seeded from a Guid rather than the clock, because clock-seeded instances created on different
-	/// threads within the same tick produce identical sequences, which would defeat the point of jitter.
-	/// </summary>
-	private static Random GetJitterRandom() => _jitterRandom ??= new Random(Guid.NewGuid().GetHashCode());
-#else
 	private static Random GetJitterRandom() => Random.Shared;
-#endif
 
 	/// <summary>
 	/// Spreads a computed back-off delay by a random amount, so that clients throttled at the same

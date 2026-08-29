@@ -41,14 +41,7 @@ public partial class MerakiClient
 		bool followPagination = true,
 		CancellationToken cancellationToken = default)
 	{
-#if NETSTANDARD2_0
-		if (method is null)
-		{
-			throw new ArgumentNullException(nameof(method));
-		}
-#else
 		ArgumentNullException.ThrowIfNull(method);
-#endif
 
 		if (string.IsNullOrWhiteSpace(path))
 		{
@@ -84,15 +77,9 @@ public partial class MerakiClient
 
 			pageCount++;
 
-#if NETSTANDARD2_0
-			var rawBody = await response.Content
-				.ReadAsStringAsync()
-				.ConfigureAwait(false);
-#else
 			var rawBody = await response.Content
 				.ReadAsStringAsync(cancellationToken)
 				.ConfigureAwait(false);
-#endif
 
 			JToken? json = null;
 			if (!string.IsNullOrWhiteSpace(rawBody))

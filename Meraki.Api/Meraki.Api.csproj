@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
+		<TargetFramework>net10.0</TargetFramework>
 		<!-- RF006: Refit 15 reports that a few methods take request features its source generator
 		     cannot build without reflection, so they fall back to the reflection request builder.
 		     That is the supported path here: MerakiClient creates every client with
@@ -59,16 +59,7 @@
 		<PackageReference Include="Refit.Newtonsoft.Json" />
 	</ItemGroup>
 
-	<!--
-		MCP client support requires the ModelContextProtocol SDK, which in turn requires net8.0 or later.
-		The Mcp folder is therefore compiled only for net10.0, leaving the netstandard2.0 public surface
-		and dependency graph completely untouched. See https://github.com/panoramicdata/Meraki.Api/issues/365
-	-->
-	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<Compile Remove="Mcp\**\*.cs" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+	<ItemGroup>
 		<PackageReference Include="ModelContextProtocol.Core" />
 	</ItemGroup>
 
