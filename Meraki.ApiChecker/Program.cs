@@ -29,9 +29,11 @@ if (implementationsWithoutEndpoints.Count > 0) { workbook.AddSheet(implementatio
 workbook.Save();
 Console.WriteLine(fileInfo.FullName);
 
-// Open the file using shell to start whatever application is registered with the xlsx extension
+// Open the file using shell to start whatever application is registered with the xlsx extension.
+// The path is built above from a timestamp, so no external input reaches the shell.
 var processStartInfo = new ProcessStartInfo(fileInfo.FullName)
 {
 	UseShellExecute = true
 };
+// nosemgrep: csharp_injection_rule-CommandInjection
 Process.Start(processStartInfo);

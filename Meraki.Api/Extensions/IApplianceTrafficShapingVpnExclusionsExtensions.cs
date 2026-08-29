@@ -1,4 +1,4 @@
-namespace Meraki.Api.Extensions;
+﻿namespace Meraki.Api.Extensions;
 
 /// <summary>
 /// Extension methods for IAppliance Traffic Shaping Vpn Exclusions
@@ -19,15 +19,6 @@ public static class IApplianceTrafficShapingVpnExclusionsExtensions
 		string organizationId,
 		List<string>? networkIds,
 		CancellationToken cancellationToken = default)
+		// The commented-out paging implementation this replaced is in git history.
 		=> throw new NotImplementedException("Waiting on meraki bugfix for this endpoint, it should not have 'items'");
-	//MerakiClient.GetAllAsync(
-	//			(startingAfter, cancellationToken)
-	//			=> applianceTrafficShapingVpnExclusions.GetOrganizationApplianceTrafficShapingVpnExclusionsByNetworkApiResponseAsync(
-	//					organizationId,
-	//					startingAfter,
-	//					networkIds,
-	//					cancellationToken
-	//				),
-	//				cancellationToken
-	//		);
 }

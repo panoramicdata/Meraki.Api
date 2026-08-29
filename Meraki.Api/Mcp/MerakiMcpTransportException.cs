@@ -1,4 +1,4 @@
-namespace Meraki.Api.Mcp;
+﻿namespace Meraki.Api.Mcp;
 
 /// <summary>
 /// Thrown when the MCP server cannot be reached, or when a stdio child process fails.
@@ -9,6 +9,9 @@ public class MerakiMcpTransportException : MerakiMcpException
 	/// The six static egress IP addresses Cisco publishes for the hosted MCP server.
 	/// Outbound access to these may need allowlisting.
 	/// </summary>
+	// S1313 flags hardcoded IP addresses. These six are Cisco's published, fixed egress addresses for
+	// the hosted MCP server: they are the value this property exists to expose, not configuration.
+#pragma warning disable S1313 // Avoid using hardcoded IP address
 	public static IReadOnlyList<string> HostedEgressIpAddresses { get; } =
 	[
 		"158.115.141.245",
@@ -18,6 +21,7 @@ public class MerakiMcpTransportException : MerakiMcpException
 		"158.115.133.139",
 		"158.115.133.156"
 	];
+#pragma warning restore S1313 // Avoid using hardcoded IP address
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="MerakiMcpTransportException"/> class.

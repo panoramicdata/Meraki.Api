@@ -5,6 +5,10 @@ namespace Meraki.Api;
 /// <summary>
 /// A Meraki Dashboard API client!
 /// </summary>
+// Codacy analyses each file on its own, so it cannot see the other parts of this class and reports
+// 'partial' as gratuitous (S2333), and the class as needing a private constructor (S1118). Both are false positives: the remaining parts are emitted by
+// RefitClassSourceGenerator, or live in the sibling MerakiClient files.
+#pragma warning disable S2333, S1118
 public partial class MerakiClient
 {
 	// Information from https://community.meraki.com/t5/Developers-APIs/Serial-number-to-Device-Type/m-p/199859
@@ -1140,3 +1144,4 @@ public partial class MerakiClient
 		};
 	}
 }
+#pragma warning restore S2333, S1118

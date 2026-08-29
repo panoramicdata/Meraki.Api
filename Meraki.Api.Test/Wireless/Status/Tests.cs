@@ -2,29 +2,11 @@ namespace Meraki.Api.Test.Wireless.Status;
 
 public class Tests(ITestOutputHelper testOutputHelper) : MerakiClientTest(testOutputHelper)
 {
-	[Fact]
+	// The body was previously commented out, so the test asserted nothing and always passed.
+	// Restoring it needs WirelessDeviceSerial1 and WirelessDeviceSerial2 on TestConfig; until those
+	// exist the gap is declared rather than hidden. See git history for the original body.
+	[Fact(Skip = "Needs WirelessDeviceSerial1 and WirelessDeviceSerial2 on TestConfig.")]
 	public void GetDeviceWirelessStatus_Succeeds()
 	{
-		// TODO: Add WirelessDeviceSerial1 and WirelessDeviceSerial2 to TestConfig if needed
-		// For now, skip this test if the properties don't exist
-		// var wirelessDevicesSerials = new List<string>
-		// {
-		// 	Configuration.WirelessDeviceSerial1,
-		// 	Configuration.WirelessDeviceSerial2
-		// };
-
-		// TestMerakiClient.Statistics.Reset();
-		// foreach (var deviceSerial in wirelessDevicesSerials)
-		// {
-		// 	var wirelessStatus = await TestMerakiClient
-		// 		.Wireless
-		// 		.Status
-		// 		.GetDeviceWirelessStatusAsync(
-		// 			deviceSerial,
-		// 			cancellationToken: CancellationToken);
-		// 	_ = wirelessStatus.Should().NotBeNull();
-		// }
-
-		// _ = TestMerakiClient.Statistics.TotalRequestCount.Should().BePositive();
 	}
 }

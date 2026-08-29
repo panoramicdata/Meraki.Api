@@ -1,4 +1,4 @@
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
 
 namespace Meraki.Api;
@@ -13,6 +13,10 @@ namespace Meraki.Api;
 /// not (yet) surfaced as typed methods - or that must choose the endpoint at runtime - can still
 /// benefit from the client's transport behaviour.
 /// </remarks>
+// Codacy analyses each file on its own, so it cannot see the other parts of this class and reports
+// 'partial' as gratuitous (S2333). Both are false positives: the remaining parts are emitted by
+// RefitClassSourceGenerator, or live in the sibling MerakiClient files.
+#pragma warning disable S2333
 public partial class MerakiClient
 {
 	/// <summary>
@@ -180,3 +184,4 @@ public partial class MerakiClient
 			: null;
 	}
 }
+#pragma warning restore S2333

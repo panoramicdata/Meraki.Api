@@ -1,8 +1,10 @@
-param(
+﻿param(
 	[string]$NswagVersion = "14.6.3"
 )
 
 $ErrorActionPreference = "Stop"
+# PSScriptAnalyzer forbids writing straight to the host, so progress goes to the information stream.
+$InformationPreference = "Continue"
 
 $repositoryRoot = $PSScriptRoot
 $generationDirectory = Join-Path ([System.IO.Path]::GetTempPath()) "meraki-workflows-codegen"
@@ -14,7 +16,7 @@ $specificationUrl = "https://documentation.meraki.com/@api/deki/files/36507/oas.
 
 New-Item -ItemType Directory -Force -Path $generationDirectory, $toolDirectory | Out-Null
 
-Write-Host "Downloading the Cisco Workflows OpenAPI specification..."
+Write-Information "Downloading the Cisco Workflows OpenAPI specification..."
 Invoke-WebRequest -Uri $specificationUrl -OutFile $sourceSpecification
 
 $specification = Get-Content $sourceSpecification -Raw | ConvertFrom-Json -AsHashtable
@@ -62,7 +64,7 @@ if (-not (Test-Path $nswag)) {
 	}
 }
 
-Write-Host "Generating the typed Workflows client..."
+Write-Information "Generating the typed Workflows client..."
 & $nswag openapi2csclient `
 	"/Input:$clientSpecification" `
 	"/Output:$output" `
@@ -127,4 +129,4 @@ $operationCount = @(
 	}
 ).Count
 
-Write-Host "Generated $operationCount operations in $output"
+Write-Information "Generated $operationCount operations in $output"

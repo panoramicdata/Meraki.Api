@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Meraki.Api.Test.Appliance;
 
@@ -91,7 +91,11 @@ public class ApplianceTests(ITestOutputHelper testOutputHelper) : MerakiClientTe
 			.LossAndLatencyHistory
 			.GetDeviceLossAndLatencyHistoryAsync(
 				Configuration.TestDeviceSerial,
+				// S1313: a documentation-range address is not reachable, and this endpoint needs a
+				// target the appliance can actually probe. Google's public resolver is the usual choice.
+#pragma warning disable S1313 // Avoid using hardcoded IP address
 				"8.8.8.8",
+#pragma warning restore S1313 // Avoid using hardcoded IP address
 				startDateTime.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
 				endDateTime.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture),
 				null,

@@ -13,7 +13,7 @@ public static class OpenApiReader
 			BaseAddress = new Uri("https://raw.githubusercontent.com/meraki/openapi/")
 		};
 
-		// Prefer the beta over "master/openapi/spec3.json";
+		// Prefer the beta spec over the one under master/openapi
 		const string betaOpenApiSpecPath = "v1-beta/openapi/spec3.json";
 		var stream = await httpClient.GetStreamAsync(betaOpenApiSpecPath).ConfigureAwait(false);
 		return new OpenApiStreamReader()

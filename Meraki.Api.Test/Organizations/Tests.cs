@@ -1,4 +1,4 @@
-using Meraki.Api.Exceptions;
+﻿using Meraki.Api.Exceptions;
 using Newtonsoft.Json;
 
 namespace Meraki.Api.Test.Organizations;
@@ -109,17 +109,6 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 			.Should()
 			.ThrowAsync<ApiException>();
 	}
-
-	//[Fact(Skip = "Not part of general run")]
-	//public async Task ClaimDeviceAsync_Succeeds()
-	//{
-	//	var result = await TestMerakiClient
-	//		.Organizations
-	//		.ClaimIntoOrganizationAsync(Configuration.TestOrganizationId, new OrganizationClaimRequest { Serials = new List<string> { Configuration.TestDeviceSerial } })
-	//		.ConfigureAwait(false);
-	//	_ = result.Should().NotBeNull();
-	//	_ = result.Serials.Should().NotBeEmpty();
-	//}
 
 	private static void ValidateOrganisation(Organization org)
 	{

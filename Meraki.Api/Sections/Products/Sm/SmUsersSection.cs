@@ -1,9 +1,13 @@
-namespace Meraki.Api.Sections.Products.Sm;
+﻿namespace Meraki.Api.Sections.Products.Sm;
 
 /// <summary>
 /// Provides access to sm users API endpoints
 /// </summary>
 
+// Codacy analyses each file on its own, so it cannot see the other parts of this class and reports
+// 'partial' as gratuitous (S2333). That is a false positive: the remaining part is emitted by
+// RefitClassSourceGenerator.
+#pragma warning disable S2333
 public partial class SmUsersSection
 {
 	[RefitPromoteCalls]
@@ -19,3 +23,4 @@ public partial class SmUsersSection
 
 	public ISmUsersSoftwares Softwares { get; internal set; } = null!;
 }
+#pragma warning restore S2333

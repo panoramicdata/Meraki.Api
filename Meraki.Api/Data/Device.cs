@@ -10,7 +10,7 @@ public class Device : NamedItem
 	/// <summary>
 	/// Maximum length for device address
 	/// </summary>
-	public const int MaxAddressLength = 255;
+	public static readonly int MaxAddressLength = 255;
 
 	/// <summary>
 	/// The latitude of a device

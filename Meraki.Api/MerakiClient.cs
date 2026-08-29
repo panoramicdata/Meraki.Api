@@ -1,4 +1,4 @@
-using Meraki.Api.Extensions;
+﻿using Meraki.Api.Extensions;
 using Meraki.Api.Sections.General.LiveTools;
 using Meraki.Api.Sections.Products.Licensing;
 using Meraki.Api.Sections.SecureConnect;
@@ -23,7 +23,7 @@ namespace Meraki.Api;
 ///         using var merakiClient = new MerakiClient(
 ///             new MerakiClientOptions
 ///             {
-///                 ApiKey = "0123456789abcdef0123456789abcdef01234567",
+///                 ApiKey = "&lt;your 40-character Meraki API key&gt;",
 ///                 UserAgent = "YourProductName/YourProductVersion YourCompanyName"
 ///             }
 ///         );
@@ -664,6 +664,9 @@ public partial class MerakiClient : IDisposable
 		};
 	}
 
+	// S1172 sees the parameter as unused, but it is what lets every call site infer T from the
+	// section property it passes in; its value is deliberately ignored.
+#pragma warning disable S1172 // Unused method parameters should be removed
 	private T RefitFor<T>(T _) =>
 		typeof(T).IsInterface
 			? RestService.For<T>(_coreHttpClient, _refitSettings)
@@ -671,6 +674,7 @@ public partial class MerakiClient : IDisposable
 
 	private T RefitSecureConnectFor<T>(T _)
 	=> RestService.For<T>(_secureConnectHttpClient, _refitSettings);
+#pragma warning restore S1172 // Unused method parameters should be removed
 
 	private readonly RefitSettings _refitSettings;
 

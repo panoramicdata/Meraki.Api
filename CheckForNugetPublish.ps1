@@ -6,6 +6,8 @@ param (
     [string]$expectedVersion
 )
 
+$InformationPreference = "Continue"
+
 function Get-LatestPackageVersion {
     param (
         [string]$packageName
@@ -19,7 +21,7 @@ function Get-LatestPackageVersion {
         return $latestVersion
     }
     catch {
-        Write-Host "An error occurred while fetching the package version: $_"
+        Write-Information "An error occurred while fetching the package version: $_"
         return $null
     }
 }
@@ -27,15 +29,15 @@ function Get-LatestPackageVersion {
 while ($true) {
     $latestVersion = Get-LatestPackageVersion -packageName $packageName
 
-    if ($latestVersion -eq $null) {
-        Write-Host "Failed to retrieve the package version. Retrying in 5 seconds..."
+    if ($null -eq $latestVersion) {
+        Write-Information "Failed to retrieve the package version. Retrying in 5 seconds..."
     }
     elseif ($latestVersion -eq $expectedVersion) {
-        Write-Host "The latest version ($latestVersion) matches the expected version ($expectedVersion)."
+        Write-Information "The latest version ($latestVersion) matches the expected version ($expectedVersion)."
         break
     }
     else {
-        Write-Host "The latest version is $latestVersion. Waiting for version $expectedVersion..."
+        Write-Information "The latest version is $latestVersion. Waiting for version $expectedVersion..."
     }
 
     Start-Sleep -Seconds 5

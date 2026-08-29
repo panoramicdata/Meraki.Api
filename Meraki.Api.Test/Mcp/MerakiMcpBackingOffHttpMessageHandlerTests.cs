@@ -1,4 +1,4 @@
-using Meraki.Api.Exceptions;
+﻿using Meraki.Api.Exceptions;
 using Meraki.Api.Mcp;
 using Microsoft.Extensions.Logging.Abstractions;
 using System.Net;
@@ -152,7 +152,7 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 			.EnqueueStatus(HttpStatusCode.TooManyRequests, retryAfter: "0")
 			.EnqueueStatus(HttpStatusCode.TooManyRequests, retryAfter: "0");
 
-		var act = async () => await SendAsync(inner, Options(maxAttemptCount: 3), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
+		var act = async () => await SendAsync(inner, Options(), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
 		var exception = await act.Should().ThrowAsync<MerakiMcpRateLimitException>();
 		_ = exception.Which.AttemptCount.Should().Be(3);
@@ -241,7 +241,11 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 		var act = async () => await SendAsync(inner, Options(maxAttemptCount: 1), new MerakiMcpClientStatistics(), TestContext.Current.CancellationToken);
 
 		var exception = await act.Should().ThrowAsync<MerakiMcpTransportException>();
+		// S1313 flags hardcoded IP addresses. These assertions are about Cisco's published egress
+		// addresses appearing verbatim in the message, so the literals are the point of the test.
+#pragma warning disable S1313 // Avoid using hardcoded IP address
 		_ = exception.Which.Message.Should().Contain("158.115.141.245").And.Contain("allowlisting");
+#pragma warning restore S1313 // Avoid using hardcoded IP address
 	}
 
 	[Fact]
@@ -285,6 +289,7 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 	}
 
 	[Fact]
+#pragma warning disable S1313 // Avoid using hardcoded IP address - the literals are the expectation
 	public void EgressIpAddresses_AreTheSixCiscoPublishes()
 		=> MerakiMcpTransportException.HostedEgressIpAddresses.Should().BeEquivalentTo(
 			[
@@ -295,4 +300,5 @@ public class MerakiMcpBackingOffHttpMessageHandlerTests
 				"158.115.133.139",
 				"158.115.133.156"
 			]);
+#pragma warning restore S1313 // Avoid using hardcoded IP address
 }

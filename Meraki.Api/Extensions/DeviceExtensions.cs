@@ -5,6 +5,34 @@ namespace Meraki.Api.Extensions;
 /// </summary>
 public static class DeviceExtensions
 {
+	private static readonly Dictionary<string, ModelType> _modelTypesByExactModel = new(StringComparer.Ordinal)
+	{
+		["CPSC-HUB"] = ModelType.CiscoSecureConnect,
+		["UMB-SIG"] = ModelType.Appliance
+	};
+
+	// Meraki model families are identified by a leading prefix. Longest prefixes are tried first so
+	// that, for example, VMX is recognised as a virtual appliance rather than matching on MX.
+	private static readonly Dictionary<string, ModelType> _modelTypesByPrefix = new(StringComparer.Ordinal)
+	{
+		["C9200"] = ModelType.Switch,
+		["C9300"] = ModelType.Switch,
+		["C9500"] = ModelType.Switch,
+		["VMX"] = ModelType.Appliance,
+		["MR"] = ModelType.WirelessLan,
+		["CW"] = ModelType.WirelessLan,
+		["MS"] = ModelType.Switch,
+		["SM"] = ModelType.MobileDeviceManagement,
+		["MG"] = ModelType.Cellular,
+		["MX"] = ModelType.Appliance,
+		["Z3"] = ModelType.Appliance,
+		["Z4"] = ModelType.Appliance,
+		["MV"] = ModelType.Camera,
+		["MT"] = ModelType.Sensor
+	};
+
+	private static readonly int[] _prefixLengths = [5, 3, 2];
+
 	/// <summary>
 	/// Gets the model type for a device based on its model string
 	/// </summary>
@@ -12,41 +40,25 @@ public static class DeviceExtensions
 	/// <returns>The model type category</returns>
 	public static ModelType GetModelType(this Device device)
 	{
-		var deviceModelUpper = device.Model?.ToUpperInvariant();
+		var model = device.Model?.ToUpperInvariant();
+		if (string.IsNullOrEmpty(model))
+		{
+			return ModelType.Unknown;
+		}
 
-		return deviceModelUpper == "CPSC-HUB"
-				? ModelType.CiscoSecureConnect
-				:
-				deviceModelUpper == "UMB-SIG"
-				? ModelType.Appliance
-				: deviceModelUpper?.Length >= 2
-					? deviceModelUpper[..2] switch
-					{
-						// Try matching on the first two characters
-						"MR" or "CW" => ModelType.WirelessLan,
-						"MS" => ModelType.Switch,
-						"SM" => ModelType.MobileDeviceManagement,
-						"MG" => ModelType.Cellular,
-						"MX" or "Z3" or "Z4" => ModelType.Appliance,
-						"MV" => ModelType.Camera,
-						"MT" => ModelType.Sensor,
-						// We didn't manage to match on the first two characters
-						_ => deviceModelUpper?.Length >= 3
-							? deviceModelUpper[..3] switch
-							{
-								"VMX" => ModelType.Appliance,
-								// We didn't manage to match on the first three characters
-								_ => deviceModelUpper.Length >= 5
-									? deviceModelUpper[..5] switch
-									{
-										"C9200" or "C9300" or "C9500" => ModelType.Switch,
-										// We don't know what this is
-										_ => ModelType.Unknown
-									}
-									: ModelType.Unknown
-							}
-							: ModelType.Unknown
-					}
-					: ModelType.Unknown;
+		if (_modelTypesByExactModel.TryGetValue(model, out var exactMatch))
+		{
+			return exactMatch;
+		}
+
+		foreach (var prefixLength in _prefixLengths)
+		{
+			if (model.Length >= prefixLength && _modelTypesByPrefix.TryGetValue(model[..prefixLength], out var prefixMatch))
+			{
+				return prefixMatch;
+			}
+		}
+
+		return ModelType.Unknown;
 	}
 }

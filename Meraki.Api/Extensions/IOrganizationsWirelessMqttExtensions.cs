@@ -1,4 +1,4 @@
-namespace Meraki.Api.Extensions;
+﻿namespace Meraki.Api.Extensions;
 
 /// <summary>
 /// Extension methods for IOrganizationsWirelessMqtt
@@ -19,7 +19,7 @@ public static class IOrganizationsWirelessMqttExtensions
 		List<string>? networkIds = null,
 		CancellationToken cancellationToken = default)
 		=> MerakiClient.GetAllFromResponsePropertyAsync(
-			(startingAfter, endingBefore, cancellationToken) =>
+			(startingAfter, _, cancellationToken) =>
 				organizationsWirelessMqtt.GetOrganizationWirelessMqttSettingsApiResponseAsync(
 					organizationId,
 					startingAfter,

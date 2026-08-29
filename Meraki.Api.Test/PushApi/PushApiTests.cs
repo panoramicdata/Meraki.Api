@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Meraki.Api.Test.PushApi;
 
@@ -24,7 +24,6 @@ public class PushApiTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 		// Log all enabled early access features for visibility
 		foreach (var optIn in optIns.OrderBy(o => o.ShortName))
 		{
-			var networkCount = optIn.LimitScopeToNetworks?.Count;
 			TestOutputHelper.WriteLine($"{optIn.ShortName} (ID: {optIn.Id}) since {optIn.CreatedAt}");
 		}
 

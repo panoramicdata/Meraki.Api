@@ -1,4 +1,4 @@
-using HtmlAgilityPack;
+﻿using HtmlAgilityPack;
 using System.Globalization;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -8,6 +8,10 @@ namespace Meraki.Api;
 /// <summary>
 /// A Meraki Dashboard API client!
 /// </summary>
+// Codacy analyses each file on its own, so it cannot see the other parts of this class and reports
+// 'partial' as gratuitous (S2333). Both are false positives: the remaining parts are emitted by
+// RefitClassSourceGenerator, or live in the sibling MerakiClient files.
+#pragma warning disable S2333
 public partial class MerakiClient
 {
 	private const string EndOfLifeUrl = "https://documentation.meraki.com/General_Administration/Other_Topics/Meraki_End-of-Life_(EOL)_Products_and_Dates";
@@ -350,3 +354,4 @@ public partial class MerakiClient
 		return false;
 	}
 }
+#pragma warning restore S2333

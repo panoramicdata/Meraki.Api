@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param(
     [string]$Version,
 
@@ -11,6 +11,8 @@ param(
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
+# PSScriptAnalyzer forbids writing straight to the host, so progress goes to the information stream.
+$InformationPreference = 'Continue'
 
 if (-not $Latest -and [string]::IsNullOrWhiteSpace($Version)) {
     throw 'Specify -Version (for example 1.63.0) or use -Latest.'
@@ -20,7 +22,7 @@ if ($Latest -and -not [string]::IsNullOrWhiteSpace($Version)) {
     throw 'Use either -Version or -Latest, not both.'
 }
 
-function Normalize-Version {
+function ConvertTo-VersionTag {
     param(
         [Parameter(Mandatory = $true)]
         [string]$Value
@@ -42,7 +44,7 @@ function Get-LatestMerakiApiVersion {
     $apiUrl = 'https://api.github.com/repos/CiscoDevNet/Meraki-Portal-What-s-New-Changelog/contents/changelog'
     $headers = @{ 'User-Agent' = 'Meraki.Api update preparation script' }
 
-    Write-Host "Discovering latest version from $apiUrl"
+    Write-Information "Discovering latest version from $apiUrl"
     $items = Invoke-RestMethod -Method Get -Uri $apiUrl -Headers $headers
 
     $versionItems = foreach ($item in $items) {
@@ -63,7 +65,7 @@ function Get-LatestMerakiApiVersion {
     return $latest.Tag
 }
 
-function Download-File {
+function Save-File {
     param(
         [Parameter(Mandatory = $true)]
         [string]$Uri,
@@ -75,11 +77,11 @@ function Download-File {
     )
 
     if ((-not $ForceDownload) -and (Test-Path -LiteralPath $Path)) {
-        Write-Host "Using existing file: $Path"
+        Write-Information "Using existing file: $Path"
         return
     }
 
-    Write-Host "Downloading $Uri"
+    Write-Information "Downloading $Uri"
     Invoke-WebRequest -Uri $Uri -OutFile $Path
 }
 
@@ -87,7 +89,7 @@ $normalizedVersion = if ($Latest) {
     Get-LatestMerakiApiVersion
 }
 else {
-    Normalize-Version -Value $Version
+    ConvertTo-VersionTag -Value $Version
 }
 $repoRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..\..'))
 
@@ -104,8 +106,8 @@ $changelogPath = Join-Path $OutputRoot 'changelog.md'
 $openApiPath = Join-Path $OutputRoot 'spec3.json'
 $metadataPath = Join-Path $OutputRoot 'metadata.json'
 
-Download-File -Uri $changelogUrl -Path $changelogPath -ForceDownload:$Force
-Download-File -Uri $openApiUrl -Path $openApiPath -ForceDownload:$Force
+Save-File -Uri $changelogUrl -Path $changelogPath -ForceDownload:$Force
+Save-File -Uri $openApiUrl -Path $openApiPath -ForceDownload:$Force
 
 $metadata = [ordered]@{
     version = $normalizedVersion
@@ -124,9 +126,9 @@ $metadata = [ordered]@{
 
 $metadata | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $metadataPath -Encoding UTF8
 
-Write-Host ''
-Write-Host 'Prepared Meraki API update inputs:'
-Write-Host "  Version:   $normalizedVersion"
-Write-Host "  Changelog: $changelogPath"
-Write-Host "  OpenAPI:   $openApiPath"
-Write-Host "  Metadata:  $metadataPath"
+Write-Information ''
+Write-Information 'Prepared Meraki API update inputs:'
+Write-Information "  Version:   $normalizedVersion"
+Write-Information "  Changelog: $changelogPath"
+Write-Information "  OpenAPI:   $openApiPath"
+Write-Information "  Metadata:  $metadataPath"

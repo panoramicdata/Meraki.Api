@@ -54,11 +54,6 @@ public class CodeFixProviderRefit002 : CodeFixProvider
 
 	private static async Task<Document> RemoveAliasAsAttributeAsync(Document document, ParameterSyntax parameterSyntax, CancellationToken cancellationToken)
 	{
-		//var root = await document.GetSyntaxRootAsync(cancellationToken).ConfigureAwait(false);
-
-		//var newRoot = root!.RemoveNode(parameterSyntax, SyntaxRemoveOptions.KeepExteriorTrivia)!;
-
-		//return document.WithSyntaxRoot(newRoot);
 		var editor = await DocumentEditor.CreateAsync(document, cancellationToken).ConfigureAwait(false);
 
 		var aliasAsAttribute = parameterSyntax.AttributeLists

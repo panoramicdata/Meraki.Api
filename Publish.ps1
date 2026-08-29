@@ -1,60 +1,144 @@
-# Panoramic Data NuGet Publish Script (Standard)
-# Tags the current commit with the NBGV version and pushes to trigger CI/CD publishing.
-# Usage: .\Publish.ps1
+﻿param(
+	# Skips waiting for the release run. The tag is still pushed, but nothing confirms a package
+	# reached nuget.org — use it only if you are checking the run yourself.
+	[switch]$SkipPublishVerification
+)
 
-$ErrorActionPreference = 'Stop'
+# PSScriptAnalyzer forbids writing straight to the host, so status goes to the information stream.
+# $PSStyle keeps the colour that made the publish outcome readable at a glance.
+$InformationPreference = 'Continue'
+function Write-Status {
+	param(
+		[Parameter(Position = 0)][AllowEmptyString()][string]$Message = '',
+		[ValidateSet('Default', 'Red', 'Yellow', 'Cyan', 'Green')][string]$Colour = 'Default'
+	)
 
-# Check for clean working tree (porcelain)
-$status = git status --porcelain
-if ($status) {
-    Write-Error "Working tree is not clean. Commit or stash changes before publishing.`n$status"
-    exit 1
+	if ($Colour -eq 'Default') {
+		Write-Information $Message
+		return
+	}
+
+	Write-Information "$($PSStyle.Foreground.$Colour)$Message$($PSStyle.Reset)"
 }
 
 # Ensure we are on the main branch
 $branch = git rev-parse --abbrev-ref HEAD
 if ($branch -ne 'main') {
-    Write-Error "Publishing is only supported from the 'main' branch (currently on '$branch')."
-    exit 1
+	Write-Error "Not on main branch. Current branch: $branch"
+	exit 1
 }
 
-# Ensure local main is up to date with remote
+# Ensure working tree is clean
+$status = git status --porcelain
+if ($status) {
+	Write-Error "Working tree is not clean."
+	exit 1
+}
+
+# Ensure we are up to date with origin
 git fetch origin main --quiet
-$localHead = git rev-parse HEAD
-$remoteHead = git rev-parse origin/main
-if ($localHead -ne $remoteHead) {
-    Write-Error "Local branch is not up to date with origin/main. Pull or push first."
-    exit 1
+$behind = git rev-list --count HEAD..origin/main
+if ($behind -gt 0) {
+	Write-Error "Local branch is behind origin/main by $behind commit(s)."
+	exit 1
 }
 
-# Get version from NBGV
+# Checked before anything is pushed, because pushing the tag is the step that cannot be taken back.
+# Without the GitHub CLI there is no way to confirm the release run succeeded, and an unverified
+# publish is how repositories end up months behind their newest tag with nobody noticing.
+if (-not $SkipPublishVerification) {
+	$gh = Get-Command gh -ErrorAction SilentlyContinue
+	if (-not $gh) {
+		Write-Error "The GitHub CLI (gh) is required to verify that the package publishes. Install it from https://cli.github.com, or re-run with -SkipPublishVerification to publish without verification."
+		exit 1
+	}
+
+	gh auth status 2>&1 | Out-Null
+	if ($LASTEXITCODE -ne 0) {
+		Write-Error "The GitHub CLI is not authenticated. Run 'gh auth login', or re-run with -SkipPublishVerification to publish without verification."
+		exit 1
+	}
+}
+
 # Get version from Nerdbank.GitVersioning via the project's MSBuild targets (the
 # referenced NuGet package), so this does not depend on the global 'nbgv' CLI tool
-# being installed or on PATH. The GetBuildVersion target must run for the computed
-# version to be populated (a plain -getProperty evaluation returns the static
-# version.json value without the Git height).
-$project = Join-Path $PSScriptRoot 'Meraki.Api/Meraki.Api.csproj'
-$buildOutput = dotnet build $project -t:GetBuildVersion --getProperty:NuGetPackageVersion -nologo -v:quiet -p:TreatWarningsAsErrors=false
+# being installed or on PATH.
+$packableProject = Get-ChildItem -Recurse -Filter *.csproj |
+	Where-Object { $_.FullName -notmatch '[\\/]obj[\\/]' -and (Get-Content $_.FullName -Raw) -match 'Nerdbank\.GitVersioning' } |
+	Select-Object -First 1
+if (-not $packableProject) {
+	Write-Error "Could not find a packable project referencing Nerdbank.GitVersioning."
+	exit 1
+}
+$buildOutput = dotnet build $packableProject.FullName -t:GetBuildVersion --getProperty:NuGetPackageVersion -nologo -v:quiet -p:TreatWarningsAsErrors=false
 if ($LASTEXITCODE -ne 0) {
-    Write-Error "Failed to determine version from Nerdbank.GitVersioning.`n$buildOutput"
-    exit 1
+	Write-Error "Failed to determine version from Nerdbank.GitVersioning.`n$buildOutput"
+	exit 1
 }
 $version = ($buildOutput | Select-Object -Last 1).ToString().Trim()
+Write-Status "Version: $version"
 
-if (-not $version) {
-    Write-Error "Failed to determine version from nbgv."
-    exit 1
-}
-
-# Check tag doesn't already exist
+# Check if tag already exists
 $existingTag = git tag -l $version
 if ($existingTag) {
-    Write-Error "Tag '$version' already exists."
-    exit 1
+	Write-Error "Tag $version already exists."
+	exit 1
 }
 
-Write-Host "Tagging as $version ..." -ForegroundColor Cyan
+# Create and push tag
 git tag $version
 git push origin $version
+Write-Status "Tag $version pushed."
 
-Write-Host "✅ Published tag $version — CI will build and push to NuGet." -ForegroundColor Green
+if ($SkipPublishVerification) {
+	Write-Warning "Not waiting for the release run (-SkipPublishVerification). Nothing has confirmed that a package reached nuget.org."
+	exit 0
+}
+
+# The repository the run belongs to, read from the remote rather than assumed.
+$originUrl = git remote get-url origin
+$repoFullName = ($originUrl -replace '^.*github\.com[:/]', '') -replace '\.git$', ''
+
+Write-Status "Waiting for the release run for $version..."
+
+# The run takes a few seconds to appear after the tag push.
+$runId = $null
+for ($attempt = 1; $attempt -le 12 -and -not $runId; $attempt++) {
+	Start-Sleep -Seconds 5
+	$runListJson = gh run list --repo $repoFullName --branch $version --limit 1 --json databaseId 2>$null
+	if ($LASTEXITCODE -eq 0 -and $runListJson) {
+		$runList = $runListJson | ConvertFrom-Json
+		if ($runList.Count -gt 0) { $runId = $runList[0].databaseId }
+	}
+}
+
+if (-not $runId) {
+	Write-Error "Tag $version was pushed but no run appeared for it. Check https://github.com/$repoFullName/actions — the workflow may not trigger on tags."
+	exit 1
+}
+
+Write-Status "Run: https://github.com/$repoFullName/actions/runs/$runId"
+gh run watch $runId --repo $repoFullName --exit-status --interval 20
+$runExitCode = $LASTEXITCODE
+
+if ($runExitCode -ne 0) {
+	Write-Status ""
+	Write-Status "The release run did not succeed: https://github.com/$repoFullName/actions/runs/$runId" -Colour Red
+
+	# A refused job — an exhausted Actions budget, for instance — fails before any step runs, so it
+	# has no failed step to report. The check-run annotation is the only place the reason appears.
+	$jobId = gh api "repos/$repoFullName/actions/runs/$runId/jobs" --jq '.jobs[0].id' 2>$null
+	if ($LASTEXITCODE -eq 0 -and $jobId) {
+		$annotation = gh api "repos/$repoFullName/check-runs/$jobId/annotations" --jq '.[0].message' 2>$null
+		if ($LASTEXITCODE -eq 0 -and $annotation) {
+			Write-Status "Reason: $annotation" -Colour Red
+		}
+	}
+
+	Write-Status ""
+	Write-Status "Tag $version is pushed but no package was published. Once the cause is fixed:" -Colour Yellow
+	Write-Status "  gh run rerun $runId --repo $repoFullName --failed" -Colour Cyan
+	exit 1
+}
+
+Write-Status "Package $version published." -Colour Green

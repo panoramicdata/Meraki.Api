@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Adds XML documentation comments to C# files using the Meraki OpenAPI specification.
 
@@ -152,7 +152,7 @@ function Get-PropertyDescription {
         }
     }
     catch {
-        # Silently continue if interface lookup fails
+        Write-Verbose "Interface lookup failed for '$PropertyName': $_"
     }
     
     # Try to find description in OpenAPI spec paths with context-aware matching
@@ -197,7 +197,7 @@ function Get-PropertyDescription {
                 }
                 
                 # Update best match if this score is higher
-                if ($score > $bestMatchScore) {
+                if ($score -gt $bestMatchScore) {
                     $bestMatchScore = $score
                     $description = $operation.description
                     if (-not $description) {

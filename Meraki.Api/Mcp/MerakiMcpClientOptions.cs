@@ -12,7 +12,7 @@ public class MerakiMcpClientOptions
 	/// <summary>
 	/// The default Cisco-hosted MCP server endpoint.
 	/// </summary>
-	public const string DefaultHostedUri = "https://mcp.meraki.com/mcp";
+	public static readonly string DefaultHostedUri = "https://mcp.meraki.com/mcp";
 
 	/// <summary>
 	/// The transport to use. Defaults to <see cref="MerakiMcpTransport.HostedHttp"/>.

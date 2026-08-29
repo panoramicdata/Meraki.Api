@@ -1,4 +1,4 @@
-namespace Meraki.Api;
+﻿namespace Meraki.Api;
 
 internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandler
 {
@@ -391,6 +391,9 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 		// Where there is no headroom between the delay and the ceiling, leave the delay alone.
 		return ceilingSeconds <= delaySeconds
 			? delay
+			// Retry jitter only has to de-synchronise concurrent clients; nothing here is a secret,
+			// so System.Random is the right tool and a cryptographic generator would be waste.
+			// nosemgrep: csharp_crypto_rule-WeakRNG
 			: TimeSpan.FromSeconds(delaySeconds + (random.NextDouble() * (ceilingSeconds - delaySeconds)));
 	}
 

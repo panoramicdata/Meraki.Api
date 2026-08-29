@@ -9,7 +9,7 @@ public class SwitchStack : NamedIdentifiedItem
 	/// <summary>
 	/// Maximum length for switch stack name
 	/// </summary>
-	public const int MaxNameLength = 38;
+	public static readonly int MaxNameLength = 38;
 
 	/// <summary>
 	/// Serials

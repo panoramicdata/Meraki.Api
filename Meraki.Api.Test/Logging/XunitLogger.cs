@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
 namespace Meraki.Api.Test.Logging;
 
@@ -21,6 +21,9 @@ public class XunitLogger(ITestOutputHelper output, string categoryName) : ILogge
 	{
 		public static readonly NoOpDisposable Instance = new();
 		private NoOpDisposable() { }
-		public void Dispose() { }
+		// Scopes carry no state for test output, so disposing one has nothing to undo.
+		public void Dispose()
+		{
+		}
 	}
 }

@@ -25,12 +25,12 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 	/// <summary>
 	/// The name of the semantic search tool.
 	/// </summary>
-	public const string SemanticSearchToolName = "semantic_search";
+	public static readonly string SemanticSearchToolName = "semantic_search";
 
 	/// <summary>
 	/// The name of the API execution tool.
 	/// </summary>
-	public const string ExecuteApiToolName = "execute_api";
+	public static readonly string ExecuteApiToolName = "execute_api";
 
 	private readonly MerakiMcpClientOptions _options;
 	private readonly ILogger _logger;
@@ -379,9 +379,13 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			Name = "Meraki"
 		};
 
-		foreach (var argument in _options.Arguments)
+		if (_options.Arguments.Count > 0)
 		{
-			(transportOptions.Arguments ??= []).Add(argument);
+			transportOptions.Arguments ??= [];
+			foreach (var argument in _options.Arguments)
+			{
+				transportOptions.Arguments.Add(argument);
+			}
 		}
 
 		if (_options.WorkingDirectory is not null)

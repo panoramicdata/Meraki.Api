@@ -9,7 +9,7 @@ public class Network : NetworkOrConfigurationTemplate
 	/// <summary>
 	/// Specifies the maximum allowed length, in characters, for a name value.
 	/// </summary>
-	public const int MaxNameLength = 38;
+	public static readonly int MaxNameLength = 38;
 
 	/// <summary>
 	/// Product types

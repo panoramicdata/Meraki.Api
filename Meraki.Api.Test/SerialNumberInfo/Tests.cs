@@ -1,6 +1,6 @@
 ﻿namespace Meraki.Api.Test.SerialNumberInfo;
 
-public class Tests()
+public class Tests
 {
 	[Theory]
 	[InlineData("Q2AT-1234-1234", "MC74", ProductType.Phone, false)]

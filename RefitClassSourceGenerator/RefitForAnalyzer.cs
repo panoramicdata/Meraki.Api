@@ -1,4 +1,4 @@
-
+﻿
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -17,7 +17,11 @@ public class RefitForAnalyzer : DiagnosticAnalyzer
 	/// <summary>
 	/// The diagnostic identifier raised by this analyzer.
 	/// </summary>
+	// S2339 asks for a static read-only property, but RS1017 requires a diagnostic id to be a
+	// compile-time constant, so this one has to stay a const.
+#pragma warning disable S2339 // Public constant members should not be used
 	public const string DiagnosticId = "REFIT003";
+#pragma warning restore S2339 // Public constant members should not be used
 
 	private static readonly LocalizableString _title = "RefitFor parameter must be an interface";
 	private static readonly LocalizableString _messageFormat = "The type '{0}' passed to RefitFor must be an interface";
