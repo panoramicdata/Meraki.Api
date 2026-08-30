@@ -33,44 +33,11 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		try
 		{
-			// Get the rules and check just the default is there
-			var acls = await TestMerakiClient
-				.Switch
-				.AccessControlLists
-				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id, cancellationToken: CancellationToken);
-			_ = acls.Should().NotBeNull();
-			_ = acls.Rules.Should().ContainSingle();
-			_ = acls.Rules[0].Comment.Should().Be("Default rule");
+			await AssertOnlyTheDefaultRuleExistsAsync(testNetwork.Id);
 
-			// Add a new rules
-			var denySsh = new SwitchAccessControlListRule
-			{
-				Comment = "1. Deny SSH",
-				Policy = AllowOrDeny.Deny,
-				IpVersion = IpVersion.Ipv4,
-				Protocol = TcpUdpAnyProtocol.Tcp,
+			var denySsh = CreateRule("1. Deny SSH", AllowOrDeny.Deny, destinationPort: "22");
+			var allowHttp = CreateRule("2. Allow HTTP", AllowOrDeny.Allow, destinationPort: "80");
 
-				SourceCidr = "10.1.10.0/24",
-				SourcePort = "any",
-				DestinationCidr = "172.16.30.0/24",
-				DestinationPort = "22",
-				Vlan = "10"
-			};
-			var allowHttp = new SwitchAccessControlListRule
-			{
-				Comment = "2. Allow HTTP",
-				Policy = AllowOrDeny.Allow,
-				IpVersion = IpVersion.Ipv4,
-				Protocol = TcpUdpAnyProtocol.Tcp,
-
-				SourceCidr = "10.1.10.0/24",
-				SourcePort = "any",
-				DestinationCidr = "172.16.30.0/24",
-				DestinationPort = "80",
-				Vlan = "10"
-			};
-
-			// Update the rules
 			_ = await TestMerakiClient
 				.Switch
 				.AccessControlLists
@@ -86,24 +53,64 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 					}, cancellationToken: CancellationToken
 				);
 
-			// Get the rules and check they're both there
-			acls = await TestMerakiClient
-				.Switch
-				.AccessControlLists
-				.GetNetworkSwitchAccessControlListsAsync(testNetwork.Id, cancellationToken: CancellationToken);
-
-			// We should have 2 rules now
-			_ = acls.Should().NotBeNull();
-			_ = acls.Rules.Should().HaveCount(3);
-			// Our new rules should be first
-			_ = acls.Rules[0].Comment.Should().Be(denySsh.Comment);
-			_ = acls.Rules[1].Comment.Should().Be(allowHttp.Comment);
-			// The default rule should be last
-			_ = acls.Rules[^1].Comment.Should().Be("Default rule");
+			await AssertRulesAreInOrderAsync(testNetwork.Id, denySsh, allowHttp);
 		}
 		finally
 		{
 			await RemoveNetworkAsync(testNetwork.Id);
 		}
 	}
+
+	/// <summary>
+	/// A new network starts with only the implicit default rule.
+	/// </summary>
+	private async Task AssertOnlyTheDefaultRuleExistsAsync(string networkId)
+	{
+		var acls = await TestMerakiClient
+			.Switch
+			.AccessControlLists
+			.GetNetworkSwitchAccessControlListsAsync(networkId, cancellationToken: CancellationToken);
+		_ = acls.Should().NotBeNull();
+		_ = acls.Rules.Should().ContainSingle();
+		_ = acls.Rules[0].Comment.Should().Be(DefaultRuleComment);
+	}
+
+	/// <summary>
+	/// The two new rules should come back ahead of the default rule, which always stays last.
+	/// </summary>
+	private async Task AssertRulesAreInOrderAsync(
+		string networkId,
+		SwitchAccessControlListRule denySsh,
+		SwitchAccessControlListRule allowHttp)
+	{
+		var acls = await TestMerakiClient
+			.Switch
+			.AccessControlLists
+			.GetNetworkSwitchAccessControlListsAsync(networkId, cancellationToken: CancellationToken);
+
+		_ = acls.Should().NotBeNull();
+		_ = acls.Rules.Should().HaveCount(3);
+		_ = acls.Rules[0].Comment.Should().Be(denySsh.Comment);
+		_ = acls.Rules[1].Comment.Should().Be(allowHttp.Comment);
+		_ = acls.Rules[^1].Comment.Should().Be(DefaultRuleComment);
+	}
+
+	private const string DefaultRuleComment = "Default rule";
+
+	/// <summary>
+	/// The two rules differ only by comment, policy and destination port.
+	/// </summary>
+	private static SwitchAccessControlListRule CreateRule(string comment, AllowOrDeny policy, string destinationPort)
+		=> new()
+		{
+			Comment = comment,
+			Policy = policy,
+			IpVersion = IpVersion.Ipv4,
+			Protocol = TcpUdpAnyProtocol.Tcp,
+			SourceCidr = "10.1.10.0/24",
+			SourcePort = "any",
+			DestinationCidr = "172.16.30.0/24",
+			DestinationPort = destinationPort,
+			Vlan = "10"
+		};
 }

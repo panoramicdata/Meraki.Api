@@ -23,73 +23,9 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 
 		try
 		{
-			// Read 1
-			var refetchedConfigurationTemplate =
-			await TestMerakiClient
-				.Organizations
-				.ConfigTemplates
-				.GetOrganizationConfigTemplateAsync(
-					Configuration.TestOrganizationId,
-					createResult.Id,
-					cancellationToken: CancellationToken);
-			_ = refetchedConfigurationTemplate.Should().NotBeNull();
-			_ = refetchedConfigurationTemplate.Name.Should().Be(configurationTemplateName);
-			_ = refetchedConfigurationTemplate.TimeZone.Should().Be(timeZone);
-
-			// Update
-			_ = await TestMerakiClient
-				.Organizations
-				.ConfigTemplates
-				.UpdateOrganizationConfigTemplateAsync(
-					Configuration.TestOrganizationId,
-					createResult.Id,
-					new ConfigurationTemplateUpdate
-					{
-						Name = configurationTemplateName + "x",
-						TimeZone = timeZone
-					},
-					cancellationToken: CancellationToken);
-
-			// Read 2
-			var refetchedConfigurationTemplate2 =
-			await TestMerakiClient
-				.Organizations
-				.ConfigTemplates
-				.GetOrganizationConfigTemplateAsync(
-					Configuration.TestOrganizationId,
-					createResult.Id,
-					cancellationToken: CancellationToken);
-			_ = refetchedConfigurationTemplate2.Should().NotBeNull();
-			_ = refetchedConfigurationTemplate2.Name.Should().Be(configurationTemplateName + "x");
-			_ = refetchedConfigurationTemplate2.TimeZone.Should().Be(timeZone);
-
-			// Enable VLANs
-			_ = await TestMerakiClient
-				.Appliance
-				.Vlans
-				.Settings
-				.UpdateNetworkApplianceVlansSettingsAsync(
-					createResult.Id,
-					new VlansEnabledState
-					{
-						Enabled = true
-					},
-					cancellationToken: CancellationToken);
-
-			// Set VLAN info
-			_ = await TestMerakiClient
-				.Appliance
-				.Vlans
-				.CreateNetworkApplianceVlanAsync(
-					createResult.Id,
-					new VlanCreationRequest
-					{
-						Id = "2",
-						Name = "VLAN 2",
-						Subnet = $"{PrivateNetworkFirst3Octets}.0/24",
-						ApplianceIp = $"{PrivateNetworkFirst3Octets}.1"
-					},
-					cancellationToken: CancellationToken);
+			await AssertConfigurationTemplateReadsBackAsync(createResult.Id, configurationTemplateName, timeZone);
+			await UpdateAndVerifyConfigurationTemplateAsync(createResult.Id, configurationTemplateName + "x", timeZone);
+			await EnableVlansAndAddOneAsync(createResult.Id);
 		}
 		finally
 		{
@@ -101,6 +37,76 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 					createResult.Id,
 					cancellationToken: CancellationToken);
 		}
+	}
+
+	private async Task AssertConfigurationTemplateReadsBackAsync(
+		string configurationTemplateId,
+		string expectedName,
+		string expectedTimeZone)
+	{
+		var refetched = await TestMerakiClient
+			.Organizations
+			.ConfigTemplates
+			.GetOrganizationConfigTemplateAsync(
+				Configuration.TestOrganizationId,
+				configurationTemplateId,
+				cancellationToken: CancellationToken);
+		_ = refetched.Should().NotBeNull();
+		_ = refetched.Name.Should().Be(expectedName);
+		_ = refetched.TimeZone.Should().Be(expectedTimeZone);
+	}
+
+	private async Task UpdateAndVerifyConfigurationTemplateAsync(
+		string configurationTemplateId,
+		string newName,
+		string timeZone)
+	{
+		_ = await TestMerakiClient
+			.Organizations
+			.ConfigTemplates
+			.UpdateOrganizationConfigTemplateAsync(
+				Configuration.TestOrganizationId,
+				configurationTemplateId,
+				new ConfigurationTemplateUpdate
+				{
+					Name = newName,
+					TimeZone = timeZone
+				},
+				cancellationToken: CancellationToken);
+
+		await AssertConfigurationTemplateReadsBackAsync(configurationTemplateId, newName, timeZone);
+	}
+
+	/// <summary>
+	/// VLANs have to be enabled on the template before one can be added to it.
+	/// </summary>
+	private async Task EnableVlansAndAddOneAsync(string configurationTemplateId)
+	{
+		_ = await TestMerakiClient
+			.Appliance
+			.Vlans
+			.Settings
+			.UpdateNetworkApplianceVlansSettingsAsync(
+				configurationTemplateId,
+				new VlansEnabledState
+				{
+					Enabled = true
+				},
+				cancellationToken: CancellationToken);
+
+		_ = await TestMerakiClient
+			.Appliance
+			.Vlans
+			.CreateNetworkApplianceVlanAsync(
+				configurationTemplateId,
+				new VlanCreationRequest
+				{
+					Id = "2",
+					Name = "VLAN 2",
+					Subnet = $"{PrivateNetworkFirst3Octets}.0/24",
+					ApplianceIp = $"{PrivateNetworkFirst3Octets}.1"
+				},
+				cancellationToken: CancellationToken);
 	}
 
 	[Fact]
