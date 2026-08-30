@@ -1,4 +1,4 @@
-using Meraki.Api.Workflows;
+﻿using Meraki.Api.Workflows;
 using Microsoft.Extensions.Logging.Abstractions;
 using System.Net;
 using System.Net.Http.Headers;
@@ -89,24 +89,7 @@ public class MerakiWorkflowsApiClientTests
 	[Fact]
 	public async Task MinimalWorkflowLifecycle_ImportsValidatesExecutesReadsAndDeletes()
 	{
-		var handler = new QueueHandler()
-			.Enqueue(HttpStatusCode.OK, """
-				{"id":"wf-1","name":"meraki_api_test","title":"Minimal test workflow","properties":{}}
-				""")
-			.Enqueue(HttpStatusCode.OK, """
-				{"id":"wf-1","name":"meraki_api_test","title":"Minimal test workflow","properties":{},"actions":[{"id":"action-1","type":"logic.completed"}]}
-				""")
-			.Enqueue(HttpStatusCode.OK, """
-				{"workflow_valid":true,"invalid_action_ids":[],"total_actions":1,"total_valid":1,"total_variables":0}
-				""")
-			.Enqueue(HttpStatusCode.OK, """
-				[{"id":"instance-1","definition_id":"wf-1","status":{"state":"success"}}]
-				""")
-			.Enqueue(HttpStatusCode.OK, """
-				{"id":"instance-1","definition_id":"wf-1","status":{"state":"success"}}
-				""")
-			.Enqueue(HttpStatusCode.Accepted)
-			.Enqueue(HttpStatusCode.NoContent);
+		var handler = CreateLifecycleHandler();
 		using var httpClient = new HttpClient(handler)
 		{
 			BaseAddress = new Uri("https://api.meraki.com/api/automate/organizations/")
@@ -150,6 +133,37 @@ public class MerakiWorkflowsApiClientTests
 		_ = instance.Status!.State.Should().Be("success");
 		_ = deleted.Should().BeNull("Cisco documents a successful workflow deletion as either 202 or 204");
 
+		AssertLifecycleRequests(handler, workflowUniqueName);
+	}
+
+	/// <summary>
+	/// The seven responses the lifecycle above consumes, in the order it makes the calls.
+	/// </summary>
+	private static QueueHandler CreateLifecycleHandler()
+		=> new QueueHandler()
+			.Enqueue(HttpStatusCode.OK, """
+				{"id":"wf-1","name":"meraki_api_test","title":"Minimal test workflow","properties":{}}
+				""")
+			.Enqueue(HttpStatusCode.OK, """
+				{"id":"wf-1","name":"meraki_api_test","title":"Minimal test workflow","properties":{},"actions":[{"id":"action-1","type":"logic.completed"}]}
+				""")
+			.Enqueue(HttpStatusCode.OK, """
+				{"workflow_valid":true,"invalid_action_ids":[],"total_actions":1,"total_valid":1,"total_variables":0}
+				""")
+			.Enqueue(HttpStatusCode.OK, """
+				[{"id":"instance-1","definition_id":"wf-1","status":{"state":"success"}}]
+				""")
+			.Enqueue(HttpStatusCode.OK, """
+				{"id":"instance-1","definition_id":"wf-1","status":{"state":"success"}}
+				""")
+			.Enqueue(HttpStatusCode.Accepted)
+			.Enqueue(HttpStatusCode.NoContent);
+
+	/// <summary>
+	/// Asserts the exact requests the lifecycle put on the wire, and the bodies that carry content.
+	/// </summary>
+	private static void AssertLifecycleRequests(QueueHandler handler, string workflowUniqueName)
+	{
 		_ = handler.Requests.Select(request => (request.Method, request.Uri.PathAndQuery)).Should().Equal(
 			(HttpMethod.Post, $"/api/automate/organizations/123456/exchange/v1/workflows/import?workflow_unique_name={workflowUniqueName}&create_new=true&overwrite=false&skip_all_runtime_users=true&skip_all_module_targets=true"),
 			(HttpMethod.Get, "/api/automate/organizations/123456/v1/workflows/wf-1"),
@@ -266,6 +280,17 @@ public class MerakiWorkflowsApiClientTests
 			"/api/automate/organizations/123456/v1/workflows/wf-accepted");
 	}
 
+	private static WorkflowDefinitionPostRequest MinimalRetryTestWorkflow
+		=> new()
+		{
+			Name = "minimal_retry_test",
+			Type = "generic.workflow",
+			Properties = new Dictionary<string, object>
+			{
+				["display_name"] = "Minimal retry test"
+			}
+		};
+
 	[Fact]
 	public async Task RateLimitExceeded_RetriesThroughTheMerakiClientBackOffTransport()
 	{
@@ -297,15 +322,7 @@ public class MerakiWorkflowsApiClientTests
 		var client = new MerakiWorkflowsApiClient(httpClient);
 
 		var created = await client.WorkflowCreateRequestAsync(
-			new WorkflowDefinitionPostRequest
-			{
-				Name = "minimal_retry_test",
-				Type = "generic.workflow",
-				Properties = new Dictionary<string, object>
-				{
-					["display_name"] = "Minimal retry test"
-				}
-			},
+			MinimalRetryTestWorkflow,
 			"123456",
 			TestContext.Current.CancellationToken);
 
