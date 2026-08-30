@@ -1,4 +1,4 @@
-namespace Meraki.Api.Mcp;
+﻿namespace Meraki.Api.Mcp;
 
 /// <summary>
 /// Options for <see cref="MerakiMcpClient"/>.
@@ -112,6 +112,12 @@ public class MerakiMcpClientOptions
 	/// <exception cref="ConfigurationException">Thrown when the options are not usable.</exception>
 	public void Validate()
 	{
+		ValidateNumericSettings();
+		ValidateTransportSettings();
+	}
+
+	private void ValidateNumericSettings()
+	{
 		if (string.IsNullOrWhiteSpace(ApiKey))
 		{
 			throw new ConfigurationException($"{nameof(ApiKey)} must be set. The Meraki MCP server authenticates with a Meraki Dashboard API key.");
@@ -136,19 +142,15 @@ public class MerakiMcpClientOptions
 		{
 			throw new ConfigurationException($"{nameof(BackOffDelayFactor)} must be at least 1.0.");
 		}
+	}
 
+	private void ValidateTransportSettings()
+	{
 		switch (Transport)
 		{
 			case MerakiMcpTransport.HostedHttp:
 				ValidateUri();
-
-				if (ApiRegion != ApiRegion.Default)
-				{
-					throw new ConfigurationException(
-						$"The Cisco-hosted Meraki MCP server supports Meraki.com environments only, so {nameof(ApiRegion)} must be {nameof(ApiRegion.Default)} when {nameof(Transport)} is {nameof(MerakiMcpTransport.HostedHttp)}. " +
-						$"The {ApiRegion} region requires a self-hosted server: set {nameof(Transport)} to {nameof(MerakiMcpTransport.LocalHttp)} or {nameof(MerakiMcpTransport.Stdio)}.");
-				}
-
+				ValidateHostedRegion();
 				break;
 
 			case MerakiMcpTransport.LocalHttp:
@@ -166,6 +168,18 @@ public class MerakiMcpClientOptions
 			default:
 				throw new ConfigurationException($"{nameof(Transport)} value '{Transport}' is not supported.");
 		}
+	}
+
+	private void ValidateHostedRegion()
+	{
+		if (ApiRegion == ApiRegion.Default)
+		{
+			return;
+		}
+
+		throw new ConfigurationException(
+			$"The Cisco-hosted Meraki MCP server supports Meraki.com environments only, so {nameof(ApiRegion)} must be {nameof(ApiRegion.Default)} when {nameof(Transport)} is {nameof(MerakiMcpTransport.HostedHttp)}. " +
+			$"The {ApiRegion} region requires a self-hosted server: set {nameof(Transport)} to {nameof(MerakiMcpTransport.LocalHttp)} or {nameof(MerakiMcpTransport.Stdio)}.");
 	}
 
 	private void ValidateUri()

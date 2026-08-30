@@ -158,6 +158,24 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			throw MerakiMcpReadOnlyViolationException.ForCapability(capabilityId);
 		}
 
+		var arguments = BuildExecuteApiArguments(capabilityId, parameters);
+
+		var response = await MerakiMcpRateLimitPolicy.CallWithRetryAsync(
+			token => CallToolAsync(ExecuteApiToolName, arguments, token),
+			ExecuteApiToolName,
+			_options,
+			Statistics,
+			_logger,
+			cancellationToken)
+			.ConfigureAwait(false);
+
+		return BuildExecuteApiResult(capabilityId, response);
+	}
+
+	private static Dictionary<string, object?> BuildExecuteApiArguments(
+		string capabilityId,
+		IReadOnlyDictionary<string, object?>? parameters)
+	{
 		var arguments = new Dictionary<string, object?>(StringComparer.Ordinal)
 		{
 			["capability_id"] = capabilityId
@@ -171,15 +189,15 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 				StringComparer.Ordinal);
 		}
 
-		var response = await MerakiMcpRateLimitPolicy.CallWithRetryAsync(
-			token => CallToolAsync(ExecuteApiToolName, arguments, token),
-			ExecuteApiToolName,
-			_options,
-			Statistics,
-			_logger,
-			cancellationToken)
-			.ConfigureAwait(false);
+		return arguments;
+	}
 
+	/// <summary>
+	/// Turns a successful tool response into a result, throwing where the server reported a failure
+	/// either through the MCP error flag or in the payload itself.
+	/// </summary>
+	private static MerakiMcpResult BuildExecuteApiResult(string capabilityId, MerakiMcpToolResponse response)
+	{
 		if (response.IsError)
 		{
 			throw new MerakiMcpProtocolException(
@@ -509,18 +527,8 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			return false;
 		}
 
-		JToken token;
-		try
-		{
-			token = JToken.Parse(json!);
-		}
-		catch (JsonException)
-		{
-			// Not JSON at all, so not a recognisable error envelope. Leave it to the caller.
-			return false;
-		}
-
-		if (token is not JObject root)
+		// Anything that is not a JSON object is not a recognisable error envelope, so leave it to the caller.
+		if (TryParseJson(json!) is not JObject root)
 		{
 			return false;
 		}
@@ -545,6 +553,27 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 
 	internal static IReadOnlyList<MerakiCapability> ParseCapabilities(MerakiMcpToolResponse response)
 	{
+		var array = FindCapabilityArray(ParseSearchResponse(ReadSearchResponseJson(response)))
+			?? throw new MerakiMcpProtocolException(
+				"Could not locate a capability array in the semantic_search response. The Meraki MCP server is in beta and its response shapes may change.");
+
+		var capabilities = array
+			.OfType<JObject>()
+			.Select(ReadCapability)
+			.OfType<MerakiCapability>()
+			.ToList();
+
+		return capabilities.Count == 0
+			? throw new MerakiMcpProtocolException(
+				"The semantic_search response contained no recognisable capabilities. The Meraki MCP server is in beta and its response shapes may change.")
+			: capabilities;
+	}
+
+	/// <summary>
+	/// Reads the semantic_search payload, throwing where the server reported a failure or sent nothing.
+	/// </summary>
+	private static string ReadSearchResponseJson(MerakiMcpToolResponse response)
+	{
 		if (response.IsError)
 		{
 			throw new MerakiMcpProtocolException(
@@ -553,21 +582,19 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 
 		var json = response.StructuredJson ?? response.Text;
 
-		if (string.IsNullOrWhiteSpace(json))
-		{
-			throw new MerakiMcpProtocolException("The Meraki MCP server returned no content for semantic_search.");
-		}
+		return string.IsNullOrWhiteSpace(json)
+			? throw new MerakiMcpProtocolException("The Meraki MCP server returned no content for semantic_search.")
+			: TryReadPayloadError(json, out var payloadError)
+			? throw new MerakiMcpProtocolException(
+				$"The Meraki MCP server reported an error searching for capabilities: {payloadError}")
+			: json!;
+	}
 
-		if (TryReadPayloadError(json, out var payloadError))
-		{
-			throw new MerakiMcpProtocolException(
-				$"The Meraki MCP server reported an error searching for capabilities: {payloadError}");
-		}
-
-		JToken token;
+	private static JToken ParseSearchResponse(string json)
+	{
 		try
 		{
-			token = JToken.Parse(json!);
+			return JToken.Parse(json);
 		}
 		catch (JsonException ex)
 		{
@@ -575,35 +602,39 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 				"Could not parse the semantic_search response as JSON. The Meraki MCP server is in beta and its response shapes may change.",
 				ex);
 		}
+	}
 
-		var array = FindCapabilityArray(token)
-			?? throw new MerakiMcpProtocolException(
-				"Could not locate a capability array in the semantic_search response. The Meraki MCP server is in beta and its response shapes may change.");
+	/// <summary>
+	/// Projects one capability object, returning null where it carries no usable identifier.
+	/// </summary>
+	private static MerakiCapability? ReadCapability(JObject item)
+	{
+		var capabilityId = ReadString(item, "capability_id", "capabilityId", "capability", "id", "operationId");
 
-		var capabilities = new List<MerakiCapability>();
-
-		foreach (var item in array.OfType<JObject>())
-		{
-			var capabilityId = ReadString(item, "capability_id", "capabilityId", "capability", "id", "operationId");
-
-			if (string.IsNullOrWhiteSpace(capabilityId))
-			{
-				continue;
-			}
-
-			capabilities.Add(new MerakiCapability
+		return string.IsNullOrWhiteSpace(capabilityId)
+			? null
+			: new MerakiCapability
 			{
 				CapabilityId = capabilityId!,
 				Score = ReadDouble(item, "score", "relevance", "relevanceScore", "relevance_score"),
 				Description = ReadString(item, "description", "summary", "title"),
 				ParameterSchemaJson = ReadRawJson(item, "parameters", "inputSchema", "input_schema", "schema", "parameterSchema")
-			});
-		}
+			};
+	}
 
-		return capabilities.Count == 0
-			? throw new MerakiMcpProtocolException(
-				"The semantic_search response contained no recognisable capabilities. The Meraki MCP server is in beta and its response shapes may change.")
-			: capabilities;
+	/// <summary>
+	/// Parses JSON, returning null where the text is not JSON at all.
+	/// </summary>
+	private static JToken? TryParseJson(string json)
+	{
+		try
+		{
+			return JToken.Parse(json);
+		}
+		catch (JsonException)
+		{
+			return null;
+		}
 	}
 
 	private static JArray? FindCapabilityArray(JToken token)

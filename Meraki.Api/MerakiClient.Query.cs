@@ -64,15 +64,7 @@ public partial class MerakiClient
 
 		while (true)
 		{
-			using var request = new HttpRequestMessage(method, requestUri);
-			if (body is not null)
-			{
-				request.Content = new StringContent(body);
-				if (!string.IsNullOrWhiteSpace(contentType))
-				{
-					request.Content.Headers.ContentType = new MediaTypeHeaderValue(contentType);
-				}
-			}
+			using var request = BuildRequest(method, requestUri, body, contentType);
 
 			// Read-only gating, auth, rate limiting and 429/5xx back-off all happen inside the handler.
 			using var response = await _coreHttpClient
@@ -85,56 +77,96 @@ public partial class MerakiClient
 				.ReadAsStringAsync(cancellationToken)
 				.ConfigureAwait(false);
 
-			JToken? json = null;
-			if (!string.IsNullOrWhiteSpace(rawBody))
+			var json = TryParseJson(rawBody);
+
+			var nextUri = followPagination
+				? AccumulatePage(response, method, json, ref aggregate)
+				: null;
+			if (nextUri is not null)
 			{
-				try
-				{
-					json = JToken.Parse(rawBody);
-				}
-				catch (JsonException)
-				{
-					// Leave json null; caller can inspect RawBody.
-				}
-			}
-
-			var canPaginate =
-				followPagination
-				&& response.IsSuccessStatusCode
-				&& method == HttpMethod.Get
-				&& json is JArray;
-
-			if (canPaginate)
-			{
-				// Accumulate array pages.
-				aggregate ??= new JArray();
-				foreach (var item in (JArray)json!)
-				{
-					aggregate.Add(item);
-				}
-
-				var nextUri = GetNextPageUri(response.Headers);
-				if (nextUri is not null)
-				{
-					requestUri = nextUri;
-					continue;
-				}
+				requestUri = nextUri;
+				continue;
 			}
 
 			// Terminal page (or non-paginated response): build the result.
-			var finalJson = aggregate ?? json;
-
 			return new MerakiQueryResponse
 			{
 				StatusCode = response.StatusCode,
 				ReasonPhrase = response.ReasonPhrase,
 				IsSuccessStatusCode = response.IsSuccessStatusCode,
 				Headers = response.Headers,
-				Json = finalJson,
+				Json = aggregate ?? json,
 				RawBody = rawBody,
 				PageCount = pageCount
 			};
 		}
+	}
+
+	private static HttpRequestMessage BuildRequest(
+		HttpMethod method,
+		Uri requestUri,
+		string? body,
+		string? contentType)
+	{
+		var request = new HttpRequestMessage(method, requestUri);
+		if (body is null)
+		{
+			return request;
+		}
+
+		request.Content = new StringContent(body);
+		if (!string.IsNullOrWhiteSpace(contentType))
+		{
+			request.Content.Headers.ContentType = new MediaTypeHeaderValue(contentType);
+		}
+
+		return request;
+	}
+
+	/// <summary>
+	/// Parses the body, returning null where it is empty or is not JSON. The caller can still
+	/// inspect the raw body in that case.
+	/// </summary>
+	private static JToken? TryParseJson(string rawBody)
+	{
+		if (string.IsNullOrWhiteSpace(rawBody))
+		{
+			return null;
+		}
+
+		try
+		{
+			return JToken.Parse(rawBody);
+		}
+		catch (JsonException)
+		{
+			return null;
+		}
+	}
+
+	/// <summary>
+	/// Where the response is a page of a paginated array, appends it to <paramref name="aggregate"/>
+	/// and returns the URI of the next page, or null where there is no next page to fetch.
+	/// </summary>
+	private static Uri? AccumulatePage(
+		HttpResponseMessage response,
+		HttpMethod method,
+		JToken? json,
+		ref JArray? aggregate)
+	{
+		if (!response.IsSuccessStatusCode || method != HttpMethod.Get || json is not JArray page)
+		{
+			return null;
+		}
+
+		// Accumulate array pages.
+		aggregate ??= [];
+		foreach (var item in page)
+		{
+			aggregate.Add(item);
+		}
+
+		return GetNextPageUri(response.Headers);
 	}
 
 	/// <summary>
