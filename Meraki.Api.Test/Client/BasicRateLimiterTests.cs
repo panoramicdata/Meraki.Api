@@ -1,4 +1,4 @@
-namespace Meraki.Api.Test.Client;
+﻿namespace Meraki.Api.Test.Client;
 
 public class BasicRateLimiterTests
 {
@@ -60,8 +60,11 @@ public class BasicRateLimiterTests
 
 		_ = (elapsed >= TimeSpan.FromMilliseconds(300)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
 		// The logic check here is that we waited at least 300ms for call 3 to happen and then 4 should happen shortly after as
-		// the rate limiter removes the expired timestamps prior to the window
-		_ = (elapsed < TimeSpan.FromMilliseconds(325)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
+		// the rate limiter removes the expired timestamps prior to the window.
+		// The bound is what separates "call 4 followed call 3 promptly" from "call 4 waited a second
+		// full window", so it sits below 600ms rather than hard against 300ms: at 325ms this failed
+		// on ordinary scheduling jitter.
+		_ = (elapsed < TimeSpan.FromMilliseconds(450)).Should().BeTrue($"Elapsed: {elapsed.TotalMilliseconds}ms");
 	}
 
 	[Fact]
