@@ -23,6 +23,22 @@ public static class Extensions
 	{
 		var result = new StringBuilder(methodSymbol.DeclaredAccessibility.ConvertAccessibilityToString());
 
+		AppendModifiers(result, methodSymbol, concreteSignature);
+		AppendReturnType(result, methodSymbol);
+
+		_ = result.Append(' ')
+			.Append(methodSymbol.Name)
+			.Append('(');
+
+		AppendParameters(result, methodSymbol);
+
+		_ = result.Append(')');
+
+		return result.ToString();
+	}
+
+	private static void AppendModifiers(StringBuilder result, IMethodSymbol methodSymbol, bool concreteSignature)
+	{
 		if (methodSymbol.IsAsync)
 		{
 			_ = result.Append(" async");
@@ -47,17 +63,18 @@ public static class Extensions
 		{
 			_ = result.Append(" override");
 		}
+	}
 
-		_ = methodSymbol.ReturnsVoid
+	private static void AppendReturnType(StringBuilder result, IMethodSymbol methodSymbol)
+		=> _ = methodSymbol.ReturnsVoid
 			? result.Append(" void")
 			: result
 				.Append(' ')
-				.Append((methodSymbol.ReturnType as INamedTypeSymbol)?.GetFullTypeString() ?? throw new Exception("No return type found"));
+				.Append((methodSymbol.ReturnType as INamedTypeSymbol)?.GetFullTypeString()
+					?? throw new InvalidOperationException($"No return type found for {methodSymbol.Name}"));
 
-		_ = result.Append(' ')
-			.Append(methodSymbol.Name)
-			.Append('(');
-
+	private static void AppendParameters(StringBuilder result, IMethodSymbol methodSymbol)
+	{
 		var isFirstParameter = true;
 		foreach (var parameter in methodSymbol.Parameters)
 		{
@@ -70,42 +87,49 @@ public static class Extensions
 				_ = result.Append(", ");
 			}
 
-			if (parameter.RefKind == RefKind.Out)
-			{
-				_ = result.Append("out ");
-			}
-			else if (parameter.RefKind == RefKind.Ref)
-			{
-				_ = result.Append("ref ");
-			}
+			AppendParameter(result, methodSymbol, parameter);
+		}
+	}
 
-			var parameterTypeString =
-				(parameter.Type as INamedTypeSymbol)?.GetFullTypeString()
-				?? throw new Exception($"Missing parameter type for {methodSymbol.Name} {parameter.Name} {parameter.Type}");
-
-			_ = result
-				.Append(parameterTypeString)
-				.Append(' ')
-				.Append(parameter.Name);
-
-			if (parameter.HasExplicitDefaultValue)
-			{
-				var defaultValue = parameter.ExplicitDefaultValue?.ToString() ?? "default";
-
-				if (parameter.ExplicitDefaultValue is bool)
-				{
-					defaultValue = defaultValue.ToLowerInvariant();
-				}
-
-				_ = result
-					.Append(" = ")
-					.Append(defaultValue ?? "default");
-			}
+	private static void AppendParameter(StringBuilder result, IMethodSymbol methodSymbol, IParameterSymbol parameter)
+	{
+		if (parameter.RefKind == RefKind.Out)
+		{
+			_ = result.Append("out ");
+		}
+		else if (parameter.RefKind == RefKind.Ref)
+		{
+			_ = result.Append("ref ");
 		}
 
-		_ = result.Append(')');
+		var parameterTypeString =
+			(parameter.Type as INamedTypeSymbol)?.GetFullTypeString()
+			?? throw new InvalidOperationException($"Missing parameter type for {methodSymbol.Name} {parameter.Name} {parameter.Type}");
 
-		return result.ToString();
+		_ = result
+			.Append(parameterTypeString)
+			.Append(' ')
+			.Append(parameter.Name);
+
+		if (parameter.HasExplicitDefaultValue)
+		{
+			_ = result
+				.Append(" = ")
+				.Append(RenderDefaultValue(parameter));
+		}
+	}
+
+	/// <summary>
+	/// Renders a parameter's default value as source text. Booleans need lower-casing, because
+	/// ToString gives "True" and "False", which are not C# keywords.
+	/// </summary>
+	private static string RenderDefaultValue(IParameterSymbol parameter)
+	{
+		var defaultValue = parameter.ExplicitDefaultValue?.ToString() ?? "default";
+
+		return parameter.ExplicitDefaultValue is bool
+			? defaultValue.ToLowerInvariant()
+			: defaultValue;
 	}
 
 	/// <summary>

@@ -5,11 +5,6 @@ using Microsoft.CodeAnalysis.Text;
 using System.Collections.Immutable;
 using System.Text;
 
-#if DEBUG
-// Needed for Debugger launching
-using System.Diagnostics;
-#endif
-
 namespace RefitClassSourceGenerator;
 
 /// <summary>
@@ -63,85 +58,89 @@ public class RefitClassGenerator : IIncrementalGenerator
 	{
 		try
 		{
-#if DEBUG
-			if (!Debugger.IsAttached)
-			{
-				//Debugger.Launch();
-			}
-#endif
 			foreach (var property in properties)
 			{
-				if (property is null)
+				if (property is not null)
 				{
-					continue;
+					GenerateForProperty(compilation, property, context);
 				}
+			}
+		}
+		catch (Exception ex)
+		{
+			ReportError(context, "RCG001", "Error", ex.Message);
+		}
+	}
 
-				var semanticModel = compilation.GetSemanticModel(property.SyntaxTree);
+	private static void GenerateForProperty(Compilation compilation, PropertyDeclarationSyntax property, SourceProductionContext context)
+	{
+		var semanticModel = compilation.GetSemanticModel(property.SyntaxTree);
 
-				// Find the type of the property as this is what we want to copy properties from
-				var propertyDeclaredSymbol = semanticModel.GetDeclaredSymbol(property);
+		// Find the type of the property as this is what we want to copy properties from
+		var propertyDeclaredSymbol = semanticModel.GetDeclaredSymbol(property);
 
-				if (propertyDeclaredSymbol is null)
-				{
-					// Report an error message that we couldn't find the property
-					context.ReportDiagnostic(
-						Diagnostic.Create(
-							new DiagnosticDescriptor(
-								"RCG002",
-								"Property Missing",
-								$"Could not find the property {property.ToFullString()}",
-								"Error",
-								DiagnosticSeverity.Error,
-								true),
-							Location.None));
-					continue;
-				}
+		if (propertyDeclaredSymbol is null)
+		{
+			// Report an error message that we couldn't find the property
+			ReportError(context, "RCG002", "Property Missing", $"Could not find the property {property.ToFullString()}");
+			return;
+		}
 
-				var propertyTypeName = propertyDeclaredSymbol.Type.ToDisplayString();
-				var propertyInterfaceSymbols = GetMatchingInterfacesInSolution(compilation, propertyTypeName);
+		var propertyInterfaceSymbol = ResolveInterface(compilation, propertyDeclaredSymbol, context);
+		if (propertyInterfaceSymbol is null)
+		{
+			return;
+		}
 
-				if (propertyInterfaceSymbols.Length == 0)
-				{
-					// Report an error message that we couldn't find the interface
-					context.ReportDiagnostic(
-						Diagnostic.Create(
-							new DiagnosticDescriptor(
-								"RCG003",
-								"Interface Missing",
-								$"Could not find the interface {propertyTypeName}",
-								"Error",
-								DiagnosticSeverity.Error,
-								true),
-							Location.None));
-					continue;
-				}
+		// Get all the methods on the interface
+		var interfaceMethodSymbols = propertyInterfaceSymbol.GetMembers().OfType<IMethodSymbol>().ToList();
+		if (interfaceMethodSymbols.Count == 0)
+		{
+			return;
+		}
 
-				if (propertyInterfaceSymbols.Length != 1)
-				{
-					// Report an error message that we found other than 1 interface
-					context.ReportDiagnostic(
-						Diagnostic.Create(
-							new DiagnosticDescriptor(
-								"RCG004",
-								"Ambiguous interface reference",
-								$"Found {propertyInterfaceSymbols.Length} interface symbols for {propertyTypeName}",
-								"Error",
-								DiagnosticSeverity.Error,
-								true),
-							Location.None));
-					continue;
-				}
+		var newSource = BuildSource(propertyDeclaredSymbol, interfaceMethodSymbols);
+		context.AddSource(
+			$"{propertyDeclaredSymbol.ContainingType.Name}_{propertyDeclaredSymbol.Name}.g.cs",
+			SourceText.From(newSource, Encoding.UTF8));
+	}
 
-				var propertyInterfaceSymbol = propertyInterfaceSymbols[0];
+	/// <summary>
+	/// Finds the single interface the property's type names, reporting a diagnostic and returning
+	/// null where there is not exactly one.
+	/// </summary>
+	private static INamedTypeSymbol? ResolveInterface(
+		Compilation compilation,
+		IPropertySymbol propertyDeclaredSymbol,
+		SourceProductionContext context)
+	{
+		var propertyTypeName = propertyDeclaredSymbol.Type.ToDisplayString();
+		var propertyInterfaceSymbols = GetMatchingInterfacesInSolution(compilation, propertyTypeName);
 
-				// Get all the methods on the interface
-				var interfaceMethodSymbols = propertyInterfaceSymbol?.GetMembers().OfType<IMethodSymbol>().ToList();
-				if (interfaceMethodSymbols is null || interfaceMethodSymbols.Count == 0)
-				{
-					continue;
-				}
+		if (propertyInterfaceSymbols.Length == 0)
+		{
+			// Report an error message that we couldn't find the interface
+			ReportError(context, "RCG003", "Interface Missing", $"Could not find the interface {propertyTypeName}");
+			return null;
+		}
 
-				var sb = new StringBuilder(@$"
+		if (propertyInterfaceSymbols.Length != 1)
+		{
+			// Report an error message that we found other than 1 interface
+			ReportError(
+				context,
+				"RCG004",
+				"Ambiguous interface reference",
+				$"Found {propertyInterfaceSymbols.Length} interface symbols for {propertyTypeName}");
+			return null;
+		}
+
+		return propertyInterfaceSymbols[0];
+	}
+
+	private static string BuildSource(IPropertySymbol propertyDeclaredSymbol, List<IMethodSymbol> interfaceMethodSymbols)
+	{
+		var sb = new StringBuilder(@$"
 // <auto-generated />
 namespace {propertyDeclaredSymbol.ContainingType.ContainingNamespace};
 
@@ -149,80 +148,74 @@ public partial class {propertyDeclaredSymbol.ContainingType.Name}
 {{
 ");
 
-				var processedAnyMethods = false;
-				foreach (var methodSymbol in interfaceMethodSymbols)
-				{
-					if (processedAnyMethods)
-					{
-						sb.AppendLine();
-					}
-
-					if (methodSymbol.DeclaredAccessibility == Accessibility.Public)
-					{
-						// Add XML documentation comment first
-						sb.AppendLine("\t/// <inheritdoc />");
-
-						// Check for Obsolete attribute and add it after the XML comment
-						var obsoleteAttribute = methodSymbol.GetAttributes()
-							.FirstOrDefault(a => a.AttributeClass?.Name == "ObsoleteAttribute");
-						
-						if (obsoleteAttribute is not null)
-						{
-							// Extract the message from the Obsolete attribute if it exists
-							var obsoleteMessage = obsoleteAttribute.ConstructorArguments.Length > 0
-								? obsoleteAttribute.ConstructorArguments[0].Value?.ToString()
-								: null;
-							
-							if (obsoleteMessage is not null)
-							{
-								sb.AppendLine($"\t[Obsolete(\"{obsoleteMessage}\")]");
-							}
-							else
-							{
-								sb.AppendLine("\t[Obsolete]");
-							}
-						}
-
-						var methodSignature = methodSymbol.GetMethodSignature(true);
-						sb.AppendLine("\t" + methodSignature);
-						var parameters = string.Join(", ", methodSymbol.Parameters.Select(p => $"{p.Name}"));
-						sb.AppendLine($"\t\t=> {propertyDeclaredSymbol.Name}.{methodSymbol.Name}({parameters});");
-					}
-
-					processedAnyMethods = true;
-				}
-
-				sb.AppendLine("}");
-				var newSource = sb.ToString();
-#if DEBUG
-				if (!Debugger.IsAttached)
-				{
-					//Debugger.Launch();
-				}
-#endif
-				context.AddSource($"{propertyDeclaredSymbol.ContainingType.Name}_{propertyDeclaredSymbol.Name}.g.cs", SourceText.From(newSource, Encoding.UTF8));
-			}
-		}
-		catch (Exception ex)
+		var processedAnyMethods = false;
+		foreach (var methodSymbol in interfaceMethodSymbols)
 		{
-#if DEBUG
-			if (!Debugger.IsAttached)
+			if (processedAnyMethods)
 			{
-				//Debugger.Launch();
+				sb.AppendLine();
 			}
-#endif
-			context.ReportDiagnostic(
-				Diagnostic.Create(
-					new DiagnosticDescriptor(
-						"RCG001",
-						"Error",
-						ex.Message,
-						"Error",
-						DiagnosticSeverity.Error,
-						true),
-					Location.None));
+
+			if (methodSymbol.DeclaredAccessibility == Accessibility.Public)
+			{
+				AppendForwardingMethod(sb, propertyDeclaredSymbol, methodSymbol);
+			}
+
+			processedAnyMethods = true;
 		}
+
+		sb.AppendLine("}");
+		return sb.ToString();
 	}
+
+	private static void AppendForwardingMethod(
+		StringBuilder sb,
+		IPropertySymbol propertyDeclaredSymbol,
+		IMethodSymbol methodSymbol)
+	{
+		// Add XML documentation comment first
+		sb.AppendLine("\t/// <inheritdoc />");
+
+		AppendObsoleteAttribute(sb, methodSymbol);
+
+		sb.AppendLine("\t" + methodSymbol.GetMethodSignature(true));
+		var parameters = string.Join(", ", methodSymbol.Parameters.Select(p => $"{p.Name}"));
+		sb.AppendLine($"\t\t=> {propertyDeclaredSymbol.Name}.{methodSymbol.Name}({parameters});");
+	}
+
+	/// <summary>
+	/// Carries any Obsolete attribute, and its message, through to the generated member.
+	/// </summary>
+	private static void AppendObsoleteAttribute(StringBuilder sb, IMethodSymbol methodSymbol)
+	{
+		var obsoleteAttribute = methodSymbol.GetAttributes()
+			.FirstOrDefault(a => a.AttributeClass?.Name == "ObsoleteAttribute");
+
+		if (obsoleteAttribute is null)
+		{
+			return;
+		}
+
+		var obsoleteMessage = obsoleteAttribute.ConstructorArguments.Length > 0
+			? obsoleteAttribute.ConstructorArguments[0].Value?.ToString()
+			: null;
+
+		sb.AppendLine(obsoleteMessage is null
+			? "\t[Obsolete]"
+			: $"\t[Obsolete(\"{obsoleteMessage}\")]");
+	}
+
+	private static void ReportError(SourceProductionContext context, string id, string title, string message)
+		=> context.ReportDiagnostic(
+			Diagnostic.Create(
+				new DiagnosticDescriptor(
+					id,
+					title,
+					message,
+					"Error",
+					DiagnosticSeverity.Error,
+					true),
+				Location.None));
 
 	private static ImmutableArray<INamedTypeSymbol?> GetMatchingInterfacesInSolution(Compilation compilation, string name)
 		=> [.. compilation.SyntaxTrees

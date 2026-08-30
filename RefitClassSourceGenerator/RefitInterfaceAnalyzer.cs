@@ -61,44 +61,32 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 		var methodDeclaration = (MethodDeclarationSyntax)context.Node;
 		var semanticModel = context.SemanticModel;
 
-		var hasRefitGetAttribute = methodDeclaration.AttributeLists
-			.SelectMany(attrList => attrList.Attributes)
-			.FirstOrDefault(attr => semanticModel.GetTypeInfo(attr).Type?.Name == "GetAttribute") is not null;
+		var hasRefitGetAttribute = HasAttributeNamed(methodDeclaration.AttributeLists, semanticModel, "GetAttribute");
 
 		foreach (var parameter in methodDeclaration.ParameterList.Parameters)
 		{
-			if (parameter.Type is null)
+			AnalyzeParameter(context, parameter, hasRefitGetAttribute);
+		}
+	}
+
+	private void AnalyzeParameter(SyntaxNodeAnalysisContext context, ParameterSyntax parameter, bool hasRefitGetAttribute)
+	{
+		var semanticModel = context.SemanticModel;
+
+		if (parameter.Type is null
+			|| semanticModel.GetTypeInfo(parameter.Type).Type is not INamedTypeSymbol parameterType)
+		{
+			return;
+		}
+
+		var aliasAsAttribute = FindAttributeNamed(parameter.AttributeLists, semanticModel, "AliasAsAttribute");
+
+		if (hasRefitGetAttribute && parameterType.IsGenericType && parameterType.Name == "List")
+		{
+			// A list parameter on a GET must be aliased as "name[]", which is how Refit renders
+			// the repeated query string parameter Meraki expects.
+			if (!HasExpectedListAlias(semanticModel, parameter, aliasAsAttribute))
 			{
-				continue;
-			}
-
-			if (semanticModel.GetTypeInfo(parameter.Type).Type is not INamedTypeSymbol parameterType)
-			{
-				continue;
-			}
-
-			var aliasAsAttribute = parameter.AttributeLists
-				.SelectMany(attrList => attrList.Attributes)
-				.FirstOrDefault(attr => semanticModel.GetTypeInfo(attr).Type?.Name == "AliasAsAttribute");
-
-			if (hasRefitGetAttribute && parameter.Type is not null && parameterType.IsGenericType && parameterType.Name == "List")
-			{
-
-				if (aliasAsAttribute?.ArgumentList is not null)
-				{
-					var aliasAsConstructorArgument = aliasAsAttribute.ArgumentList.Arguments.FirstOrDefault();
-					if (aliasAsConstructorArgument is not null)
-					{
-						var expectedAlias = $"{parameter.Identifier.Text}[]";
-						var aliasAsValue = semanticModel.GetConstantValue(aliasAsConstructorArgument.Expression);
-
-						if (aliasAsValue.HasValue && aliasAsValue.Value is string alias && alias == expectedAlias)
-						{
-							continue;
-						}
-					}
-				}
-
 				context.ReportDiagnostic(
 					Diagnostic.Create(
 						_requireListParameterRule,
@@ -106,20 +94,53 @@ public class RefitInterfaceAnalyzer : DiagnosticAnalyzer
 						parameter.Identifier.Text
 						)
 					);
-				continue;
 			}
 
-			// For all request methods, if the parameter is not a generic List - it should not have an AliasAs attribute
-			if (aliasAsAttribute is not null)
-			{
-				context.ReportDiagnostic(
-					Diagnostic.Create(
-						_removeAliasAsRule,
-						parameter.GetLocation(),
-						parameter.Identifier.Text
-						)
-					);
-			}
+			return;
+		}
+
+		// For all request methods, if the parameter is not a generic List - it should not have an AliasAs attribute
+		if (aliasAsAttribute is not null)
+		{
+			context.ReportDiagnostic(
+				Diagnostic.Create(
+					_removeAliasAsRule,
+					parameter.GetLocation(),
+					parameter.Identifier.Text
+					)
+				);
 		}
 	}
+
+	private static bool HasExpectedListAlias(
+		SemanticModel semanticModel,
+		ParameterSyntax parameter,
+		AttributeSyntax? aliasAsAttribute)
+	{
+		var aliasAsConstructorArgument = aliasAsAttribute?.ArgumentList?.Arguments.FirstOrDefault();
+		if (aliasAsConstructorArgument is null)
+		{
+			return false;
+		}
+
+		var aliasAsValue = semanticModel.GetConstantValue(aliasAsConstructorArgument.Expression);
+
+		return aliasAsValue.HasValue
+			&& aliasAsValue.Value is string alias
+			&& alias == $"{parameter.Identifier.Text}[]";
+	}
+
+	private static AttributeSyntax? FindAttributeNamed(
+		SyntaxList<AttributeListSyntax> attributeLists,
+		SemanticModel semanticModel,
+		string attributeTypeName)
+		=> attributeLists
+			.SelectMany(attrList => attrList.Attributes)
+			.FirstOrDefault(attr => semanticModel.GetTypeInfo(attr).Type?.Name == attributeTypeName);
+
+	private static bool HasAttributeNamed(
+		SyntaxList<AttributeListSyntax> attributeLists,
+		SemanticModel semanticModel,
+		string attributeTypeName)
+		=> FindAttributeNamed(attributeLists, semanticModel, attributeTypeName) is not null;
 }

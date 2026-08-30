@@ -37,36 +37,26 @@ public static class TypeExtension
 			return GetDeficientDataModels(properType, false);
 		}
 
-		// A root level Task is never Deficient
-		if (isRoot && type == typeof(Task))
-		{
-			return [];
-		}
+		// A root level Task is never Deficient, and a read-only class is exempt
+		return (isRoot && type == typeof(Task)) || type.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is not null
+			? []
+			: CollectDeficientDataModels(type);
+	}
 
-		if (type.GetCustomAttribute<ApiAccessReadOnlyClassAttribute>() is not null)
-		{
-			// It's a read-only class, so return here
-			return [];
-		}
-
+	private static List<string> CollectDeficientDataModels(Type type)
+	{
 		var deficientDataModels = new List<string>();
+
 		foreach (var property in type.GetProperties())
 		{
-			// Is ApiAccessAttribute or ApiKeyAttribute present on the property?
-			if (property.GetCustomAttribute<ApiAccessAttribute>() is null
-				&& property.GetCustomAttribute<ApiKeyAttribute>() is null
-				&& property.GetCustomAttribute<ApiForeignKeyAttribute>() is null)
+			// ApiAccess is not fully denoted for the type unless one of these attributes is present
+			if (!IsApiAccessDenoted(property) && !deficientDataModels.Contains(type.Name))
 			{
-				// NO - ApiAccess is not fully denoted for the type
-				if (!deficientDataModels.Contains(type.Name))
-				{
-					deficientDataModels.Add(type.Name);
-				}
+				deficientDataModels.Add(type.Name);
 			}
 
-			// Check properties of the nested object if it's a Meraki class
+			// Check properties of the nested object if it's a Meraki class we didn't discover yet
 			var propertyType = property.PropertyType?.GetNonGenericType();
-			// Is it a class? AND ensure it's a class we didn't discover yet
 			if (propertyType?.IsClass == true && !deficientDataModels.Contains(propertyType.Name))
 			{
 				deficientDataModels.AddRange(GetDeficientDataModels(propertyType, false));
@@ -75,4 +65,9 @@ public static class TypeExtension
 
 		return deficientDataModels;
 	}
+
+	private static bool IsApiAccessDenoted(PropertyInfo property)
+		=> property.GetCustomAttribute<ApiAccessAttribute>() is not null
+			|| property.GetCustomAttribute<ApiKeyAttribute>() is not null
+			|| property.GetCustomAttribute<ApiForeignKeyAttribute>() is not null;
 }

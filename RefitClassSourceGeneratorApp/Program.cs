@@ -7,9 +7,10 @@ namespace RefitClassSourceGeneratorApp;
 
 internal static class Program
 {
-	private static void Main()
-	{
-		const string source =
+	/// <summary>
+	/// The sample compilation unit the generator is run against.
+	/// </summary>
+	private const string SampleSource =
 
 			@"
 using System;
@@ -50,7 +51,9 @@ namespace Meraki.Api.Sections.General.Networks {
 }
 ";
 
-		var (diagnostics, output) = GetGeneratedOutput(source);
+	private static void Main()
+	{
+		var (diagnostics, output) = GetGeneratedOutput(SampleSource);
 
 		if (diagnostics.Length > 0)
 		{
