@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Net;
 
 namespace Meraki.Api.Test.Networks;
@@ -18,74 +18,8 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 
 		try
 		{
-			// Check the network can be retrieved and that its values are those we set earlier
-			// Get the network details using the network id
-			var retrievedNetwork = await TestMerakiClient
-				.Networks
-				.GetNetworkAsync(
-					network.Id,
-					cancellationToken: CancellationToken);
-
-			// Create a comparison network object using the data we sent at create
-			var expectedNetwork = new Network
-			{
-				OrganizationId = Configuration.TestOrganizationId,
-				Name = network.Name,
-				Notes = network.Notes,
-				TimeZone = network.TimeZone,
-				ProductTypes = network.ProductTypes,
-				Tags = network.Tags,
-				Id = network.Id,
-				IsBoundToConfigTemplate = false
-			};
-			// Make sure the two networks are the same (exclude the Url field, we can't set it and it's different with each pull down)
-			_ = retrievedNetwork.Should()
-				.NotBeNull()
-				.And
-				.BeEquivalentTo(
-					expectedNetwork,
-					options => options.Excluding(n => n.Url)
-				);
-
-			//Set the alternate name we're going to use to modify the network
-			var testAlternateNetworkName = "Altered Basic CRUD Test Network";
-
-			// Change the network Name
-			var networkUpdated = await TestMerakiClient
-				.Networks
-				.UpdateNetworkAsync(
-					network.Id,
-					new NetworkUpdateRequest
-					{
-						Name = testAlternateNetworkName,
-					},
-					cancellationToken: CancellationToken);
-
-			// Check that the name has changed in the return data and that the remaining settings stay the same
-			// Change the expected name to the alternate name
-			expectedNetwork.Name = testAlternateNetworkName;
-			// Check that the expected network data now matches what we got back from the update request
-			_ = networkUpdated.Should()
-				.NotBeNull()
-				.And
-				.BeEquivalentTo(
-					expectedNetwork,
-					options => options.Excluding(n => n.Url)
-				);
-
-			// Then we pull the network once more to make sure the pulled data matches the response from the update
-			var reretrievedNetwork = await TestMerakiClient
-				.Networks
-				.GetNetworkAsync(
-					network.Id,
-					cancellationToken: CancellationToken);
-			_ = reretrievedNetwork.Should()
-				.NotBeNull()
-				.And
-				.BeEquivalentTo(
-					networkUpdated,
-					options => options.Excluding(n => n.Url)
-				);
+			var expectedNetwork = await AssertNetworkReadsBackAsCreatedAsync(network);
+			await UpdateAndVerifyNetworkNameAsync(network.Id, expectedNetwork);
 		}
 		finally
 		{
@@ -104,7 +38,88 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 			.Should()
 			.ThrowExactlyAsync<ApiException>()
 			.Where(ex => ex.StatusCode == HttpStatusCode.NotFound);
+	}
 
+	/// <summary>
+	/// Reads the network back and checks it matches what was sent at create.
+	/// </summary>
+	/// <returns>
+	/// The comparison object, which the update check then mutates and reuses.
+	/// </returns>
+	private async Task<Network> AssertNetworkReadsBackAsCreatedAsync(Network network)
+	{
+		var retrievedNetwork = await TestMerakiClient
+			.Networks
+			.GetNetworkAsync(
+				network.Id,
+				cancellationToken: CancellationToken);
+
+		// Create a comparison network object using the data we sent at create
+		var expectedNetwork = new Network
+		{
+			OrganizationId = Configuration.TestOrganizationId,
+			Name = network.Name,
+			Notes = network.Notes,
+			TimeZone = network.TimeZone,
+			ProductTypes = network.ProductTypes,
+			Tags = network.Tags,
+			Id = network.Id,
+			IsBoundToConfigTemplate = false
+		};
+
+		// Make sure the two networks are the same (exclude the Url field, we can't set it and it's different with each pull down)
+		_ = retrievedNetwork.Should()
+			.NotBeNull()
+			.And
+			.BeEquivalentTo(
+				expectedNetwork,
+				options => options.Excluding(n => n.Url)
+			);
+
+		return expectedNetwork;
+	}
+
+	/// <summary>
+	/// Renames the network, and checks that the update response, and a fresh read, both show the new
+	/// name with every other setting unchanged.
+	/// </summary>
+	private async Task UpdateAndVerifyNetworkNameAsync(string networkId, Network expectedNetwork)
+	{
+		const string testAlternateNetworkName = "Altered Basic CRUD Test Network";
+
+		var networkUpdated = await TestMerakiClient
+			.Networks
+			.UpdateNetworkAsync(
+				networkId,
+				new NetworkUpdateRequest
+				{
+					Name = testAlternateNetworkName,
+				},
+				cancellationToken: CancellationToken);
+
+		// Check that the name has changed in the return data and that the remaining settings stay the same
+		expectedNetwork.Name = testAlternateNetworkName;
+		_ = networkUpdated.Should()
+			.NotBeNull()
+			.And
+			.BeEquivalentTo(
+				expectedNetwork,
+				options => options.Excluding(n => n.Url)
+			);
+
+		// Then we pull the network once more to make sure the pulled data matches the response from the update
+		var reretrievedNetwork = await TestMerakiClient
+			.Networks
+			.GetNetworkAsync(
+				networkId,
+				cancellationToken: CancellationToken);
+		_ = reretrievedNetwork.Should()
+			.NotBeNull()
+			.And
+			.BeEquivalentTo(
+				networkUpdated,
+				options => options.Excluding(n => n.Url)
+			);
 	}
 
 	[Fact]
