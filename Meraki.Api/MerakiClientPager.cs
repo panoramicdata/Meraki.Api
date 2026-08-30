@@ -1,4 +1,6 @@
-﻿namespace Meraki.Api;
+﻿using System.Collections.Specialized;
+
+namespace Meraki.Api;
 
 /// <summary>
 /// This file contains paging logic
@@ -9,6 +11,96 @@
 #pragma warning disable S2333
 public partial class MerakiClient
 {
+	/// <summary>
+	/// Reads the query string of the "rel=next" link in the response headers, or null where there
+	/// is no next page to fetch.
+	/// </summary>
+	private static NameValueCollection? TryGetNextPageQuery(HttpHeaders? headers)
+	{
+		// Check the Link response header
+		if (headers is null || !headers.TryGetValues("Link", out var linkHeaders))
+		{
+			return null;
+		}
+
+		// We found a Link header
+		var linkHeader = linkHeaders.FirstOrDefault();
+		if (linkHeader is null)
+		{
+			return null;
+		}
+
+		// We need the next link, which might have startingAfter or endingBefore defined
+		var nextLink = linkHeader
+			.Split(',')
+			.SingleOrDefault(link => link.Contains("rel=next"));
+		if (nextLink is null)
+		{
+			return null;
+		}
+
+		var nextLinkComponents = nextLink.Split(';');
+		if (nextLinkComponents.Length != 2)
+		{
+			return null;
+		}
+
+		// Get the url component and remove the < > wrapper
+		var nextLinkUrl = nextLinkComponents[0].Trim().TrimStart('<').TrimEnd('>');
+		return HttpUtility.ParseQueryString(new Uri(nextLinkUrl).Query);
+	}
+
+	/// <summary>
+	/// Advances the pagination cursor to the next page, returning false where there is no next page.
+	/// </summary>
+	/// <remarks>
+	/// endingBefore is only read where the next link carries no startingAfter, so a cursor set on an
+	/// earlier page is left in place rather than cleared.
+	/// </remarks>
+	private static bool TryAdvanceCursor(HttpHeaders? headers, ref string? startingAfter, ref string? endingBefore)
+	{
+		var query = TryGetNextPageQuery(headers);
+		if (query is null)
+		{
+			return false;
+		}
+
+		// try and get the startingAfter value, otherwise the endingBefore value
+		startingAfter = query.Get("startingAfter");
+		if (startingAfter is null)
+		{
+			endingBefore = query.Get("endingBefore");
+		}
+
+		return true;
+	}
+
+	/// <summary>
+	/// Advances the pagination cursor to the next page, taking both cursor values from the next link.
+	/// </summary>
+	private static bool TryAdvanceBothCursors(HttpHeaders? headers, ref string? startingAfter, ref string? endingBefore)
+	{
+		var query = TryGetNextPageQuery(headers);
+		if (query is null)
+		{
+			return false;
+		}
+
+		// try and get the startingAfter and/or endingBefore from the headers
+		startingAfter = query.Get("startingAfter");
+		endingBefore = query.Get("endingBefore");
+
+		return true;
+	}
+
+	/// <summary>
+	/// Refit traps exceptions into Error when using ApiResponse, so surface them here.
+	/// </summary>
+	private static List<T> ReadPage<T>(ApiResponse<List<T>> pageResponse)
+		=> pageResponse.Error is not null
+			? throw pageResponse.Error
+			: pageResponse.Content ?? [];
+
 	/// <summary>
 	/// Retrieves all items using pagination with a per-page count parameter
 	/// </summary>
@@ -23,53 +115,22 @@ public partial class MerakiClient
 		CancellationToken cancellationToken)
 	{
 		var allEntries = new List<T>();
-		var finished = false;
 		string? startingAfter = null;
 		string? endingBefore = null;
-		while (!finished)
+
+		while (true)
 		{
 			var pageResponse = await
 				pageFactoryAsync(perPage, startingAfter, endingBefore, cancellationToken).ConfigureAwait(false);
 
 			allEntries.AddRange(pageResponse);
 
-			// Check the Link response header
-			if (LastResponseHeaders is not null && LastResponseHeaders.TryGetValues("Link", out var linkHeaders))
-			{
-				// We found a Link header
-				var linkHeader = linkHeaders.FirstOrDefault();
-				if (linkHeader != null)
-				{
-					var links = linkHeader.Split(',');
-					// We need to get the next link, it might have startingAfter or EndingBefore defined
-					var nextLink = links.SingleOrDefault(link => link.Contains("rel=next"));
-					if (nextLink != null)
-					{
-						var nextLinkComponents = nextLink.Split(';');
-						if (nextLinkComponents.Length == 2)
-						{
-							// Get the url component and remove the < > wrapper
-							var nextLinkUrl = nextLinkComponents[0].Trim().TrimStart('<').TrimEnd('>');
-							var myUri = new Uri(nextLinkUrl);
-							var nameValueCollection = HttpUtility.ParseQueryString(myUri.Query);
-							// try and get the startingAfter value, otherwise the endingBefore value
-							startingAfter = nameValueCollection.Get("startingAfter");
-							if (startingAfter is null)
-							{
-								endingBefore = nameValueCollection.Get("endingBefore");
-							}
-
-							continue;
-						}
-					}
-				}
-			}
-
 			// There was no Link header so we're finished
-			finished = true;
+			if (!TryAdvanceCursor(LastResponseHeaders, ref startingAfter, ref endingBefore))
+			{
+				return allEntries;
+			}
 		}
-
-		return allEntries;
 	}
 
 	/// <summary>
@@ -84,56 +145,24 @@ public partial class MerakiClient
 		CancellationToken cancellationToken)
 	{
 		var allEntries = new List<T>();
-		var finished = false;
 		string? startingAfter = null;
 		string? endingBefore = null;
-		while (!finished)
+
+		while (true)
 		{
 			var pageResponse = await
 				pageFactoryAsync(startingAfter, endingBefore, cancellationToken).ConfigureAwait(false);
 
 			allEntries.AddRange(pageResponse);
 
-			// Check the Link response header
-			if (LastResponseHeaders is not null && LastResponseHeaders.TryGetValues("Link", out var linkHeaders))
-			{
-				// We found a Link header
-				var linkHeader = linkHeaders.FirstOrDefault();
-				if (linkHeader != null)
-				{
-					var links = linkHeader.Split(',');
-					// We need to get the next link, it might have startingAfter or EndingBefore defined
-					var nextLink = links.SingleOrDefault(link => link.Contains("rel=next"));
-					if (nextLink != null)
-					{
-						var nextLinkComponents = nextLink.Split(';');
-						if (nextLinkComponents.Length == 2)
-						{
-							// Get the url component and remove the < > wrapper
-							var nextLinkUrl = nextLinkComponents[0].Trim().TrimStart('<').TrimEnd('>');
-							var myUri = new Uri(nextLinkUrl);
-							var nameValueCollection = HttpUtility.ParseQueryString(myUri.Query);
-							// try and get the startingAfter value, otherwise the endingBefore value
-							startingAfter = nameValueCollection.Get("startingAfter");
-							if (startingAfter is null)
-							{
-								endingBefore = nameValueCollection.Get("endingBefore");
-							}
-
-							continue;
-						}
-					}
-				}
-			}
-
 			// There was no Link header so we're finished
-			finished = true;
+			if (!TryAdvanceCursor(LastResponseHeaders, ref startingAfter, ref endingBefore))
+			{
+				return allEntries;
+			}
 		}
-
-		return allEntries;
 	}
 
-	
 	/// <summary>
 	/// Retrieves all items using pagination with ApiResponse wrapper
 	/// </summary>
@@ -148,61 +177,24 @@ public partial class MerakiClient
 		CancellationToken cancellationToken)
 	{
 		var allEntries = new List<T>();
-		var finished = false;
 		string? startingAfter = null;
 		string? endingBefore = null;
-		while (!finished)
+
+		while (true)
 		{
 			var pageResponse = await
 				pageFactoryAsync(startingAfter, endingBefore, cancellationToken).ConfigureAwait(false);
 
-			// Refit traps exceptions into Error when using ApiResponse
-			if (pageResponse.Error is not null)
-			{
-				throw pageResponse.Error;
-			}
-
-			allEntries.AddRange(pageResponse.Content ?? []);
-
-			// Check the Link response header
-			if (pageResponse.Headers is not null && pageResponse.Headers.TryGetValues("Link", out var linkHeaders))
-			{
-				// We found a Link header
-				var linkHeader = linkHeaders.FirstOrDefault();
-				if (linkHeader != null)
-				{
-					var links = linkHeader.Split(',');
-					var nextLink = links.SingleOrDefault(link => link.Contains("rel=next"));
-					if (nextLink != null)
-					{
-						var nextLinkComponents = nextLink.Split(';');
-						if (nextLinkComponents.Length == 2)
-						{
-							// Get the url component and remove the < > wrapper
-							var nextLinkUrl = nextLinkComponents[0].Trim().TrimStart('<').TrimEnd('>');
-							var myUri = new Uri(nextLinkUrl);
-							var nameValueCollection = HttpUtility.ParseQueryString(myUri.Query);
-							// try and get the startingAfter value, otherwise the endingBefore value
-							startingAfter = nameValueCollection.Get("startingAfter");
-							if (startingAfter is null)
-							{
-								endingBefore = nameValueCollection.Get("endingBefore");
-							}
-
-							continue;
-						}
-					}
-				}
-			}
+			allEntries.AddRange(ReadPage(pageResponse));
 
 			// There was no Link header so we're finished
-			finished = true;
+			if (!TryAdvanceCursor(pageResponse.Headers, ref startingAfter, ref endingBefore))
+			{
+				return allEntries;
+			}
 		}
-
-		return allEntries;
 	}
 
-	
 	/// <summary>
 	/// Retrieves all items using pagination with time-based parameters
 	/// </summary>
@@ -223,61 +215,24 @@ public partial class MerakiClient
 		CancellationToken cancellationToken = default)
 	{
 		var allEntries = new List<T>();
-		var finished = false;
 		string? startingAfter = null;
 		string? endingBefore = null;
-		while (!finished)
+
+		while (true)
 		{
 			var pageResponse = await
 				pageFactoryAsync(startingAfter, endingBefore, t0, t1, timeSpan, cancellationToken).ConfigureAwait(false);
 
-			// Refit traps exceptions into Error when using ApiResponse
-			if (pageResponse.Error is not null)
-			{
-				throw pageResponse.Error;
-			}
-
-			allEntries.AddRange(pageResponse.Content ?? []);
-
-			// Check the Link response header
-			if (pageResponse.Headers is not null && pageResponse.Headers.TryGetValues("Link", out var linkHeaders))
-			{
-				// We found a Link header
-				var linkHeader = linkHeaders.FirstOrDefault();
-				if (linkHeader != null)
-				{
-					var links = linkHeader.Split(',');
-					var nextLink = links.SingleOrDefault(link => link.Contains("rel=next"));
-					if (nextLink != null)
-					{
-						var nextLinkComponents = nextLink.Split(';');
-						if (nextLinkComponents.Length == 2)
-						{
-							// Get the url component and remove the < > wrapper
-							var nextLinkUrl = nextLinkComponents[0].Trim().TrimStart('<').TrimEnd('>');
-							var myUri = new Uri(nextLinkUrl);
-							var nameValueCollection = HttpUtility.ParseQueryString(myUri.Query);
-							// try and get the startingAfter value, otherwise the endingBefore value
-							startingAfter = nameValueCollection.Get("startingAfter");
-							if (startingAfter is null)
-							{
-								endingBefore = nameValueCollection.Get("endingBefore");
-							}
-
-							continue;
-						}
-					}
-				}
-			}
+			allEntries.AddRange(ReadPage(pageResponse));
 
 			// There was no Link header so we're finished
-			finished = true;
+			if (!TryAdvanceCursor(pageResponse.Headers, ref startingAfter, ref endingBefore))
+			{
+				return allEntries;
+			}
 		}
-
-		return allEntries;
 	}
 
-	
 	/// <summary>
 	/// Retrieves all items using pagination with per-page count and ApiResponse wrapper
 	/// </summary>
@@ -288,64 +243,28 @@ public partial class MerakiClient
 	/// <returns>A list of all items</returns>
 	public static async Task<List<T>> GetAllAsync<T>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
-	Func<int?, string?, string?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
+		Func<int?, string?, string?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
-	int perPage,
-	CancellationToken cancellationToken)
+		int perPage,
+		CancellationToken cancellationToken)
 	{
 		var allEntries = new List<T>();
-		var finished = false;
 		string? startingAfter = null;
 		string? endingBefore = null;
-		while (!finished)
+
+		while (true)
 		{
 			var pageResponse = await
 				pageFactoryAsync(perPage, startingAfter, endingBefore, cancellationToken).ConfigureAwait(false);
 
-			// Refit traps exceptions into Error when using ApiResponse
-			if (pageResponse.Error is not null)
-			{
-				throw pageResponse.Error;
-			}
-
-			allEntries.AddRange(pageResponse.Content ?? []);
-
-			// Check the Link response header
-			if (pageResponse.Headers is not null && pageResponse.Headers.TryGetValues("Link", out var linkHeaders))
-			{
-				// We found a Link header
-				var linkHeader = linkHeaders.FirstOrDefault();
-				if (linkHeader != null)
-				{
-					var links = linkHeader.Split(',');
-					var nextLink = links.SingleOrDefault(link => link.Contains("rel=next"));
-					if (nextLink != null)
-					{
-						var nextLinkComponents = nextLink.Split(';');
-						if (nextLinkComponents.Length == 2)
-						{
-							// Get the url component and remove the < > wrapper
-							var nextLinkUrl = nextLinkComponents[0].Trim().TrimStart('<').TrimEnd('>');
-							var myUri = new Uri(nextLinkUrl);
-							var nameValueCollection = HttpUtility.ParseQueryString(myUri.Query);
-							// try and get the startingAfter value, otherwise the endingBefore value
-							startingAfter = nameValueCollection.Get("startingAfter");
-							if (startingAfter is null)
-							{
-								endingBefore = nameValueCollection.Get("endingBefore");
-							}
-
-							continue;
-						}
-					}
-				}
-			}
+			allEntries.AddRange(ReadPage(pageResponse));
 
 			// There was no Link header so we're finished
-			finished = true;
+			if (!TryAdvanceCursor(pageResponse.Headers, ref startingAfter, ref endingBefore))
+			{
+				return allEntries;
+			}
 		}
-
-		return allEntries;
 	}
 
 	/// <summary>
@@ -359,58 +278,28 @@ public partial class MerakiClient
 	/// <returns>A task that represents the asynchronous operation. The task result contains a list of all models retrieved from all pages.</returns>
 	public static async Task<List<TModel>> GetAllFromResponsePropertyAsync<TResponse, TModel>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
-	Func<string?, string?, CancellationToken, Task<ApiResponse<TResponse>>> pageFactoryAsync,
-	Func<ApiResponse<TResponse>, List<TModel>> propertyFunction,
+		Func<string?, string?, CancellationToken, Task<ApiResponse<TResponse>>> pageFactoryAsync,
+		Func<ApiResponse<TResponse>, List<TModel>> propertyFunction,
 #pragma warning restore CS3001 // Argument type is not CLS-compliant
-	CancellationToken cancellationToken)
+		CancellationToken cancellationToken)
 	{
 		var allEntries = new List<TModel>();
-		var finished = false;
 		string? startingAfter = null;
 		string? endingBefore = null;
-		while (!finished)
+
+		while (true)
 		{
 			var pageResponse = await
-			pageFactoryAsync(startingAfter, endingBefore, cancellationToken).ConfigureAwait(false);
+				pageFactoryAsync(startingAfter, endingBefore, cancellationToken).ConfigureAwait(false);
 
-			var entries = propertyFunction(pageResponse);
-
-			allEntries.AddRange(entries);
-
-			// Check the Link response header
-			if (pageResponse.Headers is not null && pageResponse.Headers.TryGetValues("Link", out var linkHeaders))
-			{
-				// We found a Link header
-				var linkHeader = linkHeaders.FirstOrDefault();
-				if (linkHeader != null)
-				{
-					var links = linkHeader.Split(',');
-					var nextLink = links.SingleOrDefault(link => link.Contains("rel=next"));
-					if (nextLink != null)
-					{
-						var nextLinkComponents = nextLink.Split(';');
-						if (nextLinkComponents.Length == 2)
-						{
-							// Get the url component and remove the < > wrapper
-							var nextLinkUrl = nextLinkComponents[0].Trim().TrimStart('<').TrimEnd('>');
-							var myUri = new Uri(nextLinkUrl);
-							var nameValueCollection = HttpUtility.ParseQueryString(myUri.Query);
-
-							// try and get the startingAfter and/or endingBefore from the headers
-							startingAfter = nameValueCollection.Get("startingAfter");
-							endingBefore = nameValueCollection.Get("endingBefore");
-
-							continue;
-						}
-					}
-				}
-			}
+			allEntries.AddRange(propertyFunction(pageResponse));
 
 			// There was no Link header so we're finished
-			finished = true;
+			if (!TryAdvanceBothCursors(pageResponse.Headers, ref startingAfter, ref endingBefore))
+			{
+				return allEntries;
+			}
 		}
-
-		return allEntries;
 	}
 }
 #pragma warning restore S2333

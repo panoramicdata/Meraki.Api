@@ -100,37 +100,43 @@ public partial class MerakiClient
 			.Descendants("tbody")
 			.FirstOrDefault();
 
-		var endOfLifeDetails = new List<DeviceModelEndOfLifeDetail>();
-		foreach (var tr in tbody?.Descendants("tr") ?? [])
+		return [.. (tbody?.Descendants("tr") ?? [])
+			.Select(ParseEndOfLifeRow)
+			.OfType<DeviceModelEndOfLifeDetail>()];
+	}
+
+	/// <summary>
+	/// Projects one table row, returning null where the row is not a data row or carries no
+	/// product description.
+	/// </summary>
+	private static DeviceModelEndOfLifeDetail? ParseEndOfLifeRow(HtmlNode tr)
+	{
+		var tds = tr
+			.Descendants("td")
+			.ToList();
+
+		// Data rows have four cells. The header row uses <th> (so produces no <td>)
+		// and any layout rows with a different cell count are skipped.
+		if (tds.Count != 4)
 		{
-			var tds = tr
-				.Descendants("td")
-				.ToList();
+			return null;
+		}
 
-			// Data rows have four cells. The header row uses <th> (so produces no <td>)
-			// and any layout rows with a different cell count are skipped.
-			if (tds.Count != 4)
-			{
-				continue;
-			}
+		var productCell = tds[0];
 
-			var productCell = tds[0];
+		// The notice URL is the first hyperlink in the product cell, if any.
+		var eosNoticeUrl = productCell
+			.Descendants("a")
+			.Select(a => a.GetAttributeValue("href", string.Empty))
+			.FirstOrDefault(href => !string.IsNullOrWhiteSpace(href))
+			?? "Missing URL";
 
-			// The notice URL is the first hyperlink in the product cell, if any.
-			var eosNoticeUrl = productCell
-				.Descendants("a")
-				.Select(a => a.GetAttributeValue("href", string.Empty))
-				.FirstOrDefault(href => !string.IsNullOrWhiteSpace(href))
-				?? "Missing URL";
+		// The product description as published (may list several models / accessories).
+		var productDescription = GetCellText(productCell);
 
-			// The product description as published (may list several models / accessories).
-			var productDescription = GetCellText(productCell);
-			if (productDescription.Length == 0)
-			{
-				continue;
-			}
-
-			endOfLifeDetails.Add(new DeviceModelEndOfLifeDetail
+		return productDescription.Length == 0
+			? null
+			: new DeviceModelEndOfLifeDetail
 			{
 				DeviceModel = productDescription,
 				Models = ParseModels(productDescription),
@@ -140,10 +146,7 @@ public partial class MerakiClient
 				Announcement = TryGetDate(tds[1], out var value) ? value : null,
 				EndOfSale = TryGetDate(tds[2], out value) ? value : null,
 				EndOfSupport = TryGetDate(tds[3], out value) ? value : null,
-			});
-		}
-
-		return endOfLifeDetails;
+			};
 	}
 
 	/// <summary>
@@ -184,31 +187,13 @@ public partial class MerakiClient
 	/// </summary>
 	private static List<string> ParseModels(string productDescription)
 	{
-		var models = new List<string>();
-
-		// License SKU shorthand with a parenthesised duration list, e.g.
-		// "LIC-MI-XS (1D, 1YR, 3YR, 5YR, 7YR, 10YR)" -> LIC-MI-XS-1D, LIC-MI-XS-1YR, ...
-		var licenseMatch = _licenseSuffixListRegex.Match(productDescription);
-		if (licenseMatch.Success)
+		var expandedLicenseSkus = TryExpandLicenseSkuList(productDescription);
+		if (expandedLicenseSkus is not null)
 		{
-			var stem = licenseMatch.Groups["base"].Value.Trim();
-			var suffixes = licenseMatch.Groups["list"].Value
-				.Split(',')
-				.Select(suffix => suffix.Trim())
-				.ToList();
-
-			if (stem.StartsWith("LIC", StringComparison.OrdinalIgnoreCase)
-				&& suffixes.Count > 0
-				&& suffixes.TrueForAll(_durationSuffixRegex.IsMatch))
-			{
-				foreach (var suffix in suffixes)
-				{
-					AddModel(models, stem + "-" + suffix);
-				}
-
-				return models;
-			}
+			return expandedLicenseSkus;
 		}
+
+		var models = new List<string>();
 
 		// Drop any parenthetical qualifier (now known not to be a duration list), e.g.
 		// "(For MR42E, MR53E, MR46E)" or "(UK)".
@@ -236,26 +221,70 @@ public partial class MerakiClient
 				continue;
 			}
 
-			// A model identifier contains at least one digit and matches a model-like shape.
-			if (candidate.Length < 2
-				|| !Regex.IsMatch(candidate, @"\d")
-				|| !_modelLikeRegex.IsMatch(candidate))
+			if (!IsModelLike(candidate))
 			{
 				continue;
 			}
 
 			AddModel(models, candidate);
-
-			// If this is a license SKU ending in a duration, remember its stem so any
-			// following bare-suffix continuations can inherit it.
-			licenseStem = candidate.StartsWith("LIC", StringComparison.OrdinalIgnoreCase)
-				&& _trailingDurationRegex.IsMatch(candidate)
-				? _trailingDurationRegex.Replace(candidate, string.Empty)
-				: null;
+			licenseStem = GetLicenseStem(candidate);
 		}
 
 		return models;
 	}
+
+	/// <summary>
+	/// Expands the license SKU shorthand with a parenthesised duration list, e.g.
+	/// "LIC-MI-XS (1D, 1YR, 3YR, 5YR, 7YR, 10YR)" to LIC-MI-XS-1D, LIC-MI-XS-1YR and so on.
+	/// Returns null where the description is not in that form.
+	/// </summary>
+	private static List<string>? TryExpandLicenseSkuList(string productDescription)
+	{
+		var licenseMatch = _licenseSuffixListRegex.Match(productDescription);
+		if (!licenseMatch.Success)
+		{
+			return null;
+		}
+
+		var stem = licenseMatch.Groups["base"].Value.Trim();
+		var suffixes = licenseMatch.Groups["list"].Value
+			.Split(',')
+			.Select(suffix => suffix.Trim())
+			.ToList();
+
+		if (!stem.StartsWith("LIC", StringComparison.OrdinalIgnoreCase)
+			|| suffixes.Count == 0
+			|| !suffixes.TrueForAll(_durationSuffixRegex.IsMatch))
+		{
+			return null;
+		}
+
+		var models = new List<string>();
+		foreach (var suffix in suffixes)
+		{
+			AddModel(models, stem + "-" + suffix);
+		}
+
+		return models;
+	}
+
+	/// <summary>
+	/// A model identifier contains at least one digit and matches a model-like shape.
+	/// </summary>
+	private static bool IsModelLike(string candidate)
+		=> candidate.Length >= 2
+			&& Regex.IsMatch(candidate, @"\d")
+			&& _modelLikeRegex.IsMatch(candidate);
+
+	/// <summary>
+	/// Where the candidate is a license SKU ending in a duration, returns its stem so that any
+	/// following bare-suffix continuations can inherit it. Otherwise returns null.
+	/// </summary>
+	private static string? GetLicenseStem(string candidate)
+		=> candidate.StartsWith("LIC", StringComparison.OrdinalIgnoreCase)
+			&& _trailingDurationRegex.IsMatch(candidate)
+			? _trailingDurationRegex.Replace(candidate, string.Empty)
+			: null;
 
 	private static void AddModel(List<string> models, string model)
 	{
