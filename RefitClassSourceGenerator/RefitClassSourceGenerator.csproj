@@ -4,7 +4,7 @@
     <!-- MUST stay netstandard2.0. This assembly is a Roslyn analyzer and source generator, which
          the compiler loads in-process; RS1041 fails the build on any other target framework.
          Do not "modernise" this to a net*.0 target. -->
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
