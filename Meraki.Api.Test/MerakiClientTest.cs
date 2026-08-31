@@ -2,7 +2,6 @@
 using Meraki.Api.Test.Config;
 using Meraki.Api.Test.Logging;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 
 namespace Meraki.Api.Test;
 
@@ -22,10 +21,12 @@ public abstract class MerakiClientTest(ITestOutputHelper testOutputHelper) : IAs
 
 	protected static CancellationToken CancellationToken => TestContext.Current.CancellationToken;
 
-	public virtual async ValueTask InitializeAsync()
+	public virtual ValueTask InitializeAsync()
 	{
-		Configuration = await LoadConfigAsync();
+		Configuration = TestConfigLoader.Load();
 		_logger = CreateLogger();
+
+		return ValueTask.CompletedTask;
 	}
 
 	public virtual async ValueTask DisposeAsync()
@@ -36,29 +37,6 @@ public abstract class MerakiClientTest(ITestOutputHelper testOutputHelper) : IAs
 		}
 
 		GC.SuppressFinalize(this);
-	}
-
-	private static async Task<TestConfig> LoadConfigAsync()
-	{
-		// Load config from file
-		var fileInfo = new FileInfo("../../../appsettings.json");
-
-		// Does the config file exist?
-		if (!fileInfo.Exists)
-		{
-			// No - hint to the user what to do
-			throw new ConfigurationException("Missing appsettings.json. Please copy the appsettings.example.json in the project root folder and set the various values appropriately.");
-		}
-		// Yes
-
-		// Load in the config
-		var json = await File.ReadAllTextAsync(fileInfo.FullName);
-		var configuration = JsonConvert.DeserializeObject<TestConfig>(json)
-			?? throw new ConfigurationException("Configuration did not deserialize");
-
-		configuration.Validate();
-
-		return configuration;
 	}
 
 	private ILogger CreateLogger()
