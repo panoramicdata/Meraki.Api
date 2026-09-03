@@ -1,4 +1,6 @@
-﻿namespace Meraki.Api;
+﻿using Meraki.Api.Extensions;
+
+namespace Meraki.Api;
 
 internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandler
 {
@@ -417,7 +419,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 			return;
 		}
 
-		_logger.Log(_levelToLogAt, "{LogPrefix}Request\r\n{Request}", logPrefix, request);
+		_logger.Log(_levelToLogAt, "{LogPrefix}Request\r\n{Request}", logPrefix, request.ToRedactedString());
 		if (request.Content != null)
 		{
 			var requestContent = await request.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
@@ -433,7 +435,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 			return;
 		}
 
-		_logger.Log(_levelToLogAt, "{LogPrefix}Response\r\n{HttpResponseMessage}", logPrefix, httpResponseMessage);
+		_logger.Log(_levelToLogAt, "{LogPrefix}Response\r\n{HttpResponseMessage}", logPrefix, httpResponseMessage.ToRedactedString());
 		if (httpResponseMessage.Content != null)
 		{
 			var responseContent = await httpResponseMessage.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
