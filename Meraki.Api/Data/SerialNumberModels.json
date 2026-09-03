@@ -327,5 +327,8 @@
 	"Q5BH": "CW9179F",
 	"Q5BL": "CW9176D1",
 	// Added 2026-09-01 from DataMagic prod logs (serials seen in Meraki inventory but previously unmapped)
-	"Q5FB": "C9200L-24P-4X"
+	"Q5FB": "C9200L-24P-4X",
+	// Added 2026-09-03 from DataMagic prod logs (serials seen in Meraki inventory but previously unmapped)
+	"Q5FA": "C9200L-24T-4X",
+	"Q5FL": "C9200L-24P-4G"
 }
