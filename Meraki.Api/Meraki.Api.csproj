@@ -33,7 +33,29 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Changelog can be found at https://github.com/panoramicdata/Meraki.Api/blob/main/CHANGELOG.md</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      Security fix: sensitive HTTP headers are now redacted in diagnostic output.
+
+      Previously AuthenticatedBackingOffHttpClientHandler passed the whole HttpRequestMessage to
+      the logger, and its ToString() renders every header. Whichever credential the client was
+      configured to send was therefore written verbatim: an Authorization bearer token, or the API
+      key in X-Cisco-Meraki-API-Key. The response side did the same, exposing Set-Cookie.
+
+      A Meraki API key does not expire, so an exposed key stays usable until it is regenerated.
+
+      X-Cisco-Meraki-API-Key, Authorization, Proxy-Authorization, Cookie, Set-Cookie and common API
+      key headers are now redacted, case-insensitively, on request and response. The scheme and
+      credential length are retained, so failures remain diagnosable.
+
+      Breaking change to message text: the Request and Response log messages are now rendered by
+      this library rather than by HttpRequestMessage.ToString(). The shape is the same but code
+      parsing those messages should be checked.
+
+      Consumers should upgrade, review existing Trace logs for previously captured credentials, and
+      regenerate any API key that appears in them.
+
+      Changelog can be found at https://github.com/panoramicdata/Meraki.Api/blob/main/CHANGELOG.md
+    </PackageReleaseNotes>
     <PackageId>Meraki.Api</PackageId>
     <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
   </PropertyGroup>
