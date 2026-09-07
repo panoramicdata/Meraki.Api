@@ -5,6 +5,7 @@ public class Tests
 	[Theory]
 	[InlineData("Q2AT-1234-1234", "MC74", ProductType.Phone, false)]
 	[InlineData("Q5AC-1234-1234", "CW9164I", ProductType.Wireless, false)]
+	[InlineData("Q5AP-1234-1234", "CW9166I", ProductType.Wireless, false)]
 	public void GetFromSerialNumber(string serialNumber, string productName, ProductType productType, bool isVirtual)
 	{
 		var result = MerakiClient.GetInfoFromSerialNumber(serialNumber);
