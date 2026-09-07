@@ -64,7 +64,10 @@ public class NetworkTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 			ProductTypes = network.ProductTypes,
 			Tags = network.Tags,
 			Id = network.Id,
-			IsBoundToConfigTemplate = false
+			IsBoundToConfigTemplate = false,
+			// Server-determined, and reported on every network since 2026-09. Asserting false is
+			// stronger than excluding it: what this test creates is a real network, not a virtual one.
+			IsVirtual = false
 		};
 
 		// Make sure the two networks are the same (exclude the Url field, we can't set it and it's different with each pull down)

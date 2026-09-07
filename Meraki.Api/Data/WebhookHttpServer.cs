@@ -42,4 +42,11 @@ public class WebhookHttpServer : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "payloadTemplate")]
 	public WebhookHttpServerPayloadTemplate? PayloadTemplate { get; set; }
+	/// <summary>
+	/// Whether the server is enabled - Undocumented added 2026-09-07.
+	/// Only ever observed in responses, so it is treated as read-only until proven otherwise.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "enabled")]
+	public bool? Enabled { get; set; }
 }

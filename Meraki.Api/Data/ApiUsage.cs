@@ -65,4 +65,9 @@ public class ApiUsage
 	/// </summary>
 	[DataMember(Name = "client")]
 	public ApiUsageClient Client { get; set; } = null!;
+	/// <summary>
+	/// The API version the request used - Undocumented added 2026-09-07
+	/// </summary>
+	[DataMember(Name = "version")]
+	public int? Version { get; set; }
 }

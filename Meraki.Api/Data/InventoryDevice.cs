@@ -140,4 +140,10 @@ public class InventoryDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "eox")]
 	public Eox? Eox { get; set; }
+	/// <summary>
+	/// The device's street address - Undocumented added 2026-09-07
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "address")]
+	public string? Address { get; set; }
 }

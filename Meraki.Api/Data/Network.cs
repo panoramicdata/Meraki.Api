@@ -81,6 +81,13 @@ public class Network : NetworkOrConfigurationTemplate
 	public object? Details { get; set; }
 
 	/// <summary>
+	/// The network's group - always observed to be null. Undocumented property.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "group")]
+	public object? Group { get; set; }
+
+	/// <summary>
 	/// The product edition of the network (e.g., "sdwan"). Undocumented property.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]

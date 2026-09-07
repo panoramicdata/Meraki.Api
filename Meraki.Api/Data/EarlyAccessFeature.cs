@@ -54,4 +54,17 @@ public class EarlyAccessFeature : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "privacyLink")]
 	public string PrivacyLink { get; set; } = string.Empty;
+	/// <summary>
+	/// Whether the feature is part of the Advantage tier - Undocumented added 2026-09-07
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "advantage")]
+	public bool? Advantage { get; set; }
+
+	/// <summary>
+	/// Whether the feature is available as an Advantage trial - Undocumented added 2026-09-07
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "advantageTrial")]
+	public bool? AdvantageTrial { get; set; }
 }

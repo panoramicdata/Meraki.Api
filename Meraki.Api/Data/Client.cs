@@ -1,4 +1,4 @@
-namespace Meraki.Api.Data;
+﻿namespace Meraki.Api.Data;
 
 /// <summary>
 /// A (Network) Client
@@ -223,4 +223,9 @@ public class Client : IdentifiedItem
 	/// </summary>
 	[DataMember(Name = "mcgNetworkId")]
 	public string? McgNetworkId { get; set; }
+	/// <summary>
+	/// The model of the device the client is connected through - Undocumented added 2026-09-07
+	/// </summary>
+	[DataMember(Name = "model")]
+	public string? Model { get; set; }
 }
