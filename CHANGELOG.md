@@ -2,6 +2,24 @@
 
 ## 1.70.127
 
+- **Eight response fields the Dashboard API has added are now mapped.** Running the integration
+  suite against a live organization found eight fields with no model property. Callers who set
+  `JsonMissingMemberHandling.ThrowOnError` were getting a failed deserialization rather than an
+  ignored field, so for them these were hard failures on ordinary calls:
+  `Network.Group`, `InventoryDevice.Address`, `EarlyAccessFeature.Advantage` and `.AdvantageTrial`,
+  `WebhookHttpServer.Enabled`, `PayloadTemplateSharingByNetwork.Ids`, `Client.Model` and
+  `ApiUsage.Version`. Types come from the observed responses; `WebhookHttpServer.Enabled` has only
+  ever been seen in responses, so it is mapped read-only until a write is confirmed.
+
+- **Seven public `const` members are now `static readonly`.** `Device.MaxAddressLength`,
+  `FloorplanDevice.MaxAddressLength`, `Network.MaxNameLength`, `SwitchStack.MaxNameLength`,
+  `MerakiMcpClient.SemanticSearchToolName`, `MerakiMcpClient.ExecuteApiToolName` and
+  `MerakiMcpClientOptions.DefaultHostedUri` no longer inline into consuming assemblies, so a change
+  to any of them takes effect on reference update rather than on recompile. **This is source-breaking
+  in a `const` context**: code using one of these as an attribute argument, a `case` label, another
+  `const`, or a default parameter value will no longer compile. Read at runtime, as almost all
+  callers do, nothing changes.
+
 - **Every section and Refit client on `MerakiClient` is now wired** (issue
   [#357](https://github.com/panoramicdata/Meraki.Api/issues/357)). The hand-maintained constructor had
   drifted from the 134-class section tree: 82 Refit interface properties and 4 sub-sections
