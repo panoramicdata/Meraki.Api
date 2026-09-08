@@ -63,8 +63,11 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 
 			LastRequestUri = request.RequestUri?.ToString() ?? string.Empty;
 
-			// Create a new CancellationToken derived from the original, but with a timeout
-			using var timeoutCancellationSource = new CancellationTokenSource(TimeSpan.FromSeconds(_options.HttpClientInnerTimeoutSeconds));
+			// Derive the per-attempt token from the caller's token, then add the inner timeout, so
+			// that either can abort the attempt. The catch filter in TrySendAsync tells the two
+			// apart: it treats the failure as a timeout only when the caller has not cancelled.
+			using var timeoutCancellationSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+			timeoutCancellationSource.CancelAfter(TimeSpan.FromSeconds(_options.HttpClientInnerTimeoutSeconds));
 
 			// A null response means the attempt failed in a way that has already been logged and waited out.
 			var httpResponseMessage = await TrySendAsync(

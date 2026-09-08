@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- A caller's `CancellationToken` now **aborts an in-flight HTTP attempt** immediately
+  (issue [#391](https://github.com/panoramicdata/Meraki.Api/issues/391)). Each attempt was sent with
+  only the handler's own per-attempt timeout token, so although every wait *between* attempts already
+  honoured the caller's token, cancelling during an attempt still meant waiting out the rest of
+  `HttpClientInnerTimeoutSeconds` (default 25 seconds). The per-attempt token is now linked to the
+  caller's, so either ends the attempt. Timeout detection is unchanged: an attempt that ends because of
+  the inner timeout is still retried, and one that ends because the caller cancelled still surfaces as
+  `OperationCanceledException`. Note that cancellation observed between attempts throws a plain
+  `OperationCanceledException`, while cancellation observed inside `HttpClient` throws its subclass
+  `TaskCanceledException`; consumers should catch the base type.
+
 - `MerakiClient` now calls `MerakiClientOptions.Validate()` in its constructor
   (issue [#377](https://github.com/panoramicdata/Meraki.Api/issues/377)). Previously only
   `MerakiMcpClient` validated its options, so the two clients disagreed about what a valid
