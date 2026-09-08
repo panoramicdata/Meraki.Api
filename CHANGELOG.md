@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- New opt-in `MerakiClientOptions.ThrowOnRetryExhaustion`
+  (issue [#375](https://github.com/panoramicdata/Meraki.Api/issues/375)). When every permitted attempt
+  ends in a retryable status (429, 502, 503 or 504), the client has always returned the final response,
+  so Refit raised an `ApiException` indistinguishable from a first-attempt failure with the same
+  status; the attempt count and time spent were logged but never reached the caller. With the option
+  set, the client instead throws `RetryExhaustedException`, carrying `StatusCode`, `AttemptCount`,
+  `MaxAttemptCount`, `Elapsed` (across every attempt and wait), `Method` and `RequestUri`.
+  **Defaults to false; nothing changes for existing consumers.** The new exception is deliberately not
+  an `ApiException`, so opt in only where that is what you want: code that catches `ApiException` and
+  inspects the status code will not see it. Only the 429/5xx exhaustion path is affected; timeouts
+  still throw `TimeoutException` and non-retryable statuses are still returned on the first attempt.
+
 - Pagination **no longer stops silently** when a response advertises a next page that the client
   cannot follow (issue [#356](https://github.com/panoramicdata/Meraki.Api/issues/356)). The
   `GetAll*Async` helpers required the `rel=next` Link segment to split into exactly two parts on `;`,
