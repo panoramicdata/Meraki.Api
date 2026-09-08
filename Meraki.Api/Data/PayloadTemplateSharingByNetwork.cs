@@ -18,4 +18,12 @@ public class PayloadTemplateSharingByNetwork
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ids")]
 	public List<string>? Ids { get; set; }
+
+	/// <summary>
+	/// Whether the template is shared with every network, rather than with the listed ones
+	/// - Undocumented added 2026-09-09
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "withAll")]
+	public bool? WithAll { get; set; }
 }

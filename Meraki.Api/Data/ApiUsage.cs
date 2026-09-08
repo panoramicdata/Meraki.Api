@@ -70,4 +70,10 @@ public class ApiUsage
 	/// </summary>
 	[DataMember(Name = "version")]
 	public int? Version { get; set; }
+
+	/// <summary>
+	/// The operation the request called, e.g. "getOrganizationNetworks" - Undocumented added 2026-09-09
+	/// </summary>
+	[DataMember(Name = "operationId")]
+	public string? OperationId { get; set; }
 }
