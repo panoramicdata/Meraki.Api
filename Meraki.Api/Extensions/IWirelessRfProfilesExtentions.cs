@@ -21,6 +21,14 @@ public static class IWirelessRfProfilesExtensions
 	/// <param name="serials">Optional parameter to filter RF profiles by one or more device serial numbers. All returned devices will have a serial number that is an exact match.</param>
 	/// <param name="models">Optional parameter to filter RF profiles by one or more device models. All returned devices will have a model that is an exact match.</param>
 	/// <param name="cancellationToken">The cancellation token.</param>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
 	public static Task<List<RfProfilesByDevice>> GetOrganizationWirelessRfProfilesAssignmentsByDeviceAllAsync(
 		this IWirelessRfProfiles wirelessRfProfilesAssignments,
 		string organizationId,

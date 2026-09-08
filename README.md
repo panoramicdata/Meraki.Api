@@ -214,6 +214,26 @@ attempt count, the time spent and the final status. It is off by default and is 
 so existing `catch (ApiException)` handlers will not see it. Per-attempt timeouts that run out of
 attempts throw `TimeoutException`.
 
+## Pagination
+
+Endpoints that return large collections are paginated by the Meraki API using `startingAfter` /
+`endingBefore` cursors and a `Link: rel=next` header. Each such endpoint has a matching `*AllAsync`
+extension method (for example `GetOrganizationNetworksAllAsync`) that follows the links and returns
+the whole collection as one list.
+
+These helpers are **all-or-nothing**. If any page fails, the exception propagates and every page
+already fetched is discarded, so an exception means "no data was returned", never "here is what was
+fetched so far". Two consequences for calling code:
+
+- A 404 from a genuinely empty collection and a 404 on the last of many pages reach the caller as the
+  same `ApiException`. Do not treat an exception from an `*AllAsync` call as an empty result. Code
+  that reconciles a local cache against the returned list should retry or abort on exception rather
+  than delete everything.
+- If the API advertises a next page the client cannot follow, the helpers throw `PaginationException`
+  rather than return a silently truncated list.
+
+Per-page methods (the same name without `All`) return one page and leave cursor handling to you.
+
 ## API Documentation
 
 The Meraki API documentation can be found here:

@@ -21,6 +21,14 @@ public static class ILicensingSubscriptionsExtensions
 	/// <param name="startDate">Filter subscriptions by start date, ISO 8601 format. To filter with a range of dates, use 'startDate[]=?' in the request. Accepted options include lt, gt, lte, gte.</param>
 	/// <param name="endDate">Filter subscriptions by end date, ISO 8601 format. To filter with a range of dates, use 'endDate[]=?' in the request. Accepted options include lt, gt, lte, gte.</param>
 	/// <param name="cancellationToken"></param>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
 	public static Task<List<LicensingSubscriptionSubscription>> GetAdministeredLicensingSubscriptionSubscriptionsAllAsync(
 		this ILicensingSubscriptions licensingSubscriptions,
 		List<string>? subscriptionIds,

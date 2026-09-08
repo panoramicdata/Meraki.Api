@@ -20,6 +20,14 @@ public static class OrganizationsDeviceSectionExtensions
 	/// <param name="tags">An optional parameter to filter devices by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return devices which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
 	/// <param name="cancellationToken"></param>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
 	public static Task<List<OrganizationDeviceStatus>> GetOrganizationDevicesStatusesAllAsync(
 		this OrganizationsDeviceSection organizationDevices,
 		string organizationId,
@@ -62,6 +70,14 @@ public static class OrganizationsDeviceSectionExtensions
 	/// <param name="tags">An optional parameter to filter devices by tags. The filtering is case-sensitive. If tags are included, 'tagsFilterType' should also be included (see below).</param>
 	/// <param name="tagsFilterType">An optional parameter of value 'withAnyTags' or 'withAllTags' to indicate whether to return devices which contain ANY or ALL of the included tags. If no type is included, 'withAnyTags' will be selected.</param>
 	/// <param name="cancellationToken"></param>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
 	public static Task<List<DeviceProvisioningStatus>> GetOrganizationDevicesProvisioningStatusesAllAsync(
 		this OrganizationsDeviceSection organizationDevices,
 		string organizationId,
@@ -110,6 +126,14 @@ public static class OrganizationsDeviceSectionExtensions
 	/// <param name="sensorAlertProfileIds">Optional parameter to filter devices by the alert profiles that are bound to them. Only applies to sensor devices.</param>
 	/// <param name="models">Optional parameter to filter devices by one or more models. All returned devices will have a model that is an exact match</param>
 	/// <param name="cancellationToken"></param>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
 	public static Task<List<OrganizationDevice>> GetOrganizationDevicesAllAsync(
 		this OrganizationsDeviceSection organizationDevices,
 		string organizationId,
