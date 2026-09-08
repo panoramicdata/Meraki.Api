@@ -1,95 +1,67 @@
 ﻿# Changelog
 
-## Unreleased
+## 1.70.127
 
 - **Every section and Refit client on `MerakiClient` is now wired** (issue
-  [#357](https://github.com/panoramicdata/Meraki.Api/issues/357)). The constructor is a hand-maintained
-  mirror of a 134-class section tree and had drifted: 82 Refit interface properties and 4 sub-section
-  objects (`Devices.Appliance`, `Devices.Wireless`, `Networks.Switch`,
-  `Organizations.Certificates.RadSec`) were left null, so roughly a fifth of the client surface threw
-  `NullReferenceException` on first use. All 86 are now assigned. Two credential-free tests prevent
-  recurrence: `MerakiClientSectionCensusTests.Constructor_LeavesNoSectionOrRefitClientNull` walks the
-  whole tree by reflection and fails on any null, and `EveryRefitInterface_CanBeConstructed` builds
-  every Refit interface in the assembly. The second test found one more defect: `Refit.Reflection` was
-  never referenced, so the RF006 fallback the project relies on did not exist at runtime and
-  `IOrganizationsCameraDetections` could not be constructed at all. It is now referenced. Constructing
-  a `MerakiClient` builds about 90 more Refit proxies than before, which adds a few tens of
-  milliseconds per instance; code that constructs a client per call may want to reuse one.
+  [#357](https://github.com/panoramicdata/Meraki.Api/issues/357)). The hand-maintained constructor had
+  drifted from the 134-class section tree: 82 Refit interface properties and 4 sub-sections
+  (`Devices.Appliance`, `Devices.Wireless`, `Networks.Switch`, `Organizations.Certificates.RadSec`)
+  were null, so roughly a fifth of the client surface threw `NullReferenceException` on first use. Two
+  credential-free tests now walk the tree by reflection and construct every Refit interface, so this
+  cannot recur. The latter also found that `Refit.Reflection` was never referenced, leaving
+  `IOrganizationsCameraDetections` unconstructable; it is now referenced. Constructing a client builds
+  about 90 more Refit proxies, adding a few tens of milliseconds per instance, so reuse one where possible.
 
 - Documented that the `*AllAsync` pagination helpers are **all-or-nothing**
   (issue [#355](https://github.com/panoramicdata/Meraki.Api/issues/355), first step). If any page
-  fails, the exception propagates and the pages already fetched are discarded, so an exception means
-  "no data was returned", never "here is what was fetched so far". Because the Meraki API answers 404
-  for some genuinely empty collections, a 404 on the last of many pages is indistinguishable at the
-  call site from an empty result; callers reconciling a local cache must not treat an exception as
-  "empty". The 27 `*AllAsync` extension methods, the six underlying `GetAll*Async` pager methods and
-  the README now say so. **No behaviour changed.** Attaching the partial results to the exception,
-  so the two cases can be told apart, is a separate decision.
+  fails, the exception propagates and already-fetched pages are discarded. Because Meraki answers 404
+  for some genuinely empty collections, a 404 on a late page is indistinguishable from an empty result,
+  so callers must not treat an exception as "empty". The 27 `*AllAsync` methods, the six `GetAll*Async`
+  pagers and the README now say so. **No behaviour changed.**
 
 - New opt-in `MerakiClientOptions.ThrowOnRetryExhaustion`
-  (issue [#375](https://github.com/panoramicdata/Meraki.Api/issues/375)). When every permitted attempt
-  ends in a retryable status (429, 502, 503 or 504), the client has always returned the final response,
-  so Refit raised an `ApiException` indistinguishable from a first-attempt failure with the same
-  status; the attempt count and time spent were logged but never reached the caller. With the option
-  set, the client instead throws `RetryExhaustedException`, carrying `StatusCode`, `AttemptCount`,
-  `MaxAttemptCount`, `Elapsed` (across every attempt and wait), `Method` and `RequestUri`.
-  **Defaults to false; nothing changes for existing consumers.** The new exception is deliberately not
-  an `ApiException`, so opt in only where that is what you want: code that catches `ApiException` and
-  inspects the status code will not see it. Only the 429/5xx exhaustion path is affected; timeouts
-  still throw `TimeoutException` and non-retryable statuses are still returned on the first attempt.
+  (issue [#375](https://github.com/panoramicdata/Meraki.Api/issues/375)). When every attempt ends in a
+  retryable status (429, 502, 503, 504), the client returned the final response, so the resulting
+  `ApiException` was indistinguishable from a first-attempt failure. With the option set, it instead
+  throws `RetryExhaustedException` carrying `StatusCode`, `AttemptCount`, `MaxAttemptCount`, `Elapsed`,
+  `Method` and `RequestUri`. **Defaults to false.** The new exception is deliberately not an
+  `ApiException`, so code that catches `ApiException` will not see it. Timeouts still throw
+  `TimeoutException` and non-retryable statuses are still returned.
 
-- Pagination **no longer stops silently** when a response advertises a next page that the client
-  cannot follow (issue [#356](https://github.com/panoramicdata/Meraki.Api/issues/356)). The
-  `GetAll*Async` helpers required the `rel=next` Link segment to split into exactly two parts on `;`,
-  so a segment with any additional attribute (for example a `title`) was treated as "no next page" and
-  the pages fetched so far were returned as a complete, successful result. The caller had no way to
-  tell that list from a genuinely complete one. The parser now takes the first component as the URL
-  and scans the rest for the `rel` attribute (quoted or not), so such links are followed. Where a
-  `rel=next` link is present but its URL is missing or not absolute, the helpers throw the new
-  `PaginationException` instead of returning truncated data, because a caller can retry but cannot
-  detect a silent shortfall. The Link parser is now shared with the `QueryAsync` auto-pagination,
-  which had the same silent-stop path. Two or more `rel=next` segments no longer throw
-  `InvalidOperationException`; the first is used.
+- Pagination **no longer stops silently** on a `rel=next` link the client cannot follow
+  (issue [#356](https://github.com/panoramicdata/Meraki.Api/issues/356)). The Link parser required
+  exactly one attribute per segment, so a link with an extra attribute (e.g. `title`) was treated as
+  "no next page" and a truncated list was returned as complete. The parser now accepts any attributes
+  and is shared with `QueryAsync` auto-pagination, which had the same flaw. A `rel=next` link whose URL
+  is missing or relative now throws the new `PaginationException` rather than returning partial data.
+  Multiple `rel=next` segments no longer throw; the first is used.
 
 - A caller's `CancellationToken` now **aborts an in-flight HTTP attempt** immediately
-  (issue [#391](https://github.com/panoramicdata/Meraki.Api/issues/391)). Each attempt was sent with
-  only the handler's own per-attempt timeout token, so although every wait *between* attempts already
-  honoured the caller's token, cancelling during an attempt still meant waiting out the rest of
-  `HttpClientInnerTimeoutSeconds` (default 25 seconds). The per-attempt token is now linked to the
-  caller's, so either ends the attempt. Timeout detection is unchanged: an attempt that ends because of
-  the inner timeout is still retried, and one that ends because the caller cancelled still surfaces as
-  `OperationCanceledException`. Note that cancellation observed between attempts throws a plain
-  `OperationCanceledException`, while cancellation observed inside `HttpClient` throws its subclass
-  `TaskCanceledException`; consumers should catch the base type.
+  (issue [#391](https://github.com/panoramicdata/Meraki.Api/issues/391)). Previously only the waits
+  between attempts honoured it, so cancelling mid-attempt waited out the rest of
+  `HttpClientInnerTimeoutSeconds` (default 25 s). Timeout detection is unchanged: inner timeouts are
+  still retried and caller cancellation still surfaces as `OperationCanceledException`. Cancellation
+  inside `HttpClient` throws its subclass `TaskCanceledException`, so catch the base type.
 
 - `MerakiClient` now calls `MerakiClientOptions.Validate()` in its constructor
-  (issue [#377](https://github.com/panoramicdata/Meraki.Api/issues/377)). Previously only
-  `MerakiMcpClient` validated its options, so the two clients disagreed about what a valid
-  configuration was: a `MerakiClient` with no credentials was accepted and failed on its first request
-  with `InvalidOperationException`, one with both `ApiKey` and `AccessToken` set was accepted silently,
-  and negative timeouts reached `CancellationTokenSource`. All of these now throw
-  `ConfigurationException` from `new MerakiClient(...)`. `Validate()` additionally rejects
-  `MaxAttemptCount` below 1 (which silently disabled retries) and `HttpClientTimeoutSeconds` of zero or
-  less. **Behaviour change:** a client built with an empty `ApiKey` now fails at construction rather
-  than on first use. Such a client could never have made a successful call, but code that constructs
-  clients speculatively, before a key is known, should now construct them lazily.
+  (issue [#377](https://github.com/panoramicdata/Meraki.Api/issues/377)), as `MerakiMcpClient` already
+  did. Missing credentials, both `ApiKey` and `AccessToken` set, negative timeouts,
+  `MaxAttemptCount` below 1 and `HttpClientTimeoutSeconds` of zero or less now throw
+  `ConfigurationException` from `new MerakiClient(...)`. **Behaviour change:** a client with an empty
+  `ApiKey` fails at construction rather than on first use; construct clients lazily if the key is not
+  yet known.
 
 - Documented how the retry options interact and why the defaults are what they are
-  (issue [#378](https://github.com/panoramicdata/Meraki.Api/issues/378)). The XML comment on
-  `MaxBackOffDelaySeconds` claimed the back-off "doubles on each attempt", which describes
-  `BackOffDelayFactor = 2.0` rather than the shipped default of 1.0, and `MaxAttemptCount` had no
-  description at all. Both now state what actually happens: at the defaults the delay is flat (the
-  server's `Retry-After`, or one second), and `HttpClientTimeoutSeconds` rather than `MaxAttemptCount`
-  is what ends a call the API keeps throttling. The README gains a "Retries, back-off and rate
-  limiting" section with a fail-fast example. **No default or behaviour changed.** The persistent
-  defaults are deliberate: Meraki's limit is shared per organization with aggressive consumers such as
-  Splunk, and the most reliable way to get a call through is to keep re-asking.
+  (issue [#378](https://github.com/panoramicdata/Meraki.Api/issues/378)). The `MaxBackOffDelaySeconds`
+  comment wrongly claimed the delay doubles (that is `BackOffDelayFactor = 2.0`, not the default 1.0)
+  and `MaxAttemptCount` was undocumented. Both now describe actual behaviour: a flat delay at the
+  defaults, with `HttpClientTimeoutSeconds` ending a throttled call. The README gains a "Retries,
+  back-off and rate limiting" section with a fail-fast example. **No default or behaviour changed.**
 
 - `OrganizationApplianceUplinksUsageByNetworkItemByUplinkItem.Sent` and `.Received` are now `long`
-  (issue [#360](https://github.com/panoramicdata/Meraki.Api/issues/360)). They hold cumulative byte
-  counts for a window of up to 31 days, which routinely exceed `Int32.MaxValue` (about 2.1 GB) on a
-  busy uplink; the response then failed to deserialize and the whole call threw. Binary-compatible for
-  callers using `var`; a source break only for code that declared the property type as `int` explicitly.
+  (issue [#360](https://github.com/panoramicdata/Meraki.Api/issues/360)). Cumulative byte counts over
+  up to 31 days routinely exceed `Int32.MaxValue`, which made the whole call fail to deserialize. Source
+  break only for code that declared the type as `int` explicitly.
 
 - **BREAKING: the `netstandard2.0` target has been dropped. This package now targets `net10.0` only.**
   Consumers who need `netstandard2.0` should stay on 1.70.79.
