@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- Documented how the retry options interact and why the defaults are what they are
+  (issue [#378](https://github.com/panoramicdata/Meraki.Api/issues/378)). The XML comment on
+  `MaxBackOffDelaySeconds` claimed the back-off "doubles on each attempt", which describes
+  `BackOffDelayFactor = 2.0` rather than the shipped default of 1.0, and `MaxAttemptCount` had no
+  description at all. Both now state what actually happens: at the defaults the delay is flat (the
+  server's `Retry-After`, or one second), and `HttpClientTimeoutSeconds` rather than `MaxAttemptCount`
+  is what ends a call the API keeps throttling. The README gains a "Retries, back-off and rate
+  limiting" section with a fail-fast example. **No default or behaviour changed.** The persistent
+  defaults are deliberate: Meraki's limit is shared per organization with aggressive consumers such as
+  Splunk, and the most reliable way to get a call through is to keep re-asking.
+
 - `OrganizationApplianceUplinksUsageByNetworkItemByUplinkItem.Sent` and `.Received` are now `long`
   (issue [#360](https://github.com/panoramicdata/Meraki.Api/issues/360)). They hold cumulative byte
   counts for a window of up to 31 days, which routinely exceed `Int32.MaxValue` (about 2.1 GB) on a

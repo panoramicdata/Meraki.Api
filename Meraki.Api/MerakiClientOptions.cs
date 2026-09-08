@@ -44,26 +44,79 @@ public class MerakiClientOptions
 	public string? AccessToken { get; set; }
 
 	/// <summary>
-	/// Allow overriding the HttpClient Timeout - defaults to 600 seconds
+	/// The overall <see cref="HttpClient.Timeout"/> in seconds. Defaults to 600.
 	/// </summary>
+	/// <remarks>
+	/// This bounds a single logical call <b>including every retry and back-off wait</b>, so at the
+	/// default retry settings it is this timeout, not <see cref="MaxAttemptCount"/>, that ends a request
+	/// the API keeps throttling. It surfaces as a <see cref="TaskCanceledException"/> from
+	/// <see cref="HttpClient"/>. For the timeout applied to each individual attempt see
+	/// <see cref="HttpClientInnerTimeoutSeconds"/>. See <see cref="MaxAttemptCount"/> for how the
+	/// retry options fit together.
+	/// </remarks>
 	public int HttpClientTimeoutSeconds { get; set; } = 600;
 
 	/// <summary>
-	/// When a 429 HttpStatus code is sent, the back-off duration doubles on each attempt.
-	/// This option sets the maximum back-off duration. Defaults to 30
+	/// The longest the client will wait between attempts, in seconds. Defaults to 30.
 	/// </summary>
+	/// <remarks>
+	/// Caps the delay computed from <see cref="BackOffDelayFactor"/> and the server's
+	/// <c>Retry-After</c> header, and also caps the jitter added to that delay. It is the ceiling on
+	/// growth, not the cause of it: with the default <see cref="BackOffDelayFactor"/> of 1.0 the delay
+	/// does not grow at all, so this cap only comes into play where <c>Retry-After</c> exceeds it. See
+	/// <see cref="MaxAttemptCount"/> for how the retry options fit together.
+	/// </remarks>
 	public int MaxBackOffDelaySeconds { get; set; } = 30;
 
 	/// <summary>
-	/// This is the exponential factor by which the API Retry-After duration is increased on each attempt.
-	/// e.g. 1.0 = no change, 1.5 = 50% increase, 2.0 = double
-	/// Defaults to 1.0
+	/// The base of the exponential back-off between attempts. Defaults to 1.0, which is a flat delay.
 	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// Before attempt <i>n</i> the client waits
+	/// <c>min(max(BackOffDelayFactor^(n-1), Retry-After), MaxBackOffDelaySeconds)</c> seconds, plus a
+	/// small upward jitter. The exponential term never falls below one second and is measured in
+	/// seconds, so it is independent of <c>Retry-After</c> rather than a multiplier on it.
+	/// </para>
+	/// <para>
+	/// At the default of 1.0 the exponential term is always exactly one second, so the wait is simply
+	/// <c>Retry-After</c> (or one second where the server sends none), capped at
+	/// <see cref="MaxBackOffDelaySeconds"/>. This is deliberate: see <see cref="MaxAttemptCount"/>.
+	/// A value of 2.0 doubles the delay on every attempt until it reaches the cap; 1.5 grows it by half.
+	/// </para>
+	/// </remarks>
 	public double BackOffDelayFactor { get; set; } = 1.0;
 
 	/// <summary>
-	/// When retrying
+	/// The maximum number of attempts made for a single call before the client gives up. Defaults to 500.
 	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// Applies to HTTP 429 and 502/503/504 responses, to per-attempt timeouts
+	/// (<see cref="HttpClientInnerTimeoutSeconds"/>) and to transient connection failures. Other status
+	/// codes are returned to the caller on the first attempt. When attempts run out the client returns
+	/// the last response, so Refit raises an ordinary <see cref="ApiException"/> carrying that status.
+	/// </para>
+	/// <para>
+	/// <b>Why the defaults are 500 attempts with a flat, roughly one-second delay.</b> Meraki's rate
+	/// limit is per organization and is shared with every other consumer of that organization's API,
+	/// including monitoring tools such as Splunk that poll it aggressively. Against a saturated
+	/// organization, growing back-off is counter-productive: the longer this client waits, the more of
+	/// the budget the other consumers take. The most reliable way to get a call through is to keep
+	/// re-asking, honouring <c>Retry-After</c> each time, until a slot opens. The defaults are therefore
+	/// tuned so that a call <i>most likely completes</i>, at the cost of possibly taking a long time.
+	/// </para>
+	/// <para>
+	/// The practical bound on that time is <see cref="HttpClientTimeoutSeconds"/> (default 600
+	/// seconds), which spans all attempts. At the defaults a throttled call ends with a
+	/// <see cref="TaskCanceledException"/> from that timeout before attempt 500 is ever reached.
+	/// </para>
+	/// <para>
+	/// <b>To fail fast instead</b>, lower <see cref="MaxAttemptCount"/> (for example to 5 or 10) and,
+	/// if you want the delay to grow between those attempts, set <see cref="BackOffDelayFactor"/> above
+	/// 1.0. Consider also lowering <see cref="HttpClientTimeoutSeconds"/> so the overall bound matches.
+	/// </para>
+	/// </remarks>
 	public int MaxAttemptCount { get; set; } = 500;
 
 	/// <summary>
@@ -93,9 +146,14 @@ public class MerakiClientOptions
 	public Action<Type, JsonSerializationException, string>? JsonMissingMemberAction { get; set; }
 
 	/// <summary>
-	/// The inner HttpClient timeout in seconds.  This is used to set the Timeout on the inner HttpClient used to make requests.
-	/// Increase this if you are making requests that take a long time to complete.
+	/// The timeout applied to each individual attempt, in seconds. Defaults to 25.
 	/// </summary>
+	/// <remarks>
+	/// An attempt that exceeds this is abandoned, waited out using the back-off settings, and retried
+	/// up to <see cref="MaxAttemptCount"/> times, after which a <see cref="TimeoutException"/> is thrown.
+	/// Increase this if you call endpoints that legitimately take a long time to respond. Contrast with
+	/// <see cref="HttpClientTimeoutSeconds"/>, which bounds the whole call across all attempts.
+	/// </remarks>
 	public double HttpClientInnerTimeoutSeconds { get; set; } = 25;
 
 	/// <summary>
