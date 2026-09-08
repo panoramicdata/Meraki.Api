@@ -103,48 +103,21 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 					return httpResponseMessage;
 				}
 
-				// Try up to the maximum retry count.
-				if (attemptCount >= _options.MaxAttemptCount)
-				{
-#pragma warning disable CA1873 // Avoid potentially expensive logging
-					_logger.LogInformation(
-						"{LogPrefix}Giving up retrying. Returning {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
-						logPrefix,
-						statusCodeInt,
-						attemptCount,
-						_options.MaxAttemptCount,
-						request.Method.ToString(),
-						request.RequestUri);
-
-					if (!_options.ThrowOnRetryExhaustion)
-					{
-						return httpResponseMessage;
-					}
-
-					// The caller asked to be told about exhaustion explicitly rather than receive a
-					// response indistinguishable from a first-attempt failure.
-					httpResponseMessage.Dispose();
-					throw new RetryExhaustedException(
-						httpResponseMessage.StatusCode,
-						attemptCount,
-						_options.MaxAttemptCount,
-						totalStopwatch.Elapsed,
-						request.Method,
-						request.RequestUri);
-				}
-
-				_logger.LogInformation(
-					"{LogPrefix}Received {StatusCode} on attempt {AttemptCount}/{MaxAttemptCount} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
-					logPrefix,
+				// Non-null means the retry budget is spent and this is the caller's answer.
+				var exhausted = await WaitOrGiveUpAsync(
+					httpResponseMessage,
 					statusCodeInt,
 					attemptCount,
-					_options.MaxAttemptCount,
-					delay.TotalSeconds,
-					request.Method.ToString(),
-					request.RequestUri);
-#pragma warning restore CA1873 // Avoid potentially expensive logging
-
-				await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
+					delay,
+					logPrefix,
+					request,
+					totalStopwatch,
+					cancellationToken)
+					.ConfigureAwait(false);
+				if (exhausted is not null)
+				{
+					return exhausted;
+				}
 			}
 			finally
 			{
@@ -153,6 +126,71 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 			}
 		}
 	}
+
+	/// <summary>
+	/// Waits out the back-off before the next attempt, or ends the retry loop when the budget is
+	/// spent.
+	/// </summary>
+	/// <returns>
+	/// The response the caller should receive when no attempts remain, or null once the wait is over
+	/// and another attempt is due. Throws <see cref="RetryExhaustedException"/> instead of returning
+	/// where the caller opted into that.
+	/// </returns>
+#pragma warning disable CA1873 // Avoid potentially expensive logging
+	private async Task<HttpResponseMessage?> WaitOrGiveUpAsync(
+		HttpResponseMessage httpResponseMessage,
+		int statusCodeInt,
+		int attemptCount,
+		TimeSpan delay,
+		string logPrefix,
+		HttpRequestMessage request,
+		Stopwatch totalStopwatch,
+		CancellationToken cancellationToken)
+	{
+		// Try up to the maximum retry count.
+		if (attemptCount >= _options.MaxAttemptCount)
+		{
+			_logger.LogInformation(
+				"{LogPrefix}Giving up retrying. Returning {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+				logPrefix,
+				statusCodeInt,
+				attemptCount,
+				_options.MaxAttemptCount,
+				request.Method.ToString(),
+				request.RequestUri);
+
+			if (!_options.ThrowOnRetryExhaustion)
+			{
+				return httpResponseMessage;
+			}
+
+			// The caller asked to be told about exhaustion explicitly rather than receive a
+			// response indistinguishable from a first-attempt failure.
+			httpResponseMessage.Dispose();
+			throw new RetryExhaustedException(
+				httpResponseMessage.StatusCode,
+				attemptCount,
+				_options.MaxAttemptCount,
+				totalStopwatch.Elapsed,
+				request.Method,
+				request.RequestUri);
+		}
+
+		_logger.LogInformation(
+			"{LogPrefix}Received {StatusCode} on attempt {AttemptCount}/{MaxAttemptCount} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
+			logPrefix,
+			statusCodeInt,
+			attemptCount,
+			_options.MaxAttemptCount,
+			delay.TotalSeconds,
+			request.Method.ToString(),
+			request.RequestUri);
+
+		await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
+
+		return null;
+	}
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 
 	/// <summary>
 	/// Rejects requests that the configured options do not allow to be sent at all.
@@ -218,47 +256,9 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 		// Catch any timeouts from the new cancellationToken
 		catch (OperationCanceledException) when (timeoutToken.IsCancellationRequested && !cancellationToken.IsCancellationRequested)
 		{
-			// This was a timeout from our timeout token, not the original cancellation token
-			// So we'll treat this as a timeout and retry
-			if (attemptCount >= _options.MaxAttemptCount)
-			{
-				_logger.LogError(
-					"{LogPrefix}Giving up retrying. Timed out after {TimeoutSeconds:N1} seconds on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
-					logPrefix,
-					_options.HttpClientInnerTimeoutSeconds,
-					attemptCount,
-					_options.MaxAttemptCount,
-					request.Method.ToString(),
-					request.RequestUri
-					);
-				throw new TimeoutException($"The request timed out after multiple attempts ({_options.MaxAttemptCount}).");
-			}
-
-			// Back off before retrying. A timeout usually means the far end is slow because it is
-			// under load, so returning immediately is the least helpful response available, and it
-			// is the one case where we have already waited HttpClientInnerTimeoutSeconds and so have
-			// the least reason to expect the next attempt to be quicker. Every other retry path in
-			// this method pauses first.
-			//
-			// There is no Retry-After to honour here, so pass zero and let the configured back-off
-			// factor govern, rather than introducing another magic number.
-			var timeoutDelay = ApplyJitter(
-				CalculateBackoffDelay(attemptCount, retryAfterSeconds: 0, _options.BackOffDelayFactor, _options.MaxBackOffDelaySeconds),
-				_options.MaxBackOffDelaySeconds,
-				GetJitterRandom());
-
-			_logger.LogWarning(
-				"{LogPrefix}Timed out after {TimeoutSeconds:N1} seconds on attempt {AttemptCount}/{MaxAttemptCount} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
-				logPrefix,
-				_options.HttpClientInnerTimeoutSeconds,
-				attemptCount,
-				_options.MaxAttemptCount,
-				timeoutDelay.TotalSeconds,
-				request.Method.ToString(),
-				request.RequestUri
-				);
-
-			await Task.Delay(timeoutDelay, cancellationToken).ConfigureAwait(false);
+			// This was a timeout from our timeout token, not the original cancellation token,
+			// so treat it as a timeout and retry.
+			await WaitAfterTimeoutAsync(request, logPrefix, attemptCount, cancellationToken).ConfigureAwait(false);
 			return null;
 		}
 		// This is a common error that seems to occur when contacting meraki nodes, so we log it as a warning and retry
@@ -304,6 +304,57 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 				.ConfigureAwait(false);
 			return null;
 		}
+	}
+
+	/// <summary>
+	/// Logs an attempt timeout and waits out the back-off, or gives up once no attempts remain.
+	/// </summary>
+	/// <exception cref="TimeoutException">Thrown when every attempt timed out.</exception>
+	private Task WaitAfterTimeoutAsync(
+		HttpRequestMessage request,
+		string logPrefix,
+		int attemptCount,
+		CancellationToken cancellationToken)
+	{
+		if (attemptCount >= _options.MaxAttemptCount)
+		{
+			_logger.LogError(
+				"{LogPrefix}Giving up retrying. Timed out after {TimeoutSeconds:N1} seconds on attempt {AttemptCount}/{MaxAttemptCount}. ({Method} - {Url})",
+				logPrefix,
+				_options.HttpClientInnerTimeoutSeconds,
+				attemptCount,
+				_options.MaxAttemptCount,
+				request.Method.ToString(),
+				request.RequestUri
+				);
+			throw new TimeoutException($"The request timed out after multiple attempts ({_options.MaxAttemptCount}).");
+		}
+
+		// Back off before retrying. A timeout usually means the far end is slow because it is
+		// under load, so returning immediately is the least helpful response available, and it
+		// is the one case where we have already waited HttpClientInnerTimeoutSeconds and so have
+		// the least reason to expect the next attempt to be quicker. Every other retry path
+		// pauses first.
+		//
+		// There is no Retry-After to honour here, so pass zero and let the configured back-off
+		// factor govern, rather than introducing another magic number.
+		var timeoutDelay = ApplyJitter(
+			CalculateBackoffDelay(attemptCount, retryAfterSeconds: 0, _options.BackOffDelayFactor, _options.MaxBackOffDelaySeconds),
+			_options.MaxBackOffDelaySeconds,
+			GetJitterRandom());
+
+		_logger.LogWarning(
+			"{LogPrefix}Timed out after {TimeoutSeconds:N1} seconds on attempt {AttemptCount}/{MaxAttemptCount} - Waiting {TotalSeconds:N2}s. ({Method} - {Url})",
+			logPrefix,
+			_options.HttpClientInnerTimeoutSeconds,
+			attemptCount,
+			_options.MaxAttemptCount,
+			timeoutDelay.TotalSeconds,
+			request.Method.ToString(),
+			request.RequestUri
+			);
+
+		return Task.Delay(timeoutDelay, cancellationToken);
 	}
 
 	private static bool IsConnectionReset(HttpRequestException ex)

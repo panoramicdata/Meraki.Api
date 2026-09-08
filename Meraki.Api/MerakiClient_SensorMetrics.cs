@@ -33,7 +33,8 @@ public partial class MerakiClient
 	/// </summary>
 	private static List<SensorRange> GetTemperatureRanges()
 		=>
-		[
+		new()
+		{
 			new() {
 				Name = "Inadequate",
 				Type = SensorRangeType.Low,
@@ -78,14 +79,15 @@ public partial class MerakiClient
 				Name = "Inadequate",
 				Type = SensorRangeType.High,
 			}
-		];
+		};
 
 	/// <summary>
 	/// The Humidity reading ranges shown on the Meraki Dashboard Sensor Readings page.
 	/// </summary>
 	private static List<SensorRange> GetHumidityRanges()
 		=>
-		[
+		new()
+		{
 			new() {
 				Name = "Inadequate",
 				Type = SensorRangeType.Low,
@@ -130,14 +132,15 @@ public partial class MerakiClient
 				Name = "Inadequate",
 				Type = SensorRangeType.High,
 			}
-		];
+		};
 
 	/// <summary>
 	/// The Tvoc reading ranges shown on the Meraki Dashboard Sensor Readings page.
 	/// </summary>
 	private static List<SensorRange> GetTvocRanges()
 		=>
-		[
+		new()
+		{
 			new() {
 				Name = "Excellent",
 				Type = SensorRangeType.Ok,
@@ -162,14 +165,15 @@ public partial class MerakiClient
 				Name = "Inadequate",
 				Type = SensorRangeType.High,
 			}
-		];
+		};
 
 	/// <summary>
 	/// The Pm25 reading ranges shown on the Meraki Dashboard Sensor Readings page.
 	/// </summary>
 	private static List<SensorRange> GetPm25Ranges()
 		=>
-		[
+		new()
+		{
 			new() {
 				Name = "Excellent",
 				Type = SensorRangeType.Ok,
@@ -194,14 +198,15 @@ public partial class MerakiClient
 				Name = "Inadequate",
 				Type = SensorRangeType.High,
 			}
-		];
+		};
 
 	/// <summary>
 	/// The Noise reading ranges shown on the Meraki Dashboard Sensor Readings page.
 	/// </summary>
 	private static List<SensorRange> GetNoiseRanges()
 		=>
-		[
+		new()
+		{
 			new() {
 				Name = "Excellent",
 				Type = SensorRangeType.Ok,
@@ -226,7 +231,7 @@ public partial class MerakiClient
 				Name = "Inadequate",
 				Type = SensorRangeType.High,
 			}
-		];
+		};
 
 	private static double? FarenheitToCelsius(int farenheit)
 		=> (farenheit - 32) * 5 / 9;

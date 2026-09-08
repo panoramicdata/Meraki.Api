@@ -41,43 +41,18 @@ public static class SheetOutput
 		string path,
 		KeyValuePair<OperationType, OpenApiOperation> pathOperation)
 	{
-		// Look for a matching operation
-		var refitMethod = pathOperation.Key.ToHttpMethod();
-		List<MethodDetails>? pathImplementations = null;
-		_ = (implementedEndpoints?.TryGetValue(path, out pathImplementations));
-		var existingImplementations = pathImplementations?
-			.Where(e => e.RefitAttribute.Method == refitMethod)
-			.ToList();
-
+		var existingImplementations = FindImplementations(implementedEndpoints, path, pathOperation.Key);
 		var tags = string.Join(", ", pathOperation.Value.Tags.Select(t => t.Name));
 
 		if (existingImplementations is null || existingImplementations.Count == 0)
 		{
-			endpointSet.MissingEndpoints.Add(new()
-			{
-				Method = pathOperation.Key.ToString(),
-				Endpoint = path,
-				OperationId = pathOperation.Value.OperationId,
-				Tags = tags,
-			});
+			AddMissing(endpointSet, path, pathOperation, tags);
 			return;
 		}
 
 		if (existingImplementations.Count > 1)
 		{
-			foreach (var duplicateImplementation in existingImplementations)
-			{
-				endpointSet.DuplicatedEndpoints.Add(new()
-				{
-					Method = pathOperation.Key.ToString(),
-					Endpoint = path,
-					OperationId = pathOperation.Value.OperationId,
-					Tags = tags,
-					Implementation = duplicateImplementation.Method.Name ?? string.Empty,
-				});
-				_ = (implementedEndpoints?[path].Remove(duplicateImplementation));
-			}
-
+			AddDuplicates(endpointSet, implementedEndpoints, path, pathOperation, tags, existingImplementations);
 			return;
 		}
 
@@ -97,6 +72,62 @@ public static class SheetOutput
 			Schema = DescribeResponseSchema(pathOperation.Value, singleImplementation)
 		});
 		_ = (implementedEndpoints?[path].Remove(singleImplementation));
+	}
+
+	/// <summary>
+	/// The implementations registered for a path whose Refit verb matches the operation's.
+	/// </summary>
+	private static List<MethodDetails>? FindImplementations(
+		Dictionary<string, List<MethodDetails>>? implementedEndpoints,
+		string path,
+		OperationType operationType)
+	{
+		var refitMethod = operationType.ToHttpMethod();
+		List<MethodDetails>? pathImplementations = null;
+		_ = (implementedEndpoints?.TryGetValue(path, out pathImplementations));
+
+		return pathImplementations?
+			.Where(e => e.RefitAttribute.Method == refitMethod)
+			.ToList();
+	}
+
+	private static void AddMissing(
+		EndpointSet endpointSet,
+		string path,
+		KeyValuePair<OperationType, OpenApiOperation> pathOperation,
+		string tags)
+		=> endpointSet.MissingEndpoints.Add(new()
+		{
+			Method = pathOperation.Key.ToString(),
+			Endpoint = path,
+			OperationId = pathOperation.Value.OperationId,
+			Tags = tags,
+		});
+
+	/// <summary>
+	/// Files every implementation of an operation that has more than one, and takes each out of the
+	/// pool so it is not also reported as an implementation without an endpoint.
+	/// </summary>
+	private static void AddDuplicates(
+		EndpointSet endpointSet,
+		Dictionary<string, List<MethodDetails>>? implementedEndpoints,
+		string path,
+		KeyValuePair<OperationType, OpenApiOperation> pathOperation,
+		string tags,
+		List<MethodDetails> existingImplementations)
+	{
+		foreach (var duplicateImplementation in existingImplementations)
+		{
+			endpointSet.DuplicatedEndpoints.Add(new()
+			{
+				Method = pathOperation.Key.ToString(),
+				Endpoint = path,
+				OperationId = pathOperation.Value.OperationId,
+				Tags = tags,
+				Implementation = duplicateImplementation.Method.Name ?? string.Empty,
+			});
+			_ = (implementedEndpoints?[path].Remove(duplicateImplementation));
+		}
 	}
 
 	/// <summary>

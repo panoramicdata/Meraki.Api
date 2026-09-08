@@ -6,6 +6,9 @@ namespace Meraki.Api.Test.Mcp;
 /// <summary>
 /// Capability execution, payload-level errors and response envelope unwrapping.
 /// </summary>
+// Codacy analyses each file on its own, so it cannot see the other parts of this class and
+// reports 'partial' as gratuitous (S2333). The parts are the sibling MerakiMcpClientTests files.
+#pragma warning disable S2333
 public partial class MerakiMcpClientTests
 {
 	// ---------------------------------------------------------------- execute api
@@ -379,3 +382,4 @@ public partial class MerakiMcpClientTests
 		public string Serial { get; set; } = string.Empty;
 	}
 }
+#pragma warning restore S2333

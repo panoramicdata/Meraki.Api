@@ -1,4 +1,4 @@
-using Meraki.Api.Exceptions;
+﻿using Meraki.Api.Exceptions;
 using Microsoft.Extensions.Logging.Abstractions;
 using System.Net;
 
@@ -108,7 +108,10 @@ public class RetryExhaustionTests
 	{
 		public int Attempts { get; private set; }
 
+		// S1172: the signature is HttpMessageHandler's, so the unused token cannot be removed.
+#pragma warning disable S1172 // Unused method parameters should be removed
 		protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+#pragma warning restore S1172 // Unused method parameters should be removed
 		{
 			Attempts++;
 			var response = new HttpResponseMessage(status)

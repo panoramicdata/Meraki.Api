@@ -6,6 +6,9 @@ namespace Meraki.Api.Test.Mcp;
 /// <summary>
 /// Tool catalogue drift, status reporting, session lifecycle, statistics and disposal.
 /// </summary>
+// Codacy analyses each file on its own, so it cannot see the other parts of this class and
+// reports 'partial' as gratuitous (S2333). The parts are the sibling MerakiMcpClientTests files.
+#pragma warning disable S2333
 public partial class MerakiMcpClientTests
 {
 	// ---------------------------------------------------------------- tool catalogue drift
@@ -356,3 +359,4 @@ public partial class MerakiMcpClientTests
 		_ = await status.Should().ThrowAsync<ObjectDisposedException>();
 	}
 }
+#pragma warning restore S2333

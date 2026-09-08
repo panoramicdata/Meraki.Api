@@ -6,6 +6,9 @@ namespace Meraki.Api.Test.Mcp;
 /// <summary>
 /// Construction, read-only capability naming and semantic search.
 /// </summary>
+// Codacy analyses each file on its own, so it cannot see the other parts of this class and
+// reports 'partial' as gratuitous (S2333). The parts are the sibling MerakiMcpClientTests files.
+#pragma warning disable S2333
 public partial class MerakiMcpClientTests
 {
 	private static MerakiMcpClientOptions Options(bool enforceReadOnly = true)
@@ -255,3 +258,4 @@ public partial class MerakiMcpClientTests
 		_ = await act.Should().ThrowAsync<ArgumentException>();
 	}
 }
+#pragma warning restore S2333

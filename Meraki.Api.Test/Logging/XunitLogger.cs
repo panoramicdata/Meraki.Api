@@ -21,9 +21,9 @@ public class XunitLogger(ITestOutputHelper output, string categoryName) : ILogge
 	{
 		public static readonly NoOpDisposable Instance = new();
 		private NoOpDisposable() { }
-		// Scopes carry no state for test output, so disposing one has nothing to undo.
 		public void Dispose()
 		{
+			// Scopes carry no state for test output, so disposing one has nothing to undo.
 		}
 	}
 }

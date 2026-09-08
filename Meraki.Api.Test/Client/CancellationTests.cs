@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Logging.Abstractions;
+﻿using Microsoft.Extensions.Logging.Abstractions;
 using System.Diagnostics;
 
 namespace Meraki.Api.Test.Client;
@@ -70,7 +70,10 @@ public class CancellationTests
 	{
 		public int Attempts { get; private set; }
 
+		// S1172: the signature is HttpMessageHandler's, so the unused request cannot be removed.
+#pragma warning disable S1172 // Unused method parameters should be removed
 		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+#pragma warning restore S1172 // Unused method parameters should be removed
 		{
 			Attempts++;
 			await Task.Delay(Timeout.InfiniteTimeSpan, cancellationToken).ConfigureAwait(false);

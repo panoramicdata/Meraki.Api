@@ -177,7 +177,16 @@ public class MerakiClientOptions
 	/// <exception cref="ConfigurationException"></exception>
 	public void Validate()
 	{
-		// Authentication - either ApiKey or AccessToken must be set, but not both
+		ValidateAuthentication();
+		ValidateLimits();
+	}
+
+	/// <summary>
+	/// Exactly one credential must be supplied: none leaves the client unauthenticated, and both
+	/// leaves the handler's choice of scheme ambiguous.
+	/// </summary>
+	private void ValidateAuthentication()
+	{
 		var hasApiKey = !string.IsNullOrWhiteSpace(ApiKey);
 		var hasAccessToken = !string.IsNullOrWhiteSpace(AccessToken);
 
@@ -190,7 +199,10 @@ public class MerakiClientOptions
 		{
 			throw new ConfigurationException($"Only one of {nameof(ApiKey)} or {nameof(AccessToken)} can be set, not both.");
 		}
+	}
 
+	private void ValidateLimits()
+	{
 		// MaxBackoffDelay
 		if (MaxBackOffDelaySeconds < 0)
 		{

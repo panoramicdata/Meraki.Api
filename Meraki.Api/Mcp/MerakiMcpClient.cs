@@ -533,6 +533,7 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			return false;
 		}
 
+		// Both the documented envelope and a bare top-level error object are recognised.
 		var errorObject = root["result"] as JObject ?? root;
 
 		if (!string.Equals(errorObject["type"]?.Value<string>(), "error", StringComparison.OrdinalIgnoreCase))
@@ -540,15 +541,23 @@ public sealed class MerakiMcpClient : IDisposable, IAsyncDisposable
 			return false;
 		}
 
+		message = BuildPayloadErrorMessage(errorObject);
+
+		return true;
+	}
+
+	/// <summary>
+	/// Joins the error to its recovery suggestion, which the server names in either casing.
+	/// </summary>
+	private static string BuildPayloadErrorMessage(JObject errorObject)
+	{
 		var error = errorObject["error"]?.Value<string>() ?? "no detail supplied";
 		var recovery = errorObject["recovery_suggestion"]?.Value<string>()
 			?? errorObject["recoverySuggestion"]?.Value<string>();
 
-		message = string.IsNullOrWhiteSpace(recovery)
+		return string.IsNullOrWhiteSpace(recovery)
 			? error
 			: $"{error}. {recovery}";
-
-		return true;
 	}
 
 	internal static IReadOnlyList<MerakiCapability> ParseCapabilities(MerakiMcpToolResponse response)

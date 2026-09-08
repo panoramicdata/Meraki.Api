@@ -1,4 +1,4 @@
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace Meraki.Api.Test;
 
@@ -91,11 +91,8 @@ public class MerakiClientSectionCensusTests
 		foreach (var property in properties)
 		{
 			var type = property.PropertyType;
-			var isSection = type.IsClass && type.Namespace?.StartsWith(SectionsNamespace, StringComparison.Ordinal) == true;
-			var isRefitClient = type.IsInterface
-				&& type.Namespace?.StartsWith(InterfacesNamespace, StringComparison.Ordinal) == true
-				&& IsRefitClient(type);
-			if (!isSection && !isRefitClient)
+			var isSection = IsSection(type);
+			if (!isSection && !IsRefitClientProperty(type))
 			{
 				continue;
 			}
@@ -112,4 +109,12 @@ public class MerakiClientSectionCensusTests
 			}
 		}
 	}
+
+	private static bool IsSection(Type type)
+		=> type.IsClass && type.Namespace?.StartsWith(SectionsNamespace, StringComparison.Ordinal) == true;
+
+	private static bool IsRefitClientProperty(Type type)
+		=> type.IsInterface
+			&& type.Namespace?.StartsWith(InterfacesNamespace, StringComparison.Ordinal) == true
+			&& IsRefitClient(type);
 }

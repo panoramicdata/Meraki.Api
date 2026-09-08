@@ -50,6 +50,48 @@ public partial class MerakiClient
 	/// Returns a list of end-of-life data
 	/// Data regularly updated from https://documentation.meraki.com/General_Administration/Other_Topics/Meraki_End-of-Life_(EOL)_Products_and_Dates
 	/// </summary>
+	/// <summary>
+	/// Model prefix to product type, in match order. Longer and more specific prefixes come first,
+	/// so vMX and VMX are recognised before MX and the bare Z family is the last thing tried.
+	/// Comparisons are ordinal, matching the prefixes Meraki publishes.
+	/// </summary>
+	private static readonly (string Prefix, ProductType ProductType)[] _productTypesByModelPrefix =
+	[
+		("vMX", ProductType.Appliance),
+		("VMX", ProductType.Appliance),
+		("MX", ProductType.Appliance),
+		("MS", ProductType.Switch),
+		("C9", ProductType.Switch),
+		("MR", ProductType.Wireless),
+		("CW", ProductType.Wireless),
+		("MV", ProductType.Camera),
+		("MG", ProductType.CellularGateway),
+		("MC", ProductType.Phone),
+		("MT", ProductType.Sensor),
+		("Z", ProductType.Appliance),
+	];
+
+	/// <summary>
+	/// The product type a model belongs to, or null where the model is unknown or unrecognised.
+	/// </summary>
+	private static ProductType? GetProductType(string? model)
+	{
+		if (model is null)
+		{
+			return null;
+		}
+
+		foreach (var (prefix, productType) in _productTypesByModelPrefix)
+		{
+			if (model.StartsWith(prefix, StringComparison.Ordinal))
+			{
+				return productType;
+			}
+		}
+
+		return null;
+	}
+
 	public static SerialNumberInfo GetInfoFromSerialNumber(string serialNumber)
 	{
 		if (string.IsNullOrWhiteSpace(serialNumber))
@@ -67,29 +109,9 @@ public partial class MerakiClient
 			? m
 			: null;
 
-		var productType =
-			model is null ? null :
-			model.StartsWith("MX", StringComparison.Ordinal)
-				|| model.StartsWith("vMX", StringComparison.Ordinal)
-				|| model.StartsWith("VMX", StringComparison.Ordinal)
-				|| model.StartsWith('Z')
-					? ProductType.Appliance :
-			model.StartsWith("MS", StringComparison.Ordinal)
-				|| model.StartsWith("C9", StringComparison.Ordinal)
-					? ProductType.Switch :
-			model.StartsWith("MR", StringComparison.Ordinal)
-				|| model.StartsWith("CW", StringComparison.Ordinal)
-					? ProductType.Wireless :
-			model.StartsWith("MV", StringComparison.Ordinal) ? ProductType.Camera :
-			model.StartsWith("MG", StringComparison.Ordinal) ? ProductType.CellularGateway :
-			model.StartsWith("MC", StringComparison.Ordinal) ? ProductType.Phone :
-			model.StartsWith("MT", StringComparison.Ordinal) ? ProductType.Sensor :
-			(ProductType?)null;
+		var productType = GetProductType(model);
 
-		var eox = _eoxData.Find(eox => eox?["DeviceModel"]?.ToString() == model);
-		var endOfSaleDateTime = eox?["EndOfSale"]?.ToObject<DateTime?>();
-		var endOfSupportDateTime = eox?["EndOfSupport"]?.ToObject<DateTime?>();
-		var endOfSaleNoticeUrl = eox?["EosNoticeUrl"]?.ToString();
+		var (endOfSale, endOfSupport, endOfSaleNoticeUrl) = GetEndOfLife(model);
 
 		return new SerialNumberInfo
 		{
@@ -97,10 +119,31 @@ public partial class MerakiClient
 			ProductType = productType,
 			IsVirtual = model?[0] == 'v',
 			Model = model ?? "Unknown",
-			EndOfSale = endOfSaleDateTime is null ? null : new DateTimeOffset(endOfSaleDateTime.Value, TimeSpan.Zero),
-			EndOfSupport = endOfSupportDateTime is null ? null : new DateTimeOffset(endOfSupportDateTime.Value, TimeSpan.Zero),
+			EndOfSale = endOfSale,
+			EndOfSupport = endOfSupport,
 			EndOfSaleNoticeUrl = endOfSaleNoticeUrl
 		};
+	}
+
+	/// <summary>
+	/// The end-of-life dates published for a model, all null where the model has no EOX row. The
+	/// stored dates carry no offset, so they are read as UTC.
+	/// </summary>
+	private static (DateTimeOffset? EndOfSale, DateTimeOffset? EndOfSupport, string? NoticeUrl) GetEndOfLife(string? model)
+	{
+		var eox = _eoxData.Find(row => row?["DeviceModel"]?.ToString() == model);
+		if (eox is null)
+		{
+			return (null, null, null);
+		}
+
+		var endOfSale = eox["EndOfSale"]?.ToObject<DateTime?>();
+		var endOfSupport = eox["EndOfSupport"]?.ToObject<DateTime?>();
+
+		return (
+			endOfSale is null ? null : new DateTimeOffset(endOfSale.Value, TimeSpan.Zero),
+			endOfSupport is null ? null : new DateTimeOffset(endOfSupport.Value, TimeSpan.Zero),
+			eox["EosNoticeUrl"]?.ToString());
 	}
 }
 #pragma warning restore S2333, S1118

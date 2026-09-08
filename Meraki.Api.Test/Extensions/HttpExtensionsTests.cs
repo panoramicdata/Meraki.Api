@@ -1,4 +1,4 @@
-using Meraki.Api.Extensions;
+﻿using Meraki.Api.Extensions;
 using System.Net;
 using System.Net.Http.Headers;
 
@@ -28,7 +28,9 @@ namespace Meraki.Api.Test.Extensions;
 /// </summary>
 public class HttpExtensionsTests
 {
-	private const string FakeApiKey = "0123456789abcdef0123456789abcdef01234567";
+	// Deliberately not hex: a realistic-looking 40-character key trips secret scanners, and the
+	// only thing these tests need is a value of a real key's length that redaction must remove.
+	private const string FakeApiKey = "FAKE-KEY-FOR-TESTS-NOT-A-REAL-CREDENTIAL";
 	private const string FakeToken = "fake-access-token-0123456789abcdef";
 
 	/// <summary>

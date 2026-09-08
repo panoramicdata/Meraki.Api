@@ -151,43 +151,12 @@ internal sealed class MerakiMcpBackingOffHttpMessageHandler(
 				throw new MerakiMcpAuthorizationException();
 
 			case 429:
-				delay = AuthenticatedBackingOffHttpClientHandler.CalculateBackoffDelay(
-					attemptCount,
-					ReadRetryAfterSeconds(response),
-					options.BackOffDelayFactor,
-					options.MaxBackOffDelaySeconds);
-
-#pragma warning disable CA1873 // Avoid potentially expensive logging
-				logger.LogDebug(
-					"Meraki MCP received 429 on attempt {AttemptCount}/{MaxAttemptCount}.",
-					attemptCount,
-					options.MaxAttemptCount);
-#pragma warning restore CA1873 // Avoid potentially expensive logging
-
-				if (attemptCount >= options.MaxAttemptCount)
-				{
-					response.Dispose();
-					throw new MerakiMcpRateLimitException(attemptCount);
-				}
-
-				return ResponseAction.Retry;
+				return DecideRateLimited(response, attemptCount, out delay);
 
 			case 502:
 			case 503:
 			case 504:
-				delay = TimeSpan.FromSeconds(5);
-
-#pragma warning disable CA1873 // Avoid potentially expensive logging
-				logger.LogInformation(
-					"Meraki MCP received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
-					statusCodeInt,
-					attemptCount,
-					options.MaxAttemptCount);
-#pragma warning restore CA1873 // Avoid potentially expensive logging
-
-				return attemptCount >= options.MaxAttemptCount
-					? ResponseAction.Return
-					: ResponseAction.Retry;
+				return DecideServerError(statusCodeInt, attemptCount, out delay);
 
 			default:
 				if (logger.IsEnabled(LevelToLogAt))
@@ -203,6 +172,55 @@ internal sealed class MerakiMcpBackingOffHttpMessageHandler(
 
 				return ResponseAction.Return;
 		}
+	}
+
+	/// <summary>
+	/// Backs off for as long as Retry-After asks, and gives up once no attempts remain.
+	/// </summary>
+	/// <exception cref="MerakiMcpRateLimitException">Thrown when every attempt was rate limited.</exception>
+	private ResponseAction DecideRateLimited(HttpResponseMessage response, int attemptCount, out TimeSpan delay)
+	{
+		delay = AuthenticatedBackingOffHttpClientHandler.CalculateBackoffDelay(
+			attemptCount,
+			ReadRetryAfterSeconds(response),
+			options.BackOffDelayFactor,
+			options.MaxBackOffDelaySeconds);
+
+#pragma warning disable CA1873 // Avoid potentially expensive logging
+		logger.LogDebug(
+			"Meraki MCP received 429 on attempt {AttemptCount}/{MaxAttemptCount}.",
+			attemptCount,
+			options.MaxAttemptCount);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
+
+		if (attemptCount >= options.MaxAttemptCount)
+		{
+			response.Dispose();
+			throw new MerakiMcpRateLimitException(attemptCount);
+		}
+
+		return ResponseAction.Retry;
+	}
+
+	/// <summary>
+	/// A gateway-level failure is worth one fixed pause; once attempts run out the response goes
+	/// back to the caller rather than becoming an exception.
+	/// </summary>
+	private ResponseAction DecideServerError(int statusCodeInt, int attemptCount, out TimeSpan delay)
+	{
+		delay = TimeSpan.FromSeconds(5);
+
+#pragma warning disable CA1873 // Avoid potentially expensive logging
+		logger.LogInformation(
+			"Meraki MCP received {StatusCodeInt} on attempt {AttemptCount}/{MaxAttemptCount}.",
+			statusCodeInt,
+			attemptCount,
+			options.MaxAttemptCount);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
+
+		return attemptCount >= options.MaxAttemptCount
+			? ResponseAction.Return
+			: ResponseAction.Retry;
 	}
 
 	private static int ReadRetryAfterSeconds(HttpResponseMessage response)
