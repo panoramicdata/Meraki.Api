@@ -207,8 +207,12 @@ var client = new MerakiClient(new MerakiClientOptions
 ```
 
 When attempts run out the client returns the last response, so Refit raises an ordinary `ApiException`
-carrying that status (typically 429). Per-attempt timeouts that run out of attempts throw
-`TimeoutException`.
+carrying that status (typically 429). That response is indistinguishable from a first-attempt 429; if
+you would rather be told "throttled for ten minutes" than "HTTP 429", set
+`ThrowOnRetryExhaustion = true` and the client throws `RetryExhaustedException` instead, carrying the
+attempt count, the time spent and the final status. It is off by default and is not an `ApiException`,
+so existing `catch (ApiException)` handlers will not see it. Per-attempt timeouts that run out of
+attempts throw `TimeoutException`.
 
 ## API Documentation
 

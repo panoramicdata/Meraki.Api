@@ -52,6 +52,8 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 
 		var logPrefix = $"Request {Guid.NewGuid()}: ";
 		var attemptCount = 0;
+		// Spans every attempt and every wait, unlike _durationStopWatch which times one attempt.
+		var totalStopwatch = Stopwatch.StartNew();
 
 		while (true)
 		{
@@ -113,7 +115,22 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 						_options.MaxAttemptCount,
 						request.Method.ToString(),
 						request.RequestUri);
-					return httpResponseMessage;
+
+					if (!_options.ThrowOnRetryExhaustion)
+					{
+						return httpResponseMessage;
+					}
+
+					// The caller asked to be told about exhaustion explicitly rather than receive a
+					// response indistinguishable from a first-attempt failure.
+					httpResponseMessage.Dispose();
+					throw new RetryExhaustedException(
+						httpResponseMessage.StatusCode,
+						attemptCount,
+						_options.MaxAttemptCount,
+						totalStopwatch.Elapsed,
+						request.Method,
+						request.RequestUri);
 				}
 
 				_logger.LogInformation(

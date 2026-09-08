@@ -125,6 +125,21 @@ public class MerakiClientOptions
 	public bool ReadOnly { get; set; }
 
 	/// <summary>
+	/// When true, running out of attempts on a retryable status (429, 502, 503 or 504) throws
+	/// <see cref="RetryExhaustedException"/>, which carries the attempt count, the time spent and the
+	/// final status. Defaults to false, in which case the final response is returned to the caller
+	/// exactly as before, so Refit surfaces an ordinary <see cref="ApiException"/> that is
+	/// indistinguishable from a first-attempt failure with the same status.
+	/// </summary>
+	/// <remarks>
+	/// Opt in where you surface failures to a user or an operator and want to say "throttled for ten
+	/// minutes" rather than "HTTP 429". Leave it off where existing code catches
+	/// <see cref="ApiException"/> and inspects the status code, because <see cref="RetryExhaustedException"/>
+	/// is not an <see cref="ApiException"/> and will not be caught by those handlers.
+	/// </remarks>
+	public bool ThrowOnRetryExhaustion { get; set; }
+
+	/// <summary>
 	/// How to handle missing members
 	/// </summary>
 	public JsonMissingMemberHandling JsonMissingMemberHandling { get; set; } = JsonMissingMemberHandling.Ignore;
