@@ -13,41 +13,15 @@ public partial class MerakiClient
 {
 	/// <summary>
 	/// Reads the query string of the "rel=next" link in the response headers, or null where there
-	/// is no next page to fetch.
+	/// is no next page to fetch. Throws <see cref="PaginationException"/> where a next page is
+	/// advertised but cannot be followed; see <see cref="GetNextPageUri"/>.
 	/// </summary>
 	private static NameValueCollection? TryGetNextPageQuery(HttpHeaders? headers)
 	{
-		// Check the Link response header
-		if (headers is null || !headers.TryGetValues("Link", out var linkHeaders))
-		{
-			return null;
-		}
-
-		// We found a Link header
-		var linkHeader = linkHeaders.FirstOrDefault();
-		if (linkHeader is null)
-		{
-			return null;
-		}
-
-		// We need the next link, which might have startingAfter or endingBefore defined
-		var nextLink = linkHeader
-			.Split(',')
-			.SingleOrDefault(link => link.Contains("rel=next"));
-		if (nextLink is null)
-		{
-			return null;
-		}
-
-		var nextLinkComponents = nextLink.Split(';');
-		if (nextLinkComponents.Length != 2)
-		{
-			return null;
-		}
-
-		// Get the url component and remove the < > wrapper
-		var nextLinkUrl = nextLinkComponents[0].Trim().TrimStart('<').TrimEnd('>');
-		return HttpUtility.ParseQueryString(new Uri(nextLinkUrl).Query);
+		var nextPageUri = GetNextPageUri(headers);
+		return nextPageUri is null
+			? null
+			: HttpUtility.ParseQueryString(nextPageUri.Query);
 	}
 
 	/// <summary>
