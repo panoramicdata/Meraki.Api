@@ -132,18 +132,22 @@ public partial class MerakiClient
 	private static (DateTimeOffset? EndOfSale, DateTimeOffset? EndOfSupport, string? NoticeUrl) GetEndOfLife(string? model)
 	{
 		var eox = _eoxData.Find(row => row?["DeviceModel"]?.ToString() == model);
-		if (eox is null)
-		{
-			return (null, null, null);
-		}
 
-		var endOfSale = eox["EndOfSale"]?.ToObject<DateTime?>();
-		var endOfSupport = eox["EndOfSupport"]?.ToObject<DateTime?>();
+		return eox is null
+			? (null, null, null)
+			: (ReadUtcDate(eox, "EndOfSale"), ReadUtcDate(eox, "EndOfSupport"), eox["EosNoticeUrl"]?.ToString());
+	}
 
-		return (
-			endOfSale is null ? null : new DateTimeOffset(endOfSale.Value, TimeSpan.Zero),
-			endOfSupport is null ? null : new DateTimeOffset(endOfSupport.Value, TimeSpan.Zero),
-			eox["EosNoticeUrl"]?.ToString());
+	/// <summary>
+	/// Reads a stored end-of-life date, which carries no offset and is therefore read as UTC.
+	/// </summary>
+	private static DateTimeOffset? ReadUtcDate(JObject row, string propertyName)
+	{
+		var value = row[propertyName]?.ToObject<DateTime?>();
+
+		return value is null
+			? null
+			: new DateTimeOffset(value.Value, TimeSpan.Zero);
 	}
 }
 #pragma warning restore S2333, S1118

@@ -65,11 +65,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 
 			LastRequestUri = request.RequestUri?.ToString() ?? string.Empty;
 
-			// Derive the per-attempt token from the caller's token, then add the inner timeout, so
-			// that either can abort the attempt. The catch filter in TrySendAsync tells the two
-			// apart: it treats the failure as a timeout only when the caller has not cancelled.
-			using var timeoutCancellationSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-			timeoutCancellationSource.CancelAfter(TimeSpan.FromSeconds(_options.HttpClientInnerTimeoutSeconds));
+			using var timeoutCancellationSource = CreateAttemptTimeout(cancellationToken);
 
 			// A null response means the attempt failed in a way that has already been logged and waited out.
 			var httpResponseMessage = await TrySendAsync(
@@ -84,27 +80,49 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 				continue;
 			}
 
-			_merakiClient.LastResponseHeaders = httpResponseMessage.Headers;
+			await RecordResponseAsync(logPrefix, httpResponseMessage, cancellationToken).ConfigureAwait(false);
 
-			await LogResponseAsync(logPrefix, httpResponseMessage, cancellationToken).ConfigureAwait(false);
-
-			// Only record the time we spent processing the request/response
-			_durationStopWatch.Stop();
-
-			var delay = TimeSpan.Zero;
-			var statusCodeInt = (int)httpResponseMessage.StatusCode;
-
-			try
+			// Non-null is the caller's answer; null means another attempt is due.
+			var handled = await HandleResponseAsync(
+				httpResponseMessage,
+				logPrefix,
+				attemptCount,
+				request,
+				totalStopwatch,
+				cancellationToken)
+				.ConfigureAwait(false);
+			if (handled is not null)
 			{
-				// As long as we were not given a back-off request then we'll return the response and any
-				// further StatusCode handling is up to the caller.
-				if (!TryGetRetryDelay(httpResponseMessage, statusCodeInt, attemptCount, logPrefix, request, out delay))
-				{
-					return httpResponseMessage;
-				}
+				return handled;
+			}
+		}
+	}
 
-				// Non-null means the retry budget is spent and this is the caller's answer.
-				var exhausted = await WaitOrGiveUpAsync(
+	/// <summary>
+	/// Decides what a completed attempt means, waiting out any back-off it calls for, and records the
+	/// status code either way.
+	/// </summary>
+	/// <returns>
+	/// The response to hand to the caller, or null once the back-off is over and another attempt is due.
+	/// </returns>
+	private async Task<HttpResponseMessage?> HandleResponseAsync(
+		HttpResponseMessage httpResponseMessage,
+		string logPrefix,
+		int attemptCount,
+		HttpRequestMessage request,
+		Stopwatch totalStopwatch,
+		CancellationToken cancellationToken)
+	{
+		var delay = TimeSpan.Zero;
+		var statusCodeInt = (int)httpResponseMessage.StatusCode;
+
+		try
+		{
+			// As long as we were not given a back-off request then we'll return the response and any
+			// further StatusCode handling is up to the caller.
+			return !TryGetRetryDelay(httpResponseMessage, statusCodeInt, attemptCount, logPrefix, request, out delay)
+				? httpResponseMessage
+				: await WaitOrGiveUpAsync(
 					httpResponseMessage,
 					statusCodeInt,
 					attemptCount,
@@ -114,17 +132,43 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 					totalStopwatch,
 					cancellationToken)
 					.ConfigureAwait(false);
-				if (exhausted is not null)
-				{
-					return exhausted;
-				}
-			}
-			finally
-			{
-				// Record the status code
-				Statistics.RecordStatusCode(statusCodeInt, (long)_durationStopWatch.Elapsed.TotalMilliseconds, (long)delay.TotalMilliseconds);
-			}
 		}
+		finally
+		{
+			// Record the status code
+			Statistics.RecordStatusCode(statusCodeInt, (long)_durationStopWatch.Elapsed.TotalMilliseconds, (long)delay.TotalMilliseconds);
+		}
+	}
+
+	/// <summary>
+	/// The token for one attempt: the caller's token plus the inner timeout, so either can abort it.
+	/// </summary>
+	/// <remarks>
+	/// The catch filter in <see cref="TrySendAsync"/> tells the two apart, treating the failure as a
+	/// timeout only when the caller has not cancelled.
+	/// </remarks>
+	private CancellationTokenSource CreateAttemptTimeout(CancellationToken cancellationToken)
+	{
+		var source = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+		source.CancelAfter(TimeSpan.FromSeconds(_options.HttpClientInnerTimeoutSeconds));
+
+		return source;
+	}
+
+	/// <summary>
+	/// Publishes the response headers, logs the response, and stops the per-attempt timer, which
+	/// times the request and response only and not any back-off that follows.
+	/// </summary>
+	private async Task RecordResponseAsync(
+		string logPrefix,
+		HttpResponseMessage httpResponseMessage,
+		CancellationToken cancellationToken)
+	{
+		_merakiClient.LastResponseHeaders = httpResponseMessage.Headers;
+
+		await LogResponseAsync(logPrefix, httpResponseMessage, cancellationToken).ConfigureAwait(false);
+
+		_durationStopWatch.Stop();
 	}
 
 	/// <summary>
@@ -261,7 +305,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 			await WaitAfterTimeoutAsync(request, logPrefix, attemptCount, cancellationToken).ConfigureAwait(false);
 			return null;
 		}
-		// This is a common error that seems to occur when contacting meraki nodes, so we log it as a warning and retry
+		// A common error when contacting meraki nodes, so log it as a warning and retry.
 		catch (HttpRequestException ex) when (ex.Message.StartsWith("Network is unreachable", StringComparison.Ordinal))
 		{
 			if (attemptCount >= _options.MaxAttemptCount)
@@ -272,13 +316,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 
 			// Wait 1 second and then retry
 			await WaitAfterTransientFailureAsync(
-				ex,
-				logPrefix,
-				attemptCount,
-				request,
-				"Network is unreachable",
-				TimeSpan.FromSeconds(1),
-				cancellationToken)
+				ex, logPrefix, attemptCount, request, "Network is unreachable", TimeSpan.FromSeconds(1), cancellationToken)
 				.ConfigureAwait(false);
 			return null;
 		}
@@ -294,13 +332,7 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 
 			// Wait 2 seconds and then retry (slightly longer delay for connection resets)
 			await WaitAfterTransientFailureAsync(
-				ex,
-				logPrefix,
-				attemptCount,
-				request,
-				"Connection reset by peer",
-				TimeSpan.FromSeconds(2),
-				cancellationToken)
+				ex, logPrefix, attemptCount, request, "Connection reset by peer", TimeSpan.FromSeconds(2), cancellationToken)
 				.ConfigureAwait(false);
 			return null;
 		}
