@@ -11,14 +11,14 @@ public class OrganizationApplianceUplinksUsageByNetworkItemByUplinkItem
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "received")]
-	public int Received { get; set; }
+	public long Received { get; set; }
 
 	/// <summary>
 	/// Bytes sent
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "sent")]
-	public int Sent { get; set; }
+	public long Sent { get; set; }
 
 	/// <summary>
 	/// Uplink name
