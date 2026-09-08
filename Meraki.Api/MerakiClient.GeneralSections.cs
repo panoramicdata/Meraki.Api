@@ -17,12 +17,41 @@ public partial class MerakiClient
 		=> new()
 		{
 			Devices = RefitFor(Devices.Devices),
+			Appliance = BuildDevicesApplianceSection(),
 			CellularSims = RefitFor(Devices.CellularSims),
 			Clients = RefitFor(Devices.Clients),
 			LldpCdp = RefitFor(Devices.LldpCdp),
 			LossAndLatencyHistory = RefitFor(Devices.LossAndLatencyHistory),
 			ManagementInterface = RefitFor(Devices.ManagementInterface),
 			SensorCommands = RefitFor(Devices.SensorCommands),
+			Wireless = BuildDevicesWirelessSection(),
+		};
+
+	private DevicesApplianceSection BuildDevicesApplianceSection()
+		=> new()
+		{
+			Prefixes = RefitFor(Devices.Appliance.Prefixes)
+		};
+
+	private DevicesWirelessSection BuildDevicesWirelessSection()
+		=> new()
+		{
+			DevicesWireless = RefitFor(Devices.Wireless.DevicesWireless),
+			AlternateManagementInterface = RefitFor(Devices.Wireless.AlternateManagementInterface),
+			Radio = BuildDevicesWirelessRadioSection(),
+			Zigbee = BuildDevicesWirelessZigbeeSection()
+		};
+
+	private DevicesWirelessRadioSection BuildDevicesWirelessRadioSection()
+		=> new()
+		{
+			Afc = RefitFor(Devices.Wireless.Radio.Afc)
+		};
+
+	private DevicesWirelessZigbeeSection BuildDevicesWirelessZigbeeSection()
+		=> new()
+		{
+			Enrollments = RefitFor(Devices.Wireless.Zigbee.Enrollments)
 		};
 
 	private OrganizationsSection BuildOrganizationsSection()
@@ -36,9 +65,14 @@ public partial class MerakiClient
 			ApiRequests = RefitFor(Organizations.ApiRequests),
 			Appliance = BuildOrganizationsApplianceSection(),
 			ApplianceSecurityEvents = RefitFor(Organizations.ApplianceSecurityEvents),
+			Assurance = RefitFor(Organizations.Assurance),
 			AssuranceAlerts = RefitFor(Organizations.AssuranceAlerts),
 			BrandingPolicies = BuildOrganizationsBrandingPoliciesSection(),
+			Camera = BuildOrganizationsCameraSection(),
+			CampusGateway = BuildOrganizationsCampusGatewaySection(),
+			Certificates = BuildOrganizationsCertificatesSection(),
 			Clients = BuildOrganizationsClientsSection(),
+			Cloud = BuildOrganizationsCloudSection(),
 			ConfigurationChanges = RefitFor(Organizations.ConfigurationChanges),
 			ConfigTemplates = BuildOrganizationsConfigTemplatesSection(),
 			Devices = BuildOrganizationsDevicesSection(),
@@ -46,24 +80,38 @@ public partial class MerakiClient
 			{
 				Features = RefitFor(Organizations.EarlyAccess.Features)
 			},
+			Extensions = BuildOrganizationsExtensionsSection(),
+			Firmware = RefitFor(Organizations.Firmware),
+			Insight = BuildOrganizationsInsightSection(),
+			Integrations = BuildOrganizationsIntegrationsSection(),
+			Inventory = BuildOrganizationsInventorySection(),
 			InventoryDevices = RefitFor(Organizations.InventoryDevices),
 			Licenses = RefitFor(Organizations.Licenses),
 			LoginSecurity = RefitFor(Organizations.LoginSecurity),
+			Nac = BuildOrganizationsNacSection(),
 			Networks = RefitFor(Organizations.Networks),
+			NewtworkDevices = RefitFor(Organizations.NewtworkDevices),
 			OpenapiSpec = RefitFor(Organizations.OpenapiSpec),
+			Policies = BuildOrganizationsPoliciesSection(),
 			PolicyObjects = RefitFor(Organizations.PolicyObjects),
 			PolicyObjectGroups = RefitFor(Organizations.PolicyObjectGroups),
 			Saml = BuildOrganizationsSamlSection(),
 			SamlRoles = RefitFor(Organizations.SamlRoles),
+			Sase = BuildOrganizationsSaseSection(),
 			SecureConnect = BuildOrganizationsSecureConnectSection(),
+			Sensor = RefitFor(Organizations.Sensor),
+			Sm = BuildOrganizationsSmSection(),
 			Snmp = RefitFor(Organizations.Snmp),
+			Spaces = BuildOrganizationsSpacesSection(),
 			Splash = RefitFor(Organizations.Splash),
 			Summary = BuildOrganizationsSummarySection(),
+			Support = RefitFor(Organizations.Support),
 			Switches = RefitFor(Organizations.Switches),
 			SwitchPortsOverview = RefitFor(Organizations.SwitchPortsOverview),
 			Uplinks = RefitFor(Organizations.Uplinks),
 			Webhooks = BuildOrganizationsWebhooksSection(),
-			Wireless = BuildOrganizationsWirelessSection()
+			Wireless = BuildOrganizationsWirelessSection(),
+			WirelessController = BuildOrganizationsWirelessControllerSection()
 		};
 
 	private NetworksSection BuildNetworksSection()
@@ -72,9 +120,15 @@ public partial class MerakiClient
 			Networks = RefitFor(Networks.Networks),
 			Alerts = new()
 			{
+				NetworksAlerts = RefitFor(Networks.Alerts.NetworksAlerts),
 				Settings = RefitFor(Networks.Alerts.Settings)
 			},
+			Appliance = new()
+			{
+				Umbrella = RefitFor(Networks.Appliance.Umbrella)
+			},
 			BluetoothClients = RefitFor(Networks.BluetoothClients),
+			CampusGateway = RefitFor(Networks.CampusGateway),
 			Clients = BuildNetworksClientsSection(),
 			Devices = RefitFor(Networks.Devices),
 			Events = BuildNetworksEventsSection(),
@@ -82,19 +136,56 @@ public partial class MerakiClient
 			Floorplans = RefitFor(Networks.Floorplans),
 			GroupPolicies = RefitFor(Networks.GroupPolicies),
 			Health = BuildNetworksHealthSection(),
+			LocationScanning = RefitFor(Networks.LocationScanning),
 			MerakiAuthUsers = RefitFor(Networks.MerakiAuthUsers),
 			MqttBrokers = RefitFor(Networks.MqttBrokers),
 			Netflow = RefitFor(Networks.Netflow),
 			Pii = BuildNetworksPiiSection(),
+			Policies = RefitFor(Networks.Policies),
+			Sensor = BuildNetworksSensorSection(),
+			Sm = RefitFor(Networks.Sm),
 			Traffic = RefitFor(Networks.Traffic),
 			Settings = RefitFor(Networks.Settings),
 			Snmp = RefitFor(Networks.Snmp),
 			SplashLoginAttempts = RefitFor(Networks.SplashLoginAttempts),
+			Switch = BuildNetworksSwitchSection(),
 			SyslogServers = RefitFor(Networks.SyslogServers),
 			TrafficAnalysis = RefitFor(Networks.TrafficAnalysis),
 			VlanProfiles = RefitFor(Networks.VlanProfiles),
 			TrafficShaping = BuildNetworksTrafficShapingSection(),
-			Webhooks = BuildNetworksWebhooksSection()
+			Webhooks = BuildNetworksWebhooksSection(),
+			Wireless = BuildNetworksWirelessSection()
+		};
+
+	private NetworksSwitchSection BuildNetworksSwitchSection()
+		=> new()
+		{
+			Ports = RefitFor(Networks.Switch.Ports),
+			Dhcp = RefitFor(Networks.Switch.Dhcp),
+			DhcpServerPolicy = RefitFor(Networks.Switch.DhcpServerPolicy),
+			Stacks = RefitFor(Networks.Switch.Stacks)
+		};
+
+	private NetworksSensorSection BuildNetworksSensorSection()
+		=> new()
+		{
+			Alerts = new()
+			{
+				Current = RefitFor(Networks.Sensor.Alerts.Current),
+				Overview = RefitFor(Networks.Sensor.Alerts.Overview)
+			},
+			Schedules = RefitFor(Networks.Sensor.Schedules)
+		};
+
+	private NetworksWirelessSection BuildNetworksWirelessSection()
+		=> new()
+		{
+			Clients = RefitFor(Networks.Wireless.Clients),
+			Devices = RefitFor(Networks.Wireless.Devices),
+			Location = RefitFor(Networks.Wireless.Location),
+			OpportunisticPcap = RefitFor(Networks.Wireless.OpportunisticPcap),
+			Radio = RefitFor(Networks.Wireless.Radio),
+			Zigbee = RefitFor(Networks.Wireless.Zigbee)
 		};
 	private OrganizationsApiSection BuildOrganizationsApiSection()
 		=> new()
@@ -180,11 +271,32 @@ public partial class MerakiClient
 	private OrganizationsWirelessSection BuildOrganizationsWirelessSection()
 		=> new()
 		{
+			LocationScanning = RefitFor(Organizations.Wireless.LocationScanning),
+			Zigbee = RefitFor(Organizations.Wireless.Zigbee),
+			Clients = RefitFor(Organizations.Wireless.Clients),
+			Certificates = new()
+			{
+				OpenRoaming = RefitFor(Organizations.Wireless.Certificates.OpenRoaming)
+			},
 			Devices = new()
 			{
 				ChannelUtilization = RefitFor(Organizations.Wireless.Devices.ChannelUtilization),
 				Latency = RefitFor(Organizations.Wireless.Devices.Latency),
-				PacketLoss = RefitFor(Organizations.Wireless.Devices.PacketLoss)
+				PacketLoss = RefitFor(Organizations.Wireless.Devices.PacketLoss),
+				Radio = RefitFor(Organizations.Wireless.Devices.Radio),
+				Radsec = new()
+				{
+					Certificates = RefitFor(Organizations.Wireless.Devices.Radsec.Certificates)
+				}
+			},
+			OpportunisticPcap = RefitFor(Organizations.Wireless.OpportunisticPcap),
+			Mqtt = RefitFor(Organizations.Wireless.Mqtt),
+			Ssids = new()
+			{
+				Firewall = new()
+				{
+					Isolation = RefitFor(Organizations.Wireless.Ssids.Firewall.Isolation)
+				}
 			}
 		};
 
@@ -202,9 +314,36 @@ public partial class MerakiClient
 	private OrganizationsApplianceSection BuildOrganizationsApplianceSection()
 		=> new()
 		{
+			Dns = BuildOrganizationsApplianceDnsSection(),
+			Sdwan = RefitFor(Organizations.Appliance.Sdwan),
 			Uplinks = new()
 			{
 				Usage = RefitFor(Organizations.Appliance.Uplinks.Usage)
+			},
+			Vlans = RefitFor(Organizations.Appliance.Vlans),
+			Vpn = BuildOrganizationsVpnSection()
+		};
+
+	private OrganizationsApplianceDnsSection BuildOrganizationsApplianceDnsSection()
+		=> new()
+		{
+			Local = new()
+			{
+				Profiles = RefitFor(Organizations.Appliance.Dns.Local.Profiles),
+				Records = RefitFor(Organizations.Appliance.Dns.Local.Records)
+			},
+			Split = new()
+			{
+				Profiles = RefitFor(Organizations.Appliance.Dns.Split.Profiles)
+			}
+		};
+
+	private OrganizationsVpnSection BuildOrganizationsVpnSection()
+		=> new()
+		{
+			SiteToSite = new()
+			{
+				Ipsec = RefitFor(Organizations.Appliance.Vpn.SiteToSite.Ipsec)
 			}
 		};
 
@@ -220,9 +359,11 @@ public partial class MerakiClient
 		=> new()
 		{
 			AlertTypes = RefitFor(Organizations.Webhooks.AlertTypes),
+			Callbacks = RefitFor(Organizations.Webhooks.Callbacks),
 			Logs = RefitFor(Organizations.Webhooks.Logs),
 			PayloadTemplates = RefitFor(Organizations.Webhooks.PayloadTemplates),
-			HttpServers = RefitFor(Organizations.Webhooks.HttpServers)
+			HttpServers = RefitFor(Organizations.Webhooks.HttpServers),
+			WebhookTests = RefitFor(Organizations.Webhooks.WebhookTests)
 		};
 
 	private NetworksPiiSection BuildNetworksPiiSection()
@@ -288,6 +429,156 @@ public partial class MerakiClient
 		{
 			ApplicationCategories = RefitFor(Networks.TrafficShaping.ApplicationCategories),
 			DscpTaggingOptions = RefitFor(Networks.TrafficShaping.DscpTaggingOptions)
+		};
+
+	private OrganizationsCameraSection BuildOrganizationsCameraSection()
+		=> new()
+		{
+			Permissions = RefitFor(Organizations.Camera.Permissions),
+			Detections = RefitFor(Organizations.Camera.Detections)
+		};
+
+	private OrganizationsCampusGateway BuildOrganizationsCampusGatewaySection()
+		=> new()
+		{
+			Clusters = RefitFor(Organizations.CampusGateway.Clusters),
+			Devices = new()
+			{
+				Uplinks = new()
+				{
+					LocalOverrides = RefitFor(Organizations.CampusGateway.Devices.Uplinks.LocalOverrides)
+				}
+			}
+		};
+
+	private OrganizationsCertificatesSection BuildOrganizationsCertificatesSection()
+		=> new()
+		{
+			Certificates = RefitFor(Organizations.Certificates.Certificates),
+			RadSec = BuildOrganizationsCertificatesRadSecSection()
+		};
+
+	private OrganizationsCertificatesRadSecSection BuildOrganizationsCertificatesRadSecSection()
+		=> new()
+		{
+			DeviceCertificateAuthorities = RefitFor(Organizations.Certificates.RadSec.DeviceCertificateAuthorities)
+		};
+
+	private OrganizationsCloudSection BuildOrganizationsCloudSection()
+		=> new()
+		{
+			Connectivity = RefitFor(Organizations.Cloud.Connectivity)
+		};
+
+	private OrganizationsExtensionsSection BuildOrganizationsExtensionsSection()
+		=> new()
+		{
+			SdwanManager = new()
+			{
+				Interconnects = RefitFor(Organizations.Extensions.SdwanManager.Interconnects)
+			},
+			ThousandEyes = RefitFor(Organizations.Extensions.ThousandEyes)
+		};
+
+	private OrganizationsInsightSection BuildOrganizationsInsightSection()
+		=> new()
+		{
+			Insight = RefitFor(Organizations.Insight.Insight),
+			Applications = RefitFor(Organizations.Insight.Applications),
+			WebApps = RefitFor(Organizations.Insight.WebApps)
+		};
+
+	private OrganizationsIntegrationsSection BuildOrganizationsIntegrationsSection()
+		=> new()
+		{
+			Xdr = RefitFor(Organizations.Integrations.Xdr)
+		};
+
+	private OrganizationsInventorySection BuildOrganizationsInventorySection()
+		=> new()
+		{
+			Onboarding = new()
+			{
+				CloudMonitoring = RefitFor(Organizations.Inventory.Onboarding.CloudMonitoring)
+			},
+			Orders = RefitFor(Organizations.Inventory.Orders)
+		};
+
+	private OrganizationsNacSection BuildOrganizationsNacSection()
+		=> new()
+		{
+			Authorization = RefitFor(Organizations.Nac.Authorization),
+			Sessions = RefitFor(Organizations.Nac.Sessions)
+		};
+
+	private OrganizationsPoliciesSection BuildOrganizationsPoliciesSection()
+		=> new()
+		{
+			Assignments = RefitFor(Organizations.Policies.Assignments)
+		};
+
+	private OrganizationsSaseSection BuildOrganizationsSaseSection()
+		=> new()
+		{
+			Connectivity = RefitFor(Organizations.Sase.Connectivity)
+		};
+
+	private OrganizationsSmSection BuildOrganizationsSmSection()
+		=> new()
+		{
+			Admins = RefitFor(Organizations.Sm.Admins),
+			Apple = RefitFor(Organizations.Sm.Apple),
+			BulkEnrollment = RefitFor(Organizations.Sm.BulkEnrollment),
+			Sentry = RefitFor(Organizations.Sm.Sentry)
+		};
+
+	private OrganizationsSpacesSection BuildOrganizationsSpacesSection()
+		=> new()
+		{
+			Integration = RefitFor(Organizations.Spaces.Integration)
+		};
+
+	private OrganizationsWirelessControllerSection BuildOrganizationsWirelessControllerSection()
+		=> new()
+		{
+			WirelessController = RefitFor(Organizations.WirelessController.WirelessController),
+			Connections = RefitFor(Organizations.WirelessController.Connections),
+			Clients = BuildOrganizationsWirelessControllerClientsSection(),
+			Devices = BuildOrganizationsWirelessControllerDevicesSection(),
+			Availabilities = RefitFor(Organizations.WirelessController.Availabilities),
+			Overview = RefitFor(Organizations.WirelessController.Overview)
+		};
+
+	private OrganizationsWirelessControllerClientsSection BuildOrganizationsWirelessControllerClientsSection()
+		=> new()
+		{
+			Overview = new()
+			{
+				History = new()
+				{
+					ByDevice = RefitFor(Organizations.WirelessController.Clients.Overview.History.ByDevice)
+				}
+			}
+		};
+
+	private OrganizationsWirelessControllerDevicesSection BuildOrganizationsWirelessControllerDevicesSection()
+		=> new()
+		{
+			Interfaces = new()
+			{
+				L2 = RefitFor(Organizations.WirelessController.Devices.Interfaces.L2),
+				L3 = RefitFor(Organizations.WirelessController.Devices.Interfaces.L3),
+				Packets = RefitFor(Organizations.WirelessController.Devices.Interfaces.Packets),
+				Usage = RefitFor(Organizations.WirelessController.Devices.Interfaces.Usage)
+			},
+			Redundancy = RefitFor(Organizations.WirelessController.Devices.Redundancy),
+			System = new()
+			{
+				Utilization = new()
+				{
+					History = RefitFor(Organizations.WirelessController.Devices.System.Utilization.History)
+				}
+			}
 		};
 }
 #pragma warning restore S2333

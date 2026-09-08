@@ -18,11 +18,11 @@ public partial class DevicesWirelessSection
 	/// Gets the radio
 	/// </summary>
 
-	public DevicesWirelessRadioSection Radio { get; internal set; } = null!;
+	public DevicesWirelessRadioSection Radio { get; internal set; } = new();
 
 	/// <summary>
 	/// Gets the zigbee
 	/// </summary>
 
-	public DevicesWirelessZigbeeSection Zigbee { get; internal set; } = null!;
+	public DevicesWirelessZigbeeSection Zigbee { get; internal set; } = new();
 }

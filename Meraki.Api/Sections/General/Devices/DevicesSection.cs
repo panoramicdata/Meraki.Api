@@ -12,7 +12,7 @@ public partial class DevicesSection
 	/// Gets the appliance
 	/// </summary>
 
-	public DevicesApplianceSection Appliance { get; set; } = null!;
+	public DevicesApplianceSection Appliance { get; set; } = new();
 
 	/// <summary>
 	/// List the clients of a device, up to a maximum of a month ago
@@ -48,7 +48,7 @@ public partial class DevicesSection
 	/// Gets the wireless
 	/// </summary>
 
-	public DevicesWirelessSection Wireless { get; internal set; } = null!;
+	public DevicesWirelessSection Wireless { get; internal set; } = new();
 
 	/// <summary>
 	/// Returns a historical log of all commands

@@ -15,5 +15,5 @@ public partial class OrganizationsCertificatesSection
 	/// Gets the rad sec
 	/// </summary>
 
-	public OrganizationsCertificatesRadSecSection RadSec { get; internal set; } = null!;
+	public OrganizationsCertificatesRadSecSection RadSec { get; internal set; } = new();
 }

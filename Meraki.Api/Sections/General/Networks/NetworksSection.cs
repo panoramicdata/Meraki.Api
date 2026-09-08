@@ -140,7 +140,7 @@ public partial class NetworksSection
 	/// Gets the switch
 	/// </summary>
 
-	public NetworksSwitchSection Switch { get; set; } = null!;
+	public NetworksSwitchSection Switch { get; set; } = new();
 	/// <summary>
 	/// List the splash login attempts for a network
 	/// </summary>
