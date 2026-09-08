@@ -199,11 +199,21 @@ public partial class MerakiClient
 	private LiveToolsSection BuildLiveToolsSection()
 		=> new()
 		{
+			AclHitCount = RefitFor(LiveTools.AclHitCount),
 			ArpTable = RefitFor(LiveTools.ArpTable),
 			CableTest = RefitFor(LiveTools.CableTest),
+			CyclePort = RefitFor(LiveTools.CyclePort),
+			DhcpLeases = RefitFor(LiveTools.DhcpLeases),
+			Leds = RefitFor(LiveTools.Leds),
+			MacTable = RefitFor(LiveTools.MacTable),
+			MulticastRouting = RefitFor(LiveTools.MulticastRouting),
+			OspfNeighbors = RefitFor(LiveTools.OspfNeighbors),
 			Ping = RefitFor(LiveTools.Ping),
 			PingDevice = RefitFor(LiveTools.PingDevice),
+			RoutingTable = RefitFor(LiveTools.RoutingTable),
+			SpeedTest = RefitFor(LiveTools.SpeedTest),
 			ThroughputTest = RefitFor(LiveTools.ThroughputTest),
+			TraceRoute = RefitFor(LiveTools.TraceRoute),
 			WakeOnLan = RefitFor(LiveTools.WakeOnLan)
 		};
 
@@ -213,6 +223,10 @@ public partial class MerakiClient
 			Alerts = new()
 			{
 				Profiles = RefitFor(Sensor.Alerts.Profiles)
+			},
+			Gateways = new()
+			{
+				ConnectionsLatest = RefitFor(Sensor.Gateways.ConnectionsLatest)
 			},
 			Readings = new()
 			{

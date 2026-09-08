@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+- **Every section and Refit client on `MerakiClient` is now wired** (issue
+  [#357](https://github.com/panoramicdata/Meraki.Api/issues/357)). The constructor is a hand-maintained
+  mirror of a 134-class section tree and had drifted: 82 Refit interface properties and 4 sub-section
+  objects (`Devices.Appliance`, `Devices.Wireless`, `Networks.Switch`,
+  `Organizations.Certificates.RadSec`) were left null, so roughly a fifth of the client surface threw
+  `NullReferenceException` on first use. All 86 are now assigned. Two credential-free tests prevent
+  recurrence: `MerakiClientSectionCensusTests.Constructor_LeavesNoSectionOrRefitClientNull` walks the
+  whole tree by reflection and fails on any null, and `EveryRefitInterface_CanBeConstructed` builds
+  every Refit interface in the assembly. The second test found one more defect: `Refit.Reflection` was
+  never referenced, so the RF006 fallback the project relies on did not exist at runtime and
+  `IOrganizationsCameraDetections` could not be constructed at all. It is now referenced. Constructing
+  a `MerakiClient` builds about 90 more Refit proxies than before, which adds a few tens of
+  milliseconds per instance; code that constructs a client per call may want to reuse one.
+
 - Documented that the `*AllAsync` pagination helpers are **all-or-nothing**
   (issue [#355](https://github.com/panoramicdata/Meraki.Api/issues/355), first step). If any page
   fails, the exception propagates and the pages already fetched are discarded, so an exception means
