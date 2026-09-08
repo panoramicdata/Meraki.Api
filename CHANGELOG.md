@@ -1,5 +1,22 @@
 ﻿# Changelog
 
+## 1.70.133
+
+- **Two more fields the Dashboard API returns are now mapped**: `ApiUsage.OperationId` (the
+  operation a request called, e.g. `getOrganizationNetworks`) and
+  `PayloadTemplateSharingByNetwork.WithAll` (whether a template is shared with every network rather
+  than the listed ones). As with the eight in 1.70.127, callers who set
+  `JsonMissingMemberHandling.ThrowOnError` were getting a failed deserialization rather than an
+  ignored field. Only the first unmapped field in a response is ever reported, so fixing the
+  previous batch is what revealed these.
+
+- Internal restructuring only, with **no API change**: methods and files across the client, the MCP
+  handler and the API checker were brought under the project's complexity and length limits.
+  `MerakiClient.GeneralSections.cs` became one file per section
+  (`MerakiClient.DevicesSections.cs`, `.NetworksSections.cs`, `.OrganizationsSections.cs`), and the
+  MCP client's JSON reading moved to `MerakiMcpClient.Parsing.cs`. The types and members these
+  files declare are unchanged; only their arrangement differs.
+
 ## 1.70.127
 
 - **Eight response fields the Dashboard API has added are now mapped.** Running the integration
