@@ -186,5 +186,16 @@ public class MerakiClientOptions
 		{
 			throw new ConfigurationException($"{nameof(HttpClientInnerTimeoutSeconds)} should not be less than zero.");
 		}
+
+		if (HttpClientTimeoutSeconds <= 0)
+		{
+			throw new ConfigurationException($"{nameof(HttpClientTimeoutSeconds)} should be greater than zero.");
+		}
+
+		// Zero or negative would make the retry guard true on the first pass, so no attempt would ever be retried.
+		if (MaxAttemptCount < 1)
+		{
+			throw new ConfigurationException($"{nameof(MaxAttemptCount)} should be at least one.");
+		}
 	}
 }

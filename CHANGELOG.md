@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- `MerakiClient` now calls `MerakiClientOptions.Validate()` in its constructor
+  (issue [#377](https://github.com/panoramicdata/Meraki.Api/issues/377)). Previously only
+  `MerakiMcpClient` validated its options, so the two clients disagreed about what a valid
+  configuration was: a `MerakiClient` with no credentials was accepted and failed on its first request
+  with `InvalidOperationException`, one with both `ApiKey` and `AccessToken` set was accepted silently,
+  and negative timeouts reached `CancellationTokenSource`. All of these now throw
+  `ConfigurationException` from `new MerakiClient(...)`. `Validate()` additionally rejects
+  `MaxAttemptCount` below 1 (which silently disabled retries) and `HttpClientTimeoutSeconds` of zero or
+  less. **Behaviour change:** a client built with an empty `ApiKey` now fails at construction rather
+  than on first use. Such a client could never have made a successful call, but code that constructs
+  clients speculatively, before a key is known, should now construct them lazily.
+
 - Documented how the retry options interact and why the defaults are what they are
   (issue [#378](https://github.com/panoramicdata/Meraki.Api/issues/378)). The XML comment on
   `MaxBackOffDelaySeconds` claimed the back-off "doubles on each attempt", which describes

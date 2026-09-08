@@ -78,14 +78,19 @@ public partial class MerakiClient : IDisposable
 	/// <summary>
 	/// A Meraki portal client
 	/// </summary>
+	/// <exception cref="ArgumentNullException"><paramref name="options"/> is null.</exception>
+	/// <exception cref="ConfigurationException"><paramref name="options"/> fails <see cref="MerakiClientOptions.Validate"/>.</exception>
 	public MerakiClient(MerakiClientOptions options, ILogger? logger = default)
 	{
+		ArgumentNullException.ThrowIfNull(options);
+		options.Validate();
+
 		var apiClientVersion = new System.Version(ThisAssembly.AssemblyFileVersion);
 		ApiClientVersion = $"{apiClientVersion.Major}.{apiClientVersion.Minor}.{apiClientVersion.Build}";
 
 		_options = options;
 		_logger = logger ?? NullLogger.Instance;
-		_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options ?? throw new ArgumentNullException(nameof(options)), this, _logger);
+		_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options, this, _logger);
 
 		var merakiDomain = options.ApiRegion.GetMerakiApiDomain()
 			?? throw new ArgumentOutOfRangeException($"Unsupported API Region {options.ApiRegion}");
