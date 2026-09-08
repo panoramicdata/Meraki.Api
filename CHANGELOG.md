@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- Pagination **no longer stops silently** when a response advertises a next page that the client
+  cannot follow (issue [#356](https://github.com/panoramicdata/Meraki.Api/issues/356)). The
+  `GetAll*Async` helpers required the `rel=next` Link segment to split into exactly two parts on `;`,
+  so a segment with any additional attribute (for example a `title`) was treated as "no next page" and
+  the pages fetched so far were returned as a complete, successful result. The caller had no way to
+  tell that list from a genuinely complete one. The parser now takes the first component as the URL
+  and scans the rest for the `rel` attribute (quoted or not), so such links are followed. Where a
+  `rel=next` link is present but its URL is missing or not absolute, the helpers throw the new
+  `PaginationException` instead of returning truncated data, because a caller can retry but cannot
+  detect a silent shortfall. The Link parser is now shared with the `QueryAsync` auto-pagination,
+  which had the same silent-stop path. Two or more `rel=next` segments no longer throw
+  `InvalidOperationException`; the first is used.
+
 - A caller's `CancellationToken` now **aborts an in-flight HTTP attempt** immediately
   (issue [#391](https://github.com/panoramicdata/Meraki.Api/issues/391)). Each attempt was sent with
   only the handler's own per-attempt timeout token, so although every wait *between* attempts already

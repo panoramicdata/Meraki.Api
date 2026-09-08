@@ -183,9 +183,18 @@ public partial class MerakiClient
 	/// requested directly (it stays on the same api domain, so it still flows through the
 	/// authenticated, rate-limited handler).
 	/// </summary>
-	internal static Uri? GetNextPageUri(HttpResponseHeaders headers)
+	/// <remarks>
+	/// "No next link" and "a next link I cannot follow" are deliberately different outcomes. The
+	/// first is how the API signals the last page. The second means the API has said there is more
+	/// data and the client cannot fetch it, so returning null there would hand the caller a truncated
+	/// list that looks complete. Each Link segment is <c>&lt;url&gt;; attr; attr...</c>: the first
+	/// component is the URL and the rest are attributes, of which only <c>rel</c> is inspected, with
+	/// or without quotes.
+	/// </remarks>
+	/// <exception cref="PaginationException">A rel=next link is present but its URL is missing or not absolute.</exception>
+	internal static Uri? GetNextPageUri(HttpHeaders? headers)
 	{
-		if (!headers.TryGetValues("Link", out var linkHeaders))
+		if (headers is null || !headers.TryGetValues("Link", out var linkHeaders))
 		{
 			return null;
 		}
@@ -198,22 +207,27 @@ public partial class MerakiClient
 
 		var nextLink = linkHeader
 			.Split(',')
-			.FirstOrDefault(link => link.Contains("rel=next"));
+			.FirstOrDefault(IsNextLink);
 		if (nextLink is null)
 		{
 			return null;
 		}
 
-		var components = nextLink.Split(';');
-		if (components.Length < 2)
-		{
-			return null;
-		}
-
-		var url = components[0].Trim().TrimStart('<').TrimEnd('>');
+		var url = nextLink.Split(';')[0].Trim().TrimStart('<').TrimEnd('>');
 		return Uri.TryCreate(url, UriKind.Absolute, out var uri)
 			? uri
-			: null;
+			: throw new PaginationException(
+				$"The response advertised a further page (Link: rel=next) but its URL could not be parsed, so the results would be incomplete. Link header: {linkHeader}");
 	}
+
+	/// <summary>
+	/// True where a single Link segment carries a rel attribute of "next", quoted or not.
+	/// </summary>
+	private static bool IsNextLink(string linkSegment)
+		=> linkSegment
+			.Split(';')
+			.Skip(1)
+			.Select(attribute => attribute.Replace("\"", string.Empty).Replace(" ", string.Empty))
+			.Any(attribute => attribute.Equals("rel=next", StringComparison.OrdinalIgnoreCase));
 }
 #pragma warning restore S2333
