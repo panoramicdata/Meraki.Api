@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- `OrganizationApplianceUplinksUsageByNetworkItemByUplinkItem.Sent` and `.Received` are now `long`
+  (issue [#360](https://github.com/panoramicdata/Meraki.Api/issues/360)). They hold cumulative byte
+  counts for a window of up to 31 days, which routinely exceed `Int32.MaxValue` (about 2.1 GB) on a
+  busy uplink; the response then failed to deserialize and the whole call threw. Binary-compatible for
+  callers using `var`; a source break only for code that declared the property type as `int` explicitly.
+
 - **BREAKING: the `netstandard2.0` target has been dropped. This package now targets `net10.0` only.**
   Consumers who need `netstandard2.0` should stay on 1.70.79.
   - Note the version does not jump to 2.0: this package's version tracks the Meraki Dashboard API
