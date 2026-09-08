@@ -83,6 +83,15 @@ public partial class MerakiClient
 	/// <param name="perPage">The number of items per page</param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	/// <returns>A list of all items</returns>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
+	/// <exception cref="PaginationException">A page advertised a next page that could not be followed.</exception>
 	public async Task<List<T>> GetAllAsync<T>(
 		Func<int, string?, string?, CancellationToken, Task<List<T>>> pageFactoryAsync,
 		int perPage,
@@ -114,6 +123,15 @@ public partial class MerakiClient
 	/// <param name="pageFactoryAsync">The function to call for each page of results</param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	/// <returns>A list of all items</returns>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
+	/// <exception cref="PaginationException">A page advertised a next page that could not be followed.</exception>
 	public async Task<List<T>> GetAllAsync<T>(
 		Func<string?, string?, CancellationToken, Task<List<T>>> pageFactoryAsync,
 		CancellationToken cancellationToken)
@@ -144,6 +162,15 @@ public partial class MerakiClient
 	/// <param name="pageFactoryAsync">The function to call for each page of results</param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	/// <returns>A list of all items</returns>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
+	/// <exception cref="PaginationException">A page advertised a next page that could not be followed.</exception>
 	public static async Task<List<T>> GetAllAsync<T>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 		Func<string?, string?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
@@ -179,6 +206,15 @@ public partial class MerakiClient
 	/// <param name="timeSpan">The timespan duration</param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	/// <returns>A list of all items</returns>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
+	/// <exception cref="PaginationException">A page advertised a next page that could not be followed.</exception>
 	public static async Task<List<T>> GetAllAsync<T>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 		Func<string?, string?, string?, string?, double?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
@@ -215,6 +251,15 @@ public partial class MerakiClient
 	/// <param name="perPage">The number of items per page</param>
 	/// <param name="cancellationToken">The cancellation token</param>
 	/// <returns>A list of all items</returns>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
+	/// <exception cref="PaginationException">A page advertised a next page that could not be followed.</exception>
 	public static async Task<List<T>> GetAllAsync<T>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 		Func<int?, string?, string?, CancellationToken, Task<ApiResponse<List<T>>>> pageFactoryAsync,
@@ -250,6 +295,15 @@ public partial class MerakiClient
 	/// <param name="propertyFunction">A function that extracts a list of models from the API response.</param>
 	/// <param name="cancellationToken">A cancellation token to observe while waiting for the task to complete.</param>
 	/// <returns>A task that represents the asynchronous operation. The task result contains a list of all models retrieved from all pages.</returns>
+	/// <remarks>
+	/// Fetches every page before returning and is <b>all-or-nothing</b>: if any page fails, the
+	/// exception propagates and the pages already fetched are discarded. An exception therefore means
+	/// "no data was returned", never "here is what was fetched so far". In particular, a 404 from a
+	/// genuinely empty collection and a 404 on the last of many pages reach the caller identically, so
+	/// do not treat an exception as an empty result; retry or fail instead. See
+	/// <see href="https://github.com/panoramicdata/Meraki.Api/issues/355">issue 355</see>.
+	/// </remarks>
+	/// <exception cref="PaginationException">A page advertised a next page that could not be followed.</exception>
 	public static async Task<List<TModel>> GetAllFromResponsePropertyAsync<TResponse, TModel>(
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 		Func<string?, string?, CancellationToken, Task<ApiResponse<TResponse>>> pageFactoryAsync,

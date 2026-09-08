@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- Documented that the `*AllAsync` pagination helpers are **all-or-nothing**
+  (issue [#355](https://github.com/panoramicdata/Meraki.Api/issues/355), first step). If any page
+  fails, the exception propagates and the pages already fetched are discarded, so an exception means
+  "no data was returned", never "here is what was fetched so far". Because the Meraki API answers 404
+  for some genuinely empty collections, a 404 on the last of many pages is indistinguishable at the
+  call site from an empty result; callers reconciling a local cache must not treat an exception as
+  "empty". The 27 `*AllAsync` extension methods, the six underlying `GetAll*Async` pager methods and
+  the README now say so. **No behaviour changed.** Attaching the partial results to the exception,
+  so the two cases can be told apart, is a separate decision.
+
 - New opt-in `MerakiClientOptions.ThrowOnRetryExhaustion`
   (issue [#375](https://github.com/panoramicdata/Meraki.Api/issues/375)). When every permitted attempt
   ends in a retryable status (429, 502, 503 or 504), the client has always returned the final response,
