@@ -82,6 +82,9 @@ public class WebHookTests(ITestOutputHelper testOutputHelper) : MerakiClientTest
 			// The new WebhookHttpSever Id is only returned after creation so we have to get it from there
 			Id = created.Id,
 			Url = request.Url,
+			// Server-determined, and reported since the Enabled field was mapped. A server the API
+			// has just accepted is enabled, so asserting true is stronger than excluding it.
+			Enabled = true,
 		};
 
 		var retrievedTestWebhookHttpServer = await TestMerakiClient
