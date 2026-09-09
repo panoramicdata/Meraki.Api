@@ -1,5 +1,32 @@
 ﻿# Changelog
 
+## 1.70.136
+
+- **Seven more response fields the Dashboard API returns are now mapped**, each of them a nested
+  object that needed a new model class. As with the scalars in 1.70.135, callers who set
+  `JsonMissingMemberHandling.ThrowOnError` were getting a failed deserialization rather than an
+  ignored field:
+  `TwoPointFourGhzSettings.Dot11ax` and `FiveGhzSettings.Dot11ax`, `SwitchPort.PerpetualPoe` and
+  `.FastPoe`, `NetworkApplianceSsidRadiusServer.Radsec`, `Admin.OtherOrganizationAccounts`, and
+  `VpnBgp.Ipv6` and `.TunnelDownTermination`.
+
+  Ten new classes back them: `TwoPointFourGhzSettingsDot11ax`, `FiveGhzSettingsDot11ax`,
+  `SwitchPortPerpetualPoe`, `SwitchPortFastPoe`, `NetworkApplianceSsidRadiusServerRadsec`,
+  `AdminOtherOrganizationAccounts` and `AdminOtherOrganizationAccountsLockout`, `VpnBgpIpv6`,
+  `VpnBgpIpv6SinglePeering` and `VpnBgpTunnelDownTermination`.
+
+  `Dot11ax` on both bands and both PoE objects are in the v1.74.0 OpenAPI spec on request bodies as
+  well as responses, so they are writable: `Dot11ax` is read/write and the two PoE objects are
+  read/update, matching their endpoints. The spec also marks `axEnabled` deprecated in favour of
+  `dot11ax.enabled` on both bands, which the XML docs now say. `Radsec`,
+  `OtherOrganizationAccounts`, `Ipv6` and `TunnelDownTermination` appear nowhere in the spec and are
+  mapped read-only from the observed responses.
+
+- **These mappings have credential-free regression tests** in
+  `Meraki.Api.Test.Data.MissingMemberNestedFieldTests`, deserializing the observed payloads (with
+  identifying values replaced) using `MissingMemberHandling.Error`. The CI step added in 1.70.135
+  runs them.
+
 ## 1.70.135
 
 - **Seven more response fields the Dashboard API returns are now mapped**, all of them simple

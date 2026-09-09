@@ -57,8 +57,16 @@ public class FiveGhzSettings
 
 	/// <summary>
 	/// Determines whether 802.11ax is enabled. Undocumented property.
+	/// Deprecated by the API in favour of <see cref="Dot11ax"/>.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "axEnabled")]
 	public bool? AxEnabled { get; set; }
+
+	/// <summary>
+	/// IEEE 802.11ax (Wi-Fi 6) settings.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "dot11ax")]
+	public FiveGhzSettingsDot11ax? Dot11ax { get; set; }
 }
