@@ -17,6 +17,6 @@ public class OrganizationDevicesSyslogServersRolesByNetworkItem
 	/// The list of roles that can be assigned to a syslog server for this network
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "availableRoles")]
+	[DataMember(Name = "available")]
 	public List<OrganizationDevicesSyslogServersRolesByNetworkItemAvailableRole> AvailableRoles { get; set; } = [];
 }

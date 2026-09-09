@@ -61,4 +61,18 @@ public class NetworkStatusSummary
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "statuses")]
 	public NetworkStatusSummaryStatuses Statuses { get; set; } = new();
+
+	/// <summary>
+	/// Network group membership
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "group")]
+	public NetworkStatusSummaryGroup? Group { get; set; }
+
+	/// <summary>
+	/// Current user's network-level permissions
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "permissions")]
+	public NetworkStatusSummaryPermissions? Permissions { get; set; }
 }
