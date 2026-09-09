@@ -132,4 +132,22 @@ public enum SensorMetrics
 	/// </summary>
 	[EnumMember(Value = "rawTemperature")]
 	RawTemperature,
+
+	/// <summary>
+	/// Nitrogen dioxide concentration
+	/// </summary>
+	[EnumMember(Value = "no2")]
+	No2,
+
+	/// <summary>
+	/// Ozone concentration
+	/// </summary>
+	[EnumMember(Value = "o3")]
+	O3,
+
+	/// <summary>
+	/// PM10 particulate concentration
+	/// </summary>
+	[EnumMember(Value = "pm10")]
+	Pm10
 }

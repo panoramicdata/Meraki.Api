@@ -13,8 +13,9 @@ public class CameraLive
 	public string Ts { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Zones
+	/// The zones state, keyed by zone ID
 	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "zones")]
-	public Zones Zones { get; set; } = new();
+	public Dictionary<string, ZoneData> Zones { get; set; } = [];
 }

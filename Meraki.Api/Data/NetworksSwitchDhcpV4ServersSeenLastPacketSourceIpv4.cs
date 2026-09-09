@@ -10,6 +10,6 @@ public class NetworksSwitchDhcpV4ServersSeenLastPacketSourceIpv4
 	/// Source ipv4 address of the packet.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "ipv4")]
-	public string Ipv4 { get; set; } = string.Empty;
+	[DataMember(Name = "address")]
+	public string Address { get; set; } = string.Empty;
 }

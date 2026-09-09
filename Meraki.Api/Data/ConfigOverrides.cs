@@ -26,4 +26,11 @@ public class ConfigOverrides
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "vlan")]
 	public int? Vlan { get; set; }
+
+	/// <summary>
+	/// The voice VLAN of the port. Only applicable to access ports.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "voiceVlan")]
+	public int? VoiceVlan { get; set; }
 }
