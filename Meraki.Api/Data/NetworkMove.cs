@@ -3,6 +3,7 @@
 /// <summary>
 /// Network Move
 /// </summary>
+[Obsolete("The Dashboard API stopped returning networkMoveId and url from createNetworkMove; neither property binds. CreateNetworkMoveAsync now returns NetworkMoveDetailed, whose MoveId is the identifier. This type will be removed in a later release.")]
 [DataContract]
 public class NetworkMove
 {

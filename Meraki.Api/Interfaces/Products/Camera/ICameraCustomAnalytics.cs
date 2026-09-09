@@ -12,7 +12,7 @@ public interface ICameraCustomAnalytics
 	/// <param name="serial">The serial number</param>
 	/// <param name="cancellationToken"></param>
 	[Get("/devices/{serial}/camera/customAnalytics")]
-	Task<List<CameraCustomAnalytics>> GetDeviceCameraCustomAnalyticsAsync(
+	Task<CameraCustomAnalytics> GetDeviceCameraCustomAnalyticsAsync(
 		string serial,
 		CancellationToken cancellationToken = default
 		);
@@ -25,7 +25,7 @@ public interface ICameraCustomAnalytics
 	/// <param name="cameraCustomAnalyticsUpdate">Body for updating camera custom analytics</param>
 	/// <param name="cancellationToken"></param>
 	[Put("/devices/{serial}/camera/customAnalytics")]
-	Task<List<CameraCustomAnalytics>> UpdateDeviceCameraCustomAnalyticsAsync(
+	Task<CameraCustomAnalytics> UpdateDeviceCameraCustomAnalyticsAsync(
 		string serial,
 		[Body] CameraCustomAnalyticsUpdate cameraCustomAnalyticsUpdate,
 		CancellationToken cancellationToken = default

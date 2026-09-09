@@ -21,17 +21,32 @@ public class NetworkMoveDetailed
 	public string LastUpdatedAt { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Current status of the network move operation. Possible values are pending, in progress, failed, and completed
+	/// ID of the network move operation
+	/// </summary>
+	[ApiKey]
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "moveId")]
+	public string MoveId { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Current status of the network move operation. No longer in the v1.74.0 spec, which reports it under <see cref="Result"/>; kept for responses that still send it.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "status")]
-	public string Status { get; set; } = string.Empty;
+	public string? Status { get; set; }
+
+	/// <summary>
+	/// Result of the network move operation
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "result")]
+	public NetworkMoveResult? Result { get; set; }
 
 	/// <summary>
 	/// User who initiated the move
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "intiator")]
+	[DataMember(Name = "initiator")]
 	public NetworkMoveInitiator Initiator { get; set; } = new();
 
 	/// <summary>

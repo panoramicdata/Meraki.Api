@@ -20,9 +20,9 @@ public class SensorAlertConditionThresholdTemperature
 	public double? Celsius { get; set; }
 
 	/// <summary>
-	/// Temperature Threshold Farenheit
+	/// Temperature Threshold Fahrenheit
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "farenheit")]
-	public double? Farenheit { get; set; }
+	[DataMember(Name = "fahrenheit")]
+	public double? Fahrenheit { get; set; }
 }
