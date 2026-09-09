@@ -12,4 +12,11 @@ public class NetworkUmbrellaAccountConnectResponse
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "umbrellaOrganizationId")]
 	public string UmbrellaOrganizationId { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Umbrella configuration
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "umbrella")]
+	public NetworkUmbrellaAccountConnectResponseUmbrella? Umbrella { get; set; }
 }

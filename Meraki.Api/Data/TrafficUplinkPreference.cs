@@ -33,4 +33,11 @@ public class TrafficUplinkPreference
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "performanceClass")]
 	public PerformanceClass? PerformanceClass { get; set; }
+
+	/// <summary>
+	/// VRF settings for this uplink preference rule. Only included when VRF is enabled for the organization.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "vrf")]
+	public VlanVrf? Vrf { get; set; }
 }

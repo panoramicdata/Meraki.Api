@@ -58,5 +58,5 @@ public class VpnStatus
 	/// Third party VPN peers
 	/// </summary>
 	[DataMember(Name = "thirdPartyVpnPeers")]
-	public List<ThirdPartyVpnPeers> ThirdPartyVpnPeers { get; set; } = [];
+	public List<VpnStatusThirdPartyVpnPeer> ThirdPartyVpnPeers { get; set; } = [];
 }
