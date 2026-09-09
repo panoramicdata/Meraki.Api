@@ -41,4 +41,10 @@ public class SwitchPortsUsageHistoryByDeviceByIntervalItem
 	[DataMember(Name = "ports")]
 	public List<SwitchPortsUsageHistoryByDeviceByIntervalItemPort> Ports { get; set; } = [];
 
+	/// <summary>
+	/// The serial number of the switch.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "serial")]
+	public string? Serial { get; set; }
 }

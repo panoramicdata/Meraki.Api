@@ -144,4 +144,25 @@ public class SensorReadingLatestReading
 	/// </summary>
 	[DataMember(Name = "water")]
 	public SensorMetricWater? Water { get; set; }
+
+	/// <summary>
+	/// Reading for the 'no2' metric. This will only be present if the 'metric' property equals 'no2'.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "no2")]
+	public SensorMetricConcentration? No2 { get; set; }
+
+	/// <summary>
+	/// Reading for the 'o3' metric. This will only be present if the 'metric' property equals 'o3'.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "o3")]
+	public SensorMetricConcentration? O3 { get; set; }
+
+	/// <summary>
+	/// Reading for the 'pm10' metric. This will only be present if the 'metric' property equals 'pm10'.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "pm10")]
+	public SensorMetricConcentration? Pm10 { get; set; }
 }

@@ -59,4 +59,11 @@ public class StackDevice
 	/// </summary>
 	[DataMember(Name = "uplinks")]
 	public List<StackDeviceUplinks> Uplinks { get; set; } = [];
+
+	/// <summary>
+	/// The product type of the device
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "productType")]
+	public string? ProductType { get; set; }
 }

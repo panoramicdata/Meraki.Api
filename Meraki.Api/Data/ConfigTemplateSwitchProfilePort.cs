@@ -247,4 +247,11 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "stackwiseVirtual")]
 	public SwitchPortStackwiseVirtual? StackwiseVirtual { get; set; }
+
+	/// <summary>
+	/// The state of STP PortFast Trunk on the switch template port.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "stpPortFastTrunk")]
+	public bool? StpPortFastTrunk { get; set; }
 }

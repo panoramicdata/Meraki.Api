@@ -5,11 +5,11 @@ namespace Meraki.Api.Data;
 /// </summary>
 [DataContract]
 public class EsimsServiceProvidersAccounts
-	: ItemsResponseWithMeta<EsimsServiceProvidersAccountsItem>
+	: ItemsResponseWithMeta<NetworkCellularGatewayEsimsServiceProviderAccount>
 {
 	/// <summary>
 	/// List of Cellular Service Provider Accounts
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	public override List<EsimsServiceProvidersAccountsItem> Items { get; set; } = [];
+	public override List<NetworkCellularGatewayEsimsServiceProviderAccount> Items { get; set; } = [];
 }
