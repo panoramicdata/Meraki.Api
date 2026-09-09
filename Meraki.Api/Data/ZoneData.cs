@@ -7,7 +7,9 @@
 public class ZoneData
 {
 	/// <summary>
-	/// Person
+	/// The number of people detected in the zone
 	/// </summary>
-	public int Person { get; set; }
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "person")]
+	public int? Person { get; set; }
 }

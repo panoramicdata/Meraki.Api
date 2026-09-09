@@ -267,4 +267,11 @@ public class SwitchPort : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "stackwiseVirtual")]
 	public SwitchPortStackwiseVirtual? StackwiseVirtual { get; set; }
+
+	/// <summary>
+	/// The state of STP PortFast Trunk on the switch port.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "stpPortFastTrunk")]
+	public bool? StpPortFastTrunk { get; set; }
 }

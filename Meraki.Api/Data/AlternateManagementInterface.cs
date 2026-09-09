@@ -33,4 +33,11 @@ public class AlternateManagementInterface
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "switches")]
 	public List<AlternateManagementSwitch> Switches { get; set; } = [];
+
+	/// <summary>
+	/// Boolean value to use out-of-band management interface when configured
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "useOobMgmt")]
+	public bool? UseOobMgmt { get; set; }
 }

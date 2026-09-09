@@ -34,4 +34,11 @@ public class NetworkCellularGatewayEsimsInventoryItemDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "url")]
 	public string Url { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Device status
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "status")]
+	public string? Status { get; set; }
 }

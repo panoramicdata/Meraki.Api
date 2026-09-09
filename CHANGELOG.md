@@ -1,5 +1,38 @@
 ﻿# Changelog
 
+## 1.74.17
+
+- **Twenty-two Switch, Camera, Sensor and Cellular Gateway response members the v1.74.0 spec
+  documents are now mapped**, the fifth per-area batch from the gap report:
+  `AlternateManagementInterface.UseOobMgmt`, `ConfigOverrides.VoiceVlan`, `SwitchPort.StpPortFastTrunk`
+  and `ConfigTemplateSwitchProfilePort.StpPortFastTrunk`, `StackDevice.ProductType`,
+  `SwitchPortsUsageHistoryByDeviceByIntervalItem.Serial`; `PermissionLevel` and `PermissionScope` on
+  `CameraRoleAppliedOnDevice`, `CameraRoleAppliedOnNetwork` and `CameraRoleAppliedOrgWide` (plus `Tag`
+  on the last); `No2`, `O3` and `Pm10` on `SensorReadingHistoric` and `SensorReadingLatestReading`
+  (reusing `SensorMetricConcentration`); `NetworkCellularGatewayEsimsInventoryItemDevice.Status`.
+
+- **Six members that could never bind are corrected** (breaking in the type-system sense only):
+  - `ConfigTemplateSwitchProfilePortDot3az.Dot3az` was mapped to `dot3az`; the API sends `enabled`.
+    Now `Enabled`, matching `SwitchPortDot3az`.
+  - `NetworksSwitchDhcpV4ServersSeenLastPacketSourceIpv4.Ipv4` was mapped to `ipv4`; the API sends
+    `address`. Now `Address`.
+  - `EsimsServiceProvidersItemLogo.Logo` was mapped to `logo`; the API sends `url`. Now `Url`.
+  - `EsimsServiceProvidersAccounts.Items` was a list of `EsimsServiceProvidersAccountsItem`, which is
+    itself an `{items, meta}` wrapper, so no account ever bound. It is now
+    `List<NetworkCellularGatewayEsimsServiceProviderAccount>`; the old item type is `[Obsolete]`.
+  - `CameraLive.Zones` was a `Zones` class with a single fixed `"0"` member; the API keys zones by
+    zone ID. It is now `Dictionary<string, ZoneData>`, and `Zones` is `[Obsolete]`.
+  - `ZoneData.Person` had no `[DataMember]` inside a `[DataContract]` class, so Newtonsoft ignored it.
+
+  - `SensorMetrics` lacked `No2`, `O3` and `Pm10`, so a reading whose `metric` was one of them threw
+    on deserialization rather than binding; the three values are added.
+  - `IOrganizationSwitches` had a second `GetOrganizationSwitchPortsTopologyDiscoveryByDeviceAsync`
+    overload, taking the usage-history filter parameters, whose `[Get]` path was the **usage-history**
+    endpoint and whose return type was the topology model, so it could never have returned anything
+    usable. It is removed; the single-parameter overload with the correct path remains.
+
+  Regression tests are in `Meraki.Api.Test.Data.SwitchCameraSensorCellularMemberTests`.
+
 ## 1.74.15
 
 - **Nineteen Wireless response members the v1.74.0 spec documents are now mapped**, the fourth
