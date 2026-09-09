@@ -33,4 +33,11 @@ public class SmProfile : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "targetGroupId")]
 	public string? TargetGroupId { get; set; }
+
+	/// <summary>
+	/// Payloads in the profile.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "payloadTypes")]
+	public List<string> PayloadTypes { get; set; } = [];
 }
