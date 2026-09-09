@@ -90,4 +90,11 @@ public class LanConfiguration
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "mandatoryDhcp")]
 	public MandatoryDhcp MandatoryDhcp { get; set; } = new();
+
+	/// <summary>
+	/// VRF configuration on the single LAN
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "vrf")]
+	public VlanVrf? Vrf { get; set; }
 }
