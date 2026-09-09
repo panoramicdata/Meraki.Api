@@ -69,7 +69,7 @@ public interface ISmDevices
 	/// <param name="modifyNetworkSmDevicesTags"></param>
 	/// <param name="cancellationToken"></param>
 	[Post("/networks/{networkId}/sm/devices/modifyTags")]
-	Task<List<SmDevicesCheckinRequest>> ModifyNetworkSmDevicesTagsAsync(
+	Task<List<SmDevicesModifyTagsResponse>> ModifyNetworkSmDevicesTagsAsync(
 		string networkId,
 		[Body] ModifyNetworkDeviceTags modifyNetworkSmDevicesTags,
 		CancellationToken cancellationToken = default
