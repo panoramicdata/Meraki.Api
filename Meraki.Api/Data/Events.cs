@@ -77,4 +77,11 @@ public class Events
 	/// </summary>
 	[DataMember(Name = "eventData")]
 	public EventData EventData { get; set; } = new();
+
+	/// <summary>
+	/// The client's MAC address.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "clientMac")]
+	public string? ClientMac { get; set; }
 }

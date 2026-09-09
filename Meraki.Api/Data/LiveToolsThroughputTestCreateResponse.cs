@@ -55,4 +55,11 @@ public class LiveToolsThroughputTestCreateResponse
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "result")]
 	public LiveToolsThroughputTestCreateResponseResult Result { get; set; } = new();
+
+	/// <summary>
+	/// ID of throughput test job
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "throughputTestId")]
+	public string? ThroughputTestId { get; set; }
 }

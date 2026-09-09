@@ -1,5 +1,22 @@
 ﻿# Changelog
 
+## 1.74.19
+
+- **Nineteen Live Tools and general response members the v1.74.0 spec documents are now mapped**,
+  the sixth and last per-area batch from the gap report, which closes every member it listed:
+  `Client.Cdp`; `ClientProvision.ClientId` and `.Message`; `DeviceClient.AdaptivePolicyGroup` and
+  `.Switchport`; `Mac` on both `DeviceLiveToolsMacTable*ResponseRequest` types; `IpVersion`, `Vrf`
+  and (for interfaces) `VrfType` on `DeviceLiveToolsMulticastRoutingGetResponseInterface` and
+  `…Route`; `Events.ClientMac`; `LiveToolsArpTableResultTableEntry.Interface`;
+  `LiveToolsThroughputTestCreateResponse.ThroughputTestId`; and, alongside the legacy names the
+  models already carry, the API's current `startTime`/`endTime` on `LossAndLatencyHistory` and
+  `received` on `SubclassApplicationUsage` and `SubclassUsageHistory`. Regression tests are in
+  `Meraki.Api.Test.Data.LiveToolsGeneralMemberTests`.
+
+  With this batch, `Find-MissingModelMembers.ps1` reports no unmapped response members against
+  v1.74.0. What remains is the endpoint gap it also reports: 140 spec operations not implemented and
+  214 library endpoints matching no spec path, which need their own pass.
+
 ## 1.74.17
 
 - **Twenty-two Switch, Camera, Sensor and Cellular Gateway response members the v1.74.0 spec

@@ -23,4 +23,11 @@ public class SubclassApplicationUsage
 	/// </summary>
 	[DataMember(Name = "sent")]
 	public int Sent { get; set; }
+
+	/// <summary>
+	/// Total bytes received by the client for the application, as the current API names it
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "received")]
+	public long? Received { get; set; }
 }

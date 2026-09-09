@@ -23,4 +23,11 @@ public class SubclassUsageHistory
 	/// </summary>
 	[DataMember(Name = "sent")]
 	public int Sent { get; set; }
+
+	/// <summary>
+	/// Usage received by the client on a given day, as the current API names it
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "received")]
+	public double? Received { get; set; }
 }
