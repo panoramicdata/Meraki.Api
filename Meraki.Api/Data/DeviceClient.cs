@@ -65,4 +65,18 @@ public class DeviceClient
 	/// </summary>
 	[DataMember(Name = "dhcpHostname")]
 	public string? DhcpHostname { get; set; }
+
+	/// <summary>
+	/// A description of the adaptive policy group
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "adaptivePolicyGroup")]
+	public string? AdaptivePolicyGroup { get; set; }
+
+	/// <summary>
+	/// The name of the switchport with clients on it, if the device is a switch
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "switchport")]
+	public string? Switchport { get; set; }
 }

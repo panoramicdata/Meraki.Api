@@ -47,4 +47,18 @@ public class DeviceLiveToolsMulticastRoutingGetResponseRoute
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "outgoingInterfaceNames")]
 	public List<string> OutgoingInterfaceNames { get; set; } = [];
+
+	/// <summary>
+	/// IP version for the route. Included on networks with IOS XE 17.18 or higher
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ipVersion")]
+	public string? IpVersion { get; set; }
+
+	/// <summary>
+	/// VRF name for the route. Included on networks with IOS XE 17.18 or higher
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vrf")]
+	public string? Vrf { get; set; }
 }

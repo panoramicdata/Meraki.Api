@@ -285,7 +285,9 @@ $grouped = $realFindings |
 	} |
 	Sort-Object ClrType, JsonMember
 
-Write-Information "Unmapped response members: $(@($grouped).Count) across $(@($grouped.ClrType | Sort-Object -Unique).Count) types"
+$groupedList = @($grouped)
+$typeCount = if ($groupedList.Count -eq 0) { 0 } else { @($groupedList | ForEach-Object { $_.ClrType } | Sort-Object -Unique).Count }
+Write-Information "Unmapped response members: $($groupedList.Count) across $typeCount types"
 
 if ($OutCsv) {
 	$grouped | Export-Csv -LiteralPath $OutCsv -NoTypeInformation -Encoding UTF8
