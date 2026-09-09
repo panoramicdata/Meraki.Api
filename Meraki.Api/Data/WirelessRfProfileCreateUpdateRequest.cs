@@ -105,9 +105,9 @@ public class WirelessRfProfileCreateUpdateRequest
 	public WirelessRfProfileFlexRadios? FlexRadios { get; set; }
 
 	/// <summary>
-	/// Gets the be
+	/// 802.11be settings
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
-	[DataMember(Name = "be")]
-	public WirelessRfProfileBe? Be { get; set; }
+	[DataMember(Name = "dot11be")]
+	public WirelessRfProfileBe? Dot11be { get; set; }
 }

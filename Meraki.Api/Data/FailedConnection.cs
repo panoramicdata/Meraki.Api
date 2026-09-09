@@ -47,4 +47,11 @@ public class FailedConnection
 	/// </summary>
 	[DataMember(Name = "ts")]
 	public DateTime Ts { get; set; }
+
+	/// <summary>
+	/// Radio number
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "radio")]
+	public int? Radio { get; set; }
 }

@@ -25,4 +25,11 @@ public class ElectronicShelfLabelSettingsNetwork
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "mode")]
 	public ElectronicShelfLabelSettingsNetworkMode? Mode { get; internal set; }
+
+	/// <summary>
+	/// sepioo IIoT settings
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "sepioo")]
+	public ElectronicShelfLabelSettingsNetworkSepioo? Sepioo { get; set; }
 }

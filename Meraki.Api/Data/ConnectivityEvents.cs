@@ -77,4 +77,11 @@ public class ConnectivityEvents
 	/// </summary>
 	[DataMember(Name = "eventData")]
 	public EventData EventData { get; set; } = new();
+
+	/// <summary>
+	/// Number of the SSID the event occurred in
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ssidNumber")]
+	public int? SsidNumber { get; set; }
 }

@@ -36,4 +36,11 @@ public class SsidsStatusesByDeviceItemBasicServiceSetRadio
 	/// </summary>
 	[DataMember(Name = "isBroadcasting")]
 	public bool IsBroadcasting { get; set; }
+
+	/// <summary>
+	/// The radio index.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "index")]
+	public string? Index { get; set; }
 }
