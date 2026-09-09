@@ -14,7 +14,7 @@ public interface IOrganizationsCampusGatewayClusters
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationCampusGatewayClusters")]
 	[Get("/organizations/{organizationId}/campusGateway/clusters")]
-	Task<List<OrganizationCampusGatewayCluster>> GetOrganizationCampusGatewayClustersAsync(
+	Task<OrganizationCampusGatewayClustersResponse> GetOrganizationCampusGatewayClustersAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);

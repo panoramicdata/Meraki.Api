@@ -10,6 +10,6 @@ public class OrganizationSplashTheme : NamedIdentifiedItem
 	/// list of theme assets
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
-	[DataMember(Name = "themeAssests")]
+	[DataMember(Name = "themeAssets")]
 	public List<OrganizationSplashThemeThemeAsset> ThemeAssets { get; set; } = [];
 }

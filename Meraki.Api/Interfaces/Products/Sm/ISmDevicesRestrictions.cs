@@ -13,7 +13,7 @@ public interface ISmDevicesRestrictions
 	/// <param name="deviceId">The device id</param>
 	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/sm/devices/{deviceId}/restrictions")]
-	Task<List<SmDeviceRestrictions>> GetNetworkSmDeviceRestrictionsAsync(
+	Task<SmDeviceRestrictions> GetNetworkSmDeviceRestrictionsAsync(
 		string networkId,
 		string deviceId,
 		CancellationToken cancellationToken = default

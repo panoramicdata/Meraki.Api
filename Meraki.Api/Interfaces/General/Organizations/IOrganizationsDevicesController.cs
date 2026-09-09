@@ -14,7 +14,7 @@ public interface IOrganizationsDevicesController
 	/// <returns></returns>
 	[ApiOperationId("createOrganizationDevicesControllerMigration")]
 	[Post("/organizations/{organizationId}/devices/controller/migrations")]
-	Task<OrganizationsDevicesControllerMigration> CreateOrganizationDevicesControllerMigrationAsync(
+	Task<List<OrganizationsDevicesControllerMigration>> CreateOrganizationDevicesControllerMigrationAsync(
 		string organizationId,
 		[Body] OrganizationsDevicesControllerMigrationCreateRequest request,
 		CancellationToken cancellationToken = default

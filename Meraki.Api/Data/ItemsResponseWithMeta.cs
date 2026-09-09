@@ -4,6 +4,7 @@
 /// Response containing a list of items with metadata
 /// </summary>
 /// <typeparam name="T">The type of items in the response</typeparam>
+[DataContract]
 public abstract class ItemsResponseWithMeta<T>
 {
 	/// <summary>

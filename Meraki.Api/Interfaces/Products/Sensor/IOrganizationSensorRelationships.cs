@@ -13,7 +13,7 @@ public interface IOrganizationSensorRelationships
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getDeviceSensorRelationships")]
 	[Get("/devices/{serial}/sensor/relationships")]
-	Task<List<SensorRelationship>> GetDeviceSensorRelationshipsAsync(
+	Task<SensorRelationship> GetDeviceSensorRelationshipsAsync(
 		string serial,
 		CancellationToken cancellationToken = default
 		);

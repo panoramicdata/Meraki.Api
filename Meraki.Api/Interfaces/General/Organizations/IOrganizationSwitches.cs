@@ -79,7 +79,7 @@ public interface IOrganizationSwitches
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSwitchPortsStatusesBySwitch")]
 	[Get("/organizations/{organizationId}/switch/ports/statuses/bySwitch")]
-	Task<List<SwitchPortsStatusesBySwitch>> GetOrganizationSwitchPortsStatusesBySwitchAsync(
+	Task<OrganizationSwitchPortsStatusesBySwitchResponse> GetOrganizationSwitchPortsStatusesBySwitchAsync(
 		string organizationId,
 		string? t0,
 		int? timespan,

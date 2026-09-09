@@ -200,7 +200,7 @@ public interface INetworksFirmwareUpgrades
 	/// <returns></returns>
 	[ApiOperationId("updateNetworkFirmwareUpgradesStagedStages")]
 	[Put("/networks/{networkId}/firmwareUpgrades/staged/stages")]
-	Task<NetworkFirmwareUpgradesStagedStage> UpdateNetworkFirmwareUpgradesStagedStagesAsync(
+	Task<List<NetworkFirmwareUpgradesStagedStage>> UpdateNetworkFirmwareUpgradesStagedStagesAsync(
 		string networkId,
 		[Body] NetworkFirmwareUpgradesStagedStageUpdateRequest updateNetworkFirmwareUpgradesStagedStages,
 		CancellationToken cancellationToken = default);
