@@ -43,6 +43,20 @@ public class SwitchPort : NamedItem
 	public bool PoeEnabled { get; set; }
 
 	/// <summary>
+	/// Perpetual PoE settings for the switch port.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "perpetualPoe")]
+	public SwitchPortPerpetualPoe? PerpetualPoe { get; set; }
+
+	/// <summary>
+	/// Fast PoE settings for the switch port.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "fastPoe")]
+	public SwitchPortFastPoe? FastPoe { get; set; }
+
+	/// <summary>
 	/// The type of the switch port ('trunk' or 'access')
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

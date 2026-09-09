@@ -47,4 +47,11 @@ public class NetworkApplianceSsidRadiusServer
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "secret")]
 	public string? Secret { get; set; }
+
+	/// <summary>
+	/// RADSEC settings for the RADIUS server - Undocumented, observed in responses only
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "radsec")]
+	public NetworkApplianceSsidRadiusServerRadsec? Radsec { get; set; }
 }
