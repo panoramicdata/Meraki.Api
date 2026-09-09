@@ -1,5 +1,70 @@
 ﻿# Changelog
 
+## 1.74.7
+
+### Breaking changes
+
+An audit against the v1.74.0 OpenAPI spec (`Find-ModelShapeMismatches.ps1`) found endpoints whose
+declared return type does not match the shape the Dashboard API sends, so the call could never
+deserialize, and `[DataMember]` names that are misspelt, so the property never bound. Fixing them
+changes public signatures and property names; each change is listed so callers can update.
+
+- **Six methods declared `List<T>` where the API sends an `{items, meta}` wrapper.** Each now
+  returns a wrapper type deriving from `ItemsResponseWithMeta<T>`:
+  `GetNetworkMovesAsync` → `NetworkMovesResponse`,
+  `GetOrganizationCampusGatewayClustersAsync` → `OrganizationCampusGatewayClustersResponse`,
+  `GetOrganizationSensorGatewaysConnectionsLatestAsync` → `OrganizationSensorGatewaysConnectionsLatestResponse`
+  (items are the existing `SensorGatewayConnectionsLatestItem`, not `SensorReadingLatest`),
+  `GetOrganizationSwitchPortsStatusesBySwitchAsync` → `OrganizationSwitchPortsStatusesBySwitchResponse`,
+  `GetOrganizationIntegrationsXdrNetworksAsync` → the existing wrapper `OrganizationIntegrationsXdrByNetwork`
+  (it was declared as a `List` of that wrapper), and
+  `UpdateOrganizationSmSentryPoliciesAssignments` → `OrganizationSmSentryPoliciesAssignmentsUpdateResponse`
+  (an `{items}` wrapper with no meta). Read `.Items` where you previously enumerated the result.
+
+- **Six methods declared a single object where the API sends an array.** Each now returns
+  `List<T>` of the type it previously returned:
+  `GetAdministeredLicensingSubscriptionSubscriptionsComplianceStatusesAsync`,
+  `GetNetworkSmDeviceConnectivityAsync`, `UpdateNetworkFirmwareUpgradesStagedStagesAsync`,
+  `CreateOrganizationApplianceDnsLocalRecordAsync`, `GetOrganizationApplianceDnsLocalRecordsAsync`
+  and `CreateOrganizationDevicesControllerMigrationAsync`.
+
+- **Ten methods declared `List<T>` where the API sends a single object**, all single-resource paths:
+  `GetNetworkApplianceFirewallFirewalledServiceAsync` and `Update…` → `FirewalledService`;
+  `GetNetworkApplianceFirewallInboundCellularFirewallRulesAsync` and `Update…` →
+  `InboundCellularFirewallRules` (the `{rules}` object; the getter was declared as a bare list of
+  rules); `UpdateNetworkApplianceSdwanInternetPoliciesAsync` → `OrganizationApplianceSdwanInternetPolicies`
+  (it was declared as `List<SecurityEvent>`, an unrelated type); `GetDeviceCameraCustomAnalyticsAsync`
+  and `Update…` → `CameraCustomAnalytics`; `CreateOrganizationAdaptivePolicyAclAsync` → `AdaptivePolicyAcl`;
+  `GetDeviceSensorRelationshipsAsync` → `SensorRelationship`; `GetNetworkSmDeviceRestrictionsAsync` →
+  `SmDeviceRestrictions`.
+
+- **`CreateNetworkMoveAsync` now returns `NetworkMoveDetailed`.** The API stopped returning
+  `networkMoveId` and `url`, so neither property of `NetworkMove` bound; that type is now
+  `[Obsolete]` and will be removed in a later release. `NetworkMoveDetailed` gains `MoveId` (the
+  identifier the API now sends) and `Result` (a new `NetworkMoveResult` with `Status` and `Reason`);
+  its `Status` is no longer in the spec and becomes nullable.
+
+- **Misspelt member names corrected**, with the C# property renamed to match where it carried the
+  typo: `ConnectivityEvents.OccuredAt` → `OccurredAt` (`occurredAt`),
+  `SensorAlertConditionThresholdTemperature.Farenheit` → `Fahrenheit` (`fahrenheit`),
+  `OrganizationLicensingCotermLicenseMoveResponse.MoveLicenses` → `MovedLicenses` (`movedLicenses`),
+  `NetworkMoveDetailed.Initiator` (`intiator` → `initiator`),
+  `OrganizationSplashTheme.ThemeAssets` (`themeAssests` → `themeAssets`), and
+  `NetworksCampusGatewayClusterUplink.Addresses` (`address` → `addresses`).
+
+- **`Meta` on every `ItemsResponseWithMeta<T>` response was always empty.** The abstract base and the
+  `ItemsResponseMeta`, `ItemsResponseMetaCounts` and `ItemsResponseMetaCountsItems` classes lacked
+  `[DataContract]`, so on each opt-in derived wrapper Newtonsoft treated the inherited `Meta` as
+  ignored and dropped the API's `meta` object silently — pagination counts never arrived, and an
+  unmapped field inside `meta` could not be detected. All four now carry `[DataContract]`. Not a
+  signature change, but `Meta.Counts` will start being populated where it was previously null.
+
+- Three object-versus-list findings were left alone as the known Meraki spec habit of documenting a
+  list endpoint's item rather than the array (`GetNetworkWirelessRfProfilesAsync` is observed live
+  as an array), and five where the spec documents an array whose only item is itself an
+  `{items, meta}` wrapper (the library's wrapper is right). Regression tests in
+  `Meraki.Api.Test.Data.ResponseShapeTests` cover the new shapes and the corrected names.
+
 ## 1.74.5
 
 - **The library now tracks Dashboard API 1.74**, so `version.json` moves from `1.70` to `1.74`.

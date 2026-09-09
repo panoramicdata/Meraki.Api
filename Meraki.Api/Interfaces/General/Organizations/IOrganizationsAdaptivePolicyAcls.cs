@@ -24,7 +24,7 @@ public interface IOrganizationsAdaptivePolicyAcls
 	/// <param name="acls">Body for creating an ACL</param>
 	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/adaptivePolicy/acls")]
-	Task<List<AdaptivePolicyAcl>> CreateOrganizationAdaptivePolicyAclAsync(
+	Task<AdaptivePolicyAcl> CreateOrganizationAdaptivePolicyAclAsync(
 		string organizationId,
 		[Body] AdaptivePolicyAcl acls,
 		CancellationToken cancellationToken = default);

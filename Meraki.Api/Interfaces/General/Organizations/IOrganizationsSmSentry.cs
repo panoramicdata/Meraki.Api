@@ -29,7 +29,7 @@ public interface IOrganizationsSmSentry
 	/// <returns></returns>
 	[ApiOperationId("updateOrganizationSmSentryPoliciesAssignments")]
 	[Put("/organizations/{organizationId}/sm/sentry/policies/assignments")]
-	Task<OrganizationSmSentryPoliciesAssignmentsResponse> UpdateOrganizationSmSentryPoliciesAssignments(
+	Task<OrganizationSmSentryPoliciesAssignmentsUpdateResponse> UpdateOrganizationSmSentryPoliciesAssignments(
 		string organizationId,
 		[Body] OrganizationSmSentryPoliciesAssignmentsUpdateRequest request,
 		CancellationToken cancellationToken = default

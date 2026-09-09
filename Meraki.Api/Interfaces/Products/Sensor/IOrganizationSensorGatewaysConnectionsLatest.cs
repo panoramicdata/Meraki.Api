@@ -17,7 +17,7 @@ public interface IOrganizationSensorGatewaysConnectionsLatest
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getOrganizationSensorGatewaysConnectionsLatest")]
 	[Get("/organizations/{organizationId}/sensor/gateways/connections/latest")]
-	Task<List<SensorReadingLatest>> GetOrganizationSensorGatewaysConnectionsLatestAsync(
+	Task<OrganizationSensorGatewaysConnectionsLatestResponse> GetOrganizationSensorGatewaysConnectionsLatestAsync(
 		string organizationId,
 		int? perPage,
 		string? startingAfter = null,

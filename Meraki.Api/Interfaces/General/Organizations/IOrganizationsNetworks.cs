@@ -78,7 +78,7 @@ public interface IOrganizationsNetworks
 	/// <returns></returns>
 	[ApiOperationId("createNetworkMove")]
 	[Post("/organizations/{organizationId}/networks/moves")]
-	Task<NetworkMove> CreateNetworkMoveAsync(
+	Task<NetworkMoveDetailed> CreateNetworkMoveAsync(
 		string organizationId,
 		[Body] NetworkMoveRequest networkMoveRequest,
 		CancellationToken cancellationToken = default);
@@ -92,7 +92,7 @@ public interface IOrganizationsNetworks
 	/// <returns></returns>
 	[ApiOperationId("getNetworkMoves")]
 	[Get("/organizations/{organizationId}/networks/moves")]
-	Task<List<NetworkMoveDetailed>> GetNetworkMovesAsync(
+	Task<NetworkMovesResponse> GetNetworkMovesAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
 

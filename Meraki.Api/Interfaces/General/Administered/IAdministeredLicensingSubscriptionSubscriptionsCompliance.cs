@@ -13,7 +13,7 @@ public interface IAdministeredLicensingSubscriptionSubscriptionsCompliance
 	/// <returns></returns>
 	[ApiOperationId("getAdministeredLicensingSubscriptionSubscriptionsComplianceStatuses")]
 	[Get("/administered/licensing/subscription/subscriptions/compliance/statuses")]
-	Task<AdministeredLicensingSubscriptionSubscriptionsComplianceStatuses> GetAdministeredLicensingSubscriptionSubscriptionsComplianceStatusesAsync(
+	Task<List<AdministeredLicensingSubscriptionSubscriptionsComplianceStatuses>> GetAdministeredLicensingSubscriptionSubscriptionsComplianceStatusesAsync(
 		string networkId,
 		CancellationToken cancellationToken = default
 	);
