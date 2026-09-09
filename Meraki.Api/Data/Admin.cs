@@ -75,4 +75,11 @@ public class Admin : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadCreate)]
 	[DataMember(Name = "camera")]
 	public List<AdminCameraAccess>? Camera { get; set; }
+
+	/// <summary>
+	/// The administrator's accounts in other organizations - Undocumented, observed in responses only
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "otherOrganizationAccounts")]
+	public AdminOtherOrganizationAccounts? OtherOrganizationAccounts { get; set; }
 }

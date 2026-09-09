@@ -36,10 +36,18 @@ public class TwoPointFourGhzSettings
 
 	/// <summary>
 	/// Determines whether ax radio on 2.4Ghz band is on or off. Can be either true or false. If false, we highly recommend disabling band steering. Defaults to true.
+	/// Deprecated by the API in favour of <see cref="Dot11ax"/>.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "axEnabled")]
 	public bool? AxEnabled { get; set; }
+
+	/// <summary>
+	/// IEEE 802.11ax (Wi-Fi 6) settings.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "dot11ax")]
+	public TwoPointFourGhzSettingsDot11ax? Dot11ax { get; set; }
 
 	/// <summary>
 	/// The RX-SOP level controls the sensitivity of the radio. It is strongly recommended to use RX-SOP only after     consulting a wireless expert. RX-SOP can be configured in the range of -65 to -95 (dBm). A value of null will     reset this to the default.
