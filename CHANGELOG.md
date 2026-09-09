@@ -1,5 +1,22 @@
 ﻿# Changelog
 
+## 1.74.11
+
+- **Nineteen Systems Manager response members the v1.74.0 spec documents are now mapped**, the
+  second per-area batch from the gap report. `SmVppAccount` gains the thirteen fields the API
+  returns beyond `id` and `vppServiceToken` (`VppAccountId`, `ContentToken`, `Email`, `Name`,
+  `AllowedAdmins`, `NetworkIdAdmins`, `AssignableNetworks`, `AssignableNetworkIds`,
+  `VppLocationId`, `VppLocationName`, `LastSyncedAt`, `LastForceSyncedAt` and `ParsedToken`, a new
+  `SmVppAccountParsedToken`). `SmProfile.PayloadTypes` and `SmTrustedAccessConfig.TimeboundType`
+  are added.
+
+- **`ModifyNetworkSmDevicesTagsAsync` now returns `List<SmDevicesModifyTagsResponse>`** (breaking).
+  It was declared as `List<SmDevicesCheckinRequest>`, the *request* type, whose members (`ids`,
+  `scope`, `serials`, `wifiMacs`) never appear in the response; each returned device is
+  `{id, serial, wifiMac, tags}` and previously came back as an empty object. `CheckinNetworkSmDevicesAsync`
+  and `LockNetworkSmDevicesAsync` keep returning the request type, because the API's `{ids}`
+  response does bind to it. Regression tests are in `Meraki.Api.Test.Data.SmMemberTests`.
+
 ## 1.74.9
 
 - **Thirty Organizations-area response members the v1.74.0 spec documents are now mapped**, the

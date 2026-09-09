@@ -59,4 +59,11 @@ public class SmTrustedAccessConfig : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "additionalEmailText")]
 	public string? AdditionalEmailText { get; set; }
+
+	/// <summary>
+	/// Type of access period, either a static range or a dynamic period
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "timeboundType")]
+	public string? TimeboundType { get; set; }
 }
