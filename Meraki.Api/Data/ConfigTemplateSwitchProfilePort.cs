@@ -186,6 +186,13 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	public string? AllowedVlans { get; set; }
 
 	/// <summary>
+	/// The VLANs currently active on the switch profile port - Undocumented, observed in responses only
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "activeVlans")]
+	public string? ActiveVlans { get; set; }
+
+	/// <summary>
 	/// Gets the link negotiation capabilities
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]

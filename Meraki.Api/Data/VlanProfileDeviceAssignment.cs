@@ -7,6 +7,13 @@
 public class VlanProfileDeviceAssignment
 {
 	/// <summary>
+	/// Indicates whether the device configuration is managed by the cloud or the device
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "configurationSource")]
+	public string? ConfigurationSource { get; set; }
+
+	/// <summary>
 	/// MAC address of the device
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
