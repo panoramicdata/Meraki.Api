@@ -31,6 +31,85 @@ They need their own pass; a few may be dead code.
 This is the accumulated gap, not only what 1.71 to 1.74 introduced. No attempt was made to
 attribute each member to the release that added it.
 
+## Shape and spelling defects
+
+Produced by `Find-ModelShapeMismatches.ps1`. These are not missing members: the model disagrees with
+the spec in a way that stops the response binding at all. Object-versus-`List` findings need a check
+against an observed response, because the Meraki spec sometimes documents a list endpoint's item
+rather than the array (`getNetworkWirelessRfProfiles` is one; live responses are arrays).
+
+### Return type is a `List` but the spec returns an `{items, meta}` wrapper (cannot deserialize)
+
+| Method | Spec shape |
+|---|---|
+| `IOrganizationsNetworks.GetNetworkMovesAsync` | `{items, meta}` |
+| `IOrganizationsCampusGatewayClusters.GetOrganizationCampusGatewayClustersAsync` | `{items, meta}` |
+| `IOrganizationSensorGatewaysConnectionsLatest.GetOrganizationSensorGatewaysConnectionsLatestAsync` | `{items, meta}` |
+| `IOrganizationsIntegrationsXdr.GetOrganizationIntegrationsXdrNetworksAsync` | `{items, meta}` |
+| `IOrganizationSwitches.GetOrganizationSwitchPortsStatusesBySwitchAsync` | `{items, meta}` |
+| `IOrganizationsSmSentry.UpdateOrganizationSmSentryPoliciesAssignments` | `{items}`; response type has no `items` member |
+
+### Return type is a single object but the spec returns an array (cannot deserialize)
+
+| Method | Returns |
+|---|---|
+| `IAdministeredLicensingSubscriptionSubscriptionsCompliance.GetAdministeredLicensingSubscriptionSubscriptionsComplianceStatusesAsync` | `AdministeredLicensingSubscriptionSubscriptionsComplianceStatuses` |
+| `ISmDevicesConnectivity.GetNetworkSmDeviceConnectivityAsync` | `DeviceConnectivity` |
+| `ICellularGatewayEsims.GetOrganizationCellularGatewayEsimsServiceProvidersAccountsAsync` | `EsimsServiceProvidersAccounts` |
+| `IOrganizationsFloorPlansAutoLocate.GetOrganizationFloorPlansAutoLocateDevicesAsync` | `FloorPlansAutoLocateDevices` |
+| `IOrganizationsFloorPlansAutoLocate.GetOrganizationFloorPlansAutoLocateStatusesAsync` | `FloorPlansAutoLocateStatuses` |
+| `INetworksFirmwareUpgrades.UpdateNetworkFirmwareUpgradesStagedStagesAsync` | `NetworkFirmwareUpgradesStagedStage` |
+| `IOrganizationsApplianceDnsLocalRecord.CreateOrganizationApplianceDnsLocalRecordAsync` | `OrganizationApplianceDnsLocalRecordsResponse` |
+| `IOrganizationsApplianceDnsLocalRecord.GetOrganizationApplianceDnsLocalRecordsAsync` | `OrganizationApplianceDnsLocalRecordsResponse` |
+| `IOrganizationsDevicesController.CreateOrganizationDevicesControllerMigrationAsync` | `OrganizationsDevicesControllerMigration` |
+| `IOrganizationsSmSentry.GetOrganizationSmSentryPoliciesAssignmentsByNetwork` | `OrganizationSmSentryPoliciesAssignmentsByNetworkResponse` |
+| `IOrganizationsWirelessRadsecCertificates.GetOrganizationWirelessDevicesRadsecCertificatesAuthoritiesAsync` | `OrganizationWirelessDevicesRadsecCertificatesAuthorities` |
+
+### Return type is a `List` but the spec returns a single object
+
+Single-resource paths (`/{service}`, `/{deviceId}/restrictions`, `/customAnalytics`, a create) are
+almost certainly real; the three list-shaped paths at the bottom are probably the spec quirk.
+
+| Method | Spec keys | Assessment |
+|---|---|---|
+| `IApplianceFirewallFirewalledServices.GetNetworkApplianceFirewallFirewalledServiceAsync` | `access, allowedIps, service` | real |
+| `IApplianceFirewallFirewalledServices.UpdateNetworkApplianceFirewallFirewalledServiceAsync` | `access, allowedIps, service` | real |
+| `IApplianceFirewallInboundCellularFirewallRules.GetNetworkApplianceFirewallInboundCellularFirewallRulesAsync` | `rules` | real |
+| `IApplianceFirewallInboundCellularFirewallRules.UpdateNetworkApplianceFirewallInboundCellularFirewallRulesAsync` | `rules` | real |
+| `IApplianceSdwanInternetPolicies.UpdateNetworkApplianceSdwanInternetPoliciesAsync` | `wanTrafficUplinkPreferences` | real |
+| `ICameraCustomAnalytics.GetDeviceCameraCustomAnalyticsAsync` | `artifactId, enabled, parameters` | real |
+| `ICameraCustomAnalytics.UpdateDeviceCameraCustomAnalyticsAsync` | `artifactId, enabled, parameters` | real |
+| `IOrganizationsAdaptivePolicyAcls.CreateOrganizationAdaptivePolicyAclAsync` | `aclId, createdAt, ...` | real |
+| `IOrganizationSensorRelationships.GetDeviceSensorRelationshipsAsync` | `livestream` | real |
+| `ISmDevicesRestrictions.GetNetworkSmDeviceRestrictionsAsync` | `restrictions` | real |
+| `IAdministeredLicensingSubscriptionEntitlements.GetAdministeredLicensingSubscriptionEntitlementsAsync` | item fields | probably spec quirk |
+| `IOrganizationsEarlyAccessFeatures.GetOrganizationEarlyAccessFeaturesOptInsAsync` | item fields | probably spec quirk |
+| `IWirelessRfProfiles.GetNetworkWirelessRfProfilesAsync` | item fields | spec quirk, observed as array |
+
+### Misspelt `[DataMember]` names (property has never bound)
+
+| Model | Has | Spec has |
+|---|---|---|
+| `NetworkMoveDetailed` | `intiator` | `initiator` |
+| `ConnectivityEvents` | `occuredAt` | `occurredAt` |
+| `OrganizationLicensingCotermLicenseMoveResponse` | `moveLicenses` | `movedLicenses` |
+| `OrganizationSplashTheme` | `themeAssests` | `themeAssets` |
+| `SensorAlertConditionThresholdTemperature` | `farenheit` | `fahrenheit` |
+| `NetworksCampusGatewayClusterUplink` | `address` (property `Addresses`) | `addresses` (array) |
+| `NetworkFirmwareUpgrade` | `products` | `product` - needs a look |
+
+Dismissed as false positives: `eco2` vs `no2` (both exist), `OrganizationAssuranceAlertsOverviewByTypeItem.networkId` vs `networks`, and `SmDevicesCheckinRequest` plurals (they match the request body).
+
+### Stale model
+
+`NetworkMove` (the `createNetworkMove` 201) has `networkMoveId` and `url`; the spec returns
+`createdAt, initiator, lastUpdatedAt, moveId, network, organizations, result`. Neither existing
+property is in the spec, so the whole response is unmapped. `NetworkMoveDetailed` is missing
+`moveId` and `result`, and its `status` is no longer in the spec.
+
+Also reported: 6 methods return `Task` while the spec documents a response body, and 1 returns a
+type where the spec's 2xx has no body. See the script output for the list.
+
 ## Unmapped members by product area
 
 | Area | Members | Of which object or array |
