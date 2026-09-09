@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.74.2
+## 1.74.5
 
 - **The library now tracks Dashboard API 1.74**, so `version.json` moves from `1.70` to `1.74`.
   v1.74.0 is the latest stable tag in `meraki/openapi`, published 2026-09-02. This resets the
