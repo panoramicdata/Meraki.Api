@@ -1,30 +1,45 @@
 ﻿# Changelog
 
-## 1.70.135
+## 1.70.138
 
-- **Seven more response fields the Dashboard API returns are now mapped**, all of them simple
-  scalars on classes that already existed. A sweep of unmapped-member reports gathered from live
-  organizations found them; callers who set `JsonMissingMemberHandling.ThrowOnError` were getting a
-  failed deserialization rather than an ignored field, so for them these were hard failures on
-  ordinary calls:
+- **Fourteen more response fields the Dashboard API returns are now mapped.** An unmapped-member
+  export gathered from live organizations found them; callers who set
+  `JsonMissingMemberHandling.ThrowOnError` were getting a failed deserialization rather than an
+  ignored field, so for them these were hard failures on ordinary calls.
+
+  Seven are simple scalars on classes that already existed:
   `VlanProfileDeviceAssignment.ConfigurationSource`, `ConfigTemplateSwitchProfilePort.ActiveVlans`,
   `CameraQualityRetentionProfile.AxisVideoQuality`, `VpnBgp.PriorityRoute`,
   `RoutingInterface.IsSwitchDefaultGateway`, and `TrafficShapingVpnExclusionsApplication.Protocol`
   and `.Source`.
 
-  `ConfigurationSource` and `AxisVideoQuality` are in the v1.74.0 OpenAPI spec as response-only
-  fields; the rest appear nowhere in the spec and are mapped from the observed responses. All seven
-  are read-only, because none of them appears in a documented request body. `Protocol` reuses the
-  existing `TrafficShapingVpnExclusionsCustomProtocol` enum, matching
-  `TrafficShapingVpnExclusionsCustom`, on which both fields were already mapped.
+  Seven are nested objects: `TwoPointFourGhzSettings.Dot11ax` and `FiveGhzSettings.Dot11ax`,
+  `SwitchPort.PerpetualPoe` and `.FastPoe`, `NetworkApplianceSsidRadiusServer.Radsec`,
+  `Admin.OtherOrganizationAccounts`, and `VpnBgp.Ipv6` and `.TunnelDownTermination`.
 
-  Only the first unmapped field in a response is ever reported, so `.Source` was found by checking
-  every sibling key of a reported field rather than only the reported field itself.
+  Ten new classes back the nested ones: `TwoPointFourGhzSettingsDot11ax`, `FiveGhzSettingsDot11ax`,
+  `SwitchPortPerpetualPoe`, `SwitchPortFastPoe`, `NetworkApplianceSsidRadiusServerRadsec`,
+  `AdminOtherOrganizationAccounts` and `AdminOtherOrganizationAccountsLockout`, `VpnBgpIpv6`,
+  `VpnBgpIpv6SinglePeering` and `VpnBgpTunnelDownTermination`.
 
-- **These mappings now have credential-free regression tests.**
-  `Meraki.Api.Test.Data.MissingMemberScalarFieldTests` deserializes the observed payloads (with
-  identifying values replaced) using `MissingMemberHandling.Error`, so an unmapped field fails the
-  test instead of being dropped.
+  `Dot11ax` on both bands and both PoE objects are in the v1.74.0 OpenAPI spec on request bodies as
+  well as responses, so they are writable: `Dot11ax` is read/write and the two PoE objects are
+  read/update, matching their endpoints. The spec also marks `axEnabled` deprecated in favour of
+  `dot11ax.enabled` on both bands, which the XML docs now say. `ConfigurationSource` and
+  `AxisVideoQuality` are in the spec as response-only fields. The remaining ten appear nowhere in
+  the spec and are mapped read-only from the observed responses. `Protocol` reuses the existing
+  `TrafficShapingVpnExclusionsCustomProtocol` enum, matching `TrafficShapingVpnExclusionsCustom`,
+  on which both `protocol` and `source` were already mapped.
+
+  Only the first unmapped field in a response is ever reported, so four of the fourteen
+  (`SwitchPort.FastPoe`, `VpnBgp.Ipv6` and `.TunnelDownTermination`, and
+  `TrafficShapingVpnExclusionsApplication.Source`) were found by checking every sibling key of a
+  reported field rather than only the reported field itself.
+
+- **These mappings have credential-free regression tests.**
+  `Meraki.Api.Test.Data.MissingMemberScalarFieldTests` and `MissingMemberNestedFieldTests`
+  deserialize the observed payloads (with identifying values replaced) using
+  `MissingMemberHandling.Error`, so an unmapped field fails the test instead of being dropped.
   CI gained a step that runs the whole `Meraki.Api.Test.Data` namespace, which previously ran no
   tests in CI at all.
 

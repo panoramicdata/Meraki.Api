@@ -42,6 +42,20 @@ public class VpnBgp
 	public string? PriorityRoute { get; set; }
 
 	/// <summary>
+	/// IPv6 BGP settings. Undocumented property, observed in responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ipv6")]
+	public VpnBgpIpv6? Ipv6 { get; set; }
+
+	/// <summary>
+	/// BGP tunnel down termination settings. Undocumented property, observed in responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "tunnelDownTermination")]
+	public VpnBgpTunnelDownTermination? TunnelDownTermination { get; set; }
+
+	/// <summary>
 	/// List of BGP neighbors. This list replaces the existing set of neighbors. When absent, this field is not updated.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
