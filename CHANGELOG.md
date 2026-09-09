@@ -1,5 +1,33 @@
 ﻿# Changelog
 
+## 1.70.135
+
+- **Seven more response fields the Dashboard API returns are now mapped**, all of them simple
+  scalars on classes that already existed. A sweep of unmapped-member reports gathered from live
+  organizations found them; callers who set `JsonMissingMemberHandling.ThrowOnError` were getting a
+  failed deserialization rather than an ignored field, so for them these were hard failures on
+  ordinary calls:
+  `VlanProfileDeviceAssignment.ConfigurationSource`, `ConfigTemplateSwitchProfilePort.ActiveVlans`,
+  `CameraQualityRetentionProfile.AxisVideoQuality`, `VpnBgp.PriorityRoute`,
+  `RoutingInterface.IsSwitchDefaultGateway`, and `TrafficShapingVpnExclusionsApplication.Protocol`
+  and `.Source`.
+
+  `ConfigurationSource` and `AxisVideoQuality` are in the v1.74.0 OpenAPI spec as response-only
+  fields; the rest appear nowhere in the spec and are mapped from the observed responses. All seven
+  are read-only, because none of them appears in a documented request body. `Protocol` reuses the
+  existing `TrafficShapingVpnExclusionsCustomProtocol` enum, matching
+  `TrafficShapingVpnExclusionsCustom`, on which both fields were already mapped.
+
+  Only the first unmapped field in a response is ever reported, so `.Source` was found by checking
+  every sibling key of a reported field rather than only the reported field itself.
+
+- **These mappings now have credential-free regression tests.**
+  `Meraki.Api.Test.Data.MissingMemberScalarFieldTests` deserializes the observed payloads (with
+  identifying values replaced) using `MissingMemberHandling.Error`, so an unmapped field fails the
+  test instead of being dropped.
+  CI gained a step that runs the whole `Meraki.Api.Test.Data` namespace, which previously ran no
+  tests in CI at all.
+
 ## 1.70.133
 
 - **Two more fields the Dashboard API returns are now mapped**: `ApiUsage.OperationId` (the

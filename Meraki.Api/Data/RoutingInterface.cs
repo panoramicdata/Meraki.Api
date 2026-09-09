@@ -98,6 +98,13 @@ public class RoutingInterface : NamedItem
 	public bool? CandidateUplinkV4 { get; set; }
 
 	/// <summary>
+	/// Whether this interface is the switch's default gateway - Undocumented, observed in responses only
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "isSwitchDefaultGateway")]
+	public bool? IsSwitchDefaultGateway { get; set; }
+
+	/// <summary>
 	/// The IPv6 settings of the interface
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]

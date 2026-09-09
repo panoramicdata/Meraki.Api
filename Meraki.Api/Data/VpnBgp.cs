@@ -35,6 +35,13 @@ public class VpnBgp
 	public string? RouterId { get; set; }
 
 	/// <summary>
+	/// Which route source BGP prefers, for example 'Auto VPN'. Undocumented property, observed in responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "priorityRoute")]
+	public string? PriorityRoute { get; set; }
+
+	/// <summary>
 	/// List of BGP neighbors. This list replaces the existing set of neighbors. When absent, this field is not updated.
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

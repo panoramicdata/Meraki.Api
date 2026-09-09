@@ -19,4 +19,11 @@ public class CameraQualityRetentionProfile : CameraQualityRetentionProfileCreate
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "networkId")]
 	public string NetworkId { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Video quality settings applied to all Axis cameras
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "axisVideoQuality")]
+	public string? AxisVideoQuality { get; set; }
 }

@@ -34,6 +34,13 @@ jobs:
         -class Meraki.Api.Test.Workflows.MerakiWorkflowsApiClientTests
         -noColor
 
+    - name: Data model unit tests
+      run: >-
+        dotnet run --project Meraki.Api.Test/Meraki.Api.Test.csproj
+        --configuration Release --no-build --
+        -namespace Meraki.Api.Test.Data
+        -noColor
+
     - name: Pack
       run: dotnet pack Meraki.Api/Meraki.Api.csproj --no-build --configuration Release --output ./artifacts
 
