@@ -1,5 +1,37 @@
 ﻿# Changelog
 
+## 1.74.9
+
+- **Thirty Organizations-area response members the v1.74.0 spec documents are now mapped**, the
+  first of the per-area batches from the gap report in `.github/skills/meraki-api-update/`. Scalars:
+  `EarlyAccessFeatureOptInOptOutEligibilityHelp.Label`, `LoginSecurity.EnforceLockedIpSessions`,
+  `NextUpgrade.Strategy`, `OrganizationAdaptivePolicyOverviewCounts.CustomGroups` and
+  `.PolicyObjects`, `OrganizationAssuranceAlertScopeDevice.ProductType`,
+  `OrganizationAssuranceAlertsOverviewByNetworkItem.LastAlertedAt`, `OrganizationDevice.Imei`,
+  `OrganizationSplashTheme.IsSystemTheme`, `SamlIdp.SsoLoginUrl` and `.VisionConsumerUrl`. Nested:
+  `FirmwareProducts.CampusGateway`, `NetworkFirmwareUpdateStagedEventsProducts.SwitchCatalyst` and
+  `NetworkFirmwareUpgradeStagedEventsProduct.SwitchCatalyst` (reusing the existing product types),
+  `NetworkStatusSummary.Group` and `.Permissions`, `NextUpgrade.Predownload`,
+  `OrganizationAdaptivePolicyOverview.Limits` and `WebhookAlertType.Example`, backed by six new
+  classes. Everything is read-only except where the spec puts the member on a request body
+  (`NextUpgrade.Strategy`/`.Predownload`, `LoginSecurity.EnforceLockedIpSessions`, the firmware
+  product entries), which are read/update.
+
+- **Three models in this area had never matched the API and are corrected**, which is breaking for
+  anyone reading the old members (they were always default-valued):
+  - `OrganizationAssuranceAlertsOverviewByTypeItem` carried a copy of the by-network item's members
+    (`AlertCount`, `NetworkId`, `NetworkName`, `SeverityCounts`). It now has the documented shape:
+    `Type`, `CategoryType`, `Severity`, `Count`, `NetworkCount`, `Networks`, `DeviceTypes`,
+    `DeviceTags`, `LastAlertedAt`, `LastResolvedAt`. `OrganizationAssuranceAlertsOverviewByTypeItemSeverityCount`
+    is `[Obsolete]` and will be removed.
+  - `WebhookAlertType` had the example payload's fields flattened onto the alert type; the API sends
+    them under `example`. They are now `[Obsolete]` at the top level and available on `Example`,
+    which also carries `NetworkTags`, `EnrollmentString`, `Notes`, `ProductTypes` and `EncryptedId`.
+  - `OrganizationDevicesSyslogServersRolesByNetworkItem.AvailableRoles` was mapped to
+    `availableRoles`; the API sends `available`. The C# name is unchanged.
+
+  Regression tests are in `Meraki.Api.Test.Data.OrganizationsMemberTests`.
+
 ## 1.74.7
 
 ### Breaking changes

@@ -132,4 +132,11 @@ public class OrganizationDevice : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "details")]
 	public List<DeviceDetail>? Details { get; set; }
+
+	/// <summary>
+	/// IMEI of the device, if applicable
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "imei")]
+	public string? Imei { get; set; }
 }

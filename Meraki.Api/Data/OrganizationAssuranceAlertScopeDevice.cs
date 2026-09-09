@@ -61,4 +61,11 @@ public class OrganizationAssuranceAlertScopeDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "lldp")]
 	public OrganizationAssuranceAlertScopeDeviceLldp Lldp { get; set; } = new();
+
+	/// <summary>
+	/// Type of affected device
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "productType")]
+	public string? ProductType { get; set; }
 }
