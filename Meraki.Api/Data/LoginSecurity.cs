@@ -103,4 +103,11 @@ public class LoginSecurity
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "minimumPasswordLength")]
 	public int? MinimumPasswordLength { get; set; }
+
+	/// <summary>
+	/// Boolean indicating whether Dashboard sessions are locked to the IP address they were established from. Only included for organizations that support locked-IP sessions.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "enforceLockedIpSessions")]
+	public bool? EnforceLockedIpSessions { get; set; }
 }

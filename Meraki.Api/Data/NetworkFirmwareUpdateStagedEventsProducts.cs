@@ -12,4 +12,11 @@ public class NetworkFirmwareUpdateStagedEventsProducts
 	[DataMember(Name = "switch")]
 	[ApiAccess(ApiAccess.ReadWrite)]
 	public NetworkFirmwareUpgradeStagedEventsSwitch? Switch { get; set; }
+
+	/// <summary>
+	/// The Catalyst Switch network to be updated
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "switchCatalyst")]
+	public NetworkFirmwareUpgradeStagedEventsSwitch? SwitchCatalyst { get; set; }
 }

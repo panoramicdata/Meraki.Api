@@ -3,6 +3,7 @@ namespace Meraki.Api.Data;
 /// <summary>
 /// Organization Assurance Alerts Overview By Type Item Severity Count
 /// </summary>
+[Obsolete("The Dashboard API never returned severity counts on the by-type overview; OrganizationAssuranceAlertsOverviewByTypeItem now follows the documented shape. This type will be removed in a later release.")]
 [DataContract]
 public class OrganizationAssuranceAlertsOverviewByTypeItemSeverityCount
 {
