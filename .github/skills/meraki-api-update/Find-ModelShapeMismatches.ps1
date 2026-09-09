@@ -59,8 +59,8 @@ $specPath = Join-Path $RepoRoot "tmp\meraki-api-update\$SpecVersion\spec3.json"
 if (-not (Test-Path -LiteralPath $specPath)) { throw "Spec not found at '$specPath'. Fetch it with Prepare-MerakiApiUpdate.ps1." }
 
 $resolveHandler = [System.ResolveEventHandler] {
-	param($sender, $eventArgs)
-	$simpleName = ($eventArgs.Name -split ',')[0]
+	param($resolveSource, $resolveArgs)
+	$simpleName = ($resolveArgs.Name -split ',')[0]
 	$candidate = Join-Path $probeDirectory "$simpleName.dll"
 	if (Test-Path -LiteralPath $candidate) { [System.Reflection.Assembly]::LoadFrom($candidate) } else { $null }
 }

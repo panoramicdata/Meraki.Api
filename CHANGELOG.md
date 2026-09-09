@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.74.2
+## 1.74.5
 
 - **The library now tracks Dashboard API 1.74**, so `version.json` moves from `1.70` to `1.74`.
   v1.74.0 is the latest stable tag in `meraki/openapi`, published 2026-09-02. This resets the
@@ -8,7 +8,7 @@
   continuing to 1.70.148.
 
   The bump says which spec version the library is measured against. It does **not** claim every
-  1.74 endpoint is implemented, and **no library code changed in this release** — only
+  1.74 endpoint is implemented, and **no library code changed in this release**, only
   `version.json` and the repository's own tooling.
 
 - **A repeatable model gap diff**, `.github/skills/meraki-api-update/Find-MissingModelMembers.ps1`.

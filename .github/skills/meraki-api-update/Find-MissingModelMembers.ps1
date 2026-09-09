@@ -65,8 +65,8 @@ if (-not (Test-Path -LiteralPath $specPath)) {
 # Meraki.Api.dll alone cannot be reflected over: GetTypes() needs Refit and the logging
 # abstractions, which only sit beside the assembly in the test project's output.
 $resolveHandler = [System.ResolveEventHandler] {
-	param($sender, $eventArgs)
-	$simpleName = ($eventArgs.Name -split ',')[0]
+	param($resolveSource, $resolveArgs)
+	$simpleName = ($resolveArgs.Name -split ',')[0]
 	$candidate = Join-Path $probeDirectory "$simpleName.dll"
 	if (Test-Path -LiteralPath $candidate) { [System.Reflection.Assembly]::LoadFrom($candidate) } else { $null }
 }
