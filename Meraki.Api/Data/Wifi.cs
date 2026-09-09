@@ -36,4 +36,39 @@ public class Wifi
 	/// </summary>
 	[DataMember(Name = "non_wifi")]
 	public double UtilizationNonWifi { get; set; }
+
+	/// <summary>
+	/// The start time of the channel utilization interval, as the current API names it
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "startTime")]
+	public DateTime? StartTimeUtc { get; set; }
+
+	/// <summary>
+	/// The end time of the channel utilization interval, as the current API names it
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "endTime")]
+	public DateTime? EndTimeUtc { get; set; }
+
+	/// <summary>
+	/// Percentage of total channel utilization for the given radio, as the current API names it
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "utilizationTotal")]
+	public double? UtilizationTotalPercent { get; set; }
+
+	/// <summary>
+	/// Percentage of wifi channel utilization for the given radio, as the current API names it
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "utilization80211")]
+	public double? Utilization80211 { get; set; }
+
+	/// <summary>
+	/// Percentage of non-wifi channel utilization for the given radio, as the current API names it
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "utilizationNon80211")]
+	public double? UtilizationNon80211 { get; set; }
 }

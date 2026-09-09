@@ -10,7 +10,7 @@ public class OrganizationWirelessControllerDevicesInterfacesL2UsageHistoryByInte
 	/// Metadata relevant to the paginated dataset
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "name")]
+	[DataMember(Name = "meta")]
 	public OrganizationWirelessControllerDevicesInterfacesL2GetResponseMetadata Meta { get; set; } = new();
 
 	/// <summary>

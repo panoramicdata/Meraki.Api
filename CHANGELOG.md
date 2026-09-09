@@ -1,5 +1,29 @@
 ﻿# Changelog
 
+## 1.74.15
+
+- **Nineteen Wireless response members the v1.74.0 spec documents are now mapped**, the fourth
+  per-area batch from the gap report: `Ssid.CampusGateway` (new `SsidCampusGateway` and
+  `SsidCampusGatewayCluster`) and `Ssid.WlanIdentifier`; `WirelessRfProfileCreateUpdateRequest.Dot11be`
+  (see below); `ElectronicShelfLabelSettingsNetwork.Sepioo` (new
+  `ElectronicShelfLabelSettingsNetworkSepioo`); `AirMarshal.Encryption`, `.Manufacturers` and
+  `.Types`; `Gre.ClientIsolation`; `NaiRealm.Name`; `FailedConnection.Radio`;
+  `DevicesWirelessZigbeeEnrollmentsDetailed.EnrollmentStartedAt`; `ConnectivityEvents.SsidNumber`;
+  `SsidsStatusesByDeviceItemBasicServiceSetRadio.Index`; and on `Wifi` (channel utilization) the
+  API's current names `startTime`, `endTime`, `utilizationTotal`, `utilization80211` and
+  `utilizationNon80211` alongside the legacy `start_ts`/`end_ts`/`utilization`/`wifi`/`non_wifi`
+  members, which are kept because it is not known which set the API sends today.
+
+- **Two misspelt member names corrected**, each of which meant the property never bound:
+  `OrganizationWirelessControllerDevicesInterfacesL2UsageHistoryByIntervalGetResponse.Meta` was
+  mapped to `name` instead of `meta`; and `WirelessRfProfileCreateUpdateRequest.Be` was mapped to
+  `be` where the API sends `dot11be`, so it is now `Dot11be` and `WirelessRfProfileBe` gains the
+  spec's `Mode` and `Ssids` (per-group settings, new `WirelessRfProfileBeSsids` and
+  `WirelessRfProfileBeSsidGroup`). Also, `DevicesWirelessZigbeeEnrollmentsDetailed` had a property
+  called `EnrollmentStartedAt` that was bound to `enrollmentStatus`; it is renamed `EnrollmentStatus`
+  and the new `EnrollmentStartedAt` is the real timestamp. Regression tests are in
+  `Meraki.Api.Test.Data.WirelessMemberTests`.
+
 ## 1.74.13
 
 - **Eighteen Appliance response members the v1.74.0 spec documents are now mapped**, the third
