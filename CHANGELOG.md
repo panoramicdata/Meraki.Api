@@ -1,5 +1,29 @@
 ﻿# Changelog
 
+## 1.74.5
+
+- **The library now tracks Dashboard API 1.74**, so `version.json` moves from `1.70` to `1.74`.
+  v1.74.0 is the latest stable tag in `meraki/openapi`, published 2026-09-02. This resets the
+  Nerdbank.GitVersioning height, which is why the versions jump from 1.70.138 rather than
+  continuing to 1.70.139.
+
+  The bump says which spec version the library is measured against. It does **not** claim every
+  1.74 endpoint is implemented, and **no library code changed in this release** — only
+  `version.json` and the repository's own tooling.
+
+- **A repeatable model gap diff**, `.github/skills/meraki-api-update/Find-MissingModelMembers.ps1`.
+  It reflects over the compiled Refit interfaces, matches each method's verb and path to a spec
+  operation, then walks every 2xx JSON response schema in parallel with the C# return type,
+  comparing spec property names against `[DataMember]` names. Dictionary-typed models, non-generic
+  `Task` returns and purely numeric property names are excluded, because the spec describes those
+  as ordinary properties while the models correctly represent them as open-ended maps or as no
+  payload at all.
+
+  Against v1.74.0 it reports **155 unmapped response members across 86 types**, 140 spec operations
+  not implemented, and 214 library endpoints matching no spec path. That run is checked in as
+  `gap-report-v1.74.0.md`, broken down by product area. This is the accumulated gap, not only what
+  1.71 to 1.74 introduced.
+
 ## 1.70.138
 
 - **Fourteen more response fields the Dashboard API returns are now mapped.** An unmapped-member
