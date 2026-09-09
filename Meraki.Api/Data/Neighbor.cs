@@ -117,4 +117,11 @@ public class Neighbor
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "communityOut")]
 	public string? CommunityOut { get; set; }
+
+	/// <summary>
+	/// VRF settings for the neighbor
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "vrf")]
+	public VlanVrf? Vrf { get; set; }
 }

@@ -40,4 +40,18 @@ public class SiteToSiteVpn
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "subnet")]
 	public SiteToSiteVpnSubnet? Subnet { get; set; }
+
+	/// <summary>
+	/// Security Group Tag settings for the VPN peer.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "sgt")]
+	public SiteToSiteVpnSgt? Sgt { get; set; }
+
+	/// <summary>
+	/// The list of VPN host translations. Host translations are supported starting from MX firmware version 26.1.2
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "hostTranslations")]
+	public List<SiteToSiteVpnHostTranslation>? HostTranslations { get; set; }
 }

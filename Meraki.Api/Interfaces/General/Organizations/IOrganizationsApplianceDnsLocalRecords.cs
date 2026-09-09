@@ -43,7 +43,7 @@ public interface IOrganizationsApplianceDnsLocalRecord
 	/// <returns></returns>
 	[ApiOperationId("updateOrganizationApplianceDnsLocalRecord")]
 	[Put("/organizations/{organizationId}/appliance/dns/local/records/{recordId}")]
-	Task<OrganizationApplianceDnsLocalRecordsProfile> UpdateOrganizationApplianceDnsLocalRecordAsync(
+	Task<OrganizationApplianceDnsLocalRecordsResponse> UpdateOrganizationApplianceDnsLocalRecordAsync(
 		string organizationId,
 		string recordId,
 		OrganizationApplianceDnsLocalRecordsUpdateRequest request,

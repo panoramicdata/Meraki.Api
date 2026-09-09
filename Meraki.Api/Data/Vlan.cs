@@ -182,4 +182,11 @@ public class Vlan : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "uplinks")]
 	public List<VlanUplink>? Uplinks { get; set; }
+
+	/// <summary>
+	/// Security Group Tag settings for the VLAN.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadWrite)]
+	[DataMember(Name = "sgt")]
+	public VlanSgt? Sgt { get; set; }
 }

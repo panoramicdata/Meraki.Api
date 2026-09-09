@@ -78,4 +78,11 @@ public class ThirdPartyVpnPeerEbgpNeighbor
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "pathPrepend")]
 	public List<int>? PathPrepend { get; set; }
+
+	/// <summary>
+	/// Maximum number of prefixes accepted from the remote peer. Must be an integer between 0 and 2147483647.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "receiveLimit")]
+	public int? ReceiveLimit { get; set; }
 }

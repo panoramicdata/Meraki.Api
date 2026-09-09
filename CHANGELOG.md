@@ -1,5 +1,29 @@
 ﻿# Changelog
 
+## 1.74.13
+
+- **Eighteen Appliance response members the v1.74.0 spec documents are now mapped**, the third
+  per-area batch from the gap report. Security Group Tag settings on `AppliancePort.Sgt`, `Vlan.Sgt`
+  and `SiteToSiteVpn.Sgt` (new `AppliancePortSgt`, `VlanSgt`, `SiteToSiteVpnSgt`); VRF settings on
+  `LanConfiguration.Vrf`, `Neighbor.Vrf` and `TrafficUplinkPreference.Vrf` (reusing `VlanVrf`, the
+  same `{id, name}` shape); `SiteToSiteVpn.HostTranslations` (new `SiteToSiteVpnHostTranslation`
+  and `SiteToSiteVpnHostTranslationAddress`); `ThirdPartyVpnPeer.EcmpUplinkConfigs` (new
+  `ThirdPartyVpnPeerEcmpUplinkConfig` and `ThirdPartyVpnPeerEcmpUplinkConfigEbgpNeighbor`);
+  `NetworkUmbrellaAccountConnectResponse.Umbrella` (new `NetworkUmbrellaAccountConnectResponseUmbrella`
+  and `NetworkUmbrellaAccountConnectResponseUmbrellaOrganization`); `StaticRoute.IpVersion`;
+  `ThirdPartyVpnPeerEbgpNeighbor.ReceiveLimit`.
+
+- **Two more members that could never bind are corrected** (breaking in the type-system sense
+  only, since they always came back empty):
+  - `VpnStatus.ThirdPartyVpnPeers` was a `List<ThirdPartyVpnPeers>`, the *configuration* wrapper
+    whose only member is `peers`. Each status entry is `{name, publicIp, reachability}`; the list is
+    now `List<VpnStatusThirdPartyVpnPeer>`.
+  - `UpdateOrganizationApplianceDnsLocalRecordAsync` returned `OrganizationApplianceDnsLocalRecordsProfile`
+    (only `id`); the API returns the record, so it now returns
+    `OrganizationApplianceDnsLocalRecordsResponse` like the create and list methods.
+
+  Regression tests are in `Meraki.Api.Test.Data.ApplianceMemberTests`.
+
 ## 1.74.11
 
 - **Nineteen Systems Manager response members the v1.74.0 spec documents are now mapped**, the

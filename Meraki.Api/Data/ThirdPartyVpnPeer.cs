@@ -124,4 +124,11 @@ public class ThirdPartyVpnPeer : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ebgpNeighbor")]
 	public ThirdPartyVpnPeerEbgpNeighbor? EbgpNeighbor { get; set; }
+
+	/// <summary>
+	/// [optional] The ECMP per-uplink BGP-over-IPsec configuration for the VPN peer.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "ecmpUplinkConfigs")]
+	public List<ThirdPartyVpnPeerEcmpUplinkConfig>? EcmpUplinkConfigs { get; set; }
 }
