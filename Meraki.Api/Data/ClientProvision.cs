@@ -19,4 +19,18 @@ public class ClientProvision
 	[ApiAccess(ApiAccess.Create)]
 	[DataMember(Name = "name")]
 	public string? Name { get; set; }
+
+	/// <summary>
+	/// The identifier of the client
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "clientId")]
+	public string? ClientId { get; set; }
+
+	/// <summary>
+	/// The client's display message if its group policy is 'Blocked'
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "message")]
+	public string? Message { get; set; }
 }

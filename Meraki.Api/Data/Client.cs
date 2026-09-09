@@ -228,4 +228,11 @@ public class Client : IdentifiedItem
 	/// </summary>
 	[DataMember(Name = "model")]
 	public string? Model { get; set; }
+
+	/// <summary>
+	/// The Cisco Discovery Protocol settings for the client, as the API returns them: a list of name/value pairs, each pair itself a two-element list
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "cdp")]
+	public List<List<string>>? Cdp { get; set; }
 }
