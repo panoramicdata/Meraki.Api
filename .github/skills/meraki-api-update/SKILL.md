@@ -42,9 +42,25 @@ first using `-Latest`, then continue after confirmation.
    - `changelog.md`
    - `spec3.json`
    - `metadata.json`
-4. Compare the changelog and OpenAPI schemas against the existing codebase.
+4. Compare the changelog and OpenAPI schemas against the existing codebase. For
+   missing model members, do not read the changelog narratively - build the
+   repository and run the diff, which reflects over the compiled interfaces and
+   walks every 2xx response schema against the return types:
+
+```powershell
+dotnet build Meraki.Api.slnx -c Debug
+pwsh -File .\.github\skills\meraki-api-update\Find-MissingModelMembers.ps1 -SpecVersion v1.74.0 -OutCsv gap.csv
+```
+
+   It also reports how many spec operations are unimplemented and how many
+   library endpoints match no spec path.
+
 5. Implement feasible missing model members and other directly supported code
    changes.
+
+   Note that a full run typically finds more members than one release
+   introduced, because the gap accumulates. Agree the split into pull requests
+   with the requester before implementing; per product area works well.
 6. Identify missing endpoints, section wiring, request/response models, or other
    follow-up work that should be implemented.
 7. Update `CHANGELOG.md` with the changes made in the repository.
@@ -103,10 +119,15 @@ Always note when you find additional work that is not completed, such as:
 ## Helper Assets
 
 - `.github/skills/meraki-api-update/Prepare-MerakiApiUpdate.ps1`
+- `.github/skills/meraki-api-update/Find-MissingModelMembers.ps1`
+- `.github/skills/meraki-api-update/gap-report-v1.74.0.md`
 - `.github/tools/Add-XmlDocumentation.ps1`
 
 The preparation script fetches the versioned source documents into the ignored
-`tmp` folder. The XML documentation helper can be used after model and interface
+`tmp` folder. The diff script needs the solution built first, because it
+reflects over the compiled assembly. The gap report is the checked-in output of
+a full run, useful as a starting point and for seeing what has since been
+closed. The XML documentation helper can be used after model and interface
 updates if new public members need doc comments.
 
 ## Validation
