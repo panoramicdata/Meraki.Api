@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.70.138
+## 1.70.145
 
 - **`GetOrganizationApplianceUplinksUsageByNetworkAsync` now accepts `t0`, `t1` and `timespan`**
   (issue [#428](https://github.com/panoramicdata/Meraki.Api/issues/428)). Without them every call
