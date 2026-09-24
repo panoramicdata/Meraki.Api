@@ -2,6 +2,14 @@
 
 ## 1.70.138
 
+- **`GetOrganizationApplianceUplinksUsageByNetworkAsync` now accepts `t0`, `t1` and `timespan`**
+  (issue [#428](https://github.com/panoramicdata/Meraki.Api/issues/428)). Without them every call
+  returned Meraki's one-day default, so the endpoint could not be asked what each uplink has carried
+  in the last few minutes. All three are optional and a null is left out of the query string, so a
+  call that passes none of them sends exactly the request it sent before. **Source break for one call
+  style:** a caller that passes the cancellation token positionally must now name it
+  (`cancellationToken: token`), and anything compiled against the old signature needs a rebuild.
+
 - **Fourteen more response fields the Dashboard API returns are now mapped.** An unmapped-member
   export gathered from live organizations found them; callers who set
   `JsonMissingMemberHandling.ThrowOnError` were getting a failed deserialization rather than an
