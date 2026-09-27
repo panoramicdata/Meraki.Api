@@ -5,6 +5,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Meraki.Api.Test;
 
+// Every test deriving from this base calls the live Meraki Dashboard API with credentials from
+// user secrets. CI has none, so the coverage job excludes them with Category=Integration.
+[Trait("Category", "Integration")]
 public abstract class MerakiClientTest(ITestOutputHelper testOutputHelper) : IAsyncLifetime
 {
 	protected ITestOutputHelper TestOutputHelper { get; } = testOutputHelper;
