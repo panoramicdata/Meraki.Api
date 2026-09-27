@@ -78,3 +78,74 @@ jobs:
 
     - name: Push to NuGet
       run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+  # Test coverage, uploaded to Codacy (OPS-157454).
+  #
+  # pdl-public, never a GitHub-hosted runner. This repository is public, and pdl-public is the
+  # hardened scale set that may serve one: no dind, no privileged container, no hostPath.
+  coverage:
+    runs-on: [pdl-public]
+
+    # FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: the actions-runner image our scale sets use does not offer
+    # the Node version several of these actions request by default, and without it they fail before
+    # their first step runs.
+    env:
+      DOTNET_NOLOGO: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v6
+      env:
+        # The runner user cannot write the default /usr/share/dotnet, so install the SDK somewhere
+        # it can. setup-dotnet puts this directory on PATH for the later steps.
+        DOTNET_INSTALL_DIR: ${{ runner.temp }}/dotnet
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Build tests
+      run: dotnet build Meraki.Api.Test/Meraki.Api.Test.csproj --configuration Debug
+
+    # Coverage is collected by Microsoft.Testing.Extensions.CodeCoverage. The build job runs this project
+    # with xunit-native arguments (-class, -namespace), so it is not switched to the MTP runner; instead
+    # "dotnet test" with the options after "--" runs the tests on Microsoft.Testing.Platform
+    # without changing the project. The report is written to TestResults/Coverage.
+    #
+    # CI runs only the tests that need no credentials. Everything deriving from MerakiClientTest calls
+    # the live Meraki Dashboard API with credentials from user secrets, which CI does not have, and
+    # xunit.runner.json sets failSkips: true, so those tests are tagged Category=Integration and
+    # filtered out here. This runs every offline test, not only the classes the build job lists.
+    - name: Run tests with coverage
+      run: >-
+        dotnet test Meraki.Api.Test/Meraki.Api.Test.csproj
+        --configuration Debug --no-build
+        --
+        --filter-not-trait "Category=Integration"
+        --coverage
+        --coverage-settings "$GITHUB_WORKSPACE/coverage.config"
+        --coverage-output-format cobertura
+        --coverage-output coverage.cobertura.xml
+        --results-directory "$GITHUB_WORKSPACE/TestResults/Coverage"
+
+    # continue-on-error: a Codacy outage must not turn a passing test run red. The trade-off is that
+    # an expired project token fails silently, so check the log for "Coverage received successfully".
+    - name: Upload coverage to Codacy
+      continue-on-error: true
+      uses: codacy/codacy-coverage-reporter-action@v1
+      with:
+        project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        coverage-reports: TestResults/Coverage/coverage.cobertura.xml
+
+    - name: Upload coverage artifact
+      if: always()
+      continue-on-error: true
+      uses: actions/upload-artifact@v7
+      with:
+        name: coverage
+        path: TestResults/Coverage/coverage.cobertura.xml
+        retention-days: 7
