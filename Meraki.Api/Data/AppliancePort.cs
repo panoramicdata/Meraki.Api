@@ -69,4 +69,11 @@ public class AppliancePort
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "adaptivePolicyGroupId")]
 	public object? AdaptivePolicyGroupId { get; set; }
+
+	/// <summary>
+	/// Security Group Tag settings for the port.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "sgt")]
+	public AppliancePortSgt? Sgt { get; set; }
 }

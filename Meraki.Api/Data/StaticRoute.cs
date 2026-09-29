@@ -35,4 +35,11 @@ public class StaticRoute : StaticRouteUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "vpn")]
 	public StaticRouteVpn? Vpn { get; set; }
+
+	/// <summary>
+	/// IP protocol version
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ipVersion")]
+	public int? IpVersion { get; set; }
 }
