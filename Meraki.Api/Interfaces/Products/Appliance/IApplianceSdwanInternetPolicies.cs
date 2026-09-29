@@ -14,7 +14,7 @@ public interface IApplianceSdwanInternetPolicies
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("updateNetworkApplianceSdwanInternetPolicies")]
 	[Put("/networks/{networkId}/appliance/sdwan/internetPolicies")]
-	Task<List<SecurityEvent>> UpdateNetworkApplianceSdwanInternetPoliciesAsync(
+	Task<OrganizationApplianceSdwanInternetPolicies> UpdateNetworkApplianceSdwanInternetPoliciesAsync(
 		string networkId,
 		[Body] ApplianceSdwanInternetPoliciesUpdate applianceSdwanInternetPoliciesUpdate,
 		CancellationToken cancellationToken = default

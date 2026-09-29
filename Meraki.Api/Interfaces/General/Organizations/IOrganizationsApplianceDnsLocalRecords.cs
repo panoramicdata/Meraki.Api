@@ -13,7 +13,7 @@ public interface IOrganizationsApplianceDnsLocalRecord
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationApplianceDnsLocalRecords")]
 	[Get("/organizations/{organizationId}/appliance/dns/local/records")]
-	Task<OrganizationApplianceDnsLocalRecordsResponse> GetOrganizationApplianceDnsLocalRecordsAsync(
+	Task<List<OrganizationApplianceDnsLocalRecordsResponse>> GetOrganizationApplianceDnsLocalRecordsAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default);
 
@@ -27,7 +27,7 @@ public interface IOrganizationsApplianceDnsLocalRecord
 	/// <returns></returns>
 	[ApiOperationId("createOrganizationApplianceDnsLocalRecord")]
 	[Post("/organizations/{organizationId}/appliance/dns/local/records")]
-	Task<OrganizationApplianceDnsLocalRecordsResponse> CreateOrganizationApplianceDnsLocalRecordAsync(
+	Task<List<OrganizationApplianceDnsLocalRecordsResponse>> CreateOrganizationApplianceDnsLocalRecordAsync(
 		string organizationId,
 		OrganizationApplianceDnsLocalRecordsCreateRequest request,
 		CancellationToken cancellationToken = default);

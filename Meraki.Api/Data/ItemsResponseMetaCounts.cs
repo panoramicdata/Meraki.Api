@@ -3,6 +3,7 @@ namespace Meraki.Api.Data;
 /// <summary>
 /// Items Response Meta Counts
 /// </summary>
+[DataContract]
 public class ItemsResponseMetaCounts
 {
 	/// <summary>

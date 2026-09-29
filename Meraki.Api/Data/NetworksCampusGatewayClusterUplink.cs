@@ -16,7 +16,7 @@ public class NetworksCampusGatewayClusterUplink
 	/// <summary>
 	/// Uplink IP addresses of the device
 	/// </summary>
-	[DataMember(Name = "address")]
+	[DataMember(Name = "addresses")]
 	[ApiAccess(ApiAccess.ReadWrite)]
 	public List<NetworksCampusGatewayClusterDeviceIPAddress> Addresses { get; set; } = [];
 }

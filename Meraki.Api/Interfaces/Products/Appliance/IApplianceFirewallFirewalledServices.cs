@@ -25,7 +25,7 @@ public interface IApplianceFirewallFirewalledServices
 	/// <param name="service">The serviceType</param>
 	/// <param name="cancellationToken"></param>
 	[Get("/networks/{networkId}/appliance/firewall/firewalledServices/{service}")]
-	Task<List<FirewalledService>> GetNetworkApplianceFirewallFirewalledServiceAsync(
+	Task<FirewalledService> GetNetworkApplianceFirewallFirewalledServiceAsync(
 		string networkId,
 		FirewalledServiceType service,
 		CancellationToken cancellationToken = default
@@ -40,7 +40,7 @@ public interface IApplianceFirewallFirewalledServices
 	/// <param name="firewalledService"></param>
 	/// <param name="cancellationToken"></param>
 	[Put("/networks/{networkId}/appliance/firewall/firewalledServices/{service}")]
-	Task<List<FirewalledService>> UpdateNetworkApplianceFirewallFirewalledServiceAsync(
+	Task<FirewalledService> UpdateNetworkApplianceFirewallFirewalledServiceAsync(
 		string networkId,
 		FirewalledServiceType service,
 		[Body] FirewalledService firewalledService,

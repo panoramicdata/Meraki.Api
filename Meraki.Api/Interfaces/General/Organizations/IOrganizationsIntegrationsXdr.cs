@@ -13,7 +13,7 @@ public interface IOrganizationsIntegrationsXdr
 	/// <returns></returns>
 	[ApiOperationId("getOrganizationIntegrationsXdrNetworks")]
 	[Get("/organizations/{organizationId}/integrations/xdr/networks")]
-	Task<List<OrganizationIntegrationsXdrByNetwork>> GetOrganizationIntegrationsXdrNetworksAsync(
+	Task<OrganizationIntegrationsXdrByNetwork> GetOrganizationIntegrationsXdrNetworksAsync(
 		string organizationId,
 		CancellationToken cancellationToken = default
 	);
