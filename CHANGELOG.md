@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## 1.74.16
+
+- **Refit 16.3.0.** `Refit`, `Refit.Newtonsoft.Json` and `Refit.Reflection` move from 15.2.0 to
+  16.3.0 together, so the serializer package stays on the same major version as Refit itself.
+  Refit's public API is unchanged: 16.0.0 is a major version only because its .NET 11 assemblies
+  are now built without runtime-async, which fails on Mono. Meraki.Api consumers get Refit 16
+  transitively, so an app that also references Refit directly should move to 16.x as well. Refit
+  16.3.0's RF015 analyzer is what found the two methods fixed in 1.74.13.
+
 ## 1.74.13
 
 - **Two methods that threw on every call are fixed** (breaking in the type-system sense only, since
