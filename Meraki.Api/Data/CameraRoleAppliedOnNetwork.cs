@@ -26,4 +26,18 @@ public class CameraRoleAppliedOnNetwork
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "tag")]
 	public string? Tag { get; set; }
+
+	/// <summary>
+	/// Permission level
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "permissionLevel")]
+	public string? PermissionLevel { get; set; }
+
+	/// <summary>
+	/// Permission scope name
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "permissionScope")]
+	public string? PermissionScope { get; set; }
 }

@@ -10,6 +10,6 @@ public class EsimsServiceProvidersItemLogo
 	/// URL of service provider's logo.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
-	[DataMember(Name = "logo")]
-	public string? Logo { get; set; }
+	[DataMember(Name = "url")]
+	public string? Url { get; set; }
 }
