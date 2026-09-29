@@ -41,4 +41,18 @@ public class Ssid : SsidUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "security")]
 	public SsidSecurity? Security { get; set; }
+
+	/// <summary>
+	/// Campus gateway settings. Only present when ipAssignmentMode is 'Campus Gateway'.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "campusGateway")]
+	public SsidCampusGateway? CampusGateway { get; set; }
+
+	/// <summary>
+	/// WLAN identifier for the SSID. Only present for Meraki admin users.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "wlanIdentifier")]
+	public int? WlanIdentifier { get; set; }
 }

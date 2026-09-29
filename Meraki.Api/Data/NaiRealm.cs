@@ -25,4 +25,11 @@ public class NaiRealm
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "methods")]
 	public List<EapMethod> Methods { get; set; } = [];
+
+	/// <summary>
+	/// The name of the realm
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "name")]
+	public string? Name { get; set; }
 }

@@ -15,11 +15,11 @@ public class DevicesWirelessZigbeeEnrollmentsDetailed
 	public string? EnrollmentId { get; set; }
 
 	/// <summary>
-	/// Enrollment started at
+	/// Enrollment status
 	/// </summary>
 	[DataMember(Name = "enrollmentStatus")]
 	[ApiAccess(ApiAccess.Read)]
-	public string? EnrollmentStartedAt { get; set; }
+	public string? EnrollmentStatus { get; set; }
 
 	/// <summary>
 	/// Status of the enrollment request
@@ -48,4 +48,11 @@ public class DevicesWirelessZigbeeEnrollmentsDetailed
 	[DataMember(Name = "doorLocks")]
 	[ApiAccess(ApiAccess.Read)]
 	public List<DevicesWirelessZigbeeDoorLocks>? DoorLocks { get; set; }
+
+	/// <summary>
+	/// Enrollment started at
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "enrollmentStartedAt")]
+	public DateTime? EnrollmentStartedAt { get; set; }
 }

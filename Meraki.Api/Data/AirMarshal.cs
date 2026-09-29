@@ -53,4 +53,25 @@ public class AirMarshal
 	/// </summary>
 	[DataMember(Name = "wiredLastSeen")]
 	public int WiredLastSeen { get; set; }
+
+	/// <summary>
+	/// High-level encryption mode observed for the SSID ('WEP', 'WPA' or 'open'); null when it cannot be inferred
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "encryption")]
+	public string? Encryption { get; set; }
+
+	/// <summary>
+	/// Vendor names resolved from the OUI of each broadcasting BSSID (not the OUI hex prefix itself)
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "manufacturers")]
+	public List<string>? Manufacturers { get; set; }
+
+	/// <summary>
+	/// Threat classifications applied to this SSID, for example 'rogue', 'spoof', 'other', 'neighbor'
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "types")]
+	public List<string>? Types { get; set; }
 }

@@ -18,4 +18,11 @@ public class Gre
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "concentrator")]
 	public GreConcentrator? Concentrator { get; set; }
+
+	/// <summary>
+	/// Whether or not client isolation is enabled.
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "clientIsolation")]
+	public bool? ClientIsolation { get; set; }
 }
