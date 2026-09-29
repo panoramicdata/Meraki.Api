@@ -22,12 +22,14 @@ public interface IOrganizationsVpnSiteToSiteIpsec
 	/// Update the IPsec SLA policies for an organization
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
+	/// <param name="organizationId">The organization id</param>
 	/// <param name="request"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	[ApiOperationId("updateOrganizationApplianceVpnSiteToSiteIpsecPeersSlas")]
 	[Put("/organizations/{organizationId}/appliance/vpn/siteToSite/ipsec/peers/slas")]
 	Task<OrganizationApplianceVpnSiteToSiteIpsecPeersSlas> UpdateOrganizationApplianceVpnSiteToSiteIpsecPeersSlasAsync(
+		string organizationId,
 		[Body] OrganizationApplianceVpnSiteToSiteIpsecPeersSlasUpdateRequest request,
 		CancellationToken cancellationToken = default
 	);
