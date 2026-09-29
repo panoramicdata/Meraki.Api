@@ -19,4 +19,11 @@ public class EarlyAccessFeatureOptInOptOutEligibilityHelp
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "url")]
 	public string Url { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Help link label
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "label")]
+	public string? Label { get; set; }
 }

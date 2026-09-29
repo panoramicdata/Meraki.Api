@@ -90,4 +90,11 @@ public class FirmwareProducts
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "wirelessController")]
 	public FirmwareUpgradeProduct WirelessController { get; set; } = new();
+
+	/// <summary>
+	/// The campus gateway devices to be updated
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "campusGateway")]
+	public FirmwareUpgradeProduct? CampusGateway { get; set; }
 }

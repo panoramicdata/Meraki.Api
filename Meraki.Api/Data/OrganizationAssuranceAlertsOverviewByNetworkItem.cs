@@ -33,4 +33,11 @@ public class OrganizationAssuranceAlertsOverviewByNetworkItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "severityCounts")]
 	public List<OrganizationAssuranceAlertsOverviewByNetworkItemSeverityCount> SeverityCounts { get; set; } = [];
+
+	/// <summary>
+	/// Last time an alert was seen for this network
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "lastAlertedAt")]
+	public DateTime? LastAlertedAt { get; set; }
 }

@@ -35,4 +35,18 @@ public class OrganizationAdaptivePolicyOverviewCounts
 	/// </summary>
 	[DataMember(Name = "allowPolicies")]
 	public int AllowPolicies { get; set; }
+
+	/// <summary>
+	/// Number of user-created adaptive policy groups currently in the organization
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "customGroups")]
+	public int? CustomGroups { get; set; }
+
+	/// <summary>
+	/// Number of policy objects (with the adaptive policy type) currently in the organization
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "policyObjects")]
+	public int? PolicyObjects { get; set; }
 }

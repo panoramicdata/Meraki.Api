@@ -33,4 +33,18 @@ public class SamlIdp
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "sloLogoutUrl")]
 	public string SloLogoutUrl { get; set; } = string.Empty;
+
+	/// <summary>
+	/// Dashboard will redirect users to this URL to log in again when their sessions expire.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ssoLoginUrl")]
+	public string? SsoLoginUrl { get; set; }
+
+	/// <summary>
+	/// URL that is consuming SAML Identity Provider (IdP) for Meraki Vision Portal
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "visionConsumerUrl")]
+	public string? VisionConsumerUrl { get; set; }
 }
