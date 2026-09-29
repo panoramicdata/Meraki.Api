@@ -40,4 +40,25 @@ public class DeviceLiveToolsMulticastRoutingGetResponseInterface
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "neighbors")]
 	public List<string> Neighbors { get; set; } = [];
+
+	/// <summary>
+	/// IP version for the interface. Included on networks with IOS XE 17.18 or higher
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "ipVersion")]
+	public string? IpVersion { get; set; }
+
+	/// <summary>
+	/// VRF name for the interface. Included on networks with IOS XE 17.18 or higher
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vrf")]
+	public string? Vrf { get; set; }
+
+	/// <summary>
+	/// VRF type for the interface. Included on networks with IOS XE 17.18 or higher
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vrfType")]
+	public string? VrfType { get; set; }
 }

@@ -41,4 +41,18 @@ public class LossAndLatencyHistory
 	/// </summary>
 	[DataMember(Name = "jitter")]
 	public double Jitter { get; set; }
+
+	/// <summary>
+	/// Start time of the sample, as the current API names it
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "startTime")]
+	public DateTime? StartTimeUtc { get; set; }
+
+	/// <summary>
+	/// End time of the sample, as the current API names it
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "endTime")]
+	public DateTime? EndTimeUtc { get; set; }
 }

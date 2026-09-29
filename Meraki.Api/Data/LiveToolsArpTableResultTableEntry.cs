@@ -34,4 +34,11 @@ public class LiveToolsArpTableResultTableEntry
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "mac")]
 	public string Mac { get; set; } = string.Empty;
+
+	/// <summary>
+	/// The interface name of the ARP table entry, such as Vlan1, Port-channel2, or GigabitEthernet1/0/1.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "interface")]
+	public string? Interface { get; set; }
 }
