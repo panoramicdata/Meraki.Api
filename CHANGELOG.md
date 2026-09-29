@@ -1,5 +1,21 @@
 ﻿# Changelog
 
+## 1.74.13
+
+- **Two methods that threw on every call are fixed** (breaking in the type-system sense only, since
+  neither could ever succeed). Their routes contain `{organizationId}` but no parameter filled it,
+  so Refit threw `ArgumentException` ("has parameter {organizationId}, but no method parameter
+  matches") before sending anything:
+  - `UpdateOrganizationApplianceVpnSiteToSiteIpsecPeersSlasAsync` had no organization parameter at
+    all; it now takes `organizationId` first, like the matching `Get` method.
+  - `CreateOrganizationCameraCustomAnalyticsArtifactAsync` took `serial` where the route needs the
+    organization; the parameter is now `organizationId`. Positional callers are unaffected; a caller
+    that named it `serial:` must rename it.
+
+  Refit 16's new RF015 analyzer rejects both declarations at build time, which is why the Dependabot
+  Refit 16 upgrades failed to build. Regression tests are in
+  `Meraki.Api.Test.Client.UnmatchedRouteParameterTests`.
+
 ## 1.74.12
 
 - **Nineteen Live Tools and general response members the v1.74.0 spec documents are now mapped**,

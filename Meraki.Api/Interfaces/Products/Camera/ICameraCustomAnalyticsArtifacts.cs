@@ -22,12 +22,12 @@ public interface ICameraCustomAnalyticsArtifacts
 	/// Upload the artifact file with a put request to the returned upload URL before its expiry.
 	/// </summary>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
-	/// <param name="serial">The serial number</param>
-	/// <param name="cameraCustomAnalyticsArtifactCreateRequest">Body for updating camera custom analytics</param>
+	/// <param name="organizationId">The organization id</param>
+	/// <param name="cameraCustomAnalyticsArtifactCreateRequest">Body for creating the custom analytics artifact</param>
 	/// <param name="cancellationToken"></param>
 	[Post("/organizations/{organizationId}/camera/customAnalytics/artifacts")]
 	Task<CameraCustomAnalyticsArtifactCreateResponse> CreateOrganizationCameraCustomAnalyticsArtifactAsync(
-		string serial,
+		string organizationId,
 		[Body] CameraCustomAnalyticsArtifactCreateRequest cameraCustomAnalyticsArtifactCreateRequest,
 		CancellationToken cancellationToken = default
 		);
