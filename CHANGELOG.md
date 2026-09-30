@@ -1,5 +1,18 @@
 ﻿# Changelog
 
+## 1.70.146
+
+- **Three organization-wide calls can now return every page, not just the first** (issue
+  [#435](https://github.com/panoramicdata/Meraki.Api/issues/435)). The new
+  `GetOrganizationWirelessDevicesPacketLossAllAsync`, `GetOrganizationApplianceUplinkStatusesAllAsync`
+  and `GetOrganizationCellularGatewayUplinkStatusesAllAsync` follow Meraki's `Link` header to the last
+  page, like the existing `...AllAsync` helpers. The single-page methods return only the first page
+  (at most 1,000 items) and give no sign that more exist, so larger organizations were silently cut
+  off. Like the other helpers, the new ones are all-or-nothing (issue
+  [#355](https://github.com/panoramicdata/Meraki.Api/issues/355)): if any page fails, the call throws
+  rather than returning part of the list. The single-page methods are unchanged. Offline tests are in
+  `Meraki.Api.Test.UplinkStatusesAndPacketLossPagingTests`.
+
 ## 1.70.145
 
 - **`GetOrganizationApplianceUplinksUsageByNetworkAsync` now accepts `t0`, `t1` and `timespan`**
