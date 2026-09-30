@@ -1,5 +1,19 @@
 ﻿# Changelog
 
+## 1.74.18
+
+- **Three organization-wide calls can now return every page, not just the first** (issue
+  [#435](https://github.com/panoramicdata/Meraki.Api/issues/435)). The new
+  `GetOrganizationWirelessDevicesPacketLossAllAsync`, `GetOrganizationApplianceUplinkStatusesAllAsync`
+  and `GetOrganizationCellularGatewayUplinkStatusesAllAsync` follow Meraki's `Link` header to the last
+  page, like the existing `...AllAsync` helpers. The single-page methods return only the first page
+  (at most 1,000 items) and give no sign that more exist, so larger organizations were silently cut
+  off. Like the other helpers, the new ones are all-or-nothing (issue
+  [#355](https://github.com/panoramicdata/Meraki.Api/issues/355)): if any page fails, the call throws
+  rather than returning part of the list. The single-page methods are unchanged. Offline tests are in
+  `Meraki.Api.Test.UplinkStatusesAndPacketLossPagingTests`. The same change shipped as 1.70.146 on the
+  1.70 line, for consumers still on Refit 15.
+
 ## 1.74.16
 
 - **Refit 16.3.0.** `Refit`, `Refit.Newtonsoft.Json` and `Refit.Reflection` move from 15.2.0 to
