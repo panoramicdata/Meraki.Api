@@ -28,4 +28,15 @@ public interface ICellularGatewayUplinkStatuses
 		[AliasAs("iccids[]")] List<string>? iccids = null,
 		CancellationToken cancellationToken = default
 		);
+
+	[Get("/organizations/{organizationId}/cellularGateway/uplink/statuses")]
+	internal Task<ApiResponse<List<UplinkStatus>>> GetOrganizationCellularGatewayUplinkStatusesApiResponseAsync(
+		string organizationId,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		[AliasAs("networkIds[]")] List<string>? networkIds = null,
+		[AliasAs("serials[]")] List<string>? serials = null,
+		[AliasAs("iccids[]")] List<string>? iccids = null,
+		CancellationToken cancellationToken = default
+		);
 }

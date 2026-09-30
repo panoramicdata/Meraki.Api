@@ -39,4 +39,18 @@ public interface IWirelessDevicePacketLoss
 		string? t1 = null,
 		double? timespan = null,
 		CancellationToken cancellationToken = default);
+
+	[Get("/organizations/{organizationId}/wireless/devices/packetLoss/byDevice")]
+	internal Task<ApiResponse<List<WirelessDevicePacketLoss>>> GetOrganizationWirelessDevicesPacketLossApiResponseAsync(
+		string organizationId,
+		IEnumerable<string>? networkIds = null,
+		IEnumerable<string>? serials = null,
+		IEnumerable<int>? ssids = null,
+		IEnumerable<string>? bands = null,
+		string? startingAfter = null,
+		string? endingBefore = null,
+		string? t0 = null,
+		string? t1 = null,
+		double? timespan = null,
+		CancellationToken cancellationToken = default);
 }

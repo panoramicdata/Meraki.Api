@@ -130,6 +130,20 @@ a full run, useful as a starting point and for seeing what has since been
 closed. The XML documentation helper can be used after model and interface
 updates if new public members need doc comments.
 
+## Members the spec does not document
+
+The gap report can only find members the spec documents. Live responses also
+carry members it does not, and a client using
+`JsonMissingMemberHandling.ThrowOnError` (as the live tests do) fails on them.
+Known so far, against the v1.74.0 spec:
+
+- `Uplinks`, from the appliance and cellular gateway uplink statuses:
+  `radioAccessTechnology` (an array whose items have `type`, for example `LTE`
+  or `NR5G`, plus `rsrp`, `rsrq`, `rf`, `carrier` and `snr`), `iccid2`,
+  `msisdn2` and `imei` (an object with `sv`). Seen in September 2026 (issue
+  #435). Every value apart from `type` was null, so take their types from a
+  response with real values rather than guessing.
+
 ## Validation
 
 Run the repository build from the root after making changes:
