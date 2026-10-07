@@ -18,5 +18,5 @@ public class OrganizationWirelessDevicesLatencyByItemOverall
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "average")]
-	public int Average { get; set; }
+	public double Average { get; set; }
 }
