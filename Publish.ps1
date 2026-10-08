@@ -63,8 +63,12 @@ if (-not $SkipPublishVerification) {
 # Get version from Nerdbank.GitVersioning via the project's MSBuild targets (the
 # referenced NuGet package), so this does not depend on the global 'nbgv' CLI tool
 # being installed or on PATH.
-$packableProject = Get-ChildItem -Recurse -Filter *.csproj |
-	Where-Object { $_.FullName -notmatch '[\\/]obj[\\/]' -and (Get-Content $_.FullName -Raw) -match 'Nerdbank\.GitVersioning' } |
+# Only git-tracked projects are considered: a recursive file search also finds the copies inside
+# worktrees nested under ignored folders such as .claude/worktrees, and picking one of those once
+# tagged main with an old checkout's version.
+$packableProject = git ls-files '*.csproj' |
+	ForEach-Object { Get-Item $_ } |
+	Where-Object { (Get-Content $_.FullName -Raw) -match 'Nerdbank\.GitVersioning' } |
 	Select-Object -First 1
 if (-not $packableProject) {
 	Write-Error "Could not find a packable project referencing Nerdbank.GitVersioning."
@@ -77,6 +81,14 @@ if ($LASTEXITCODE -ne 0) {
 }
 $version = ($buildOutput | Select-Object -Last 1).ToString().Trim()
 Write-Status "Version: $version"
+
+# A release tag must be a stable version on the root version.json's major.minor. Anything else
+# means the version came from the wrong project or a non-public build, and the tag cannot be undone.
+$expectedPrefix = (Get-Content (Join-Path $PSScriptRoot 'version.json') -Raw | ConvertFrom-Json).version
+if ($version -notmatch "^$([regex]::Escape($expectedPrefix))\.\d+$") {
+	Write-Error "Version $version is not a stable $expectedPrefix.x release version (from version.json). Not tagging."
+	exit 1
+}
 
 # Check if tag already exists
 $existingTag = git tag -l $version
