@@ -16,5 +16,11 @@ public enum Mv44xResolution
 	/// Enum 1920x1080
 	/// </summary>
 	[EnumMember(Value = "1920x1080")]
-	Size1920x1080
+	Size1920x1080,
+
+	/// <summary>
+	/// Enum 1440x1080
+	/// </summary>
+	[EnumMember(Value = "1440x1080")]
+	Size1440x1080
 }
