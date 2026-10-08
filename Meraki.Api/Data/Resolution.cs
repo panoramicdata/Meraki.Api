@@ -46,5 +46,11 @@ public enum Resolution
 	/// Enum for "2880x2880"
 	/// </summary>
 	[EnumMember(Value = "2880x2880")]
-	Size2880x2880
+	Size2880x2880,
+
+	/// <summary>
+	/// Enum for "3840x2160"
+	/// </summary>
+	[EnumMember(Value = "3840x2160")]
+	Size3840x2160
 }

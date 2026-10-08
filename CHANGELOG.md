@@ -2,6 +2,17 @@
 
 ## 1.70.38
 
+Hotfix on the 1.70 line, branched from 1.70.37 (`release/1.70`), for consumers still on Refit 10.
+
+- Added `Resolution.Size3840x2160` (`3840x2160`), returned by
+  `GET /devices/{serial}/camera/qualityAndRetention` for 4K cameras.
+- Added `Mv44xResolution.Size1440x1080` (`1440x1080`), returned in
+  `videoSettings.MV44X.resolution` by `GET /networks/{networkId}/camera/qualityRetentionProfiles`.
+- Both values are in the Meraki OpenAPI spec. Their absence made the entire response
+  fail to deserialize.
+
+## 1.70.37
+
 - Surfaced `MerakiClient.Wireless.DataRateHistory.GetNetworkWirelessDataRateHistoryAsync`,
   covering `GET /networks/{networkId}/wireless/dataRateHistory`. Returns the average,
   download and upload PHY data rates (Kbps) over time for a network, bucketed by time
