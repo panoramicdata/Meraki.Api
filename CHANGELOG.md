@@ -1,5 +1,17 @@
 ﻿# Changelog
 
+## 1.74.29
+
+- **Two camera resolutions the API returns no longer fail deserialization.** Added
+  `Resolution.Size3840x2160` (`3840x2160`), returned by
+  `GET /devices/{serial}/camera/qualityAndRetention` for 4K cameras, and
+  `Mv44xResolution.Size1440x1080` (`1440x1080`), returned in `videoSettings.MV44X.resolution` by
+  `GET /networks/{networkId}/camera/qualityRetentionProfiles`. Both values are in the Meraki
+  OpenAPI spec; without them the whole response failed to deserialize. Every other camera
+  resolution enum was checked against the v1.74 spec and none is missing a value. Offline tests
+  are in `Meraki.Api.Test.Data.CameraResolutionTests`. The same change shipped as 1.70.38 on the
+  1.70 line (branch `release/1.70`, cut from 1.70.37), for consumers still on Refit 10.
+
 ## 1.74.18
 
 - **Three organization-wide calls can now return every page, not just the first** (issue
