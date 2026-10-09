@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## 1.74.34
+
+- **Breaking: VPN exclusion rule sources are now objects, not strings.**
+  `TrafficShapingVpnExclusionsCustom.Source` and `TrafficShapingVpnExclusionsApplication.Source`
+  are now `TrafficShapingVpnExclusionsCustomSource` (`vlanId`, `port`). A rule with a VLAN source is
+  returned by `GET /organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork`
+  as `"source":{"vlanId":"920","port":"any"}`, which made the entire response fail to deserialize.
+  The field is not in the Meraki OpenAPI spec; the shape is taken from the live API. Offline tests
+  are in `Meraki.Api.Test.Data.TrafficShapingVpnExclusionsTests`. The same change (Custom only, as
+  the 1.70 Application model has no `Source`) shipped as 1.70.39 on the 1.70 line.
+
 ## 1.74.29
 
 - **Two camera resolutions the API returns no longer fail deserialization.** Added
