@@ -29,10 +29,10 @@ public class TrafficShapingVpnExclusionsApplication
 	public TrafficShapingVpnExclusionsCustomProtocol? Protocol { get; set; }
 
 	/// <summary>
-	/// Source address for the VPN exclusion rule.
-	/// Undocumented, observed in responses only and always as null so far.
+	/// Source for the VPN exclusion rule; same shape as a custom rule's source (e.g. a VLAN and port).
+	/// Undocumented, observed in responses only.
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "source")]
-	public string? Source { get; set; }
+	public TrafficShapingVpnExclusionsCustomSource? Source { get; set; }
 }
