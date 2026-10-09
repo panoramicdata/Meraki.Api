@@ -28,9 +28,9 @@ public class TrafficShapingVpnExclusionsCustom
 	public TrafficShapingVpnExclusionsCustomProtocol? Protocol { get; set; }
 
 	/// <summary>
-	/// Source address for the VPN exclusion rule
+	/// Source for the VPN exclusion rule (an object, e.g. a VLAN and port, not a string)
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "source")]
-	public string? Source { get; set; }
+	public TrafficShapingVpnExclusionsCustomSource? Source { get; set; }
 }
