@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## 1.70.39
+
+Hotfix on the 1.70 line (`release/1.70`), for consumers still on Refit 10.
+
+- **Breaking:** `TrafficShapingVpnExclusionsCustom.Source` is now a
+  `TrafficShapingVpnExclusionsCustomSource` (`vlanId`, `port`) instead of a `string`.
+  A custom VPN exclusion rule with a VLAN source is returned by
+  `GET /organizations/{organizationId}/appliance/trafficShaping/vpnExclusions/byNetwork`
+  as `"source":{"vlanId":"920","port":"any"}`, which made the entire response fail to
+  deserialize. The field is not in the Meraki OpenAPI spec; the shape is taken from the live API.
+
 ## 1.70.38
 
 Hotfix on the 1.70 line, branched from 1.70.37 (`release/1.70`), for consumers still on Refit 10.
