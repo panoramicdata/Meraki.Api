@@ -1,5 +1,28 @@
 ﻿# Changelog
 
+## 1.74.36
+
+- **Seven response members the API returns but the OpenAPI spec does not document are now
+  modelled**, so they are captured instead of being reported as missing members (and no longer fail
+  deserialization under `JsonMissingMemberHandling.ThrowOnError`). None is in the v1.74.0 spec; the
+  shapes are taken from live responses, and all are read-only:
+  - `SwitchPort.Interface` and `ConfigTemplateSwitchProfilePort.Interface` (new
+    `SwitchPortInterface`: `name`, `switch`, `module`, `slot`, `subslot`, `number`), from
+    `GET /devices/{serial}/switch/ports` and
+    `GET /organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports`.
+  - `RadiusServer.Radsec` (new `RadiusServerRadsec`: `enabled`), from
+    `GET /networks/{networkId}/switch/accessPolicies`. Unset, it is not sent in update requests.
+  - `BrandingPolicy.Appearance` (new `BrandingPolicyAppearance`: `dashboardMenuTheme`, a string as
+    the values are undocumented), from `GET /organizations/{organizationId}/brandingPolicies`.
+  - `VpnBgp.LocalAsNumber` (`long?`, following `asNumber`; only null has been observed), from
+    `GET /networks/{networkId}/appliance/vpn/bgp`.
+  - `Hub.Vrfs` (new `HubVrf`: `id`, `name`), from
+    `GET /networks/{networkId}/appliance/vpn/siteToSiteVpn`.
+  - `StaticRoute.Vrf` (new `StaticRouteVrf`: `id`, `name`), from
+    `GET /networks/{networkId}/appliance/staticRoutes`.
+
+  Offline tests are in `Meraki.Api.Test.Data.UndocumentedResponseMembersTests`.
+
 ## 1.74.34
 
 - **Breaking: VPN exclusion rule sources are now objects, not strings.**

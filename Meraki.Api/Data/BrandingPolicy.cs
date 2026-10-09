@@ -41,4 +41,11 @@ public class BrandingPolicy : NamedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "helpSettings")]
 	public HelpSettings? HelpSettings { get; set; }
+
+	/// <summary>
+	/// Appearance settings. Undocumented property, observed in responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "appearance")]
+	public BrandingPolicyAppearance? Appearance { get; set; }
 }

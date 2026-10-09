@@ -42,4 +42,11 @@ public class StaticRoute : StaticRouteUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ipVersion")]
 	public int? IpVersion { get; set; }
+
+	/// <summary>
+	/// The VRF of the static route. Undocumented property, observed in responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vrf")]
+	public StaticRouteVrf? Vrf { get; set; }
 }

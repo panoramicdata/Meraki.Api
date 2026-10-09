@@ -20,4 +20,11 @@ public class Hub
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "useDefaultRoute")]
 	public bool? UseDefaultRoute { get; set; }
+
+	/// <summary>
+	/// The VRFs associated with the hub. Undocumented property, observed in responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vrfs")]
+	public List<HubVrf>? Vrfs { get; set; }
 }
