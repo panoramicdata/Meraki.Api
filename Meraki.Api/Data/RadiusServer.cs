@@ -40,4 +40,11 @@ public class RadiusServer
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "serverId")]
 	public string? ServerId { get; set; }
+
+	/// <summary>
+	/// RADSEC settings. Undocumented property, observed in responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "radsec")]
+	public RadiusServerRadsec? Radsec { get; set; }
 }

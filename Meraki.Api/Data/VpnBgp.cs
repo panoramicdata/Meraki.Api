@@ -61,4 +61,11 @@ public class VpnBgp
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "neighbors")]
 	public List<Neighbor>? Neighbors { get; set; }
+
+	/// <summary>
+	/// The local Autonomous System Number. Undocumented property, observed in responses only. Only null has been observed, so the type follows asNumber.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "localAsNumber")]
+	public long? LocalAsNumber { get; set; }
 }

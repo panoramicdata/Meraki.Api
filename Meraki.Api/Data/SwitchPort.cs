@@ -274,4 +274,11 @@ public class SwitchPort : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "stpPortFastTrunk")]
 	public bool? StpPortFastTrunk { get; set; }
+
+	/// <summary>
+	/// The physical interface behind the port. Undocumented property, observed in responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "interface")]
+	public SwitchPortInterface? Interface { get; set; }
 }
