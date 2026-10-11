@@ -1,5 +1,35 @@
 ﻿# Changelog
 
+## 1.74.38
+
+- **Admin and SAML role access values no longer fail deserialization on custom roles or values
+  missing from the spec.** The API returns custom roles as `custom-role:<id>:<name>` (and documents
+  `custom-role:<id>`) for an admin's `orgAccess`, admin network access and SAML role network
+  access, and returns `camera-sensor` for `orgAccess`. The closed enums `OrgAccess` and
+  `AccessPrivilege` rejected these, failing the whole `GET /organizations/{organizationId}/admins`
+  or `GET /organizations/{organizationId}/samlRoles` response. The OpenAPI spec is incomplete for
+  these fields, so both are now extensible values rather than fixed lists:
+  - `OrgAccess` and `AccessPrivilege` are now `readonly record struct`s wrapping the raw API string
+    (`Value`). Any string is accepted and written back unchanged, so the JSON wire format is the
+    same as before.
+  - The existing members keep their names as static properties (`OrgAccess.Full`,
+    `AccessPrivilege.ReadOnly` and so on), so `==` comparisons with them still compile. New:
+    `OrgAccess.CameraSensor` (`camera-sensor`) and `AccessPrivilege.SwitchPortManager`
+    (`switch-port-manager`).
+  - `IsCustomRole`, `CustomRoleId` and `CustomRoleName` parse a custom role. The name is optional
+    and is everything after the second colon, so it may itself contain colons.
+  - Equality is case-sensitive (ordinal) on `Value`; `ToString()` returns `Value`.
+
+  **Breaking for consumers:** constant patterns such as `is OrgAccess.Full` or
+  `case AccessPrivilege.ReadOnly:` no longer compile; use `==` instead. Integer casts and
+  `Enum` methods no longer apply. An unset value (the `default` instance) now serializes as
+  `null`; previously an unset `OrgAccess` serialized as `full` and an unset `AccessPrivilege`
+  as `0`. `AdminUpdateRequest.OrgAccess` is now `OrgAccess?`, as `orgAccess` is optional on
+  `PUT /organizations/{organizationId}/admins/{adminId}`: left unset, it is no longer sent,
+  where previously an update that did not set it sent `full`, granting full organization access.
+
+  Offline tests are in `Meraki.Api.Test.Data.AccessValueTests`.
+
 ## 1.74.36
 
 - **Seven response members the API returns but the OpenAPI spec does not document are now
