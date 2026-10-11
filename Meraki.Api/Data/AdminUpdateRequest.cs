@@ -13,10 +13,10 @@ public class AdminUpdateRequest
 	public string? Name { get; set; }
 
 	/// <summary>
-	/// Gets or Sets OrgAccess
+	/// The privilege of the dashboard administrator on the organization. Not sent when null.
 	/// </summary>
 	[DataMember(Name = "orgAccess")]
-	public OrgAccess OrgAccess { get; set; }
+	public OrgAccess? OrgAccess { get; set; }
 
 	/// <summary>
 	/// The list of tags that the dashboard administrator has privileges on
