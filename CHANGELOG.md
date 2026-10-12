@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## 1.74.40
+
+- **Cisco 8000 Series Secure Routers are now recognised as appliances.** `Device.GetModelType()`
+  returned `ModelType.Unknown` for the G2 secure routers that run MX OS under dashboard
+  management, as the prefix table covered only the Catalyst 9000 switches. The `C8111`, `C8121`,
+  `C8355` and `C8455` prefixes now map to `ModelType.Appliance`, covering variants such as
+  `C8111-G2`, `C8121-W-G2` and `C8455-G2`. Other Catalyst 8000 routers (for example `C8200` and
+  `C8300`, which run IOS XE) still return `ModelType.Unknown`.
+
 ## 1.74.38
 
 - **Admin and SAML role access values no longer fail deserialization on custom roles or values
