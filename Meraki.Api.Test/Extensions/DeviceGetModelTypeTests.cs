@@ -38,6 +38,16 @@ public class DeviceGetModelTypeTests
 	[InlineData("XXXXX", ModelType.Unknown)]
 	[InlineData("XXXXXX", ModelType.Unknown)]
 	[InlineData("CPSC-HUB", ModelType.CiscoSecureConnect)]
+	[InlineData("C8111-G2", ModelType.Appliance)]
+	[InlineData("C8111-C-G2", ModelType.Appliance)]
+	[InlineData("C8121-G2", ModelType.Appliance)]
+	[InlineData("C8121-W-G2", ModelType.Appliance)]
+	[InlineData("C8121-CW-G2", ModelType.Appliance)]
+	[InlineData("C8355-G2", ModelType.Appliance)]
+	[InlineData("C8455-G2", ModelType.Appliance)]
+	[InlineData("c8111-g2", ModelType.Appliance)]
+	[InlineData("C8200-1N-4T", ModelType.Unknown)]
+	[InlineData("C8300-1N1S-4T2X", ModelType.Unknown)]
 	public void DeviceGetModelType_ReturnsExpectedType(string model, ModelType expected)
 	{
 		var device = new Device { Model = model };
