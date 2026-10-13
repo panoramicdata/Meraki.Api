@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## 1.74.42
+
+- **The `userAgent` filter on `GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync` now
+  works.** The API documents it as a single string (complete or partial match), but it was declared
+  as `List<string>` and sent as `userAgent[]`, which the API rejects with 400
+  `'userAgent' must be a string`. The parameter is now `string? userAgent`. This is a source-breaking
+  change for callers that passed a list, but every such call failed. The `operationIds`, `sourceIps`
+  and `adminIds` filters are arrays and are unchanged.
+
 ## 1.74.40
 
 - **Cisco 8000 Series Secure Routers are now recognised as appliances.** `Device.GetModelType()`
