@@ -109,7 +109,7 @@ public interface IOrganizationsApiRequests
 		[AliasAs("operationIds[]")] List<string>? operationIds = null,
 		[AliasAs("sourceIps[]")] List<string>? sourceIps = null,
 		[AliasAs("adminIds[]")] List<string>? adminIds = null,
-		[AliasAs("userAgent[]")] List<string>? userAgent = null,
+		string? userAgent = null,
 		CancellationToken cancellationToken = default);
 
 	/// <summary>
