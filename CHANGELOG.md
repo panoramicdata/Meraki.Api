@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.74.44
+## 1.74.52
 
 - **Ten response members on six endpoints that the API returns but the models lacked are now modelled**, so they are
   captured instead of being reported as missing members (and no longer fail deserialization under
