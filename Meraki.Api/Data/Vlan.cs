@@ -189,4 +189,11 @@ public class Vlan : NamedIdentifiedItem
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "sgt")]
 	public VlanSgt? Sgt { get; set; }
+
+	/// <summary>
+	/// VPN settings for this VLAN. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "vpn")]
+	public VlanVpn? Vpn { get; set; }
 }
