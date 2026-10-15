@@ -40,4 +40,11 @@ public class SwitchStackMember
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "role")]
 	public string Role { get; set; } = string.Empty;
+
+	/// <summary>
+	/// The member number of the switch within the stack. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "switchNumber")]
+	public int? SwitchNumber { get; set; }
 }

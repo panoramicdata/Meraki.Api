@@ -261,4 +261,18 @@ public class ConfigTemplateSwitchProfilePort : NamedItem
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "interface")]
 	public SwitchPortInterface? Interface { get; set; }
+
+	/// <summary>
+	/// Perpetual PoE settings for the switch profile port. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "perpetualPoe")]
+	public SwitchPortPerpetualPoe? PerpetualPoe { get; set; }
+
+	/// <summary>
+	/// Fast PoE settings for the switch profile port. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "fastPoe")]
+	public SwitchPortFastPoe? FastPoe { get; set; }
 }

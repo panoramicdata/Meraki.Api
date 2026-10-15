@@ -69,4 +69,11 @@ public class FiveGhzSettings
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "dot11ax")]
 	public FiveGhzSettingsDot11ax? Dot11ax { get; set; }
+
+	/// <summary>
+	/// Energy detect radio resource management settings. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "edRrm")]
+	public RfProfileEdRrm? EdRrm { get; set; }
 }

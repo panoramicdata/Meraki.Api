@@ -61,4 +61,11 @@ public class SixGhzSettings
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "channelPuncturing")]
 	public SixGhzSettingsChannelPuncturing? ChannelPuncturing { get; set; }
+
+	/// <summary>
+	/// Energy detect radio resource management settings. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "edRrm")]
+	public RfProfileEdRrm? EdRrm { get; set; }
 }

@@ -55,4 +55,11 @@ public class TwoPointFourGhzSettings
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "rxsop")]
 	public int? Rxsop { get; set; }
+
+	/// <summary>
+	/// Energy detect radio resource management settings. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "edRrm")]
+	public RfProfileEdRrm? EdRrm { get; set; }
 }

@@ -1,5 +1,32 @@
 ﻿# Changelog
 
+## 1.74.44
+
+- **Ten response members on six endpoints that the API returns but the models lacked are now modelled**, so they are
+  captured instead of being reported as missing members (and no longer fail deserialization under
+  `JsonMissingMemberHandling.ThrowOnError`). Shapes are taken from live API responses and all are
+  read-only. Checked against the v1.74.0 OpenAPI spec, none of them is documented:
+  - `ConfigTemplateSwitchProfilePort.PerpetualPoe` and `.FastPoe` (the existing `SwitchPortPerpetualPoe`
+    and `SwitchPortFastPoe` types, as on `SwitchPort`), from
+    `GET /organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports`.
+    `fastPoe` was not modelled on the profile port either.
+  - `RoutingInterfaceVrrpIpv4.Address` (`string?`), `.Group` and `.Priority` (`int?`) and
+    `.Preemption` (new `RoutingInterfaceVrrpIpv4Preemption`: `enabled`), from
+    `GET /devices/{serial}/switch/routing/interfaces`. `vrrp` is not documented in the spec at all.
+  - `NetworkBluetoothSettings.SensorConnect` (new `NetworkBluetoothSettingsSensorConnect`: `enabled`,
+    `scanning.enabled`, `advertising.enabled`, `filtering.ignore.mac.addressTypes`, `uuid`,
+    `assignment.mode`, `major`, `minor`), from `GET /networks/{networkId}/wireless/bluetooth/settings`.
+    `eslEnabled` and `transmit.advertised.power` were already modelled.
+  - `SwitchStackMember.SwitchNumber` (`int?`), from `GET /networks/{networkId}/switch/stacks`.
+  - `TwoPointFourGhzSettings.EdRrm`, `FiveGhzSettings.EdRrm` and `SixGhzSettings.EdRrm` (one shared new
+    `RfProfileEdRrm`: `enabled`, `sensitivity.threshold`, `rogue.contribution.enabled`), from
+    `GET /networks/{networkId}/wireless/rfProfiles`. Only null has been observed, so every value is
+    nullable and `threshold` is an `int?` by assumption.
+  - `Vlan.Vpn` (new `VlanVpn`: `advertisement.enabled`), from
+    `GET /networks/{networkId}/appliance/vlans`. It is not added to the VLAN create or update requests.
+
+  Offline tests are in `Meraki.Api.Test.Data.MissingMembers20261015Tests`.
+
 ## 1.74.42
 
 - **The `userAgent` filter on `GetOrganizationApiRequestsOverviewResponseCodesByIntervalAsync` now
