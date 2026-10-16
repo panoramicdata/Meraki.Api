@@ -25,5 +25,5 @@ public class OrganizationWirelessDevicesPacketLossItemDownstream
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "lossPercentage")]
-	public int LossPercentage { get; set; }
+	public double LossPercentage { get; set; }
 }
