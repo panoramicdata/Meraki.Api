@@ -332,5 +332,7 @@
 	"Q5FA": "C9200L-24T-4X",
 	"Q5FL": "C9200L-24P-4G",
 	// Added 2026-09-07 (serial seen in Meraki inventory but previously unmapped)
-	"Q5AP": "CW9166I"
+	"Q5AP": "CW9166I",
+	// Added 2026-10-19 (serial seen in Meraki inventory but previously unmapped)
+	"Q3PJ": "CW9166I"
 }
