@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## 1.74.59
+
+- **Timeout and retry-exhaustion messages state an attempt count only when a request was retried.**
+  A single timed-out attempt read "The request timed out after multiple attempts (1)."; it now reads
+  "The request timed out.", or "The request timed out after N attempts." after retries, so the opening
+  that consumers match on is unchanged. `RetryExhaustedException` likewise drops "1/1 attempts" and no
+  longer repeats the configured maximum, which stays on `MaxAttemptCount`.
+
+- **Serial-number prefixes `Q3PJ` (`CW9166I`) and `Q5AU` (`CW9162I`) are now recognised** by
+  `MerakiClient.GetInfoFromSerialNumber`.
+
 ## 1.74.52
 
 - **Ten response members on six endpoints that the API returns but the models lacked are now modelled**, so they are
