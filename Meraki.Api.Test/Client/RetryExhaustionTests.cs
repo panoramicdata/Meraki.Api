@@ -59,7 +59,7 @@ public class RetryExhaustionTests
 		_ = exception.Elapsed.Should().BeGreaterThanOrEqualTo(TimeSpan.Zero);
 		_ = exception.Method.Should().Be(HttpMethod.Get);
 		_ = exception.RequestUri.Should().Be(RequestUri);
-		_ = exception.Message.Should().Contain("3/3").And.Contain("429");
+		_ = exception.Message.Should().Contain("after 3 attempts").And.Contain("429");
 		_ = inner.Attempts.Should().Be(3);
 	}
 
@@ -77,6 +77,7 @@ public class RetryExhaustionTests
 		var exception = (await act.Should().ThrowAsync<RetryExhaustedException>()).Which;
 		_ = exception.StatusCode.Should().Be(status);
 		_ = exception.AttemptCount.Should().Be(1);
+		_ = exception.Message.Should().NotContain("attempt", "a single attempt was never retried, so it is not counted");
 	}
 
 	[Fact]

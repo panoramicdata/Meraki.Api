@@ -52,7 +52,7 @@ public class RetryExhaustedException : Exception
 		TimeSpan elapsed,
 		HttpMethod method,
 		Uri? requestUri)
-		: base($"Giving up after {attemptCount}/{maxAttemptCount} attempts over {elapsed.TotalSeconds:N1}s; the last response was {(int)statusCode} {statusCode}. ({method} - {requestUri})")
+		: base(BuildMessage(statusCode, attemptCount, elapsed, method, requestUri))
 	{
 		StatusCode = statusCode;
 		AttemptCount = attemptCount;
@@ -60,6 +60,19 @@ public class RetryExhaustedException : Exception
 		Elapsed = elapsed;
 		Method = method;
 		RequestUri = requestUri;
+	}
+
+	/// <summary>
+	/// The count is only stated when there was a retry: a single attempt was never retried, and exhaustion
+	/// always means every permitted attempt was used, so the configured maximum would only repeat it.
+	/// </summary>
+	private static string BuildMessage(HttpStatusCode statusCode, int attemptCount, TimeSpan elapsed, HttpMethod method, Uri? requestUri)
+	{
+		var duration = attemptCount > 1
+			? $"{attemptCount} attempts over {elapsed.TotalSeconds:N1}s"
+			: $"{elapsed.TotalSeconds:N1}s";
+
+		return $"Giving up after {duration}; the last response was {(int)statusCode} {statusCode}. ({method} - {requestUri})";
 	}
 
 	/// <summary>

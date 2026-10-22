@@ -59,8 +59,26 @@ public class CancellationTests
 
 		var act = () => httpClient.GetAsync(RequestUri, TestContext.Current.CancellationToken);
 
-		_ = await act.Should().ThrowAsync<TimeoutException>();
+		_ = await act.Should().ThrowAsync<TimeoutException>().WithMessage("The request timed out after 2 attempts.");
 		_ = inner.Attempts.Should().Be(2);
+	}
+
+	[Fact]
+	public async Task InnerTimeout_OnASingleAttempt_DoesNotStateACount()
+	{
+		var options = new MerakiClientOptions
+		{
+			ApiKey = "0000000000000000000000000000000000000000",
+			UserAgent = "Meraki.Api.Test/1.0",
+			HttpClientInnerTimeoutSeconds = 0.2,
+			MaxAttemptCount = 1
+		};
+		var (httpClient, inner) = CreateClient(options);
+
+		var act = () => httpClient.GetAsync(RequestUri, TestContext.Current.CancellationToken);
+
+		_ = await act.Should().ThrowAsync<TimeoutException>().WithMessage("The request timed out.");
+		_ = inner.Attempts.Should().Be(1);
 	}
 
 	/// <summary>

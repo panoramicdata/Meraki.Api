@@ -359,7 +359,11 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 				request.Method.ToString(),
 				request.RequestUri
 				);
-			throw new TimeoutException($"The request timed out after multiple attempts ({_options.MaxAttemptCount}).");
+			// The count is only worth stating when there was a retry. Keep the "The request timed out" opening:
+			// consumers recognise this exhaustion by it.
+			throw new TimeoutException(attemptCount > 1
+				? $"The request timed out after {attemptCount} attempts."
+				: "The request timed out.");
 		}
 
 		// Back off before retrying. A timeout usually means the far end is slow because it is
