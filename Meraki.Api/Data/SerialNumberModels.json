@@ -334,5 +334,7 @@
 	// Added 2026-09-07 (serial seen in Meraki inventory but previously unmapped)
 	"Q5AP": "CW9166I",
 	// Added 2026-10-19 (serial seen in Meraki inventory but previously unmapped)
-	"Q3PJ": "CW9166I"
+	"Q3PJ": "CW9166I",
+	// Added 2026-10-22 (serial seen in Meraki inventory but previously unmapped)
+	"Q5AU": "CW9162I"
 }
