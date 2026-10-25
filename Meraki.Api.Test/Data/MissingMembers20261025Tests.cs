@@ -28,6 +28,27 @@ public class MissingMembers20261025Tests
 	}
 
 	[Fact]
+	public void DeserializeSiteToSiteVpn_ManualNatTraversal_Succeeds()
+	{
+		var vpn = Deserialize<SiteToSiteVpn>("{\"mode\":\"spoke\",\"hubs\":[],\"subnets\":[],\"natTraversal\":{\"mode\":\"manual\",\"publicIp\":\"203.0.113.10\",\"publicPort\":45678}}");
+
+		_ = vpn.NatTraversal.Should().NotBeNull();
+		_ = vpn.NatTraversal!.Mode.Should().Be("manual");
+		_ = vpn.NatTraversal.PublicIp.Should().Be("203.0.113.10");
+		_ = vpn.NatTraversal.PublicPort.Should().Be(45678);
+	}
+
+	[Fact]
+	public void DeserializeVpnBgp_NeighborExplicitOutboundRouteAdvertisement_Succeeds()
+	{
+		var bgp = Deserialize<VpnBgp>("{\"enabled\":true,\"asNumber\":64515,\"ibgpHoldTimer\":120,\"neighbors\":[{\"ip\":\"192.0.2.10\",\"remoteAsNumber\":64516,\"filter\":{\"out\":null},\"explicitOutboundRouteAdvertisement\":{\"enabled\":true}}]}");
+
+		var neighbor = bgp.Neighbors.Should().ContainSingle().Subject;
+		_ = neighbor.ExplicitOutboundRouteAdvertisement.Should().NotBeNull();
+		_ = neighbor.ExplicitOutboundRouteAdvertisement!.Enabled.Should().BeTrue();
+	}
+
+	[Fact]
 	public void DeserializeVpnBgp_NeighborFilterWithNullOut_Succeeds()
 	{
 		var bgp = Deserialize<VpnBgp>("{\"enabled\":true,\"asNumber\":64515,\"ibgpHoldTimer\":120,\"neighbors\":[{\"ip\":\"192.0.2.10\",\"remoteAsNumber\":64516,\"filter\":{\"out\":null}}]}");

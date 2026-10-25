@@ -126,6 +126,13 @@ public class Neighbor
 	public NeighborFilter? Filter { get; set; }
 
 	/// <summary>
+	/// Settings for explicit outbound route advertisement to an eBGP neighbor
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "explicitOutboundRouteAdvertisement")]
+	public NeighborExplicitOutboundRouteAdvertisement? ExplicitOutboundRouteAdvertisement { get; set; }
+
+	/// <summary>
 	/// VRF settings for the neighbor
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]
