@@ -119,6 +119,13 @@ public class Neighbor
 	public string? CommunityOut { get; set; }
 
 	/// <summary>
+	/// Filters for routes advertised to an eBGP neighbor
+	/// </summary>
+	[ApiAccess(ApiAccess.ReadUpdate)]
+	[DataMember(Name = "filter")]
+	public NeighborFilter? Filter { get; set; }
+
+	/// <summary>
 	/// VRF settings for the neighbor
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadUpdate)]

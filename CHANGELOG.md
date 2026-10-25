@@ -1,5 +1,23 @@
 ﻿# Changelog
 
+## 1.74.61
+
+- **Three response members that the API returns but the models lacked are now modelled**, so they are
+  captured instead of being reported as missing members (and no longer fail deserialization under
+  `JsonMissingMemberHandling.ThrowOnError`). Checked against the v1.75.1 OpenAPI spec:
+  - `SiteToSiteVpn.NatTraversal` (new `SiteToSiteVpnNatTraversal`: `mode`), from
+    `GET /networks/{networkId}/appliance/vpn/siteToSiteVpn`. Not documented; modelled read-only from
+    live responses, with `mode` as a `string?` because only `automatic` has been observed.
+  - `Neighbor.Filter` (new `NeighborFilter`: `out`, a nullable list of IPv4 CIDR strings), on the
+    neighbors from `GET /networks/{networkId}/appliance/vpn/bgp`. Documented and writable on the PUT,
+    so it is `ReadUpdate` like the other neighbor settings.
+  - `WirelessRfProfile.Weatherized` (new `WirelessRfProfileWeatherized`: `deployment.mode`), from
+    `GET /networks/{networkId}/wireless/rfProfiles`. Not documented; modelled read-only from live
+    responses, with `mode` as a `string?` because only `outdoor` has been observed. It is not added to
+    the RF profile create or update request.
+
+  Offline tests are in `Meraki.Api.Test.Data.MissingMembers20261025Tests`.
+
 ## 1.74.59
 
 - **Timeout and retry-exhaustion messages state an attempt count only when a request was retried.**
