@@ -1,5 +1,19 @@
 ﻿# Changelog
 
+## 1.74.63
+
+- **Three more response members that the API returns but the models lacked are now modelled**, so they
+  are captured instead of being reported as missing members (and no longer fail deserialization under
+  `JsonMissingMemberHandling.ThrowOnError`). Checked against the v1.75.1 OpenAPI spec:
+  - `SiteToSiteVpnNatTraversal.PublicIp` (`string?`) and `.PublicPort` (`int?`), from
+    `GET /networks/{networkId}/appliance/vpn/siteToSiteVpn`. They are returned when `mode` is `manual`.
+    Not documented; modelled read-only from live responses like `mode`.
+  - `Neighbor.ExplicitOutboundRouteAdvertisement` (new `NeighborExplicitOutboundRouteAdvertisement`:
+    `enabled`), on the neighbors from `GET /networks/{networkId}/appliance/vpn/bgp`. Documented and
+    writable on the PUT, so it is `ReadUpdate` like the other neighbor settings.
+
+  Offline tests are added to `Meraki.Api.Test.Data.MissingMembers20261025Tests`.
+
 ## 1.74.61
 
 - **Three response members that the API returns but the models lacked are now modelled**, so they are
