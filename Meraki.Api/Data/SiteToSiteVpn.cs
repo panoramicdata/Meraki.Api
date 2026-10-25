@@ -54,4 +54,11 @@ public class SiteToSiteVpn
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "hostTranslations")]
 	public List<SiteToSiteVpnHostTranslation>? HostTranslations { get; set; }
+
+	/// <summary>
+	/// NAT traversal settings. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "natTraversal")]
+	public SiteToSiteVpnNatTraversal? NatTraversal { get; set; }
 }

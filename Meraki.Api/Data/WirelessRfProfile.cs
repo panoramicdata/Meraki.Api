@@ -33,4 +33,11 @@ public class WirelessRfProfile : WirelessRfProfileCreateUpdateRequest
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "antennas")]
 	public object? Antennas { get; set; }
+
+	/// <summary>
+	/// Weatherized settings. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "weatherized")]
+	public WirelessRfProfileWeatherized? Weatherized { get; set; }
 }
