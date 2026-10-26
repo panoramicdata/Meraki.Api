@@ -58,7 +58,7 @@ public class MissingMemberDeserialization
 				.Append("{\"id\":\"item-").Append(i).Append("\",\"name\":\"Item ").Append(i)
 				.Append("\",\"enabled\":true,\"count\":").Append(i)
 				.Append(",\"tags\":[\"a\",\"b\"],\"settings\":{\"mode\":\"auto\",\"level\":3}");
-			if (WithMissingMembers && i % 50 == 49)
+			if (WithMissingMembers && (i + 1) % 50 == 0)
 			{
 				_ = builder.Append(",\"extra\":{\"inner\":1,\"other\":\"x\"}");
 			}

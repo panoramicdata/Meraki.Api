@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.74.65
+## 1.74.66
 
 - **Every missing member in a response is now reported, not just the first**
   ([#457](https://github.com/panoramicdata/Meraki.Api/issues/457)). Under

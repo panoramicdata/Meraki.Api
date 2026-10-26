@@ -317,11 +317,19 @@ public class MissingMembersReportingTests
 	{
 		public List<(LogLevel Level, string Message)> Entries { get; } = [];
 
+		// S1172: the signature is ILogger's, so the unused state cannot be removed.
+#pragma warning disable S1172 // Unused method parameters should be removed
 		public IDisposable? BeginScope<TState>(TState state) where TState : notnull => null;
+#pragma warning restore S1172 // Unused method parameters should be removed
 
-		public bool IsEnabled(LogLevel logLevel) => true;
+		public bool IsEnabled(LogLevel logLevel) => logLevel != LogLevel.None;
 
 		public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
-			=> Entries.Add((logLevel, formatter(state, exception)));
+		{
+			if (IsEnabled(logLevel))
+			{
+				Entries.Add((logLevel, eventId.Id == 0 ? formatter(state, exception) : $"{eventId}: {formatter(state, exception)}"));
+			}
+		}
 	}
 }

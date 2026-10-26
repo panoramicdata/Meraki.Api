@@ -255,7 +255,10 @@ public class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 		}
 
 		public void Add(JsonMissingMember missingMember)
-			=> (_missingMembers ??= []).Add(missingMember);
+		{
+			_missingMembers ??= [];
+			_missingMembers.Add(missingMember);
+		}
 	}
 
 	/// <summary>
