@@ -10,12 +10,18 @@ public enum JsonMissingMemberHandling
 	Ignore = 1,
 
 	/// <summary>
-	/// Use the default Newtonsoft Error on missing members behavior
+	/// Read the whole response, collecting every missing member, report them to
+	/// <see cref="MerakiClientOptions.JsonMissingMemberAction"/> and
+	/// <see cref="MerakiClientOptions.JsonMissingMembersAction"/>, then throw a
+	/// <see cref="Exceptions.JsonMissingMembersException"/> listing them all
 	/// </summary>
 	ThrowOnError = 2,
 
 	/// <summary>
-	/// Log the issue when a missing member error occurs and then reattempt using the Ignore behavior
+	/// Read the whole response once, collecting every missing member, log a warning and report them to
+	/// <see cref="MerakiClientOptions.JsonMissingMemberAction"/> and
+	/// <see cref="MerakiClientOptions.JsonMissingMembersAction"/>, then return the object, with every
+	/// declared member bound, as the Ignore behavior would
 	/// </summary>
 	LogWarningOnErrorAndContinue = 3
 }
