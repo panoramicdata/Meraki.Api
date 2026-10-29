@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.74.64
+## 1.74.66
 
 - **`SiteToSiteVpn.ChangesConfirmed` (`bool?`) lets an update confirm the warnings Meraki raises about it.**
   `PUT /networks/{networkId}/appliance/vpn/siteToSiteVpn` is rejected with a 400, "Please confirm the changes in
