@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.74.66
+## 1.74.67
 
 - **Every missing member in a response is now reported, not just the first**
   ([#457](https://github.com/panoramicdata/Meraki.Api/issues/457)). Under
@@ -24,6 +24,16 @@
   Offline tests are in `Meraki.Api.Test.Client.MissingMembersReportingTests`, and a
   `MissingMemberDeserialization` benchmark compares the old and new paths
   (`dotnet run -c Release --project Benchmarks -- --filter *MissingMember*`).
+
+## 1.74.64
+
+- **`SiteToSiteVpn.ChangesConfirmed` (`bool?`) lets an update confirm the warnings Meraki raises about it.**
+  `PUT /networks/{networkId}/appliance/vpn/siteToSiteVpn` is rejected with a 400, "Please confirm the changes in
+  confirmations and send `changesConfirmed` as `true`", when the change triggers a warning such as VLAN subnets
+  overlapping a static LAN route. The property is update-only and is not sent while it is null, so existing
+  callers are unaffected. Not documented in the OpenAPI spec; taken from the live error response.
+
+  Offline tests are in `Meraki.Api.Test.Data.SiteToSiteVpnChangesConfirmedTests`.
 
 ## 1.74.63
 
