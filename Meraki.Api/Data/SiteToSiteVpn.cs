@@ -61,4 +61,13 @@ public class SiteToSiteVpn
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "natTraversal")]
 	public SiteToSiteVpnNatTraversal? NatTraversal { get; set; }
+
+	/// <summary>
+	/// Confirms the warnings Meraki raises about a change (for example VLAN subnets that overlap a static route).
+	/// An update that needs confirmation is rejected with a 400 whose "confirmations" list names the warnings;
+	/// send true to apply it anyway. Update only: it is never returned.
+	/// </summary>
+	[ApiAccess(ApiAccess.Update)]
+	[DataMember(Name = "changesConfirmed")]
+	public bool? ChangesConfirmed { get; set; }
 }

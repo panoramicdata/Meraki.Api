@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## 1.74.64
+
+- **`SiteToSiteVpn.ChangesConfirmed` (`bool?`) lets an update confirm the warnings Meraki raises about it.**
+  `PUT /networks/{networkId}/appliance/vpn/siteToSiteVpn` is rejected with a 400, "Please confirm the changes in
+  confirmations and send `changesConfirmed` as `true`", when the change triggers a warning such as VLAN subnets
+  overlapping a static LAN route. The property is update-only and is not sent while it is null, so existing
+  callers are unaffected. Not documented in the OpenAPI spec; taken from the live error response.
+
+  Offline tests are in `Meraki.Api.Test.Data.SiteToSiteVpnChangesConfirmedTests`.
+
 ## 1.74.63
 
 - **Three more response members that the API returns but the models lacked are now modelled**, so they
