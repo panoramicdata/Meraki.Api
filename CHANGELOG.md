@@ -1,5 +1,30 @@
 ﻿# Changelog
 
+## 1.74.68
+
+- **Every missing member in a response is now reported, not just the first**
+  ([#457](https://github.com/panoramicdata/Meraki.Api/issues/457)). Under
+  `JsonMissingMemberHandling.LogWarningOnErrorAndContinue` and `ThrowOnError` the response is read once,
+  to the end, with each missing member recorded and skipped, so later members, members on later array
+  items and members nested inside a missing member are all found in the same response.
+  - New `MerakiClientOptions.JsonMissingMembersAction` (`Action<Type, IReadOnlyList<JsonMissingMember>, string>`)
+    is called once per affected response with every missing member, in document order. Each
+    `JsonMissingMember` has `DeclaringType`, `MemberName` and `Path` (e.g. `natTraversal.publicIp`).
+  - `JsonMissingMemberAction` still works unchanged: it is called once per affected response with the
+    first missing member's exception, exactly as before. It is now documented as superseded.
+  - `LogWarningOnErrorAndContinue` no longer deserializes an affected response a second time; the object
+    returned is the same. Its single warning now also lists the further missing members.
+  - `ThrowOnError` calls both actions and then throws a new `JsonMissingMembersException`, a
+    `JsonSerializationException` carrying `MissingMembers`, whose `InnerException` is the exception that
+    used to be thrown. With one missing member its message is unchanged.
+  - Other errors (invalid JSON, type conversion failures) still throw as before. If missing members came
+    before such an error they are reported first.
+  - `Ignore` is unchanged.
+
+  Offline tests are in `Meraki.Api.Test.Client.MissingMembersReportingTests`, and a
+  `MissingMemberDeserialization` benchmark compares the old and new paths
+  (`dotnet run -c Release --project Benchmarks -- --filter *MissingMember*`).
+
 ## 1.74.66
 
 - **`SiteToSiteVpn.ChangesConfirmed` (`bool?`) lets an update confirm the warnings Meraki raises about it.**

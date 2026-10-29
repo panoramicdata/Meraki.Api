@@ -156,9 +156,30 @@ public class MerakiClientOptions
 	public IRateLimiter? RateLimiter { get; set; }
 
 	/// <summary>
-	/// This gets called when JsonMissingMemberHandling is not Ignore and a missing member occurs
+	/// This gets called when JsonMissingMemberHandling is not Ignore and a response contains missing members.
+	/// Superseded by <see cref="JsonMissingMembersAction"/>, which receives every missing member.
 	/// </summary>
+	/// <remarks>
+	/// It is called once per response, with the response type, the exception Newtonsoft.Json raised for the
+	/// first missing member and the response JSON, as it always has been. Any further missing members in the
+	/// same response are reported only through <see cref="JsonMissingMembersAction"/>. It is also called, as
+	/// before, with any other <see cref="JsonSerializationException"/> that fails a response that had no
+	/// missing members before the failure, just before that exception is rethrown.
+	/// </remarks>
 	public Action<Type, JsonSerializationException, string>? JsonMissingMemberAction { get; set; }
+
+	/// <summary>
+	/// This gets called when JsonMissingMemberHandling is not Ignore and a response contains missing members,
+	/// once per response, with the response type, every missing member found, in document order, and the
+	/// response JSON.
+	/// </summary>
+	/// <remarks>
+	/// The response is read once, to the end, so later members, members on later array items and members
+	/// nested inside a missing member are all reported together. It is not called for a response with no
+	/// missing members. Under <see cref="JsonMissingMemberHandling.ThrowOnError"/> it is called before the
+	/// <see cref="JsonMissingMembersException"/> is thrown.
+	/// </remarks>
+	public Action<Type, IReadOnlyList<JsonMissingMember>, string>? JsonMissingMembersAction { get; set; }
 
 	/// <summary>
 	/// The timeout applied to each individual attempt, in seconds. Defaults to 25.
