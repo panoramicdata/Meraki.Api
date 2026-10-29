@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.74.67
+## 1.74.68
 
 - **Every missing member in a response is now reported, not just the first**
   ([#457](https://github.com/panoramicdata/Meraki.Api/issues/457)). Under
@@ -25,7 +25,7 @@
   `MissingMemberDeserialization` benchmark compares the old and new paths
   (`dotnet run -c Release --project Benchmarks -- --filter *MissingMember*`).
 
-## 1.74.64
+## 1.74.66
 
 - **`SiteToSiteVpn.ChangesConfirmed` (`bool?`) lets an update confirm the warnings Meraki raises about it.**
   `PUT /networks/{networkId}/appliance/vpn/siteToSiteVpn` is rejected with a 400, "Please confirm the changes in
