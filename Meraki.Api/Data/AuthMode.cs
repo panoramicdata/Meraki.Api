@@ -81,5 +81,23 @@ public enum AuthMode
 	/// IPSK with NAC
 	/// </summary>
 	[EnumMember(Value = "ipsk-with-nac")]
-	IpskWithNac
+	IpskWithNac,
+
+	/// <summary>
+	/// 8021x Entra
+	/// </summary>
+	[EnumMember(Value = "8021x-entra")]
+	Auth8021xEntra,
+
+	/// <summary>
+	/// IPSK with RADIUS and easy PSK
+	/// </summary>
+	[EnumMember(Value = "ipsk-with-radius-easy-psk")]
+	IpskWithRadiusEasyPsk,
+
+	/// <summary>
+	/// Open enhanced with RADIUS
+	/// </summary>
+	[EnumMember(Value = "open-enhanced-with-radius")]
+	OpenEnhancedWithRadius
 }
