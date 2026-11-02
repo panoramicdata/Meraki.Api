@@ -122,7 +122,17 @@ public class MerakiClientOptions
 	/// <summary>
 	/// When true, only GETs are permitted
 	/// </summary>
-	public bool ReadOnly { get; set; }
+	public bool IsReadOnly { get; set; }
+
+	/// <summary>
+	/// Use <see cref="IsReadOnly"/>.
+	/// </summary>
+	[Obsolete("Use IsReadOnly")]
+	public bool ReadOnly
+	{
+		get => IsReadOnly;
+		set => IsReadOnly = value;
+	}
 
 	/// <summary>
 	/// When true, running out of attempts on a retryable status (429, 502, 503 or 504) throws

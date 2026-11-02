@@ -47,9 +47,9 @@ using var meraki = new MerakiClient(new MerakiClientOptions
 });
 ```
 
-`ApiRegion`, `ReadOnly`, `RateLimiter`, `MaxAttemptCount`, `BackOffDelayFactor`, timeout options,
+`ApiRegion`, `IsReadOnly`, `RateLimiter`, `MaxAttemptCount`, `BackOffDelayFactor`, timeout options,
 logging, `LastRequestUri`, and `Statistics` all apply to Workflows calls. In particular, setting
-`ReadOnly = true` rejects every POST, PUT, PATCH, and DELETE before it reaches Cisco.
+`IsReadOnly = true` rejects every POST, PUT, PATCH, and DELETE before it reaches Cisco.
 
 ## List workflows
 
