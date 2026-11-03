@@ -89,9 +89,12 @@ public class ReadOnlyOptionTests
 	{
 		public int Attempts { get; private set; }
 
+		public HttpMethod? LastMethod { get; private set; }
+
 		protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 		{
 			Attempts++;
+			LastMethod = request.Method;
 			return Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.OK) { Content = new StringContent("[]") });
 		}
 	}
