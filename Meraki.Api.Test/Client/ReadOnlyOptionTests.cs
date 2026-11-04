@@ -94,6 +94,7 @@ public class ReadOnlyOptionTests
 		protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 		{
 			Attempts++;
+			cancellationToken.ThrowIfCancellationRequested();
 			LastMethod = request.Method;
 			return Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.OK) { Content = new StringContent("[]") });
 		}
