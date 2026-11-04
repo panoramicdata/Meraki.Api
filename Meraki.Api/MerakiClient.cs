@@ -266,9 +266,9 @@ public partial class MerakiClient : IDisposable
 	public WirelessSection Wireless { get; } = new();
 
 	/// <summary>
-	/// Used to find out whether the client has the ReadOnly option set
+	/// Used to find out whether the client has the IsReadOnly option set
 	/// </summary>
-	public bool IsReadOnly => _options.ReadOnly;
+	public bool IsReadOnly => _options.IsReadOnly;
 
 	/// <summary>
 	/// Gets the last response headers
@@ -280,7 +280,7 @@ public partial class MerakiClient : IDisposable
 	/// Used to change the Options Readonly state after client is created
 	/// </summary>
 	public void SetReadOnly(bool readOnly)
-		=> _options.ReadOnly = readOnly;
+		=> _options.IsReadOnly = readOnly;
 
 	#region IDisposable Support
 	private bool _disposedValue; // To detect redundant calls

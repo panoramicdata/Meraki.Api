@@ -17,7 +17,7 @@ public sealed class MerakiWorkflowsIntegrationTests(ITestOutputHelper testOutput
 		// Exercise the same production 429 retry/back-off policy as every other MerakiClient API surface.
 		// Do not reduce MaxAttemptCount here: Cisco Workflows can return rate_limit_exceeded for
 		// longer than two attempts while a newly enabled organization is being provisioned.
-		Configuration.MerakiClientOptions.ReadOnly = false;
+		Configuration.MerakiClientOptions.IsReadOnly = false;
 	}
 
 	[Fact(Explicit = true)]

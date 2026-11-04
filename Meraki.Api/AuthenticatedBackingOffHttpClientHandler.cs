@@ -241,8 +241,8 @@ internal sealed class AuthenticatedBackingOffHttpClientHandler : DelegatingHandl
 	/// </summary>
 	private void EnsureRequestIsPermitted(HttpRequestMessage request)
 	{
-		// Simplistic ReadOnly implementation to ensure only reading from the API
-		if (_options.ReadOnly && request.Method != HttpMethod.Get)
+		// Simplistic IsReadOnly implementation to ensure only reading from the API
+		if (_options.IsReadOnly && request.Method != HttpMethod.Get)
 		{
 			throw new InvalidOperationException(Resources.OnlyReadOnlyOperationsPermitted);
 		}

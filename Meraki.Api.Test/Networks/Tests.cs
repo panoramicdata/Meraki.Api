@@ -481,7 +481,7 @@ public class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTest(iTest
 		}
 		finally
 		{
-			// Restore the original ReadOnly state
+			// Restore the original IsReadOnly state
 			TestMerakiClient.SetReadOnly(originalIsReadOnly);
 		}
 	}

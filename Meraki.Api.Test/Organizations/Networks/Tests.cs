@@ -299,7 +299,7 @@ public partial class Tests(ITestOutputHelper iTestOutputHelper) : MerakiClientTe
 		}
 		finally
 		{
-			// Restore the original ReadOnly state
+			// Restore the original IsReadOnly state
 			TestMerakiClient.SetReadOnly(originalIsReadOnly);
 		}
 	}

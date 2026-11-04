@@ -359,7 +359,7 @@ public class MerakiWorkflowsApiClientTests
 		{
 			ApiKey = "test-api-key",
 			UserAgent = "Meraki.Api.Test/1.0",
-			ReadOnly = true
+			IsReadOnly = true
 		});
 
 		var act = async () => await client.Workflows.WorkflowCreateRequestAsync(
