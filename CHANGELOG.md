@@ -1,4 +1,18 @@
-﻿# Changelog
+# Changelog
+
+## Unreleased
+
+- **`MerakiClientOptions.WrapHttpMessageHandler` lets a caller see, and refuse, every request the client makes**
+  ([#463](https://github.com/panoramicdata/Meraki.Api/issues/463)). It is a
+  `Func<HttpMessageHandler, HttpMessageHandler>`, called once when the client is constructed with the client's own
+  authenticating, retrying handler; return a `DelegatingHandler` around it.
+  - The wrapper sits outside authentication and retries, so it sees one call per request with its final response,
+    and never the API key or access token.
+  - The core, SecureConnect and Workflows `HttpClient`s all share it, and disposing the client disposes it.
+  - A wrapper that returns `null` is a `ConfigurationException` at construction.
+  - Unset, the client behaves exactly as before.
+
+  Offline tests are in `Meraki.Api.Test.Client.WrapHttpMessageHandlerTests`.
 
 ## 1.74.68
 

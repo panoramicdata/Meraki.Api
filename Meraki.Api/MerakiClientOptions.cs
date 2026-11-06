@@ -203,6 +203,17 @@ public class MerakiClientOptions
 	public double HttpClientInnerTimeoutSeconds { get; set; } = 25;
 
 	/// <summary>
+	/// Wraps the client's own handler, so the caller sees, and can refuse, every request before it is sent.
+	/// </summary>
+	/// <remarks>
+	/// Called once, when the client is constructed, with the client's authenticating, retrying handler; return a
+	/// <see cref="DelegatingHandler"/> whose <see cref="DelegatingHandler.InnerHandler"/> is that handler. The wrapper
+	/// sits outside authentication and retries, so it sees one call per request, with its final response, and never
+	/// the credentials. Every HTTP surface of the client shares it, and disposing the client disposes it.
+	/// </remarks>
+	public Func<HttpMessageHandler, HttpMessageHandler>? WrapHttpMessageHandler { get; set; }
+
+	/// <summary>
 	/// Validates the configuration
 	/// </summary>
 	/// <exception cref="ConfigurationException"></exception>

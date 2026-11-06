@@ -1,4 +1,4 @@
-﻿using Meraki.Api.Extensions;
+using Meraki.Api.Extensions;
 using Meraki.Api.Sections.General.LiveTools;
 using Meraki.Api.Sections.Products.Licensing;
 using Meraki.Api.Sections.SecureConnect;
@@ -58,6 +58,7 @@ public partial class MerakiClient : IDisposable
 	private readonly HttpClient _workflowsHttpClient;
 	private readonly HttpClient _secureConnectHttpClient;
 	private readonly AuthenticatedBackingOffHttpClientHandler _httpClientHandler;
+	private readonly HttpMessageHandler _httpMessageHandler;
 
 	/// <summary>
 	/// Gets the URI of the last API request made by this client
@@ -91,19 +92,22 @@ public partial class MerakiClient : IDisposable
 		_options = options;
 		_logger = logger ?? NullLogger.Instance;
 		_httpClientHandler = new AuthenticatedBackingOffHttpClientHandler(options, this, _logger);
+		_httpMessageHandler = options.WrapHttpMessageHandler is { } wrap
+			? wrap(_httpClientHandler) ?? throw new ConfigurationException($"{nameof(MerakiClientOptions.WrapHttpMessageHandler)} returned no handler.")
+			: _httpClientHandler;
 
 		var merakiDomain = options.ApiRegion.GetMerakiApiDomain()
 			?? throw new ArgumentOutOfRangeException($"Unsupported API Region {options.ApiRegion}");
 
 		// Set up the core HttpClient, this is used to communicate with most of the API
-		_coreHttpClient = new HttpClient(_httpClientHandler)
+		_coreHttpClient = new HttpClient(_httpMessageHandler, disposeHandler: false)
 		{
 			BaseAddress = new Uri($"https://api.{merakiDomain}/api/v1"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
 		};
 
 		// Set up the SecureConnect HttpClient
-		_secureConnectHttpClient = new HttpClient(_httpClientHandler)
+		_secureConnectHttpClient = new HttpClient(_httpMessageHandler, disposeHandler: false)
 		{
 			BaseAddress = new Uri($"https://api.{merakiDomain}/api/secureConnect/v1"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
@@ -112,7 +116,7 @@ public partial class MerakiClient : IDisposable
 		// Cisco Workflows is a separate, organization-scoped API surface. The generated client
 		// supplies the organization ID in every route; this base address supplies the dedicated
 		// /api/automate prefix. The shared handler selects Bearer authentication for these paths.
-		_workflowsHttpClient = new HttpClient(_httpClientHandler)
+		_workflowsHttpClient = new HttpClient(_httpMessageHandler, disposeHandler: false)
 		{
 			BaseAddress = new Uri($"https://api.{merakiDomain}/api/automate/organizations/"),
 			Timeout = TimeSpan.FromSeconds(options.HttpClientTimeoutSeconds)
@@ -298,6 +302,7 @@ public partial class MerakiClient : IDisposable
 				_coreHttpClient.Dispose();
 				_workflowsHttpClient.Dispose();
 				_secureConnectHttpClient.Dispose();
+				_httpMessageHandler.Dispose();
 				_httpClientHandler.Dispose();
 			}
 
