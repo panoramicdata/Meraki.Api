@@ -1,54 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<TargetFramework>net10.0</TargetFramework>
-		<LangVersion>latest</LangVersion>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<AnalysisLevel>latest-recommended</AnalysisLevel>
-		<AnalysisMode>All</AnalysisMode>
-		<IsPackable>false</IsPackable>
-		<IsTestProject>true</IsTestProject>
-		<OutputType>Exe</OutputType>
-		<!-- Non-shipping project: no public API to document -->
-		<GenerateDocumentationFile>false</GenerateDocumentationFile>
-		<!-- Credentials live in user secrets under this id, which is shared by every clone of the
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <AnalysisMode>All</AnalysisMode>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <OutputType>Exe</OutputType>
+    <!-- Non-shipping project: no public API to document -->
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <!-- Credentials live in user secrets under this id, which is shared by every clone of the
 		     repository, so no appsettings.json needs to be kept in sync per working copy. -->
-		<UserSecretsId>6f2f0c8a-5b1d-4f4e-9a3c-1d7e8b0a4c21</UserSecretsId>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<!-- XUnit 3 Packages -->
-		<PackageReference Include="xunit.v3" />
-		<PackageReference Include="xunit.runner.visualstudio">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-
-		<!-- Other Testing Packages -->
-		<PackageReference Include="AsyncFixer">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="AwesomeAssertions" />
-		<PackageReference Include="AwesomeAssertions.Analyzers">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Microsoft.Extensions.Configuration" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" />
-		<PackageReference Include="Newtonsoft.Json" />
-		<PackageReference Include="PanoramicData.SheetMagic" />
-		<PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" PrivateAssets="all" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Update="EndOfSaleDetails\meraki-eol-sample.html" CopyToOutputDirectory="PreserveNewest" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\Meraki.Api\Meraki.Api.csproj" />
-	</ItemGroup>
-
+    <UserSecretsId>6f2f0c8a-5b1d-4f4e-9a3c-1d7e8b0a4c21</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- XUnit 3 Packages -->
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <!-- Other Testing Packages -->
+    <PackageReference Include="AsyncFixer">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="AwesomeAssertions" />
+    <PackageReference Include="AwesomeAssertions.Analyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="PanoramicData.SheetMagic" />
+    <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="EndOfSaleDetails\meraki-eol-sample.html" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Meraki.Api\Meraki.Api.csproj" />
+  </ItemGroup>
 </Project>

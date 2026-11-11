@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net11.0</TargetFramework>
     <!-- RF006: Refit 15 reports that a few methods take request features its source generator
 		     cannot build without reflection, so they fall back to the reflection request builder.
 		     That is the supported path here: MerakiClient creates every client with
