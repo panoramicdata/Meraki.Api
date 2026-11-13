@@ -88,5 +88,11 @@ public enum SplashPage
 	/// Google Apps domain
 	/// </summary>
 	[EnumMember(Value = "Google Apps domain")]
-	GoogleAppsDomain
+	GoogleAppsDomain,
+
+	/// <summary>
+	/// Microsoft Entra ID
+	/// </summary>
+	[EnumMember(Value = "Microsoft Entra ID")]
+	MicrosoftEntraID
 }
