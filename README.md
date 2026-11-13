@@ -7,6 +7,8 @@
 
 This project implements access to the v1 Meraki API
 
+Supports .NET 11.0.
+
 See the [contribution guide](CONTRIBUTING.md) for more information regarding contributing to this project.
 
 ## Versioning
@@ -32,13 +34,13 @@ When updating to a new Meraki API version, see the guidance in
 
 ## Supported frameworks
 
-`net10.0` only. Panoramic Data does not support anything lower.
+`net11.0` only. Panoramic Data does not support anything lower.
 
-The `netstandard2.0` target was dropped after 1.70.79. It existed to serve .NET Framework and older
+The older .NET Standard target was dropped after 1.70.79. It existed to serve .NET Framework and older
 .NET consumers, but it also forced a second, quietly different build: several methods could not pass
 a `CancellationToken`, and the retry logic compared error strings case-sensitively on
-`netstandard2.0` and case-insensitively on `net10.0`, so the two targets could disagree about
-whether to retry. The MCP client was excluded from it entirely. Consumers who need `netstandard2.0`
+the older target and case-insensitively on `net11.0`, so the two targets could disagree about
+whether to retry. The MCP client was excluded from it entirely. Consumers who need that older target
 should stay on 1.70.79.
 
 ## Library documentation

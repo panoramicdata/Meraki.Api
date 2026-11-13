@@ -5,7 +5,7 @@
 This is the **Meraki.Api** - a .NET client library for the Cisco Meraki Dashboard API. The library provides a strongly-typed C# interface to interact with Meraki cloud-managed network infrastructure.
 
 ### Key Technologies
-- **Target Frameworks**: .NET 10, .NET Standard 2.0
+- **Target Frameworks**: .NET 11.0
 - **HTTP Client**: Refit (declarative REST library)
 - **Serialization**: Newtonsoft.Json
 - **Testing**: xUnit
@@ -14,7 +14,7 @@ This is the **Meraki.Api** - a .NET client library for the Cisco Meraki Dashboar
 ## Project Structure
 
 ### Core Projects
-- **Meraki.Api**: Main client library (multi-targeted: .NET Standard 2.0, .NET 10)
+- **Meraki.Api**: Main client library (single target: .NET 11.0)
 - **Meraki.Api.Test**: xUnit tests
 - **Meraki.Api.NewTest**: Additional test suite
 - **RefitClassSourceGenerator**: Source generator for Refit interfaces
@@ -27,7 +27,7 @@ This is the **Meraki.Api** - a .NET client library for the Cisco Meraki Dashboar
 
 1. **Follow existing patterns**: This is a mature, established codebase. Study existing code before adding new features.
 
-2. **Multi-targeting**: Remember the library targets both .NET Standard 2.0 and .NET 10. Avoid using APIs not available in .NET Standard 2.0.
+2. **Multi-targeting**: Remember the library targets .NET 11.0 only. Do not add conditional compilation for older frameworks.
 
 3. **Nullable reference types**: The project uses nullable reference types. Be explicit about nullability.
 
@@ -279,7 +279,7 @@ public class ResourceUpdateRequest
 ## Questions to Ask Before Implementing
 
 1. **Does this follow the existing pattern?** - Look for similar code in the repository
-2. **Is this .NET Standard 2.0 compatible?** - Verify APIs used are available
+2. **Is this free of conditional compilation for older frameworks?** - The library targets .NET 11.0 only
 3. **Are all public members documented?** - Add XML comments
 4. **Is nullability correct?** - Mark optional properties as nullable
 5. **Does this match the Meraki API specification?** - Verify against official docs
@@ -296,7 +296,7 @@ public class ResourceUpdateRequest
 
 ❌ Using `[AliasAs]` on path parameters in Refit interfaces
 ❌ Forgetting XML documentation on public APIs
-❌ Using non-.NET Standard 2.0 APIs without conditional compilation
+❌ Adding conditional compilation for older frameworks
 ❌ Breaking changes without major version bump
 ❌ Modifying existing property names (breaks serialization)
 ❌ Not updating CHANGELOG.md
