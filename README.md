@@ -1,9 +1,11 @@
-﻿# Meraki.Api
+# Meraki.Api
 
 [![Nuget](https://img.shields.io/nuget/v/Meraki.Api)](https://www.nuget.org/packages/Meraki.Api/)
 [![Nuget](https://img.shields.io/nuget/dt/Meraki.Api)](https://www.nuget.org/packages/Meraki.Api/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d52eda04578e471e90b8495c40bdcb9d)](https://www.codacy.com/gh/panoramicdata/Meraki.Api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=panoramicdata/Meraki.Api&amp;utm_campaign=Badge_Grade)
+
+> **Need help with APIs or .NET?** Panoramic Data are experts in APIs and .NET, and we can help with your development. [Contact us](https://www.panoramicdata.com/contact-us) or see our [software services](https://www.panoramicdata.com/services/software).
 
 This project implements access to the v1 Meraki API
 
