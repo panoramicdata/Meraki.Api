@@ -3,6 +3,8 @@ namespace Meraki.Api;
 /// A custom IHttpContentSerializer based on NewtonsoftJsonContentSerializer
 /// that reports every member a response contains but the model does not declare
 /// </summary>
+// Codacy analyses each file on its own, so it reports 'partial' as gratuitous (S2333) and the static-only parts as S1118. The other parts live in sibling files.
+#pragma warning disable S2333, S1118
 public partial class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
 {
 	// Newtonsoft.Json raises this, unlocalized, wherever MissingMemberHandling.Error rejects a member:

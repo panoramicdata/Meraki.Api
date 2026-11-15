@@ -93,14 +93,14 @@ internal static class SampleValueFactory
 
 	private static object CreateList(Type elementType, int depth)
 	{
-		var list = (IList)Activator.CreateInstance(typeof(List<>).MakeGenericType(elementType))!;
+		var list = Activator.CreateInstance(typeof(List<>).MakeGenericType(elementType)) as IList ?? throw new InvalidOperationException("List type");
 		list.Add(Create(elementType, depth + 1));
 		return list;
 	}
 
 	private static object CreateDictionary(Type[] arguments, int depth)
 	{
-		var dictionary = (IDictionary)Activator.CreateInstance(typeof(Dictionary<,>).MakeGenericType(arguments))!;
+		var dictionary = Activator.CreateInstance(typeof(Dictionary<,>).MakeGenericType(arguments)) as IDictionary ?? throw new InvalidOperationException("Dictionary type");
 		dictionary.Add(Create(arguments[0], depth + 1)!, Create(arguments[1], depth + 1));
 		return dictionary;
 	}
