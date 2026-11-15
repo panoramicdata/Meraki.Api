@@ -11,8 +11,8 @@ namespace Meraki.Api.Mcp;
 /// parsing is the part worth reading on its own when a response shape changes.
 /// </remarks>
 // Codacy analyses each file on its own, so it cannot see the other part of this class and reports
-// 'partial' as gratuitous (S2333). The other part is MerakiMcpClient.cs.
-#pragma warning disable S2333
+// 'partial' as gratuitous (S2333) and this static-only part as S1118. The other part is MerakiMcpClient.cs.
+#pragma warning disable S2333, S1118
 public sealed partial class MerakiMcpClient
 {
 	/// <summary>
