@@ -74,56 +74,56 @@ public class MissingMemberNestedFieldTests
 		_ = settings.Dot11ax!.Enabled.Should().BeTrue();
 	}
 
+	private const string SwitchPortJson = """
+		{
+			"portId": "1",
+			"name": "Access Port",
+			"tags": [],
+			"enabled": true,
+			"poeEnabled": true,
+			"perpetualPoe": {
+				"enabled": false
+			},
+			"fastPoe": {
+				"enabled": false
+			},
+			"type": "trunk",
+			"vlan": 1,
+			"voiceVlan": null,
+			"allowedVlans": "all",
+			"activeVlans": "1-4094",
+			"isolationEnabled": false,
+			"rstpEnabled": true,
+			"stpGuard": "disabled",
+			"linkNegotiation": "Auto negotiate",
+			"portScheduleId": null,
+			"schedule": null,
+			"udld": "Alert only",
+			"linkNegotiationCapabilities": [
+				"Auto negotiate",
+				"1 Gigabit full duplex (auto)"
+			],
+			"accessPolicyType": "Open",
+			"daiTrusted": false,
+			"profile": {
+				"enabled": false,
+				"id": "",
+				"iname": null
+			},
+			"module": {
+				"model": null
+			},
+			"mirror": {
+				"mode": "Not mirroring traffic"
+			}
+		}
+		""";
+
 	// GET /devices/{serial}/switch/ports
 	[Fact]
 	public void Deserialize_SwitchPort_MapsPerpetualPoeAndFastPoe()
 	{
-		const string json = """
-			{
-				"portId": "1",
-				"name": "Access Port",
-				"tags": [],
-				"enabled": true,
-				"poeEnabled": true,
-				"perpetualPoe": {
-					"enabled": false
-				},
-				"fastPoe": {
-					"enabled": false
-				},
-				"type": "trunk",
-				"vlan": 1,
-				"voiceVlan": null,
-				"allowedVlans": "all",
-				"activeVlans": "1-4094",
-				"isolationEnabled": false,
-				"rstpEnabled": true,
-				"stpGuard": "disabled",
-				"linkNegotiation": "Auto negotiate",
-				"portScheduleId": null,
-				"schedule": null,
-				"udld": "Alert only",
-				"linkNegotiationCapabilities": [
-					"Auto negotiate",
-					"1 Gigabit full duplex (auto)"
-				],
-				"accessPolicyType": "Open",
-				"daiTrusted": false,
-				"profile": {
-					"enabled": false,
-					"id": "",
-					"iname": null
-				},
-				"module": {
-					"model": null
-				},
-				"mirror": {
-					"mode": "Not mirroring traffic"
-				}
-			}
-			""";
-
-		var port = Deserialize<SwitchPort>(json);
+		var port = Deserialize<SwitchPort>(SwitchPortJson);
 
 		_ = port.PerpetualPoe.Should().NotBeNull();
 		_ = port.PerpetualPoe!.Enabled.Should().BeFalse();
