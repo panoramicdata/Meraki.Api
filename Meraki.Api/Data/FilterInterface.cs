@@ -1,4 +1,4 @@
-﻿namespace Meraki.Api.Data;
+namespace Meraki.Api.Data;
 
 /// <summary>
 /// Filter Interface
@@ -9,12 +9,12 @@ public enum FilterInterface
 	/// <summary>
 	/// Wan1
 	/// </summary>
-	[EnumMember(Value = "")]
+	[EnumMember(Value = "wan1")]
 	Wan1,
 
 	/// <summary>
 	/// Wan2
 	/// </summary>
-	[EnumMember(Value = "")]
+	[EnumMember(Value = "wan2")]
 	Wan2
 }
