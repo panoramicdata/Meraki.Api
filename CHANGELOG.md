@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- **Breaking: `Appliance.RfProfiles.GetNetworkApplianceRfProfiles` now returns `List<NetworkApplianceRfProfile>`.**
+  The API returns a bare JSON array of profiles, not the object with an `assigned` list that the published schema
+  describes, so the old return type failed every call with a `JsonSerializationException`. Callers that read
+  `.Assigned` should use the list itself. `NetworkApplianceRfProfiles` is now `[Obsolete]` and will be removed.
+
+  Offline tests are in `Meraki.Api.Test.Appliance.ApplianceRfProfilesTests`.
+
 - **`MerakiClientOptions.WrapHttpMessageHandler` lets a caller see, and refuse, every request the client makes**
   ([#463](https://github.com/panoramicdata/Meraki.Api/issues/463)). It is a
   `Func<HttpMessageHandler, HttpMessageHandler>`, called once when the client is constructed with the client's own
