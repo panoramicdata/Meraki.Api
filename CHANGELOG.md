@@ -2,12 +2,20 @@
 
 ## Unreleased
 
+## 1.74.88
+
+- **Breaking: the package now targets `net11.0` only.** The `net10.0` target is gone, and the package depends on
+  `Microsoft.Extensions.Logging` 11.0.0. A project still on .NET 10 fails to restore this version (NU1202) and
+  should stay on 1.74.74 until it moves to .NET 11. See [Supported frameworks](README.md#supported-frameworks).
+
 - **Breaking: `Appliance.RfProfiles.GetNetworkApplianceRfProfiles` now returns `List<NetworkApplianceRfProfile>`.**
   The API returns a bare JSON array of profiles, not the object with an `assigned` list that the published schema
   describes, so the old return type failed every call with a `JsonSerializationException`. Callers that read
   `.Assigned` should use the list itself. `NetworkApplianceRfProfiles` is now `[Obsolete]` and will be removed.
 
   Offline tests are in `Meraki.Api.Test.Appliance.ApplianceRfProfilesTests`.
+
+## 1.74.73
 
 - **`MerakiClientOptions.WrapHttpMessageHandler` lets a caller see, and refuse, every request the client makes**
   ([#463](https://github.com/panoramicdata/Meraki.Api/issues/463)). It is a
