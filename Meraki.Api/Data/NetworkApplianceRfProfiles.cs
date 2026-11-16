@@ -4,6 +4,7 @@ namespace Meraki.Api.Data;
 /// NetworkApplianceRfProfiles
 /// </summary>
 [DataContract]
+[Obsolete("GET /networks/{networkId}/appliance/rfProfiles returns a bare JSON array, so GetNetworkApplianceRfProfiles now returns List<NetworkApplianceRfProfile>. This type is no longer used and will be removed.")]
 public class NetworkApplianceRfProfiles
 {
 	/// <summary>

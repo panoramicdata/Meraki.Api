@@ -8,12 +8,15 @@ public interface IApplianceRfProfiles
 	/// <summary>
 	/// List the RF profiles for this network
 	/// </summary>
+	/// <remarks>
+	/// The published schema describes an object with an "assigned" list, but the API returns a bare JSON array of profiles.
+	/// </remarks>
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	/// <param name="networkId">The network id</param>
 	/// <param name="cancellationToken"></param>
 	[ApiOperationId("getNetworkApplianceRfProfiles")]
 	[Get("/networks/{networkId}/appliance/rfProfiles")]
-	Task<NetworkApplianceRfProfiles> GetNetworkApplianceRfProfiles(
+	Task<List<NetworkApplianceRfProfile>> GetNetworkApplianceRfProfiles(
 		string networkId,
 		CancellationToken cancellationToken = default
 		);
