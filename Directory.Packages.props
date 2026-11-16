@@ -20,7 +20,7 @@
     <PackageVersion Include="Nerdbank.GitVersioning" Version="3.10.94" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageVersion Include="PanoramicData.SheetMagic" Version="3.1.177" />
-    <PackageVersion Include="Refit" Version="16.4.0" />
+    <PackageVersion Include="Refit" Version="17.0.0" />
     <PackageVersion Include="Refit.Newtonsoft.Json" Version="16.4.0" />
     <PackageVersion Include="Refit.Reflection" Version="16.4.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.1" />
