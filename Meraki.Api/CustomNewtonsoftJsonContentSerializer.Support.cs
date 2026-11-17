@@ -8,7 +8,7 @@ public partial class CustomNewtonsoftJsonContentSerializer
 	/// gets the field name for property
 	/// </summary>
 	public string? GetFieldNameForProperty(PropertyInfo propertyInfo)
-		=> _serializerIgnore.GetFieldNameForProperty(propertyInfo);
+		=> propertyInfo.GetCustomAttribute<Newtonsoft.Json.JsonPropertyAttribute>()?.PropertyName;
 
 	/// <summary>
 	/// Serializes an object to HTTP content

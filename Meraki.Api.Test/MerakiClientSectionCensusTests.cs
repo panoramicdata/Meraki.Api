@@ -39,9 +39,9 @@ public class MerakiClientSectionCensusTests
 	{
 		// The single-argument RestService.For<T>(HttpClient) overload, chosen deliberately: the
 		// (HttpClient, IRequestBuilder<T>) overload with a null builder constructs anything.
-		var forMethod = typeof(RestService)
+		var forMethod = typeof(RestServiceReflectionExtensions)
 			.GetMethods(BindingFlags.Public | BindingFlags.Static)
-			.Single(m => m.Name == nameof(RestService.For)
+			.Single(m => m.Name == "For"
 				&& m.IsGenericMethodDefinition
 				&& m.GetParameters() is [{ ParameterType: var p }] && p == typeof(HttpClient));
 		using var httpClient = new HttpClient { BaseAddress = new Uri("https://api.meraki.com/api/v1") };
