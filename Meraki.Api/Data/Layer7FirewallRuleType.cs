@@ -40,5 +40,23 @@ public enum Layer7FirewallRuleType
 	/// Enum BlockedCountries for "blockedCountries"
 	/// </summary>
 	[EnumMember(Value = "blockedCountries")]
-	BlockedCountries
+	BlockedCountries,
+
+	/// <summary>
+	/// allowedCountries
+	/// </summary>
+	[EnumMember(Value = "allowedCountries")]
+	AllowedCountries,
+
+	/// <summary>
+	/// blacklistedCountries
+	/// </summary>
+	[EnumMember(Value = "blacklistedCountries")]
+	BlacklistedCountries,
+
+	/// <summary>
+	/// whitelistedCountries
+	/// </summary>
+	[EnumMember(Value = "whitelistedCountries")]
+	WhitelistedCountries
 }

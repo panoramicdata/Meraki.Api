@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- **Enums gain the members the Dashboard API returns** ([#438](https://github.com/panoramicdata/Meraki.Api/issues/438)): `Layer7FirewallRuleType` `AllowedCountries`, `BlacklistedCountries` and `WhitelistedCountries`; `SplashPage.MicrosoftEntraId`; `AuthMode` `Auth8021xEntra`, `IpskWithRadiusEasyPsk` and `OpenEnhancedWithRadius`; `ProductType.CampusGateway`.
+
+- **Breaking (source): decimal values no longer fail deserialisation** ([#439](https://github.com/panoramicdata/Meraki.Api/issues/439)). `OrganizationWirelessDevicesLatencyByItemOverall.Average`, `OrganizationWirelessDevicesPacketLossItemDownstream.LossPercentage`, `OrganizationWirelessDevicesPacketLossItemUpstream.LossPercentage` and `Percentage` on `OrganizationWirelessDevicesChannelUtilizationByBandItemWifi`, `...NonWifi` and `...Total` are now `double` instead of `int`. Code that assigns them to an `int` needs a cast.
+
+- **`MerakiClientOptions.UnknownEnumValueHandling` opts in to tolerating enum values the library does not know** ([#440](https://github.com/panoramicdata/Meraki.Api/issues/440)). `Throw` (the default) keeps today's behaviour. `UseDefault` logs a warning naming the path and raw value, then reads null for a nullable enum and the first declared member for a non-nullable one. It applies to responses only; request serialisation is unchanged.
+
+  Offline tests are in `Meraki.Api.Test.Data.DashboardResponseToleranceTests`.
+
+
 ## 1.74.88
 
 - **Breaking: the package now targets `net11.0` only.** The `net10.0` target is gone, and the package depends on

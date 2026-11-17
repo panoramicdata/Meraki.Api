@@ -32,7 +32,8 @@ public partial class CustomNewtonsoftJsonContentSerializer : IHttpContentSeriali
 			// nulls for specific properties, e.g. disassociating port schedule ids from a port
 			NullValueHandling = NullValueHandling.Ignore,
 			MissingMemberHandling = MissingMemberHandling.Ignore,
-			Converters = [new StringEnumConverter()]
+			Converters = [new StringEnumConverter()],
+			ContractResolver = new TolerantEnumContractResolver(options, logger)
 		};
 		_jsonSerializerSettingsWithError = new JsonSerializerSettings
 		{
@@ -41,7 +42,8 @@ public partial class CustomNewtonsoftJsonContentSerializer : IHttpContentSeriali
 			// nulls for specific properties, e.g. disassociating port schedule ids from a port
 			NullValueHandling = NullValueHandling.Ignore,
 			MissingMemberHandling = MissingMemberHandling.Error,
-			Converters = [new StringEnumConverter()]
+			Converters = [new StringEnumConverter()],
+			ContractResolver = new TolerantEnumContractResolver(options, logger)
 		};
 
 		_serializerIgnore = new NewtonsoftJsonContentSerializer(jsonSerializerSettingsWithIgnore);
