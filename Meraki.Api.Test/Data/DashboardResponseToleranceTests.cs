@@ -131,11 +131,18 @@ public class DashboardResponseToleranceTests
 	{
 		public List<string> Messages { get; } = [];
 
-		public IDisposable? BeginScope<TState>(TState state) where TState : notnull => null;
+		public IDisposable? BeginScope<TState>(TState state) where TState : notnull
+		{
+			ArgumentNullException.ThrowIfNull(state);
+			return null;
+		}
 
-		public bool IsEnabled(LogLevel logLevel) => true;
+		public bool IsEnabled(LogLevel logLevel) => Enum.IsDefined(logLevel);
 
 		public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
-			=> Messages.Add(formatter(state, exception));
+		{
+			ArgumentOutOfRangeException.ThrowIfNegative((int)logLevel);
+			Messages.Add(formatter(state, exception));
+		}
 	}
 }
