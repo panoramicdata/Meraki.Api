@@ -142,6 +142,7 @@ public class DashboardResponseToleranceTests
 		public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
 		{
 			ArgumentOutOfRangeException.ThrowIfNegative((int)logLevel);
+			ArgumentOutOfRangeException.ThrowIfNegative(eventId.Id);
 			Messages.Add(formatter(state, exception));
 		}
 	}
