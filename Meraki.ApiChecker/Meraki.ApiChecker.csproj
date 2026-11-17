@@ -25,6 +25,7 @@
     </PackageReference>
     <PackageReference Include="PanoramicData.SheetMagic" />
     <PackageReference Include="Refit" />
+    <PackageReference Include="Refit.Reflection" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Meraki.Api\Meraki.Api.csproj" />
