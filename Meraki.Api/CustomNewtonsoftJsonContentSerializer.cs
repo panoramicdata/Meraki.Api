@@ -5,7 +5,7 @@ namespace Meraki.Api;
 /// </summary>
 // Codacy analyses each file on its own, so it reports 'partial' as gratuitous (S2333) and the static-only parts as S1118. The other parts live in sibling files.
 #pragma warning disable S2333, S1118
-public partial class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer
+public partial class CustomNewtonsoftJsonContentSerializer : IHttpContentSerializer, IReflectionFieldNameProvider
 {
 	// Newtonsoft.Json raises this, unlocalized, wherever MissingMemberHandling.Error rejects a member:
 	// "Could not find member '{name}' on object of type '{type}'. Path '{path}', line 1, position 2."
@@ -32,7 +32,8 @@ public partial class CustomNewtonsoftJsonContentSerializer : IHttpContentSeriali
 			// nulls for specific properties, e.g. disassociating port schedule ids from a port
 			NullValueHandling = NullValueHandling.Ignore,
 			MissingMemberHandling = MissingMemberHandling.Ignore,
-			Converters = [new StringEnumConverter()]
+			Converters = [new StringEnumConverter()],
+			ContractResolver = new TolerantEnumContractResolver(options, logger)
 		};
 		_jsonSerializerSettingsWithError = new JsonSerializerSettings
 		{
@@ -41,7 +42,8 @@ public partial class CustomNewtonsoftJsonContentSerializer : IHttpContentSeriali
 			// nulls for specific properties, e.g. disassociating port schedule ids from a port
 			NullValueHandling = NullValueHandling.Ignore,
 			MissingMemberHandling = MissingMemberHandling.Error,
-			Converters = [new StringEnumConverter()]
+			Converters = [new StringEnumConverter()],
+			ContractResolver = new TolerantEnumContractResolver(options, logger)
 		};
 
 		_serializerIgnore = new NewtonsoftJsonContentSerializer(jsonSerializerSettingsWithIgnore);

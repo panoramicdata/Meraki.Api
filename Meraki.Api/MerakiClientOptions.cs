@@ -155,6 +155,12 @@ public class MerakiClientOptions
 	public JsonMissingMemberHandling JsonMissingMemberHandling { get; set; } = JsonMissingMemberHandling.Ignore;
 
 	/// <summary>
+	/// How to handle a response enum value the library does not know. Defaults to Throw. UseDefault logs a warning,
+	/// then reads null for a nullable enum and the first declared member for a non-nullable one.
+	/// </summary>
+	public UnknownEnumValueHandling UnknownEnumValueHandling { get; set; } = UnknownEnumValueHandling.Throw;
+
+	/// <summary>
 	/// The LogLevel at which response JSON will be logged when missing members are encountered. Defaults to None.
 	/// </summary>
 	public LogLevel JsonMissingMemberResponseLogLevel { get; set; } = LogLevel.None;

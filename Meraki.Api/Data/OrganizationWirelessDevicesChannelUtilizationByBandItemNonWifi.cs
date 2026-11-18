@@ -11,5 +11,5 @@ public class OrganizationWirelessDevicesChannelUtilizationByBandItemNonWifi
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "percentage")]
-	public int Percentage { get; set; }
+	public double Percentage { get; set; }
 }

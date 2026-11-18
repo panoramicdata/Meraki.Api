@@ -91,5 +91,11 @@ public enum ProductType
 	/// Wireless Controller
 	/// </summary>
 	[EnumMember(Value = "wirelessController")]
-	WirelessController
+	WirelessController,
+
+	/// <summary>
+	/// campusGateway
+	/// </summary>
+	[EnumMember(Value = "campusGateway")]
+	CampusGateway
 }
