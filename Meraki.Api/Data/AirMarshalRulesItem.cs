@@ -16,12 +16,13 @@ public class AirMarshalRulesItem
 	/// <summary>
 	/// Rule id
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiKey]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "ruleId")]
 	public string RuleId { get; set; } = string.Empty;
 
 	/// <summary>
-	/// Indicates whether or not clients are allowed to connect to rogue SSIDs by default. (blocked by default)
+	/// The action for SSIDs that match: "allow", "block" or "alert"
 	/// </summary>
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "type")]
@@ -30,7 +31,7 @@ public class AirMarshalRulesItem
 	/// <summary>
 	/// Updated at timestamp
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "updatedAt")]
 	public DateTime UpdatedAt { get; set; }
 
@@ -44,7 +45,7 @@ public class AirMarshalRulesItem
 	/// <summary>
 	/// Network details
 	/// </summary>
-	[ApiAccess(ApiAccess.ReadWrite)]
+	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "network")]
 	public AirMarshalRulesItemNetwork Network { get; set; } = new();
 }

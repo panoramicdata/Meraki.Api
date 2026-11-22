@@ -7,6 +7,13 @@
 public class AirMarshalRulesMetaCountsItems
 {
 	/// <summary>
+	/// Remaining number of rules
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "remaining")]
+	public int Remaining { get; set; }
+
+	/// <summary>
 	/// Count of rules
 	/// </summary>
 	[ApiAccess(ApiAccess.Read)]
