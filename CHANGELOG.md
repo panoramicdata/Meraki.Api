@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- **`GetOrganizationWirelessAirMarshalRulesAsync` reads `meta.counts.items.remaining`.** `AirMarshalRulesMetaCountsItems`
+  had only `Total`, so a client with `JsonMissingMemberHandling.ThrowOnError` failed every call, and other settings
+  reported a missing member each time. It now has `Remaining`, as the settings-by-network meta already did.
+
+- **`AirMarshalRulesItem`: `RuleId`, `UpdatedAt` and `Network` are now `ApiAccess.Read`, and `RuleId` is the `[ApiKey]`.**
+  The API sets them; a rule can only be created or updated with `type` and `match` (`AirMarshalRuleCreateUpdateRequest`).
+  Code that selects writable properties by `ApiAccess` no longer treats them as configuration.
+
+  Offline tests are in `Meraki.Api.Test.Wireless.AirMarshalRulesTests`.
+
 - **Enums gain the members the Dashboard API returns** ([#438](https://github.com/panoramicdata/Meraki.Api/issues/438)): `Layer7FirewallRuleType` `AllowedCountries`, `BlacklistedCountries` and `WhitelistedCountries`; `SplashPage.MicrosoftEntraId`; `AuthMode` `Auth8021xEntra`, `IpskWithRadiusEasyPsk` and `OpenEnhancedWithRadius`; `ProductType.CampusGateway`.
 
 - **Breaking (source): decimal values no longer fail deserialisation** ([#439](https://github.com/panoramicdata/Meraki.Api/issues/439)). `OrganizationWirelessDevicesLatencyByItemOverall.Average`, `OrganizationWirelessDevicesPacketLossItemDownstream.LossPercentage`, `OrganizationWirelessDevicesPacketLossItemUpstream.LossPercentage` and `Percentage` on `OrganizationWirelessDevicesChannelUtilizationByBandItemWifi`, `...NonWifi` and `...Total` are now `double` instead of `int`. Code that assigns them to an `int` needs a cast.
