@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased
+
+- **Every `MerakiClient` now sends through one shared network transport.** Each client used to create its own
+  `HttpClientHandler`. On .NET 11 the runtime keeps metric instruments for every transport that has sent a request,
+  even after it is disposed, so an application that creates a client per operation grew in memory and CPU without
+  bound. Clients still own their options, credential, retry loop and statistics; only connections are shared. The
+  shared transport has cookies off and no credentials of its own, and the API key or access token is still added to
+  each request by the client that owns it. Disposing a client does not close the transport.
+  Where the runtime has no socket transport (a browser), each client keeps the platform handler as before.
+  `MerakiClient.GetEndOfLifeDetailsAsync` uses the same transport.
+
+  Offline tests are in `Meraki.Api.Test.Client.SharedHttpTransportTests`.
+
 ## 1.74.100
 
 - **`GetModelType` recognises Catalyst 9350 switches.** Models such as `C9350-48HXN` returned `ModelType.Unknown`,
