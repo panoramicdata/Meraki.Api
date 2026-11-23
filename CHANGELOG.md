@@ -1,9 +1,14 @@
 # Changelog
 
-## Unreleased
+## 1.74.100
 
 - **`GetModelType` recognises Catalyst 9350 switches.** Models such as `C9350-48HXN` returned `ModelType.Unknown`,
   as the prefix table covered only the C9200, C9300 and C9500 families. `C9350` now maps to `Switch`.
+
+- **`OrganizationDeviceStatus` maps the per-WAN fields** ([#423](https://github.com/panoramicdata/Meraki.Api/issues/423)):
+  `Wan1Gateway`, `Wan1IpType`, `Wan1PrimaryDns`, `Wan1SecondaryDns` and the same four for WAN 2.
+
+## 1.74.95
 
 - **`GetOrganizationWirelessAirMarshalRulesAsync` reads `meta.counts.items.remaining`.** `AirMarshalRulesMetaCountsItems`
   had only `Total`, so a client with `JsonMissingMemberHandling.ThrowOnError` failed every call, and other settings
@@ -14,6 +19,8 @@
   Code that selects writable properties by `ApiAccess` no longer treats them as configuration.
 
   Offline tests are in `Meraki.Api.Test.Wireless.AirMarshalRulesTests`.
+
+## 1.74.92
 
 - **Enums gain the members the Dashboard API returns** ([#438](https://github.com/panoramicdata/Meraki.Api/issues/438)): `Layer7FirewallRuleType` `AllowedCountries`, `BlacklistedCountries` and `WhitelistedCountries`; `SplashPage.MicrosoftEntraId`; `AuthMode` `Auth8021xEntra`, `IpskWithRadiusEasyPsk` and `OpenEnhancedWithRadius`; `ProductType.CampusGateway`.
 
