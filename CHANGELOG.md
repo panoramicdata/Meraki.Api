@@ -2,6 +2,26 @@
 
 ## Unreleased
 
+- **Six response members that the API returns but the models lacked are now modelled**, so they are
+  captured instead of being reported as missing members (and no longer fail deserialization under
+  `JsonMissingMemberHandling.ThrowOnError`). None is documented for these endpoints in the v1.76.0
+  OpenAPI spec, so all are modelled read-only from live responses:
+  - `ApplianceSettings.SdwanCellular` (new `ApplianceSettingsSdwanCellular`: `enabled`, a `bool?` that
+    is often null), from `GET /networks/{networkId}/appliance/settings`.
+  - `InventoryDevice.TrialId`, from `GET /organizations/{organizationId}/inventory/devices`. Only null
+    has been observed, so it takes the nullable string type of the `trialId` the spec documents on the
+    inventory order endpoints.
+  - `NetworkApplianceRfProfilePerSsidSettingsSettings.Name`, the SSID name on each per-SSID entry from
+    `GET /networks/{networkId}/appliance/rfProfiles`.
+  - `NetworkBluetoothSettingsSensorConnect.Transmit` (the existing `NetworkBluetoothSettingsTransmit`,
+    the same shape as the top-level `transmit`), from `GET /networks/{networkId}/wireless/bluetooth/settings`.
+  - `ThirdPartyVpnPeer.Sgt` (new `ThirdPartyVpnPeerSgt`: `enabled`), on the peers from
+    `GET /organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers`. Only `enabled` has been observed.
+  - `TrafficShaping.SpeedBurst` (new `TrafficShapingSpeedBurst`: `enabled`), from
+    `GET /networks/{networkId}/appliance/trafficShaping`.
+
+  Offline tests are in `Meraki.Api.Test.Data.MissingMembers20261123Tests`.
+
 - **`BasicRateLimiter` waits the whole window.** `Task.Delay` truncates to whole milliseconds, so a call over the limit
   could go through up to 1ms before the oldest call left the window. The wait is now rounded up. A wait that works out
   as zero or negative no longer reaches `Task.Delay`, which throws on a negative delay.

@@ -131,4 +131,11 @@ public class ThirdPartyVpnPeer : NamedItem
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "ecmpUplinkConfigs")]
 	public List<ThirdPartyVpnPeerEcmpUplinkConfig>? EcmpUplinkConfigs { get; set; }
+
+	/// <summary>
+	/// Security Group Tag settings. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "sgt")]
+	public ThirdPartyVpnPeerSgt? Sgt { get; set; }
 }
