@@ -91,6 +91,54 @@ public class OrganizationDeviceStatus : NamedItem
 	public string? Wan2Ip { get; set; }
 
 	/// <summary>
+	/// wan1Gateway
+	/// </summary>
+	[DataMember(Name = "wan1Gateway")]
+	public string? Wan1Gateway { get; set; }
+
+	/// <summary>
+	/// wan1IpType
+	/// </summary>
+	[DataMember(Name = "wan1IpType")]
+	public string? Wan1IpType { get; set; }
+
+	/// <summary>
+	/// wan1PrimaryDns
+	/// </summary>
+	[DataMember(Name = "wan1PrimaryDns")]
+	public string? Wan1PrimaryDns { get; set; }
+
+	/// <summary>
+	/// wan1SecondaryDns
+	/// </summary>
+	[DataMember(Name = "wan1SecondaryDns")]
+	public string? Wan1SecondaryDns { get; set; }
+
+	/// <summary>
+	/// wan2Gateway
+	/// </summary>
+	[DataMember(Name = "wan2Gateway")]
+	public string? Wan2Gateway { get; set; }
+
+	/// <summary>
+	/// wan2IpType
+	/// </summary>
+	[DataMember(Name = "wan2IpType")]
+	public string? Wan2IpType { get; set; }
+
+	/// <summary>
+	/// wan2PrimaryDns
+	/// </summary>
+	[DataMember(Name = "wan2PrimaryDns")]
+	public string? Wan2PrimaryDns { get; set; }
+
+	/// <summary>
+	/// wan2SecondaryDns
+	/// </summary>
+	[DataMember(Name = "wan2SecondaryDns")]
+	public string? Wan2SecondaryDns { get; set; }
+
+	/// <summary>
 	/// The Device ProductType
 	/// </summary>
 	[DataMember(Name = "productType")]
