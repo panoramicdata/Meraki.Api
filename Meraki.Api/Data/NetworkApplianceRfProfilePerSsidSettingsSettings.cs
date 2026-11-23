@@ -19,4 +19,11 @@ public class NetworkApplianceRfProfilePerSsidSettingsSettings
 	[ApiAccess(ApiAccess.ReadWrite)]
 	[DataMember(Name = "bandSteeringEnabled")]
 	public bool? BandSteeringEnabled { get; set; }
+
+	/// <summary>
+	/// Name of this SSID. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "name")]
+	public string? Name { get; set; }
 }

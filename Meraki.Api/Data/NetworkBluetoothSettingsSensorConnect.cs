@@ -61,4 +61,11 @@ public class NetworkBluetoothSettingsSensorConnect
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "minor")]
 	public int? Minor { get; set; }
+
+	/// <summary>
+	/// Sensor Connect transmit settings. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "transmit")]
+	public NetworkBluetoothSettingsTransmit? Transmit { get; set; }
 }

@@ -26,4 +26,11 @@ public class ApplianceSettings
 	[ApiAccess(ApiAccess.ReadUpdate)]
 	[DataMember(Name = "dynamicDns")]
 	public ApplianceSettingsDynamicDns? DynamicDns { get; set; }
+
+	/// <summary>
+	/// SD-WAN cellular settings. Undocumented property, observed in live API responses only.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "sdwanCellular")]
+	public ApplianceSettingsSdwanCellular? SdwanCellular { get; set; }
 }

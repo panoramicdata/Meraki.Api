@@ -146,4 +146,11 @@ public class InventoryDevice
 	[ApiAccess(ApiAccess.Read)]
 	[DataMember(Name = "address")]
 	public string? Address { get; set; }
+
+	/// <summary>
+	/// Trial identifier. Undocumented property on this endpoint, observed in live API responses only; typed as the nullable string trialId documented on the inventory order endpoints.
+	/// </summary>
+	[ApiAccess(ApiAccess.Read)]
+	[DataMember(Name = "trialId")]
+	public string? TrialId { get; set; }
 }
