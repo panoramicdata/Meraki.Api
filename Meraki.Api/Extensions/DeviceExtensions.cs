@@ -17,6 +17,7 @@ public static class DeviceExtensions
 	{
 		["C9200"] = ModelType.Switch,
 		["C9300"] = ModelType.Switch,
+		["C9350"] = ModelType.Switch,
 		["C9500"] = ModelType.Switch,
 		// Cisco 8000 Series Secure Routers (G2) run MX OS and are managed as security appliances.
 		// Listed by model rather than as a "C8" family, as other Catalyst 8000 routers run IOS XE.
