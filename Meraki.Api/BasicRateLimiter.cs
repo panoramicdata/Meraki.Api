@@ -73,7 +73,13 @@ public class BasicRateLimiter : IRateLimiter, IDisposable
 
 				// Delay until the first timestamp is outside the window
 				// Note: This delay will cause this thread, and any others waiting for the semaphore to be released, to wait until the first timestamp is outside the window
-				await Task.Delay(firstTimestamp + _window - now, cancellationToken);
+				// Task.Delay truncates to whole milliseconds, which would let this call through up to 1ms inside the window, so round up.
+				// An empty queue (see above) leaves firstTimestamp at its default, giving a negative wait, so there is nothing to wait for.
+				var wait = firstTimestamp + _window - now;
+				if (wait > TimeSpan.Zero)
+				{
+					await Task.Delay(TimeSpan.FromMilliseconds(Math.Ceiling(wait.TotalMilliseconds)), cancellationToken).ConfigureAwait(false);
+				}
 
 				// We don't remove anything from the queue here as waiting should result in the first timestamp being outside the window and being cleaned out above.
 			}
