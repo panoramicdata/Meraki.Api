@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- **`GetModelType` recognises Catalyst 9350 switches.** Models such as `C9350-48HXN` returned `ModelType.Unknown`,
+  as the prefix table covered only the C9200, C9300 and C9500 families. `C9350` now maps to `Switch`.
+
 - **`GetOrganizationWirelessAirMarshalRulesAsync` reads `meta.counts.items.remaining`.** `AirMarshalRulesMetaCountsItems`
   had only `Total`, so a client with `JsonMissingMemberHandling.ThrowOnError` failed every call, and other settings
   reported a missing member each time. It now has `Remaining`, as the settings-by-network meta already did.
