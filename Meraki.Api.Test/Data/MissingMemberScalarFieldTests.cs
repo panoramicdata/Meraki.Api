@@ -218,4 +218,40 @@ public class MissingMemberScalarFieldTests
 		_ = application.Protocol.Should().Be(TrafficShapingVpnExclusionsCustomProtocol.Any);
 		_ = application.Source.Should().BeNull();
 	}
+
+	// GET /organizations/{organizationId}/devices/statuses
+	[Fact]
+	public void Deserialize_OrganizationDeviceStatus_MapsPerWanFields()
+	{
+		const string json = """
+			{
+				"name": "MX-01",
+				"serial": "Q2XX-ABCD-1234",
+				"model": "MX67",
+				"productType": "appliance",
+				"usingCellularFailover": false,
+				"wan1Ip": "192.0.2.10",
+				"wan1Gateway": "192.0.2.1",
+				"wan1IpType": "static",
+				"wan1PrimaryDns": "8.8.8.8",
+				"wan1SecondaryDns": "8.8.4.4",
+				"wan2Ip": "198.51.100.10",
+				"wan2Gateway": "198.51.100.1",
+				"wan2IpType": "dhcp",
+				"wan2PrimaryDns": "172.31.128.1",
+				"wan2SecondaryDns": null
+			}
+			""";
+
+		var status = Deserialize<OrganizationDeviceStatus>(json);
+
+		_ = status.Wan1Gateway.Should().Be("192.0.2.1");
+		_ = status.Wan1IpType.Should().Be("static");
+		_ = status.Wan1PrimaryDns.Should().Be("8.8.8.8");
+		_ = status.Wan1SecondaryDns.Should().Be("8.8.4.4");
+		_ = status.Wan2Gateway.Should().Be("198.51.100.1");
+		_ = status.Wan2IpType.Should().Be("dhcp");
+		_ = status.Wan2PrimaryDns.Should().Be("172.31.128.1");
+		_ = status.Wan2SecondaryDns.Should().BeNull();
+	}
 }
