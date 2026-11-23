@@ -72,7 +72,8 @@ public partial class MerakiClient
 	/// <exception cref="ApiException">Thrown when fails to make API call</exception>
 	public static async Task<List<DeviceModelEndOfLifeDetail>> GetEndOfLifeDetailsAsync(CancellationToken cancellationToken = default)
 	{
-		using var httpClient = new HttpClient();
+		// No credentials are sent here; the shared transport avoids setting up a new one per call
+		using var httpClient = new HttpClient(SharedHttpTransport.Lease());
 		var url = new Uri(EndOfLifeUrl);
 		var response = await httpClient.GetAsync(url, cancellationToken).ConfigureAwait(false);
 		var html = await response

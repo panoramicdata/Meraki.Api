@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- **Every `MerakiClient` now sends through one shared network transport.** Each client used to create its own
+  `HttpClientHandler`. On .NET 11 the runtime keeps metric instruments for every transport that has sent a request,
+  even after it is disposed, so an application that creates a client per operation grew in memory and CPU without
+  bound. Clients still own their options, credential, retry loop and statistics; only connections are shared. The
+  shared transport has cookies off and no credentials of its own, and the API key or access token is still added to
+  each request by the client that owns it. Disposing a client does not close the transport.
+  `MerakiClient.GetEndOfLifeDetailsAsync` uses the same transport.
+
+  Offline tests are in `Meraki.Api.Test.Client.SharedHttpTransportTests`.
+
 - **`GetOrganizationWirelessAirMarshalRulesAsync` reads `meta.counts.items.remaining`.** `AirMarshalRulesMetaCountsItems`
   had only `Total`, so a client with `JsonMissingMemberHandling.ThrowOnError` failed every call, and other settings
   reported a missing member each time. It now has `Remaining`, as the settings-by-network meta already did.

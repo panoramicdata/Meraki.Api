@@ -15,7 +15,7 @@ internal sealed partial class AuthenticatedBackingOffHttpClientHandler : Delegat
 		MerakiClientOptions options,
 		MerakiClient merakiClient,
 		ILogger logger)
-		: this(options, merakiClient, logger, new HttpClientHandler())
+		: this(options, merakiClient, logger, SharedHttpTransport.Lease())
 	{
 	}
 
