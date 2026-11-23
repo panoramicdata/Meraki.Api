@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- **`BasicRateLimiter` waits the whole window.** `Task.Delay` truncates to whole milliseconds, so a call over the limit
+  could go through up to 1ms before the oldest call left the window. The wait is now rounded up. A wait that works out
+  as zero or negative no longer reaches `Task.Delay`, which throws on a negative delay.
+
 - **Every `MerakiClient` now sends through one shared network transport.** Each client used to create its own
   `HttpClientHandler`. On .NET 11 the runtime keeps metric instruments for every transport that has sent a request,
   even after it is disposed, so an application that creates a client per operation grew in memory and CPU without
