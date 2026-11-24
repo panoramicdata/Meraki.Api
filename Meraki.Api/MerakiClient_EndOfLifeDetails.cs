@@ -86,7 +86,7 @@ public partial class MerakiClient
 	}
 
 	/// <summary>
-	/// Parses the Meraki End-of-Life products table from the supplied HTML.
+	/// Parses every Meraki End-of-Life products table in the supplied HTML.
 	/// This is separated from the HTTP fetch so it can be unit tested deterministically.
 	/// </summary>
 	/// <param name="html">The HTML of the Meraki EOL page (or a fragment containing the table).</param>
@@ -96,12 +96,10 @@ public partial class MerakiClient
 		var htmlDocument = new HtmlDocument();
 		htmlDocument.LoadHtml(html);
 
-		// Find the first tbody node
-		var tbody = htmlDocument.DocumentNode
+		// One table per product family (switches, access points, MX and so on), all with the same four columns.
+		return [.. htmlDocument.DocumentNode
 			.Descendants("tbody")
-			.FirstOrDefault();
-
-		return [.. (tbody?.Descendants("tr") ?? [])
+			.SelectMany(tbody => tbody.Descendants("tr"))
 			.Select(ParseEndOfLifeRow)
 			.OfType<DeviceModelEndOfLifeDetail>()];
 	}

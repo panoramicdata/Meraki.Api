@@ -69,6 +69,34 @@ public class ParseEndOfLifeDetailsTests
 	private static DateTimeOffset Utc(int year, int month, int day)
 		=> new(year, month, day, 0, 0, 0, TimeSpan.Zero);
 
+	// The live page has one table per product family (21 on 2026-11-23), all with the same four columns.
+	private const string MultiTableHtml = """
+		<h2>Switches (MS)</h2>
+		<table><tbody>
+			<tr><th>Product</th><th>Announcement</th><th>End-of-Sale Date</th><th>End-of-Support Date</th></tr>
+			<tr><td><a href="https://example.test/ms120.pdf">MS120-8FP-HW</a></td><td>Aug 28, 2024</td><td>Feb 20, 2025</td><td>Mar 28, 2030</td></tr>
+		</tbody></table>
+		<h2>Wireless: Access Points (MR)</h2>
+		<table><tbody>
+			<tr><th>Product</th><th>Announcement</th><th>End-of-Sale Date</th><th>End-of-Support Date</th></tr>
+			<tr><td><a href="https://example.test/mr33.pdf">MR33-HW</a></td><td>Jan 27, 2021</td><td>Jul 14, 2022</td><td>Jul 21, 2026</td></tr>
+			<tr><td><a href="https://example.test/mr42.pdf">MR42-HW</a></td><td>Jan 27, 2021</td><td>Jul 14, 2022</td><td>Jul 21, 2026</td></tr>
+		</tbody></table>
+		<h2>Routers: MX</h2>
+		<table><tbody>
+			<tr><th>Product</th><th>Announcement</th><th>End-of-Sale Date</th><th>End-of-Support Date</th></tr>
+			<tr><td><a href="https://example.test/mx64.pdf">MX64-HW</a></td><td>Jan 26, 2022</td><td>Jul 26, 2022</td><td>Jul 26, 2027</td></tr>
+		</tbody></table>
+		""";
+
+	[Fact]
+	public void Parse_EveryProductFamilyTable_IsRead()
+	{
+		var details = MerakiClient.ParseEndOfLifeDetails(MultiTableHtml);
+
+		_ = details.Select(d => d.DeviceModel).Should().Equal("MS120-8FP-HW", "MR33-HW", "MR42-HW", "MX64-HW");
+	}
+
 	[Fact]
 	public void Parse_SkipsHeaderRow_AndReturnsOneRecordPerDataRow()
 	{

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- **`GetEndOfLifeDetailsAsync` now reads every product family's table.** Meraki's end-of-life page has one table per family (switches, access points, MX, Z-Series, MG, cameras and so on; 21 tables on 2026-11-23), and only the first (switches) was read, so 23 of about 174 rows were returned. `ParseEndOfLifeDetails` now reads the rows of every table.
+
 - **Six response members that the API returns but the models lacked are now modelled**, so they are
   captured instead of being reported as missing members (and no longer fail deserialization under
   `JsonMissingMemberHandling.ThrowOnError`). None is documented for these endpoints in the v1.76.0
