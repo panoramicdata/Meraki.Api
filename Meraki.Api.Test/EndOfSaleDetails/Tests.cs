@@ -24,6 +24,12 @@ public class Tests
 		// The page should still contain recognisable device models.
 		_ = details.Should().Contain(d => d.Models.Count > 0);
 
+		// Each product family has its own table, so models from several families must all be present.
+		foreach (var family in new[] { "MS", "MR", "MX", "MV" })
+		{
+			_ = details.Should().Contain(d => d.Models.Any(model => model.StartsWith(family, StringComparison.Ordinal)), $"the {family} table should be read");
+		}
+
 		// Any parsed dates should be expressed at UTC offset zero.
 		_ = details
 			.Where(d => d.EndOfSale is not null)
