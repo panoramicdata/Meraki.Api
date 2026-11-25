@@ -32,7 +32,7 @@ Breaking changes to this library are called out in [CHANGELOG.md](CHANGELOG.md) 
 version continues to follow Meraki.
 
 When updating to a new Meraki API version, see the guidance in
-[.github/copilot-instructions.md](.github/copilot-instructions.md).
+[AGENTS.md](AGENTS.md).
 
 ## Supported frameworks
 

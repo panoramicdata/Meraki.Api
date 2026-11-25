@@ -76,7 +76,7 @@ pwsh -File .\.github\skills\meraki-api-update\Find-MissingModelMembers.ps1 -Spec
 
 ## Implementation Rules
 
-Follow the repository instructions in `.github/copilot-instructions.md` while
+Follow the repository instructions in `AGENTS.md` while
 applying this workflow.
 
 - Keep changes compatible with `.NET Standard 2.0` and `.NET 10`.
