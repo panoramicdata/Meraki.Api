@@ -22,6 +22,6 @@ Behavior:
    `dotnet build Meraki.Api.slnx -c Debug`
 
 Constraints:
-- Follow `.github/copilot-instructions.md`.
+- Follow `AGENTS.md`.
 - Keep compatibility with .NET Standard 2.0 and .NET 10.
 - Do not commit changes automatically.
